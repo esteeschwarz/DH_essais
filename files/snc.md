@@ -8,3 +8,4 @@
 .5: cr nw br fr or/mn, dem com chg
 .6: br cr wks. tr pub br lp.
 .7: slv reb, tr com lp. dem com.
+.6: br cr wks. tr pub br lp.
