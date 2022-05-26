@@ -1,8 +1,11 @@
 @header
 @source: https://api.digitale-sammlungen.de/iiif/presentation/v2/bsb10112352/manifest
 @excerpt: pp. 18-39
-@meta: Christian Gottlob Klemm. Der Besuch. aus: Beyträge zum deutschen Theater. von Trattner. Wien 1767. Q:https://www.digitale-sammlungen.de/view/bsb10112352?page=4,5
+@meta: Christian Gottlob Klemm. Der Besuch. aus: Beyträge zum deutschen Theater. von Trattner. Wien 1767. Q: "https://www.digitale-sammlungen.de/view/bsb10112352?page=4,5"
 @OCR: transkribus OCR (Block-segmentation + HTR + print), manual correction 5%
+@comment: the google following https://de.wikisource.org source (https://de.wikisource.org/wiki/Seite:Klemm_-_Der_Besuch.pdf/1) of the digitalisation task is Q:"
+  Klemm, et al. Der Österreichische Patriot eine Wochenschrift. Gedruckt u. zu finden bey Georg Ludwig Schulz, 1764, http://data.onb.ac.at/imgk/AZ00735194SZ01302129SZ01315868."
+we have to adapt the following OCR to above source to prevent copyright issues and to not make corrections done on base of the google source obsolete. this gives us the unglaubliche opportunity to sources comparison.
 @T: 20220526(14.11)
 @staged:
 12216.
