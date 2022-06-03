@@ -75,16 +75,22 @@ vvv
 - you should now have a new .mp3 audio in your folder 
 - voila. now next anonymisation.
 hhh
+### anonymisation:
+#### 1:
 - open your newly combined audio file like in step 2, [file, open]
 - or stay in the combined audio wave you just exported, just make sure youre editing the correct wave
 - have the transcript open which corresponds to the audio
 vvv
+### anonymisation:
+#### 2:
 - in the transcript search for occurrences of the name of the kid or abbreviations of that
 - you somehow have to find the corresponding timestamps in the audio where the name occurs, i dont know how this will work with turkish, but maybe
 - to navigate in the audio you have to click into the wave window and scroll the wave (on mac 2 fingers swipe)
 - when you found an occurence in the audio, zoom in multiple times til you clearly recognize the ups and downs of the wave and select it with your (mouse)
 - now the part appears with white background
 vvv
+### anonymisation:
+#### 3:
 - go to [erzeugen or create?] and choose [silence]
 - this should flatten the part of the wave saying now its silent/blank, not deleted! (we could also insert a white noise instead of a silence or a beep) but do NOT delete the part.
 - repeat this for every occurence of a clear name in the audio
