@@ -42,8 +42,8 @@ vvv
 - now after you find what is first part and what is second of the files with the better quality:
 - click into the wave of the 2nd part
 - choose: [alles markieren] from the [bearbeiten] menu
-- now the complete waveline shoud appear blue
-- choose [copy] (STRG-C) from the [bearbeiten] menu
+- now the complete waveline shoud appear white in the background
+- choose [copy] (CMD-C) from the [bearbeiten] menu
 - now the complete waveline is in your clipboard
 vvv
 ### step by step:
@@ -54,7 +54,7 @@ vvv
 - the pointer should somehow (einrasten) and show a vertical line at the end of the wave
 - this says that you actual position is now the end of the 1st audio wave
 - click there
-- and paste (STRG-V) (einfügen) the clipboard (your copied 1st audio wave) on that position
+- and paste (CMD-V) (einfügen) the clipboard (your copied 1st audio wave) on that position
 - now the waveline contains both waves, the 1st and the 2nd part waveline after that
 vvv
 ### step by step:
@@ -73,6 +73,21 @@ vvv
 - name the file according to the namescheme and save in your HU-LX folder
 - in the tagset make a comment in the comment row, where you note e.g.: "joined [your name maybe] from tapes [the names of the original 2 audiofiles you combined]"
 - you should now have a new .mp3 audio in your folder 
-- voila.
+- voila. now next anonymisation.
+hhh
+- open your newly combined audio file like in step 2, [file, open]
+- or stay in the combined audio wave you just exported, just make sure youre editing the correct wave
+- have the transcript open which corresponds to the audio
+vvv
+- in the transcript search for occurrences of the name of the kid or abbreviations of that
+- you somehow have to find the corresponding timestamps in the audio where the name occurs, i dont know how this will work with turkish, but maybe
+- to navigate in the audio you have to click into the wave window and scroll the wave (on mac 2 fingers swipe)
+- when you found an occurence in the audio, zoom in multiple times til you clearly recognize the ups and downs of the wave and select it with your (mouse)
+- now the part appears with white background
+vvv
+- go to [erzeugen or create?] and choose [silence]
+- this should flatten the part of the wave saying now its silent/blank, not deleted! (we could also insert a white noise instead of a silence or a beep) but do NOT delete the part.
+- repeat this for every occurence of a clear name in the audio
+- voila. export the audio again with adding _anonymised to the filename
 hhh
 fin
