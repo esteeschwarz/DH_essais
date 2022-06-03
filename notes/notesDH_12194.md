@@ -19,3 +19,5 @@ replace
 .03.2 embrace in <stage>
 .04 get paragraph, clear: find all text between .03 and <div type="scene">
 .04.1 embrace in <p>
+12227.
+.01 (div>.*?\.) wks. 
