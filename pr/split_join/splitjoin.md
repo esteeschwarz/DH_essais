@@ -1,17 +1,16 @@
 ##### 12227.archiving multilingual corpora
 ###### 20220603 / stephan schwarz
 #### join multiple audio files in audacity
-###### [info on ANNIS](https://www.linguistik.hu-berlin.de/de/institut/professuren/korpuslinguistik/corpus-tools)
 hhh
 ### general:
 - many of the EKMAUS audio files are physically present on different tape sources (now .mp3) which mostly differ also in quality
 - task is to find the appropriate .mp3s and combine them (join the audio) into one audio file
-- box.HU folder with audio files:
+- box.HU folder with audio files: [link](https://box.hu-berlin.de/smart-link/2bb3b244-c477-4112-b8f4-93a9f82d6437/)
 hhh
 ### tech:
 - i recommend AUDACITY, a simple yet powerful audiobearbeitungssoftware
-- download audacity here: 
-- for step by step you can follow the (following) instructions or watch this short video i improvised:
+- download audacity here: [link](https://www.audacityteam.org/download/)
+- for step by step you can follow the (following) instructions or watch this short video i improvised: [link](https://box.hu-berlin.de/smart-link/e597e506-9671-471d-a839-4680151490f6/)
 hhh
 ### step by step:
 #### 1:
