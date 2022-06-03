@@ -62,12 +62,12 @@ vvv
 - now you have one wave containing the complete interview
 - manoeuvre to the position where the 2nd part begins and check if there is any longer gap between the parts
 - if necessary, delete the gap
-	- you can zoom into the view by: STRG-3 and zoom out by STRG-1 (or vcvs)
+	- you can zoom into the view by: CMD-1 and zoom out by CMD-3 (or vcvs)
 vvv
 ### step by step:
 #### 8:
 - export the audio to new file:
-- choose [file/export audio]
+- choose [file/export audio]. make sure you are in the track with the combined audiowave and select the complete wave with [select all]
 - select format mp3
 - select 128Kb/s, constant bitrate
 - name the file according to the namescheme and save in your HU-LX folder
