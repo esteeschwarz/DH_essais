@@ -97,7 +97,7 @@ vvv
 - voila. export the audio again with adding _anonymised to the filename
 hhh
 ### meta
-sessionmitschrift:
+notes during presentation:
 <p>
 <iframe src="notes.txt" width="700px" height="400px" style="border:1px solid black;"></iframe>
 </p>
