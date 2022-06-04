@@ -96,4 +96,7 @@ vvv
 - repeat this for every occurence of a clear name in the audio
 - voila. export the audio again with adding _anonymised to the filename
 hhh
+session notes:
+<iframe src="https://raw.githubusercontent.com/esteeschwarz/DH_essais/pr/readme.md" width="700px" height="400px" style="border:1px solid black;"></iframe>
+hhh
 fin
