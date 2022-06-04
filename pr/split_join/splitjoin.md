@@ -97,6 +97,7 @@ vvv
 - voila. export the audio again with adding _anonymised to the filename
 hhh
 session notes:
-<iframe src="https://raw.githubusercontent.com/esteeschwarz/DH_essais/pr/readme.md" width="700px" height="400px" style="border:1px solid black;"></iframe>
+<p>
+<iframe src="https://raw.githubusercontent.com/esteeschwarz/DH_essais/pr/split_join/notes.md" width="700px" height="400px" style="border:1px solid black;"></iframe></p>
 hhh
 fin
