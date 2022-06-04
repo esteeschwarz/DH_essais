@@ -98,7 +98,7 @@ vvv
 hhh
 session notes:
 <p>
-<iframe src="notes.md" width="700px" height="400px" style="border:1px solid black;"></iframe>
+<iframe src="notes.txt" width="700px" height="400px" style="border:1px solid black;"></iframe>
 </p>
 hhh
 fin
