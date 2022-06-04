@@ -20,4 +20,13 @@ replace
 .04 get paragraph, clear: find all text between .03 and <div type="scene">
 .04.1 embrace in <p>
 12227.
-.01 (div>.*?\.) wks. 
+.01 (</div>.*?\.) wks.
+.02 replace <stage>\1</stage>
+.03 (<div type="scene">)(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter)( Auftritt.)
+.04 <div type="scene"><head>\2\3</head>
+.05 (</stage>)(Celimene.|Erast.|Chlorinde.|Damis.|Cydalise.|Finette.)
+.06 \1<sp><speaker>\2</speaker>
+.07a \1<p>\2</p></sp><sp><speaker>\3</speaker>
+.07b (</speaker>)(.*?)(Celimene\.|Erast\.|Chlorinde\.|Damis\.|Cydalise\.|Finette\.)(.*!?(</speaker>))
+.07c (</speaker>)(?!<p>)(.*?)(Celimene\.|Erast\.|Chlorinde\.|Damis\.|Cydalise\.|Finette\.)
+.08 \1<p>\2</p></sp><sp><speaker>\3</speaker>
