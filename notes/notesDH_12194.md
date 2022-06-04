@@ -30,3 +30,5 @@ replace
 .07b (</speaker>)(.*?)(Celimene\.|Erast\.|Chlorinde\.|Damis\.|Cydalise\.|Finette\.)(.*!?(</speaker>))
 .07c (</speaker>)(?!<p>)(.*?)(Celimene\.|Erast\.|Chlorinde\.|Damis\.|Cydalise\.|Finette\.)
 .08 \1<p>\2</p></sp><sp><speaker>\3</speaker>
+
+Zum Beispiel bedeutet das Suchmuster <.+> (das kein Fragezeichen enthält): "Suche nach einem <, gefolgt von 1 oder mehr Zeichen, gefolgt von einem >". Um zu verhindern, dass das Suchmuster die komplette Zeichenkette <em>text</em> findet, fügen Sie nach dem Pluszeichen ein Fragezeichen an: <.+?>. Dies führt dazu, dass die Übereinstimmung bereits beim ersten '>' endet und dementsprechend nur der erste HTML-Tag <em> gefunden wird.
