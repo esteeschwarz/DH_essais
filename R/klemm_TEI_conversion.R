@@ -44,19 +44,21 @@ txt
 stri_extract_all_regex(txt,"> ")
 txtm<-stri_replace_all_regex(txtm,"> ",">")
 txtm[19]
-########
+######################
 #####################
 #neu from clean text.
-regx1<-"(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter) (Auftritt. )"
-stri_extract_all_regex(txtm,regx3)
+txt<-readLines(src)
 #wks.
 #txtm<-stri_replace_all_regex(txt,regx1,repl1)
 repl1<-'<div type="scene"><head>\\1 \\2</head><stage>'
+#######################
+teiwork<-function(src){
+txt<-src
+regx1<-"(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter) (Auftritt. )"
+#stri_extract_all_regex(txtm,regx3)
 txtm<-gsub(regx1,repl1,txt,perl = T)
-txtm
+#txtm
 #wks.
-library(clipr)
-write_clip(txtm)
 regx2<-"</pb.{1,2}>"
 txtm<-gsub(regx2," ",txtm,perl = T)
 ###
@@ -64,30 +66,44 @@ speaker.pt<-"(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)
 regx3<-"(<stage>.*?\\.)"
 repl3<-"\\1</stage>"
 txtm<-gsub(regx3,repl3,txtm,perl = T)
-txtm
+#txtm
 regx4<-"> "
 regx5<-" <"
 repl4<-">"
 repl5<-"<"
-txtm
+txtm<-gsub(regx4,repl4,txtm,perl = T)
+txtm<-gsub(regx5,repl5,txtm,perl = T)
+#txtm
 regx6<-paste0("(</stage>)",speaker.pt)
-
-stri_extract_all_regex(txtm,regx7)
-
 repl6<-"\\1<sp><speaker>\\2</speaker>"
 txtm<-gsub(regx6,repl6,txtm,perl = T)
 txtm<-gsub(regx4,repl4,txtm,perl = T)
 txtm<-gsub(regx5,repl5,txtm,perl = T)
 txtm<-gsub("Der Besuch. ","",txtm,perl = T)
-txtm
-regx7<-paste0("(</speaker>.*)?",speaker.pt)
-regx7<-"(</speaker>).*?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
-###wkshalf: regx7<-"(</speaker>).*?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
-regx7<-"(</speaker>)(.*?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
-regx7<-"(</speaker>)(.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
-regx7<-"(</speaker>)((.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
-regx7<-"(</speaker>)((.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.).+?(Erast\\.).+?(Chlorinde\\.).+?(Damis\\.).+?(Cydalise\\.).+?(Finette\\.))"
+return(txtm)
+}
+txtm<-teiwork(txt)
+#wks.
+stri_extract_all_regex(txtm,regx7)
 
-repl7<-"\\1<l>\\2</l><sp><speaker>\\3</speaker>"
+#regx7<-paste0("(</speaker>.*)?",speaker.pt)
+#regx7<-"(</speaker>).*?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
+###wkshalf: regx7<-"(</speaker>).*?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
+#regx7<-"(</speaker>)(.*?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
+#regx7<-"(</speaker>)(.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
+#regx7<-"(</speaker>)((.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
+#### this crashes: regx7<-"(</speaker>)((.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.).+?(Erast\\.).+?(Chlorinde\\.).+?(Damis\\.).+?(Cydalise\\.).+?(Finette\\.))"
+regx7<-"(</speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
+###regexr: regx7<-"(<\/speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
+####################### \1 ####\2#\3###\4###
+repl7<-"\\1<l>\\3</l></sp><sp><speaker>\\4</speaker><l>"
 txtm<-gsub(regx7,repl7,txtm,perl = T)
+txtm<-gsub(regx4,repl4,txtm,perl = T)
+txtm<-gsub(regx5,repl5,txtm,perl = T)
+regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
+stri_extract_all_regex(txtm,regx8)
+#no.
+
 txtm
+library(clipr)
+write_clip(txtm)
