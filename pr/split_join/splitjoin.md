@@ -98,6 +98,7 @@ vvv
 hhh
 session notes:
 <p>
-<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-03/notes.md" width="700px" height="400px" style="border:1px solid black;"></iframe></p>
+<iframe src="notes.md" width="700px" height="400px" style="border:1px solid black;"></iframe>
+</p>
 hhh
 fin
