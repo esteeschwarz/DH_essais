@@ -2,7 +2,7 @@
 ###### 20220603 / stephan schwarz
 #### join multiple audio files in audacity
 <link rel="stylesheet" type="text/css" href="https://ada-sub.rotefadenbuecher.de/skool/public/assets/style_md.css">
-<h6><a onclick="printcat()" style="cursor:pointer;">(output keynotes on single page html)</a></h6>
+<h6><a onclick="printcat(20220603)" style="cursor:pointer;">(output keynotes on single page html)</a></h6>
 
 hhh
 ### general:
