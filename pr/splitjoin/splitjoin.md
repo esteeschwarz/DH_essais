@@ -10,17 +10,20 @@ hhh
 - task is to find the appropriate .mp3s and combine them (join the audio) into one audio file
 - box.HU folder with audio files: [link](https://box.hu-berlin.de/smart-link/2bb3b244-c477-4112-b8f4-93a9f82d6437/)
 hhh
+
 ### tech:
 - i recommend AUDACITY, a simple yet powerful audiobearbeitungssoftware
 - download audacity here: [link](https://www.audacityteam.org/download/)
 - for step by step you can follow the (following) instructions or watch this short video i improvised: [link](https://box.hu-berlin.de/smart-link/e597e506-9671-471d-a839-4680151490f6/)
 hhh
+
 ### step by step:
 #### 1:
 - download the audiofiles you want to work on in above box.HU folder
 - maybe create a HU-multiLX folder on your system where you store them
 - open audacity
 vvv
+
 ### step by step:
 #### 2:
 - choose [open] from the [file] menu (datei/öffnen)
@@ -28,18 +31,21 @@ vvv
 - the programm should now show an import progress bar and after that
 	- have created waveline views of the files
 vvv
+
 ### step by step:
 #### 3:
 - listen to the audios you imported and compare different versions with resp. to audioquality
 - you will mostly find 2 versions of the same interview cut in 2 tapes, making 4 files named like that:
 - listen to the end and the beginning of the audio and try to match what you hear with the transcript
 vvv
+
 ### step by step:
 #### 4:
 - the first part of the interview should contain the interviewer asking for the childs name, this passage you find in the beginning of the transcript
 	- then naturally the other part (file) should be the second part and (step follows) be joined at the end of the first part
 		- if youre able to understand turkish, try to find the passage you hear at the beginning of this (2nd) part in the transcript and check if its (the 2nd audio) the continuation of the 1st part
 vvv
+
 ### step by step:
 #### 5:
 - now after you find what is first part and what is second of the files with the better quality:
@@ -49,6 +55,7 @@ vvv
 - choose [copy] (CMD-C) from the [bearbeiten] menu
 - now the complete waveline is in your clipboard
 vvv
+
 ### step by step:
 #### 6:
 - now activate the 1st part of the audio window
@@ -60,6 +67,7 @@ vvv
 - and paste (CMD-V) (einfügen) the clipboard (your copied 1st audio wave) on that position
 - now the waveline contains both waves, the 1st and the 2nd part waveline after that
 vvv
+
 ### step by step:
 #### 7:
 - now you have one wave containing the complete interview
@@ -67,6 +75,7 @@ vvv
 - if necessary, delete the gap
 	- you can zoom into the view by: CMD-1 and zoom out by CMD-3 (or vcvs)
 vvv
+
 ### step by step:
 #### 8:
 - export the audio to new file:
@@ -78,12 +87,14 @@ vvv
 - you should now have a new .mp3 audio in your folder 
 - voila. now next anonymisation.
 hhh
+
 ### anonymisation:
 #### 1:
 - open your newly combined audio file like in step 2, [file, open]
 - or stay in the combined audio wave you just exported, just make sure youre editing the correct wave
 - have the transcript open which corresponds to the audio
 vvv
+
 ### anonymisation:
 #### 2:
 - in the transcript search for occurrences of the name of the kid or abbreviations of that
@@ -92,6 +103,7 @@ vvv
 - when you found an occurence in the audio, zoom in multiple times til you clearly recognize the ups and downs of the wave and select it with your (mouse)
 - now the part appears with white background
 vvv
+
 ### anonymisation:
 #### 3:
 - go to [erzeugen or create?] and choose [silence]
@@ -99,8 +111,10 @@ vvv
 - repeat this for every occurence of a clear name in the audio
 - voila. export the audio again with adding _anonymised to the filename
 hhh
+
 ###### fin
 hhh
+
 ###### postscript:
 <p>
 <iframe src="notes.md" width="700px" height="400px"></iframe>
