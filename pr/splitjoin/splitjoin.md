@@ -1,4 +1,4 @@
-##### 12227.archiving multilingual corpora
+##### 12227.2.archiving multilingual corpora
 ###### 20220603 / stephan schwarz
 #### join multiple audio files in audacity
 <link rel="stylesheet" type="text/css" href="https://ada-sub.rotefadenbuecher.de/skool/public/assets/style_md.css">
