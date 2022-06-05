@@ -1,6 +1,9 @@
 ##### 12227.archiving multilingual corpora
 ###### 20220603 / stephan schwarz
 #### join multiple audio files in audacity
+<link rel="stylesheet" type="text/css" href="https://ada-sub.rotefadenbuecher.de/skool/public/pr/assets/style_md.css">
+<h6><a onclick="printcat()" style="cursor:pointer;">(output keynotes on single page html)</a></h6>
+
 hhh
 ### general:
 - many of the EKMAUS audio files are physically present on different tape sources (now .mp3) which mostly differ also in quality
@@ -98,7 +101,7 @@ vvv
 hhh
 fin
 hhh
-### post:
+### postscript:
 <p>
 <iframe src="notes.md" width="700px" height="400px" style="border:1px solid black;"></iframe>
 </p>
