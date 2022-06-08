@@ -105,11 +105,21 @@ repl7<-"\\1<l>\\3</l></sp><sp><speaker>\\4</speaker><l>"
 txtm<-gsub(regx7,repl7,txtm,perl = T)
 txtm<-gsub(regx4,repl4,txtm,perl = T)
 txtm<-gsub(regx5,repl5,txtm,perl = T)
-regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
+#regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 
-stri_extract_all_regex(txtm,regx8)
-m<-gregexec(regx8,txtm,perl = T)
-regmatches(txtm,m)
+removegaps<-function(set){
+txtm<-set
+    regx4<-"> "
+  regx5<-" <"
+  repl4<-">"
+  repl5<-"<"
+  txtm<-gsub(regx4,repl4,txtm,perl = T)
+  txtm<-gsub(regx5,repl5,txtm,perl = T)
+  
+}
+#stri_extract_all_regex(txtm,regx8)
+m<-gregexec(regx8,txtm8,perl = T)
+regmatches(txtm8,m)
 #no.
 #12235.
 #hint: escape [<,>] for lookarounds
@@ -117,15 +127,26 @@ regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finet
 #immer noch nicht... basteln.
 #.1 in R no escape of <> possible.
 #.2 groups: from 1 uo into folded
+se<-"\\. "
 speaker.post<-"(Celimene\\. |Erast\\. |Chlorinde\\. |Damis\\. |Cydalise\\. |Finette\\. )"
-regx8<-paste0("(<l>)((.*?)","(?!>)",speaker.post,")")
+regx8<-paste0("((<l>)((.*?)",speaker.post,"))")
 
-m<-gregexec(regx8,txtm,perl = T)
-regmatches(txtm,m)
-repl8<-"\\1\\4</l></sp><sp><speaker>\\5</speaker><l>"
-txtm8<-gsub(regx8,repl8,txtm,perl = T)
+m<-gregexec(regx8,txtm9,perl = T)
+regmatches(txtm9,m)
+m
+txtm9<-removegaps(txtm8)
+repl8<-"<l>\\4</l></sp><sp><speaker>\\5</speaker><l>"
+# for some reason in regmatches the groups are one index higher than needed for replace by groups.
+# half wks
+txtm9<-gsub(regx8,repl8,txtm9,perl = T)
+regx7a<-", Erast."
+repl7a<-", Erast-."
+regx8a<-"\\.([A-Za-z])"
+repl8a<-". \\1"
+txtm<-gsub(regx7a,repl7a,txtm,perl = T)
+txtm9<-gsub(regx8a,repl8a,txtm9,perl = T)
 
-
+txtm
 txtm8
 library(clipr)
 write_clip(txtm)
