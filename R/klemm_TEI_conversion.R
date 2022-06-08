@@ -108,9 +108,24 @@ txtm<-gsub(regx5,repl5,txtm,perl = T)
 regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 
 stri_extract_all_regex(txtm,regx8)
+m<-gregexec(regx8,txtm,perl = T)
+regmatches(txtm,m)
 #no.
 #12235.
+#hint: escape [<,>] for lookarounds
+regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))(?!<)"
+#immer noch nicht... basteln.
+#.1 in R no escape of <> possible.
+#.2 groups: from 1 uo into folded
+speaker.post<-"(Celimene\\. |Erast\\. |Chlorinde\\. |Damis\\. |Cydalise\\. |Finette\\. )"
+regx8<-paste0("(<l>)((.*?)","(?!>)",speaker.post,")")
 
-txtm
+m<-gregexec(regx8,txtm,perl = T)
+regmatches(txtm,m)
+repl8<-"\\1\\4</l></sp><sp><speaker>\\5</speaker><l>"
+txtm8<-gsub(regx8,repl8,txtm,perl = T)
+
+
+txtm8
 library(clipr)
 write_clip(txtm)
