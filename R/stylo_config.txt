@@ -1,5 +1,5 @@
 corpus.format = "plain"
-corpus.lang = "English.all"
+corpus.lang = "German"
 analyzed.features = "w"
 ngram.size = 1
 preserve.case = FALSE
