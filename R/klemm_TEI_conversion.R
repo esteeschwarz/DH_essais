@@ -47,22 +47,47 @@ library(stringi)
 ######################
 #####################
 #neu from clean text.
-txt<-readLines(src)
-regextable<-function(){
-regxsafe.ns<-c("stage","r_regx","r_repl","oxygen_regx","oxygen_repl","vsc_regx","vsc_repl","text")
-regxsafe<-matrix(nrow=30,ncol=8)
-colnames(regxsafe)<-regxsafe.ns
-regxsafe[1:10,1]<-1:10
-return(regxsafe)
-}
+# txt<-readLines(src)
+# regextable<-function(){
+# regxsafe.ns<-c("stage","r_regx","r_repl","oxygen_regx","oxygen_repl","vsc_regx","vsc_repl","text")
+# regxsafe<-matrix(nrow=30,ncol=8)
+# colnames(regxsafe)<-regxsafe.ns
+# regxsafe[1:10,1]<-1:10
+# return(regxsafe)
+# }
 #txtm<-stri_replace_all_regex(txt,regx1,repl1)
 #######################
-regxsafe<-regextable()
+#regxsafe<-regextable()
 
 teiwork<-function(src){
 
 txt<-src
-regexsafe<-regextable()
+# ground:
+library(purrr)
+ground<-function(set){
+  regx1<-"Der Besuch. "
+  repl1<-""
+  regx2<-", Erast."
+  repl2<-", Erast-."
+  regx3<-"\\.([A-Za-z])"
+  repl3<-". \\1"
+  regx4<-", Cydalise."
+  repl4<-", Cydalise-."
+  txtm9<-gsub(regx8a,repl8a,txt,perl = T)
+  regx.ground<-rbind(regx1,regx2,regx3,regx4)
+  repl.ground<-rbind(repl1,repl2,repl3,repl4)
+  formground<-cbind(regx.ground,repl.ground)
+  cground<-cbind(formground,txt)
+  cground[1,3]<-gsub(cground[1,1],cground[1,2],txt,perl = T)
+  cground[2,3]<-gsub(cground[2,1],cground[2,2],cground[1,3],perl = T)
+  cground[3,3]<-gsub(cground[3,1],cground[3,2],cground[2,3],perl = T)
+  cground[4,3]<-gsub(cground[4,1],cground[4,2],cground[3,3],perl = T)
+  txt<-cground[4,3]
+}
+txt<-ground(txt)
+#txt
+
+#regexsafe<-regextable()
 repl1<-'<div type="scene"><head>\\1 \\2</head><stage>'
 regx1<-"(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter) (Auftritt. )"
 #stri_extract_all_regex(txtm,regx3)
@@ -90,41 +115,43 @@ repl6<-"\\1<sp><speaker>\\2</speaker>"
 txtm6<-gsub(regx6,repl6,txtm5,perl = T)
 txtm7<-gsub(regx4,repl4,txtm6,perl = T)
 txtm8<-gsub(regx5,repl5,txtm7,perl = T)
-regx8a<-"Der Besuch. "
-repl8a<-""
-txtm9<-gsub(regx8a,repl8a,txtm8,perl = T)
-regxsafe[1,2]<-regx1
-regxsafe[2,2]<-regx2
-regxsafe[3,2]<-regx3
-regxsafe[4,2]<-regx4
-regxsafe[5,2]<-regx5
-regxsafe[6,2]<-regx6
-regxsafe[7,2]<-regx4
-regxsafe[8,2]<-regx5
-regxsafe[9,2]<-regx8a
 
-regxsafe[1,"r_repl"]<-repl1
-regxsafe[2,"r_repl"]<-repl2
-regxsafe[3,"r_repl"]<-repl3
-regxsafe[4,"r_repl"]<-repl4
-regxsafe[5,"r_repl"]<-repl5
-regxsafe[6,"r_repl"]<-repl6
-regxsafe[7,"r_repl"]<-repl4
-regxsafe[8,"r_repl"]<-repl5
-regxsafe[9,"r_repl"]<-repl8a
-
-regxsafe[1,"text"]<-txtm1
-regxsafe[2,"text"]<-txtm2
-regxsafe[3,"text"]<-txtm3
-regxsafe[4,"text"]<-txtm4
-regxsafe[5,"text"]<-txtm5
-regxsafe[6,"text"]<-txtm6
-regxsafe[7,"text"]<-txtm7
-regxsafe[8,"text"]<-txtm8
-regxsafe[9,"text"]<-txtm9
-#regxsafe[10,"text"]<-txtm9
-
-return(regxsafe)
+# 
+# 
+# map(cground,gsub,x=cground[,3],pattern=cground[,1],replacement=cground[,2])
+# #no.
+# regxsafe[1,2]<-regx1
+# regxsafe[2,2]<-regx2
+# regxsafe[3,2]<-regx3
+# regxsafe[4,2]<-regx4
+# regxsafe[5,2]<-regx5
+# regxsafe[6,2]<-regx6
+# regxsafe[7,2]<-regx4
+# regxsafe[8,2]<-regx5
+# regxsafe[9,2]<-regx8a
+# 
+# regxsafe[1,"r_repl"]<-repl1
+# regxsafe[2,"r_repl"]<-repl2
+# regxsafe[3,"r_repl"]<-repl3
+# regxsafe[4,"r_repl"]<-repl4
+# regxsafe[5,"r_repl"]<-repl5
+# regxsafe[6,"r_repl"]<-repl6
+# regxsafe[7,"r_repl"]<-repl4
+# regxsafe[8,"r_repl"]<-repl5
+# regxsafe[9,"r_repl"]<-repl8a
+# 
+# regxsafe[1,"text"]<-txtm1
+# regxsafe[2,"text"]<-txtm2
+# regxsafe[3,"text"]<-txtm3
+# regxsafe[4,"text"]<-txtm4
+# regxsafe[5,"text"]<-txtm5
+# regxsafe[6,"text"]<-txtm6
+# regxsafe[7,"text"]<-txtm7
+# regxsafe[8,"text"]<-txtm8
+# regxsafe[9,"text"]<-txtm9
+# #regxsafe[10,"text"]<-txtm9
+# 
+# return(regxsafe)
 }
 txtm<-teiwork(txt)
 #wks.
@@ -142,25 +169,28 @@ repl5<-"<"
 #### this crashes: regx7<-"(</speaker>)((.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.).+?(Erast\\.).+?(Chlorinde\\.).+?(Damis\\.).+?(Cydalise\\.).+?(Finette\\.))"
 regx10<-"(</speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 ###regexr: regx7<-"(<\/speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
-stri_extract_all_regex(txtm[9,"text"],regx10)
+#stri_extract_all_regex(txtm[9,"text"],regx10)
 
 ####################### \1 ####\2#\3###\4###
+regx10<-"(</speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 repl10<-"\\1<l>\\3</l></sp><sp><speaker>\\4</speaker><l>"
 txtm10<-gsub(regx10,repl10,txtm[9,"text"],perl = T)
-regxsafe<-txtm
-regxsafe[10,2]<-regx10
-regxsafe[10,"r_repl"]<-repl10
-regxsafe[10,"text"]<-txtm10
+txtm10<-gsub(regx10,repl10,txtm,perl = T)
+
+# regxsafe<-txtm
+# regxsafe[10,2]<-regx10
+# regxsafe[10,"r_repl"]<-repl10
+# regxsafe[10,"text"]<-txtm10
 
 txtm11<-gsub(regx4,repl4,txtm10,perl = T)
 txtm12<-gsub(regx5,repl5,txtm11,perl = T)
-regxsafe[11,2]<-regx4
-regxsafe[11,"r_repl"]<-repl4
-regxsafe[11,"text"]<-txtm11
-regxsafe[12,2]<-regx5
-regxsafe[12,"r_repl"]<-repl5
-regxsafe[12,"text"]<-txtm12
-txtm<-regxsafe
+# regxsafe[11,2]<-regx4
+# regxsafe[11,"r_repl"]<-repl4
+# regxsafe[11,"text"]<-txtm11
+# regxsafe[12,2]<-regx5
+# regxsafe[12,"r_repl"]<-repl5
+# regxsafe[12,"text"]<-txtm12
+# txtm<-regxsafe
 
 #regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 
@@ -235,21 +265,21 @@ txtm17<-sub(repl15a,"<div",txtm17)
 txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
 
 txtm18<-removegaps(txtm18)
-regx7a<-", Erast."
-repl7a<-", Erast-."
-regx8a<-"\\.([A-Za-z])"
-repl8a<-". \\1"
-regx8b<-", Cydalise."
-repl8b<-", Cydalise-."
-regx8c<-"O setzen sie sich, Erast."
-repl8c<-"O setzen sie sich, Erast-."
-txtm12<-gsub(regx8b,repl8b,txtm12,perl = T)
-txtm9<-gsub(regx8a,repl8a,txtm9,perl = T)
-txtm12
-txtm
-txtm8
-txtm17
-txtm[12,8]
+# regx7a<-", Erast."
+# repl7a<-", Erast-."
+# regx8a<-"\\.([A-Za-z])"
+# repl8a<-". \\1"
+# regx8b<-", Cydalise."
+# repl8b<-", Cydalise-."
+# regx8c<-"O setzen sie sich, Erast."
+# repl8c<-"O setzen sie sich, Erast-."
+# txtm12<-gsub(regx8b,repl8b,txtm12,perl = T)
+# txtm9<-gsub(regx8a,repl8a,txtm9,perl = T)
+# txtm12
+# txtm
+# txtm8
+txtm18
+# txtm[12,8]
 library(clipr)
 write_clip(txtm18)
 library(xml2)
