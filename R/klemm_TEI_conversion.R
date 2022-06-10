@@ -48,39 +48,83 @@ library(stringi)
 #####################
 #neu from clean text.
 txt<-readLines(src)
-#wks.
+regextable<-function(){
+regxsafe.ns<-c("stage","r_regx","r_repl","oxygen_regx","oxygen_repl","vsc_regx","vsc_repl","text")
+regxsafe<-matrix(nrow=30,ncol=8)
+colnames(regxsafe)<-regxsafe.ns
+regxsafe[1:10,1]<-1:10
+return(regxsafe)
+}
 #txtm<-stri_replace_all_regex(txt,regx1,repl1)
 #######################
+regxsafe<-regextable()
+
 teiwork<-function(src){
+
 txt<-src
+regexsafe<-regextable()
 repl1<-'<div type="scene"><head>\\1 \\2</head><stage>'
 regx1<-"(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter) (Auftritt. )"
 #stri_extract_all_regex(txtm,regx3)
-txtm<-gsub(regx1,repl1,txt,perl = T)
+txtm1<-gsub(regx1,repl1,txt,perl = T)
 #txtm
 #wks.
 regx2<-"</pb.{1,2}>"
-txtm<-gsub(regx2," ",txtm,perl = T)
+repl2<-" "
+txtm2<-gsub(regx2,repl2,txtm1,perl = T)
 ###
 speaker.pt<-"(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
 regx3<-"(<stage>.*?\\.)"
 repl3<-"\\1</stage>"
-txtm<-gsub(regx3,repl3,txtm,perl = T)
+txtm3<-gsub(regx3,repl3,txtm2,perl = T)
 #txtm
 regx4<-"> "
 regx5<-" <"
 repl4<-">"
 repl5<-"<"
-txtm<-gsub(regx4,repl4,txtm,perl = T)
-txtm<-gsub(regx5,repl5,txtm,perl = T)
+txtm4<-gsub(regx4,repl4,txtm3,perl = T)
+txtm5<-gsub(regx5,repl5,txtm4,perl = T)
 #txtm
 regx6<-paste0("(</stage>)",speaker.pt)
 repl6<-"\\1<sp><speaker>\\2</speaker>"
-txtm<-gsub(regx6,repl6,txtm,perl = T)
-txtm<-gsub(regx4,repl4,txtm,perl = T)
-txtm<-gsub(regx5,repl5,txtm,perl = T)
-txtm<-gsub("Der Besuch. ","",txtm,perl = T)
-return(txtm)
+txtm6<-gsub(regx6,repl6,txtm5,perl = T)
+txtm7<-gsub(regx4,repl4,txtm6,perl = T)
+txtm8<-gsub(regx5,repl5,txtm7,perl = T)
+regx8a<-"Der Besuch. "
+repl8a<-""
+txtm9<-gsub(regx8a,repl8a,txtm8,perl = T)
+regxsafe[1,2]<-regx1
+regxsafe[2,2]<-regx2
+regxsafe[3,2]<-regx3
+regxsafe[4,2]<-regx4
+regxsafe[5,2]<-regx5
+regxsafe[6,2]<-regx6
+regxsafe[7,2]<-regx4
+regxsafe[8,2]<-regx5
+regxsafe[9,2]<-regx8a
+
+regxsafe[1,"r_repl"]<-repl1
+regxsafe[2,"r_repl"]<-repl2
+regxsafe[3,"r_repl"]<-repl3
+regxsafe[4,"r_repl"]<-repl4
+regxsafe[5,"r_repl"]<-repl5
+regxsafe[6,"r_repl"]<-repl6
+regxsafe[7,"r_repl"]<-repl4
+regxsafe[8,"r_repl"]<-repl5
+regxsafe[9,"r_repl"]<-repl8a
+
+regxsafe[1,"text"]<-txtm1
+regxsafe[2,"text"]<-txtm2
+regxsafe[3,"text"]<-txtm3
+regxsafe[4,"text"]<-txtm4
+regxsafe[5,"text"]<-txtm5
+regxsafe[6,"text"]<-txtm6
+regxsafe[7,"text"]<-txtm7
+regxsafe[8,"text"]<-txtm8
+regxsafe[9,"text"]<-txtm9
+#regxsafe[10,"text"]<-txtm9
+
+return(regxsafe)
 }
 txtm<-teiwork(txt)
 #wks.
@@ -96,15 +140,28 @@ repl5<-"<"
 #regx7<-"(</speaker>)(.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 #regx7<-"(</speaker>)((.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 #### this crashes: regx7<-"(</speaker>)((.+?(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)).+?(Celimene\\.).+?(Erast\\.).+?(Chlorinde\\.).+?(Damis\\.).+?(Cydalise\\.).+?(Finette\\.))"
-regx7<-"(</speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
+regx10<-"(</speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 ###regexr: regx7<-"(<\/speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
-stri_extract_all_regex(txtm,regx7)
+stri_extract_all_regex(txtm[9,"text"],regx10)
 
 ####################### \1 ####\2#\3###\4###
-repl7<-"\\1<l>\\3</l></sp><sp><speaker>\\4</speaker><l>"
-txtm<-gsub(regx7,repl7,txtm,perl = T)
-txtm<-gsub(regx4,repl4,txtm,perl = T)
-txtm<-gsub(regx5,repl5,txtm,perl = T)
+repl10<-"\\1<l>\\3</l></sp><sp><speaker>\\4</speaker><l>"
+txtm10<-gsub(regx10,repl10,txtm[9,"text"],perl = T)
+regxsafe<-txtm
+regxsafe[10,2]<-regx10
+regxsafe[10,"r_repl"]<-repl10
+regxsafe[10,"text"]<-txtm10
+
+txtm11<-gsub(regx4,repl4,txtm10,perl = T)
+txtm12<-gsub(regx5,repl5,txtm11,perl = T)
+regxsafe[11,2]<-regx4
+regxsafe[11,"r_repl"]<-repl4
+regxsafe[11,"text"]<-txtm11
+regxsafe[12,2]<-regx5
+regxsafe[12,"r_repl"]<-repl5
+regxsafe[12,"text"]<-txtm12
+txtm<-regxsafe
+
 #regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 
 removegaps<-function(set){
@@ -118,35 +175,82 @@ txtm<-set
   
 }
 #stri_extract_all_regex(txtm,regx8)
-m<-gregexec(regx8,txtm8,perl = T)
-regmatches(txtm8,m)
 #no.
 #12235.
 #hint: escape [<,>] for lookarounds
-regx8<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))(?!<)"
+regx11<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))(?!<)"
+repl11<-"<l>\\4</l></sp><sp><speaker>\\5</speaker><l>"
+
+m<-gregexec(regx11,txtm[12,8],perl = T)
+regmatches(txtm[12,8],m)
+
 #immer noch nicht... basteln.
 #.1 in R no escape of <> possible.
-#.2 groups: from 1 uo into folded
+#.2 groups: from 1 up into folded
 se<-"\\. "
 speaker.post<-"(Celimene\\. |Erast\\. |Chlorinde\\. |Damis\\. |Cydalise\\. |Finette\\. )"
 regx8<-paste0("((<l>)((.*?)",speaker.post,"))")
 
-m<-gregexec(regx8,txtm9,perl = T)
-regmatches(txtm9,m)
+m<-gregexec(regx12,txtm[12,8],perl = T)
+regmatches(txtm[12,8],m)
+regx12<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))(?!<)"
+repl12<-"\\1\\3</l></sp><sp><speaker>\\4</speaker><l>"
+# regx12<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))(?!<)"
+# repl12<-"\\1\\3</l></sp><sp><speaker>\\4</speaker><l>"
+# txtm13<-gsub(regx12,repl12,txtm[12,8],perl = T)
+# wks
+txtm[13,8]<-txtm13
+txtm[13,2]<-regx12
+txtm[13,3]<-repl12
 m
-txtm9<-removegaps(txtm8)
-repl8<-"<l>\\4</l></sp><sp><speaker>\\5</speaker><l>"
+txtm13<-removegaps(txtm13)
 # for some reason in regmatches the groups are one index higher than needed for replace by groups.
 # half wks
-txtm9<-gsub(regx8,repl8,txtm9,perl = T)
+txtm14<-gsub(regx12,repl12,txtm[13,8],perl = T)
+txtm15<-gsub(regx12,repl12,txtm14,perl = T)
+#wks rekursiv für jeden neuen turn
+#loop over text:
+loopreplace<-function(set,regx,repl){
+  txtmx<-gsub(regx,repl,set,perl = T)
+return(removegaps(txtmx))
+
+  }
+#zwei durchgänge:
+for (k in 1:20){
+  txtm15<-loopreplace(txtm12,regx12,repl12)
+}
+for (k in 1:20){
+  txtm15<-loopreplace(txtm15,regx12,repl12)
+}
+
+regx15a<-"(?!>)<div"
+repl15a<-"</l></sp></div><div"
+regx15b<-"Ende des Lustspiels."
+repl15b<-"</l></sp></div><p>Ende des Lustspiels.</p>"
+regx15d<-"Bediente zu Celimenen."
+repl15d<-"<sp><speaker>Bediente zu Celimenen.</speaker><l>"
+txtm16<-gsub(regx15a,repl15a,txtm15,perl = T)
+txtm17<-gsub(regx15b,repl15b,txtm16,perl = T)
+txtm17<-sub(repl15a,"<div",txtm17)
+txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
+
+txtm18<-removegaps(txtm18)
 regx7a<-", Erast."
 repl7a<-", Erast-."
 regx8a<-"\\.([A-Za-z])"
 repl8a<-". \\1"
-txtm<-gsub(regx7a,repl7a,txtm,perl = T)
+regx8b<-", Cydalise."
+repl8b<-", Cydalise-."
+regx8c<-"O setzen sie sich, Erast."
+repl8c<-"O setzen sie sich, Erast-."
+txtm12<-gsub(regx8b,repl8b,txtm12,perl = T)
 txtm9<-gsub(regx8a,repl8a,txtm9,perl = T)
-
+txtm12
 txtm
 txtm8
+txtm17
+txtm[12,8]
 library(clipr)
-write_clip(txtm)
+write_clip(txtm18)
+library(xml2)
+writeLines(txtm15,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_Routput001.xml")
