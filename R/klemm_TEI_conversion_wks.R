@@ -173,15 +173,17 @@ final8<-function(set){
   repl15d<-"<speaker>Bediente zu Celimenen.</speaker>"
   regx16<-"(Celimene nimmt ihn, und führt ihn zu Cydalisen.)"
   repl16<-"<stage>\\1</stage><speaker>Celimene.</speaker>"
-  regx17<-""
+  regx17<-"(Erast, in der größten Verwirrung setzt sich.)"
+  repl17<-"<stage>\\1</stage><speaker>Erast.</speaker>"
   
   txtm16<-gsub(regx15a,repl15a,txtm15,perl = T)
   txtm17<-gsub(regx15b,repl15b,txtm16,perl = T)
   txtm17<-sub(repl15a,"<div",txtm17)
   txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
   txtm16a<-gsub(regx16,repl16,txtm18,perl = T)
+  txtm16b<-gsub(regx17,repl17,txtm16a,perl = T)
   
-  txtm18<-removegaps(txtm16a)
+  txtm18<-removegaps(txtm16b)
   #txtm18
 }
 
@@ -278,3 +280,15 @@ txtm8b<-removegaps(txtm8b)
 txtm8c<-final8(txtm8b)
 txtm8d<-formatting(txtm8c)
 write_clip(txtm8d)
+################## wks.
+#12242.neu from regex lisa.
+#<p> from </speaker> to <speaker>
+regx9a<-"(?<=</speaker>)(.*)"
+#look left: regx9a<-"(?<=</speaker>)(.*)"
+regx9a<-"(?<=</speaker>)(.+)(<speaker>)"
+
+
+m<-gregexec(regx9a,txtm8c,perl = T)
+regmatches(txtm8c,m)#132=oxygen
+txtm8c
+write_clip(txtm8c)
