@@ -173,15 +173,15 @@ final8<-function(set){
   repl15d<-"<speaker>Bediente zu Celimenen.</speaker>"
   regx16<-"(Celimene nimmt ihn, und führt ihn zu Cydalisen.)"
   repl16<-"<stage>\\1</stage><speaker>Celimene.</speaker>"
-  regx17<-"Erast, in der groͤßten Verwirrung setzt s
-  repl17<-
+  regx17<-""
   
   txtm16<-gsub(regx15a,repl15a,txtm15,perl = T)
   txtm17<-gsub(regx15b,repl15b,txtm16,perl = T)
   txtm17<-sub(repl15a,"<div",txtm17)
   txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
+  txtm16a<-gsub(regx16,repl16,txtm18,perl = T)
   
-  txtm18<-removegaps(txtm18)
+  txtm18<-removegaps(txtm16a)
   #txtm18
 }
 
