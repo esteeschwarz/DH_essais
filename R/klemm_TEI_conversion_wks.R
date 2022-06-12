@@ -11,11 +11,19 @@ txt<-readLines(src)
 library(clipr)
 library(xml2)
 
+
+# global var
+regx4<-"> "
+regx5<-" <"
+repl4<-">"
+repl5<-"<"
+
 teiwork<-function(src){
 txt<-src
 # ground:
 library(purrr)
 # here add findings manually to replace after chech final xml output
+
 ground<-function(set){
   regx1<-"Der Besuch\\. "
   repl1<-""
@@ -85,7 +93,11 @@ repl6<-"\\1<sp><speaker>\\2</speaker>"
 txtm6<-gsub(regx6,repl6,txtm5,perl = T)
 txtm7<-gsub(regx4,repl4,txtm6,perl = T)
 txtm8<-gsub(regx5,repl5,txtm7,perl = T)
+}
+txtm8<-teiwork(txt)
 
+mod12<-function(set){
+txtm8<-teiwork(set)
 regx10<-"(</speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
 repl10<-"\\1<l>\\3</l></sp><sp><speaker>\\4</speaker><l>"
 txtm<-txtm8
@@ -106,7 +118,7 @@ txtm12<-gsub(regx5,repl5,txtm11,perl = T)
 ####
 removegaps<-function(set){
 txtm<-set
-    regx4<-"> "
+  regx4<-"> "
   regx5<-" <"
   repl4<-">"
   repl5<-"<"
@@ -114,8 +126,9 @@ txtm<-set
   txtm<-gsub(regx5,repl5,txtm,perl = T)
   
 }
-txtm<-teiwork(txt)
-txtm12<-removegaps(txtm)
+txtm8<-teiwork(txt)#+8
+txtm12<-mod12(txt)#
+txtm12<-removegaps(txtm12)
 #### important:##################################################################################
 regx12<-"(<l>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))(?!<)"
 repl12<-"\\1\\3</l></sp><sp><speaker>\\4</speaker><l>"
@@ -150,6 +163,28 @@ txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
 txtm18<-removegaps(txtm18)
 #txtm18
 }
+final8<-function(set){
+  txtm15<-set
+  regx15a<-"(?!>)<div"
+  repl15a<-"</div><div"
+  regx15b<-"Ende des Lustspiels."
+  repl15b<-"</div><p>Ende des Lustspiels.</p>"
+  regx15d<-"Bediente zu Celimenen."
+  repl15d<-"<speaker>Bediente zu Celimenen.</speaker>"
+  regx16<-"(Celimene nimmt ihn, und führt ihn zu Cydalisen.)"
+  repl16<-"<stage>\\1</stage><speaker>Celimene.</speaker>"
+  regx17<-"Erast, in der groͤßten Verwirrung setzt s
+  repl17<-
+  
+  txtm16<-gsub(regx15a,repl15a,txtm15,perl = T)
+  txtm17<-gsub(regx15b,repl15b,txtm16,perl = T)
+  txtm17<-sub(repl15a,"<div",txtm17)
+  txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
+  
+  txtm18<-removegaps(txtm18)
+  #txtm18
+}
+
 txtm18<-final(txtm15)
 # txtm[12,8]
 #library(clipr)
@@ -234,25 +269,12 @@ write_clip(klemm_final)
 #stuck xml line 333
 #lisas:
 #regx20<-"(?<!<speaker>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
-regx20<-"(?<!<speaker>|</speaker>|<stage>|</stage>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)(?!</stage>)"
-
-# write_clip(txtm)
-# regx.oxygenexpo<-function(form){
-#   x<-(stri_replace_all(form,replacement ="a ",fixed ="spe "))
-# return(x)
-#   }
-# x<-regx.oxygenexpo(regx20)
-# x
-# x<-(stri_replace_all("teufel\\auch",replacement ="\\ ",regex ="eu",stri_opts_regex(literal = T)))
-# library(stringi)
-# stringi-search-fixed()
-# x
-# library(stringr)
-# x<-str_replace_all("teufel\\auch",pattern = "eu",replacement = "\\'\\\'")
-# x
-# #not possible to replace something with \
-repl20<-"<speaker>\\1</speaker>"
-m<-gregexec(regx20,txtm,perl = T)
-regmatches(txtm,m)#132=oxygen
-txtm21<-gsub(regx20,repl20,txtm,perl = T)
-write_clip(txtm21)
+regx8a<-"(?<!<speaker>|</speaker>|<stage>|</stage>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)(?!</stage>)"
+repl8a<-"<speaker>\\1</speaker>"
+#m<-gregexec(regx12a,txtm12,perl = T)
+#regmatches(txtm12,m)#132=oxygen
+txtm8b<-gsub(regx8a,repl8a,txtm8,perl = T)
+txtm8b<-removegaps(txtm8b)
+txtm8c<-final8(txtm8b)
+txtm8d<-formatting(txtm8c)
+write_clip(txtm8d)
