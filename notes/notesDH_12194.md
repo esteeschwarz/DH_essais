@@ -32,4 +32,13 @@ replace
 .08 \1<p>\2</p></sp><sp><speaker>\3</speaker>
 
 Zum Beispiel bedeutet das Suchmuster <.+> (das kein Fragezeichen enthält): "Suche nach einem <, gefolgt von 1 oder mehr Zeichen, gefolgt von einem >". Um zu verhindern, dass das Suchmuster die komplette Zeichenkette <em>text</em> findet, fügen Sie nach dem Pluszeichen ein Fragezeichen an: <.+?>. Dies führt dazu, dass die Übereinstimmung bereits beim ersten '>' endet und dementsprechend nur der erste HTML-Tag <em> gefunden wird.
-(?=...) ist eine positive vorausschauende Behauptung, weil sie verlangt, dass ein bestimmtes Suchmuster existieren muss. (?!...) hingegen ist eine negative vorausschauende Behauptung, weil sie verlangt, dass ein bestimmtes Suchmuster fehlen muss. (?<=...) und (?<!...) sind positive bzw. negative zurückschauende Behauptungen, weil sie nach links und nicht nach rechts von der aktuellen Position schauen. 
+(?=...) ist eine positive vorausschauende Behauptung, weil sie verlangt, dass ein bestimmtes Suchmuster existieren muss. (?!...) hingegen ist eine negative vorausschauende Behauptung, weil sie verlangt, dass ein bestimmtes Suchmuster fehlen muss. (?<=...) und (?<!...) sind positive bzw. negative zurückschauende Behauptungen, weil sie nach links und nicht nach rechts von der aktuellen Position schauen.
+12243.api fetch bibliography:
+.01 weblink:
+https://www.zotero.org/groups/940512/dlina/library
+https://www.zotero.org/groups/4713246/avl_dyn/library
+.02 sample API: 
+https://api.zotero.org/users/475425/items?format=atom&v=3
+.03 AVL_dyn atom / formattet html
+https://api.zotero.org/groups/4713246/items?format=atom&v=3
+https://api.zotero.org/groups/4713246/items?format=bib
