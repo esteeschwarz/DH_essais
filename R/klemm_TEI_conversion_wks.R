@@ -285,10 +285,18 @@ write_clip(txtm8d)
 #<p> from </speaker> to <speaker>
 regx9a<-"(?<=</speaker>)(.*)"
 #look left: regx9a<-"(?<=</speaker>)(.*)"
-regx9a<-"(?<=</speaker>)(.+)(<speaker>)"
+regx9a<-"(</speaker>)(.+?)(<speaker>)"
+#regx9a<-"(</speaker>)(.+?)(<speaker>)" #wks. groups: 1=complete, 2,3,4 following, reference group by natural order, not array indizes
+repl9a<-"\\1<p>\\2</p></sp><sp>\\3"
+regx8b<-"(</speaker>)(.+?)(</div>)"#first end of scene lines
+repl8b<-"\\1<p>\\2</p></sp>\\3"
+txtm8e<-gsub(regx8b,repl8b,txtm8c,perl = T)
+
+txtm9a<-gsub(regx9a,repl9a,txtm8c,perl = T)
+txtm9b<-formatting(txtm9a)
 
 
-m<-gregexec(regx9a,txtm8c,perl = T)
+m<-gregexec(regx8b,txtm8c,perl = T)
 regmatches(txtm8c,m)#132=oxygen
 txtm8c
-write_clip(txtm8c)
+write_clip(formatting(txtm8e))
