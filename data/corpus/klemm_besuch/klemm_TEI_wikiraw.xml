@@ -51,14 +51,18 @@ in einem Aufzuge.
 </div>
 
 
-
-<castList><head>Personen.</head>
+<div type="Dramatis_Personae">
+<castList>
+  <head>Personen.</head>
 
 <castItem>Celimene</castItem>
   <castItem>Finette</castItem><castItem>Erast</castItem><castItem>Chlorinde</castItem>
 <castItem>Cydalise</castItem><castItem>Damis</castItem>
-</castList></div></div></front>
-
+</castList>
+</div>
+</div>
+</front>
+<body>
 
 
 
@@ -453,13 +457,8 @@ Bei der Erstellung des Textes kann es leider zu Fehlern kommen. Wenn Sie einen s
 
 
 
-
+</body>
     </wikisource>
-    <body>
-      <p>Der Besuch.</p> 
-    <insert>
-    </insert>
-    </body>
   </text>
   
 </TEI>
