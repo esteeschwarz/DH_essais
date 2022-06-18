@@ -238,7 +238,7 @@ final8<-function(set){
   regx15a<-"(?!>)<div"
   repl15a<-"</div><div"
   regx15b<-"Ende des Lustspiels."
-  repl15b<-"</div><p>Ende des Lustspiels.</p>"
+  repl15b<-"</div><p>Ende des Lustspiels.</p>\n</body>"
   regx15d<-"Bediente zu Celimenen."
   repl15d<-"<speaker>Bediente zu Celimenen.</speaker>"
 #  regx15e<-"\\[[0-9]{1,4}\\]"
@@ -254,7 +254,7 @@ final8<-function(set){
   # repl19d<-"\\3\\2"
   # 
   regx19b<-"((Der österreichische Patriot.*?)(?=<div))"
-  repl19b<-"<front>\n\\1</front>\n"
+  repl19b<-"<front>\n\\1</front>\n<body>\n"
   regx19c<-"((Der österreichische Patriot.*?)(\\* \\* \\*))"
   repl19c<-'<div type="front">\n<head>\\1</head></div>'
   regx19e<-"((Der Besuch.*?)(?=Personen))"
@@ -268,6 +268,8 @@ final8<-function(set){
 
   regx19f<-"((Personen.*?)(?=</front>))"
   repl19f<-'<div type="Dramatis_Personae">\n<castlist>\\1</castlist>\n</div>'
+  # regx19h<-"</stage><p><sp>"
+  # repl19h<-"</stage><sp><p>"
   #regx19g<-"((?<=<front>)(Der.*Patriot)(?=</front>))"
   #repl19g<-"<head>\\2</head>"
   #regx19h<-'((?<=front">)(.*?)(?=Drey))'
@@ -281,13 +283,13 @@ final8<-function(set){
   txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
   txtm16a<-gsub(regx16,repl16,txtm18,perl = T)
   txtm16b<-gsub(regx17,repl17,txtm16a,perl = T)
- # txtm19a<-gsub(regx19a,repl19a,txtm16b,perl = T)
-  txtm19b<-gsub(regx19b,repl19b,txtm16b,perl = T)
+  txtm19a<-gsub(regx19a,repl19a,txtm16b,perl = T)
+  txtm19b<-gsub(regx19b,repl19b,txtm19a,perl = T)
   txtm19c<-gsub(regx19c,repl19c,txtm19b,perl = T)
   txtm19e<-gsub(regx19e,repl19e,txtm19c,perl = T)
   txtm19f<-gsub(regx19f,repl19f,txtm19e,perl = T)
   txtm19g<-gsub(regx19g,repl19g,txtm19f,perl = T)
-#  txtm19h<-gsub(regx19h,repl19h,txtm19f,perl = T)
+#  txtm19h<-gsub(regx19h,repl19h,txtm19g,perl = T)
  # txtm19i<-gsub(regx19i,repl19i,txtm19f,perl = T)
   
   txtm18<-removegaps(txtm19g)
@@ -399,12 +401,15 @@ write_clip(txtm8d)
 #look left: regx9a<-"(?<=</speaker>)(.*)"
 regx9a<-"(</speaker>)(.+?)(<speaker>)"
 #regx9a<-"(</speaker>)(.+?)(<speaker>)" #wks. groups: 1=complete, 2,3,4 following, reference group by natural order, not array indizes
-repl9a<-"\\1<p>\\2</p></sp><sp>\\3"
+repl9a<-"<sp>\\1<p>\\2</p></sp>\\3"
 #regx8b<-"(</speaker>)(.+?)(</div>)"#first end of scene lines
 #repl8b<-"\\1<p>\\2</p></sp>\\3"
 #txtm8e<-gsub(regx8b,repl8b,txtm8c,perl = T)
 regx19d<-"(<p>)(<stage>.*?</stage>)"
 repl19d<-"\\2\\1"
+regx19h<-"</stage><p><sp>"
+repl19h<-"</stage><sp><p>"
+
 
 txtm9a<-gsub(regx9a,repl9a,txtm8c,perl = T)
 
@@ -431,7 +436,8 @@ regx14<-"((?<=</speaker>).*?(?=<speaker>|</div>|$))"
 repl14<-"<p>\\1</p></sp><sp>"
 txtm8d<-gsub(regx14,repl14,txtm8c,perl = T)
 txtm19d<-gsub(regx19d,repl19d,txtm8d,perl = T)
+txtm19h<-gsub(regx19h,repl19h,txtm19d,perl = T)
 
-txtm19d<-formatting(txtm19d)
-writeLines(txtm19d,"klemm_TEI_body.xml")
+txtm19h<-formatting(txtm19h)
+writeLines(txtm19h,"klemm_TEI_body.xml")
 
