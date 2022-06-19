@@ -5,4 +5,4 @@
 - presentation when finished: https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-18
 
 # 12252.
-die auszeichnung funktioniert leider noch nicht vollautomatisiert. die castlist musz manuell editiert werden. ansonsten kann [dieser text](https://github.com/esteeschwarz/DH_essais/blob/main/data/corpus/klemm_besuch/klemm_TEI_body.xml) so wie er aus R exportiert wird, in den textblock der dramavorlage importiert werden.  
+die auszeichnung funktioniert leider noch nicht vollautomatisiert. die castlist musz manuell editiert werden. ansonsten kann [dieser text](https://github.com/esteeschwarz/DH_essais/blob/main/data/corpus/klemm_besuch/klemm_TEI_body.xml) (same as above, TEI_body) so wie er aus R exportiert wird, in den textblock der dramavorlage importiert werden.  
