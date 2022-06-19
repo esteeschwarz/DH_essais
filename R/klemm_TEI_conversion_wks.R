@@ -159,7 +159,7 @@ final8<-function(set){
   regx15a<-"(?!>)<div"
   repl15a<-"</div><div"
   regx15b<-"Ende des Lustspiels."
-  repl15b<-"</div><p>Ende des Lustspiels.</p>\n</body>"
+  repl15b<-'</div><div type="fin">\n<p>Ende des Lustspiels.</p></div></body>'
   regx15d<-"Bediente zu Celimenen."
   repl15d<-"<speaker>Bediente zu Celimenen.</speaker>"
   #  regx15e<-"\\[[0-9]{1,4}\\]"
@@ -180,12 +180,12 @@ final8<-function(set){
   regx19g<-"((Drey.*?)(\\* \\* \\*))"
   repl19g<-'<div type="issue">\n<head>\\1</head></div>' #wks
   regx19f<-"((Personen.*?)(?=</front>))"
-  repl19f<-'<div type="Dramatis_Personae">\n<castlist>\\1</castlist>\n</div>'
-  regx19h<-"((?<=</head>)((.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..)(.*)){1,6}(?=</castlist>))"
+  repl19f<-'<div type="Dramatis_Personae">\n<castList>\\1</castList>\n</div>'
+  regx19h<-"((?<=</head>)((.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..)(.*)){1,6}(?=</castList>))"
   repl19h<-"<castItem>\\2</castItem>"
-  regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castlist>)"
-  repl19j<-"</head><castitItem>\\2</castItem></castlist>"
-  regx19i<-"((?<=<castlist>)((Personen.)(.*)){1,7}(?=</castlist>))"
+  regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
+  repl19j<-"</head><castItem>\\2</castItem></castList>"
+  regx19i<-"((?<=<castList>)((Personen.)(.*)){1,7}(?=</castList>))"
   repl19i<-"<head>\\3</head>\\4"
 ####  
   txtm16<-gsub(regx15a,repl15a,txtm15,perl = T)
@@ -291,5 +291,23 @@ txtm19j<-gsub(regx19j,repl19j,txtm19i,perl = T)
 #change last modification
 txfin<-txtm19j
 ##############
-txtmfin<-formatting(txfin)
+#set<-txtm19j
+##### removes once added - (minus) to names
+cleantei<-function(set){
+  regxns<-c("(Erast)","(Celimene)","(Chlorinde)","(Finette)","(Damis)","(Cydalise)")
+  repl1a<-"\\1\\3"
+  txtmcleanx<-matrix(1:10)
+  txtmcleanx[1]<-set
+for (k in 1:length(regxns)){
+  regx1a<-paste0(regxns[k],"(-)(.)")
+  txtmcleanx[k+1]<-gsub(paste0(regxns[k],"(-)(.)"),repl1a,txtmcleanx[k])
+}
+  return(txtmcleanx)
+#  regxns[1]
+}
+#length(regxns
+cleantx<-cleantei(txfin)
+#cleantx[7]
+write_clip(cleantx[7])
+txtmfin<-formatting(cleantx[7])
 writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body.xml")
