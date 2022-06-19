@@ -1,19 +1,11 @@
 #12231.TEI conversion essai
 #20220604(10.25)
 ###########################
-#20220619(14.49)
-#finish this script. source: https://github.com/esteeschwarz/DH_essais/R/klemm_TEI_conversion_wks.R
-#ongoing process: https://github.com/esteeschwarz/DH_essais/R/klemm_TEI_conversion_wks_process.R
-###########################
-#1.abstract:
-#TEI declaration of wikisource dramatext for further processing
 getwd()
 #src<-"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI.xml"
-#src<-"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_wikiraw.xml"
+src<-"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_wikiraw.xml"
 #src<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/data/corpus/klemm_besuch/klemm(1765)_clean.txt"
-##### modify for raw text:
 src<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/data/corpus/klemm_besuch/klemm(1765)_wiki_preprocessed.txt"
-##########################
 #txt<-scan(src,"")
 #library(stringi)
 library(httr)
@@ -23,7 +15,7 @@ txt<-httr::content(api_call,"text")
 
 #library(stringi)
 library(clipr)
-#library(xml2)
+library(xml2)
 library(stringr)
 txt
 set<-txt
@@ -335,9 +327,7 @@ cleantx<-cleantei(txfin)
 #cleantx[7]
 write_clip(cleantx[7])
 txtmfin<-formatting(cleantx[7])
-#writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body.xml")
-
-write_clip(txtmfin)
+writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body_process.xml")
 ##########
 ##########
 #wks.
