@@ -184,7 +184,7 @@ final8<-function(set){
   regx19h<-"((?<=</head>)((.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..)(.*)){1,6}(?=</castList>))"
   repl19h<-"<castItem>\\2</castItem>"
   regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
-  repl19j<-"</head><castItem>\\2</castItem></castList>"
+  repl19j<-"</head>\n<castItem>\\2</castItem>\n</castList>"
   regx19i<-"((?<=<castList>)((Personen.)(.*)){1,7}(?=</castList>))"
   repl19i<-"<head>\\3</head>\\4"
 ####  
@@ -204,8 +204,25 @@ final8<-function(set){
  # txtm19h<-gsub(regx19h,repl19h,txtm19i,perl = T)
   txtm19j<-gsub(regx19j,repl19j,txtm19i,perl = T)
   
-  txtm18<-removegaps(txtm19j)
-}
+  
+  castloop<-function(set){
+   # regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
+    repl19j<-"</head><castItem>\\2</castItem></castList>"
+    regxns<-c("(Erast.)","(Celimene.)","(Chlorinde.)","(Finette.)","(Damis.)","(Cydalise.)")
+    repl1a<-"\\1\\3"
+    txtmcleanx<-matrix(1:10)
+    txtmcleanx[1]<-set
+    for (k in 1:length(regxns)){
+      regx1a<-paste0(regxns[k],"(-)(.)")
+      txtmcleanx[k+1]<-gsub(paste0("(</head>.*)",regxns[k],"(.*)(</castList>)"),repl19j,txtmcleanx[k])
+    }
+    return(txtmcleanx)
+    #  regxns[1]
+  }
+  txtm19k<-castloop(txtm19j)
+  txtm18<-removegaps(txtm19k)
+  txtm19k[7]
+    }
 #library(xml2)
 library(purrr)
 
@@ -311,3 +328,7 @@ cleantx<-cleantei(txfin)
 write_clip(cleantx[7])
 txtmfin<-formatting(cleantx[7])
 writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body.xml")
+##########
+##########
+#wks.
+##########

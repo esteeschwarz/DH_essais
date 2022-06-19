@@ -1,7 +1,43 @@
-<front>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_drama.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Titel</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Informationen zur Publikation.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Der Besuch</p>
+        <p>Christian Gottlob Klemm</p>
+        <p>Klang, Wien, 1765</p>
+        <p>Exportiert aus Wikisource am 15. Juni 2022</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <front>
 <div type="front">
 <head>Der österreichische Patriot. * * *</head>
-<castItem>Damis</castItem></castList>
+</div>
+<div type="issue">
+<head>Drey und vier und siebenzigstes Stück. Freytags den 14. Junii. 1765. * * *</head>
+</div>
+<div type="title">
+<head>Der Besuch, Ein Lustspiel in einem Aufzuge.</head>
+</div>
+<div type="Dramatis_Personae">
+<castList>
+  <head>Personen.</head>
+  <castItem>Damis.</castItem>
+  <castItem>Celimene.</castItem>
+  <castItem>Chlorinde.</castItem>
+  <castItem>Finette.</castItem>
+  <castItem>Erast.</castItem>
+  <castItem>Cydalise.</castItem>
+</castList>
 </div>
 </front>
 <body>
@@ -646,3 +682,6 @@
 <p>Ende des Lustspiels.</p>
 </div>
 </body>
+</text>
+  
+</TEI>
