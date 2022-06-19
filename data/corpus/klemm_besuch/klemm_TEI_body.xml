@@ -1,7 +1,17 @@
 <front>
 <div type="front">
 <head>Der österreichische Patriot. * * *</head>
-<castItem>Damis</castItem></castList>
+</div>
+<div type="issue">
+<head>Drey und vier und siebenzigstes Stück. Freytags den 14. Junii. 1765. * * *</head>
+</div>
+<div type="title">
+<head>Der Besuch, Ein Lustspiel in einem Aufzuge.</head>
+</div>
+<div type="Dramatis_Personae">
+<castList><head>Personen.</head>
+<castItem>Damis.</castItem>
+</castList>
 </div>
 </front>
 <body>
