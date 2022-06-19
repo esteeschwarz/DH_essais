@@ -1,15 +1,5 @@
 <front>
-<div type="front">
-<head>Der österreichische Patriot. * * *</head>
-</div>
-<div type="issue">
-<head>Drey und vier und siebenzigstes Stück. Freytags den 14. Junii. 1765. * * *</head>
-</div>
-<div type="title">
-<head>Der Besuch, Ein Lustspiel in einem Aufzuge.</head>
-</div>
-<div type="Dramatis_Personae">
-<castList><head>Personen.</head>
+<div type="front"><head>Der österreichische Patriot. * * *</head>
 
 <castItem>Damis.</castItem>
 </castList>
@@ -17,6 +7,7 @@
 </front>
 <body>
 <div type="scene"><head>Erster Auftritt.</head>
+
 <stage>Celimene, Finette.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -104,6 +95,7 @@
 </sp>
 </div>
 <div type="scene"><head>Zweyter Auftritt.</head>
+
 <stage>Chlorinde und Celimene.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -179,6 +171,7 @@
 </sp>
 </div>
 <div type="scene"><head>Dritter Auftritt.</head>
+
 <stage>Chlorinde, Celimene, Cydalise.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -258,6 +251,7 @@
 </sp>
 </div>
 <div type="scene"><head>Vierter Auftritt.</head>
+
 <stage>Damis und die vorigen.</stage>
 <sp>
 <speaker>Damis.</speaker>
@@ -381,6 +375,7 @@
 </sp>
 </div>
 <div type="scene"><head>Fünfter Auftritt.</head>
+
 <stage>Die vorigen und Erast.</stage>
 <sp>
 <speaker>Erast.</speaker>
@@ -442,6 +437,7 @@
 </sp>
 </div>
 <div type="scene"><head>Sechster Auftritt.</head>
+
 <stage>Ein Bedienter und die vorigen.</stage>
 <sp>
 <speaker>Bediente zu Celimenen.</speaker>
@@ -453,6 +449,7 @@
 </sp>
 </div>
 <div type="scene"><head>Siebenter Auftritt.</head>
+
 <stage>Cydalise, Damis, Chlorinde und Erast.</stage>
 <sp>
 <speaker>Chlorinde.</speaker>
@@ -512,6 +509,7 @@
 </sp>
 </div>
 <div type="scene"><head>Achter Auftritt.</head>
+
 <stage>Celimene und die vorigen.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -579,6 +577,7 @@
 </sp>
 </div>
 <div type="scene"><head>Neunter Auftritt.</head>
+
 <stage>Cydalise, Erast, Damis.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -653,7 +652,6 @@
 <p>So wie auf ihre Liebe. Lernen sie hier mein Herr, was wahre Zärtlichkeit ist, die sie und so viele Tausend nicht kennen. Ihre Gemüthsart, ihre Grundsätze verdienen kein Frauenzimmer von Ehre. Gehn sie nach Paris, und halten sie sich an Princeßinen aus der Oper. Da werden sie mit ihren Grundsätzen am besten fortkommen. Verstehn sie mich?</p>
 </sp>
 </div>
-<div type="fin">
-<p>Ende des Lustspiels.</p>
+<div type="fin"><p>Ende des Lustspiels.</p>
 </div>
 </body>
