@@ -4,6 +4,8 @@
 #20220619(14.49)
 #finish this script. source: https://github.com/esteeschwarz/DH_essais/R/klemm_TEI_conversion_wks.R
 #ongoing process: https://github.com/esteeschwarz/DH_essais/R/klemm_TEI_conversion_wks_process.R
+#20220619(19.50)
+#aktualisiert, status working bis auf schema integration, body complete.
 ###########################
 #1.abstract:
 #TEI declaration of wikisource dramatext for further processing
@@ -25,8 +27,8 @@ txt<-httr::content(api_call,"text")
 library(clipr)
 #library(xml2)
 library(stringr)
-txt
-set<-txt
+#txt
+#set<-txt
 # get wikisource textbody
 txtmraw<-function(set){
   regx0b<-"[^A-Za-zäöü,\\.;\\-–\\? ß\\[\\]0-9\\!\\(\\)]"
@@ -61,7 +63,7 @@ repl5<-"<"
 #######################
 teiwork<-function(src){
   #txt<-src
-  txt<-txtmbody_pb
+  txt<-src
   # ground:
   library(purrr)
   # here add findings manually to replace after chech final xml output
@@ -89,13 +91,13 @@ teiwork<-function(src){
     repl9a<-"\\2Celimene.<stage>\\3</stage>"
     #  txtm9<-gsub(regx8a,repl8a,txt,perl = T)
     # add regx/repl at end to array
-    regx.ground<-rbind(regx1,regx2,regx3,regx4,regx5,regx6,regx7,regx8,regx9,regx9a)
+    regx.ground<-rbind(regx1,regx2,regx3,regx4,regx5,regx6,regx7,regx8,regx9,regx9a)#10
     repl.ground<-rbind(repl1,repl2,repl3,repl4,repl5,repl6,repl7,repl8,repl9,repl9a)
     formground<-cbind(regx.ground,repl.ground)
     cground<-cbind(formground,txt)
     # add new line with successive numbers for every replacement
     cground[1,3]<-gsub(cground[1,1],cground[1,2],txt,perl = T)
-    cground[2,3]<-gsub(cground[2,1],cground[2,2],cground[1,3],perl = T)
+    cground[2,3]<-gsub(cground[2,1],cground[2,2],txt,perl = T)
     cground[3,3]<-gsub(cground[3,1],cground[3,2],cground[2,3],perl = T)
     cground[4,3]<-gsub(cground[4,1],cground[4,2],cground[3,3],perl = T)
     cground[5,3]<-gsub(cground[5,1],cground[5,2],cground[4,3],perl = T)
@@ -139,7 +141,7 @@ teiwork<-function(src){
 
 
 ################### this base #########
-txtm8<-teiwork(txt)
+txtm8<-teiwork(txtmbody_pb) #txtmraw(txt)
 ##################################
 # mod12<-function(set){
 #   txtm8<-teiwork(set)
@@ -162,17 +164,20 @@ removegaps<-function(set){
   txtm<-gsub(regx5,repl5,txtm,perl = T)
   
 }
-txtm8<-teiwork(txt)#+8
+#txtm8<-teiwork(txt)#+8
 # txt8<-final8(txtm8)
 # txt8
 # txt9<-final9(txt8)
 # txt9
 ######################
 final8<-function(set){
+  ###chk
+  
   regx8a<-"(?<!<speaker>|</speaker>|<stage>|</stage>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)(?!</stage>)"
   repl8a<-"<speaker>\\1</speaker>"
   txtm8b<-gsub(regx8a,repl8a,txtm8,perl = T)
   txtm8b<-removegaps(txtm8b)
+  #txtm8b
   txtm15<-txtm8b
   regx15a<-"(?!>)<div"
   repl15a<-"</div><div"
@@ -180,7 +185,7 @@ final8<-function(set){
   repl15b<-'</div><div type="fin"><p>Ende des Lustspiels.</p></div></body>'
   regx15d<-"Bediente zu Celimenen."
   repl15d<-"<speaker>Bediente zu Celimenen.</speaker>"
-  regx15e<-"((?<=<body>).*?(?=</body>))"
+  #regx15e<-"((?<=<body>).*?(?=</body>))"
   regx16<-"(Celimene nimmt ihn, und führt ihn zu Cydalisen.)"
   repl16<-"<stage>\\1</stage>"
   regx17<-"(Erast in der größten Verwirrung, setzt sich.)"
@@ -189,22 +194,23 @@ final8<-function(set){
   repl19a<-"</stage><sp>\\1<speaker>"
   regx19b<-"((Der österreichische Patriot.*?)(?=<div))"
   repl19b<-"<front>\\1</front><body>"
-  regx19c<-"((Der österreichische Patriot.*?)(\\* \\* \\*))"
+  regx19c<-"((Der österreichische Patriot.+?)(\\* \\* \\*))"
   repl19c<-'<div type="front"><head>\\1</head></div>'
-  regx19e<-"((Der Besuch.*?)(?=Personen))"
+  regx19e<-"((Der Besuch.+?)(Aufzuge.))"
   repl19e<-'<div type="title"><head>\\1</head></div>' #wks
-  regx19g<-"((Drey.*?)(\\* \\* \\*))"
+  regx19g<-"((Drey.+?)(\\* \\* \\*))"
   repl19g<-'<div type="issue"><head>\\1</head></div>' #wks
   regx19f<-"((Personen.*?)(?=</front>))"
   repl19f<-'<div type="Dramatis_Personae"><castList>\\1</castList></div>'
   regx19h<-"((?<=</head>)((.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..)(.*)){1,6}(?=</castList>))"
   repl19h<-"<castItem>\\2</castItem>"
-  regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
-  repl19j<-"</head><castItem>\\2</castItem></castList>"
+  #regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
+  #repl19j<-"</head><castItem>\\2</castItem></castList>"
   regx19i<-"((?<=<castList>)((Personen.)(.*)){1,7}(?=</castList>))"
   repl19i<-"<head>\\3</head>\\4"
   ##############################
   txtm16<-gsub(regx15a,repl15a,txtm15,perl = T)
+#  txtm16
   txtm17<-gsub(regx15b,repl15b,txtm16,perl = T)
   txtm17<-sub(repl15a,"<div",txtm17)
   txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
@@ -214,14 +220,19 @@ final8<-function(set){
   txtm19b<-gsub(regx19b,repl19b,txtm19a,perl = T)
   txtm19c<-gsub(regx19c,repl19c,txtm19b,perl = T)
   txtm19e<-gsub(regx19e,repl19e,txtm19c,perl = T)
+ # txtm19e
   txtm19f<-gsub(regx19f,repl19f,txtm19e,perl = T)
+  txtm19f
   txtm19g<-gsub(regx19g,repl19g,txtm19f,perl = T)
+  txtm19g
   txtm19i<-gsub(regx19i,repl19i,txtm19g,perl = T)
+  txtm19i
   # txtm19h<-gsub(regx19h,repl19h,txtm19i,perl = T)
-  txtm19j<-gsub(regx19j,repl19j,txtm19i,perl = T)
-#  txtm19k<-castloop(txtm19j)
+  #txtm19j<-gsub(regx19j,repl19j,txtm19i,perl = T)
+#txtm19j
+  #  txtm19k<-castloop(txtm19j)
  # still unconventional but convenient solution to add cast, weniger nachhaltig.
-   txtm8<-removegaps(txtm19j)
+   txtm8<-removegaps(txtm19i)
    ##########################
    #paste final9
      # regx8a<-"(?<!<speaker>|</speaker>|<stage>|</stage>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)(?!</stage>)"
@@ -320,24 +331,6 @@ final9<-function(set){
   ########
 }   ####end final9
 ##################
-addcast<-function(set){
-  regx1a<-"((?<=<castList>)(.*?)(?=</castList>))"
-  repl1a<-"<head>Personen</head><castItem>Damis,</castItem><castItem>Chlorinde,</castItem><castItem>Celimene</castItem><castItem>Finette</castItem><castItem>Erast,</castItem><castItem>Cydalise.</castItem>"
-  txtmod<-gsub(regx1a,repl1a,set)
-}
-#######################
-   #  txtmcast<-addcast(txtes)
-  #txtm19k[7]
-
-txtes<-final8(teiwork(txtmraw(txt)))
-
-regx1b<-"</castList>"
-regx1b<-"/<castList>.*?</castList>"
-#gsub(regx1a,repl1a,txtm19j)
-#m<-gregexec(regx1b,txtes,perl = T)
-#regmatches(txtes,m)
-#txtm19j
-txtes
 #library(xml2)
 #library(purrr)
 
@@ -352,7 +345,7 @@ formatting<-function(set){
   #txtm19<-gsub("</l>",'</l>\n',txtm19)
   txtm19<-gsub("</p>",'</p>\n',txtm19)
   txtm19<-gsub("</div>",'</div>\n',txtm19)
-  txtm19<-gsub("</head>",'</head>\n',txtm19)
+  #txtm19<-gsub("</head>",'</head>\n',txtm19)
   txtm19<-gsub("</castList>",'</castList>\n',txtm19)
   txtm19<-gsub("</castItem>",'</castItem>\n',txtm19)
   txtm19<-gsub("</front>",'</front>\n',txtm19)
@@ -368,8 +361,9 @@ formatting<-function(set){
 
 
 #change last modification
-txfin<-final8(teiwork(txt))
-#txfin
+#txfin<-final8(teiwork(txt))
+####################################
+txfin<-final8(teiwork(txtmraw(txt)))
 ##############
 #set<-txtm19j
 ##### removes once added - (minus) to names
@@ -387,11 +381,24 @@ cleantei<-function(set){
 }
 #length(regxns
 cleantx<-cleantei(txfin)
-#cleantx[7]
-write_clip(cleantx[7])
-txtmfin<-formatting(cleantx[7])
-writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body_process.xml")
+addcast<-function(set){
+  regx1a<-"((?<=<castList>)(.*?)(?=</castList>))"
+  repl1a<-"<head>Personen</head><castItem>Damis,</castItem><castItem>Chlorinde,</castItem><castItem>Celimene</castItem><castItem>Finette</castItem><castItem>Erast,</castItem><castItem>Cydalise.</castItem>"
+  txtmod<-gsub(regx1a,repl1a,set,perl=T)
+}
+#######################
+#  txtmcast<-addcast(txtes)
+#txtm19k[7]
 
+#txtes<-cleantx[7]
+
+cleantx[7]
+write_clip(cleantx[7])
+txtcast<-addcast(cleantx[7])
+txtmfin<-formatting(txtcast)
+#txtmfin<-formatting(cleantx[7])
+writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body_process.xml")
+#writes TEI to clipboard to convenient paste into <text>...</text>
 write_clip(txtmfin)
 ##########
 ##########

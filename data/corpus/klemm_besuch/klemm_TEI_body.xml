@@ -1,16 +1,18 @@
 <front>
-<div type="front">
-<head>Der österreichische Patriot. * * *</head>
+<div type="front"><head>Der österreichische Patriot. * * *</head>
 </div>
-<div type="issue">
-<head>Drey und vier und siebenzigstes Stück. Freytags den 14. Junii. 1765. * * *</head>
+<div type="issue"><head>Drey und vier und siebenzigstes Stück. Freytags den 14. Junii. 1765. * * *</head>
 </div>
-<div type="title">
-<head>Der Besuch, Ein Lustspiel in einem Aufzuge.</head>
+<div type="title"><head>Der Besuch, Ein Lustspiel in einem Aufzuge.</head>
 </div>
-<div type="Dramatis_Personae">
-<castList><head>Personen.</head>
-<castItem>Damis.</castItem>
+<div type="Dramatis_Personae"><castList>
+<head>Personen</head>
+<castItem>Damis,</castItem>
+<castItem>Chlorinde,</castItem>
+<castItem>Celimene</castItem>
+<castItem>Finette</castItem>
+<castItem>Erast,</castItem>
+<castItem>Cydalise.</castItem>
 </castList>
 </div>
 </front>
@@ -652,7 +654,6 @@
 <p>So wie auf ihre Liebe. Lernen sie hier mein Herr, was wahre Zärtlichkeit ist, die sie und so viele Tausend nicht kennen. Ihre Gemüthsart, ihre Grundsätze verdienen kein Frauenzimmer von Ehre. Gehn sie nach Paris, und halten sie sich an Princeßinen aus der Oper. Da werden sie mit ihren Grundsätzen am besten fortkommen. Verstehn sie mich?</p>
 </sp>
 </div>
-<div type="fin">
-<p>Ende des Lustspiels.</p>
+<div type="fin"><p>Ende des Lustspiels.</p>
 </div>
 </body>

@@ -4,6 +4,8 @@
 #20220619(14.49)
 #finish this script. source: https://github.com/esteeschwarz/DH_essais/R/klemm_TEI_conversion_wks.R
 #ongoing process: https://github.com/esteeschwarz/DH_essais/R/klemm_TEI_conversion_wks_process.R
+#20220619(19.50)
+#aktualisiert, status working bis auf schema integration, body complete.
 ###########################
 #1.abstract:
 #TEI declaration of wikisource dramatext for further processing
@@ -25,8 +27,8 @@ txt<-httr::content(api_call,"text")
 library(clipr)
 #library(xml2)
 library(stringr)
-txt
-set<-txt
+#txt
+#set<-txt
 # get wikisource textbody
 txtmraw<-function(set){
   regx0b<-"[^A-Za-zäöü,\\.;\\-–\\? ß\\[\\]0-9\\!\\(\\)]"
@@ -58,10 +60,10 @@ regx4<-"> "
 regx5<-" <"
 repl4<-">"
 repl5<-"<"
-
+#######################
 teiwork<-function(src){
   #txt<-src
-  txt<-txtmbody_pb
+  txt<-src
   # ground:
   library(purrr)
   # here add findings manually to replace after chech final xml output
@@ -89,13 +91,13 @@ teiwork<-function(src){
     repl9a<-"\\2Celimene.<stage>\\3</stage>"
     #  txtm9<-gsub(regx8a,repl8a,txt,perl = T)
     # add regx/repl at end to array
-    regx.ground<-rbind(regx1,regx2,regx3,regx4,regx5,regx6,regx7,regx8,regx9,regx9a)
+    regx.ground<-rbind(regx1,regx2,regx3,regx4,regx5,regx6,regx7,regx8,regx9,regx9a)#10
     repl.ground<-rbind(repl1,repl2,repl3,repl4,repl5,repl6,repl7,repl8,repl9,repl9a)
     formground<-cbind(regx.ground,repl.ground)
     cground<-cbind(formground,txt)
     # add new line with successive numbers for every replacement
     cground[1,3]<-gsub(cground[1,1],cground[1,2],txt,perl = T)
-    cground[2,3]<-gsub(cground[2,1],cground[2,2],cground[1,3],perl = T)
+    cground[2,3]<-gsub(cground[2,1],cground[2,2],txt,perl = T)
     cground[3,3]<-gsub(cground[3,1],cground[3,2],cground[2,3],perl = T)
     cground[4,3]<-gsub(cground[4,1],cground[4,2],cground[3,3],perl = T)
     cground[5,3]<-gsub(cground[5,1],cground[5,2],cground[4,3],perl = T)
@@ -135,20 +137,22 @@ teiwork<-function(src){
   txtm6<-gsub(regx6,repl6,txtm5,perl = T)
   txtm7<-gsub(regx4,repl4,txtm6,perl = T)
   txtm8<-gsub(regx5,repl5,txtm7,perl = T)
-}
+} ################# end teiwork
+
+
 ################### this base #########
-txtm8<-teiwork(txt)
+txtm8<-teiwork(txtmbody_pb) #txtmraw(txt)
 ##################################
-mod12<-function(set){
-  txtm8<-teiwork(set)
-  regx10<-"(</speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
-  repl10<-"\\1<l>\\3</l></sp><sp><speaker>\\4</speaker><l>"
-  txtm<-txtm8
-  txtm10<-gsub(regx10,repl10,txtm,perl = T)
-  txtm11<-gsub(regx4,repl4,txtm10,perl = T)
-  txtm12<-gsub(regx5,repl5,txtm11,perl = T)
-  
-}
+# mod12<-function(set){
+#   txtm8<-teiwork(set)
+#   regx10<-"(</speaker>)((.*?)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.))"
+#   repl10<-"\\1<l>\\3</l></sp><sp><speaker>\\4</speaker><l>"
+#   txtm<-txtm8
+#   txtm10<-gsub(regx10,repl10,txtm,perl = T)
+#   txtm11<-gsub(regx4,repl4,txtm10,perl = T)
+#   txtm12<-gsub(regx5,repl5,txtm11,perl = T)
+#   
+# }
 
 removegaps<-function(set){
   txtm<-set
@@ -160,19 +164,28 @@ removegaps<-function(set){
   txtm<-gsub(regx5,repl5,txtm,perl = T)
   
 }
-txtm8<-teiwork(txt)#+8
-
+#txtm8<-teiwork(txt)#+8
+# txt8<-final8(txtm8)
+# txt8
+# txt9<-final9(txt8)
+# txt9
+######################
 final8<-function(set){
-  txtm15<-set
+  ###chk
+  
+  regx8a<-"(?<!<speaker>|</speaker>|<stage>|</stage>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)(?!</stage>)"
+  repl8a<-"<speaker>\\1</speaker>"
+  txtm8b<-gsub(regx8a,repl8a,txtm8,perl = T)
+  txtm8b<-removegaps(txtm8b)
+  #txtm8b
+  txtm15<-txtm8b
   regx15a<-"(?!>)<div"
   repl15a<-"</div><div"
   regx15b<-"Ende des Lustspiels."
-  repl15b<-'</div><div type="fin">\n<p>Ende des Lustspiels.</p></div></body>'
+  repl15b<-'</div><div type="fin"><p>Ende des Lustspiels.</p></div></body>'
   regx15d<-"Bediente zu Celimenen."
   repl15d<-"<speaker>Bediente zu Celimenen.</speaker>"
-  #  regx15e<-"\\[[0-9]{1,4}\\]"
-  # repl15e<-'<pb n="\\1"/>'
-  regx15e<-"((?<=<body>).*?(?=</body>))"
+  #regx15e<-"((?<=<body>).*?(?=</body>))"
   regx16<-"(Celimene nimmt ihn, und führt ihn zu Cydalisen.)"
   repl16<-"<stage>\\1</stage>"
   regx17<-"(Erast in der größten Verwirrung, setzt sich.)"
@@ -180,23 +193,24 @@ final8<-function(set){
   regx19a<-"</stage>(.*?)<speaker>"
   repl19a<-"</stage><sp>\\1<speaker>"
   regx19b<-"((Der österreichische Patriot.*?)(?=<div))"
-  repl19b<-"<front>\n\\1</front>\n<body>\n"
-  regx19c<-"((Der österreichische Patriot.*?)(\\* \\* \\*))"
-  repl19c<-'<div type="front">\n<head>\\1</head></div>'
-  regx19e<-"((Der Besuch.*?)(?=Personen))"
-  repl19e<-'<div type="title">\n<head>\\1</head></div>' #wks
-  regx19g<-"((Drey.*?)(\\* \\* \\*))"
-  repl19g<-'<div type="issue">\n<head>\\1</head></div>' #wks
+  repl19b<-"<front>\\1</front><body>"
+  regx19c<-"((Der österreichische Patriot.+?)(\\* \\* \\*))"
+  repl19c<-'<div type="front"><head>\\1</head></div>'
+  regx19e<-"((Der Besuch.+?)(Aufzuge.))"
+  repl19e<-'<div type="title"><head>\\1</head></div>' #wks
+  regx19g<-"((Drey.+?)(\\* \\* \\*))"
+  repl19g<-'<div type="issue"><head>\\1</head></div>' #wks
   regx19f<-"((Personen.*?)(?=</front>))"
-  repl19f<-'<div type="Dramatis_Personae">\n<castList>\\1</castList>\n</div>'
+  repl19f<-'<div type="Dramatis_Personae"><castList>\\1</castList></div>'
   regx19h<-"((?<=</head>)((.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..)(.*)){1,6}(?=</castList>))"
   repl19h<-"<castItem>\\2</castItem>"
-  regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
-  repl19j<-"</head>\n<castItem>\\2</castItem>\n</castList>"
+  #regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
+  #repl19j<-"</head><castItem>\\2</castItem></castList>"
   regx19i<-"((?<=<castList>)((Personen.)(.*)){1,7}(?=</castList>))"
   repl19i<-"<head>\\3</head>\\4"
-####  
+  ##############################
   txtm16<-gsub(regx15a,repl15a,txtm15,perl = T)
+  #  txtm16
   txtm17<-gsub(regx15b,repl15b,txtm16,perl = T)
   txtm17<-sub(repl15a,"<div",txtm17)
   txtm18<-gsub(regx15d,repl15d,txtm17,perl = T)
@@ -206,33 +220,119 @@ final8<-function(set){
   txtm19b<-gsub(regx19b,repl19b,txtm19a,perl = T)
   txtm19c<-gsub(regx19c,repl19c,txtm19b,perl = T)
   txtm19e<-gsub(regx19e,repl19e,txtm19c,perl = T)
+  # txtm19e
   txtm19f<-gsub(regx19f,repl19f,txtm19e,perl = T)
+  txtm19f
   txtm19g<-gsub(regx19g,repl19g,txtm19f,perl = T)
+  txtm19g
   txtm19i<-gsub(regx19i,repl19i,txtm19g,perl = T)
- # txtm19h<-gsub(regx19h,repl19h,txtm19i,perl = T)
+  txtm19i
+  # txtm19h<-gsub(regx19h,repl19h,txtm19i,perl = T)
+  #txtm19j<-gsub(regx19j,repl19j,txtm19i,perl = T)
+  #txtm19j
+  #  txtm19k<-castloop(txtm19j)
+  # still unconventional but convenient solution to add cast, weniger nachhaltig.
+  txtm8<-removegaps(txtm19i)
+  ##########################
+  #paste final9
+  # regx8a<-"(?<!<speaker>|</speaker>|<stage>|</stage>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)(?!</stage>)"
+  # repl8a<-"<speaker>\\1</speaker>"
+  # txtm8b<-gsub(regx8a,repl8a,txtm8,perl = T)
+  # txtm8b<-removegaps(txtm8b)
+  txtm8c<-txtm8
+  #     regx9a<-"(</speaker>)(.+?)(<speaker>)" #mark sprechakt til next speaker, including next speaker name
+  #   repl9a<-"</speaker><p>\\2</p></sp><speaker>" #
+  #  txtm9a<-gsub(regx9a,repl9a,txtm8c,perl = T)
+  # speaker.pt<-"Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\."
+  #regx13<-paste0("(?<",speaker.pt,").*?(?=",speaker.pt,"|$)")
+  #regx13<-"(?<=Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.).*?(?=Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.|$)"
+  regx14<-"((?<=</speaker>).*?(?=<speaker>|</div>|$))" #mark everything from speakerend to speakerbegin including divisionend 
+  repl14<-"<p>\\1</p></sp><sp>"
+  txtm8d<-gsub(regx14,repl14,txtm8c,perl = T)
+  regx19d<-"(<p>)(<stage>.*?</stage>)"
+  repl19d<-"\\2\\1"
+  regx19h<-"</stage><p><sp>"
+  repl19h<-"</stage><sp><p>"
+  txtm19d<-gsub(regx19d,repl19d,txtm8d,perl = T)
+  txtm19h<-gsub(regx19h,repl19h,txtm19d,perl = T)
+  ### the following is just unconventional correction of mislead declaration, still TODO in main script
+  regx19i<-"<sp></div>"
+  repl19i<-"</div>"
+  txtm19i<-gsub(regx19i,repl19i,txtm19h,perl = T)
+  regx19j<-"<sp><p>"
+  repl19j<-"<p>"
   txtm19j<-gsub(regx19j,repl19j,txtm19i,perl = T)
+  ########
+  ####end final9
+  ##################
   
   
-  castloop<-function(set){
-   # regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
-    repl19j<-"</head><castItem>\\2</castItem></castList>"
-    regxns<-c("(Erast.)","(Celimene.)","(Chlorinde.)","(Finette.)","(Damis.)","(Cydalise.)")
-    repl1a<-"\\1\\3"
-    txtmcleanx<-matrix(1:10)
-    txtmcleanx[1]<-set
-    for (k in 1:length(regxns)){
-      regx1a<-paste0(regxns[k],"(-)(.)")
-      txtmcleanx[k+1]<-gsub(paste0("(</head>.*)",regxns[k],"(.*)(</castList>)"),repl19j,txtmcleanx[k])
-    }
-    return(txtmcleanx)
-    #  regxns[1]
+} ##### end final8
+##################
+
+
+castloop<-function(set){
+  # regx19j<-"(</head>.*)(Celimene..|Erast..|Chlorinde..|Damis..|Cydalise..|Finette..){6}(.*)(</castList>)"
+  repl19j<-"</head><castItem>\\2</castItem></castList>"
+  regxns<-c("(Erast.)","(Celimene.)","(Chlorinde.)","(Finette.)","(Damis.)","(Cydalise.)")
+  repl1a<-"\\1\\3"
+  txtmcleanx<-matrix(1:10)
+  txtmcleanx[1]<-set
+  for (k in 1:length(regxns)){
+    regx1a<-paste0(regxns[k],"(-)(.)")
+    txtmcleanx[k+1]<-gsub(paste0("(</head>.*)",regxns[k],"(.*)(</castList>)"),repl19j,txtmcleanx[k])
   }
-  txtm19k<-castloop(txtm19j)
-  txtm18<-removegaps(txtm19j)
-  #txtm19k[7]
-    }
+  return(txtmcleanx)
+  #  regxns[1]
+}
+
+#########
+final9<-function(set){
+  txtm8<-set
+  #stuck xml line 333
+  #lisas:
+  #regx20<-"(?<!<speaker>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
+  regx8a<-"(?<!<speaker>|</speaker>|<stage>|</stage>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)(?!</stage>)"
+  repl8a<-"<speaker>\\1</speaker>"
+  txtm8b<-gsub(regx8a,repl8a,txtm8,perl = T)
+  txtm8b<-removegaps(txtm8b)
+  txtm8c<-final8(txtm8b)
+  ################## wks.
+  #12242.neu from regex lisa.
+  #look left: regx9a<-"(?<=</speaker>)(.*)"
+  regx9a<-"(</speaker>)(.+?)(<speaker>)"
+  #regx9a<-"(</speaker>)(.+?)(<speaker>)" #wks. groups: 1=complete, 2,3,4 following, reference group by natural order, not array indizes
+  repl9a<-"<sp>\\1<p>\\2</p></sp>\\3"
+  #regx8b<-"(</speaker>)(.+?)(</div>)"#first end of scene lines
+  #repl8b<-"\\1<p>\\2</p></sp>\\3"
+  #txtm8e<-gsub(regx8b,repl8b,txtm8c,perl = T)
+  regx19d<-"(<p>)(<stage>.*?</stage>)"
+  repl19d<-"\\2\\1"
+  regx19h<-"</stage><p><sp>"
+  repl19h<-"</stage><sp><p>"
+  txtm9a<-gsub(regx9a,repl9a,txtm8c,perl = T)
+  #12245.
+  #lisa hint:
+  speaker.pt<-"Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\."
+  regx13<-paste0("(?<",speaker.pt,").*?(?=",speaker.pt,"|$)")
+  regx13<-"(?<=Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.).*?(?=Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.|$)"
+  regx14<-"((?<=</speaker>).*?(?=<speaker>|</div>|$))"
+  repl14<-"<p>\\1</p></sp><sp>"
+  txtm8d<-gsub(regx14,repl14,txtm8c,perl = T)
+  txtm19d<-gsub(regx19d,repl19d,txtm8d,perl = T)
+  txtm19h<-gsub(regx19h,repl19h,txtm19d,perl = T)
+  ### the following is just unconventional correction of mislead declaration, still TODO in main script
+  regx19i<-"<sp></div>"
+  repl19i<-"</div>"
+  txtm19i<-gsub(regx19i,repl19i,txtm19h,perl = T)
+  regx19j<-"<sp><p>"
+  repl19j<-"<p>"
+  txtm19j<-gsub(regx19j,repl19j,txtm19i,perl = T)
+  ########
+}   ####end final9
+##################
 #library(xml2)
-library(purrr)
+#library(purrr)
 
 formatting<-function(set){
   txtm18<-set
@@ -242,79 +342,28 @@ formatting<-function(set){
   txtm19<-gsub("</speaker>",'</speaker>\n',txtm19)
   txtm19<-gsub("</sp>",'</sp>\n',txtm19)
   #txtm19<-gsub("<l>",'<l>\n',txtm19)
-  txtm19<-gsub("</l>",'</l>\n',txtm19)
+  #txtm19<-gsub("</l>",'</l>\n',txtm19)
   txtm19<-gsub("</p>",'</p>\n',txtm19)
   txtm19<-gsub("</div>",'</div>\n',txtm19)
+  #txtm19<-gsub("</head>",'</head>\n',txtm19)
+  txtm19<-gsub("</castList>",'</castList>\n',txtm19)
+  txtm19<-gsub("</castItem>",'</castItem>\n',txtm19)
+  txtm19<-gsub("</front>",'</front>\n',txtm19)
+  txtm19<-gsub("<front>",'<front>\n',txtm19)
+  txtm19<-gsub("<castList>",'<castList>\n',txtm19)
+  txtm19<-gsub("<body>",'<body>\n',txtm19)
+  #txtm19<-gsub("</div>",'</div>\n',txtm19)
+  #txtm19<-gsub("</div>",'</div>\n',txtm19)
+  #txtm19<-gsub("</div>",'</div>\n',txtm19)
+  
   
 }
-#########
-#stuck xml line 333
-#lisas:
-#regx20<-"(?<!<speaker>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)"
-regx8a<-"(?<!<speaker>|</speaker>|<stage>|</stage>)(Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.)(?!</stage>)"
-repl8a<-"<speaker>\\1</speaker>"
-#m<-gregexec(regx12a,txtm12,perl = T)
-#regmatches(txtm12,m)#132=oxygen
-txtm8b<-gsub(regx8a,repl8a,txtm8,perl = T)
-txtm8b<-removegaps(txtm8b)
-txtm8c<-final8(txtm8b)
-txtm8d<-formatting(txtm8c)
-write_clip(txtm8d)
-################## wks.
-#12242.neu from regex lisa.
-#<p> from </speaker> to <speaker>
-#regx9a<-"(?<=</speaker>)(.*)"
-#look left: regx9a<-"(?<=</speaker>)(.*)"
-regx9a<-"(</speaker>)(.+?)(<speaker>)"
-#regx9a<-"(</speaker>)(.+?)(<speaker>)" #wks. groups: 1=complete, 2,3,4 following, reference group by natural order, not array indizes
-repl9a<-"<sp>\\1<p>\\2</p></sp>\\3"
-#regx8b<-"(</speaker>)(.+?)(</div>)"#first end of scene lines
-#repl8b<-"\\1<p>\\2</p></sp>\\3"
-#txtm8e<-gsub(regx8b,repl8b,txtm8c,perl = T)
-regx19d<-"(<p>)(<stage>.*?</stage>)"
-repl19d<-"\\2\\1"
-regx19h<-"</stage><p><sp>"
-repl19h<-"</stage><sp><p>"
 
-
-txtm9a<-gsub(regx9a,repl9a,txtm8c,perl = T)
-
-txtm9b<-formatting(txtm9a)
-
-
-#m<-gregexec(regx8b,txtm8c,perl = T)
-#regmatches(txtm8c,m)#132=oxygen
-#txtm8c
-write_clip(formatting(txtm8c))
-
-#12245.
-#lisa hint:
-#regx13<-"(?<=Celimene\\.|Finette\\.).*?(?=Celimene\.|Finette\.|$)"
-speaker.pt<-"Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\."
-regx13<-paste0("(?<",speaker.pt,").*?(?=",speaker.pt,"|$)")
-regx13<-"(?<=Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.).*?(?=Celimene\\.|Erast\\.|Chlorinde\\.|Damis\\.|Cydalise\\.|Finette\\.|$)"
-#txtm9a
-#txtm8c
-regx14<-"((?<=</speaker>).*?(?=<speaker>|</div>|$))"
-#m<-gregexec(regx14,txtm8c,perl = T)
-#regmatches(txtm8c,m)
-#nearly through.
-repl14<-"<p>\\1</p></sp><sp>"
-txtm8d<-gsub(regx14,repl14,txtm8c,perl = T)
-txtm19d<-gsub(regx19d,repl19d,txtm8d,perl = T)
-txtm19h<-gsub(regx19h,repl19h,txtm19d,perl = T)
-
-### the following is just unconventional correction of mislead declaration, still TODO in main script
-regx19i<-"<sp></div>"
-repl19i<-"</div>"
-txtm19i<-gsub(regx19i,repl19i,txtm19h,perl = T)
-regx19j<-"<sp><p>"
-repl19j<-"<p>"
-txtm19j<-gsub(regx19j,repl19j,txtm19i,perl = T)
-########
 
 #change last modification
-txfin<-txtm19j
+#txfin<-final8(teiwork(txt))
+####################################
+txfin<-final8(teiwork(txtmraw(txt)))
 ##############
 #set<-txtm19j
 ##### removes once added - (minus) to names
@@ -323,20 +372,33 @@ cleantei<-function(set){
   repl1a<-"\\1\\3"
   txtmcleanx<-matrix(1:10)
   txtmcleanx[1]<-set
-for (k in 1:length(regxns)){
-  regx1a<-paste0(regxns[k],"(-)(.)")
-  txtmcleanx[k+1]<-gsub(paste0(regxns[k],"(-)(.)"),repl1a,txtmcleanx[k])
-}
+  for (k in 1:length(regxns)){
+    regx1a<-paste0(regxns[k],"(-)(.)")
+    txtmcleanx[k+1]<-gsub(paste0(regxns[k],"(-)(.)"),repl1a,txtmcleanx[k])
+  }
   return(txtmcleanx)
-#  regxns[1]
+  #  regxns[1]
 }
 #length(regxns
 cleantx<-cleantei(txfin)
-#cleantx[7]
-write_clip(cleantx[7])
-txtmfin<-formatting(cleantx[7])
-#writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body.xml")
+addcast<-function(set){
+  regx1a<-"((?<=<castList>)(.*?)(?=</castList>))"
+  repl1a<-"<head>Personen</head><castItem>Damis,</castItem><castItem>Chlorinde,</castItem><castItem>Celimene</castItem><castItem>Finette</castItem><castItem>Erast,</castItem><castItem>Cydalise.</castItem>"
+  txtmod<-gsub(regx1a,repl1a,set,perl=T)
+}
+#######################
+#  txtmcast<-addcast(txtes)
+#txtm19k[7]
 
+#txtes<-cleantx[7]
+
+cleantx[7]
+write_clip(cleantx[7])
+txtcast<-addcast(cleantx[7])
+txtmfin<-formatting(txtcast)
+#txtmfin<-formatting(cleantx[7])
+writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body_process.xml")
+#writes TEI to clipboard to convenient paste into <text>...</text>
 write_clip(txtmfin)
 ##########
 ##########

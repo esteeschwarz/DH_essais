@@ -1,13 +1,23 @@
 <front>
 <div type="front"><head>Der österreichische Patriot. * * *</head>
-
-<castItem>Damis.</castItem>
+</div>
+<div type="issue"><head>Drey und vier und siebenzigstes Stück. Freytags den 14. Junii. 1765. * * *</head>
+</div>
+<div type="title"><head>Der Besuch, Ein Lustspiel in einem Aufzuge.</head>
+</div>
+<div type="Dramatis_Personae"><castList>
+<head>Personen</head>
+<castItem>Damis,</castItem>
+<castItem>Chlorinde,</castItem>
+<castItem>Celimene</castItem>
+<castItem>Finette</castItem>
+<castItem>Erast,</castItem>
+<castItem>Cydalise.</castItem>
 </castList>
 </div>
 </front>
 <body>
 <div type="scene"><head>Erster Auftritt.</head>
-
 <stage>Celimene, Finette.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -95,7 +105,6 @@
 </sp>
 </div>
 <div type="scene"><head>Zweyter Auftritt.</head>
-
 <stage>Chlorinde und Celimene.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -171,7 +180,6 @@
 </sp>
 </div>
 <div type="scene"><head>Dritter Auftritt.</head>
-
 <stage>Chlorinde, Celimene, Cydalise.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -251,7 +259,6 @@
 </sp>
 </div>
 <div type="scene"><head>Vierter Auftritt.</head>
-
 <stage>Damis und die vorigen.</stage>
 <sp>
 <speaker>Damis.</speaker>
@@ -375,7 +382,6 @@
 </sp>
 </div>
 <div type="scene"><head>Fünfter Auftritt.</head>
-
 <stage>Die vorigen und Erast.</stage>
 <sp>
 <speaker>Erast.</speaker>
@@ -437,7 +443,6 @@
 </sp>
 </div>
 <div type="scene"><head>Sechster Auftritt.</head>
-
 <stage>Ein Bedienter und die vorigen.</stage>
 <sp>
 <speaker>Bediente zu Celimenen.</speaker>
@@ -449,7 +454,6 @@
 </sp>
 </div>
 <div type="scene"><head>Siebenter Auftritt.</head>
-
 <stage>Cydalise, Damis, Chlorinde und Erast.</stage>
 <sp>
 <speaker>Chlorinde.</speaker>
@@ -509,7 +513,6 @@
 </sp>
 </div>
 <div type="scene"><head>Achter Auftritt.</head>
-
 <stage>Celimene und die vorigen.</stage>
 <sp>
 <speaker>Celimene.</speaker>
@@ -577,7 +580,6 @@
 </sp>
 </div>
 <div type="scene"><head>Neunter Auftritt.</head>
-
 <stage>Cydalise, Erast, Damis.</stage>
 <sp>
 <speaker>Celimene.</speaker>
