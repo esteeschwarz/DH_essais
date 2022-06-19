@@ -9,8 +9,7 @@
 <head>Der Besuch, Ein Lustspiel in einem Aufzuge.</head>
 </div>
 <div type="Dramatis_Personae">
-<castlist><head>Personen.</head>
-<castitItem>Damis-.</castItem></castlist>
+<castlist>Personen. Celimene, Finette, Erast, Chlorinde, Cydalise, Damis-.</castlist>
 </div>
 </front>
 <body>
@@ -18,7 +17,7 @@
 <stage>Celimene, Finette.</stage>
 <sp>
 <speaker>Celimene.</speaker>
-<p>Siehst du nun, wie behutsam man mit den Mannspersonen umgehen muß? Wie lange man sie für rechtschaffen, für zärtlich, für beständig halten kann? und auf einmal ist der Verräther da. Alle sind Verräther, alle Mannspersonen. Wie sehr danke ich dem Himmel, daß ich Erasten nunmehro meine Hand nicht schon vor einem Vierteljahre gegeben habe.<pb break="578"/>Itzt wäre ich wieder so elend, so unglücklich, wie in meiner ersten Ehe. Und ich habe es noch nicht einmal meiner Klugheit zu danken, ein Zufall hat seine Gemüthsart aufgedecket. Du hast Wunder gedacht, wie gut du Erasten kennst. Nicht wahr, du hast dich betrogen?</p>
+<p>Siehst du nun, wie behutsam man mit den Mannspersonen umgehen muß? Wie lange man sie für rechtschaffen, für zärtlich, für beständig halten kann? und auf einmal ist der Verräther da. Alle sind Verräther, alle Mannspersonen. Wie sehr danke ich dem Himmel, daß ich Erasten nunmehro meine Hand nicht schon vor einem Vierteljahre gegeben habe.<pb id="578"/>Itzt wäre ich wieder so elend, so unglücklich, wie in meiner ersten Ehe. Und ich habe es noch nicht einmal meiner Klugheit zu danken, ein Zufall hat seine Gemüthsart aufgedecket. Du hast Wunder gedacht, wie gut du Erasten kennst. Nicht wahr, du hast dich betrogen?</p>
 </sp>
 <sp>
 <speaker>Finette.</speaker>
@@ -38,7 +37,7 @@
 </sp>
 <sp>
 <speaker>Finette.</speaker>
-<p>Ich weiß nicht, ihr Gnaden, ich habe auch schon drey Amanten gehabt, und die sind alle drey<pb break="579"/>zum Schelm geworden. Ihr Gnaden sehn, daß ich noch immer ledig bin, und man wird doch auch alle Tage älter.</p>
+<p>Ich weiß nicht, ihr Gnaden, ich habe auch schon drey Amanten gehabt, und die sind alle drey<pb id="579"/>zum Schelm geworden. Ihr Gnaden sehn, daß ich noch immer ledig bin, und man wird doch auch alle Tage älter.</p>
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
@@ -82,7 +81,7 @@
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
-<p>Nein.<pb break="580"/></p>
+<p>Nein.<pb id="580"/></p>
 </sp>
 <sp>
 <speaker>Finette.</speaker>
@@ -125,7 +124,7 @@
 </sp>
 <sp>
 <speaker>Chlorinde.</speaker>
-<p>O die lächerliche Creatur; die allein in der Welt schön seyn will, die sich stellt beständig krank zu seyn, damit man glauben soll, sie würde noch zehnmal schöner seyn, wenn sie gesund wäre. Das Mädel weiß sich vor lauter Hochmuth nicht zu lassen.<pb break="581"/>Sie hat auch geglaubt, sie hat den Damis schon erwischt, die Närrin die! Aber itzt trägt man sich mit einer Neuigkeit, meine Aufsetzerin hat mir heute ein paar Worte davon gesagt, allein – –</p>
+<p>O die lächerliche Creatur; die allein in der Welt schön seyn will, die sich stellt beständig krank zu seyn, damit man glauben soll, sie würde noch zehnmal schöner seyn, wenn sie gesund wäre. Das Mädel weiß sich vor lauter Hochmuth nicht zu lassen.<pb id="581"/>Sie hat auch geglaubt, sie hat den Damis schon erwischt, die Närrin die! Aber itzt trägt man sich mit einer Neuigkeit, meine Aufsetzerin hat mir heute ein paar Worte davon gesagt, allein – –</p>
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
@@ -161,7 +160,7 @@
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
-<p>Nun wir wollen es versuchen. Vielleicht wird Damis meiner Zärtlichkeit dereinst noch würdig. Ich wundere mich über sie, Fräulein Chlorinde-. Sie sind aber recht glücklich dabey, kein einzig Mannsbild hat noch Eindruck auf sie gemacht.<pb break="582"/></p>
+<p>Nun wir wollen es versuchen. Vielleicht wird Damis meiner Zärtlichkeit dereinst noch würdig. Ich wundere mich über sie, Fräulein Chlorinde-. Sie sind aber recht glücklich dabey, kein einzig Mannsbild hat noch Eindruck auf sie gemacht.<pb id="582"/></p>
 </sp>
 <sp>
 <speaker>Chlorinde.</speaker>
@@ -192,7 +191,7 @@
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
-<p>Sie blühen ja, wie eine Rose, meine liebe Cydalise-.<pb break="583"/></p>
+<p>Sie blühen ja, wie eine Rose, meine liebe Cydalise-.<pb id="583"/></p>
 </sp>
 <sp>
 <speaker>Cydalise.</speaker>
@@ -236,7 +235,7 @@
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
-<p>Ich bitte, ich bitte, meine Fräulein. Lassen sie sich Gerechtigkeit wiederfahren, jedes Frauenzimmer findet ihren Liebhaber, dem sie gefällt.<pb break="584"/></p>
+<p>Ich bitte, ich bitte, meine Fräulein. Lassen sie sich Gerechtigkeit wiederfahren, jedes Frauenzimmer findet ihren Liebhaber, dem sie gefällt.<pb id="584"/></p>
 </sp>
 <sp>
 <speaker>Chlorinde.</speaker>
@@ -283,7 +282,7 @@
 </sp>
 <sp>
 <speaker>Cydalise.</speaker>
-<p>Sie haben ja recht gute Gesellschaft Frau von Celimene-. In der That, man muß sie bey ihnen suchen.<pb break="585"/></p>
+<p>Sie haben ja recht gute Gesellschaft Frau von Celimene-. In der That, man muß sie bey ihnen suchen.<pb id="585"/></p>
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
@@ -327,7 +326,7 @@
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
-<p>Recht gut mein Herr. Ich bin billig, ich verlange von den Mannsbildern keine Unmöglichkeiten, nichts, was wider ihre Gemüthsart und über ihre Kräfte ist. Die Beständigkeit! Wer hat dies Gespenst<pb break="586"/>jemals gesehn? Die heftigste Liebe ist ein Platzregen, der nur eine sehr kurze Zeit dauert.</p>
+<p>Recht gut mein Herr. Ich bin billig, ich verlange von den Mannsbildern keine Unmöglichkeiten, nichts, was wider ihre Gemüthsart und über ihre Kräfte ist. Die Beständigkeit! Wer hat dies Gespenst<pb id="586"/>jemals gesehn? Die heftigste Liebe ist ein Platzregen, der nur eine sehr kurze Zeit dauert.</p>
 </sp>
 <sp>
 <speaker>Chlorinde.</speaker>
@@ -375,7 +374,7 @@
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
-<p>Ich bitte.<pb break="587"/></p>
+<p>Ich bitte.<pb id="587"/></p>
 </sp>
 </div>
 <div type="scene"><head>Fünfter Auftritt.</head>
@@ -432,7 +431,7 @@
 </sp>
 <sp>
 <speaker>Erast.</speaker>
-<p>Das ist ein blutiger Streich, gnädige Frau.<pb break="588"/></p>
+<p>Das ist ein blutiger Streich, gnädige Frau.<pb id="588"/></p>
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
@@ -478,7 +477,7 @@
 </sp>
 <sp>
 <speaker>Cydalise.</speaker>
-<p>Erast ist heute recht liebenswürdig, in Wahrheit zum Küssen. Was träumen sie denn ewig, hören sie doch Erast?<pb break="589"/></p>
+<p>Erast ist heute recht liebenswürdig, in Wahrheit zum Küssen. Was träumen sie denn ewig, hören sie doch Erast?<pb id="589"/></p>
 </sp>
 <sp>
 <speaker>Erast.</speaker>
@@ -525,7 +524,7 @@
 </sp>
 <sp>
 <speaker>Cydalise.</speaker>
-<p>Keinen Augenblick länger. Hören sie doch Erast, so kommen sie. Sind sie denn unbeweglich auf ihrem Sessel?<pb break="590"/></p>
+<p>Keinen Augenblick länger. Hören sie doch Erast, so kommen sie. Sind sie denn unbeweglich auf ihrem Sessel?<pb id="590"/></p>
 </sp>
 <sp>
 <speaker>Erast.</speaker>
@@ -584,7 +583,7 @@
 </sp>
 <sp>
 <speaker>Damis.</speaker>
-<p>Unvergleichlich, ihr Gnaden. Erast, was Henker! du siehst aus, als wenn du verrückt wärest? Du wirst den Teufel kriegen, wenn du zu Cydalisen kömmst. Schau doch, was wir für einen Wechsel getroffen<pb break="591"/>haben; ich machte Anfangs meine Aufwartung der Cydalise, und du der gnädigen Frau da. Itzt wird die Fräulein Cydalise deine Gemahlin, und die gnädige Frau meine. Ich bin mit dem Tausch zufrieden.</p>
+<p>Unvergleichlich, ihr Gnaden. Erast, was Henker! du siehst aus, als wenn du verrückt wärest? Du wirst den Teufel kriegen, wenn du zu Cydalisen kömmst. Schau doch, was wir für einen Wechsel getroffen<pb id="591"/>haben; ich machte Anfangs meine Aufwartung der Cydalise, und du der gnädigen Frau da. Itzt wird die Fräulein Cydalise deine Gemahlin, und die gnädige Frau meine. Ich bin mit dem Tausch zufrieden.</p>
 </sp>
 <sp>
 <speaker>Erast.</speaker>
@@ -620,7 +619,7 @@
 </sp>
 <sp>
 <speaker>Erast.</speaker>
-<p>Gnädige Frau, sehn sie mich zu ihren Füßen, ich weiß es, daß sie mich einmal geliebt haben. Sollte alle Zärtlichkeit gegen mich auf einmal aus ihrem göttlichen Herzen verschwunden seyn? Vergeben sie mir mein Verbrechen, es war eine Verirrung meiner Vernunft. Mein Oheim, den ich schonen muß, befahl mir bey dem Verluste seiner Gewogenheit, Cydalisen einige Besuche zu machen. Ich wäre der unglückseligste<pb break="592"/>Mann mit Cydalisen geworden. O gnädige Frau – –</p>
+<p>Gnädige Frau, sehn sie mich zu ihren Füßen, ich weiß es, daß sie mich einmal geliebt haben. Sollte alle Zärtlichkeit gegen mich auf einmal aus ihrem göttlichen Herzen verschwunden seyn? Vergeben sie mir mein Verbrechen, es war eine Verirrung meiner Vernunft. Mein Oheim, den ich schonen muß, befahl mir bey dem Verluste seiner Gewogenheit, Cydalisen einige Besuche zu machen. Ich wäre der unglückseligste<pb id="592"/>Mann mit Cydalisen geworden. O gnädige Frau – –</p>
 </sp>
 <sp>
 <speaker>Celimene.</speaker>
