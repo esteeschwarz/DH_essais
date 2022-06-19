@@ -220,8 +220,8 @@ final8<-function(set){
     #  regxns[1]
   }
   txtm19k<-castloop(txtm19j)
-  txtm18<-removegaps(txtm19k)
-  txtm19k[7]
+  txtm18<-removegaps(txtm19j)
+  #txtm19k[7]
     }
 #library(xml2)
 library(purrr)
@@ -327,7 +327,7 @@ cleantx<-cleantei(txfin)
 #cleantx[7]
 write_clip(cleantx[7])
 txtmfin<-formatting(cleantx[7])
-writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body.xml")
+writeLines(txtmfin,"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_body_process.xml")
 ##########
 ##########
 #wks.
