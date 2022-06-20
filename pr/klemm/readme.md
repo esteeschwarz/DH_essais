@@ -7,3 +7,5 @@
 # 12252.
 die auszeichnung funktioniert leider noch nicht vollautomatisiert. die castlist musz manuell editiert werden. ansonsten kann [dieser text](https://github.com/esteeschwarz/DH_essais/blob/main/data/corpus/klemm_besuch/klemm_TEI_body.xml) (same as above, TEI_body) so wie er aus R exportiert wird, in den textblock der dramavorlage importiert werden.
 .01 castlist inserted with R, provisory solution
+# 12253.
+.01 TODO: die auszeichnung musz noch dem dracor schema angepaszt werden, die vereinfachte drama-vorlage reicht nicht, um zb. mit dem DramaNLP eine auswertung vornehmen zu können...
