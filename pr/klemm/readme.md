@@ -9,3 +9,5 @@ die auszeichnung funktioniert leider noch nicht vollautomatisiert. die castlist 
 .01 castlist inserted with R, provisory solution
 # 12253.
 .01 TODO: die auszeichnung musz noch dem dracor schema angepaszt werden, die vereinfachte drama-vorlage reicht nicht, um zb. mit dem DramaNLP eine auswertung vornehmen zu können...
+.02 TODO: weiterhin ist das script spezifisch auf das klemm drama angepaszt..., ein task wäre, es so zu bauen, dasz es die wikivorlagen der anderen kursstücke ebenfalls exportieren kann.
+.02.1 major task..., dafür zuerst sprecherinstanzen filtern können
