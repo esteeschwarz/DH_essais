@@ -3,6 +3,7 @@
 - not finalised TEI encoded body of klemm(1765): https://github.com/esteeschwarz/DH_essais/blob/main/data/corpus/klemm_besuch/klemm_TEI_body.xml
 - finalised TEI according to drama scheme https://github.com/esteeschwarz/DH_essais/blob/main/data/corpus/klemm_besuch/klemm_TEI_final.xml
 - presentation when finished: https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22
+- in above folder you find also all [staged and commented](https://github.com/esteeschwarz/DH_essais/blob/main/data/corpus/klemm_besuch) essais de declaration from raw OCR to TEI
 
 # 12252.
 die auszeichnung funktioniert leider noch nicht vollautomatisiert. die castlist musz manuell editiert werden. ansonsten kann [dieser text](https://github.com/esteeschwarz/DH_essais/blob/main/data/corpus/klemm_besuch/klemm_TEI_body.xml) (same as above, TEI_body) so wie er aus R exportiert wird, in den textblock der dramavorlage importiert werden.
