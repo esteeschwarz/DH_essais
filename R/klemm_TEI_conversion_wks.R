@@ -14,15 +14,26 @@ getwd()
 #src<-"~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/klemm_TEI_wikiraw.xml"
 #src<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/data/corpus/klemm_besuch/klemm(1765)_clean.txt"
 ##### modify for raw text:
-src<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/data/corpus/klemm_besuch/klemm(1765)_wiki_preprocessed.txt"
 ##########################
 #txt<-scan(src,"")
 #library(stringi)
 library(httr)
-#txt<-readLines(src)
-api_call<-httr::GET(src)
-txt<-httr::content(api_call,"text")
-
+library(rvest)
+library(stringi)
+###################################
+#this calls static txt from repository
+#src<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/data/corpus/klemm_besuch/klemm(1765)_wiki_preprocessed.txt"
+#api_call<-httr::GET(src)
+#txt<-httr::content(api_call,"text")
+###################################
+# lisa scrape:
+src<-"https://de.wikisource.org/wiki/Der_Besuch_(Klemm)"
+dta1<-read_html(src)
+xpathkl<-'//*[@id="mw-content-text"]/div[1]/div[2]'
+#xpath copied from browser developer tools (safari)
+html_nodes(dta1,xpath = xpathkl)
+txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
+#wks.
 #library(stringi)
 library(clipr)
 #library(xml2)
