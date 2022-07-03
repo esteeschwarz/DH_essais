@@ -28,7 +28,7 @@ setDirectories(
 installData("qd")
 # Stück laden und in einer Variable d speichern
 d <- loadDrama("qd:vn0h.0")
-d <- loadDrama("qd:Klemm.0")
+d <- loadDrama("drst:klemm")
 
 
 # WER REDET WIE VIEL? 
