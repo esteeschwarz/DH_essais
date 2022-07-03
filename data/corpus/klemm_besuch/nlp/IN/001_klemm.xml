@@ -27,8 +27,8 @@
       </publicationStmt>
       <sourceDesc>
         <bibl type="digitalSource">
-          <name>dracor staging</name>
-          <idno type="URL">https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/data/corpus/klemm_besuch/nlp/IN/001_klemm.xml</idno>
+          <name>WIKISOURCE</name>
+          <idno type="URL">https://de.wikisource.org/wiki/Der_Besuch_(Klemm):002_klemm</idno>
 
           <availability status="free">
             <p>In the public domain.</p>
