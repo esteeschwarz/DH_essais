@@ -16,6 +16,15 @@ library(igraph)
 
 # DATEN
 # quadrama Korpus installieren: Das enthält die TextGrid IDs
+setDirectories(
+  dataDirectory = file.path(path.expand("~"), "QuaDramA", "Data2"),
+  collectionDirectory = file.path(dataDirectory, "collections")
+)
+
+  dataDirectory = "~/boxHKW/21S/DH/local/dr_analysis/data"
+  collectionDirectory = file.path(dataDirectory, "collections")
+
+
 installData("qd")
 # Stück laden und in einer Variable d speichern
 d <- loadDrama("qd:vn0h.0")
