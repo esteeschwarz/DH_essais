@@ -2,6 +2,7 @@
 title: "R-Tutorium 1. Sitzung, 25.04.2022"
 author: "Lisa Poggel"
 date: "04/25/2021"
+runtime: shiny
 output: html_document
 ---
 

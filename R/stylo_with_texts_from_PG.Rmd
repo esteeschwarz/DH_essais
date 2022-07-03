@@ -1,8 +1,9 @@
 ---
 title: "Stylo with Project Gutenberg Texts"
+runtime: shiny
+output: html_document
 author: "David Joseph Wrisley @DJWrisley"
 date: "4/13/2020"
-output: html_notebook
 ---
 
 ## Introduction
