@@ -28,7 +28,8 @@
       <sourceDesc>
         <bibl type="digitalSource">
           <name>Wikisource</name>
-          <idno type="URL">https://de.wikisource.org/wiki/Der_Besuch_(Klemm)</idno>
+          <idno type="URL">local/klemm:klemm</idno>
+
           <availability status="free">
             <p>In the public domain.</p>
           </availability>
