@@ -20,10 +20,10 @@ setDirectories(
   dataDirectory = file.path(path.expand("~"), "QuaDramA", "Data2"),
   collectionDirectory = file.path(dataDirectory, "collections")
 )
-
-  dataDirectory = "~/boxHKW/21S/DH/local/dr_analysis/data"
+setDirectories(
+  dataDirectory = "~/boxHKW/21S/DH/local/dr_analysis/data",
   collectionDirectory = file.path(dataDirectory, "collections")
-
+)
 
 installData("qd")
 # Stück laden und in einer Variable d speichern
