@@ -21,8 +21,8 @@ setDirectories(
   collectionDirectory = file.path(dataDirectory, "collections")
 )
 setDirectories(
-  dataDirectory = "~/boxHKW/21S/DH/local/dr_analysis/data",
-  collectionDirectory = file.path(dataDirectory, "collections")
+  dataDirectory <- file.path("data","corpus","nlp"),
+  collectionDirectory <- file.path(dataDirectory, "collections")
 )
 
 installData("qd")
