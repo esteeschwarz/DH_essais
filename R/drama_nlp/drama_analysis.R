@@ -40,7 +40,7 @@ characterStatistics(d)
 # Funktionsparameters "filterPunctuation" geändert werden: 
 characterStatistics(d, filterPunctuation = TRUE)
 # Statistiken für jeden Akt einzeln ausgeben lassen:
-characterStatistics(d, segment="Act")
+characterStatistics(d, segment="Scene")
 # Werte normalisieren: wenn mehrere Texte verglichen werden sollen, muss mit 
 # normalisierten Werten gearbeitet werden
 characterStatistics(d, normalize=TRUE)

@@ -28,7 +28,7 @@
       <sourceDesc>
         <bibl type="digitalSource">
           <name>WIKISOURCE</name>
-          <idno type="URL">https://de.wikisource.org/wiki/Der_Besuch_(Klemm):002_klemm</idno>
+          <idno type="URL">~/boxHKW/21S/DH/gith/DH_essais/data/corpus/klemm_besuch/nlp/IN/001_klemm_nlp.xml</idno>
 
           <availability status="free">
             <p>In the public domain.</p>
