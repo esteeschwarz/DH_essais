@@ -1,0 +1,18 @@
+corpus,drama,utteranceBegin,utteranceEnd,utteranceSpeakerId,mentionBegin,mentionEnd,mentionSurface,entityId
+qd,rfx8.0,57,101,_stage,71,85,Der Kammerherr,der_kammerherr
+qd,rfx8.0,104,497,der_fürst,243,246,ich,der_fürst
+qd,rfx8.0,104,497,der_fürst,287,290,ich,der_fürst
+qd,rfx8.0,104,497,der_fürst,330,333,mir,der_fürst
+qd,rfx8.0,632,751,der_fürst,665,668,ich,der_fürst
+qd,rfx8.0,632,751,der_fürst,683,689,meiner,der_fürst
+qd,rfx8.0,756,980,der_kammerherr,790,793,ich,der_kammerherr
+qd,rfx8.0,985,1231,der_fürst,997,1000,Ich,der_fürst
+qd,rfx8.0,1488,2041,der_geist,1867,1870,mir,der_geist
+qd,rfx8.0,2046,2087,der_fürst,2083,2086,mir,der_fürst
+qd,rfx8.0,2092,2675,der_geist,2346,2349,ich,der_geist
+qd,rfx8.0,2092,2675,der_geist,2387,2390,ich,der_geist
+qd,rfx8.0,2092,2675,der_geist,2573,2577,mich,der_geist
+qd,rfx8.0,2092,2675,der_geist,2645,2649,mich,der_geist
+qd,rfx8.0,2731,2780,der_kammerherr,2748,2751,Ich,der_kammerherr
+qd,rfx8.0,2731,2780,der_kammerherr,2754,2757,ich,der_kammerherr
+qd,rfx8.0,2731,2780,der_kammerherr,2776,2779,mir,der_kammerherr

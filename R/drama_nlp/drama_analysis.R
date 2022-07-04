@@ -12,6 +12,7 @@ install.packages(c("DramaAnalysis", "magrittr",
 library(DramaAnalysis)
 library(magrittr)
 library(igraph)
+getwd()
 
 
 # DATEN
@@ -28,7 +29,7 @@ setDirectories(
 installData("qd")
 # Stück laden und in einer Variable d speichern
 d <- loadDrama("qd:vn0h.0")
-d <- loadDrama("drst:klemm")
+d <- loadDrama("drst:001vww579.0") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances.
 
 
 # WER REDET WIE VIEL? 

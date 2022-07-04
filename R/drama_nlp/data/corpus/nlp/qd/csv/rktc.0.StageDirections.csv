@@ -1,0 +1,250 @@
+corpus,drama,begin,end,Speaker.figure_surface,Speaker.figure_id,Token.surface,Token.pos,Token.lemma,length,Mentioned.figure_surface,Mentioned.figure_id
+qd,rktc.0,285,312,_Stage,_Stage,Michel,NE,michel,13477,,(1
+qd,rktc.0,285,312,_Stage,_Stage,Stich,NE,stich,13477,,1)
+qd,rktc.0,285,312,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,285,312,_Stage,_Stage,Martin,NE,martin,13477,,(0
+qd,rktc.0,285,312,_Stage,_Stage,Krumm,NE,krumm,13477,,0)
+qd,rktc.0,285,312,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,2195,2222,_Stage,_Stage,Martin,NE,martin,13477,,(0
+qd,rktc.0,2195,2222,_Stage,_Stage,Krumm,NE,krumm,13477,,0)
+qd,rktc.0,2195,2222,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,2195,2222,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,2195,2222,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,2195,2222,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,10698,10722,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,10698,10722,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,10698,10722,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,10698,10722,_Stage,_Stage,Christoph,NE,christoph,13477,,(3)
+qd,rktc.0,10698,10722,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,14281,14308,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,14281,14308,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,14281,14308,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,14281,14308,_Stage,_Stage,Das,ART,der,13477,,
+qd,rktc.0,14281,14308,_Stage,_Stage,Fräulein,NN,fräulein,13477,,
+qd,rktc.0,14281,14308,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,16570,16594,_Stage,_Stage,Der,ART,der,13477,,(5
+qd,rktc.0,16570,16594,_Stage,_Stage,Baron,NE,baron,13477,,5)
+qd,rktc.0,16570,16594,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,16570,16594,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,16570,16594,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,16570,16594,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,19586,19596,DER BARON,der_baron,bei,APPR,bei,13477,,
+qd,rktc.0,19586,19596,DER BARON,der_baron,Seite,NN,seite,13477,,
+qd,rktc.0,19586,19596,DER BARON,der_baron,.,$.,--,13477,,
+qd,rktc.0,19680,19690,DER REISENDE,der_reisende,bei,APPR,bei,13477,,
+qd,rktc.0,19680,19690,DER REISENDE,der_reisende,Seite,NN,seite,13477,,
+qd,rktc.0,19680,19690,DER REISENDE,der_reisende,.,$.,--,13477,,
+qd,rktc.0,19757,19767,DER BARON,der_baron,bei,APPR,bei,13477,,
+qd,rktc.0,19757,19767,DER BARON,der_baron,Seite,NN,seite,13477,,
+qd,rktc.0,19757,19767,DER BARON,der_baron,.,$.,--,13477,,
+qd,rktc.0,19851,19861,DER REISENDE,der_reisende,bei,APPR,bei,13477,,
+qd,rktc.0,19851,19861,DER REISENDE,der_reisende,Seite,NN,seite,13477,,
+qd,rktc.0,19851,19861,DER REISENDE,der_reisende,.,$.,--,13477,,
+qd,rktc.0,19912,19922,DER BARON,der_baron,bei,APPR,bei,13477,,
+qd,rktc.0,19912,19922,DER BARON,der_baron,Seite,NN,seite,13477,,
+qd,rktc.0,19912,19922,DER BARON,der_baron,.,$.,--,13477,,
+qd,rktc.0,20032,20042,DER REISENDE,der_reisende,bei,APPR,bei,13477,,
+qd,rktc.0,20032,20042,DER REISENDE,der_reisende,Seite,NN,seite,13477,,
+qd,rktc.0,20032,20042,DER REISENDE,der_reisende,.,$.,--,13477,,
+qd,rktc.0,22575,22613,_Stage,_Stage,Das,ART,der,13477,,
+qd,rktc.0,22575,22613,_Stage,_Stage,Fräulein,NN,fräulein,13477,,
+qd,rktc.0,22575,22613,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,22575,22613,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,22575,22613,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,22575,22613,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,22575,22613,_Stage,_Stage,Der,ART,der,13477,,(5
+qd,rktc.0,22575,22613,_Stage,_Stage,Baron,NE,baron,13477,,5)
+qd,rktc.0,22575,22613,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,Christoph,NE,christoph,13477,,(3)
+qd,rktc.0,24657,24741,_Stage,_Stage,in,APPR,in,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,Stiefeln,NN,stiefel,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,und,KON,und,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,Sporen,NN,spor,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,",","$,",--,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,und,KON,und,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,zwei,CARD,zwei,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,Mantelsäcke,NN,mantelsack,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,unter,APPR,unter,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,den,ART,der,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,Armen,NN,arme,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,Die,ART,der,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,Vorigen,NN,vorige,13477,,
+qd,rktc.0,24657,24741,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,27471,27492,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,27471,27492,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,27471,27492,_Stage,_Stage,Die,ART,der,13477,,
+qd,rktc.0,27471,27492,_Stage,_Stage,Vorigen,NN,vorige,13477,,
+qd,rktc.0,27471,27492,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,27506,27537,DER BARON,der_baron,indem,KOUS,indem,13477,,
+qd,rktc.0,27506,27537,DER BARON,der_baron,er,PPER,er,13477,,
+qd,rktc.0,27506,27537,DER BARON,der_baron,Lisetten,NN,lisette,13477,,
+qd,rktc.0,27506,27537,DER BARON,der_baron,kommen,VVINF,kommen,13477,,
+qd,rktc.0,27506,27537,DER BARON,der_baron,sieht,VVFIN,sehen,13477,,
+qd,rktc.0,27506,27537,DER BARON,der_baron,.,$.,--,13477,,
+qd,rktc.0,27908,27922,DER BARON,der_baron,sachte,VVFIN,sachen,13477,,
+qd,rktc.0,27908,27922,DER BARON,der_baron,zu,APPR,zu,13477,,
+qd,rktc.0,27908,27922,DER BARON,der_baron,ihr,PPER,ihr,13477,,
+qd,rktc.0,27908,27922,DER BARON,der_baron,.,$.,--,13477,,
+qd,rktc.0,28812,28831,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,28812,28831,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,28812,28831,_Stage,_Stage,Christoph,NE,christoph,13477,,(3)
+qd,rktc.0,28812,28831,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,28843,28856,LISETTE,lisette,hält,VVFIN,halten,13477,,
+qd,rktc.0,28843,28856,LISETTE,lisette,ihn,PPER,ihn,13477,,
+qd,rktc.0,28843,28856,LISETTE,lisette,auf,PTKVZ,auf,13477,,
+qd,rktc.0,28843,28856,LISETTE,lisette,.,$.,--,13477,,
+qd,rktc.0,32165,32175,LISETTE,lisette,bei,APPR,bei,13477,,
+qd,rktc.0,32165,32175,LISETTE,lisette,Seite,NN,seite,13477,,
+qd,rktc.0,32165,32175,LISETTE,lisette,.,$.,--,13477,,
+qd,rktc.0,33670,33692,_Stage,_Stage,Martin,NE,martin,13477,,(0
+qd,rktc.0,33670,33692,_Stage,_Stage,Krumm,NE,krumm,13477,,0)
+qd,rktc.0,33670,33692,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,33670,33692,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,33670,33692,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,34920,34949,LISETTE,lisette,schielt,VVFIN,schielen,13477,,
+qd,rktc.0,34920,34949,LISETTE,lisette,ihn,PPER,ihn,13477,,
+qd,rktc.0,34920,34949,LISETTE,lisette,von,APPR,von,13477,,
+qd,rktc.0,34920,34949,LISETTE,lisette,der,ART,der,13477,,
+qd,rktc.0,34920,34949,LISETTE,lisette,Seite,NN,seite,13477,,
+qd,rktc.0,34920,34949,LISETTE,lisette,an,PTKVZ,an,13477,,
+qd,rktc.0,34920,34949,LISETTE,lisette,.,$.,--,13477,,
+qd,rktc.0,36372,36385,LISETTE,lisette,schmeichelnd,ADJD,schmeichelnd,13477,,
+qd,rktc.0,36372,36385,LISETTE,lisette,.,$.,--,13477,,
+qd,rktc.0,37619,37655,_Stage,_Stage,Das,ART,der,13477,,
+qd,rktc.0,37619,37655,_Stage,_Stage,Fräulein,NN,fräulein,13477,,
+qd,rktc.0,37619,37655,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,37619,37655,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,37619,37655,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,37619,37655,_Stage,_Stage,Martin,NE,martin,13477,,(0
+qd,rktc.0,37619,37655,_Stage,_Stage,Krumm,NE,krumm,13477,,0)
+qd,rktc.0,37619,37655,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,sie,PPER,sie,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,kömmt,VVFIN,kömmen,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,dazu,PROAV,dazu,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,geschlichen,VVPP,schleichen,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,",","$,",--,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,und,KON,und,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,stößt,VVFIN,stoßen,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,ihn,PPER,ihn,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,mit,APPR,mit,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,dem,ART,der,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,Kopfe,NN,kopfe,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,auf,APPR,auf,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,die,ART,der,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,Hand,NN,hand,13477,,
+qd,rktc.0,37672,37741,DAS FRÄULEIN,das_fräulein,.,$.,--,13477,,
+qd,rktc.0,37920,37943,DAS FRÄULEIN,das_fräulein,gibt,VVFIN,geben,13477,,
+qd,rktc.0,37920,37943,DAS FRÄULEIN,das_fräulein,ihm,PPER,ihm,13477,,
+qd,rktc.0,37920,37943,DAS FRÄULEIN,das_fräulein,eine,ART,ein,13477,,
+qd,rktc.0,37920,37943,DAS FRÄULEIN,das_fräulein,Ohrfeige,NN,ohrfeige,13477,,
+qd,rktc.0,37920,37943,DAS FRÄULEIN,das_fräulein,.,$.,--,13477,,
+qd,rktc.0,38310,38332,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,38310,38332,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,38310,38332,_Stage,_Stage,Das,ART,der,13477,,
+qd,rktc.0,38310,38332,_Stage,_Stage,Fräulein,NN,fräulein,13477,,
+qd,rktc.0,38310,38332,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,39993,40012,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,39993,40012,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,39993,40012,_Stage,_Stage,Christoph,NE,christoph,13477,,(3)
+qd,rktc.0,39993,40012,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,46556,46583,_Stage,_Stage,Martin,NE,martin,13477,,(0
+qd,rktc.0,46556,46583,_Stage,_Stage,Krumm,NE,krumm,13477,,0)
+qd,rktc.0,46556,46583,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,46556,46583,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,46556,46583,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,46556,46583,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,als,KOUS,als,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,er,PPER,er,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,den,ART,der,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,Reisenden,NN,reisend,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,gewahr,VVPP,gewahr,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,wird,VAFIN,werden,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,",","$,",--,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,will,VMFIN,wollen,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,er,PPER,er,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,wieder,ADV,wieder,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,umkehren,VVINF,umkehren,13477,,
+qd,rktc.0,46600,46658,MARTIN KRUMM,martin_krumm,.,$.,--,13477,,
+qd,rktc.0,46830,46838,MARTIN KRUMM,martin_krumm,trotzig,ADJD,trotzig,13477,,
+qd,rktc.0,46830,46838,MARTIN KRUMM,martin_krumm,.,$.,--,13477,,
+qd,rktc.0,50227,50237,MARTIN KRUMM,martin_krumm,bei,APPR,bei,13477,,
+qd,rktc.0,50227,50237,MARTIN KRUMM,martin_krumm,Seite,NN,seite,13477,,
+qd,rktc.0,50227,50237,MARTIN KRUMM,martin_krumm,.,$.,--,13477,,
+qd,rktc.0,50827,50837,MARTIN KRUMM,martin_krumm,bei,APPR,bei,13477,,
+qd,rktc.0,50827,50837,MARTIN KRUMM,martin_krumm,Seite,NN,seite,13477,,
+qd,rktc.0,50827,50837,MARTIN KRUMM,martin_krumm,.,$.,--,13477,,
+qd,rktc.0,51586,51610,_Stage,_Stage,Der,ART,der,13477,,(5
+qd,rktc.0,51586,51610,_Stage,_Stage,Baron,NE,baron,13477,,5)
+qd,rktc.0,51586,51610,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,51586,51610,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,51586,51610,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,51586,51610,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,54573,54608,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,54573,54608,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,54573,54608,_Stage,_Stage,und,KON,und,13477,,
+qd,rktc.0,54573,54608,_Stage,_Stage,hernach,ADV,hernach,13477,,
+qd,rktc.0,54573,54608,_Stage,_Stage,Christoph,NE,christoph,13477,,(3)
+qd,rktc.0,54573,54608,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,55288,55302,CHRISTOPH,christoph,kömmt,VVFIN,kömmen,13477,,
+qd,rktc.0,55288,55302,CHRISTOPH,christoph,gelacht,VVPP,lachen,13477,,
+qd,rktc.0,55288,55302,CHRISTOPH,christoph,.,$.,--,13477,,
+qd,rktc.0,58973,59006,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,58973,59006,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,58973,59006,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,58973,59006,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,58973,59006,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,58973,59006,_Stage,_Stage,Christoph,NE,christoph,13477,,(3)
+qd,rktc.0,58973,59006,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,60721,60731,LISETTE,lisette,bei,APPR,bei,13477,,
+qd,rktc.0,60721,60731,LISETTE,lisette,Seite,NN,seite,13477,,
+qd,rktc.0,60721,60731,LISETTE,lisette,.,$.,--,13477,,
+qd,rktc.0,60911,60955,_Stage,_Stage,Der,ART,der,13477,,(5
+qd,rktc.0,60911,60955,_Stage,_Stage,Baron,NE,baron,13477,,5)
+qd,rktc.0,60911,60955,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,60911,60955,_Stage,_Stage,Der,ART,der,13477,,(2
+qd,rktc.0,60911,60955,_Stage,_Stage,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,60911,60955,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,60911,60955,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,60911,60955,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,60911,60955,_Stage,_Stage,Christoph,NE,christoph,13477,,(3)
+qd,rktc.0,60911,60955,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,60969,60988,DER BARON,der_baron,kömmt,VVFIN,kömmen,13477,,
+qd,rktc.0,60969,60988,DER BARON,der_baron,hastig,ADJD,hastig,13477,,
+qd,rktc.0,60969,60988,DER BARON,der_baron,herzu,PTKVZ,herzu,13477,,
+qd,rktc.0,60969,60988,DER BARON,der_baron,.,$.,--,13477,,
+qd,rktc.0,62485,62514,_Stage,_Stage,Das,ART,der,13477,,
+qd,rktc.0,62485,62514,_Stage,_Stage,Fräulein,NN,fräulein,13477,,
+qd,rktc.0,62485,62514,_Stage,_Stage,und,KON,und,13477,,
+qd,rktc.0,62485,62514,_Stage,_Stage,die,ART,der,13477,,
+qd,rktc.0,62485,62514,_Stage,_Stage,Vorigen,NN,vorige,13477,,
+qd,rktc.0,62485,62514,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,63887,63897,DER REISENDE,der_reisende,bei,APPR,bei,13477,,
+qd,rktc.0,63887,63897,DER REISENDE,der_reisende,Seite,NN,seite,13477,,
+qd,rktc.0,63887,63897,DER REISENDE,der_reisende,.,$.,--,13477,,
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,Der,ART,der,13477,,(5
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,Baron,NE,baron,13477,,5)
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,",","$,",--,13477,,
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,das,ART,der,13477,,
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,Fräulein,NN,fräulein,13477,,
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,und,KON,und,13477,,
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,der,ART,der,13477,,(2
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,Reisende,NN,reisend,13477,,2)
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,gehen,VVFIN,gehen,13477,,
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,ab,PTKVZ,ab,13477,,
+qd,rktc.0,66984,67034,DER REISENDE,der_reisende,.,$.,--,13477,,
+qd,rktc.0,67085,67104,_Stage,_Stage,Lisette,NE,lisette,13477,,(6)
+qd,rktc.0,67085,67104,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,67085,67104,_Stage,_Stage,Christoph,NE,christoph,13477,,(3)
+qd,rktc.0,67085,67104,_Stage,_Stage,.,$.,--,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,Er,PPER,er,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,nimmt,VVFIN,nehmen,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,sie,PPER,sie,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,untern,ADJD,untern,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,Arm,NN,arm,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,",","$,",--,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,und,KON,und,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,sie,PPER,sie,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,gehen,VVFIN,gehen,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,ab,PTKVZ,ab,13477,,
+qd,rktc.0,67528,67570,CHRISTOPH,christoph,.,$.,--,13477,,

@@ -1,0 +1,9 @@
+corpus,drama,utteranceBegin,utteranceEnd,utteranceSpeakerId,mentionBegin,mentionEnd,mentionSurface,entityId
+qd,tvgp.0,444,517,kefinska,455,458,Ich,kefinska
+qd,tvgp.0,703,835,kefinska,740,743,Mir,kefinska
+qd,tvgp.0,703,835,kefinska,772,775,Ich,kefinska
+qd,tvgp.0,889,1182,kefinska,905,908,ich,kefinska
+qd,tvgp.0,1598,1675,marikanno,1618,1621,ich,marikanno
+qd,tvgp.0,1724,2213,mossino,1741,1744,ich,mossino
+qd,tvgp.0,2308,2369,marikanno,2336,2344,Kefinska,kefinska
+qd,tvgp.0,2884,3033,kefinska,2999,3002,Ich,kefinska

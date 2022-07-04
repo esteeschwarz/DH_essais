@@ -1,0 +1,156 @@
+corpus,drama,begin,end,Speaker.figure_surface,Speaker.figure_id,Token.surface,Token.pos,Token.lemma,length,Mentioned.figure_surface,Mentioned.figure_id
+qd,stst.0,10265,10305,_Stage,_Stage,Die,ART,der,5904,,
+qd,stst.0,10265,10305,_Stage,_Stage,Scheinfrömmigkeit,NN,scheinfrömmigkeit,5904,,
+qd,stst.0,10265,10305,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,10265,10305,_Stage,_Stage,Die,ART,der,5904,,
+qd,stst.0,10265,10305,_Stage,_Stage,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,10265,10305,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,Die,ART,der,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,unschuldige,ADJA,unschuldig,5904,,(2
+qd,stst.0,12092,12181,_Stage,_Stage,Lust,NN,lust,5904,,2)
+qd,stst.0,12092,12181,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,als,APPR,als,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,eine,ART,ein,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,junge,ADJA,jung,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,Schäferin,NN,schäferin,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,/,ADJD,--,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,Die,ART,der,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,Scheinfrömmigkeit,NN,scheinfrömmigkeit,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,Die,ART,der,5904,,
+qd,stst.0,12092,12181,_Stage,_Stage,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,12092,12181,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,14792,14813,SCHEINFRÖMMIGKEIT,scheinfrömmigkeit,Zur,APPRART,zu,5904,,
+qd,stst.0,14792,14813,SCHEINFRÖMMIGKEIT,scheinfrömmigkeit,unschuldige,ADJA,unschuldig,5904,,(2
+qd,stst.0,14792,14813,SCHEINFRÖMMIGKEIT,scheinfrömmigkeit,Lust,NN,lust,5904,,2)
+qd,stst.0,14792,14813,SCHEINFRÖMMIGKEIT,scheinfrömmigkeit,.,$.,--,5904,,
+qd,stst.0,16230,16251,SCHEINFRÖMMIGKEIT,scheinfrömmigkeit,Zur,APPRART,zu,5904,,
+qd,stst.0,16230,16251,SCHEINFRÖMMIGKEIT,scheinfrömmigkeit,unschuldigen,ADJA,unschuldig,5904,,
+qd,stst.0,16230,16251,SCHEINFRÖMMIGKEIT,scheinfrömmigkeit,Lust,NN,lust,5904,,
+qd,stst.0,16600,16632,_Stage,_Stage,Scheinfrömmigkeit,NN,scheinfrömmigkeit,5904,,
+qd,stst.0,16600,16632,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,16600,16632,_Stage,_Stage,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,16600,16632,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,19231,19255,_Stage,_Stage,Misbrauch,NN,misbrauch,5904,,(3)
+qd,stst.0,19231,19255,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,19231,19255,_Stage,_Stage,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,19231,19255,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,21703,21734,_Stage,_Stage,Pöbel,NN,pöbel,5904,,
+qd,stst.0,21703,21734,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,21703,21734,_Stage,_Stage,Misbrauch,NN,misbrauch,5904,,(3)
+qd,stst.0,21703,21734,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,21703,21734,_Stage,_Stage,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,21703,21734,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,22719,22775,_Stage,_Stage,Der,ART,der,5904,,
+qd,stst.0,22719,22775,_Stage,_Stage,verderbte,ADJA,verderbt,5904,,(5
+qd,stst.0,22719,22775,_Stage,_Stage,Geschmack,NN,geschmack,5904,,5)
+qd,stst.0,22719,22775,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,22719,22775,_Stage,_Stage,Misbrauch,NN,misbrauch,5904,,(3)
+qd,stst.0,22719,22775,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,22719,22775,_Stage,_Stage,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,22719,22775,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,22719,22775,_Stage,_Stage,Pöbel,NN,pöbel,5904,,
+qd,stst.0,22719,22775,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,24302,24379,_Stage,_Stage,Die,ART,der,5904,,
+qd,stst.0,24302,24379,_Stage,_Stage,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,24302,24379,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,24302,24379,_Stage,_Stage,Der,ART,der,5904,,
+qd,stst.0,24302,24379,_Stage,_Stage,verderbte,ADJA,verderbt,5904,,(5
+qd,stst.0,24302,24379,_Stage,_Stage,Geschmack,NN,geschmack,5904,,5)
+qd,stst.0,24302,24379,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,24302,24379,_Stage,_Stage,Misbrauch,NN,misbrauch,5904,,(3)
+qd,stst.0,24302,24379,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,24302,24379,_Stage,_Stage,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,24302,24379,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,24302,24379,_Stage,_Stage,Pöbel,NN,pöbel,5904,,
+qd,stst.0,24302,24379,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,24765,24782,VERDERBTE GESCHMACK,verderbte_geschmack,zur,APPRART,zu,5904,,
+qd,stst.0,24765,24782,VERDERBTE GESCHMACK,verderbte_geschmack,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,24765,24782,VERDERBTE GESCHMACK,verderbte_geschmack,.,$.,--,5904,,
+qd,stst.0,27813,27822,SCHAUSPIELKUNST,schauspielkunst,Zum,APPRART,zu,5904,,
+qd,stst.0,27813,27822,SCHAUSPIELKUNST,schauspielkunst,Pöbel,NN,pöbel,5904,,
+qd,stst.0,27980,27996,SCHAUSPIELKUNST,schauspielkunst,Zur,APPRART,zu,5904,,
+qd,stst.0,27980,27996,SCHAUSPIELKUNST,schauspielkunst,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,28684,28700,SCHAUSPIELKUNST,schauspielkunst,Zur,APPRART,zu,5904,,
+qd,stst.0,28684,28700,SCHAUSPIELKUNST,schauspielkunst,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,29016,29023,PÖBEL,pöbel,zornig,ADV,zornig,5904,,
+qd,stst.0,29016,29023,PÖBEL,pöbel,.,$.,--,5904,,
+qd,stst.0,30050,30075,UNWISSENHEIT,unwissenheit,Zum,APPRART,zu,5904,,
+qd,stst.0,30050,30075,UNWISSENHEIT,unwissenheit,verderbten,ADJA,verderbt,5904,,
+qd,stst.0,30050,30075,UNWISSENHEIT,unwissenheit,Geschmack,NN,geschmack,5904,,
+qd,stst.0,30050,30075,UNWISSENHEIT,unwissenheit,.,$.,--,5904,,
+qd,stst.0,30674,30691,SCHAUSPIELKUNST,schauspielkunst,Zur,APPRART,zu,5904,,
+qd,stst.0,30674,30691,SCHAUSPIELKUNST,schauspielkunst,Unwissenheit,NN,unwissenheit,5904,,(0)
+qd,stst.0,30674,30691,SCHAUSPIELKUNST,schauspielkunst,.,$.,--,5904,,
+qd,stst.0,31081,31101,VERDERBTE GESCHMACK,verderbte_geschmack,zur,APPRART,zu,5904,,
+qd,stst.0,31081,31101,VERDERBTE GESCHMACK,verderbte_geschmack,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,31081,31101,VERDERBTE GESCHMACK,verderbte_geschmack,.,$.,--,5904,,
+qd,stst.0,31666,31706,_Stage,_Stage,Der,ART,der,5904,,
+qd,stst.0,31666,31706,_Stage,_Stage,erhabene,ADJA,erhaben,5904,,(7
+qd,stst.0,31666,31706,_Stage,_Stage,Geschmack,NN,geschmack,5904,,7)
+qd,stst.0,31666,31706,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,31666,31706,_Stage,_Stage,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,31666,31706,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,lieset,ADJD,liesen,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,in,APPR,in,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,dem,ART,der,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,gedruckten,ADJA,gedruckt,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,übersetzten,ADJA,übersetzt,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,Trauerspiele,NN,trauerspiel,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,Mithridates,NN,mithridat,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,/,CARD,--,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,und,KON,und,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,siehet,VVFIN,siehet,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,die,ART,der,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,nicht,PTKNEG,nicht,5904,,
+qd,stst.0,32006,32107,ERHABENE GESCHMAK,erhabene_geschmak,.,$.,--,5904,,
+qd,stst.0,36044,36100,_Stage,_Stage,Der,ART,der,5904,,
+qd,stst.0,36044,36100,_Stage,_Stage,Nutzen,NN,nutzen,5904,,(8)
+qd,stst.0,36044,36100,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,36044,36100,_Stage,_Stage,Der,ART,der,5904,,
+qd,stst.0,36044,36100,_Stage,_Stage,erhabene,ADJA,erhaben,5904,,(7
+qd,stst.0,36044,36100,_Stage,_Stage,Geschmack,NN,geschmack,5904,,7)
+qd,stst.0,36044,36100,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,36044,36100,_Stage,_Stage,Die,ART,der,5904,,
+qd,stst.0,36044,36100,_Stage,_Stage,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,36044,36100,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,37091,37113,NUTZEN,nutzen,Zum,APPRART,zu,5904,,
+qd,stst.0,37091,37113,NUTZEN,nutzen,Erhaben,NN,erhaben,5904,,
+qd,stst.0,37091,37113,NUTZEN,nutzen,Geschmack,NN,geschmack,5904,,
+qd,stst.0,37091,37113,NUTZEN,nutzen,.,$.,--,5904,,
+qd,stst.0,37395,37406,SCHAUSPIELKUNST,schauspielkunst,zum,APPRART,zu,5904,,
+qd,stst.0,37395,37406,SCHAUSPIELKUNST,schauspielkunst,Nutzen,NN,nutzen,5904,,(8)
+qd,stst.0,37395,37406,SCHAUSPIELKUNST,schauspielkunst,.,$.,--,5904,,
+qd,stst.0,37780,37838,_Stage,_Stage,Die,ART,der,5904,,
+qd,stst.0,37780,37838,_Stage,_Stage,Weisheit,NN,weisheit,5904,,(9)
+qd,stst.0,37780,37838,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,37780,37838,_Stage,_Stage,Erhaben,NN,erhaben,5904,,
+qd,stst.0,37780,37838,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,37780,37838,_Stage,_Stage,Geschmack,NN,geschmack,5904,,
+qd,stst.0,37780,37838,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,37780,37838,_Stage,_Stage,Nutzen,NN,nutzen,5904,,(8)
+qd,stst.0,37780,37838,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,37780,37838,_Stage,_Stage,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,37780,37838,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,37851,37866,WEISHEIT,weisheit,im,APPRART,in,5904,,
+qd,stst.0,37851,37866,WEISHEIT,weisheit,herausgehen,NN,herausgehen,5904,,
+qd,stst.0,37851,37866,WEISHEIT,weisheit,.,$.,--,5904,,
+qd,stst.0,37921,37941,WEISHEIT,weisheit,Zur,APPRART,zu,5904,,
+qd,stst.0,37921,37941,WEISHEIT,weisheit,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,37921,37941,WEISHEIT,weisheit,.,$.,--,5904,,
+qd,stst.0,38649,38671,WEISHEIT,weisheit,Zum,APPRART,zu,5904,,
+qd,stst.0,38649,38671,WEISHEIT,weisheit,Erhaben,NN,erhaben,5904,,
+qd,stst.0,38649,38671,WEISHEIT,weisheit,Geschmack,NN,geschmack,5904,,
+qd,stst.0,38649,38671,WEISHEIT,weisheit,.,$.,--,5904,,
+qd,stst.0,38780,38800,WEISHEIT,weisheit,Zur,APPRART,zu,5904,,
+qd,stst.0,38780,38800,WEISHEIT,weisheit,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,38780,38800,WEISHEIT,weisheit,.,$.,--,5904,,
+qd,stst.0,39127,39171,_Stage,_Stage,Erhaben,NN,erhaben,5904,,
+qd,stst.0,39127,39171,_Stage,_Stage,.,$.,--,5904,,
+qd,stst.0,39127,39171,_Stage,_Stage,Geschmack,NN,geschmack,5904,,
+qd,stst.0,39127,39171,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,39127,39171,_Stage,_Stage,Nutzen,NN,nutzen,5904,,(8)
+qd,stst.0,39127,39171,_Stage,_Stage,",","$,",--,5904,,
+qd,stst.0,39127,39171,_Stage,_Stage,Schauspielkunst,NN,schauspielkunst,5904,,(6)
+qd,stst.0,39127,39171,_Stage,_Stage,.,$.,--,5904,,
