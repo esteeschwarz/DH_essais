@@ -1,0 +1,9 @@
+# 12282.notes on progress
+## dynamiken postdeutscher gegenwartsliteratur
+## liso, SS2022 FUB
+#### 20220710(12.09)
+
+12282.
+- .01 sample extract wordlist of klemm(1765). this shall work accompanied by a small HOW-TO with every halfways able publishing house responsible who will be formally adressed to extract these data as base of the poetry corpus to build. the tool used: <http://www.laurenceanthony.net/software/antconc/> can be used on windows and mac and platforms and easily provides e.g. a wordlist as .csv data table which is sufficient for our purpose here. people install the tool on their computer, load single texts, apply a create wordlist function export the data to a zipped table very conveniently. this all is done within 5min.
+- .02 NEXT: may get institutional backup for adressing verlagsresponsibles to excercise the above. 
+- .03 TODO: antconc HOW-TO extract wordlist
