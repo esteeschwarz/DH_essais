@@ -20,4 +20,4 @@ die arbeit handelt in einem explorativem ansatz, bei dem im vorfeld keinerlei hy
 
 [^1]:	sample: [https://skuul.rotefadenbuecher.de/index.php?title=Variablen/kookvariablen](https://skuul.rotefadenbuecher.de/index.php?title=Variablen/kookvariablen)
 
-[^2]:	über den stand der verfahren kann hier:
+[^2]:	über den stand der verfahren kann hier: https://github.com/esteeschwarz/DH_essais/tree/main/sections/DYN
