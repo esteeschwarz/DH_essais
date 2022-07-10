@@ -1,9 +1,9 @@
 #################
 src<-"~/Documents/static/server/logs12262/access.log.24.4"
-src<-"~/Documents/static/server/logs12262/access.log.25.1"
+src<-"~/Documents/static/server/logs12282/access.log.27.7"
 
 # .01 -- / #;#
-# .02 " ([\d]{3}) / "#;#\1#;#
+# .02 " ([\d]{3}) / "#;#\1#;6
 # .03 #( )([\d]{1,7}) / #\2#;#
 # .04 (#[\d]{1,7}#;#) (.+?) "    \1\2#;#"
 # .05 ##"(.+?)"   #"\1"#;##
@@ -95,3 +95,6 @@ m<-stri_detect(dta$q,regex = "login.php")
 mout.l<-subset(dta,m)
 m<-stri_detect(mout.l$resp,regex = "login.php")
 mout.l200<-subset(mout.l,mout.l$resp==200)
+
+/wp-login.php?redirect_to=https%3A%2F%2Fada-sub.rotefadenbuecher.de%2Fwp-admin%2F&reauth=1 HTTP/1.1
+
