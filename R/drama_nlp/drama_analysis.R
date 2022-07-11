@@ -30,7 +30,14 @@ installData("qd")
 # Stück laden und in einer Variable d speichern
 d <- loadDrama("qd:vn0h.0")
 d <- loadDrama("drst:001vww579.0") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances.
+d <- loadDrama("dd:7") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances.
 
+print(presence(d)) # überprüfen
+
+# gesamtes Korpus einlesen:
+dd.ids <- c("dd:1","dd:2", "dd:3", "dd:4", "dd:5", "dd:6", "dd:7", "dd:8")
+dd.plays <- loadDrama(dd.ids)
+dd.plays$meta 
 
 # WER REDET WIE VIEL? 
 # Mithilfe der Funktion characterStatistics() kann ein Dataframe mit Statistiken 
