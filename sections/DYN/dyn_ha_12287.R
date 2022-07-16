@@ -13,23 +13,27 @@ library(stringr)
 setwd("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN")
 getwd()
 githbase<-"https://github.com/esteeschwarz/"
-githtree<-"tree/main/"
-githcombine<-paste0(githbase,"\\2",githtree,"\\3")
+githtreemain<-"tree/main/"
+githtreeraw<-"raw/main/"
+sections/DYN/data/dyn_ha_wolf_out01/wordlist.csv
+githcombine<-paste0(githbase,"\\2",githtreeraw,"\\3")
 wdlocal<-gsub("(.+gith/)(.+?/)(.+?)",replacement =githcombine,getwd(),perl = T)
 githurl<-wdlocal
 dudenurl<- 'https://api.duden.de/v1/spellcheck'
-githurl<-paste0(githbase,"DH_essais",githtree,)
+#githurl<-paste0(githbase,"DH_essais",githtree,)
 wolfsrc<-paste0(githurl,"/data/dyn_ha_wolf_out01/wordlist.csv")
 wolfcsv<-read.csv2(wolfsrc,sep = ",")
 datadir<-paste0(getwd(),"/data/")
 wolfouttxt<-paste0(datadir,"wolfout.txt")
-write_clip(wolfcsv[,"type"])
+wolftypes<-wolfcsv[,1]
+write_clip(wolfcsv[,1])
 wolfbody<-read_clip()
-wolfbodyflat01<-stri_flatten(wolfbody[1:500],collapse=" ")
+
+wolfbodyflat01<-stri_flatten(wolfbody[1:200],collapse=", ")
 wolfbodyflat02<-stri_flatten(wolfbody[501:1000],collapse=" ")
 wolfbodyflat03<-stri_flatten(wolfbody[1001:length(wolfbody)],collapse=" ")
 #wolfbodyflat04<-stri_flatten(wolfbody[1501:2000],collapse=" ")
-
+wolfbodyflat01
 #dudenapi
 head<-read_json("~/boxHKW/21S/DH/local/DYN/dudenapi_head.json")
 head$`x-api-key`
@@ -47,13 +51,13 @@ head$`x-api-key`
 #Extract the access token
 httr::stop_for_status(req)
 json<-httr::content(req, as="parsed")
-out<-fromJSON(json)
-out
-match(json$data$spellAdvices[[3]],"2")
+#out<-fromJSON(json)
+#out
+#match(json$data$spellAdvices[[3]],"2")
 lj<-length(json$data$spellAdvices)
 for (k in 1:lj){
 ec<-json$data$spellAdvices[[k]]$errorCode
-ifelse(ec!=2,em<-c(k,ec,json$data$spellAdvices[[k]]$originalError),em<-F)
+ifelse(ec!=2&ec!=166,em<-c(k,ec,json$data$spellAdvices[[k]]$originalError),em<-F)
 print(em)
 }
-
+print(json$data$spellAdvices[[107]]$originalError)
