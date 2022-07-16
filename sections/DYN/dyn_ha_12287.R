@@ -84,5 +84,45 @@ m<-match(delemma$X.,wolftypes)
 mnot<-is.na(m)
 wolftypes[mnot==F]
 wolftypes[4]
-m
+m<-matrix(1:length(wolftypes))
 delemma$X.[mnot==F]
+for (k in 1:length(wolftypes)){
+ m[k,1]<-match(wolftypes[k],delemma$X.)
+ 
+}
+mpos<-subset(m$k,m$k!=NA)
+match("siehst",delemma$X.)
+delemma$X.[83658]
+#### not to use: lexikon may include enough entries, but only the lemmas
+#### next: "https://weblicht.sfs.uni-tuebingen.de/weblicht/"
+getwd()
+library(xml2)
+data<-read_xml("data/chainer_result.xml")
+xml_name(dta)
+data %>% xml_ns()
+data%>% xml_ns_strip()
+
+data %>% 
+  xml_find_all('//*') %>%
+  xml_path()
+?xml_path
+
+# Alle xpath-Pfade zu einem head-Element anzeigen
+xml_find_all(pos_data, '/TEI/text/body/div[1]/head[1]/s/w[@lemma = "erst"]')
+lemmas<-xml_find_all(data, '/*/*[2]/tc:lemmas')
+xml_contents(head(lemmas))=="auf"
+m<-grepl("unknown",xml_text(head(xml_children(lemmas))))
+xml_text(head(xml_children(lemmas)))==regex(".*")
+xml_find_all(lemmas,"tc:lemmas[[2]]")
+      all_heads <- data %>% 
+  xml_find_all('/*/*[2]/tc:lemmas') %>%
+  xml_path()
+all_heads
+all_heads[1:10]
+lemmas
+all_chapters <- data %>% 
+  xml_find_all('//tc:lemmas[') %>%
+  
+  xml_text()
+all_chapters
+xml_find_all(data,'//tc:lemmas/tc:lemma="&lt;unknown>"')
