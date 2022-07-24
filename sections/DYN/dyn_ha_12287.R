@@ -16,9 +16,10 @@ getwd()
 githbase<-"https://github.com/esteeschwarz/"
 githtreemain<-"tree/main/"
 githtreeraw<-"raw/main/"
-sections/DYN/data/dyn_ha_wolf_out01/wordlist.csv
+#sections/DYN/data/dyn_ha_wolf_out01/wordlist.csv
 githcombine<-paste0(githbase,"\\2",githtreeraw,"\\3")
 wdlocal<-gsub("(.+gith/)(.+?/)(.+?)",replacement =githcombine,getwd(),perl = T)
+githurl<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/DYN"
 githurl<-wdlocal
 dudenurl<- 'https://api.duden.de/v1/spellcheck'
 #githurl<-paste0(githbase,"DH_essais",githtree,)
@@ -36,7 +37,8 @@ wolfbodyflat03<-stri_flatten(wolfbody[1001:length(wolfbody)],collapse=" ")
 #wolfbodyflat04<-stri_flatten(wolfbody[1501:2000],collapse=" ")
 wolfbodyflat01
 #dudenapi
-head<-read_json("~/boxHKW/21S/DH/local/DYN/dudenapi_head.json")
+head<-read_json("~/boxHKW/UNI/21S/DH/local/DYN/dudenapi_head.json")
+
 head$`x-api-key`
 req_body<-paste0('{"text":"',wolfbodyflat01,'","dictionary":["Wäl"]}')
 cat(req_body)
@@ -126,3 +128,8 @@ all_chapters <- data %>%
   xml_text()
 all_chapters
 xml_find_all(data,'//tc:lemmas/tc:lemma="&lt;unknown>"')
+dwdsapi<-"https://www.dwds.de/api/wb/snippet/?q="
+
+for (k = 1:length(wolftypes)){
+  
+}
