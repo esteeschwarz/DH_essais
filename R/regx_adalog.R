@@ -96,5 +96,3 @@ mout.l<-subset(dta,m)
 m<-stri_detect(mout.l$resp,regex = "login.php")
 mout.l200<-subset(mout.l,mout.l$resp==200)
 
-/wp-login.php?redirect_to=https%3A%2F%2Fada-sub.rotefadenbuecher.de%2Fwp-admin%2F&reauth=1 HTTP/1.1
-
