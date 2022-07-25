@@ -866,14 +866,20 @@ ui <- pageWithSidebar(
     #                   "gilt TRUE" = "glt_T")),
     # br(),
     # # in output$scatter abfrage, 
-    checkboxInput("targetm1", "target -1", F),
-    checkboxInput("target0", "target 0", F),
-    checkboxInput("target1", "target +1", F),
-    checkboxInput("out", "without outliers", F),
-    checkboxInput("gilt", "nur gültige fälle", F),
-    checkboxInput("ctrl", "control group", F),
-    
-    
+    # checkboxInput("targetm1", "target -1", F),
+    # checkboxInput("target0", "target 0", F),
+    # checkboxInput("target1", "target +1", F),
+    # checkboxInput("out", "without outliers", F),
+    # checkboxInput("gilt", "nur gültige fälle", T),
+    # checkboxInput("ctrl", "control group", F),
+    # 
+checkboxGroupInput("selection","select parameter",
+                   choiceNames= c("target -1",
+                     "target 0",
+                     "target +1",
+                     "discard outliers",
+                     "only valid cases",
+                     "include control obs"),choiceValues = c(-1,0,1,1,1,1)),    
     br(),
     # 
     # helpText("This app uses ordinary least squares (OLS) to fit a regression line to the data with the selected trend. The app is designed to help you practice evaluating whether or not the linear model is an appropriate fit to the data. The three diagnostic plots on the lower half of the page are provided to help you identify undesirable patterns in the residuals that may arise from non-linear trends in the data."),
@@ -892,7 +898,8 @@ ui <- pageWithSidebar(
     # br(),
 #    plotOutput("")
     verbatimTextOutput("info"),
-plotOutput("plot")
+#plotOutput("plot"),
+tableOutput("data")
       )
 ) # end mainpage
   # Define inputs ----------------------------------------------------------------
@@ -905,24 +912,57 @@ plotOutput("plot")
   dta_rtc<-get_rtc(dta) #create rtc column in dataset
   draw.data<-function(check,setd){
     # variablen müssen vorher daklariert werden?
-   tm1<--9
-   t0<--9
-   t1<--9
-    ifelse(check[1]==T,tm1<--1,tm1<-0)
-    ifelse(check[2]==T,t0<-0,t0<-0)
-    ifelse(check[3]==T,t1<-1,t1<-0)
-#    dtaout<-dta_setx(dta,c(check$targetm1,check$target0,check$target1,1,sm,em),check$out,check$gilt,check$ctrl)
+#    tm1<--9
+#    t0<--9
+#    t1<--9
+#     ifelse(check[1]==T,tm1<--1,tm1<-0)
+#     ifelse(check[2]==T,t0<-0,t0<-0)
+#     ifelse(check[3]==T,t1<-1,t1<-0)
+# #    dtaout<-dta_setx(dta,c(check$targetm1,check$target0,check$target1,1,sm,em),check$out,check$gilt,check$ctrl)
     #dtaout<-dta_setx(dta,c(tm1,t0,t1,1,sm,em),check[4],check[5],check[6])
 #target
-    dta1<-dtatarget(setd,tm1,t0,t1)
+   # dta_t<-dtatarget(setd,tm1,t0,t1)
     #gilt
-    ifelse(check[5]==T,dta1<-subset(dta1,dta1$gilt==1),dta1<-dta1)
-    #outlier rtc
-    ifelse(check[4]==T,dta1<-outl.fun.rtc(dta1),dta1<-dta1)
-    # controlgroup
-    ifelse(check[6]==T,dta1<-adcontrol(dta1,ti0,ticontrol,ti2),dta1<-dta1)
-    return(dta1)
-    
+#     dta_g<-dta_t
+#     ifelse(check[5]==T,dta_g<-subset(dta_t,dta_t$gilt==1),dta_g<-dta_t)
+#     #outlier rtc
+# dta_r<-dta_g
+#         ifelse(check[4]==T,dta_r<-outl.fun.rtc(dta_g),dta_r<-dta_g)
+#     # controlgroup
+#     dta_c<-dta_r
+#     ifelse(check[6]==T,dta_c<-adcontrol(dta_r,ti0,ticontrol,ti2),dta_c<-dta_r)
+#     return(dta_c)
+#     ### gibt nur die control modifikation zurück, die ifs werden parallel behandelt, nicht konsekutiv, es musz also hier erst entsprechend den parametern die setauswahl vorgenommen werden
+    # NEU:
+    tm1<--0
+    t0<--0
+    t1<--0
+    gilt<--0
+    ctrl<--0
+    out<--0
+    # if(check[1]==T){tm1<--1}
+    # if(check[2]==T){t0<-0}
+    # if(check[2]==F){t0<-0}
+    # 
+    # if(check[3]==T){t1<-1}
+    # if(check[5]==T){gilt<-1}
+    # if(check[6]==T){ctrl<-1}
+    # if(check[4]==T){out<-1}
+    # fetch dataset:
+    now.data<-function(setd,tm1,t0,t1,out,gilt,ctrl){
+      dta_rtc<-get_rtc(setd) #create rtc column in dataset
+      dta1<-dta_rtc
+      dtat<-dtatarget(dta1,tm1,t0,t1)
+      dtag<-subset(dtat,dtat$gilt==gilt)
+      dta_o<-dtag
+      ifelse(out==1,dta_o<-outl.fun.rtc(dtag),dta_o<-dtag)
+      dtac<-dta_o
+      ifelse(ctrl==1,dtac<-adcontrol(dta_o),dtac<-dta_o)
+      return(dtac)
+    }
+    out<-c(tm1,t0,t1,out,gilt,ctrl)
+    out<-check
+   # setout<-now.data(setd,tm1,t0,t1,out,gilt,ctrl)
       }
   # draw.data.or <- function(type){
   #   
@@ -930,7 +970,15 @@ plotOutput("plot")
   #   if(type==-1){
   #     x <- c(runif(n-2, 0, 4), 2, 2.1)
   #     y <- 2*x + rnorm(n, sd=2)
-  #   } }
+  #   } 
+  
+  #   if(type=="fan.shaped"){
+  #     x = seq(0,3.99,4/n)
+  #     y = c(rnorm(n/8,3,1),rnorm(n/8,3.5,2),rnorm(n/8,4,2.5),rnorm(n/8,4.5,3),rnorm(n/4,5,4),rnorm((n/4)+2,6,5))
+  #   }
+  #   
+  #   data.frame(x=x,y=y)
+  # }
   
 # Server -----------------------------------------------------------------------
 server <- function(input, output) {
@@ -941,13 +989,14 @@ server <- function(input, output) {
   mydata <- reactive({
 #    draw.data(input$targetm1,input$target0,input$target1,input$out,input$gilt,input$ctrl) #type = einzelne buttons der abfrage
     #shinydatascript(src_d,c(input$targetm1,input$target0,input$target1,input$out,input$gilt,input$ctrl))
-    draw.data(input$targetm1,dta_rtc)
-    draw.data(input$target0,dta_rtc) #type = einzelne buttons der abfrage
-    draw.data(input$target1,dta_rtc) #type = einzelne buttons der abfrage
-    draw.data(input$out,dta_rtc) #type = einzelne buttons der abfrage
-    draw.data(input$gilt,dta_rtc) #type = einzelne buttons der abfrage
-    draw.data(input$ctrl,dta_rtc) #type = einzelne buttons der abfrage
-  })
+    # draw.data(input$targetm1,dta_rtc)
+    # draw.data(input$target0,dta_rtc) #type = einzelne buttons der abfrage
+    # draw.data(input$target1,dta_rtc) #type = einzelne buttons der abfrage
+    # draw.data(input$out,dta_rtc) #type = einzelne buttons der abfrage
+    # draw.data(input$gilt,dta_rtc) #type = einzelne buttons der abfrage
+    # draw.data(input$ctrl,dta_rtc) #type = einzelne buttons der abfrage
+draw.data(input$selection,dta)
+      })
 #  x<-shinydatascript(src_d,c(mydata$targetm1,mydata$target0,mydata$target1,mydata$out,mydata$gilt,mydata$ctrl))
   
   # Show plot of points, regression line, residuals
@@ -958,31 +1007,39 @@ server <- function(input, output) {
  #    
  # })
   output$info <- renderPrint({
-   # print("dummyoutput")
+   print("dummyoutput")
     #print(mydata$data$timeinterval)
     #print(typeof(mydata))
     y<-data.frame(mydata())
     print(dim(y))
+    
     #print(colnames(y))
-  #  print(y)
+   print(y)
     #print(mean(y$data[3]))
     #print(head(y$data))
     #print(mean(y$data$LZ))
     #print(y)
   }) # x<-proof_desc(mydata) #nur mit glt=1 (x,1,x)
-####
-   output$plot<- renderPlot({
-     y<-data.frame(mydata())
-     bar_df<-plot_desc(y)
-     ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
-
-     })
-   output$eval<- renderPrint({
-     y<-data.frame(mydata())
-     bar_df<-plot_desc(y)
-     print(bar_df)
-   })
-     ####
+#   output$data<-renderTable({
+#     mtcars[,c("cyl","am"),drop=F]
+#   })
+# ####
+   # output$plot<- renderPlot({
+   #   y<-data.frame(mydata())
+   #   bar_df<-plot_desc(y)
+   #   ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
+   # 
+   #   })
+   # output$eval<- renderPrint({
+   #   y<-data.frame(mydata())
+   #   bar_df<-plot_desc(y)
+   #   print(bar_df)
+   # })
+  output$eval<-renderPrint({
+    print("dummyouteval")
+    print(typeof(mydata()))
+  })
+   #   ####
   #output$plot<-mydata$timeinterval  
 #output$plot<-
 }
