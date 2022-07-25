@@ -864,23 +864,23 @@ ui <- pageWithSidebar(
     #                   "target +1" = 1,
     #                   "controlgroup TRUE" = "ctrl_T",
     #                   "gilt TRUE" = "glt_T")),
-    radioButtons("tm1", "choose target -1", 
-             list("on" = -1,
-                   "off"= "not")),  
-    radioButtons("t0", "choose target 0", 
-                 list("on" = 0,
-                      "off"= "not")),  
+    radioButtons("tm1", "target preceding phrase", 
+             list("include" = -1,
+                   "exclude"= "not")),  
+    radioButtons("t0", "target", 
+                 list("include" = 0,
+                      "exclude"= "not")),  
     
-      radioButtons("t1", "choose target +1", 
-               list("on" = 1,
-                    "off"= "not")),  
+      radioButtons("t1", "target following phrase", 
+               list("include" = 1,
+                    "exclude"= "not")),  
   radioButtons("out", "discard outliers", 
                list("on" = 1,
                     "off"= 0)),  
   radioButtons("gilt", "only valid cases", 
                list("on" = 1,
                     "off"= 0)),  
-  radioButtons("ctrl", "add control obs", 
+  radioButtons("ctrl", "add control observations", 
                list("on" = 1,
                     "off"= 0)),  
   
@@ -920,6 +920,13 @@ ui <- pageWithSidebar(
 #    plotOutput("")
     verbatimTextOutput("info"),
 plotOutput("plot"),
+#verbatimTextOutput("expliq")
+helpText(h4("explique")),
+helpText(p("TimeInterval: uncorrected response time")),
+helpText(p(strong("TI + RTC: TimeInterval + lmer residuals of TI dependent on phrase length"))),
+helpText(p("TI char: TimeInterval corrected by mean phrase length")),
+
+#text("dummy text")
 #tableOutput("data")
       )
 ) # end mainpage
@@ -1018,7 +1025,7 @@ server <- function(input, output) {
     # draw.data(input$out,dta_rtc) #type = einzelne buttons der abfrage
     # draw.data(input$gilt,dta_rtc) #type = einzelne buttons der abfrage
     # draw.data(input$ctrl,dta_rtc) #type = einzelne buttons der abfrage
-draw.data(input$selection,dta)
+#draw.data(input$selection,dta)
     draw.data(c(input$tm1,input$t0,input$t1,input$out,input$gilt,input$ctrl),dta)
       })
 #  x<-shinydatascript(src_d,c(mydata$targetm1,mydata$target0,mydata$target1,mydata$out,mydata$gilt,mydata$ctrl))
@@ -1031,14 +1038,16 @@ draw.data(input$selection,dta)
  #    
  # })
   output$info <- renderPrint({
-   print("dummyoutput")
+   print("datenset according to selection")
     #print(mydata$data$timeinterval)
     #print(typeof(mydata))
-    y<-data.frame(mydata())
-    print(dim(y))
+    y<-mydata()
+    dset<-now.data(dta,y)     
+    cat("dataset:",dim(dset)[1],"observations",dim(dset)[2],"variables")
+     # print(dim(y))
     
     #print(colnames(y))
-   print(y)
+  # print(y)
     #print(mean(y$data[3]))
     #print(head(y$data))
     #print(mean(y$data$LZ))
@@ -1064,6 +1073,7 @@ draw.data(input$selection,dta)
     dta_rtc<-get_rtc(setd) #create rtc column in dataset
     dta1<-dta_rtc
    dtat<-dtatarget(dta1,chose[1],chose[2],chose[3])
+   if(chose[1]=="not"&chose[2]=="not"&chose[3]=="not"){dtat<-dta_rtc}
    dtag<-dtat
    ifelse(chose[5]==1,dtag<-subset(dtat,dtat$gilt==1),dtag<-dtat)
    #dtag<-subset(dtat,dtat$gilt==gilt)
@@ -1082,6 +1092,8 @@ draw.data(input$selection,dta)
     #print(dim(dset))
     #print(mean(dset$timeinterval,na.rm=T))
     # now fetch dataset according to selection:
+    cat("mean reading times (LZ) per group\n")
+    
     print(bar_df<-plot_desc(dset)[,2:4])
    # print(bar_df)
   })
