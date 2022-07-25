@@ -853,7 +853,7 @@ library(ggplot2)
 ui <- pageWithSidebar(
 
   # Title ----
-  headerPanel("Diagnostics for simple linear regression"),
+  headerPanel("self paced reading experiment evaluation"),
   
   # Sidebar ----
   sidebarPanel(
@@ -864,7 +864,27 @@ ui <- pageWithSidebar(
     #                   "target +1" = 1,
     #                   "controlgroup TRUE" = "ctrl_T",
     #                   "gilt TRUE" = "glt_T")),
-    # br(),
+    radioButtons("tm1", "choose target -1", 
+             list("on" = -1,
+                   "off"= "not")),  
+    radioButtons("t0", "choose target 0", 
+                 list("on" = 0,
+                      "off"= "not")),  
+    
+      radioButtons("t1", "choose target +1", 
+               list("on" = 1,
+                    "off"= "not")),  
+  radioButtons("out", "discard outliers", 
+               list("on" = 1,
+                    "off"= 0)),  
+  radioButtons("gilt", "only valid cases", 
+               list("on" = 1,
+                    "off"= 0)),  
+  radioButtons("ctrl", "add control obs", 
+               list("on" = 1,
+                    "off"= 0)),  
+  
+      # br(),
     # # in output$scatter abfrage, 
     # checkboxInput("targetm1", "target -1", F),
     # checkboxInput("target0", "target 0", F),
@@ -873,13 +893,14 @@ ui <- pageWithSidebar(
     # checkboxInput("gilt", "nur gültige fälle", T),
     # checkboxInput("ctrl", "control group", F),
     # 
-checkboxGroupInput("selection","select parameter",
-                   choiceNames= c("target -1",
-                     "target 0",
-                     "target +1",
-                     "discard outliers",
-                     "only valid cases",
-                     "include control obs"),choiceValues = c(-1,0,1,1,1,1)),    
+# checkboxGroupInput("selection","select parameter",
+#                    selected = c(0,0,0,0,1,0),
+#                    choiceNames= c("target -1",
+#                      "target 0",
+#                      "target +1",
+#                      "discard outliers",
+#                      "only valid cases",
+#                      "include control obs"),choiceValues = c(-1,0,1,1,1,1)),    
     br(),
     # 
     # helpText("This app uses ordinary least squares (OLS) to fit a regression line to the data with the selected trend. The app is designed to help you practice evaluating whether or not the linear model is an appropriate fit to the data. The three diagnostic plots on the lower half of the page are provided to help you identify undesirable patterns in the residuals that may arise from non-linear trends in the data."),
@@ -906,6 +927,7 @@ tableOutput("data")
   #input<-array()
   #input<-array()
   input <- list(rseed=1)
+  selection<-c(0,0,0,0,1,0)
   seed <- as.numeric(Sys.time())
   
   # Fundtion for generating the data ---------------------------------------------
@@ -935,9 +957,9 @@ tableOutput("data")
 #     ### gibt nur die control modifikation zurück, die ifs werden parallel behandelt, nicht konsekutiv, es musz also hier erst entsprechend den parametern die setauswahl vorgenommen werden
     # NEU:
     tm1<--0
-    t0<--0
+    t0<--50
     t1<--0
-    gilt<--0
+    gilt<-1
     ctrl<--0
     out<--0
     # if(check[1]==T){tm1<--1}
@@ -949,18 +971,19 @@ tableOutput("data")
     # if(check[6]==T){ctrl<-1}
     # if(check[4]==T){out<-1}
     # fetch dataset:
-    now.data<-function(setd,tm1,t0,t1,out,gilt,ctrl){
-      dta_rtc<-get_rtc(setd) #create rtc column in dataset
-      dta1<-dta_rtc
-      dtat<-dtatarget(dta1,tm1,t0,t1)
-      dtag<-subset(dtat,dtat$gilt==gilt)
-      dta_o<-dtag
-      ifelse(out==1,dta_o<-outl.fun.rtc(dtag),dta_o<-dtag)
-      dtac<-dta_o
-      ifelse(ctrl==1,dtac<-adcontrol(dta_o),dtac<-dta_o)
-      return(dtac)
-    }
-    out<-c(tm1,t0,t1,out,gilt,ctrl)
+    # now.data<-function(setd,tm1,t0,t1,out,gilt,ctrl){
+    #   dta_rtc<-get_rtc(setd) #create rtc column in dataset
+    #   dta1<-dta_rtc
+    #   dtat<-dtatarget(dta1,tm1,t0,t1)
+    #   ifelse(gilt==1,dtag<-subset(dtat,dtat$gilt==1),dtag<-dtat)
+    #   dtag<-subset(dtat,dtat$gilt==gilt)
+    #   dta_o<-dtag
+    #   ifelse(out==1,dta_o<-outl.fun.rtc(dtag),dta_o<-dtag)
+    #   dtac<-dta_o
+    #   ifelse(ctrl==1,dtac<-adcontrol(dta_o),dtac<-dta_o)
+    #   return(dtac)
+    # }
+    # out<-c(tm1,t0,t1,out,gilt,ctrl)
     out<-check
    # setout<-now.data(setd,tm1,t0,t1,out,gilt,ctrl)
       }
@@ -996,6 +1019,7 @@ server <- function(input, output) {
     # draw.data(input$gilt,dta_rtc) #type = einzelne buttons der abfrage
     # draw.data(input$ctrl,dta_rtc) #type = einzelne buttons der abfrage
 draw.data(input$selection,dta)
+    draw.data(c(input$tm1,input$t0,input$t1,input$out,input$gilt,input$ctrl),dta)
       })
 #  x<-shinydatascript(src_d,c(mydata$targetm1,mydata$target0,mydata$target1,mydata$out,mydata$gilt,mydata$ctrl))
   
@@ -1035,9 +1059,29 @@ draw.data(input$selection,dta)
    #   bar_df<-plot_desc(y)
    #   print(bar_df)
    # })
+  now.data<-function(setd,chose){
+    dta_rtc<-get_rtc(setd) #create rtc column in dataset
+    dta1<-dta_rtc
+   dtat<-dtatarget(dta1,chose[1],chose[2],chose[3])
+   dtag<-dtat
+   ifelse(chose[5]==1,dtag<-subset(dtat,dtat$gilt==1),dtag<-dtat)
+   #dtag<-subset(dtat,dtat$gilt==gilt)
+   dta_o<-dtag
+   ifelse(chose[4]==1,dta_o<-outl.fun.rtc(dtag),dta_o<-dtag)
+   dtac<-dta_o
+   ifelse(chose[6]==1,dtac<-adcontrol(dta_o,ti0,ticontrol,ti2),dtac<-dta_o)
+   return(dtac)
+  }
+  
   output$eval<-renderPrint({
-    print("dummyouteval")
-    print(typeof(mydata()))
+   print("dummyouteval")
+    y<-mydata()
+    print(y)
+    dset<-now.data(dta,y)
+    print(dim(dset))
+    print(mean(dset$timeinterval,na.rm=T))
+    # now fetch dataset according to selection:
+    
   })
    #   ####
   #output$plot<-mydata$timeinterval  
