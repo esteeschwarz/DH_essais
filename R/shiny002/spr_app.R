@@ -780,7 +780,7 @@ library(ggplot2)
       d5<-setd
       
     bar_df<-data.frame(1:12)
-    
+    attach(d5)
     m1<-mean(d5$timeinterval[group==sm],na.rm=T)
     m2<-mean(d5$timeinterval[group!=sm],na.rm=T)
     m3<-mean(d5$timeinterval[group==em],na.rm=T)
@@ -866,23 +866,25 @@ ui <- pageWithSidebar(
     #                   "gilt TRUE" = "glt_T")),
     # br(),
     # # in output$scatter abfrage, 
-    checkboxInput("targetm1", "target -1", T),
-    checkboxInput("target0", "target 0", T),
-    checkboxInput("target1", "target +1", T),
-    checkboxInput("out", "without outliers", T),
-    checkboxInput("gilt", "nur gültige fälle", T),
-    checkboxInput("ctrl", "control group", T),
+    checkboxInput("targetm1", "target -1", F),
+    checkboxInput("target0", "target 0", F),
+    checkboxInput("target1", "target +1", F),
+    checkboxInput("out", "without outliers", F),
+    checkboxInput("gilt", "nur gültige fälle", F),
+    checkboxInput("ctrl", "control group", F),
     
     
     br(),
-    
-    helpText("This app uses ordinary least squares (OLS) to fit a regression line to the data with the selected trend. The app is designed to help you practice evaluating whether or not the linear model is an appropriate fit to the data. The three diagnostic plots on the lower half of the page are provided to help you identify undesirable patterns in the residuals that may arise from non-linear trends in the data."),
-    br(),
-    
-    helpText(a(href="https://github.com/ShinyEd/ShinyEd/tree/master/slr_diag", target="_blank", "View code")),
-    helpText(a(href="http://shinyed.github.io/intro-stats", target="_blank", "Check out other apps")),
-    helpText(a(href="https://openintro.org", target="_blank", "Want to learn more for free?"))),
-  
+    # 
+    # helpText("This app uses ordinary least squares (OLS) to fit a regression line to the data with the selected trend. The app is designed to help you practice evaluating whether or not the linear model is an appropriate fit to the data. The three diagnostic plots on the lower half of the page are provided to help you identify undesirable patterns in the residuals that may arise from non-linear trends in the data."),
+    # br(),
+    # 
+    # helpText(a(href="https://github.com/ShinyEd/ShinyEd/tree/master/slr_diag", target="_blank", "View code")),
+    # helpText(a(href="http://shinyed.github.io/intro-stats", target="_blank", "Check out other apps")),
+    # helpText(a(href="https://openintro.org", target="_blank", "Want to learn more for free?"))),
+    # 
+    verbatimTextOutput("eval")
+  ),
   # Main panel ----
   mainPanel(
     # plotOutput("scatter"),
@@ -900,23 +902,25 @@ plotOutput("plot")
   seed <- as.numeric(Sys.time())
   
   # Fundtion for generating the data ---------------------------------------------
-  draw.data<-function(check){
-    tm1<-0
-    t0<-0
-    t1<-0
-    ifelse(check[1]==1,tm1<--1,tm1<-0)
-    ifelse(check[2]==1,t0<-0,t0<-0)
-    ifelse(check[3]==1,t1<-1,t1<-0)
+  dta_rtc<-get_rtc(dta) #create rtc column in dataset
+  draw.data<-function(check,setd){
+    # variablen müssen vorher daklariert werden?
+   tm1<--9
+   t0<--9
+   t1<--9
+    ifelse(check[1]==T,tm1<--1,tm1<-0)
+    ifelse(check[2]==T,t0<-0,t0<-0)
+    ifelse(check[3]==T,t1<-1,t1<-0)
 #    dtaout<-dta_setx(dta,c(check$targetm1,check$target0,check$target1,1,sm,em),check$out,check$gilt,check$ctrl)
     #dtaout<-dta_setx(dta,c(tm1,t0,t1,1,sm,em),check[4],check[5],check[6])
 #target
-    dta1<-dtatarget(dta,tm1,t0,t1)
+    dta1<-dtatarget(setd,tm1,t0,t1)
     #gilt
-    ifelse(check[5]==1,dta1<-subset(dta1,dta1$gilt==1),dta1<-dta1)
+    ifelse(check[5]==T,dta1<-subset(dta1,dta1$gilt==1),dta1<-dta1)
     #outlier rtc
-    ifelse(check[4]==1,dta1<-outl.fun.rtc(dta1),dta1<-dta1)
+    ifelse(check[4]==T,dta1<-outl.fun.rtc(dta1),dta1<-dta1)
     # controlgroup
-    ifelse(check[6]==1,dta1<-adcontrol(dta1,ti0,ticontrol,ti2),dta1<-dta1)
+    ifelse(check[6]==T,dta1<-adcontrol(dta1,ti0,ticontrol,ti2),dta1<-dta1)
     return(dta1)
     
       }
@@ -937,12 +941,12 @@ server <- function(input, output) {
   mydata <- reactive({
 #    draw.data(input$targetm1,input$target0,input$target1,input$out,input$gilt,input$ctrl) #type = einzelne buttons der abfrage
     #shinydatascript(src_d,c(input$targetm1,input$target0,input$target1,input$out,input$gilt,input$ctrl))
-    draw.data(input$targetm1)
-    draw.data(input$target0) #type = einzelne buttons der abfrage
-    draw.data(input$target1) #type = einzelne buttons der abfrage
-    draw.data(input$out) #type = einzelne buttons der abfrage
-    draw.data(input$gilt) #type = einzelne buttons der abfrage
-    draw.data(input$ctrl) #type = einzelne buttons der abfrage
+    draw.data(input$targetm1,dta_rtc)
+    draw.data(input$target0,dta_rtc) #type = einzelne buttons der abfrage
+    draw.data(input$target1,dta_rtc) #type = einzelne buttons der abfrage
+    draw.data(input$out,dta_rtc) #type = einzelne buttons der abfrage
+    draw.data(input$gilt,dta_rtc) #type = einzelne buttons der abfrage
+    draw.data(input$ctrl,dta_rtc) #type = einzelne buttons der abfrage
   })
 #  x<-shinydatascript(src_d,c(mydata$targetm1,mydata$target0,mydata$target1,mydata$out,mydata$gilt,mydata$ctrl))
   
@@ -954,11 +958,12 @@ server <- function(input, output) {
  #    
  # })
   output$info <- renderPrint({
-    print("dummyoutput")
+   # print("dummyoutput")
     #print(mydata$data$timeinterval)
-    print(typeof(mydata))
+    #print(typeof(mydata))
     y<-data.frame(mydata())
-    print(typeof(y))
+    print(dim(y))
+    #print(colnames(y))
   #  print(y)
     #print(mean(y$data[3]))
     #print(head(y$data))
@@ -969,10 +974,14 @@ server <- function(input, output) {
    output$plot<- renderPlot({
      y<-data.frame(mydata())
      bar_df<-plot_desc(y)
-     ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) 
-    + geom_col(position = "dodge")
+     ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
 
      })
+   output$eval<- renderPrint({
+     y<-data.frame(mydata())
+     bar_df<-plot_desc(y)
+     print(bar_df)
+   })
      ####
   #output$plot<-mydata$timeinterval  
 #output$plot<-
