@@ -832,7 +832,7 @@ library(ggplot2)
     
     m9ns<-c("sm","em","lc","mm")
     bar_df$group[9:12]<-m9ns
-      print(bar_df)
+     # print(bar_df)
     #print(unique(d5$group))
    # p <- ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) 
     #p + geom_col(position = "dodge")
@@ -919,8 +919,8 @@ ui <- pageWithSidebar(
     # br(),
 #    plotOutput("")
     verbatimTextOutput("info"),
-#plotOutput("plot"),
-tableOutput("data")
+plotOutput("plot"),
+#tableOutput("data")
       )
 ) # end mainpage
   # Define inputs ----------------------------------------------------------------
@@ -1048,12 +1048,13 @@ draw.data(input$selection,dta)
 #     mtcars[,c("cyl","am"),drop=F]
 #   })
 # ####
-   # output$plot<- renderPlot({
-   #   y<-data.frame(mydata())
-   #   bar_df<-plot_desc(y)
-   #   ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
-   # 
-   #   })
+    output$plot<- renderPlot({
+      y<-mydata()
+      dset<-now.data(dta,y)     
+      bar_df<-plot_desc(dset)
+      ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
+    
+      })
    # output$eval<- renderPrint({
    #   y<-data.frame(mydata())
    #   bar_df<-plot_desc(y)
@@ -1074,14 +1075,15 @@ draw.data(input$selection,dta)
   }
   
   output$eval<-renderPrint({
-   print("dummyouteval")
+  # print("dummyouteval")
     y<-mydata()
-    print(y)
+   # print(y)
     dset<-now.data(dta,y)
-    print(dim(dset))
-    print(mean(dset$timeinterval,na.rm=T))
+    #print(dim(dset))
+    #print(mean(dset$timeinterval,na.rm=T))
     # now fetch dataset according to selection:
-    
+    print(bar_df<-plot_desc(dset)[,2:4])
+   # print(bar_df)
   })
    #   ####
   #output$plot<-mydata$timeinterval  
