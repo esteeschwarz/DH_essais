@@ -219,18 +219,19 @@ dta_setx<-function(setd,t1,t2,t3,xo,g1,g2,out,glt,ctrl){
 }##post
 setvsx<-  function(set1,gro,other){
   gr<-gro
-  dta=data.frame(set1)
+  dta<-set1
   attach(dta)
   sublc<-subset(dta,group==gr)
   subnlc<-subset(dta,group!=gr)
-  subna<-subset(dta,is.na(group))
+#  subna<-subset(dta,is.na(group))
   sublc$category=gr
-  subns<-stri_join(gr,"vs",other)
-  subnlc$category<-subns
-  subna$category<-subns
-  lcvsO<-rbind(sublc,subnlc,subna)
-  length(lcvsO$category==gr)-length(lcvsO$category==subns)
-  set<-get_rtc(lcvsO)
+  #subns<-stri_join(gr,"vs",other)
+  subnlc$category<-other
+  #subna$category<-subns
+  lcvsO<-rbind(sublc,subnlc)
+ # length(lcvsO$category==gr)-length(lcvsO$category==subns)
+  #set<-get_rtc(lcvsO)
+  set<-lcvsO
   return(set)
 }
 ####
@@ -786,6 +787,36 @@ plot_desc<-function(setd){
   bar_df$group[9:12]<-m9ns
   return(bar_df)
 }#endausgabe
+
+plot_desc_compare<-function(setd,gr,gro){
+  d5<-setd
+  bar_df<-data.frame(1:6)
+  m9ns<-c(gr,gro)
+  attach(d5)
+  m1<-mean(d5$timeinterval[group==gr],na.rm=T)
+  m2<-mean(d5$timeinterval[group!=gr],na.rm=T)
+  m9c<-rbind(m1,m2)
+  bar_df$RT[1:2]<-"TimeInterval"
+  bar_df$LZ[1:2]<-m9c
+  bar_df$group[1:2]<-m9ns
+  d5$rtc.2<-d5$timeinterval+d5$rtc
+  m1e<-mean(d5$rtc.2[group==gr],na.rm=T)
+  m2e<-mean(d5$rtc.2[group!=sm],na.rm=T)
+  m9e<-rbind(m1e,m2e)
+  bar_df$RT[3:4]<-"TI + rtc"
+  bar_df$LZ[3:4]<-m9e
+  bar_df$group[3:4]<-m9ns
+  meanch<-mean(d5$char)
+  mean(d5$timeinterval/d5$char)*meanch
+  m1f<-mean(d5$timeinterval[group==sm]/d5$char[group==gr],na.rm=T)*meanch
+  m2f<-mean(d5$timeinterval[group!=sm]/d5$char[group!=gr],na.rm=T)*meanch
+  m9f<-rbind(m1f,m2f)
+  bar_df$RT[5:6]<-"TI char"
+  bar_df$LZ[5:6]<-m9f
+  bar_df$group[5:6]<-m9ns
+  return(bar_df)
+}#endausgabe
+
 ###### here output of set of checkboxed input
 # wrapped for implement view on shiny
 # UI ---------------------------------------------------------------------------
@@ -817,12 +848,27 @@ ui <- pageWithSidebar(
                       "off"= 0)),  
     
     br(),
+    #p("choose group to compare vs Other")
+    radioButtons("groups", "chose group to compare vs Other", 
+                 list("single metaphor" = "SM",
+                      "extended metaphor"= "EM",
+                      "literal condition" = "LC",
+                       "inverted single metaphor"= "MM")),  
+    
+    # checkboxGroupInput("groups","select (1) group to compare vs Other",
+    #                    c("single metaphor" = "SM",
+    #                      "extended metaphor"="EM",
+    #                      "literal condition"="LC",
+    #                      "mixed model"="MM")),
     verbatimTextOutput("eval")
   ),
   # Main panel ----
   mainPanel(
     verbatimTextOutput("info"),
     plotOutput("plot"),
+    plotOutput("box"),
+    plotOutput("bars"),
+    verbatimTextOutput("compare"),
     helpText(h4("explique")),
     helpText(p("TimeInterval: uncorrected response time")),
     helpText(p(strong("TI + RTC: TimeInterval + lmer residuals of TI dependent on phrase length"))),
@@ -847,13 +893,19 @@ draw.data<-function(check,setd){
   out<-check
   # setout<-now.data(setd,tm1,t0,t1,out,gilt,ctrl)
 }
-
+draw.setvso<-function(check){
+  out<-check
+}
 # Server -----------------------------------------------------------------------
 server <- function(input, output) {
   
   mydata <- reactive({
     draw.data(c(input$tm1,input$t0,input$t1,input$out,input$gilt,input$ctrl),dta)
   })
+  mydata_2<-reactive({
+    draw.setvso(input$groups)
+  })
+  #### outputs:
   output$info <- renderPrint({
     print("datenset according to selection")
     y<-mydata()
@@ -866,8 +918,64 @@ server <- function(input, output) {
     dset<-now.data(dta,y)     
     bar_df<-plot_desc(dset)
     ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
+  })
+  output$eval<-renderPrint({
+    y<-mydata()
+    dset<-now.data(dta,y)
+    cat("mean reading times (LZ) in ms per category\n")
+    print(bar_df<-plot_desc(dset)[,2:4])
+    x<-mydata_2()
+    #print(x)
+    y<-mydata()
+    dset<-now.data(dta,y)
+    #print(dim(dset))
+    dsetvso<-setvsx(dset,x,"Other")
+    #print(dim(dsetvso))
+    cat("comparing categories:",unique(dsetvso$category),"\n")
+    print(plot_desc_compare(dsetvso,x,"All")[,2:4])
+  
+      })
+  # output$compare<-renderPrint({
+  #   x<-mydata_2()
+  #   print(x)
+  #   y<-mydata()
+  #   dset<-now.data(dta,y)
+  #   print(dim(dset))
+  #   dsetvso<-setvsx(dset,x,"Other")
+  #   print(dim(dsetvso))
+  #   print(unique(dsetvso$category))
+  #   print(plot_desc_compare(dsetvso,x,"All"))
+  #     })
+  output$box<-renderPlot({
+    x<-mydata_2()
+    #print(x)
+    other<-"Other"
+    y<-mydata()
+    dset<-now.data(dta,y)
+    #print(dim(dset))
+    dsetvso<-setvsx(dset,x,other)
+    #print(dim(dsetvso))
+    #print(unique(dsetvso$category))
+    #print(plot_desc_compare(dsetvso,x,"All"))
+   # bar_df<-cbind(dsetvso$timeinterval[group!=other],dsetvso$timeinterval[group==other])
+    boxplot(dset$timeinterval~group)
+      })
+  output$bars<-renderPlot({
+    x<-mydata_2()
+    #print(x)
+    other<-"Other"
+    y<-mydata()
+    dset<-now.data(dta,y)
+    #print(dim(dset))
+    dsetvso<-setvsx(dset,x,other)
+    #print(dim(dsetvso))
+    #print(unique(dsetvso$category))
+    #print(plot_desc_compare(dsetvso,x,"All"))
+    bar_df<-(plot_desc_compare(dsetvso,x,"All"))
+    ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
     
   })
+  ### here subset dataset according to selection
   now.data<-function(setd,chose){
     dta_rtc<-get_rtc(setd) #create rtc column in dataset
     dta1<-dta_rtc
@@ -882,13 +990,6 @@ server <- function(input, output) {
     return(dtac)
   }
   
-  output$eval<-renderPrint({
-    y<-mydata()
-    dset<-now.data(dta,y)
-    cat("mean reading times (LZ) per group\n")
-    
-    print(bar_df<-plot_desc(dset)[,2:4])
-  })
   #   ####
 }
 
