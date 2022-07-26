@@ -1,0 +1,14 @@
+---
+title: "explique HUX2021"
+author: "esteeschwarz"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## explique
+- *TimeInterval:* uncorrected response time
+- ***TI + RTC:*** **TimeInterval + lmer residuals of TI dependent on phrase length**
+- *TI char:* TimeInterval corrected by mean phrase length

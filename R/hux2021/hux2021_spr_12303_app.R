@@ -10,6 +10,8 @@
 
 # Load packages ----------------------------------------------------------------
 library(shiny)
+library(readtext)
+library(markdown)
 
 # SPR script wrapped -----------------------------------------------------------
 ###########################
@@ -32,6 +34,8 @@ library(readr)
 #library(clipr)
 library(ggplot2)
 #shinydatascript<-function(set,input)#{
+mdsrc<-"~/boxHKW/21S/DH/gith/DH_essais/R/shiny002/vlg_frame.md"
+mdsrc<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux2021/hux_ha_shinyframe01.Rmd"
 # src_d<-set
 #1
 dta<-read.csv2(src_d)
@@ -869,10 +873,13 @@ ui <- pageWithSidebar(
     plotOutput("box"),
     plotOutput("bars"),
     verbatimTextOutput("compare"),
-    helpText(h4("explique")),
-    helpText(p("TimeInterval: uncorrected response time")),
-    helpText(p(strong("TI + RTC: TimeInterval + lmer residuals of TI dependent on phrase length"))),
-    helpText(p("TI char: TimeInterval corrected by mean phrase length")),
+   # helpText(h4("explique")),
+    #helpText(p("TimeInterval: uncorrected response time")),
+    #helpText(p(strong("TI + RTC: TimeInterval + lmer residuals of TI dependent on phrase length"))),
+    #helpText(p("TI char: TimeInterval corrected by mean phrase length")),
+   br(),
+    HTML(markdownToHTML(file = mdsrc))
+    
   )
 ) # end mainpage
 # Define inputs ----------------------------------------------------------------
