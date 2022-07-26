@@ -34,7 +34,7 @@ library(readr)
 #library(clipr)
 library(ggplot2)
 #shinydatascript<-function(set,input)#{
-mdsrc<-"~/boxHKW/21S/DH/gith/DH_essais/R/shiny002/vlg_frame.md"
+#mdsrc<-"~/boxHKW/21S/DH/gith/DH_essais/R/shiny002/vlg_frame.md"
 mdsrc<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux2021/hux_ha_shinyframe01.Rmd"
 # src_d<-set
 #1
