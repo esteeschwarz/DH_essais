@@ -8,7 +8,7 @@ output: html_document
 - *TimeInterval:* uncorrected response time
 - ***TI + RTC:*** **TimeInterval + lmer residuals of TI dependent on phrase length**
 - *TI char:* TimeInterval corrected by mean phrase length
-## \n
+
 ```{r}
 # 12304.HUX meta
 # 20220726(19.59)

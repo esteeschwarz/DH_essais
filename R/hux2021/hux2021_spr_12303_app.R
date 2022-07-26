@@ -34,8 +34,10 @@ library(readr)
 #library(clipr)
 library(ggplot2)
 #shinydatascript<-function(set,input)#{
-#mdsrc<-"~/boxHKW/21S/DH/gith/DH_essais/R/shiny002/vlg_frame.md"
-mdsrc<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux2021/hux_ha_shinyframe01.Rmd"
+#mdsrc_01<-"~/boxHKW/21S/DH/gith/DH_essais/sections/hux2021/hux_ha_shinyframe01.Rmd"
+mdsrc_01<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/hux2021/hux_ha_shinyframe01.Rmd"
+#mdsrc_02<-"~/boxHKW/21S/DH/gith/essais/docs/SPUND_HA/12065.HA.meinschäfer.md"
+mdsrc_02<-"https://raw.githubusercontent.com/esteeschwarz/essais/main/docs/SPUND_HA/12065.HA.meinschäfer.md"
 # src_d<-set
 #1
 dta<-read.csv2(src_d)
@@ -868,18 +870,32 @@ ui <- pageWithSidebar(
   ),
   # Main panel ----
   mainPanel(
+    tabsetPanel(id="tabset",
+                tabPanel("visualisation",
     verbatimTextOutput("info"),
     plotOutput("plot"),
     plotOutput("box"),
     plotOutput("bars"),
     verbatimTextOutput("compare"),
+    HTML(markdownToHTML(file = mdsrc_01))),
+    tabPanel("explique",
+             HTML(markdownToHTML(file=mdsrc_02)))),
    # helpText(h4("explique")),
     #helpText(p("TimeInterval: uncorrected response time")),
     #helpText(p(strong("TI + RTC: TimeInterval + lmer residuals of TI dependent on phrase length"))),
     #helpText(p("TI char: TimeInterval corrected by mean phrase length")),
-   br(),
-    HTML(markdownToHTML(file = mdsrc))
-    
+  # br(),
+   #verbatimTextOutput("frame") 
+    #######
+    # tabsetPanel(
+    #   id = "tabset",
+    #   tabPanel("panel 1", "one"),
+    #   tabPanel("panel 2", "two"),
+    #   tabPanel("panel 3", HTML(markdownToHTML(file = mdsrc_01)))
+    # ),
+    #########
+#   HTML(markdownToHTML(file = mdsrc_01))
+   
   )
 ) # end mainpage
 # Define inputs ----------------------------------------------------------------
@@ -982,6 +998,8 @@ server <- function(input, output) {
     ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
     
   })
+# output$frame<-renderText({file=mdsrc_01})
+  
   ### here subset dataset according to selection
   now.data<-function(setd,chose){
     dta_rtc<-get_rtc(setd) #create rtc column in dataset
