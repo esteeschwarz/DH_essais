@@ -37,7 +37,7 @@ library(ggplot2)
 #mdsrc_01<-"~/boxHKW/21S/DH/gith/DH_essais/sections/hux2021/hux_ha_shinyframe01.Rmd"
 mdsrc_01<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/hux2021/hux_ha_shinyframe01.Rmd"
 #mdsrc_02<-"~/boxHKW/21S/DH/gith/essais/docs/SPUND_HA/12065.HA.meinschäfer.md"
-mdsrc_02<-"https://raw.githubusercontent.com/esteeschwarz/essais/main/docs/SPUND_HA/12065.HA.meinschäfer.md"
+mdsrc_02<-"https://raw.githubusercontent.com/esteeschwarz/essais/main/docs/SPUND_HA/hux2021_HA_12304.md"
 # src_d<-set
 #1
 dta<-read.csv2(src_d)
@@ -930,6 +930,7 @@ server <- function(input, output) {
   })
   #### outputs:
   output$info <- renderPrint({
+    br()
     print("datenset according to selection")
     y<-mydata()
     dset<-now.data(dta,y)     
