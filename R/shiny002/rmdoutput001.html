@@ -399,28 +399,15 @@ txt&lt;-readtext(src)</code></pre>
 <pre><code>## Warning in get_source(x, text_field = text_field, docid_field = docid_field, :
 ## Unsupported extension &#39;md&#39; of file vlg_frame.md treating as plain text.</code></pre>
 <pre class="r"><code>cat(renderMarkdown(src,renderer = &quot;HTML&quot;))</code></pre>
-<pre><code>## &lt;h1&gt;12282.notes on progress&lt;/h1&gt;
+<pre><code>## &lt;h1&gt;12304.notes on progress HUX2021&lt;/h1&gt;
 ## 
-## &lt;h2&gt;dynamiken postdeutscher gegenwartsliteratur&lt;/h2&gt;
+## &lt;h2&gt;schizophrenie &amp;amp; figurative language&lt;/h2&gt;
 ## 
-## &lt;h2&gt;liso, SS2022 FUB&lt;/h2&gt;
+## &lt;h2&gt;SS2021 (BUA) (CHARITE)&lt;/h2&gt;
 ## 
-## &lt;h4&gt;20220710(12.09)&lt;/h4&gt;
+## &lt;h4&gt;20220726(19.31)&lt;/h4&gt;
 ## 
-## &lt;p&gt;(just a template for markdown R knit essai)&lt;/p&gt;
-## 
-## &lt;ul&gt;
-## &lt;li&gt;12282.&lt;/li&gt;
-## &lt;li&gt;.01 sample extract wordlist of klemm(1765). this shall work accompanied by a small HOW-TO with every halfways able publishing house responsible who will be formally adressed to extract these data as base of the poetry corpus to build. the tool used: &lt;a href=&quot;http://www.laurenceanthony.net/software/antconc/&quot;&gt;http://www.laurenceanthony.net/software/antconc/&lt;/a&gt; can be used on windows and mac and platforms and easily provides e.g. a wordlist as .csv data table which is sufficient for our purpose here. people install the tool on their computer, load single texts, apply a create wordlist function export the data to a zipped table very conveniently. this all is done within 5min.&lt;/li&gt;
-## &lt;li&gt;.02 NEXT: may get institutional backup for adressing verlagsresponsibles to excercise the above. &lt;/li&gt;
-## &lt;li&gt;.03 TODO: antconc HOW-TO extract wordlist&lt;/li&gt;
-## &lt;li&gt;12286.&lt;/li&gt;
-## &lt;li&gt;.01 referenzkorpus: dereko &amp;gt; no. not really a lexikon but rather references complete language of use&lt;/li&gt;
-## &lt;li&gt;.02 duden API, &lt;a href=&quot;https://api.duden.io/#introduction&quot;&gt;https://api.duden.io/#introduction&lt;/a&gt;&lt;/li&gt;
-## &lt;li&gt;12287.&lt;/li&gt;
-## &lt;li&gt;.01 api wks with shell script, responding writing mistakes on submitted text according to duden. words not able to be lemmatized which would be the target (multilingual &amp;amp; neologisms) call an empty response. essai on types in wolf/kochanie which have been extracted with antconc on ocr processed philbib scan gives first impression of the capability of the method&lt;/li&gt;
-## &lt;li&gt;.02 DUE: integrate api request in R script, process response and evaluate&lt;/li&gt;
-## &lt;/ul&gt;</code></pre>
+## &lt;p&gt;(template for markdown R knit import)&lt;/p&gt;</code></pre>
 <pre class="r"><code>#cat(markdownToHTML(text = txt))
 cat(markdownToHTML(text = &quot;# A header\na line&quot;,extensions = c(&quot;&quot;)))</code></pre>
 <pre><code>## &lt;!DOCTYPE html&gt;
