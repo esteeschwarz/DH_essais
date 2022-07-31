@@ -128,6 +128,7 @@ library(Hmisc)
 # # )
 # d <- loadDrama("dd:1") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances. 1=klemm
 src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
+source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/script_ext.R")
 #d<-loadDramaTEI("https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei")
 d<-loadDramaTEI(src)
 cat("load TEI from:",src)
@@ -192,7 +193,6 @@ external call:
 
 2nd call
 ```{r}
-source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/script_ext.R")
 writeimage(100000)
 ```
 
