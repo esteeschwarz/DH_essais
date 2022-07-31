@@ -127,7 +127,10 @@ library(Hmisc)
 # #   collectionDirectory <- file.path(dataDirectory)
 # # )
 # d <- loadDrama("dd:1") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances. 1=klemm
-d<-loadDramaTEI("https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei")
+src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
+#d<-loadDramaTEI("https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei")
+d<-loadDramaTEI(src)
+cat("load TEI from:",src)
 
 charStats <- characterStatistics(d, filterPunctuation = TRUE)
 charStats <- characterNames(charStats, d)
@@ -178,6 +181,19 @@ barplot(xrel,
         las=2 
 )
 
+```
+
+external call:
+```{r}
+#library(shiny)
+#devtools::load_all()
+#writeimage(100000)
+```
+
+2nd call
+```{r}
+source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/script_ext.R")
+writeimage(100000)
 ```
 
 # REF:

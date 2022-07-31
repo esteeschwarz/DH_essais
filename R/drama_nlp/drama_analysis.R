@@ -12,6 +12,7 @@ install.packages(c("DramaAnalysis", "magrittr",
 library(DramaAnalysis)
 library(magrittr)
 library(igraph)
+library(Hmisc)
 getwd()
 
 
@@ -23,20 +24,20 @@ setDirectories(
 )
 setDirectories(
   dataDirectory <- file.path("data","corpus","nlp"),
-  collectionDirectory <- file.path(dataDirectory, "collections")
+  collectionDirectory <- file.path(dataDirectory)
 )
 
 installData("qd")
 # Stück laden und in einer Variable d speichern
 d <- loadDrama("qd:vn0h.0")
 d <- loadDrama("drst:001vww579.0") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances.
-d <- loadDrama("dd:7") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances.
-
+d <- loadDrama("dd:1") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances. 1=klemm
+d<- loadDramaTEI("~/Downloads/ger000577-klemm-der-besuch.tei.xml")
 print(presence(d)) # überprüfen
 
 # gesamtes Korpus einlesen:
 dd.ids <- c("dd:1","dd:2", "dd:3", "dd:4", "dd:5", "dd:6", "dd:7", "dd:8")
-dd.plays <- loadDrama(dd.ids)
+dd.plays <- loadDrama(dd.ids[1])
 dd.plays$meta 
 
 # WER REDET WIE VIEL? 
@@ -49,6 +50,7 @@ characterStatistics(d)
 characterStatistics(d, filterPunctuation = TRUE)
 # Statistiken für jeden Akt einzeln ausgeben lassen:
 characterStatistics(d, segment="Scene")
+
 # Werte normalisieren: wenn mehrere Texte verglichen werden sollen, muss mit 
 # normalisierten Werten gearbeitet werden
 characterStatistics(d, normalize=TRUE)
@@ -72,7 +74,24 @@ charStats <- characterNames(charStats, d)
 charStats$character # überprüfen: hat geklappt
 # Plot erneut erzeugen, diesmal mit den Figurennamen als Beschriftung auf der x-Achse
 par(mar=c(9,3,2,2)) 
-barplot(charStats$tokens, 
+xin<-"tokens"
+xplot<-paste0("charStats$",xin)
+barplot(as.vector(xplot), 
+        names.arg = charStats$character, 
+        las=2 
+)
+d[["tokens"]]
+charStats[["tokens"]]
+charStats$types
+xrel<-charStats$types/charStats$tokens
+barplot(xrel, 
+        names.arg = charStats$character, 
+        las=2 
+)
+
+
+xrel
+barplot(charStats$types, 
         names.arg = charStats$character, 
         las=2 
 ) 
@@ -113,7 +132,7 @@ boxplot(utteranceLength ~ character,
         main = dramaNames(d),
         las = 2
 )
-
+#dramaNames(d)<-"Klemm: Der Besuch (1765)" NO.
 # Wir wollen zuletzt visualisieren, wann im Verlauf des Stücks welche Figuren sprechen: 
 par(mar=c(2,7,2,2))
 plot(uStat, main=dramaNames(d))
