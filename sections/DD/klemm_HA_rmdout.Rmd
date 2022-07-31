@@ -1,0 +1,103 @@
+---
+title: "klemmHA"
+author: "esteeschwarz"
+date: "`r Sys.Date()`"
+zotero: AVL_dyn
+output: 
+  html_document: 
+    theme: flatly
+editor_options: 
+  markdown: 
+    wrap: 72
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 3.dokumentation aufbereitung
+
+## 3.1.transkription
+
+Als Textgrundlage des im folgenden **Rohtext** genannten Materials
+dienten die von google books öffentlich zur Verfügung gestellten scans
+der Erstausgabe von 1765 (A1765_Q) [@google1765], die grösztenteils auf
+den in der Österreichischen Nationalbibliothek schon vorhandenen
+Digitalisierungen [@önb1765] basieren. Diese wurden auf wikisource und
+hiermit auf einer platform zur kollaborativen Erstellung von u.a.
+Transkriptionen (vom Seminarleiter) weiterhin zugänglich gemacht und
+durchliefen nun den Prozess von Transkription und zweifacher
+unabhängiger Korrektur [@wikisource1765]. Zur Transkription diente mir
+im ersten Stadium eine zu 90% verläszliche OCR (optical character
+recognition) mittels TRANSKRIBUS [@read-coop2022]. Ich bediente mich
+hier eines frei verfügbaren models (#REF model), das einigermaszen
+zufriedenstellende Ergebnisse lieferte -- allerdings nur mit der Ausgabe
+von 1767 (A1767_Q), die ich als scan in der Digitalen Sammlung der
+Münchner Staatsbibliothek [@mdz1767] gefunden hatte. Da sich diese, wie
+ich bald feststellte, doch in einigen Punkten von der Erstausgabe
+unterschied, wurde der Rohtext auf Wikisource also nur unter
+zuhilfenahme dieser OCR-Fassung erstellt, d.h. im Einzelnen:
+
+1.  OCR (A1767_Q)
+    1.  Korrektur desselben noch in TRANSKRIBUS selbst
+    2.  Resultat Rohtext (A1767_R)
+2.  Abgleich A1767_R mit A1765_Q in der Bearbeitungsmaske von Wikisource
+    1.  Korrektur bzw. Anpassung des auf diese Weise erstellten Rohtext
+        der Erstausgabe (A1765_R)
+    2.  upload des Rohtextes
+3.  zwei Korrekturdurchgänge
+    1.  die von weiteren Personen auf Wikisource durchgeführt wurden
+    2.  dabei wurde A1765_R bereits mit Szenenüberschriften und
+        Sprechermarkierungen versehen
+
+## 3.2 TEI-auszeichnung
+
+Der grosze Teil der weiteren Arbeit bestand in der ersten vereinfachten
+Auszeichnung nach TEI-Standard. Ich habe hierzu ein umfassendes script
+in der Programmiersprache R [@rstudio2022] entworfen, das in A1765_R
+mittels der Suche mit regulären Ausdrücken (z.B.[@regexr2022])
+Szenenwechsel, Sprecherbezeichnungen und Regieanweisungen nach einigem
+Aufwand zu finden vermochte[^1] um diese schlieszlich in HTML-tags zu
+:verpacken: d.h. die einzelnen verschiedenen Elemente des Textes nach
+einem Standard zu markieren, der uns vorlag und bereits als Schema zur
+Validierung im Editor verwendet werden konnte (#REF drama TEI). Es
+handelte sich dabei noch nicht um die finale, schemagerechte Version.
+Diese wurde weiterhin vor der Integration des Stückes in das
+dracor-Korpus [@dracor2019] vom Seminarleiter auf Grundlage der
+vereinfachten Version erstellt.
+
+[^1]: dieser Aufwand wäre um einiges geringer ausgefallen, wenn ich
+    mich, statt mit dem Text im Format .txt (plaintext) zu arbeiten, mit
+    der bereits basis-HTML formatierten (durch Fett/Kursivdruck zb.
+    unterschiedene Passagen für Sprecher, Regieanweisungen und
+    Szenenwechsel) bedient hätte.
+
+### 3.2.1.beispiel der auszeichnung:
+
+```{r}
+library(rvest)
+library(stringi)
+src<-"https://de.wikisource.org/wiki/Der_Besuch_(Klemm)"
+dta1<-read_html(src)
+xpathkl<-'//*[@id="mw-content-text"]/div[1]/div[2]'
+#xpath copied from browser developer tools (safari)
+html_nodes(dta1,xpath = xpathkl)
+txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
+
+ # txt<-ground(txt)
+  repl1<-'<div type="scene"><head>\\1 \\2</head><stage>'
+  regx1<-"(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter) (Auftritt.)"
+  #stri_extract_all_regex(txtm,regx3)
+  m<-gregexec(regx1,txt,perl = T)
+  regmatches(txt,m)
+ txtm1<-gsub(regx1,repl1,txt,perl = T)
+  
+ cat(stri_sub(txtm1,1,500),"[...]")
+  #wks.
+```
+
+### 3.2.2 finales TEI
+Ziel der Auszeichnung war, das Stück auf DraCor für weitere Analysen in standardisierten Formaten (TEI, RDF, JSON sowie TXT und GRAPHML/GEFX Netzwerkdaten) zur Verfügung stellen zu können. Hierzu war es nötig, zuerst die Textgrundlage und erste Auszeichnung herzustellen. Mit Verfügbarkeit des Dramas im schemagerechten TEI Austauschformat, das im Bereich der digital humanities oder der Wissenschaft seit Jahren den Standard darstellt, wenn es um die Bereitstellung/ Katalogisierung, Archivierung bzw. eben den Austausch von Daten oder Metadaten geht, können nun weitreichende Analysen, vergleichende Studien und weiteres angestellt werden. Ich werde im Folgenden einen kleinen Ausschnitt dessen vorstellen, was möglich, aber in jedem Fall erweiterbar ist.
+
+# REF:

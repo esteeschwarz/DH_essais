@@ -1,0 +1,252 @@
+/* 
+ * Filename   : jespr.css
+ * Created on : Jul 21, 2016, 5:21:02 PM
+ * Author     : Ralph Rose
+ * Description: Style settings for a JESPR experiment
+ * License    : The MIT License (MIT)
+ */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.experiment-frame {
+    position: absolute; /* fixed */
+    width: 100%;
+    height: 90%; /* 100% */
+    left: 0;
+    bottom: 0;
+    background-color: red;
+    z-index: 10;
+    text-align: center;
+    padding: 0;
+}
+
+.keyboardHelp {
+  /*   position: fixed;*/
+    margin: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 11;
+    padding: 0em;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: inherit;
+    text-align: center;
+}
+
+.keyboardHelpLeft,
+.keyboardHelpCenter,
+.keyboardHelpRight {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: inherit;
+    padding: 0.2em;
+}
+
+.keyboardHelpLeft {
+    text-align: left;
+    float: left;
+}
+
+.keyboardHelpCenter {
+    text-align: center;
+    margin: 0 auto !important;
+    display: inline-block;
+}
+
+.keyboardHelpRight {
+    text-align: right;
+    float: right;
+}
+
+.nextButton {
+    display: block;
+    position: absolute;
+    z-index: 11;
+    top: 80%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+    visibility: visible;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+    border-radius: 1em;
+}
+
+.optButton:hover,
+.nextButton:hover {
+    filter: invert(15%);
+}
+
+.optButton:focus,
+.nextButton:focus {
+    outline: none;
+}
+
+div.title,
+div.instructions {
+    display: none;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+   /*  -ms-transform: translateY(-50%);*/
+    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 5%;
+}
+
+
+div.item {
+    
+    display: none;
+    position: relative;
+    top: 50%;
+     transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+  /*  -ms-transform: translateY(-50%);*/
+    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 0;
+    margin-left: 10%; /* helps ensure that stimuli don't wrap / 11252ST: have set from -100% to 10% to ermöglichen grosze absätze */
+    margin-right: 10%;
+   
+}
+
+div.instructions p {
+    text-align: left;
+}
+
+p.title {
+    font-size: 250%;
+}
+
+p.fixation {
+    display: block;
+    font-size: 5em;
+    margin: 0;
+    font-family: inherit;
+    color: inherit;
+}
+
+p.stimulus {
+    display: none;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    visibility: hidden;
+    text-align: center; /* center */
+}
+p.prompt,
+p.feedback {
+    display: none;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    visibility: hidden;
+    text-align: center; /*  none*/
+}
+
+span.region,
+span.option {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    display: inline-block;
+    text-align: center;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
+
+span.option {
+    margin-left: 0.5em; /* -2em*/
+    margin-right: 0.5em;
+}
+
+button.optButton {
+    margin-top: 0.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: 1em;
+    text-align: center;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: inherit;
+    border-radius: 1em;
+}
+
+span.feedback {
+    font-family: inherit;
+    font-size: inherit;
+    display: none;
+    text-align: center;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    white-space: nowrap;
+}
+
+.primary-investigators {
+    font-weight: bold;
+    margin-left: 1em;
+    margin-right: 1em;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+.other-investigators {
+    font-weight: normal;
+    margin-left: 1em;
+    margin-right: 1em;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+textarea.results,
+textarea.log {
+    width: 90%;
+    font-family: monospace;
+    font-size: 9pt;
+    margin: 1em;
+    display: none;
+}
+
+#jesprForm {   
+    display: none; /* hides result and log permanently*/
+}
+#entry {                    /* entrybuttons visible or not*/
+    
+}
+#leavemsg {
+  display: none;  /* hows finish test message if activated*/
+}
+div.center {
+    text-align: center;
+}
+
+div.progressbar {
+  /*   position: ; /* -absolute */
+    height: 0.15em;
+    left: 0;
+    top: 0; /* bottom 0 */
+    background-color: black;
+    z-index: 11;
+    opacity: 0.5;
+    filter: alpha(opacity=10); /* For IE8 and earlier */
+}

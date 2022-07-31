@@ -12,6 +12,14 @@
 library(shiny)
 library(readtext)
 library(markdown)
+library(htmltools)
+# loaddata
+#mdsrc_01<-"~/boxHKW/21S/DH/gith/DH_essais/sections/hux2021/hux_ha_shinyframe01.Rmd"
+mdsrc_01<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/hux2021/hux_ha_shinyframe01.Rmd"
+#mdsrc_02<-"~/boxHKW/21S/DH/gith/essais/docs/SPUND_HA/12065.HA.meinschäfer.md"
+mdsrc_02<-"https://raw.githubusercontent.com/esteeschwarz/essais/main/docs/SPUND_HA/hux2021_HA_12304.md"
+src_d<-("https://github.com/esteeschwarz/essais/raw/main/docs/hux2021/evaluation/sprdataprepared.csv")
+frame_src<-"framesample.html"
 
 # SPR script wrapped -----------------------------------------------------------
 ###########################
@@ -23,11 +31,11 @@ library(markdown)
 # daten original:
 #src_o<-("https://github.com/esteeschwarz/essais/raw/main/docs/hux2021/evaluation/sprdata.csv")
 # daten prepared
-src_d<-("https://github.com/esteeschwarz/essais/raw/main/docs/hux2021/evaluation/sprdataprepared.csv")
+# src_d<-("https://github.com/esteeschwarz/essais/raw/main/docs/hux2021/evaluation/sprdataprepared.csv")
 # evaluation script v.1.x
 #src_e<-("https://github.com/esteeschwarz/essais/raw/main/docs/hux2021/evaluation/1237b.R")
 ###
-library(lme4)
+#library(lme4)
 library(lmerTest)
 library(stringi)
 library(readr)
@@ -35,9 +43,9 @@ library(readr)
 library(ggplot2)
 #shinydatascript<-function(set,input)#{
 #mdsrc_01<-"~/boxHKW/21S/DH/gith/DH_essais/sections/hux2021/hux_ha_shinyframe01.Rmd"
-mdsrc_01<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/hux2021/hux_ha_shinyframe01.Rmd"
+#mdsrc_01<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/hux2021/hux_ha_shinyframe01.Rmd"
 #mdsrc_02<-"~/boxHKW/21S/DH/gith/essais/docs/SPUND_HA/12065.HA.meinschäfer.md"
-mdsrc_02<-"https://raw.githubusercontent.com/esteeschwarz/essais/main/docs/SPUND_HA/hux2021_HA_12304.md"
+#mdsrc_02<-"https://raw.githubusercontent.com/esteeschwarz/essais/main/docs/SPUND_HA/hux2021_HA_12304.md"
 # src_d<-set
 #1
 dta<-read.csv2(src_d)
@@ -71,7 +79,7 @@ ticontrol<-100
 ti2<-100
 # 
 
-#add control observation
+# add control observation
 adcontrol<-function(set1,ti0,ticontrol,ti2){
   set<-set1
   con1<-set[1,]
@@ -855,7 +863,7 @@ ui <- pageWithSidebar(
     
     br(),
     #p("choose group to compare vs Other")
-    radioButtons("groups", "chose group to compare vs Other", 
+    radioButtons("groups", "chose group to compare vs All", 
                  list("single metaphor" = "SM",
                       "extended metaphor"= "EM",
                       "literal condition" = "LC",
@@ -872,20 +880,26 @@ ui <- pageWithSidebar(
   mainPanel(
     tabsetPanel(id="tabset",
                 tabPanel("visualisation",
-                         verbatimTextOutput("info"),
-                         plotOutput("plot"),
-                         plotOutput("box"),
-                         plotOutput("bars"),
-                         verbatimTextOutput("compare"),
-                         HTML(markdownToHTML(file = mdsrc_01))),
-                tabPanel("explique",
-                         HTML(markdownToHTML(file=mdsrc_02)))),
-    # helpText(h4("explique")),
+    verbatimTextOutput("info"),
+    plotOutput("plot"),
+    plotOutput("box"),
+    plotOutput("bars"),
+    verbatimTextOutput("compare"),
+    HTML(markdownToHTML(file = mdsrc_01))),
+    tabPanel("documentation",
+             HTML(markdownToHTML(file=mdsrc_02))),
+    tabPanel("data sample",
+verbatimTextOutput("daten")),
+#tabPanel("frame",HTML(readtext("/Users/lion/boxHKW/21S/DH/gith/essais/docs/hux2021/experiment/SPR_as-used/index.html")$text))),
+#tabPanel("frame",htmlOutput(readtext("framesample.html")$text))),
+tabPanel("study sample",renderDocument(htmlTemplate(filename = "framesample.html",document_ = T)))),
+
+                # helpText(h4("explique")),
     #helpText(p("TimeInterval: uncorrected response time")),
     #helpText(p(strong("TI + RTC: TimeInterval + lmer residuals of TI dependent on phrase length"))),
     #helpText(p("TI char: TimeInterval corrected by mean phrase length")),
-    # br(),
-    #verbatimTextOutput("frame") 
+  # br(),
+   #verbatimTextOutput("frame") 
     #######
     # tabsetPanel(
     #   id = "tabset",
@@ -894,9 +908,9 @@ ui <- pageWithSidebar(
     #   tabPanel("panel 3", HTML(markdownToHTML(file = mdsrc_01)))
     # ),
     #########
-    #   HTML(markdownToHTML(file = mdsrc_01))
-    
-  )
+#   HTML(markdownToHTML(file = mdsrc_01))
+   #xhtm
+  ) #end mainpanel
 ) # end mainpage
 # Define inputs ----------------------------------------------------------------
 #  input <- list(rseed=1)
@@ -957,7 +971,11 @@ server <- function(input, output) {
     #print(dim(dsetvso))
     cat("comparing categories:",unique(dsetvso$category),"\n")
     print(plot_desc_compare(dsetvso,x,"All")[,2:4])
-    
+    output$daten<-renderPrint({
+      y<-mydata()
+      dset<-now.data(dta,y)
+      print(dset[1:10,1:30])
+    })
   })
   # output$compare<-renderPrint({
   #   x<-mydata_2()
@@ -999,7 +1017,7 @@ server <- function(input, output) {
     ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
     
   })
-  # output$frame<-renderText({file=mdsrc_01})
+# output$frameout<-renderText({file=mdsrc_01})
   
   ### here subset dataset according to selection
   now.data<-function(setd,chose){

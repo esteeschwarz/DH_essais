@@ -1,0 +1,14 @@
+name: hux2021_staged
+title: hux2021_staged
+username:
+account: vision2020
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6716041
+bundleId: 6148458
+url: https://vision2020.shinyapps.io/hux2021_staged/
+when: 1659186599.83834
+lastSyncTime: 1659186599.83836
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: SPR_as-used

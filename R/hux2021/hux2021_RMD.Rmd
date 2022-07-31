@@ -1,3 +1,14 @@
+---
+title: "hux2021"
+author: "esteeschwarz"
+date: "`r Sys.Date()`"
+runtime: shiny
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 # 12303.hux2021 evaluation app
 # 20220725(14.28) 
 # author: esteeschwarz, on base of:
