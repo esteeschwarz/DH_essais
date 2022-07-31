@@ -61,11 +61,11 @@ Szenenwechsel, Sprecherbezeichnungen und Regieanweisungen nach einigem
 Aufwand zu finden vermochte[^1] um diese schlieszlich in HTML-tags zu
 :verpacken: d.h. die einzelnen verschiedenen Elemente des Textes nach
 einem Standard zu markieren, der uns vorlag und bereits als Schema zur
-Validierung im Editor verwendet werden konnte (#REF drama TEI). Es
-handelte sich dabei noch nicht um die finale, schemagerechte Version.
-Diese wurde weiterhin vor der Integration des Stückes in das
-dracor-Korpus [@dracor2019] vom Seminarleiter auf Grundlage der
-vereinfachten Version erstellt.
+Validierung im Editor verwendet werden konnte [@drama2022]. Es handelte
+sich dabei noch nicht um die finale, schemagerechte Version. Diese wurde
+weiterhin vor der Integration des Stückes in das dracor-Korpus
+[@dracor2019] vom Seminarleiter auf Grundlage der vereinfachten Version
+erstellt.
 
 [^1]: dieser Aufwand wäre um einiges geringer ausgefallen, wenn ich
     mich, statt mit dem Text im Format .txt (plaintext) zu arbeiten, mit
@@ -98,6 +98,18 @@ txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
 ```
 
 ### 3.2.2 finales TEI
-Ziel der Auszeichnung war, das Stück auf DraCor für weitere Analysen in standardisierten Formaten (TEI, RDF, JSON sowie TXT und GRAPHML/GEFX Netzwerkdaten) zur Verfügung stellen zu können. Hierzu war es nötig, zuerst die Textgrundlage und erste Auszeichnung herzustellen. Mit Verfügbarkeit des Dramas im schemagerechten TEI Austauschformat, das im Bereich der digital humanities oder der Wissenschaft seit Jahren den Standard darstellt, wenn es um die Bereitstellung/ Katalogisierung, Archivierung bzw. eben den Austausch von Daten oder Metadaten geht, können nun weitreichende Analysen, vergleichende Studien und weiteres angestellt werden. Ich werde im Folgenden einen kleinen Ausschnitt dessen vorstellen, was möglich, aber in jedem Fall erweiterbar ist.
+
+Ziel der Bearbeitung war, das Stück auf DraCor für weitere Analysen in
+standardisierten Formaten (TEI, RDF, JSON sowie TXT und GRAPHML/GEFX
+Netzwerkdaten) zur Verfügung stellen zu können. Hierzu war es nötig,
+zuerst die Textgrundlage und erste Auszeichnung herzustellen. Mit
+Verfügbarkeit des Dramas im schemagerechten TEI Austauschformat, das im
+Bereich der digital humanities oder der Wissenschaft seit Jahren als
+Standard etabliert ist [@tei1987], wenn es um die Bereitstellung/
+Katalogisierung, Archivierung bzw. eben den Austausch von Daten oder
+Metadaten geht, können nun weitreichende Analysen, vergleichende Studien
+und weiteres angestellt werden. Ich werde im Folgenden einen kleinen
+Ausschnitt dessen vorstellen, was möglich, aber in jedem Fall
+erweiterbar ist.
 
 # REF:
