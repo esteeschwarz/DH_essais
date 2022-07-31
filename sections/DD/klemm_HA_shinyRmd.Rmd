@@ -10,7 +10,7 @@ output:
 editor_options: 
   markdown: 
     wrap: 72
-bibliography: references.bib
+bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -115,18 +115,15 @@ erweiterbar ist.
 
 
 ## 4. some visualisations
-
+basics...
 ```{r echo=FALSE}
 library(DramaAnalysis)
 library(magrittr)
 library(igraph)
 library(Hmisc)
-
-setDirectories(
-  dataDirectory <- file.path("data","corpus","nlp"),
-  collectionDirectory <- file.path(dataDirectory)
-)
-d <- loadDrama("dd:1") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances. 1=klemm
+src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
+cat("load TEI from:",src)
+d<-loadDramaTEI(src)
 
 charStats <- characterStatistics(d, filterPunctuation = TRUE)
 charStats <- characterNames(charStats, d)
@@ -136,7 +133,7 @@ charStats <- characterNames(charStats, d)
 
 ```{r echo = FALSE}
 selectInput("show", label = "show stats",
-              choices = c("tokens", "types", "utterance length", 50), selected = 20)
+              choices = c("tokens", "types", "utterance length", 42), selected = 20)
 
 # sliderInput("bw_adjust", label = "Bandwidth adjustment:",
 #               min = 0.2, max = 2, value = 1, step = 0.2)
@@ -147,12 +144,12 @@ selectInput("show", label = "show stats",
 renderPlot({ #reactive consumer, necessary for get input values from selection
   xin=input$show
   par(mar=c(9,3,2,2)) #position grafik
-if (xin!="utterance length"){  
+if (xin=="tokens"|xin=="types"){  
 barplot(charStats[[xin]], 
         names.arg = charStats$character, # Beschriftung der x-Achse: hier sollen die IDs der Figuren aus der Spalte "character" stehen
         las=2 # Beschriftung der Achsen rotieren (Figuren-IDs auf der x-Achse würden sich sonst überlappen)
 )}
-  else {
+  if(xin=="utterance length"){
 uStat <- utteranceStatistics(d) %>%
   characterNames(d)
 par(mar=c(9,4,2,2)) 
@@ -161,7 +158,15 @@ boxplot(utteranceLength ~ character,
       
         las = 2
 )}
+    
+  if (xin==42) {
+ top<-100000
+a<-sample(top,top)
+c<-sqrt(length(a))
+b<-matrix(a,c,c)
+image(b)
 
+}
 })
 ```
 

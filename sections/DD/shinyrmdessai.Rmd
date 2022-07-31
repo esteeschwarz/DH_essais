@@ -10,7 +10,7 @@ output:
 editor_options: 
   markdown: 
     wrap: 72
-bibliography: references.bib
+bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -127,7 +127,7 @@ library(Hmisc)
 # #   collectionDirectory <- file.path(dataDirectory)
 # # )
 # d <- loadDrama("dd:1") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances. 1=klemm
-d<-loadDramaTEI("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/ger000577-klemm-der-besuch.tei.xml")
+d<-loadDramaTEI("https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei")
 
 charStats <- characterStatistics(d, filterPunctuation = TRUE)
 charStats <- characterNames(charStats, d)
