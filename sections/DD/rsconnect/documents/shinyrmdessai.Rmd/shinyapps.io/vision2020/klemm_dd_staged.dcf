@@ -1,0 +1,13 @@
+name: klemm_dd_staged
+title: klemm_dd_staged
+username:
+account: vision2020
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6719081
+bundleId: 6150628
+url: https://vision2020.shinyapps.io/klemm_dd_staged/
+when: 1659281371.47243
+lastSyncTime: 1659281371.47245
+asMultiple: TRUE
+asStatic: FALSE
