@@ -5,10 +5,10 @@ account: vision2020
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6719081
-bundleId: 6153111
+bundleId: 6153141
 url: https://vision2020.shinyapps.io/klemm_dd_staged/
-when: 1659352180.77355
-lastSyncTime: 1659352180.77356
+when: 1659352777.80599
+lastSyncTime: 1659352777.806
 asMultiple: TRUE
 asStatic: FALSE
 ignoredFiles: klemm_ha_index.Rmd|references.bib|klemm_HA_rmdout.Rmd|klemm_HA_shinyRmd.Rmd|klemmshinySFE.Rmd|testrmd.Rmd

@@ -196,8 +196,12 @@ barplot(xrel,
 
 ### 4.2 network
 
-```{r eval=F} 
+```{r} 
 #calls miracle function from external script:
+#this part is critical and calls an error if deployed
+library(igraph)
+#install.packages("lsa")
+library(lsa)
 showcommunities()
 ```
 
