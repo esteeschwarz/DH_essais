@@ -76,11 +76,11 @@ plot(c1, net, edge.arrow.size=.4,
 coords<-layout_3
 g<-net
 c4 = cluster_optimal(net)
-plot(c4, net, layout=layout_3)
-c3 = cluster_edge_betweenness(net)
-plot_dendrogram(c3)
-plot(net, vertex.color=membership(c3), layout=layout_3)
-plot(c4, g, layout=coords)
+#plot(c4, net, layout=layout_3)
+#c3 = cluster_edge_betweenness(net)
+#plot_dendrogram(c3)
+#plot(net, vertex.color=membership(c3), layout=layout_3)
+#plot(c4, g, layout=coords)
 
 # hierarchical clustering
 A = get.adjacency(g, sparse=FALSE)
@@ -97,7 +97,7 @@ d = as.dist(D)
 
 # average-linkage clustering method
 cc = hclust(d, method = "average")
-cc$labels
+#cc$labels
 # plot dendrogram
 plot(cc,labels = nodes$name)
 #plot

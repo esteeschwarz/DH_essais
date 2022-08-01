@@ -16,12 +16,16 @@ bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sect
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+# 1. einleitung
+# 2. klemm
+## 2.1 bio
+## 2.2 stück
+## 2.3 verortung, rezeption
+# 3. dokumentation aufbereitung
 
-# 3.dokumentation aufbereitung
+## 3.1. transkription
 
-## 3.1.transkription
-
-Als Textgrundlage des im folgenden **Rohtext** genannten Materials
+Als Textgrundlage des im folgenden *Rohtext* genannten Materials
 dienten die von google books öffentlich zur Verfügung gestellten scans
 der Erstausgabe von 1765 (A1765_Q) [@google1765], die grösztenteils auf
 den in der Österreichischen Nationalbibliothek schon vorhandenen
@@ -124,6 +128,8 @@ library(igraph)
 library(Hmisc)
 src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
 source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/script_ext.R")
+source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/tut_netzwerke.R")
+
 cat("load TEI from:",src)
 d<-loadDramaTEI(src)
 
@@ -135,7 +141,7 @@ charStats <- characterNames(charStats, d)
 
 ```{r echo = FALSE}
 selectInput("show", label = "show stats",
-              choices = c("tokens", "types", "utterance length", 42), selected = 20)
+              choices = c("tokens", "types", "utterance length", 42), selected = "tokens")
 
 # sliderInput("bw_adjust", label = "Bandwidth adjustment:",
 #               min = 0.2, max = 2, value = 1, step = 0.2)
@@ -187,5 +193,10 @@ barplot(xrel,
 ```
 
 ### 4.2 network
+```{r}
+#calls miracle function from external script:
+showcommunities()
+```
+
 ### 4.3 sources comparison (LERA)
 # REF:
