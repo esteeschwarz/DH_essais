@@ -4,9 +4,14 @@ author: "esteeschwarz"
 date: "`r Sys.Date()`"
 zotero: AVL_dyn
 runtime: shiny
-output: html_document 
-theme: flatly
+output: 
+  html_document:
+    theme: readable
+  
 bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/references.bib
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -89,7 +94,7 @@ src<-"https://de.wikisource.org/wiki/Der_Besuch_(Klemm)"
 dta1<-read_html(src)
 xpathkl<-'//*[@id="mw-content-text"]/div[1]/div[2]'
 #xpath copied from browser developer tools (safari)
-html_nodes(dta1,xpath = xpathkl)
+#html_nodes(dta1,xpath = xpathkl)
 txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
 
  # txt<-ground(txt)
@@ -97,7 +102,7 @@ txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
   regx1<-"(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter) (Auftritt.)"
   #stri_extract_all_regex(txtm,regx3)
   m<-gregexec(regx1,txt,perl = T)
-  regmatches(txt,m)
+  #regmatches(txt,m)
  txtm1<-gsub(regx1,repl1,txt,perl = T)
   
  cat(stri_sub(txtm1,1,500),"[...]")
@@ -123,7 +128,7 @@ erweiterbar ist.
 
 basics...
 
-```{r echo=FALSE}
+```{r}
 library(DramaAnalysis)
 library(magrittr)
 library(igraph)
@@ -131,12 +136,10 @@ library(Hmisc)
 src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
 source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/script_ext.R")
 source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/tut_netzwerke.R")
-
-cat("load TEI from:",src)
 d<-loadDramaTEI(src)
-
 charStats <- characterStatistics(d, filterPunctuation = TRUE)
 charStats <- characterNames(charStats, d)
+cat("load TEI from:",src)
 ```
 
 ### 4.1 types / tokens.
@@ -196,7 +199,7 @@ barplot(xrel,
 
 ### 4.2 network
 
-```{r} 
+```{r}
 #calls miracle function from external script:
 #this part is critical and calls an error if deployed
 library(igraph)
@@ -212,7 +215,6 @@ networks graph cf. [@lipogg_net],[@communities]
 ```{=html}
 <iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%" frameborder="0"></iframe>
 ```
-
 LERA output cf. [@poeckelmann2022]
 
 # REF:
