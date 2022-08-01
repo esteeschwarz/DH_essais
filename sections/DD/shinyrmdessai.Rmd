@@ -217,4 +217,4 @@ networks graph cf. [@lipogg_net],[@communities]
 ```
 LERA output cf. [@poeckelmann2022]
 
-# REF:
+# 5. REF:
