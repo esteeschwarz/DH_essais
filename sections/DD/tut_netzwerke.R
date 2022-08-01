@@ -1,7 +1,7 @@
 showcommunities<-function(){
-library(igraph)
-#install.packages("lsa")
-library(lsa)
+# library(igraph)
+# #install.packages("lsa")
+# library(lsa)
 
 src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/networkdata/graphml"
 src2<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/networkdata/csv"

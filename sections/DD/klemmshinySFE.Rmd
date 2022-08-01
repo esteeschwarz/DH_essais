@@ -17,24 +17,14 @@ bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sect
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# 1. einleitung
+# 3.dokumentation aufbereitung
 
-# 2. klemm
+## 3.1.transkription
 
-## 2.1 bio
-
-## 2.2 stück
-
-## 2.3 verortung, rezeption
-
-# 3. dokumentation aufbereitung
-
-## 3.1. transkription
-
-Als Textgrundlage des im folgenden *Rohtext* genannten Materials dienten
-die von google books öffentlich zur Verfügung gestellten scans der
-Erstausgabe von 1765 (A1765_Q) [@google1765], die grösztenteils auf den
-in der Österreichischen Nationalbibliothek schon vorhandenen
+Als Textgrundlage des im folgenden **Rohtext** genannten Materials
+dienten die von google books öffentlich zur Verfügung gestellten scans
+der Erstausgabe von 1765 (A1765_Q) [@google1765], die grösztenteils auf
+den in der Österreichischen Nationalbibliothek schon vorhandenen
 Digitalisierungen [@önb1765] basieren. Diese wurden auf wikisource und
 hiermit auf einer platform zur kollaborativen Erstellung von u.a.
 Transkriptionen (vom Seminarleiter) weiterhin zugänglich gemacht und
@@ -123,21 +113,25 @@ und weiteres angestellt werden. Ich werde im Folgenden einen kleinen
 Ausschnitt dessen vorstellen, was möglich, aber in jedem Fall
 erweiterbar ist.
 
-# 4. some visualisations
 
+## 4. some visualisations
 basics...
-
 ```{r echo=FALSE}
 library(DramaAnalysis)
 library(magrittr)
 library(igraph)
 library(Hmisc)
+# # 
+# # setDirectories(
+# #   dataDirectory <- file.path("data","corpus","nlp"),
+# #   collectionDirectory <- file.path(dataDirectory)
+# # )
+# d <- loadDrama("dd:1") # WORKS with 577, 578, 579; other have missing speaker assigned to utterances. 1=klemm
 src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
 source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/script_ext.R")
-source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/tut_netzwerke.R")
-
-cat("load TEI from:",src)
+#d<-loadDramaTEI("https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei")
 d<-loadDramaTEI(src)
+cat("load TEI from:",src)
 
 charStats <- characterStatistics(d, filterPunctuation = TRUE)
 charStats <- characterNames(charStats, d)
@@ -147,22 +141,23 @@ charStats <- characterNames(charStats, d)
 
 ```{r echo = FALSE}
 selectInput("show", label = "show stats",
-              choices = c("tokens", "types", "utterance length", 42), selected = "tokens")
+              choices = c("tokens", "types", "utterance length", 50), selected = 20)
 
 # sliderInput("bw_adjust", label = "Bandwidth adjustment:",
 #               min = 0.2, max = 2, value = 1, step = 0.2)
 ```
 
+
 ```{r echo = FALSE}
 renderPlot({ #reactive consumer, necessary for get input values from selection
   xin=input$show
   par(mar=c(9,3,2,2)) #position grafik
-if (xin=="tokens"|xin=="types"){  
+if (xin!="utterance length"){  
 barplot(charStats[[xin]], 
         names.arg = charStats$character, # Beschriftung der x-Achse: hier sollen die IDs der Figuren aus der Spalte "character" stehen
         las=2 # Beschriftung der Achsen rotieren (Figuren-IDs auf der x-Achse würden sich sonst überlappen)
 )}
-  if(xin=="utterance length"){
+  else {
 uStat <- utteranceStatistics(d) %>%
   characterNames(d)
 par(mar=c(9,4,2,2)) 
@@ -171,20 +166,11 @@ boxplot(utteranceLength ~ character,
       
         las = 2
 )}
-    
-  if (xin==42) {
-top<-100000
-#a<-sample(top,top)
-#c<-sqrt(length(a))
-#b<-matrix(a,c,c)
-writeimage(top) #what miracle: this function called from self external script sourced in head
 
-}
 })
 ```
 
 ### 4.1.1 type/token relation
-
 Aussage? z.B. wie :elaboriert: eine Figur erscheint...
 
 ```{r echo=FALSE}
@@ -198,21 +184,16 @@ barplot(xrel,
 
 ```
 
-### 4.2 network
-
+external call:
 ```{r}
-#calls miracle function from external script:
-showcommunities()
+#library(shiny)
+#devtools::load_all()
+#writeimage(100000)
 ```
 
-networks graph cf. [@lipogg_net],[@communities]
-
-### 4.3 sources comparison (LERA)
-
-```{=html}
-<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%" frameborder="0"></iframe>
+2nd call
+```{r}
+writeimage(100000)
 ```
-
-LERA output cf. [@poeckelmann2022]
 
 # REF:
