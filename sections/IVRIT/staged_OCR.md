@@ -12,3 +12,7 @@ staged:
 - R regex processing to replace #(number)# by #BILD#
   - still not simple doing due to RTL/LTR direction
   - go back to transkribus mask and edit numbers again consistently 
+  - 12325.
+  - add start/end main (paragraph of interest) tags in transkribus
+  - substitute (<number>) by symbol referenced pdf page 7
+  - (only on left pdf pages, right pages TODO)
