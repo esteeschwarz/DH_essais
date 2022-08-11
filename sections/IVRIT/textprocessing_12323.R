@@ -29,9 +29,10 @@ txtm2
 writeLines(txtm2,"kitre_stage003.txt")
 #####
 #12325.stage 005.
-src<-"Text2KitreOtijjot_005b.xml"
+src<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/IVRIT/Text2KitreOtijjot_005b.xml"
 library(xml2)
 library(purrr)
+library(stringi)
 dta<-read_xml(src)
 #lisa
 
@@ -48,37 +49,50 @@ data %>%
 ?xml_path
 
 # Alle xpath-Pfade zu einem head-Element anzeigen
-all_heads <- data %>% 
-  xml_find_all('//text') %>%
+all_starts <- data %>% 
+  xml_find_all('//_startmain', flatten=F) %>%
   xml_path()
-all_heads
+all_starts
 all_heads[2]
-
-
-# Beispiel 2: Alle Kapitelüberschriften extrahieren
-# So geht es nicht
-xml_text(all_heads[2])
-# So geht es
-all_chapters <- data %>% 
-  xml_find_all('/*/*[7]/*/*[2]/*/*[2]') %>%
-  xml_text()
-all_chapters
-xml_text(xml_children(xml_children(xml_children(xml_children(xml_children(dta))))))
-all_chapters <- data %>% 
-  #xml_find_all('/*/*[7]/*/*[lg]/*/*[2]') %>%
-  #xml_find_all('/TEI/text/body/p/lg/l[5]') %>%
-  xml_find_all('.//l') %>%
+all_ends <- data %>% 
+  xml_find_all('//_endmain') %>%
+  xml_path()
+all_ends
+extract_main<-function(set){
   
-  xml_text()
-all_chapters
-####
-x <- read_xml("<body>
-  <p>Some <b>text</b>.</p>
-  <p>Some <b>other</b> <b>text</b>.</p>
-  <p>No bold here!</p>
-</body>")
-para <- xml_find_all(x, ".//p")
-para <- xml_find_all(data, ".//p")
+}
+regx1<-"((?<=l)\\[.*?(?=\\]))"
+repl_compl<-
+stri_replace_all_regex(all_starts,regx1,)
+repl1<-"dummy"
+gregexpr(regx1,all_starts,perl = T)
+gsub(regx1,repl1,all_starts)
+all_starts
 
-xml_path(para)
-xml_find_all(para, ".//b", flatten = FALSE)
+# # Beispiel 2: Alle Kapitelüberschriften extrahieren
+# # So geht es nicht
+# xml_text(all_heads[2])
+# # So geht es
+# all_chapters <- data %>% 
+#   xml_find_all('//text/body/p[2]/lg/l') %>%
+#   xml_text()
+# all_chapters
+# xml_text(xml_children(xml_children(xml_children(xml_children(xml_children(dta))))))
+# all_chapters <- data %>% 
+#   #xml_find_all('/*/*[7]/*/*[lg]/*/*[2]') %>%
+#   #xml_find_all('/TEI/text/body/p/lg/l[5]') %>%
+#   xml_find_all('.//l') %>%
+#   
+#   xml_text()
+# all_chapters
+# ####
+# x <- read_xml("<body>
+#   <p>Some <b>text</b>.</p>
+#   <p>Some <b>other</b> <b>text</b>.</p>
+#   <p>No bold here!</p>
+# </body>")
+# para <- xml_find_all(x, ".//p")
+# para <- xml_find_all(data, ".//p")
+# 
+# xml_path(para)
+# xml_find_all(para, ".//b", flatten = FALSE)
