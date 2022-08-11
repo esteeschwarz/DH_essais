@@ -17,4 +17,4 @@ staged:
   - substitute (<number>) by symbol referenced pdf page 7
   - (only on left pdf pages, right pages TODO)
 - 12326.
-  - the final .docx and text file show the content of the pdf reverse, i.e. top to bottom from last page to first, right side first, left side second (like hebrew eben, i cant deduce if the .pdf pages order is in reading order...)
+  - the reading order of the text is like in the pdf, i dont know if thats the right way reading the text.
