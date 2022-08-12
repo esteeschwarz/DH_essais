@@ -171,5 +171,5 @@ for(k in x:1){
 #cat(as.character(lines_df[9:8]))
 #writeLines(as.character(lines_df[9:1]),"kitre_output001.txt")
 #lines_df[[9]]
-text_cpt<-c(lines_df[[9]],lines_df[[8]],lines_df[[7]],lines_df[[6]],lines_df[[5]],lines_df[[4]],lines_df[[3]],lines_df[[2]],lines_df[[1]])
+text_cpt<-c(lines_df[[1]],lines_df[[2]],lines_df[[3]],lines_df[[4]],lines_df[[5]],lines_df[[6]],lines_df[[7]],lines_df[[8]],lines_df[[9]])
 writeLines(text_cpt,"kitre_output001.txt")
