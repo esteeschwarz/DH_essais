@@ -45,3 +45,25 @@ text_cpt
 #writeLines(text_cpt,"kitre_output001.txt")
 #writeLines(textm,"kitre_output001b.txt")
 #writeLines(text_cpt,"kitre_R_output002a.txt")
+
+########
+#fetch xml via API call
+# #dudenapi
+# head<-read_json("~/boxHKW/UNI/21S/DH/local/DYN/dudenapi_head.json")
+# 
+# head$`x-api-key`
+# req_body<-paste0('{"text":"',wolfbodyflat01,'","dictionary":["Wäl"]}')
+# cat(req_body)
+# req <- httr::POST(dudenurl,
+#                   httr::add_headers(
+#                     "x-api-key" = head$`x-api-key`,
+#                     "Content-Type" = "application/json"
+#                   ),
+#                   body = req_body
+# );
+# 
+# head$`x-api-key`
+# #Extract the access token
+# httr::stop_for_status(req)
+# json<-httr::content(req, as="parsed")
+# 
