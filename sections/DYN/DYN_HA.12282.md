@@ -6,6 +6,7 @@ ich möchte in dieser arbeit den versuch unternehmen, die deutschsprachige gegen
 2. in welchem zusammenhang stehen (E1) mit gesellschaftlichen diskursen (bildungstheoretische u. integrationspolitische ansätze)
 3. wie verhält sich das auftreten von (E1) in der deutschsprachigen literatur zu anderen literaturen
    1. bestehen hier interdependenzen
+   
 #### 2.
 es soll ein korpus erstellt werden, das ein lexikon zumindest der deutschsprachigen gegenwartslyrik enthält. dieses lexikon[^1] wird **distant read** ergebnisse liefern können, die aussagen über 1.1 zulassen.[^2]
 1. akquirierung: 
@@ -15,6 +16,7 @@ es soll ein korpus erstellt werden, das ein lexikon zumindest der deutschsprachi
    1. das korpus wird mithilfe eines deutschen referenzkorpus auf lexeme hin untersucht, die nicht im standarddeutschen auftauchen
    2. die gefundenen lexeme werden eine diachronen betrachtung unterzogen und
    3. zusammenhänge zu gesellsch. diskursen gesucht. dazu wird eine wortfeld- und kollokationsanalyse in deutschen zeitungs-, und webcorpora vorgenommen, die aufschlusz über eine evtl. verortung der lexeme geben könnten. diese analyse soll folgend auf nichtdeutschsprachige literaturen projiziert werden.
+
 #### 3.
 die arbeit handelt in einem explorativem ansatz, bei dem im vorfeld keinerlei hypothesen aufgestellt werden, da ohne genauere auswertung keinerlei annahmen sinnvoll zu tätigen sind. in einem fazit sollen aussagen darüber getroffen werden, welche rahmung der begriff :postdeutsch: kritisch-literarischen studien bieten kann.
 
