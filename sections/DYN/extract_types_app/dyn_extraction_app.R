@@ -74,5 +74,5 @@ print(extract_types)
   # )
 }
 # Create the Shiny app object --------------------------------------------------
-shinyApp(ui = ui, server = server)
+#shinyApp(ui = ui, server = server)
 
