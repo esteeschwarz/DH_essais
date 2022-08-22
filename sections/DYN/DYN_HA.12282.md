@@ -18,6 +18,10 @@ es soll ein korpus erstellt werden, das ein lexikon zumindest der deutschsprachi
 #### 3.
 die arbeit handelt in einem explorativem ansatz, bei dem im vorfeld keinerlei hypothesen aufgestellt werden, da ohne genauere auswertung keinerlei annahmen sinnvoll zu tätigen sind. in einem fazit sollen aussagen darüber getroffen werden, welche rahmung der begriff :postdeutsch: kritisch-literarischen studien bieten kann.
 
+## umsetzung
+#### 1.
+wie die geschätzen kollaborateur:innen sehen können, ist die phase :korpuserstellung: hiermit (<https://vision2020.shinyapps.io/postdeutsch_dynamics>) angelaufen und ich bitte euch nun, mir metadaten eures programms zur verfügung zu stellen. es braucht dazu nicht mehr als den upload eines titels. das script erhebt zuerst ALLE wörter (tokens), danach reduziert es diese erhebung auf die distinkt vorhandenen wörter (types). es wird also im neuen datensatz (welcher dann auch mit bestätigung durch "submit!" an mich geschickt wird, jedes wort nur einmal gespeichert, egal wie oft es vorkommt. damit sollte es (mir) auch mit sehr viel krimineller energie nicht möglich sein, das urheberrechtlich geschützte werk vernünftig wiederherzustellen. natürlich sollt ihr an meiner arbeit nur mitwirken, wenn ihr weiterhin keine bedenken hegt und euch diese erklärung reicht. 
+
 [^1]:	sample: [https://skuul.rotefadenbuecher.de/index.php?title=Variablen/kookvariablen](https://skuul.rotefadenbuecher.de/index.php?title=Variablen/kookvariablen)
 
 [^2]:	über den stand der verfahren kann hier: https://github.com/esteeschwarz/DH_essais/tree/main/sections/DYN nachgelesen werden.
