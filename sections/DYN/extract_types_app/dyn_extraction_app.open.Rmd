@@ -1,10 +1,13 @@
+# script provision for transparency/copyright issues:
+
+```{r}
 # 12341.DYN HA types extraction
-# 20220820(10.34) 
-# author: esteeschwarz
-# app deployed at:https://vision2020.shinyapps.io/postdeutsch_dynamics/
+#### 20220820(10.34) 
+#### author: esteeschwarz
+#### app deployed at:https://vision2020.shinyapps.io/postdeutsch_dynamics/
 ##########################################################
-# stages:
-# 20220822 working, deployed.
+#### stages:
+#### 20220822 working, deployed
 
 # Load packages ----------------------------------------------------------------
 library(shiny)
@@ -18,7 +21,6 @@ library(curl)
 library(markdown)
 library(htmltools)
 
-#source("~/boxHKW/21S/DH/local/R/curlsendmail.R")
 mdsrc_01<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DYN/DYN_HA.12282.md"
 # loaddata
 
@@ -151,4 +153,4 @@ EXTRACT:',msg)
 }
 # Create the Shiny app object --------------------------------------------------
 shinyApp(ui = ui, server = server)
-
+```
