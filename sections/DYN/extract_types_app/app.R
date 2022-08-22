@@ -57,17 +57,16 @@ server <- function(input, output) {
     #attch<-file(description  = attf)
     message<-c('From: "stephan dh" <muell@rotefadenbuecher.de>
 To: "dh recipient" <st@rotefadenbuecher.de>
-Subject: hello world
+Subject: DYN extracted
 
-Test email from R curl.',msg)
-    if(input$submit=="submit!"){
+EXTRACT:',msg)
     send_mail(sender,recipients,message,smtp_server="smtp://smtp.ionos.de",use_ssl = "try",
               username=cred$username,password=cred$password)
       output$sent<-renderPrint(
         cat("data sent successfully")
      #   input$submit<-"type"
       )
-    }
+   # }
   }
   
   #### outputs:
@@ -75,33 +74,56 @@ Test email from R curl.',msg)
   output$contents <-renderPrint({
     file<-input$file1
     ext<-file_ext(file$datapath)
+    filename<-file$name
+    fileoutname<-paste0("types_extracted_",filename,"_ST.txt")
     req(file)
     # validate(need(ext=="pdf"|ext=="txt","please upload a pdf file"))
     ifelse (ext=="pdf",extracted<-1,extracted<-2)
     #cat(extracted)
     textpdf<-"sampletext"
     texttxt<-"sampletext"
-    if (extracted==1){textpdf<-pdf_text(file$datapath)}
-    if (extracted==2){texttxt<-readtext(file$datapath)$text}
     ld1<-0
     le1<-0
-    d1<-textpdf
-    d2<-stri_extract_all_words(d1)
-    ld1<-length(d2[[1]])
-  #  d3<-unique(d2[[1]])
-    ld3<-length(d3)
-    e1<-texttxt
-    e2<-stri_extract_all_words(e1)
-    le1<-length(e2[[1]])
-    ifelse(extracted==1,extract_types<-unique(d2[[1]]),extract_types<-unique(e2[[1]]))
+    ld3<-0
+    le3<-0
+      if (extracted==1){
+      textpdf<-pdf_text(file$datapath)
+      d1<-textpdf
+      d2<-stri_extract_all_words(d1)
+      ld1<-length(d2[[1]])
+      extract_types<-unique(d2[[1]])
+      ld3<-length(extract_types)
+    }
+    if (extracted==2){
+      texttxt<-readtext(file$datapath)$text
+      e1<-texttxt
+      e2<-stri_extract_all_words(e1)
+      le1<-length(e2[[1]])
+      extract_types<-unique(e2[[1]])
+      le3<-length(extract_types)
+      }
+  #   ld1<-0
+  #   le1<-0
+  #   d1<-textpdf
+  #   d2<-stri_extract_all_words(d1)
+  #   ld1<-length(d2[[1]])
+  # #  d3<-unique(d2[[1]])
+  # #  ld3<-length(d3)
+  #   e1<-texttxt
+  #   e2<-stri_extract_all_words(e1)
+  #   le1<-length(e2[[1]])
+  #   ifelse(extracted==1,extract_types<-unique(d2[[1]]),extract_types<-unique(e2[[1]]))
     cat("extracted data overview:\n")
-    cat("tokens:",ld1+le1)
-    cat("types:",)
+    cat(filename,"\n")
+    cat("tokens:",l1<-ld1+le1,"\n")
+    cat("types: ",l3<-ld3+le3,"\n")
+    cat("type/token relatio:",l3/l1,"\n")
+    cat("-------\n")
     print(extract_types)    
     #        extract_types<-unique(stri_extract_all_words(extracted))
     #  print(extract_types)
     output$downloadData<-downloadHandler(
-      filename="types_extracted.txt",
+      filename=fileoutname,
       content=function(file){writeLines(extract_types,file)}
     )
   #  mailsubmit<-reactive({
@@ -112,7 +134,10 @@ Test email from R curl.',msg)
       #})
     output$thankyou<-renderPrint({
       cat("Thank you for unterstützung!")
-      senddata(extract_types)
+      if(input$submit=="submit!"){
+        
+      senddata(c("<text>",filename,"</text>","<types>",extract_types,"</types"))
+      }
      # cat("mail sent successfully")
     #  input$senddata
       
