@@ -130,6 +130,34 @@ all_chapters
 xml_find_all(data,'//tc:lemmas/tc:lemma="&lt;unknown>"')
 dwdsapi<-"https://www.dwds.de/api/wb/snippet/?q="
 
-for (k = 1:length(wolftypes)){
-  
-}
+####
+#pdf extract text for types/tokens
+install.packages("pdftools")
+library(pdftools)
+src<-"~/boxHKW/21S/AVL/AVLgk_wolf_kochanie.pdf"
+src<-"~/boxHKW/21S/AVL/AVLgk_wolf_lengevitch.pdf"
+src<-"data/samplepdf.pdf"
+src<-"data/wolfout_mod.txt"
+####
+if (extracted==1){textpdf<-pdf_text(file$datapath)}
+if (extracted==2){texttxt<-readtext(file$datapath)$text}
+d1<-textpdf
+d2<-stri_extract_all_words(d1)
+d3<-unique(d2[[1]])
+e1<-texttxt
+e2<-stri_extract_all_words(e1)
+e3<-unique(e2[[1]])
+####
+d<-pdf_text(src)
+d<-readtext(src)
+d1<-stri_extract_all_words(d)
+d2<-unique(d1[[1]])
+d2
+length(d1[[1]])
+src
+e<-pdf_ocr_text(src)
+install.packages("tesseract")
+library(tesseract)
+e
+# not satisfying.
+
