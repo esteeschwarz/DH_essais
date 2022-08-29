@@ -9,4 +9,6 @@ repository on digital humanities essais.
   - [DH presentations working folder](https://github.com/esteeschwarz/DH_essais/tree/main/sections/pr)
   - [conversation analysis essais](https://github.com/esteeschwarz/essais/tree/main/docs/INT_CA)
   - [corpus linguistics essais](https://github.com/esteeschwarz/essais/tree/main/docs/corpusLX)
+  ----
+  - [frontend output assembly](https://ada-sub.rotefadenbuecher.de/skool/public) of (recent relevant learnings.)
 
