@@ -87,7 +87,8 @@ Nun so geh, ich werde dir schon läuten, wenn ich dich brauche.
 Zweyter Auftritt. 
 Chlorinde und Celimene. 
 Celimene. 
-Willkommen meine liebe Fräulein, ha das ist recht brav, daß sie mir die Ehre erweisen - Chlorinde. 
+Willkommen meine liebe Fräulein, ha das ist recht brav, daß sie mir die Ehre erweisen -. 
+Chlorinde. 
 Ihre Dienerin, gnädige Frau. 
 Das ist ja wieder ein elendes Wetter, es ist als wenn wir diesen Sommer gar keinen schönen Tag zu sehn kriegen könnten. 
 Celimene. 
@@ -248,7 +249,8 @@ Damis.
 So? 
 Cydalise. 
 Je nun, es kann bey mir vielleicht seyn, Erast hat mir versprochen, mich heute noch zu besuchen. 
-Wenn mir auch Damis die Ehre nicht mehr erweißt - Damis. 
+Wenn mir auch Damis die Ehre nicht mehr erweißt -. 
+Damis. 
 Ach, ich muß doch meine Sprache wieder finden. 
 Ich habe ihnen sonst fleißig aufgewartet, Fräulein Cydalise. 
 Cydalise. 
@@ -513,8 +515,7 @@ Erast.
 O gnädige Frau, wie sehr entzücken sie mich! 
 Gott, in was für einem Irthume war ich! 
 Eine elende affectirte Närrin! 
-Cydalise. 
-O ich sterbe vor Scham. 
+Cydalise - O ich sterbe vor Scham. 
 Damis. 
 So tauschen wir schon wieder? 
 Gnädige Frau, ich sehe, man darf auf ihr Wort auch keinen Staat machen. 

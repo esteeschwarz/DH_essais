@@ -1,3 +1,5 @@
-- / minus
-– / dash
-— / unknown pasted
+- //
+– //
+— //
+o //
+o //
