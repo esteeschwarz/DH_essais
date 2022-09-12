@@ -92,3 +92,23 @@ writeLines(txt4a[[1]],"kitre_list_escr.txt")
 txt5<-readtext("http://dh-index.org:8080/media/users/1/export_doc2_kitre_otijjot_text_202208311834.txt")
 txt5a<-stri_split(txt5$text,regex=" ")
 writeLines(txt5a[[1]],"kitre_list_escr.txt")
+##############################
+#12382.2nd text, sefer hatagin
+dfolder<-"~/boxHKW/21S/DH/local/escriptorium/txt/seferhatagin/"
+src<-"Seferhatagin_tei.xml"
+srcns<-paste0(dfolder,src)
+dta<-read_xml(srcns)
+# Namespace entfernen
+data<-dta
+data %>% xml_ns()
+data%>% xml_ns_strip()
+
+### try if loop instead...
+lines_all<- data %>% 
+  xml_find_all("//l") %>%
+  as.list((xml_path()))
+lines_all
+regions_all<- data %>% 
+  xml_find_all("//lg") %>%
+  as.list((xml_path()))
+regions_all
