@@ -7,7 +7,7 @@ runtime: shiny
 output: 
   html_document:
     theme: readable
-bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/references.bib
+bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/references.bib
 ---
 
 ```{r setup, include=FALSE}
