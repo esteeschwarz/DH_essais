@@ -15,8 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # 1. einleitung
-precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank Fischer, FUB) war den Teilnehmern freigestellt, sich während des Semester einem Stück aus der DraCor Einakterdatenbank [@çakir2022] & [@einakter2022] zu widmen. Das sollte den Prozess umfassen der Transkription und Auszeichnung nach TEI Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon während des Seminars kennengelernter Analysen vorgestellt. Ich habe Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl
-aber nur nach Sprache **Deutsch** und einem allein zu bewältigenden
+precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank Fischer, FUB) war den Teilnehmern freigestellt, sich während des Semester einem Stück aus der DraCor Einakterdatenbank [@çakir2022] & [@einakter2022] zu widmen. Das sollte den Prozess umfassen der Transkription und Auszeichnung nach TEI Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon während des Seminars kennengelernter Analysen vorgestellt. Ich habe Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl aber nur nach Sprache **Deutsch** und einem allein zu bewältigenden
 Umfang gegangen.
 Ich werde in dieser Arbeit kurz dokumentieren, wie die Aufgaben umgesetzt wurden, welche Methoden dabei zum Einsatz kamen und einen Ausblick auf literaturwissenschaftliche Analysen geben, die mit den gelernten Verfahren möglich sind.
 
@@ -102,8 +101,8 @@ library(magrittr)
 library(igraph)
 library(Hmisc)
 src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
-source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/script_ext.R")
-source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/tut_netzwerke.R")
+source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/klemm_HA/scripts/script_ext.R")
+source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/klemm_HA/scripts/tut_netzwerke.R")
 d<-loadDramaTEI(src)
 charStats <- characterStatistics(d, filterPunctuation = TRUE)
 charStats <- characterNames(charStats, d)
