@@ -34,7 +34,7 @@ Ich werde in dieser Arbeit kurz dokumentieren, wie die Aufgaben umgesetzt wurden
 # 2. klemm
 
 ## 2.1 bio
-Klemm wurde 1736 in Schwarzenberg/Erzgebirge geboren und lebte bis 1802 in Leipzig, Jena, Frankfurt, ab 1759 in Wien. Dort wurde er Herausgeber verschiedener Wochenblätter (Die Welt, Der österreichische Patriot, Beyträge zum deutschen Theater, Wiener Allerlei) in denen neben theaterkritischen und -theoretischen Beiträgen teilweise auch seine Stücke erschienen (Killy, 2009).
+Klemm wurde 1736 in Schwarzenberg/Erzgebirge geboren und lebte bis 1802 in Leipzig, Jena, Frankfurt, ab 1759 in Wien. Dort wurde er Herausgeber verschiedener Wochenblätter (Die Welt, Der österreichische Patriot, Beyträge zum deutschen Theater, Wiener Allerlei) in denen neben theaterkritischen und -theoretischen Beiträgen teilweise auch seine Stücke erschienen ([@killy_literaturlexikon_2009]).
 
 
 ## 2.2 stück
