@@ -12,7 +12,7 @@ output:
       smooth_scroll: no
     self_contained: no
     css: style.css
-bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/references.bib
+bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm2.bib
 ---
 
 ```{r setup, include=FALSE}

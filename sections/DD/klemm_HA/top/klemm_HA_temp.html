@@ -290,9 +290,9 @@ You would hear audio but your browser does not support the audio element.
 <p>precondition: Im Seminar “Digitale Dramenanalyse” des SS2022 (Frank
 Fischer, FUB) war den Teilnehmern freigestellt, sich während des
 Semester einem Stück aus der DraCor Einakterdatenbank <span
-class="citation">(Çakir and Fischer 2022)</span> &amp; <span
-class="citation">(einakter and Klemm 2022)</span> zu widmen. Das sollte
-den Prozess umfassen der Transkription und Auszeichnung nach TEI
+class="citation">(<strong>çakir2022?</strong>)</span> &amp; <span
+class="citation">(<strong>einakter2022?</strong>)</span> zu widmen. Das
+sollte den Prozess umfassen der Transkription und Auszeichnung nach TEI
 Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team,
 daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und
 Autor sowie evtl. schon während des Seminars kennengelernter Analysen
@@ -313,8 +313,7 @@ Verfahren möglich sind.</p>
 Herausgeber verschiedener Wochenblätter (Die Welt, Der österreichische
 Patriot, Beyträge zum deutschen Theater, Wiener Allerlei) in denen neben
 theaterkritischen und -theoretischen Beiträgen teilweise auch seine
-Stücke erschienen (<span
-class="citation">(<strong>killy_literaturlexikon_2009?</strong>)</span>).</p>
+Stücke erschienen (<span class="citation">(Killy 2009)</span>).</p>
 </div>
 <div id="stück" class="section level2">
 <h2>2.2 stück</h2>
@@ -337,21 +336,23 @@ zählt um 3.400 Wörter.</p>
 <p>Als Textgrundlage des im folgenden <em>Rohtext</em> genannten
 Materials dienten die von google books öffentlich zur Verfügung
 gestellten scans der Erstausgabe von 1765 (A1765_Q) <span
-class="citation">(google and Klemm 1765)</span>, die grösztenteils auf
-den in der Österreichischen Nationalbibliothek schon vorhandenen
-Digitalisierungen <span class="citation">(ÖNB and Klemm 1765)</span>
-basieren. Diese wurden auf wikisource und hiermit auf einer platform zur
-kollaborativen Erstellung von u.a. Transkriptionen (vom Seminarleiter)
-weiterhin zugänglich gemacht und durchliefen nun den Prozess von
-Transkription und zweifacher unabhängiger Korrektur <span
-class="citation">(wikisource and Klemm 1765)</span>. Zur Transkription
-diente mir im ersten Stadium eine zu 90% verläszliche OCR (optical
-character recognition) mittels TRANSKRIBUS <span
-class="citation">(read-coop 2022)</span>. Benutzt wurde das frei
-verfügbare OCR-model “ONB_Newseye_GT_M1+”, das zufriedenstellende
-Ergebnisse lieferte – allerdings nur mit der Ausgabe von 1767 (A1767_Q),
-die ich als scan in der Digitalen Sammlung der Münchner Staatsbibliothek
-<span class="citation">(MDZ and Klemm 1767)</span> gefunden hatte. Da
+class="citation">(<strong>google1765?</strong>)</span>, die
+grösztenteils auf den in der Österreichischen Nationalbibliothek schon
+vorhandenen Digitalisierungen <span
+class="citation">(<strong>önb1765?</strong>)</span> basieren. Diese
+wurden auf wikisource und hiermit auf einer platform zur kollaborativen
+Erstellung von u.a. Transkriptionen (vom Seminarleiter) weiterhin
+zugänglich gemacht und durchliefen nun den Prozess von Transkription und
+zweifacher unabhängiger Korrektur <span
+class="citation">(<strong>wikisource1765?</strong>)</span>. Zur
+Transkription diente mir im ersten Stadium eine zu 90% verläszliche OCR
+(optical character recognition) mittels TRANSKRIBUS <span
+class="citation">(<strong>read-coop2022?</strong>)</span>. Benutzt wurde
+das frei verfügbare OCR-model “ONB_Newseye_GT_M1+”, das
+zufriedenstellende Ergebnisse lieferte – allerdings nur mit der Ausgabe
+von 1767 (A1767_Q), die ich als scan in der Digitalen Sammlung der
+Münchner Staatsbibliothek <span
+class="citation">(<strong>mdz1767?</strong>)</span> gefunden hatte. Da
 sich diese, wie ich bald feststellte, doch in einigen Punkten von der
 Erstausgabe unterschied, wurde der Rohtext auf Wikisource also :nur
 unter Zuhilfenahme: dieser OCR-Fassung erstellt, d.h. im Einzelnen:</p>
@@ -380,20 +381,20 @@ Sprechermarkierungen versehen</li>
 <p>Der grosze Teil der weiteren Arbeit bestand in der ersten
 vereinfachten Auszeichnung nach TEI-Standard. Ich habe hierzu ein
 umfassendes script in der Programmiersprache R <span
-class="citation">(<span>“RStudio IDE”</span> 2022)</span> entworfen, das
+class="citation">(<strong>rstudio2022?</strong>)</span> entworfen, das
 in A1765_R mittels der Suche mit regulären Ausdrücken (z.B.<span
-class="citation">(regexr and Klemm 2022)</span>) Szenenwechsel,
+class="citation">(<strong>regexr2022?</strong>)</span>) Szenenwechsel,
 Sprecherbezeichnungen und Regieanweisungen nach einigem Aufwand zu
 finden vermochte<a href="#fn1" class="footnote-ref"
 id="fnref1"><sup>1</sup></a> um diese schlieszlich in HTML-tags zu
 :verpacken: d.h. die einzelnen verschiedenen Elemente des Textes nach
 einem Standard zu markieren, der uns vorlag und bereits als Schema zur
 Validierung im Editor verwendet werden konnte <span
-class="citation">(drama and dracor 2022)</span>. Es handelte sich dabei
-noch nicht um die finale, schemagerechte Version. Diese wurde weiterhin
-vor der Integration des Stückes in das dracor-Korpus <span
-class="citation">(Fischer et al. 2019)</span> vom Seminarleiter auf
-Grundlage der vereinfachten Version erstellt.</p>
+class="citation">(<strong>drama2022?</strong>)</span>. Es handelte sich
+dabei noch nicht um die finale, schemagerechte Version. Diese wurde
+weiterhin vor der Integration des Stückes in das dracor-Korpus <span
+class="citation">(<strong>dracor2019?</strong>)</span> vom Seminarleiter
+auf Grundlage der vereinfachten Version erstellt.</p>
 <div id="beispiel-der-auszeichnung" class="section level3">
 <h3>3.2.1.beispiel der auszeichnung:</h3>
 <pre class="r"><code>library(rvest)
@@ -443,12 +444,13 @@ Netzwerkdaten) zur Verfügung stellen zu können. Hierzu war es nötig,
 zuerst die Textgrundlage und erste Auszeichnung herzustellen. Mit
 Verfügbarkeit des Dramas im schemagerechten TEI Austauschformat, das im
 Bereich der digital humanities oder der Wissenschaft seit Jahren als
-Standard etabliert ist <span class="citation">(TEI 1987)</span>, wenn es
-um die Bereitstellung/ Katalogisierung, Archivierung bzw. eben den
-Austausch von Daten oder Metadaten geht, können nun weitreichende
-Analysen, vergleichende Studien und weiteres angestellt werden. Ich
-werde im Folgenden einen kleinen Ausschnitt dessen vorstellen, was
-möglich, aber in jedem Fall erweiterbar ist.</p>
+Standard etabliert ist <span
+class="citation">(<strong>tei1987?</strong>)</span>, wenn es um die
+Bereitstellung/ Katalogisierung, Archivierung bzw. eben den Austausch
+von Daten oder Metadaten geht, können nun weitreichende Analysen,
+vergleichende Studien und weiteres angestellt werden. Ich werde im
+Folgenden einen kleinen Ausschnitt dessen vorstellen, was möglich, aber
+in jedem Fall erweiterbar ist.</p>
 </div>
 </div>
 </div>
@@ -464,95 +466,27 @@ möglich, aber in jedem Fall erweiterbar ist.</p>
 <div id="network" class="section level3">
 <h3>4.2 network</h3>
 <p><img src="klemm_HA_temp_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="klemm_HA_temp_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
-<p>networks graph cf. <span class="citation">(Poggel 2022)</span>,<span
-class="citation">(Franceschet 2022)</span></p>
+<p>networks graph cf. <span
+class="citation">(<strong>lipogg_net?</strong>)</span>,<span
+class="citation">(<strong>communities?</strong>)</span></p>
 </div>
 <div id="sources-comparison-lera" class="section level3">
 <h3>4.3 sources comparison (LERA)</h3>
 <iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
-<p>LERA output cf. <span class="citation">(Pöckelmann et al.
-2022)</span></p>
+<p>LERA output cf. <span
+class="citation">(<strong>poeckelmann2022?</strong>)</span></p>
 </div>
 </div>
 <div id="ref" class="section level1 unnumbered">
 <h1 class="unnumbered">5. REF:</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
-<div id="ref-çakir2022" class="csl-entry">
-Çakir, Dîlan Canan, and Frank Fischer. 2022. <span>“Dramatische
-Metadaten - Die Datenbank Deutschsprachiger Einakter
-1740<span></span>1850,”</span> March. <a
-href="https://zenodo.org/record/6327977">https://zenodo.org/record/6327977</a>.
-</div>
-<div id="ref-drama2022" class="csl-entry">
-drama, and dracor. 2022. <span>“Dracor Xml Model.”</span> <a
-href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_drama.rng">http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_drama.rng</a>.
-</div>
-<div id="ref-einakter2022" class="csl-entry">
-einakter, and Christian Gottlob Klemm. 2022. <span>“Einakter: Klemm,
-Christian Gottlob: Der Besuch.”</span> <a
-href="https://einakter.dracor.org/klemm-der-besuch">https://einakter.dracor.org/klemm-der-besuch</a>.
-</div>
-<div id="ref-dracor2019" class="csl-entry">
-Fischer, Frank, Ingo Börner, Mathias Göbel, Angelika Hechtl, Christopher
-Kittel, Carsten Milling, and Peer Trilcke. 2019. <span>“Programmable
-Corpora: Introducing DraCor, an Infrastructure for the Research on
-European Drama,”</span> July. <a
-href="https://zenodo.org/record/4284002">https://zenodo.org/record/4284002</a>.
-</div>
-<div id="ref-communities" class="csl-entry">
-Franceschet, Massimo. 2022. <span>“Communities in Igraph.”</span> <a
-href="https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html">https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html</a>.
-</div>
-<div id="ref-google1765" class="csl-entry">
-google, and Christian Gottlob Klemm. 1765. <em>Klemm: Der
-Österreichische Patriot: eine Wochenschrift | google books</em>.
-Gedruckt u. zu finden bey Georg Ludwig Schulz. <a
-href="https://books.google.de/books?id=P2nXk3Ib9LkC&amp;pg=PA577&amp;redir_esc=y#v=onepage&amp;q&amp;f=false">https://books.google.de/books?id=P2nXk3Ib9LkC&amp;pg=PA577&amp;redir_esc=y#v=onepage&amp;q&amp;f=false</a>.
-</div>
-<div id="ref-mdz1767" class="csl-entry">
-MDZ, and Christian Gottlob Klemm. 1767. <span>“Klemm, Christian Gottlob:
-Christian Gottlieb Klemm’s Beyträge Zum Deutschen Theater. 1, Bild 122
-von 620 | MDZ.”</span> <a
-href="https://www.digitale-sammlungen.de/de/view/bsb10112352?page=122,123">https://www.digitale-sammlungen.de/de/view/bsb10112352?page=122,123</a>.
-</div>
-<div id="ref-önb1765" class="csl-entry">
-ÖNB, and Christian Gottlob Klemm. 1765. <span>“Klemm: Der
-Österreichische Patriot: Eine Wochenschrift. ÖNB.”</span> <a
-href="https://digital.onb.ac.at/OnbViewer/viewer.faces?doc=ABO_%2BZ184248300">https://digital.onb.ac.at/OnbViewer/viewer.faces?doc=ABO_%2BZ184248300</a>.
-</div>
-<div id="ref-poeckelmann2022" class="csl-entry">
-Pöckelmann, Marcus, André Medek, Jörg Ritter, and Paul Molitor. 2022.
-<span>“LERA - an Interactive Platform for Synoptical Representations of
-Multiple Text Witnesses.”</span> <em>Digital Scholarship in the
-Humanities (DSH)</em>. <a
-href="https://lera.uzi.uni-halle.de/about?lang=de">https://lera.uzi.uni-halle.de/about?lang=de</a>.
-</div>
-<div id="ref-lipogg_net" class="csl-entry">
-Poggel, Lisa. 2022. <span>“10. Sitzung: Netzwerkanalyse.”</span> <a
-href="https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html">https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html</a>.
-</div>
-<div id="ref-read-coop2022" class="csl-entry">
-read-coop. 2022. <span>“Transkribus.”</span> <a
-href="https://readcoop.eu/transkribus/">https://readcoop.eu/transkribus/</a>.
-</div>
-<div id="ref-regexr2022" class="csl-entry">
-regexr, and Christian Gottlob Klemm. 2022. <span>“RegExr: Learn, Build,
-&amp; Test RegEx.”</span> <a
-href="https://regexr.com/6mr4b">https://regexr.com/6mr4b</a>.
-</div>
-<div id="ref-rstudio2022" class="csl-entry">
-<span>“RStudio IDE.”</span> 2022. <a
-href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a>.
-</div>
-<div id="ref-tei1987" class="csl-entry">
-TEI. 1987. <span>“History <span></span> TEI: Text Encoding
-Initiative.”</span> <a
-href="https://tei-c.org/about/history/">https://tei-c.org/about/history/</a>.
-</div>
-<div id="ref-wikisource1765" class="csl-entry">
-wikisource, and Christian Gottlob Klemm. 1765. <span>“Der Besuch (Klemm)
-<span></span> Wikisource.”</span> <a
-href="https://de.wikisource.org/wiki/Der_Besuch_(Klemm)">https://de.wikisource.org/wiki/Der_Besuch_(Klemm)</a>.
+<div id="ref-killy_literaturlexikon_2009" class="csl-entry">
+Killy, Walter. 2009. <em>Literaturlexikon. <span>Band</span> 6
+<span>Huh</span> – <span>Kräf</span></em>. Edited by Wilhelm Kühlmann.
+Vol. 6. Killy <span>Literaturlexikon</span>. <span>Autoren</span> Und
+<span>Werke</span> Des Deutschsprachigen <span>Kulturraums</span>. De
+Gruyter. <a
+href="https://doi.org/10.1515/9783110213942">https://doi.org/10.1515/9783110213942</a>.
 </div>
 </div>
 </div>
