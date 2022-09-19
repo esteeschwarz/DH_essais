@@ -19,30 +19,26 @@ bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sect
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{=html}
+<audio controls>
+  <source src="https://potmaschin.rotefadenbuecher.de/audio/magen_musik/a-cdtrack8-d.mp3" type="audio/mpeg">
+You would hear audio but your browser does not support the audio element.
+</audio>
+```
+
 # 1. einleitung
-precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank
-Fischer, FUB) war den Teilnehmern freigestellt, sich während des
-Semester einem Stück aus der DraCor Einakterdatenbank
-[@çakir2022] & [@einakter2022] zu widmen. Das sollte den Prozess
-umfassen der Transkription und Auszeichnung nach TEI Standard. Es wurden
-9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über
-den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon
-während des Seminars kennengelernter Analysen vorgestellt. Ich habe
-Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl
-aber nur nach Sprache **Deutsch** und einem allein zu bewältigenden
+precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank Fischer, FUB) war den Teilnehmern freigestellt, sich während des Semester einem Stück aus der DraCor Einakterdatenbank [@çakir2022] & [@einakter2022] zu widmen. Das sollte den Prozess umfassen der Transkription und Auszeichnung nach TEI Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon während des Seminars kennengelernter Analysen vorgestellt. Ich habe Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl aber nur nach Sprache **Deutsch** und einem allein zu bewältigenden
 Umfang gegangen.
-Ich werde in dieser Arbeit kurz dokumentieren, wie die Aufgaben umgesetzt wurden, welche Methoden dabei zum Einsatz kamen und einen Ausblick auf literaturwissenschaftliche Analysen geben, die mit den gelernten Verfahren möglich sind. 
+Ich werde in dieser Arbeit kurz dokumentieren, wie die Aufgaben umgesetzt wurden, welche Methoden dabei zum Einsatz kamen und einen Ausblick auf literaturwissenschaftliche Analysen geben, die mit den gelernten Verfahren möglich sind.
 
 # 2. klemm
+
 ## 2.1 bio
-Klemm wurde 1736 in Schwarzenberg/Erzgebirge geboren und lebte bis 1802
-in Leipzig, Jena, Frankfurt, ab 1759 in Wien. Dort wurde er Herausgeber
-verschiedener Wochenblätter (Die Welt, Der österreichische Patriot,
-Beyträge zum deutschen Theater, Wiener Allerlei) in denen neben
-theaterkritischen und -theoretischen Beiträgen teilweise auch seine
-Stücke erschienen.[@killy2009]
+Klemm wurde 1736 in Schwarzenberg/Erzgebirge geboren und lebte bis 1802 in Leipzig, Jena, Frankfurt, ab 1759 in Wien. Dort wurde er Herausgeber verschiedener Wochenblätter (Die Welt, Der österreichische Patriot, Beyträge zum deutschen Theater, Wiener Allerlei) in denen neben theaterkritischen und -theoretischen Beiträgen teilweise auch seine Stücke erschienen (Killy, 2009).
+
 
 ## 2.2 stück
+"Der Besuch" ist ein Bühnenstück mit 5 handelnden Hauptpersonen (Celimene, Chlorinde, Cydalise, Erast, Damis) und einer Nebenfigur (Finette) sowie einer weiteren Randfigur (Ein Bedienter). Das Stück ist 1765 in der von Klemm herausgegebenen Wochenzeitschrift "Der Österreichische Patriot" zuerst, 1767 in den "Beyträgen zum deutschen Theater" ein weiteres Mal erschienen. Es ist in 9 Szenen unterteilt, zählt um 3.400 Wörter.
 
 ## 2.3 verortung, rezeption
 
@@ -50,24 +46,7 @@ Stücke erschienen.[@killy2009]
 
 ## 3.1. transkription
 
-Als Textgrundlage des im folgenden *Rohtext* genannten Materials dienten
-die von google books öffentlich zur Verfügung gestellten scans der
-Erstausgabe von 1765 (A1765_Q) [@google1765], die grösztenteils auf den
-in der Österreichischen Nationalbibliothek schon vorhandenen
-Digitalisierungen [@önb1765] basieren. Diese wurden auf wikisource und
-hiermit auf einer platform zur kollaborativen Erstellung von u.a.
-Transkriptionen (vom Seminarleiter) weiterhin zugänglich gemacht und
-durchliefen nun den Prozess von Transkription und zweifacher
-unabhängiger Korrektur [@wikisource1765]. Zur Transkription diente mir
-im ersten Stadium eine zu 90% verläszliche OCR (optical character
-recognition) mittels TRANSKRIBUS [@read-coop2022]. Benutzt wurde das
-frei verfügbare OCR-model "ONB_Newseye_GT_M1+", das zufriedenstellende
-Ergebnisse lieferte -- allerdings nur mit der Ausgabe von 1767
-(A1767_Q), die ich als scan in der Digitalen Sammlung der Münchner
-Staatsbibliothek [@mdz1767] gefunden hatte. Da sich diese, wie ich bald
-feststellte, doch in einigen Punkten von der Erstausgabe unterschied,
-wurde der Rohtext auf Wikisource also :nur unter zuhilfenahme: dieser
-OCR-Fassung erstellt, d.h. im Einzelnen:
+Als Textgrundlage des im folgenden *Rohtext* genannten Materials dienten die von google books öffentlich zur Verfügung gestellten scans der Erstausgabe von 1765 (A1765_Q) [@google1765], die grösztenteils auf den in der Österreichischen Nationalbibliothek schon vorhandenen Digitalisierungen [@önb1765] basieren. Diese wurden auf wikisource und hiermit auf einer platform zur kollaborativen Erstellung von u.a. Transkriptionen (vom Seminarleiter) weiterhin zugänglich gemacht und durchliefen nun den Prozess von Transkription und zweifacher unabhängiger Korrektur [@wikisource1765]. Zur Transkription diente mir im ersten Stadium eine zu 90% verläszliche OCR (optical character recognition) mittels TRANSKRIBUS [@read-coop2022]. Benutzt wurde das frei verfügbare OCR-model "ONB_Newseye_GT_M1+", das zufriedenstellende Ergebnisse lieferte -- allerdings nur mit der Ausgabe von 1767 (A1767_Q), die ich als scan in der Digitalen Sammlung der Münchner Staatsbibliothek [@mdz1767] gefunden hatte. Da sich diese, wie ich bald feststellte, doch in einigen Punkten von der Erstausgabe unterschied, wurde der Rohtext auf Wikisource also :nur unter Zuhilfenahme: dieser OCR-Fassung erstellt, d.h. im Einzelnen:
 
 1.  OCR (A1767_Q)
     1.  Korrektur desselben noch in TRANSKRIBUS selbst
@@ -83,36 +62,20 @@ OCR-Fassung erstellt, d.h. im Einzelnen:
 
 ## 3.2 TEI-auszeichnung
 
-Der grosze Teil der weiteren Arbeit bestand in der ersten vereinfachten
-Auszeichnung nach TEI-Standard. Ich habe hierzu ein umfassendes script
-in der Programmiersprache R [@rstudio2022] entworfen, das in A1765_R
-mittels der Suche mit regulären Ausdrücken (z.B.[@regexr2022])
-Szenenwechsel, Sprecherbezeichnungen und Regieanweisungen nach einigem
-Aufwand zu finden vermochte[^1] um diese schlieszlich in HTML-tags zu
-:verpacken: d.h. die einzelnen verschiedenen Elemente des Textes nach
-einem Standard zu markieren, der uns vorlag und bereits als Schema zur
-Validierung im Editor verwendet werden konnte [@drama2022]. Es handelte
-sich dabei noch nicht um die finale, schemagerechte Version. Diese wurde
-weiterhin vor der Integration des Stückes in das dracor-Korpus
-[@dracor2019] vom Seminarleiter auf Grundlage der vereinfachten Version
-erstellt.
+Der grosze Teil der weiteren Arbeit bestand in der ersten vereinfachten Auszeichnung nach TEI-Standard. Ich habe hierzu ein umfassendes script in der Programmiersprache R [@rstudio2022] entworfen, das in A1765_R mittels der Suche mit regulären Ausdrücken (z.B.[@regexr2022]) Szenenwechsel, Sprecherbezeichnungen und Regieanweisungen nach einigem Aufwand zu finden vermochte[^1] um diese schlieszlich in HTML-tags zu :verpacken: d.h. die einzelnen verschiedenen Elemente des Textes nach einem Standard zu markieren, der uns vorlag und bereits als Schema zur Validierung im Editor verwendet werden konnte [@drama2022]. Es handelte sich dabei noch nicht um die finale, schemagerechte Version. Diese wurde weiterhin vor der Integration des Stückes in das dracor-Korpus [@dracor2019] vom Seminarleiter auf Grundlage der vereinfachten Version erstellt.
 
-[^1]: dieser Aufwand wäre um einiges geringer ausgefallen, wenn ich
-    mich, statt mit dem Text im Format .txt (plaintext) zu arbeiten, mit
-    der bereits basis-HTML formatierten (durch Fett/Kursivdruck zb.
-    unterschiedene Passagen für Sprecher, Regieanweisungen und
-    Szenenwechsel) bedient hätte.
+[^1]: dieser Aufwand wäre um einiges geringer ausgefallen, wenn ich mich, statt mit dem Text im Format .txt (plaintext) zu arbeiten, mit der bereits basis-HTML formatierten (durch Fett/Kursivdruck zb. unterschiedene Passagen für Sprecher, Regieanweisungen und Szenenwechsel) bedient hätte.
 
 ### 3.2.1.beispiel der auszeichnung:
 
-```{r}
+```{r eval=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 library(rvest)
 library(stringi)
 src<-"https://de.wikisource.org/wiki/Der_Besuch_(Klemm)"
 dta1<-read_html(src)
 xpathkl<-'//*[@id="mw-content-text"]/div[1]/div[2]'
 #xpath copied from browser developer tools (safari)
-html_nodes(dta1,xpath = xpathkl)
+#html_nodes(dta1,xpath = xpathkl)
 txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
 
  # txt<-ground(txt)
@@ -120,11 +83,10 @@ txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
   regx1<-"(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter) (Auftritt.)"
   #stri_extract_all_regex(txtm,regx3)
   m<-gregexec(regx1,txt,perl = T)
-  regmatches(txt,m)
+  #regmatches(txt,m)
  txtm1<-gsub(regx1,repl1,txt,perl = T)
-  
- cat(stri_sub(txtm1,1,500),"[...]")
   #wks.
+ cat(stri_sub(txtm1,1,500),"[...]")
 ```
 
 ### 3.2.2 finales TEI
@@ -146,7 +108,7 @@ erweiterbar ist.
 
 basics...
 
-```{r echo=FALSE}
+```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 library(DramaAnalysis)
 library(magrittr)
 library(igraph)
@@ -154,18 +116,16 @@ library(Hmisc)
 src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
 source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/klemm_HA/scripts/script_ext.R")
 source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/klemm_HA/scripts/tut_netzwerke.R")
-
-cat("load TEI from:",src)
 d<-loadDramaTEI(src)
-
 charStats <- characterStatistics(d, filterPunctuation = TRUE)
 charStats <- characterNames(charStats, d)
+cat("load TEI from:",src)
 ```
 
 
 ```{r echo = FALSE}
-selectInput("show", label = "show stats",
-              choices = c("tokens", "types", "utterance length", 42), selected = "tokens")
+#selectInput("show", label = "show stats",
+             # choices = c("tokens", "types", "utterance length", 42), selected = "tokens")
 
 # sliderInput("bw_adjust", label = "Bandwidth adjustment:",
 #               min = 0.2, max = 2, value = 1, step = 0.2)
@@ -228,8 +188,12 @@ cat("vacat")
 
 ### 4.2 network
 
-```{r}
+```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #calls miracle function from external script:
+#this part is critical and calls an error if deployed
+library(igraph)
+#install.packages("lsa")
+library(lsa)
 showcommunities()
 ```
 
@@ -242,4 +206,4 @@ networks graph cf. [@lipogg_net],[@communities]
 ```
 LERA output cf. [@poeckelmann2022]
 
-# REF:
+# 5. REF:

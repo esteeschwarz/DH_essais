@@ -18,6 +18,13 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{=html}
+<audio controls>
+  <source src="https://potmaschin.rotefadenbuecher.de/audio/magen_musik/d-14behalf.mp3" type="audio/mpeg">
+You would hear audio but your browser does not support the audio element.
+</audio>
+```
+
 # 1. einleitung
 
 # 2. klemm
@@ -213,7 +220,7 @@ networks graph cf. [@lipogg_net],[@communities]
 ### 4.3 sources comparison (LERA)
 
 ```{=html}
-<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%" frameborder="0"></iframe>
+<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%" frameborder="2px solid black"></iframe>
 ```
 LERA output cf. [@poeckelmann2022]
 
