@@ -14,7 +14,7 @@ output:
     css: style.css
 #swap / decomment ff .bib references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
-bibliography: klemm.bib
+bibliography: ../klemm.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -215,7 +215,13 @@ Varianzen:
 2. Mann:
     1. Mannsbilder: noch im vorigen jahrh. und bis in dieses hinein in achtungsvoller rede [...] während es in der neuern sprache nur mit verächtlichem beitone gebraucht wird. [@grimm_mannsbild_1871] 
     2. Mannspersonen [@grimm_mannsperson_1871]
+```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
+source("https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/scripts/DTA_query_eval.R")
+df<-as.data.frame(getdta())
 
+ggplot(df, aes(year, count, colour = token)) + 
+  geom_line()
+```
 
 cf. grimm
 
