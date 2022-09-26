@@ -7,13 +7,13 @@
 	#macro_level { margin-top: 200px; }
 	.synopsis-headline { top: 202px !important; }
 	.white-box { top: 200px !important; }
-      body{
+   /*   body{
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         color: #333;
         line-height: 1.42857143;
         margin: 10px 0 0;
         overflow-y: scroll; /* always display vertical scrollbar */
-      }
+     /* }*/
 
       #macro_level{
         margin-bottom: 100px;

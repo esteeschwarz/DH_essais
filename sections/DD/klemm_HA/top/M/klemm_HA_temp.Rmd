@@ -10,7 +10,7 @@ output:
     toc_float:
       collapsed: no
       smooth_scroll: no
-    self_contained: no
+    self_contained: yes
     css: style.css
 #swap / decomment ff .bib references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
@@ -21,17 +21,13 @@ bibliography: ../klemm.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 switch on audiospur if you like...
-
 ```{=html}
 <!-- placeholder for begleitaudiospur TODO-->
-<audio controls>
-  <source src="https://ephemeridenmusik.rotefadenbuecher.de/wp-content/uploads/FM017_klemmHA.mp3" type="audio/mpeg">
-You would hear audio but your browser does not support the audio element.
-</audio>
+<iframe src="https://open.spotify.com/embed/episode/0Z9JS54zC15Fh099ovAKce?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 ```
 
 # 1. einleitung
-precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank Fischer, FUB) war den Teilnehmern freigestellt, sich während des Semester einem Stück aus der DraCor Einakterdatenbank [@cakir_dramatische_2022] & [@dracor_einakter_2022] zu widmen. Das sollte den Prozess umfassen der Transkription und Auszeichnung nach TEI Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon während des Seminars kennengelernter Analysen vorgestellt. Ich habe Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl aber nur nach Sprache *Deutsch* und einem allein zu bewältigenden Umfang gegangen.
+precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank Fischer, FUB) war den Teilnehmer:innen freigestellt, sich während des Semester einem Stück aus der DraCor Einakterdatenbank [@cakir_dramatische_2022] & [@dracor_einakter_2022] zu widmen. Das sollte den Prozess umfassen der Transkription und Auszeichnung nach TEI Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon während des Seminars kennengelernter Analysen vorgestellt. Ich habe Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl aber nur nach Sprache *Deutsch* und einem allein zu bewältigenden Umfang gegangen.
 Ich werde in dieser Arbeit kurz dokumentieren, wie die Aufgaben umgesetzt wurden, welche Methoden dabei zum Einsatz kamen und einen Ausblick auf literaturwissenschaftliche Analysen geben, die mit den gelernten Verfahren möglich sind.
 
 # 2. klemm
@@ -172,6 +168,8 @@ boxplot(utteranceLength ~ character, main="global utterance length",
 
 ```
 
+R-package for analysis cf. [@reiter_quadramadramaanalysis_2020]
+
 ### 4.1.1 further...
 
 
@@ -186,7 +184,6 @@ boxplot(utteranceLength ~ character, main="global utterance length",
 cat("vakat")
 ```
 
-R-package for analysis cf. [@reiter_quadramadramaanalysis_2020]
 
 ## 4.2 network
 
@@ -217,7 +214,7 @@ Auf dieser Grundlage bieten sich weitere Analysen an, die den Rahmen dieser Arbe
 
 1. Heirat:
     1. Heyrath [@grimm_heirath_1871]
-    2. Heurath
+    2. Heurath: "die nebenform der (und die) heurath, seit dem 16. jahrh. belegbar, deutet auf ein mhd. bis jetzt nicht nachgewiesenes hiurât, das den labial des ersten compositionsgliedes, der in ags. hîv-ræden noch erhalten war, vocalisiert zeigte. diese form ist besonders im 17. und 18. jahrh. im schwange, einer etymologischen grille zu liebe, der zufolge man das wort mit heuren, miethen, kaufen (s. d.) zusammenbrachte: der heürat, das mannen." (ebd.)
 2. Mann:
     1. Mannsbilder: "noch im vorigen jahrh. und bis in dieses hinein in achtungsvoller rede [...] während es in der neuern sprache nur mit verächtlichem beitone gebraucht wird." [@grimm_mannsbild_1871]
     2. Mannspersonen [@grimm_mannsperson_1871]
