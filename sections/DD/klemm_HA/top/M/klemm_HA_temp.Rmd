@@ -171,6 +171,8 @@ boxplot(utteranceLength ~ character, main="global utterance length",
 
 ```
 
+R-package for analysis cf. [@reiter_quadramadramaanalysis_2020]
+
 ### 4.1.1 further...
 
 
@@ -184,8 +186,6 @@ boxplot(utteranceLength ~ character, main="global utterance length",
 # )
 cat("vakat")
 ```
-
-R-package for analysis cf. [@reiter_quadramadramaanalysis_2020]
 
 ## 4.2 network
 
