@@ -20,8 +20,9 @@ bibliography: ../klemm.bib
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-
+switch on audiospur if you like...
 ```{=html}
+<!-- placeholder for begleitaudiospur TODO-->
 <audio controls>
   <source src="https://potmaschin.rotefadenbuecher.de/audio/magen_musik/a-cdtrack8-d.mp3" type="audio/mpeg">
 You would hear audio but your browser does not support the audio element.
@@ -184,6 +185,8 @@ boxplot(utteranceLength ~ character, main="global utterance length",
 cat("vakat")
 ```
 
+R-package for analysis cf. [@reiter_quadramadramaanalysis_2020]
+
 ## 4.2 network
 
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
@@ -208,13 +211,15 @@ Q: LERA output cf. [@pockelmann_lera_2022]
 
 ### 4.3.2
 Auf dieser Grundlage bieten sich weitere Analysen an, die den Rahmen dieser Arbeit jedoch übersteigen. (m) Erste Vergleiche beider Editionen lassen vermuten, dasz die Varianzen in Stil und Orthographie auf Klemm selbst zurückgehen, da wir hier davon ausgehen, dasz er als Herausgeber der Wochenblätter, in denen die erste und zweite Ausgabe erschienen, weitgehend eigenverantwortlich editorisch tätig war.
-Varianzen:
+
+**Varianzen:**
+
 1. Heirat:
-   1. Heyrath [@grimm_heirath_1871]
-   2. Heurath
+    1. Heyrath [@grimm_heirath_1871]
+    2. Heurath
 2. Mann:
-   1. Mannsbilder: noch im vorigen jahrh. und bis in dieses hinein in achtungsvoller rede [...] während es in der neuern sprache nur mit verächtlichem beitone gebraucht wird. [@grimm_mannsbild_1871] 
-   2. Mannspersonen [@grimm_mannsperson_1871]
+    1. Mannsbilder: "noch im vorigen jahrh. und bis in dieses hinein in achtungsvoller rede [...] während es in der neuern sprache nur mit verächtlichem beitone gebraucht wird." [@grimm_mannsbild_1871]
+    2. Mannspersonen [@grimm_mannsperson_1871]
     
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 source("https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/scripts/DTA_query_eval.R")
@@ -224,7 +229,7 @@ ggplot(df, aes(year, count, colour = token)) +
   geom_line()
 ```
 
-cf. grimm
+zahlen cf. [@dta_deutsches_2022]
 
 
 # 5. REF:
