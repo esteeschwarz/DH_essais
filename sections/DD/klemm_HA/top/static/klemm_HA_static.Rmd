@@ -10,7 +10,7 @@ output:
     toc_float:
       collapsed: no
       smooth_scroll: no
-    self_contained: no
+    self_contained: yes
     css: ../style.css
 #swap / decomment ff .bib references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
@@ -23,7 +23,10 @@ knitr::opts_chunk$set(echo = TRUE)
 switch on audiospur if you like...
 ```{=html}
 <!-- placeholder for begleitaudiospur TODO-->
-<iframe src="https://open.spotify.com/embed/episode/0Z9JS54zC15Fh099ovAKce?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+<!--<audio controls>
+  <source src="https://ephemeridenmusik.rotefadenbuecher.de/wp-content/uploads/FM017_klemmHA.mp3" type="audio/mpeg">
+You would hear audio but your browser does not support the audio element.
+</audio>-->
 ```
 
 # 1. einleitung

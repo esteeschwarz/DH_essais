@@ -23,8 +23,12 @@ knitr::opts_chunk$set(echo = TRUE)
 switch on audiospur if you like...
 ```{=html}
 <!-- placeholder for begleitaudiospur TODO-->
-<iframe src="https://open.spotify.com/embed/episode/0Z9JS54zC15Fh099ovAKce?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+<!----><audio controls>
+  <source src="https://ephemeridenmusik.rotefadenbuecher.de/wp-content/uploads/FM017_klemmHA.mp3" type="audio/mpeg">
+You would hear audio but your browser does not support the audio element.
+</audio><!---->
 ```
+
 
 # 1. einleitung
 precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank Fischer, FUB) war den Teilnehmer:innen freigestellt, sich während des Semesters einem Stück aus der DraCor Einakterdatenbank [@cakir_dramatische_2022] & [@dracor_einakter_2022] zu widmen. Das sollte den Prozess umfassen der Transkription und der Auszeichnung nach TEI Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon während des Seminars kennengelernter Analysen vorgestellt. Ich habe Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl aber nur nach Sprache *Deutsch* und einem allein zu bewältigenden Umfang gegangen.
