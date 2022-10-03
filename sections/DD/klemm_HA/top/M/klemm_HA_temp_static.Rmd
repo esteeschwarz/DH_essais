@@ -9,7 +9,7 @@ output:
     toc_float:
       collapsed: no
       smooth_scroll: no
-    self_contained: FALSE #TRUE for standalone html page knit
+    self_contained: TRUE #TRUE for standalone html page knit
     #css: ../style_HA.css
 #swap / decomment ff .bib/.css references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
