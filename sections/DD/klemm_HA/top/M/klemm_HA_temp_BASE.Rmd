@@ -1,4 +1,10 @@
 ---
+#--- official ---#
+# Hausarbeit im Seminar: Digitale Dramenanalyse, Frank Fischer, SS2022 FUB
+# im Fach: Allgemeine und Vergleichende Literaturwissenschaften
+# eingereicht von Stephan Schwarz
+# Abgabe: 10-03-2022
+
 title: "Digitale Dramenanalyse / SS22 FUB / Frank Fischer"
 author: "St. Schwarz"
 date: "`r Sys.Date()`"
