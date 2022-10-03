@@ -1,49 +1,58 @@
 ---
-title: "klemmHA"
-author: "esteeschwarz"
+title: "Digitale Dramenanalyse / SS22 FUB / Frank Fischer"
+author: "St. Schwarz"
 date: "`r Sys.Date()`"
 zotero: AVL_dyn
-#runtime: shiny
 output: 
-  html_document: 
+  html_document:
     toc: yes
     toc_float:
       collapsed: no
       smooth_scroll: no
-    self_contained: no
-    css: ../style.css
-#swap / decomment ff .bib references for self compile .Rmd to html
+    self_contained: FALSE #TRUE for standalone html page knit
+   # lib_dir: ../klemm_HA_BASE_files
+    #css: ../style_HA.css
+#swap / decomment ff .bib/.css references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
+    css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
 bibliography: ../klemm.bib
 ---
 # A. head
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-switch on audiospur if you like...
+to self compile the RMarkdown template to this page in RStudio cf. [@esteeschwarz_klemm_2022-1](https://github.com/esteeschwarz/DH_essais/blob/main/sections/DD/klemm_HA/top/M/klemm_HA_temp_BASE.Rmd)
+
+switch on podcast audio if you like...
 ```{=html}
-<!-- placeholder for begleitaudiospur TODO-->
-<iframe src="https://open.spotify.com/embed/episode/0Z9JS54zC15Fh099ovAKce?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+<!-- placeholder for begleitaudiospur static .mp3-->
+<!--<audio controls>
+  <source src="https://ephemeridenmusik.rotefadenbuecher.de/wp-content/uploads/FM017_klemmHA.mp3" type="audio/mpeg">
+You would hear audio but your browser does not support the audio element.
+</audio><-->
+<!-- placeholder for begleitaudiospur spotify podcast-->
+<!----><iframe src="https://open.spotify.com/embed/episode/0Z9JS54zC15Fh099ovAKce?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe><!---->
 ```
 
+---
+
 # 1. einleitung
-precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank Fischer, FUB) war den Teilnehmer:innen freigestellt, sich während des Semesters einem Stück aus der DraCor Einakterdatenbank [@cakir_dramatische_2022] & [@dracor_einakter_2022] zu widmen. Das sollte den Prozess umfassen der Transkription und der Auszeichnung nach TEI Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon während des Seminars kennengelernter Analysen vorgestellt. Ich habe Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl aber nur nach Sprache *Deutsch* und einem allein zu bewältigenden Umfang gegangen.
+precondition: Im Seminar "Digitale Dramenanalyse" des SS2022 (Frank Fischer, FUB) war den Teilnehmer:innen freigestellt, sich während des Semesters einem Stück aus der DraCor Einakterdatenbank [[@cakir_dramatische_2022]](https://zenodo.org/record/6327977) & [[@dracor_einakter_2022]](https://einakter.dracor.org/klemm-der-besuch) zu widmen. Das sollte den Prozess umfassen der Transkription und der Auszeichnung nach TEI Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team, daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und Autor sowie evtl. schon während des Seminars kennengelernter Analysen vorgestellt. Ich habe Christian Gottlieb Klemms "Der Besuch" ausgesucht, bin bei der Auswahl aber nur nach Sprache *Deutsch* und einem allein zu bewältigenden Umfang gegangen.
 Ich werde in dieser Arbeit kurz dokumentieren, wie die Aufgaben umgesetzt wurden, welche Methoden dabei zum Einsatz kamen und einen Ausblick auf literaturwissenschaftliche Analysen geben, die mit den gelernten Verfahren möglich sind.
 
 # 2. klemm
 ## 2.1 biographie
-Klemm wurde 1736 in Schwarzenberg/Erzgebirge geboren und lebte bis 1802 in Leipzig, Jena, Frankfurt, ab 1759 in Wien. Dort wurde er Herausgeber verschiedener Wochenblätter (Die Welt, Der österreichische Patriot, Beyträge zum deutschen Theater, Wiener Allerlei) in denen neben theaterkritischen und -theoretischen Beiträgen teilweise auch seine Stücke erschienen [@killy_literaturlexikon_2009].
-
+Klemm wurde 1736 in Schwarzenberg/Erzgebirge geboren und lebte bis 1802 in Leipzig, Jena, Frankfurt, ab 1759 in Wien. Dort wurde er Herausgeber verschiedener Wochenblätter (Die Welt, Der österreichische Patriot, Beyträge zum deutschen Theater, Wiener Allerlei) in denen neben theaterkritischen und -theoretischen Beiträgen teilweise auch seine Stücke erschienen [[@killy_literaturlexikon_2009]](https://www.degruyter.com/document/doi/10.1515/9783110213942/html).
 
 ## 2.2 stück
 "Der Besuch" ist ein Bühnenstück mit fünf Hauptpersonen (Celimene, Chlorinde, Cydalise, Erast, Damis) und einer Nebenfigur (Finette) sowie einer weiteren Randfigur (Ein Bedienter). Das Stück ist 1765 in der von Klemm herausgegebenen Wochenzeitschrift "Der Österreichische Patriot" zuerst, 1767 in den "Beyträgen zum deutschen Theater" ein weiteres Mal erschienen. Es ist in 9 Szenen unterteilt, zählt um 3.400 Wörter.
 
 ## 2.3 verortung
-Klemms Stück fällt in eine Zeit der Reformierung der Wiener Theaterlandschaft. Er selbst stand mit seiner Position (für die Posse, den Hanswurst, die Burlesque) den Bestrebungen der Schaubühnen zu ernsthaftem, gesitteten Theater entgegen, die von den damaligen Direktoren v. Wewen, v. Bender unter Generaldirektor v. Spork, auch mit groszer Zustimmung seitens der Schauspieler vollzogen wurden. In diesem Zusammenhang fällt hier immer wieder der Begriff „extemporieren“, der für (…) / *Der Besuch* läszt sich darum vielleicht als zur Entstehungszeit anachronistisches Stück einordnen, das nicht mehr den Nerv des Wiener (sic!) Publikums traf, die ernsthaften Stücke waren besser besucht. (cf. [@muller_historische_1772] p.13(37)). Der meinungsführende Regimentsrat v. Sonnenfels hätte hier in (seinem) Wochenblatt *Der Mann ohne Vorurtheil* [@sonnenfels_mann_1783] die moderneren Ansichten vertreten; ein Umstand, der möglicherweise die fehlende Aufmerksamkeit für (auch Klemms weitere Stücke) erklärt.
+Klemms Stück fällt in eine Zeit der Reformierung der Wiener Theaterlandschaft. Er selbst stand mit seiner Position (für die Posse, den Hanswurst, die Burlesque) den Bestrebungen der Schaubühnen zu ernsthaftem, gesitteten Theater entgegen, die von den damaligen Direktoren v. Wewen, v. Bender unter Generaldirektor v. Spork, auch mit groszer Zustimmung seitens der Schauspieler vollzogen wurden. In diesem Zusammenhang fällt hier immer wieder der Begriff „extemporieren“, der eine Art des Lustspiels, die "extemporierte Comödie" benennt, die nach den Autoren zu überwinden war (cf. [@meyer_extemporierte_1909](https://www.woerterbuchnetz.de/Meyers?lemid=E05652)). *Der Besuch* läszt sich darum vielleicht als zur Entstehungszeit anachronistisches Stück einordnen, das nicht mehr den Nerv des Wiener (sic!) Publikums traf, die ernsthaften Stücke waren besser besucht. (cf. [@muller_historische_1772](https://www.digitale-sammlungen.de/view/bsb10115194?page=31) p.13(37)). Der meinungsführende Regimentsrat v. Sonnenfels hätte hier in (seinem) Wochenblatt *Der Mann ohne Vorurtheil* (cf. [@sonnenfels_mann_1783](https://mdz-nbn-resolving.de/details:bsb10604688)) die moderneren Ansichten vertreten; ein Umstand, der möglicherweise die fehlende Aufmerksamkeit für (auch Klemms weitere Stücke) erklärt.
 
 # 3. dokumentation aufbereitung
 ## 3.1. transkription
-Als Textgrundlage des im folgenden *Rohtext* genannten Materials dienten die von google books öffentlich zur Verfügung gestellten scans der Erstausgabe von 1765 (A1765_Q) [@google_klemm_1765], die grösztenteils auf den in der Österreichischen Nationalbibliothek schon vorhandenen Digitalisierungen [@onb_klemm_1765] basieren. Diese wurden auf wikisource und hiermit auf einer Plattform zur kollaborativen Erstellung von u.a. Transkriptionen (vom Seminarleiter) weiterhin zugänglich gemacht und durchliefen nun den Prozess von Transkription und zweifacher unabhängiger Korrektur [@wikisource_besuch_1765]. Basis der Transkription war im ersten Stadium eine zu 90% verläszliche OCR (optical character recognition) mittels TRANSKRIBUS [@read-coop_transkribus_2022]. Benutzt wurde das frei verfügbare OCR-model "ONB_Newseye_GT_M1+", das zufriedenstellende Ergebnisse lieferte - allerdings nur mit der Ausgabe von 1767 (A1767_Q), die ich als scan in der Digitalen Sammlung der Münchner Staatsbibliothek [@mdz_klemm_1767] gefunden hatte. Da sich diese, wie ich bald feststellte, doch in einigen Punkten von der Erstausgabe unterschied, wurde der Rohtext auf Wikisource also :nur unter Zuhilfenahme: dieser OCR-Fassung erstellt, d.h. im Einzelnen:
+Als Textgrundlage des im folgenden *Rohtext* genannten Materials dienten die von google books öffentlich zur Verfügung gestellten scans der Erstausgabe von 1765 (A1765_Q) [[@google_klemm_1765]](https://books.google.de/books?id=P2nXk3Ib9LkC), die grösztenteils auf den in der Österreichischen Nationalbibliothek schon vorhandenen Digitalisierungen [[@onb_klemm_1765]](https://digital.onb.ac.at/OnbViewer/viewer.faces?doc=ABO_%2BZ184248300) basieren. Diese wurden auf wikisource und hiermit auf einer Plattform zur kollaborativen Erstellung von u.a. Transkriptionen (vom Seminarleiter) weiterhin zugänglich gemacht und durchliefen nun den Prozess von Transkription und zweifacher unabhängiger Korrektur [[@wikisource_besuch_1765]](https://de.wikisource.org/wiki/Der_Besuch_(Klemm)). Basis der Transkription war im ersten Stadium eine zu 90% verläszliche OCR (optical character recognition) mittels TRANSKRIBUS [[@read-coop_transkribus_2022]](https://readcoop.eu/transkribus/). Benutzt wurde das frei verfügbare OCR-model "ONB_Newseye_GT_M1+", das zufriedenstellende Ergebnisse lieferte - allerdings nur mit der Ausgabe von 1767 (A1767_Q), die ich als scan in der Digitalen Sammlung der Münchner Staatsbibliothek [[@mdz_klemm_1767]](https://www.digitale-sammlungen.de/de/view/bsb10112352?page=122,123) gefunden hatte. Da sich diese, wie ich bald feststellte, doch in einigen Punkten von der Erstausgabe unterschied, wurde der Rohtext auf Wikisource also :nur unter Zuhilfenahme: dieser OCR-Fassung erstellt, d.h. im Einzelnen:
 
 1.  OCR (A1767_Q)
     1.  Korrektur desselben in TRANSKRIBUS
@@ -58,7 +67,7 @@ Als Textgrundlage des im folgenden *Rohtext* genannten Materials dienten die von
         Sprechermarkierungen versehen
 
 ## 3.2 TEI-auszeichnung
-Der grosze Teil der weiteren Arbeit bestand in der ersten vereinfachten Auszeichnung nach TEI-Standard. Ich habe hierzu ein umfassendes script [@esteeschwarz_klemm_2022] in der Programmiersprache R [@rstudio_rstudio_2022] entworfen, das in A1765_R mittels der Suche mit regulären Ausdrücken (z.B. [@regexr_regexr_2022]) Szenenwechsel, Sprecherbezeichnungen und Regieanweisungen nach einigem Aufwand zu finden vermochte[^1] um diese schlieszlich in HTML-tags zu :verpacken: d.h. die einzelnen verschiedenen Elemente des Textes nach einem Standard zu markieren, der uns vorlag und bereits als Schema zur Validierung im Editor verwendet werden konnte [@drama_dracor_2022]. Es handelte sich dabei noch nicht um die finale, schemagerechte Version. Diese wurde weiterhin vor der Integration des Stückes in das dracor-Korpus [@fischer_programmable_2019] vom Seminarleiter auf Grundlage der vereinfachten Version erstellt.
+Der grosze Teil der weiteren Arbeit bestand in der ersten vereinfachten Auszeichnung nach TEI-Standard. Ich habe hierzu ein umfassendes script [[@esteeschwarz_klemm_2022]](https://github.com/esteeschwarz/DH_essais/tree/main/sections/DD/klemm_HA/scripts) in der Programmiersprache R [[@rstudio_rstudio_2022]](https://www.rstudio.com/products/rstudio/download/) entworfen, das in A1765_R mittels der Suche mit regulären Ausdrücken (z.B. [[@regexr_regexr_2022]](https://regexr.com/)) Szenenwechsel, Sprecherbezeichnungen und Regieanweisungen nach einigem Aufwand zu finden vermochte[^1] um diese schlieszlich in HTML-tags zu :verpacken: d.h. die einzelnen verschiedenen Elemente des Textes nach einem Standard zu markieren, der uns vorlag und bereits als Schema zur Validierung im Editor verwendet werden konnte [[@drama_dracor_2022]](https://tei-c.org/release/xml/tei/custom/schema/relaxng/). Es handelte sich dabei noch nicht um die finale, schemagerechte Version. Diese wurde weiterhin vor der Integration des Stückes in das dracor-Korpus [[@fischer_programmable_2019]](https://zenodo.org/record/4284002) vom Seminarleiter auf Grundlage der vereinfachten Version erstellt.
 
 [^1]: dieser Aufwand wäre um einiges geringer ausgefallen, wenn ich mich, statt mit dem Text im Format .txt (plaintext) zu arbeiten, mit der bereits basis-HTML formatierten (durch Fett/Kursivdruck zb. unterschiedene Passagen für Sprecher, Regieanweisungen und Szenenwechsel) bedient hätte.
 
@@ -92,7 +101,7 @@ Netzwerkdaten) zur Verfügung stellen zu können. Hierzu war es nötig,
 zuerst die Textgrundlage und erste Auszeichnung herzustellen. Mit
 Verfügbarkeit des Dramas im schemagerechten TEI Austauschformat, das im
 Bereich der digital humanities oder der Wissenschaft seit Jahren als
-Standard etabliert ist [@tei_history_1987], wenn es um die Bereitstellung/
+Standard etabliert ist [[@tei_history_1987]](https://tei-c.org/about/history/), wenn es um die Bereitstellung/
 Katalogisierung, Archivierung bzw. eben den Austausch von Daten oder
 Metadaten geht, können nun weitreichende Analysen, vergleichende Studien
 und weiteres angestellt werden. Ich werde im Folgenden einen kleinen
@@ -116,28 +125,30 @@ charStats <- characterNames(charStats, d)
 cat("load TEI from:",src)
 ```
 
-
 ```{r echo = FALSE,warning=FALSE}
 #renderPlot({ #reactive consumer, necessary for get input values from selection
-  xin="tokens"
+ # xin="tokens"
   par(mar=c(9,3,2,2)) #position grafik
 #if (xin=="tokens"|xin=="types")  
 barplot(charStats$tokens, main="types & tokens",
         names.arg = charStats$character, # Beschriftung der x-Achse: hier sollen die IDs der Figuren aus der Spalte "character" stehen
         las=2, legend.txt="tokens" # Beschriftung der Achsen rotieren (Figuren-IDs auf der x-Achse würden sich sonst überlappen)
 )
+
+
 barplot(charStats$types,
        # names.arg = charStats$character, # Beschriftung der x-Achse: hier sollen die IDs der Figuren aus der Spalte "character" stehen
         las=2,col=2,add=TRUE,legend.txt="types"  ) 
 #  if(xin=="utterance length"){
 xrel<-charStats$types/charStats$tokens
   par(mar=c(9,3,2,2))
-
 barplot(xrel, main="type/token relation",
         names.arg = charStats$character, 
         las=2 
 )
+```
 
+```{r echo = FALSE,warning=FALSE}
 uStat <- utteranceStatistics(d) %>%
   characterNames(d)
 par(mar=c(9,4,2,2)) 
@@ -158,10 +169,9 @@ boxplot(utteranceLength ~ character, main="global utterance length",
 
 ```
 
-R-package for analysis cf. [@reiter_quadramadramaanalysis_2020]
+R-package for analysis cf. [[@reiter_quadramadramaanalysis_2020]](https://zenodo.org/record/4051004/export/hx)
 
 ## 4.2 further...
-
 
 ```{r echo=FALSE}
 # xrel<-charStats$types/charStats$tokens
@@ -171,9 +181,8 @@ R-package for analysis cf. [@reiter_quadramadramaanalysis_2020]
 #         names.arg = charStats$character, 
 #         las=2 
 # )
-cat("vakat")
+cat("Wir beschränken uns auf die hier versuchte Vorstellung der Möglichkeiten.")
 ```
-
 
 ## 4.3 network
 
@@ -186,7 +195,7 @@ library(lsa)
 showcommunities()
 ```
 
-Q: networks graph cf. [@poggel_10_2022],[@franceschet_communities_2022]
+Q: networks graph cf. [[@poggel_10_2022]](https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html), [[@franceschet_communities_2022]](https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html)
 
 ## 4.4 sources comparison 
 ### (LERA)
@@ -194,6 +203,7 @@ Q: networks graph cf. [@poggel_10_2022],[@franceschet_communities_2022]
 ```{=html}
 <!--<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
 -->
+<!--this works satisfying only in online html, not in the standalone version, therefore discarded as for paperlike version. output similar to the following...-->
 ```
 
 ```{=html}
@@ -13872,19 +13882,20 @@ Q: networks graph cf. [@poggel_10_2022],[@franceschet_communities_2022]
 
 ```
 
-Q: LERA output cf. [@pockelmann_lera_2022]
+Q: LERA output cf. [@pockelmann_lera_2022](https://lera.uzi.uni-halle.de/about?lang=de)
 
 ## 4.5 varianzen
 Auf dieser Grundlage bieten sich weitere Analysen an, die den Rahmen dieser Arbeit jedoch übersteigen. (m) Erste Vergleiche beider Editionen lassen vermuten, dasz die Varianzen in Stil und Orthographie auf Klemm selbst zurückgehen, da wir hier davon ausgehen, dasz er als Herausgeber der Wochenblätter, in denen die erste und zweite Ausgabe erschienen, weitgehend eigenverantwortlich editorisch tätig war.
+Die im folgenden genannten Varianzen lieszen sich mithilfe des oben verwendeten tools LERA als deutlich unterschieden unterhalb der Editionen erkennen. Welche Gründe Klemm hier zur Neuschreibung bewegten, liesz sich im Rahmen der Arbeit nicht mehr eruieren; die folgende Graphik veranschaulicht eventuelle Zusammenhänge, die sich mir jedoch nicht erschlieszen.
 
 **Varianzen:**
 
 1. Heirat:
-    1. Heyrath [@grimm_heirath_1871]
+    1. Heyrath [[@grimm_heirath_1871]](https://www.woerterbuchnetz.de/DWB?lemid=H05592)
     2. Heurath: "die nebenform der (und die) heurath, seit dem 16. jahrh. belegbar, deutet auf ein mhd. bis jetzt nicht nachgewiesenes hiurât, das den labial des ersten compositionsgliedes, der in ags. hîv-ræden noch erhalten war, vocalisiert zeigte. diese form ist besonders im 17. und 18. jahrh. im schwange, einer etymologischen grille zu liebe, der zufolge man das wort mit heuren, miethen, kaufen (s. d.) zusammenbrachte: der heürat, das mannen." (ebd.)
 2. Mann:
-    1. Mannsbilder: "noch im vorigen jahrh. und bis in dieses hinein in achtungsvoller rede [...] während es in der neuern sprache nur mit verächtlichem beitone gebraucht wird." [@grimm_mannsbild_1871]
-    2. Mannspersonen [@grimm_mannsperson_1871]
+    1. Mannsbilder: "noch im vorigen jahrh. und bis in dieses hinein in achtungsvoller rede [...] während es in der neuern sprache nur mit verächtlichem beitone gebraucht wird." [[@grimm_mannsbild_1871]](https://www.woerterbuchnetz.de/DWB?lemid=M01033)
+    2. Mannspersonen [[@grimm_mannsperson_1871]](https://www.woerterbuchnetz.de/DWB?lemid=M01097)
     
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 source("https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/scripts/DTA_query_eval.R")
@@ -13894,7 +13905,8 @@ ggplot(df, aes(year, count, colour = token)) +
   geom_line()
 ```
 
-zahlen cf. [@dta_deutsches_2022]
+Q: Zahlen cf. [[@dta_deutsches_2022]](https://www.deutschestextarchiv.de/search/plot/?query=%2F%5BhH%5Deurath%2F)
 
+---
 
 # B. REF:
