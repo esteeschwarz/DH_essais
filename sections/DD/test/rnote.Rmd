@@ -1,11 +1,14 @@
 ---
+title: "R Notebook"
+---
+---
 title: "klemmHA"
 author: "esteeschwarz"
 date: "`r Sys.Date()`"
 zotero: AVL_dyn
 #runtime: shiny
 output: 
-  html_document:
+  html_notebook:
     toc: yes
     toc_float:
       collapsed: no
@@ -13908,6 +13911,6 @@ ggplot(df, aes(year, count, colour = token)) +
 
 Q: Zahlen cf. [@dta_deutsches_2022](https://www.deutschestextarchiv.de/search/plot/?query=%2F%5BhH%5Deurath%2F)
 
----
+
 
 # B. REF:
