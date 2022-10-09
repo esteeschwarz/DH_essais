@@ -4,7 +4,7 @@
 library(R.utils)
 setwd("~/boxHKW/21S/DH/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 getms<-function(){
-  rn1<-"#9semantics#"
+  rn1<-"(#9semantics#)|(#9semantics)"
   rp1<-"%NSS: nonstandard semantics:"
   rn2<-"#9nst agmt.?#"
   rp2<-"%NSA: nonstandard agreement:"
@@ -20,16 +20,16 @@ getms<-function(){
   rp7<-"%COM: Lachen"
   rn8<-"#9nst#"
   rp8<-"%NST: nonstandard:"
-  rn9<-"#90 subj#"
+  rn9<-"(#90 subj#)|(#90 subj)"
   rp9<-"%0-S: ZERO subject:"
-  rn10<-"#.?unclear script#"
+  rn10<-"(#.?unclear script#)|(#script unclear#)"
   rp10<-"%COM: script unclear"
   rn11<-"#unverstaendlich#"
   rp11<-"%COM: unverstaendlich"
   rn12<-"#9nst verb#"
   rp12<-"%NSV: nonstandard verbform:"
-  rn13<-"#script unclear#"
-  rp13<-"%COM: script unclear"
+  #rn13<-"#script unclear#"
+  #rp13<-"%COM: script unclear"
   rn14<-"#9nst conditional#"
   rp14<-"%NSC: nonstandard conditional:"
   rn15<-"#9nst gen#"
@@ -45,15 +45,15 @@ getms<-function(){
   rn20<-"#9nst w\\.o\\.#"
   rp20<-"%NSW: nonstandard word order"
   rn21<-"#90 verb#"
-  rp21<-"0-V: ZERO VP"
-  rn22<-"#90 subj"
-  rp22<-"%0-S: ZERO subject:"
+  rp21<-"%0-V: ZERO VP"
+  #rn22<-"#90 subj"
+  #rp22<-"%0-S: ZERO subject:"
   rn23<-"#90 prep#"
   rp23<-"%0-P: ZERO preposition"
-  rn24<-"#9semantics"
-  rp24<-"%NSS: nonstandard semantics:"
-  rncpt<-c(rn1,rn2,rn3,rn4,rn5,rn6,rn7,rn8,rn9,rn10,rn11,rn12,rn13,rn14,rn15,rn16,rn17,rn18,rn19,rn20,rn21,rn22,rn23,rn24)
-  rpcpt<-c(rp1,rp2,rp3,rp4,rp5,rp6,rp7,rp8,rp9,rp10,rp11,rp12,rp13,rp14,rp15,rp16,rp17,rp18,rp19,rp20,rp21,rp22,rp23,rp24)
+  #rn24<-"#9semantics"
+  #rp24<-"%NSS: nonstandard semantics:"
+  rncpt<-c(rn1,rn2,rn3,rn4,rn5,rn6,rn7,rn8,rn9,rn10,rn11,rn12,rn14,rn15,rn16,rn17,rn18,rn19,rn20,rn21,rn23)
+  rpcpt<-c(rp1,rp2,rp3,rp4,rp5,rp6,rp7,rp8,rp9,rp10,rp11,rp12,rp14,rp15,rp16,rp17,rp18,rp19,rp20,rp21,rp23)
   rpall<-cbind(rncpt,rpcpt)
 }
 
@@ -160,6 +160,53 @@ for (k in 1:length(rpall[,"rncpt"])) {
 # kids<-strsplit(filelist,"\\.")
 # kids[[2]][1]
 chatfilename<-paste0("CHAT_2/",kids[[f]][1],"_CHAT.txt")
-writeLines(tbu,chatfilename)
+rn25<-"([0-9]{1,3}\\. )(?=\\*|@)"
+tbum<-gsub(rn25,"",tbu,perl = T)
+
+writeLines(tbum,chatfilename)
+
 }
-file.info(filelist[1])
+#file.info(filelist[1])
+###wks.
+#remove hardcoded linenumbers in some transcripts
+temp<-function(){
+rn25<-"([0-9]{1,3}\\. )(?=\\*|@)"
+tbu<-readLines((filelist[2]))
+m<-gregexec(rn26,tbum,perl = T)
+regmatches(tbum,m)
+tbum<-gsub(rn25,"",tbu,perl = T)
+tbum
+#hardcoded linebreaks find
+getwd()
+cc<-readLines("CHAT_2/SES_ELL_GCC_f_9_CHAT.txt")
+#rn26<-"(^\\*.+?:)(.+?)"
+rn26<-":"
+ml<-grepl(rn26,cc)
+cc[ml==F]
+is.m<-ml==F
+m<-grep(rn26,cc)
+mlist<-m*is.m
+noline<-which(is.m)
+ccpos<-is.notm
+ccmod<-paste(cc[ccpos],cc[is.notm])
+ccmod
+cc[is.notm-1]
+ccpos
+ccpos-1
+is.notm-1
+for (k in 1:3){
+if (noline[k]-noline[k-1]==1){
+
+    cc2<-paste(cc[noline[k]-1],cc[noline[k]])
+}
+
+  else 3+4
+}
+    k<-2
+  noline[k]-noline[k-1]!=1
+  paste(cc[noline[k]-1],cc[noline[k]])
+  cc[noline[2]]
+library(readtext)
+cc<-readtext(filelist[2])
+cc$text
+}
