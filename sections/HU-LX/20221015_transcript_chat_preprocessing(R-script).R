@@ -18,7 +18,7 @@ dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted 
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-dirchat<-"CHAT_3"
+dirchat<-"CHAT_4"
 dirtext
 dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
@@ -95,10 +95,8 @@ rpall<-getms()
 #f<-1
 #dirmod
 #filelist
-filelist<-list.files(dirmod,pattern="(\\.txt)")
-filelist
-kids<-strsplit(filelist,"\\.")
-kids[[2]][1]
+#filelist<-list.files(dirtext,pattern="(\\.txt)")
+#filelist
 
 #paste0(dirchat,"/",kids[[f]][1],"_CHAT.txt")
 #paste(dirtext,dirchat,chatfilename,sep = "/")
@@ -175,8 +173,10 @@ dirmod
 #cc5
 }
 #call line correction function over source files array
-filelist<-list.files(dirmod,pattern="(\\.txt)")
+filelist<-list.files(dirtext,pattern="(\\.txt)")
 filelist
+kids<-strsplit(filelist,"\\.")
+kids[[2]][1]
 
 for (k in 1:length(filelist)){
 linecor(k)
