@@ -1,7 +1,7 @@
 #13407.hu-lx reformatting
 #20221007(20.35)
 #20221015(18.12) please download the most recent version of the script always
-#here: https://github.com/esteeschwarz/DH_essais/blob/main/sections/HU-LX/trans_prepr.R
+#here: https://github.com/esteeschwarz/DH_essais/blob/main/sections/HU-LX/20221015_transcript_chat_preprocessing(R-script).R
 ################
 library(R.utils)
 #mini
