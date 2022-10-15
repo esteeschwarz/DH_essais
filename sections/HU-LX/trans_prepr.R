@@ -2,7 +2,11 @@
 #20221007(20.35)
 ################
 library(R.utils)
+#mini
 setwd("~/boxHKW/21S/DH/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
+#lapsi, ewa
+setwd("~/boxHKW/UNI/21S/DH/")
+
 getms<-function(){
   rn1<-"(#9semantics#)|(#9semantics)"
   rp1<-"%NSS: nonstandard semantics:"
@@ -56,9 +60,11 @@ getms<-function(){
   rpcpt<-c(rp1,rp2,rp3,rp4,rp5,rp6,rp7,rp8,rp9,rp10,rp11,rp12,rp14,rp15,rp16,rp17,rp18,rp19,rp20,rp21,rp23)
   rpall<-cbind(rncpt,rpcpt)
 }
-
+dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/")
+list.files(paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/"))
 #tbu<-readLines("local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/SES_TUR_Tbu_m_13.txt")
-
+gcc<-readLines(paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/SES_ELL_GCC_f_9.txt"))
+list.files(dirtext)
 ###
 # rnss<-"(#9semantics#)"
 # m<-gregexec(rnss,tbu)
@@ -142,7 +148,7 @@ getms<-function(){
 #dir.create("local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/CHAT")
 rpall<-getms()
 f<-1
-filelist<-list.files(pattern="(\\.txt)")
+filelist<-list.files(dirtext,pattern="(\\.txt)")
 for (f in 1:length(filelist)){
 tbu<-readLines(filelist[f])
 #tbu
@@ -207,6 +213,24 @@ if (noline[k]-noline[k-1]==1){
   paste(cc[noline[k]-1],cc[noline[k]])
   cc[noline[2]]
 library(readtext)
-cc<-readtext(filelist[2])
-cc$text
+cc<-readtext(paste0(dirtext,filelist[2]))
+cc1<-cc$text
+library(clipr)
 }
+# find lines not properly introduced (false hard line breaks)
+regx1<-"\n"
+write_clip(cc2)
+repl1<-"#nl#"
+cc2<-gsub(regx1,repl1,cc1)
+writeLines(cc4,paste0(dirtext,"/r-temp/cc4.txt"))
+writle
+#newlines
+"(#nl#)([^0-9]{1,3})"
+regx1<-"(#nl#)([^@|[^0-9])" #newline not introduced by @ or line numbering
+repl1<-" \\2"
+cc3<-gsub(regx1,repl1,cc2)
+#restore linebreaks
+regx1<-"#nl#"
+repl1<-"\n"
+cc4<-gsub(regx1,repl1,cc3)
+#wks.
