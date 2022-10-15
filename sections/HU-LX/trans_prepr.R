@@ -1,5 +1,7 @@
 #13407.hu-lx reformatting
 #20221007(20.35)
+#20221015(18.12) please download the most recent version of the script always
+#here: https://github.com/esteeschwarz/DH_essais/blob/main/sections/HU-LX/trans_prepr.R
 ################
 library(R.utils)
 #mini
@@ -66,85 +68,6 @@ list.files(paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatte
 gcc<-readLines(paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/SES_ELL_GCC_f_9.txt"))
 list.files(dirtext)
 ###
-# rnss<-"(#9semantics#)"
-# m<-gregexec(rnss,tbu)
-# regmatches(tbu, m)
-# 
-# tbu
-# match(tbu)
-# m<-grep(rnss,tbu)
-# #m<-(grepl(rnss,tbu))
-# tbu[m]
-# sum(m)
-# tbu[m+1]<-"%NSS: #9semantics#"
-# tbu[m+1]
-# dim(m)
-# m
-# 
-# rna<-"(#9nst agmt#)"
-# n<-grep(rna,tbu)
-# tbu[n]
-# tbu[n+1]<-"%NSA: nonstandard agreement:"
-# tbu[n+1]
-# m<-grep(rna,tbu)
-# tbu[m]
-# rncpt<-c(sprintf("rn%d",1:17))
-# rn3<-c(as.array (rncpt))
-# as.character.factor (rncpt)
-# print(as.name(rncpt[3]))
-# rna<-"(#.+?#)"
-#m<-grep(rna,tbu)
-#tbu[m]
-
-#rncpt[3]
-#k<-1
-########
-# for (k in 1:length(rpall[,"rncpt"])) {
-#   m<-grep(rpall[k,"rncpt"],tbu)
-# tbu<-insert(tbu,m+1,rpall[k,"rpcpt"])
-# #tbu
-# 
-# }
-# length(rpall[,"rncpt"])
-# tbu
-# for (k in 1:length(rpall[,"rncpt"])) {
-#   tbu<-gsub(rpall[k,"rncpt"],"#%#",tbu)
-#   #tbu<-gsub
-#   # m<-grep(rpall[k,"rncpt"],tbu)
-#   # tbu<-insert(tbu,m+1,rpall[k,"rpcpt"])
-#   # #tbu
-#   # 
-# }  
-# tbu
-############### wks.
-# 1:length(rpall[rncpt])
-# rpall[4,rncpt]
-# tbu
-#writeLines(tbu,"local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/SES_TUR_Tbu_m_13_CHAT.txt")
-# m<-grep(rpall[1,"rncpt"],tbu)
-# m
-# ar<-c(2,4,6,8)
-# x<-1:20
-# for(k in ar){
-# insert(x,ar+k,"a")
-# }
-#   x
-# ar[2]
-# length(ar)
-#        for (k in 1:length(rpall[rncpt])){
-#  # print(rpall[k,"rncpt"])
-#   m<-grep(rpall[k,"rncpt"],tbu)
-#   #print(tbu[m])
-#   print(tbu[m+1])
-#   }
-# 
-# tail(tbu)
-# for (k in 4){
-#   print(k)
-#         }
-# x2<-insert(x,ar+1,99)
-# x2
-
 rpall<-getms()
 f<-1
 dirmod
@@ -191,36 +114,6 @@ regmatches(tbum,m)
 tbum<-gsub(rn25,"",tbu,perl = T)
 tbum
 }
-# #hardcoded linebreaks find
-# getwd()
-# cc<-readLines("CHAT_2/SES_ELL_GCC_f_9_CHAT.txt")
-# #rn26<-"(^\\*.+?:)(.+?)"
-# rn26<-":"
-# ml<-grepl(rn26,cc)
-# cc[ml==F]
-# is.m<-ml==F
-# m<-grep(rn26,cc)
-# mlist<-m*is.m
-# noline<-which(is.m)
-# ccpos<-is.notm
-# ccmod<-paste(cc[ccpos],cc[is.notm])
-# ccmod
-# cc[is.notm-1]
-# ccpos
-# ccpos-1
-# is.notm-1
-# for (k in 1:3){
-# if (noline[k]-noline[k-1]==1){
-# 
-#     cc2<-paste(cc[noline[k]-1],cc[noline[k]])
-# }
-# 
-#   else 3+4
-# }
-#     k<-2
-#   noline[k]-noline[k-1]!=1
-#   paste(cc[noline[k]-1],cc[noline[k]])
-#   cc[noline[2]]
 library(readtext)
 #loop correction
 k<-16
@@ -236,7 +129,7 @@ repl1<-" "
 cc1<-gsub(regx1,repl1,cc1)
 writeLines(cc1,paste0(dirtext,"/r-temp/da1.txt"))
 
-# find lines not properly introduced (false hard line breaks)
+#find lines not properly introduced (false hard line breaks)
 regx1<-"\n"
 #write_clip(cc2)
 repl1<-"#nl#"
