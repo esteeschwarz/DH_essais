@@ -2,6 +2,10 @@
 #20221007(20.35)
 #20221015(18.12) please download the most recent version of the script always
 #here: https://github.com/esteeschwarz/DH_essais/blob/main/sections/HU-LX/20221015_transcript_chat_preprocessing(R-script).R
+#important: the script as provided here (.md instead of .R) will not work in R language
+#since all escaped (e.g. "\\.") characters are converted to standard markdown ("\."),
+#saying if you want to have the script run in R you have to use the github version.
+#also all source transcript files are referenced locally and are accessible only via your HU-box.
 ################
 library(R.utils)
 #mini
