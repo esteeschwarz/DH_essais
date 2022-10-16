@@ -2,9 +2,10 @@
 #20221007(20.35)
 #20221015(18.12) please download the most recent version of the script always
 #here: https://github.com/esteeschwarz/DH_essais/blob/main/sections/HU-LX/20221015_transcript_chat_preprocessing(R-script).R
-#important: the script as provided here (.md instead of .R) will not work in R language
+#important: the script as provided in the box (.md instead of .R) will not work in R language
 #since all escaped (e.g. "\\.") characters are converted to standard markdown ("\."),
 #saying if you want to have the script run in R you have to use the github version.
+#NT: script is now in .txt for convenient view
 #also all source transcript files are referenced locally and are accessible only via your HU-box.
 ################
 library(R.utils)
@@ -24,7 +25,8 @@ dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
 dirout  
 dir.create(dirout)
-#code substitution
+
+#create code substitution array with search/replace patterns
 getms<-function(){
   rn01a<-"(#9semantics#)|(#9semantics)"
   rp01a<-"%NSS: nonstandard semantics:"
@@ -32,7 +34,7 @@ getms<-function(){
   rp02a<-"%NSA: nonstandard agreement:"
   rn03a<-"(#9nst prep#)|(#9nst prep\\.)"
   rp03a<-"%NSP: nonstandard preposition:"
-  rn04b<-"(#90 art#)|(#90 art)|(#90 art\\.)(#90 art\\.#)"
+  rn04b<-"(#90 art#)|(#90 art)|(#90 art\\.)|(#90 art\\.#)" # dash!
   rp04b<-"%0-A: zero article:"
   rn05b<-"#90 obj.?#"
   rp05b<-"%0-O: zero object:"
@@ -102,6 +104,7 @@ rpall<-getms()
 #paste(dirtext,dirchat,chatfilename,sep = "/")
 #file.info(filelist[1])
 ###wks.
+
 #remove hardcoded linenumbers in some transcripts
 #loop correction
 #k<-16
@@ -112,7 +115,7 @@ linecor<-function(k){
 cc<-readtext(paste(dirtext,filelist[k],sep = "/"))
 cc1<-cc$text
 #library(clipr)
-#find obsolete whitespace
+#find obsolete whitespace range 2 to 200 blanks
 regx1<-"[ ]{2,200}"
 repl1<-" "
 cc1<-gsub(regx1,repl1,cc1)
@@ -181,6 +184,7 @@ kids[[2]][1]
 for (k in 1:length(filelist)){
 linecor(k)
 }
+
 filelist
 #wks.
 #vs search unlabeled lines
