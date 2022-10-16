@@ -10,6 +10,7 @@
 ################
 library(R.utils)
 library(readtext)
+library(memoise)
 
 #mini
 setwd("~/boxHKW/21S/DH/")
@@ -86,6 +87,13 @@ getms<-function(){
   rp29a<-c("#%#","%N-?:", "nonstandard i dont know")
   rn30b<-"#90 aux #"
   rp30b<-c("#%#","%0-X","zero auxiliary:")
+  "90 art"
+  "90 verb"
+  "90 cop"
+  "9nst agmt"
+  "9nst gen"
+  "90 prep"
+  "90 subj"
   rncpt<-c(rn01a,rn02a,rn03a,rn20a,rn12a,rn14a,rn15a,rn16a,rn18a,rn08a,rn28a,rn29a,rn30b,rn04b,rn05b,rn09b,rn17b,rn21b,rn23b,rn26b,rn06c,rn10c,rn11c,rn19c,rn27e)
   rpcpt1<-c(rp01a[1],rp02a[1],rp03a[1],rp20a[1],rp12a[1],rp14a[1],rp15a[1],rp16a[1],rp18a[1],rp08a[1],rp28a[1],rp29a[1],rp30b[1],rp04b[1],rp05b[1],rp09b[1],rp17b[1],rp21b[1],rp23b[1],rp26b[1],rp06c[1],rp10c[1],rp11c[1],rp19c[1],rp27e[1])
   rpcpt2<-c(rp01a[2],rp02a[2],rp03a[2],rp20a[2],rp12a[2],rp14a[2],rp15a[2],rp16a[2],rp18a[2],rp08a[2],rp28a[2],rp29a[2],rp30b[2],rp04b[2],rp05b[2],rp09b[2],rp17b[2],rp21b[2],rp23b[2],rp26b[2],rp06c[2],rp10c[2],rp11c[2],rp19c[2],rp27e[2])
@@ -113,9 +121,9 @@ rpall<-getms()
 #loop correction
 #k<-16
 #filelist[k]
+trans_mod_array<-list()
 
-
-linecor<-function(k){
+linecor<-function(k,filelist){
 cc<-readtext(paste(dirtext,filelist[k],sep = "/"))
 cc1<-cc$text
 #library(clipr)
@@ -163,7 +171,7 @@ cc4<-gsub(regx1,repl1,cc3)
 #writeLines(cc4,paste0(dirtext,"/r-temp/da4.txt"))
 
 #wks.
-dir.create(paste(dirtext,dirout,sep = "/"))
+dir.create(dirout)
 #writeLines(cc5,paste0(dirmod,"SES_ELL_GCC_f_9.txt"))
 #delete hard line numbering
 regx1<-"[0-9]{1,3}.[^\n](\\*)"
@@ -172,24 +180,61 @@ cc5<-gsub(regx1,repl1,cc4)
 #writeLines(cc5,paste0(dirtext,"/r-temp/cc5.txt"))
 corfilename<-paste0(kids[[k]][1],"_mod.txt")
 writeLines(cc5,paste(dirout,corfilename,sep = "/"))
+# trans_mod_temp<-tempdir("trans_temp")
+# writeLines(cc5,paste(trans_mod_temp,corfilename,sep = "/"))
+writeLines(cc5,paste(trans_mod_tempdir,corfilename,sep = "/"))
+ trans_mod_array[k]<-"cc5"
+
 corfilename
 #paste0(dirmod,corfilename)
 #"~/boxHKW/UNI/21S/DH/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/modified"
-dirmod
+#dirmod
 #dirtext
 #cc5
+output<-cc5
+#help("cat")
 }
 #call line correction function over source files array
-filelist<-list.files(dirtext,pattern="(\\.txt)")
-filelist
-kids<-strsplit(filelist,"\\.")
-#kids[[2]][1]
+#filelist1<-list.files(trans_temp,pattern="(\\.txt)")
 
-for (k in 1:length(filelist)){
-linecor(k)
-}
+filelist1<-list.files(dirtext,pattern="(\\.txt)")
+filelist1
+kids<-strsplit(filelist1,"\\.")
+kids[[2]][1]
+#trans_mod_array<-list()
+trans_mod_tempdir<-tempdir("trans_temp")
 
-filelist
+
+for (k in 1:length(filelist1)){
+linecor(k,filelist1)
+ trans_mod_array[k]<-linecor(k,filelist1)
+ # writeLines(trans_mod_array[[k]],paste(trans_mod_tempdir,corfilename,sep = "/"))
+ 
+ }
+#writeLines(trans_mod_array,paste(trans_mod_temp,corfilename,sep = "/"))
+
+#write_lines
+#trans_mod_array[4]
+#t<-timeout(10)
+### end linecorrection
+#for (var in seq)
+#a<- function(n){runif(n)}
+# pause<-1:10
+# pause
+# t2<-t-timeout(10)
+# for (p in pause){
+#   t2<-t-timeout(10)
+#   t3<-10+t2
+#   length(pause)-p
+#     cat("wait ",pause, " til modified files are written\n")
+# #timeout(10)
+#    # pause<-t2+p
+# }
+# a <- function(n) { runif(n) }
+# memA <- memoise(a, ~timeout(10))
+# memA(2)
+# length(pause)
+# filelist
 #wks.
 #vs search unlabeled lines
 #"^\*[^A-Z]"
@@ -197,15 +242,22 @@ filelist
 #from here substitute #coding#
 rpall<-getms()
 
-filelist<-list.files(dirout,pattern="(\\.txt)")
-filelist
+#filelist2<-list.files(dirout,pattern="(\\.txt)")
+#filelist2
+filelist2<-list.files(trans_mod_tempdir,pattern="(\\.txt)")
+filelist2
 #kids<-strsplit(filelist,"\\.")
 #kids[[2]][1]
 
-for (f in 1:length(filelist)){
+for (f in 1:length(filelist2)){
   #print(f)}
-  tbu<-readLines(paste(dirout,filelist[f],sep = "/"))
-  #tbu
+ # tbutemp<-tempfile("tbu.temp")
+  #writeLines(trans_mod_array[[f]],tbutemp)
+  #tbu<-readLines(tbutemp)
+#  tbu<-readLines(paste(dirout,filelist2[f],sep = "/"))
+    tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
+  
+   # tbu<-readLines(trans_mod_array[1])
   p1<-grep(".ctivities",tbu)
   tbu<-insert(tbu,p1+1,"@Elicitation files: (placeholder)")
   p2<-grep("@.oding",tbu)
@@ -227,7 +279,7 @@ for (f in 1:length(filelist)){
     tbu<-gsub(rpall[k,"rncpt"],rpall[k,"rpcpt1"],tbu)
   }
     #####################################
-  kids<-strsplit(filelist,"\\.")
+  kids<-strsplit(filelist2,"\\.")
   kids[[f]][1]
   dirtext
   #dirchat<-"CHAT_3/"
@@ -264,15 +316,49 @@ for (f in 1:length(filelist)){
   writeLines(tbu_e,paste(dirtext,dirchat,chatfilename,sep = "/"))
   
 }
-#k<-3
-#length(rpball[,"rnbcpt"])
-#for (k in 1:length(rpball[,"rnbcpt"])) {
-#  tbu_e<-gsub(rpball[k,1],rpball[k,2],tbum_e)
-#}
-#tbu_e<-gsub(rpball[3,1],rpball[3,2],tbum)
-#rpball[3,1]
-#m<-gregexec(rnb03,tbu_e,perl = T)
-#(regmatches(tbu_e,m))
-#tbu_e[[39]]
-#post processing substitutes
 
+###wks.
+# general find #codes#
+tempfun<-function(){ # wird nicht ausgeführt
+regx1<-"#.+?#"
+tbx<-trans_mod_array[[16]]
+m<-gregexec(regx1,tbx)
+#reg
+regmatches(tbx,m)
+f<-17
+#codelist<-data.frame()
+#for (f in 1:length(filelist2)){
+tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
+regx1<-"#.+?#"
+m<-gregexec(regx1,tbu)
+p<-regmatches(tbu,m)
+p2<-unique(unlist(p))
+p3<-as.data.frame(p2)
+p1<-rbind(p1,p3)
+
+p4<-p1
+colnames(p1)<-"codes"
+#codelist[]<-p1
+#write.table(p1,paste0(dirtemp,"#codes.csv"),append = T)
+#grep(regx1,tbu,value = T)
+#(p[1:32][1])
+
+
+filelist2
+tbu
+p1
+codelist[1]<-p1
+getwd()
+dirtemp<-"~/boxHKW/21S/DH/gith/DH_essais/sections/HU-LX/temp/"
+p1<-unique(unlist(p))
+length(unique(p1[,1]))
+p5<-as.data.frame(unique(p1[,1]))
+colnames(p5)<-"codes"
+write.csv2(p5,paste0(dirtemp,"#codes.csv"))
+p6<-as.data.frame(unique(p5[,1]))
+colnames(p6)<-"codes"
+write.csv2(p6,paste0(dirtemp,"#codes_unique.csv"))
+
+as.data.frame(p)
+unlist(p)
+}
