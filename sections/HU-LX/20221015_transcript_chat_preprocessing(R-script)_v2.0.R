@@ -14,9 +14,9 @@ library(memoise)
 library(readr)
 library(glue)
 #mini
-setwd("~/boxHKW/21S/DH/")
+#setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
-#setwd("~/boxHKW/UNI/21S/DH/")
+setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
@@ -377,14 +377,9 @@ codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3.csv"),
 #rpformAG<-paste0('"(',rpformA,')"')
 #rpformAG
 pre3<-unique(codes_cpt$pre3)
-#pre3<-pre3[!=is.na(pre3)]
-#pre3<-pre3[with(pre3,pre3!=NA)]
 chna<-!is.na(pre3)
 chna
 pre3<-pre3[chna]
-#k<-2
-#length(pre3)
-#pre3
 pre2<-unique(codes_cpt$pre2)
 chna<-!is.na(pre2)
 chna
@@ -397,18 +392,53 @@ postphrase<-unique(codes_cpt$feature)
 chna<-!is.na(postphrase)
 chna
 postphrase<-postphrase[chna]
-
+### w/o com fields
 rpform<-data.frame()
+subwocom<-subset(codes_cpt,set$category!=3)
+set<-subwocom
+###
+getcodes<-function(set){
+pre3<-unique(set$pre3)
+chna<-!is.na(pre3)
+chna
+pre3<-pre3[chna]
+pre2<-unique(set$pre2)
+chna<-!is.na(pre2)
+chna
+pre2<-pre2[chna]
+prephrase<-unique(set$phrase)
+chna<-!is.na(prephrase)
+chna
+prephrase<-prephrase[chna]
+postphrase<-unique(set$subst)
+chna<-!is.na(postphrase)
+chna
+postphrase<-postphrase[chna]
+
+#rpform<-data.frame()
 
 for(k in 1:length(pre3)){
-rp4<-subset(codes_cpt$codes,codes_cpt$pre3==pre3[k],)          
+#rp4<-subset(codes_cpt$codes,codes_cpt$pre3==pre3[k],)
+#rp4<-subset(set$codes,set$pre3==pre3[k],)          
+rp4<-subset(set$codes,set$subst==postphrase[k],)          
+
 rpformX<-glue_collapse(rp4,sep = ")|(")          
 rpformXA<-paste0('"(',rpformX,')"')
 rpform[k,1]<-rpformXA
-#rpform[k,2]<-paste0(codes_cpt$pre1[k],codes_cpt$pre2[k],
- #                   codes_cpt$pre3[k],":",codes_cpt$pre1[k],
+rpform[k,2]<-pre3[k]
+rpform[k,3]<-postphrase[k]
+#rpform[k,2]<-
+}
+return(rpform)
+}
+codesarray<-getcodes(subwocom)
 
-                    }
+feat_array<-data.frame()
+set<-subwocom
+length(set[[1]])
+for (k in 1:length(set[[1]])){
+feat_array[k,1]<-paste0(set$pre1[k],set$pre2[k],
+                    set$pre3[k],": ",set$phrase[k]," ",set$feature[k])
 
-
-
+}
+subwocom["subst"]<-feat_array[,1]
