@@ -11,7 +11,8 @@
 library(R.utils)
 library(readtext)
 library(memoise)
-
+library(readr)
+library(glue)
 #mini
 setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
@@ -319,6 +320,7 @@ for (f in 1:length(filelist2)){
 
 ###wks.
 # general find #codes#
+# writes global # and 9 codes in the transcripts to table
 tempfun<-function(){ # wird nicht ausgeführt
 regx1<-"#.+?#"
 tbx<-trans_mod_array[[16]]
@@ -362,3 +364,51 @@ write.csv2(p6,paste0(dirtemp,"#codes_unique.csv"))
 as.data.frame(p)
 unlist(p)
 }
+
+# import code .csv to create substitution array
+getwd()
+#read.csv2(paste0(dirtext,"/r-temp/codes_cpt.csv")
+codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3.csv"), 
+    delim = ";", escape_double = FALSE, trim_ws = TRUE)
+#rncpt2<-codes_cpt$codes         
+#rpcpt2<-paste0(codes_cpt$pre1,codes_cpt$pre2,codes_cpt$pre3)          
+#rp3<-subset(codes_cpt$codes,codes_cpt$pre3=="AG")          
+#rpformAG<-glue_collapse(rp3,sep = ")|(")          
+#rpformAG<-paste0('"(',rpformA,')"')
+#rpformAG
+pre3<-unique(codes_cpt$pre3)
+#pre3<-pre3[!=is.na(pre3)]
+#pre3<-pre3[with(pre3,pre3!=NA)]
+chna<-!is.na(pre3)
+chna
+pre3<-pre3[chna]
+#k<-2
+#length(pre3)
+#pre3
+pre2<-unique(codes_cpt$pre2)
+chna<-!is.na(pre2)
+chna
+pre2<-pre2[chna]
+prephrase<-unique(codes_cpt$phrase)
+chna<-!is.na(prephrase)
+chna
+prephrase<-prephrase[chna]
+postphrase<-unique(codes_cpt$feature)
+chna<-!is.na(postphrase)
+chna
+postphrase<-postphrase[chna]
+
+rpform<-data.frame()
+
+for(k in 1:length(pre3)){
+rp4<-subset(codes_cpt$codes,codes_cpt$pre3==pre3[k],)          
+rpformX<-glue_collapse(rp4,sep = ")|(")          
+rpformXA<-paste0('"(',rpformX,')"')
+rpform[k,1]<-rpformXA
+#rpform[k,2]<-paste0(codes_cpt$pre1[k],codes_cpt$pre2[k],
+ #                   codes_cpt$pre3[k],":",codes_cpt$pre1[k],
+
+                    }
+
+
+
