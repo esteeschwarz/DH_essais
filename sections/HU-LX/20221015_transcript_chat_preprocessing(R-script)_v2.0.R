@@ -27,7 +27,8 @@ dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
 dirout  
 dir.create(dirout)
-
+codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt_regx.csv"), 
+                        delim = ";", escape_double = FALSE, trim_ws = TRUE)
 #create code substitution array with search/replace patterns
 getms<-function(){
   rn01a<-"(#9semantics#)|(#9semantics)"
@@ -242,7 +243,7 @@ linecor(k,filelist1)
 ############
 #from here substitute #coding#
 #rpall<-getms()
-rpall<-codesarray[,1]
+rpall<-unique(codes_cpt$regex)
 
 #filelist2<-list.files(dirout,pattern="(\\.txt)")
 #filelist2
@@ -265,15 +266,15 @@ for (f in 1:length(filelist2)){
   p2<-grep("@.oding",tbu)
   
     tbu<-insert(tbu,p2+1,"@TIER descriptions:")
-  for (k in 1:length(rpall[,1])) {
-    m<-grep(rpall[k,1],tbu)
+  for (k in 1:length(rpall)) {
+    m<-grep(rpall[k],tbu)
     
     m<-insert(m,1,p2+1)
     #header info on tiers:
     # tierhead<-unique(paste0(rpall[k,"rpcpt2"]," ",rpall[k,"rpcpt3"]))
     # tbu<-insert(tbu,m+1,tierhead)
-    subtier<-subset(codesarray,codesarray$)
-    tierhead<-rpall[,3]
+    #subtier<-subset(codesarray,codesarray$)
+    tierhead<-subset(codes_cpt$subst,codes_cpt$category!=3)
     tbu<-insert(tbu,m+1,tierhead)
     
       }
@@ -327,7 +328,7 @@ for (f in 1:length(filelist2)){
   writeLines(tbu_e,paste(dirtext,dirchat,chatfilename,sep = "/"))
   
 }
-
+tempfun0<-function(zer){
 ###wks.
 # general find #codes#
 # writes global # and 9 codes in the transcripts to table
@@ -406,9 +407,10 @@ postphrase<-postphrase[chna]
 rpform<-data.frame()
 subwocom<-subset(codes_cpt,set$category!=3)
 set<-subwocom
+set<-codes_cpt
 ###
 getcodes<-function(set){
-pre3<-unique(set$pre3)
+pre3<-unique(paste0(set$pre2,set$pre3))
 chna<-!is.na(pre3)
 chna
 pre3<-pre3[chna]
@@ -424,7 +426,9 @@ postphrase<-unique(set$subst)
 chna<-!is.na(postphrase)
 chna
 postphrase<-postphrase[chna]
-
+#cat1<-codes_cpt$category[postphrase]
+#cat1!=is.na(codesarray)
+#codes_cpt$pre3[codesarray$V2]
 #rpform<-data.frame()
 
 for(k in 1:length(postphrase)){
@@ -435,7 +439,7 @@ rp4<-subset(set$codes,set$subst==postphrase[k])
 rpformX<-glue_collapse(rp4,sep = ")|(")          
 rpformXA<-paste0('"(',rpformX,')"')
 rpform[k,1]<-rpformXA
-#rpform[k,2]<-pre3[k]
+#rpform[k,2]<-set$pre3[k]
 rpform[k,2]<-postphrase[k]
 #rpform[k,2]<-
 }
@@ -456,4 +460,13 @@ feat_array[k,1]<-paste0(set$pre1[k],set$pre2[k],
 #subwocom["subst"]<-feat_array[,1]
 codes_cpt["subst"]<-feat_array[,1]
 getwd()
-write.csv2(codes_cpt,paste0(dirtext,"/r-temp/codesarray.csv"))
+write.csv2(codesarray,paste0(dirtext,"/r-temp/codesarray.csv"))
+write.csv2(codes_cpt,paste0(dirtext,"/r-temp/codes_cpt_regx.csv"))
+#write regex to codescpt
+for (k in 1:length(codes_cpt$ar)){
+m<-codes_cpt$ar
+  codes_cpt["regex"]<-codesarray$V1[m]
+}
+codes_cpt["ar"]<-match(codes_cpt$subst,codesarray$V2)
+
+} #end temp function
