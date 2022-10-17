@@ -21,7 +21,7 @@ dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted 
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-dirchat<-"CHAT_4"
+dirchat<-"CHAT_5"
 dirtext
 dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
@@ -241,7 +241,8 @@ linecor(k,filelist1)
 #"^\*[^A-Z]"
 ############
 #from here substitute #coding#
-rpall<-getms()
+#rpall<-getms()
+rpall<-codesarray[,1]
 
 #filelist2<-list.files(dirout,pattern="(\\.txt)")
 #filelist2
@@ -265,20 +266,29 @@ for (f in 1:length(filelist2)){
   
     tbu<-insert(tbu,p2+1,"@TIER descriptions:")
   for (k in 1:length(rpall[,1])) {
-    m<-grep(rpall[k,"rncpt"],tbu)
+    m<-grep(rpall[k,1],tbu)
     
     m<-insert(m,1,p2+1)
     #header info on tiers:
-    tierhead<-unique(paste0(rpall[k,"rpcpt2"]," ",rpall[k,"rpcpt3"]))
+    # tierhead<-unique(paste0(rpall[k,"rpcpt2"]," ",rpall[k,"rpcpt3"]))
+    # tbu<-insert(tbu,m+1,tierhead)
+    subtier<-subset(codesarray,codesarray$)
+    tierhead<-rpall[,3]
     tbu<-insert(tbu,m+1,tierhead)
-  }
+    
+      }
     m
     tbu
     #####################################
     ### this section main replacement ###
-  for (k in 1:length(rpall[,"rncpt"])) {
-    tbu<-gsub(rpall[k,"rncpt"],rpall[k,"rpcpt1"],tbu)
-  }
+  # for (k in 1:length(rpall[,"rncpt"])) {
+  #   tbu<-gsub(rpall[k,"rncpt"],rpall[k,"rpcpt1"],tbu)
+  # }
+    #new substitute from codesarray
+    for (k in 1:length(codesarray[,1])) {
+      tbu<-gsub(rpall[k,1],rpall[k,3],tbu)
+    }
+    
     #####################################
   kids<-strsplit(filelist2,"\\.")
   kids[[f]][1]
@@ -417,16 +427,16 @@ postphrase<-postphrase[chna]
 
 #rpform<-data.frame()
 
-for(k in 1:length(pre3)){
+for(k in 1:length(postphrase)){
 #rp4<-subset(codes_cpt$codes,codes_cpt$pre3==pre3[k],)
 #rp4<-subset(set$codes,set$pre3==pre3[k],)          
-rp4<-subset(set$codes,set$subst==postphrase[k],)          
+rp4<-subset(set$codes,set$subst==postphrase[k])          
 
 rpformX<-glue_collapse(rp4,sep = ")|(")          
 rpformXA<-paste0('"(',rpformX,')"')
 rpform[k,1]<-rpformXA
-rpform[k,2]<-pre3[k]
-rpform[k,3]<-postphrase[k]
+#rpform[k,2]<-pre3[k]
+rpform[k,2]<-postphrase[k]
 #rpform[k,2]<-
 }
 return(rpform)
@@ -443,5 +453,7 @@ feat_array[k,1]<-paste0(set$pre1[k],set$pre2[k],
                     set$pre3[k],": ",set$phrase[k]," ",set$feature[k])
 
 }
-subwocom["subst"]<-feat_array[,1]
+#subwocom["subst"]<-feat_array[,1]
 codes_cpt["subst"]<-feat_array[,1]
+getwd()
+write.csv2(codes_cpt,paste0(dirtext,"/r-temp/codesarray.csv"))
