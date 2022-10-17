@@ -432,9 +432,11 @@ rpform[k,3]<-postphrase[k]
 return(rpform)
 }
 codesarray<-getcodes(subwocom)
+codesarray<-getcodes(codes_cpt)
 
 feat_array<-data.frame()
 set<-subwocom
+set<-codes_cpt
 length(set[[1]])
 for (k in 1:length(set[[1]])){
 feat_array[k,1]<-paste0(set$pre1[k],set$pre2[k],
@@ -442,3 +444,4 @@ feat_array[k,1]<-paste0(set$pre1[k],set$pre2[k],
 
 }
 subwocom["subst"]<-feat_array[,1]
+codes_cpt["subst"]<-feat_array[,1]
