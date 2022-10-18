@@ -19,7 +19,7 @@ dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted 
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-dirchat<-"CHAT_4"
+dirchat<-"CHAT_4c_backupscript"
 dirtext
 dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
@@ -209,9 +209,10 @@ for (f in 1:length(filelist)){
     tbu<-insert(tbu,p2+1,"@TIER descriptions:")
   for (k in 1:length(rpall[,1])) {
     m<-grep(rpall[k,"rncpt"],tbu)
-    
+    ########## important: insert %CHAT line with code HERE >
     m<-insert(m,1,p2+1)
-    tbu<-insert(tbu,m+1,unique(rpall[k,"rpcpt"]))
+    tbu<-insert(tbu,m+1,unique(rpall[k,"rpcpt"])) #"backup"
+    ########################################################
   }
     m
     tbu

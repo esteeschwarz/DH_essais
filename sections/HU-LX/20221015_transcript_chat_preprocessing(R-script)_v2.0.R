@@ -264,19 +264,23 @@ for (f in 1:length(filelist2)){
   p1<-grep(".ctivities",tbu)
   tbu<-insert(tbu,p1+1,"@Elicitation files: (placeholder)")
   p2<-grep("@.oding",tbu)
-  
     tbu<-insert(tbu,p2+1,"@TIER descriptions:")
+    
   for (k in 1:length(rpall)) {
     m<-grep(rpall[k],tbu)
     
     m<-insert(m,1,p2+1)
-    #header info on tiers:
+    #header info on tiers: # probably NO!
     # tierhead<-unique(paste0(rpall[k,"rpcpt2"]," ",rpall[k,"rpcpt3"]))
     # tbu<-insert(tbu,m+1,tierhead)
     #subtier<-subset(codesarray,codesarray$)
     tierhead<-subset(codes_cpt$subst,codes_cpt$category!=3)
     tbu<-insert(tbu,m+1,tierhead)
-    
+    ##### as from backup script:
+    ########## important: insert %CHAT line with code HERE >
+#    m<-insert(m,1,p2+1) # HEADER lines, codes explanation
+ #   tbu<-insert(tbu,m+1,unique(rpall[k,"rpcpt"])) #"backup"
+    ########################################################
       }
     m
     tbu
