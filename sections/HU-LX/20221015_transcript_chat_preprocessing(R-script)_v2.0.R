@@ -267,6 +267,7 @@ for (f in 1:length(filelist2)){
     tbu<-insert(tbu,p2+1,"@TIER descriptions:")
     
   for (k in 1:length(rpall)) {
+    #lineposition of code
     m<-grep(rpall[k],tbu)
     
     m<-insert(m,1,p2+1)
@@ -274,8 +275,8 @@ for (f in 1:length(filelist2)){
     # tierhead<-unique(paste0(rpall[k,"rpcpt2"]," ",rpall[k,"rpcpt3"]))
     # tbu<-insert(tbu,m+1,tierhead)
     #subtier<-subset(codesarray,codesarray$)
-    tierhead<-subset(codes_cpt$subst,codes_cpt$category!=3)
-    tbu<-insert(tbu,m+1,tierhead)
+    tierhead<-unique(subset(codes_cpt$subst,codes_cpt$category!=3))
+    tbu<-insert(tbu,m+1,tierhead[k])
     ##### as from backup script:
     ########## important: insert %CHAT line with code HERE >
 #    m<-insert(m,1,p2+1) # HEADER lines, codes explanation
@@ -290,9 +291,14 @@ for (f in 1:length(filelist2)){
   #   tbu<-gsub(rpall[k,"rncpt"],rpall[k,"rpcpt1"],tbu)
   # }
     #new substitute from codesarray
-    for (k in 1:length(codesarray[,1])) {
-      tbu<-gsub(rpall[k,1],rpall[k,3],tbu)
+    for (k in 1:length(rpall)) {
+      tbu<-gsub(rpall[k],"%*%",tbu)
     }
+    #problem: as looping through the array of regex, it finds all instances, i.e
+    #also those regex not coded # # like single 9nst. so it replaces 9nst with the
+    #subst and leaves any other #9nst compar.# e.g. unsubstituted. 
+    #so first wrap all not ## codes into ## and then run over array, resp. sort array
+    #after zunehmende gefräszigkeit.
     
     #####################################
   kids<-strsplit(filelist2,"\\.")
@@ -318,7 +324,7 @@ for (f in 1:length(filelist2)){
   rpb05<-"; see reference @Elicitation files."
  # rnb06<-""
   rnb06<-"\\.\\.\\.@" #inline pauses
-  rpb06<-rpall[24,2] # global pause replacement, set up in getms()
+ # rpb06<-rpall[24,2] # global pause replacement, set up in getms()
   
   rnbcpt<-c(rnb01,rnb02,rnb03,rnb04,rnb05)
   rpbcpt<-c(rpb01,rpb02,rpb03,rpb04,rpb05)
