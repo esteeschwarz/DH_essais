@@ -22,14 +22,14 @@ dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted 
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-dirchat<-"CHAT_5b"
+dirchat<-"CHAT_5c"
 dirtext
 dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
 dirout  
 dir.create(dirout)
 
-codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt_regx_m02.csv"), 
+codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3mod.csv"), 
                         delim = ";", escape_double = T, trim_ws = TRUE)
 #create code substitution array with search/replace patterns
 getms<-function(){
@@ -107,178 +107,85 @@ getms<-function(){
   rpall<-cbind(rncpt,rpcpt1,rpcpt2,rpcpt3)
 }
 
-#list.files(dirtext)
-#search-replace array from which to read subsitutions
-#rpall<-getms()
-#f<-1
-#dirmod
-#filelist
 filelist<-list.files(dirtext,pattern="(\\.txt)")
-#filelist
 
-#paste0(dirchat,"/",kids[[f]][1],"_CHAT.txt")
-#paste(dirtext,dirchat,chatfilename,sep = "/")
-#file.info(filelist[1])
 ###wks.
 
 #remove hardcoded linenumbers in some transcripts
 #loop correction
-#k<-16
-#filelist[k]
 trans_mod_array<-list()
 
 linecor<-function(k,filelist){
 cc<-readtext(paste(dirtext,filelist[k],sep = "/"))
 cc1<-cc$text
-#library(clipr)
 #find obsolete whitespace range 2 to 200 blanks
 regx1<-"[ ]{2,200}"
 repl1<-" "
 cc1<-gsub(regx1,repl1,cc1)
-#writeLines(cc1,paste0(dirtext,"/r-temp/da1.txt"))
-
 #find lines not properly introduced (false hard line breaks)
 regx1<-"\n"
-#write_clip(cc2)
 repl1<-"#nl#"
 cc2<-gsub(regx1,repl1,cc1)
 cc2
-#writeLines(cc2,paste0(dirtext,"/r-temp/bu2.txt"))
-#"#nl#[^@|\*]" #newline not introduced by @ or * (trans not linenumbered)
-#newlines
-#"(#nl#)([^0-9]{1,3})"
 #restore newline in not numbered scripts:
 regx1<-"#nl#(?=(@|[0-9]{1,3}|\\*))"
 repl1<-"\n"
 m<-gregexec(regx1,cc2,perl = T)
 regmatches(cc2,m)
 cc2b<-gsub(regx1,repl1,cc2,perl = T)
-#writeLines(cc2b,paste0(dirtext,"/r-temp/bu2.txt"))
 cc2b
 #"(#nl#)(@|[0-9]{1,3}|\*)"
 #only for linenumbered transcripts
-#regx1<-"(#nl#)(?=[^@|[^0-9])" #remove newline not introduced by @ or line numbering
-
 regx1<-"(#nl#)(?=[^@|[^0-9]|[^\\*])" #newline not introduced by @ or line numbering
 repl1<-" "
 cc3<-gsub(regx1,repl1,cc2b,perl = T)
-#writeLines(cc3,paste0(dirtext,"/r-temp/bu2.txt"))
-
 regx1<-"(@.egin.)(?=%|\\*)" #second obsolete @Begin tag
 repl1<-""
 cc3<-gsub(regx1,repl1,cc2b,perl = T)
-
 #restore linebreaks
 regx1<-"#nl#"
 repl1<-"\n"
 cc4<-gsub(regx1,repl1,cc3)
-#writeLines(cc4,paste0(dirtext,"/r-temp/da4.txt"))
-
 #wks.
 dir.create(dirout)
-#writeLines(cc5,paste0(dirmod,"SES_ELL_GCC_f_9.txt"))
 #delete hard line numbering
 regx1<-"[0-9]{1,3}.[^\n](\\*)"
 repl1<-"\\1"
 cc5<-gsub(regx1,repl1,cc4)
-
-#writeLines(cc5,paste0(dirtext,"/r-temp/cc5.txt"))
 kids<-strsplit(filelist,"\\.")
-kids[[2]][1]
-
+#kids[[2]][1]
 corfilename<-paste0(kids[[k]][1],"_cor03.txt")
 writeLines(cc5,paste(dirout,corfilename,sep = "/"))
-# trans_mod_temp<-tempdir("trans_temp")
- writeLines(cc5,paste(trans_mod_temp,corfilename,sep = "/"))
+writeLines(cc5,paste(trans_mod_temp,corfilename,sep = "/"))
 writeLines(cc5,paste(trans_mod_tempdir,corfilename,sep = "/"))
- trans_mod_array[k]<-"cc5"
-
-corfilename
-#paste0(dirmod,corfilename)
-#"~/boxHKW/UNI/21S/DH/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text/modified"
-#dirmod
-#dirtext
-#cc5
-output<-cc5
-#help("cat")
+trans_mod_array[k]<-"cc5"
 }
 #call line correction function over source files array
-#filelist1<-list.files(trans_temp,pattern="(\\.txt)")
-
 filelist1<-list.files(dirtext,pattern="(\\.txt)")
 filelist1
-#trans_mod_array<-list()
-#file.remove(tempdir())
 trans_mod_tempdir<-tempdir("trans_temp")
-
-
 for (k in 1:length(filelist1)){
 linecor(k,filelist1)
  trans_mod_array[k]<-linecor(k,filelist1)
-#  writeLines(trans_mod_array[[k]],paste(trans_mod_tempdir,corfilename,sep = "/"))
- 
- }
-#writeLines(trans_mod_array,paste(trans_mod_temp,corfilename,sep = "/"))
-
-#write_lines
-#trans_mod_array[4]
-#t<-timeout(10)
+}
 ### end linecorrection
-#for (var in seq)
-#a<- function(n){runif(n)}
-# pause<-1:10
-# pause
-# t2<-t-timeout(10)
-# for (p in pause){
-#   t2<-t-timeout(10)
-#   t3<-10+t2
-#   length(pause)-p
-#     cat("wait ",pause, " til modified files are written\n")
-# #timeout(10)
-#    # pause<-t2+p
-# }
-# a <- function(n) { runif(n) }
-# memA <- memoise(a, ~timeout(10))
-# memA(2)
-# length(pause)
-# filelist
 #wks.
 #vs search unlabeled lines
 #"^\*[^A-Z]"
 ############
 #from here substitute #coding#
-#rpall<-getms()
-#rm(rpall)
-#rpall<-data.frame()
-#rpall<-as.data.frame(unique(codes_cpt4$regex))
-#rpall["regex"]<-codesarray[,1]
-#unique(codes_cpt4$regex)
-#filelist2<-list.files(dirout,pattern="(\\.txt)")
-#filelist2
 filelist2<-list.files(trans_mod_tempdir,pattern="(\\.txt)")
 filelist2
-#file.remove(paste0(trans_mod_tempdir,"/",filelist2))
-#kids<-strsplit(filelist,"\\.")
-#kids[[2]][1]
 ii<-order(-codes_cpt4$regxmean)
 codes_cpt4$regexcor[ii]
 rpall<-as.data.frame(codes_cpt4$regex[ii])
 rpall[,1]
 rpall["subst"]<-codes_cpt4$subst[ii]
 rpall["category"]<-codes_cpt4$category[ii]
-#f<-1
 ##################################
 ### THIS complete replacement loop
 for (f in 1:length(filelist2)){
-  #print(f)}
-  
- # tbutemp<-tempfile("tbu.temp")
-  #writeLines(trans_mod_array[[f]],tbutemp)
-  #tbu<-readLines(tbutemp)
-#  tbu<-readLines(paste(dirout,filelist2[f],sep = "/"))
-    tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
-  
-   # tbu<-readLines(trans_mod_array[1])
+  tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
   p1<-grep(".ctivities",tbu)
   tbu<-insert(tbu,p1+1,"@Elicitation files: (placeholder)")
   p2<-grep("@.oding",tbu)
@@ -286,97 +193,44 @@ for (f in 1:length(filelist2)){
     #get unique alphabetically sorted tier description
     rp3<-paste0("@",rpall$subst)
     rpall["headex"]<-rp3
-    
     rp4
-     is<-order(rp3)
+    is<-order(rp3)
     rp3<-rpall$subst[is]
     rp3
     #add @ to tier explanations
-    #rp4<-paste0("@",rp3)
     rpcom<-rpall$category!=3
     rp5<-unique(rpall$headex[rpcom])
     is<-order(rp5)
     rp5<-rp5[is]
     rp5
-    
-#    tbu<-insert(tbu,p2+2,rp3)
     tbu<-append(tbu,rp5,after = p2+1)
     tbu
-     # k<-5
-#  for (k in 1:length(rpall[,1])) {
-  #  for (k in ii) {
- #     rpall[k,]
-        #lineposition of code
-  #  m<-grep(rpall[k,1],tbu)
-    
-   # m<-insert(m,1,p2+1)
-    #header info on tiers: # probably NO!
-    # tierhead<-unique(paste0(rpall[k,"rpcpt2"]," ",rpall[k,"rpcpt3"]))
-    # tbu<-insert(tbu,m+1,tierhead)
-    #subtier<-subset(codesarray,codesarray$)
-    #tierhead<-unique(subset(codes_cpt4$subst,codes_cpt4$category!=3))
-#    tierhead<-unique(subset(codes_cpt4$subst,codes_cpt4$category!=3))
-    
-       # tierhead<-tierhead[order(tierhead)]
-  #  tbu<-insert(tbu,m+1,codes_cpt4$subst[k])
-    ##### as from backup script:
-    ########## important: insert %CHAT line with code HERE >
-#    m<-insert(m,1,p2+1) # HEADER lines, codes explanation
- #   tbu<-insert(tbu,m+1,unique(rpall[k,"rpcpt"])) #"backup"
-    ########################################################
-      
-  #  m
-   # tbu
     #####################################
     ### this section main replacement ###
-  # for (k in 1:length(rpall[,"rncpt"])) {
-  #   tbu<-gsub(rpall[k,"rncpt"],rpall[k,"rpcpt1"],tbu)
-  # }
-    #new substitute from codesarray
-    #for (k in ii) {
-  #  rpall
-   # k<-20
     ##### wks.
     #find transcript start
     mstart<-grep("^\\*",tbu)[1]
-    #tbu<-tbu[m+1]
     tbub<-tbu[mstart+1:length(tbu)]
     tbusafe<-tbu
     tbuheader<-tbu[1:mstart]
     tbu<-tbub
     for (k in 1:length(rpall[,1])) {
-    
             m<-grep(rpall[k,1],tbu)
-        
             tbu<-gsub(rpall[k,],"%#%",tbu)
             ifelse(m!=0,tbu<-insert(tbu,m+1,rpall$subst[k]),m<-"no")
-            #m<-insert(m,1,p2+1)
-    #        m[2]
       }
-   # m
-  #  insert
-  #  !is.na(m)
-   # tbu
-    #problem: as looping through the array of regex, it finds all instances, i.e
-    #also those regex not coded # # like single 9nst. so it replaces 9nst with the
-    #subst and leaves any other #9nst compar.# e.g. unsubstituted. 
-    #so first wrap all not ## codes into ## and then run over array, resp. sort array
-    #after zunehmende gefräszigkeit.
-    
-    #####################################
+  #####################################
   kids<-strsplit(filelist2,"\\.")
   kids[[f]][1]
   dirtext
-  #dirchat<-"CHAT_3/"
   dir.create(paste(dirtext,dirchat,sep = "/"))
   chatfilename<-paste0(kids[[f]][1],"_CHAT.txt")
 #delete hardcoded linenumbers
   tbu_cpt<-c(tbuheader,tbu)
-   tbu<-tbu_cpt
-    rn25<-"([0-9]{1,3}\\. )(?=\\*|@)"
+  tbu<-tbu_cpt
+  rn25<-"([0-9]{1,3}\\. )(?=\\*|@)"
   tbum<-gsub(rn25,"",tbu,perl = T)
-
-    #post processing substitutes
+  #post processing substitutes
   rnb01<-"STATIC(a|b|c|d|e|f)"
   rpb01<-"STATIC-\\1"
   rnb02<-"(but the some of the interviewer’s utterances)"
@@ -387,22 +241,15 @@ for (f in 1:length(filelist2)){
   rpb04<-"(family_language-with_parents-with_siblings)"
   rnb05<-"\\., see the Elicitation documentation files\\."
   rpb05<-"; see reference @Elicitation files."
- # rnb06<-""
   rnb06<-"\\.\\.\\.@" #inline pauses
- # rpb06<-rpall[24,2] # global pause replacement, set up in getms()
-  
+  rpb06<-rpall[24,2] # global pause replacement, set up in getms()
   rnbcpt<-c(rnb01,rnb02,rnb03,rnb04,rnb05)
   rpbcpt<-c(rpb01,rpb02,rpb03,rpb04,rpb05)
   rpball<-cbind(rnbcpt,rpbcpt)
- #  for (l in 1:length(rpball[,"rnbcpt"])) {
    for (l in 1:length(rpball[,"rnbcpt"])) {
-      
         tbu_e<-gsub(rpball[l,"rnbcpt"],rpball[l,"rpbcpt"],tbu_cpt)
   }
-  
-#  tbu_f<-
   writeLines(tbu_e,paste(dirtext,dirchat,chatfilename,sep = "/"))
-  
 }
 ### END replacement loop #########
 tempfun0<-function(zer){
@@ -456,7 +303,7 @@ unlist(p)
 # import code .csv to create substitution array
 getwd()
 #read.csv2(paste0(dirtext,"/r-temp/codes_cpt.csv")
-codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3.csv"), 
+codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3mod.csv"), 
     delim = ";", escape_double = FALSE, trim_ws = TRUE)
 #rncpt2<-codes_cpt$codes         
 #rpcpt2<-paste0(codes_cpt$pre1,codes_cpt$pre2,codes_cpt$pre3)          
@@ -464,7 +311,7 @@ codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3.csv"),
 #rpformAG<-glue_collapse(rp3,sep = ")|(")          
 #rpformAG<-paste0('"(',rpformA,')"')
 #rpformAG
-codes_cpt<-codes_cpt2
+#codes_cpt<-codes_cpt2
 pre3<-unique(codes_cpt$pre3)
 chna<-!is.na(pre3)
 chna
@@ -604,6 +451,12 @@ for (k in 1:codelength){
   #minunderstands "wann"?#
   repl3<-"."
   regxd<-gsub(regx3,repl3,regxc)
+  regx4<-"\\("
+  repl4<-"\\\\("
+  regxe<-gsub(regx4,repl4,regxd)
+  regx4<-"\\)"
+  repl4<-"\\\\)"
+  regxf<-gsub(regx4,repl4,regxe)
   
   codes_cpt[k,"regexcor"]<-regxd
   codes_cpt[k,"test"]<-"test3"
@@ -614,7 +467,7 @@ codes_cpt2<-regxcor()
 #then create neues regex combined array
 #codesarray<-getcodes(subwocom)
 codesarray<-getcodes(codes_cpt2,regexcor)
-codesarray[24,1]
+codesarray[157,1]
 #
 codes_cpt4<-regxmean(codes_cpt2)
 #now apply replacement from codes_cpt2 according to rank
