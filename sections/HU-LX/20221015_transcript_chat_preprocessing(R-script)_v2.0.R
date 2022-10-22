@@ -484,7 +484,7 @@ codes_cpt["ar"]<-match(codes_cpt$subst,codesarray$V2)
 
 #get regex gefräszigkeit, sort array by
 #loop
-k<-15
+#k<-15
 regxout<-array()
 nfiles<-length(filelist2)
 regxmatrix<-matrix(nrow = length(codes_cpt$codes),ncol = nfiles+1)
@@ -492,7 +492,7 @@ for (f in 1:length(filelist2)){
 tbu<-readtext(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
    # tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
   for (k in 1:length(codes_cpt$codes)){
-  regx1<-codes_cpt$codes[k]
+  regx1<-codes_cpt$regexcor[k]
 regxout<-stri_extract_all(tbu$text,regex=regx1)
 #regxout<-stri_extract_all(tbu$text,regex=codes_cpt$codes[21])
 #regxout<-stri_extract_all(tbu$text,regex=codes_cpt$codes[21])
@@ -505,7 +505,35 @@ regxmatrix[k,nfiles+1]<-mean(regxmatrix[k,],na.rm = T)
 #regxmatrix[,nfiles+1]<-lapply(regxmatrix,mean)
 codes_cpt$regxmean<-regxmatrix[,nfiles+1]
 }
-regxout[[1]]
-mean(stri_count_boundaries(regxout[[1]],"character"))
-regxmatrix[4,]
-mean(regxmatrix[k,],na.rm = T)
+#regxout[[1]]
+#mean(stri_count_boundaries(regxout[[1]],"character"))
+#regxmatrix[4,]
+#mean(regxmatrix[k,],na.rm = T)
+#wks.
+### correct codes with escaped characters
+codelength<-length(codes_cpt$codes)
+for (k in 1:codelength){
+  regxa<-codes_cpt$codes[k]
+  regx1<-"\\?"
+  repl1<-"\\\\?"
+  regxb<-gsub(regx1,repl1,regxa)
+  regx2<-"\\."
+  repl2<-"\\\\."
+  regxc<-gsub(regx2,repl2,regxb)
+  codes_cpt[k,"regexcor"]<-regxc
+  
+}
+codes_cpt$regexcor[7]
+teststr<-"dreimal.schwarzer?kater"
+regx1<-"\\?"
+repl1<-"\\\\?"
+regxb<-stri_replace(teststr,repl1,regex=regx1)
+#stri_trans_char('id?123', '?', '??')
+#stri_unescape_unicode('a\\u0105!\\u0032\\n')
+#stri_escape_unicode('\\?')
+#regxb<-gsub(regx1,repl1,teststr)
+regx2<-"\\."
+repl2<-"\\\\."
+regxc<-gsub(regx2,repl2,regxb)
+regxc
+
