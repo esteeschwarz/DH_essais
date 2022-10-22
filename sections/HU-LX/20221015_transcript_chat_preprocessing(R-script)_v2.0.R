@@ -28,6 +28,7 @@ dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
 dirout  
 dir.create(dirout)
+
 codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt_regx_m02.csv"), 
                         delim = ";", escape_double = T, trim_ws = TRUE)
 #create code substitution array with search/replace patterns
@@ -180,11 +181,15 @@ dir.create(dirout)
 regx1<-"[0-9]{1,3}.[^\n](\\*)"
 repl1<-"\\1"
 cc5<-gsub(regx1,repl1,cc4)
+
 #writeLines(cc5,paste0(dirtext,"/r-temp/cc5.txt"))
-corfilename<-paste0(kids[[k]][1],"_mod.txt")
+kids<-strsplit(filelist,"\\.")
+kids[[2]][1]
+
+corfilename<-paste0(kids[[k]][1],"_cor03.txt")
 writeLines(cc5,paste(dirout,corfilename,sep = "/"))
 # trans_mod_temp<-tempdir("trans_temp")
-# writeLines(cc5,paste(trans_mod_temp,corfilename,sep = "/"))
+ writeLines(cc5,paste(trans_mod_temp,corfilename,sep = "/"))
 writeLines(cc5,paste(trans_mod_tempdir,corfilename,sep = "/"))
  trans_mod_array[k]<-"cc5"
 
@@ -202,16 +207,15 @@ output<-cc5
 
 filelist1<-list.files(dirtext,pattern="(\\.txt)")
 filelist1
-kids<-strsplit(filelist1,"\\.")
-kids[[2]][1]
 #trans_mod_array<-list()
+#file.remove(tempdir())
 trans_mod_tempdir<-tempdir("trans_temp")
 
 
 for (k in 1:length(filelist1)){
 linecor(k,filelist1)
  trans_mod_array[k]<-linecor(k,filelist1)
- # writeLines(trans_mod_array[[k]],paste(trans_mod_tempdir,corfilename,sep = "/"))
+#  writeLines(trans_mod_array[[k]],paste(trans_mod_tempdir,corfilename,sep = "/"))
  
  }
 #writeLines(trans_mod_array,paste(trans_mod_temp,corfilename,sep = "/"))
@@ -253,6 +257,7 @@ linecor(k,filelist1)
 #filelist2
 filelist2<-list.files(trans_mod_tempdir,pattern="(\\.txt)")
 filelist2
+#file.remove(paste0(trans_mod_tempdir,"/",filelist2))
 #kids<-strsplit(filelist,"\\.")
 #kids[[2]][1]
 ii<-order(-codes_cpt4$regxmean)
@@ -261,7 +266,8 @@ rpall<-as.data.frame(codes_cpt4$regex[ii])
 rpall[,1]
 rpall["subst"]<-codes_cpt4$subst[ii]
 rpall["category"]<-codes_cpt4$category[ii]
-f<-1
+#f<-1
+##################################
 ### THIS complete replacement loop
 for (f in 1:length(filelist2)){
   #print(f)}
@@ -278,13 +284,24 @@ for (f in 1:length(filelist2)){
   p2<-grep("@.oding",tbu)
     tbu<-insert(tbu,p2+1,"@TIER descriptions:")
     #get unique alphabetically sorted tier description
-    is<-order(rpall$subst,rpall$subst)
-    rp3<-rpall$subst[is]
-    rpcom<-rpall$category!=3
-    rp3<-unique(rpall$subst[rpcom])
-#    tbu<-insert(tbu,p2+2,rp3)
-    tbu<-append(tbu,rp3,after = p2+2)
+    rp3<-paste0("@",rpall$subst)
+    rpall["headex"]<-rp3
     
+    rp4
+     is<-order(rp3)
+    rp3<-rpall$subst[is]
+    rp3
+    #add @ to tier explanations
+    #rp4<-paste0("@",rp3)
+    rpcom<-rpall$category!=3
+    rp5<-unique(rpall$headex[rpcom])
+    is<-order(rp5)
+    rp5<-rp5[is]
+    rp5
+    
+#    tbu<-insert(tbu,p2+2,rp3)
+    tbu<-append(tbu,rp5,after = p2+1)
+    tbu
      # k<-5
 #  for (k in 1:length(rpall[,1])) {
   #  for (k in ii) {
@@ -320,7 +337,14 @@ for (f in 1:length(filelist2)){
   #  rpall
    # k<-20
     ##### wks.
-      for (k in 1:length(rpall[,1])) {
+    #find transcript start
+    mstart<-grep("^\\*",tbu)[1]
+    #tbu<-tbu[m+1]
+    tbub<-tbu[mstart+1:length(tbu)]
+    tbusafe<-tbu
+    tbuheader<-tbu[1:mstart]
+    tbu<-tbub
+    for (k in 1:length(rpall[,1])) {
     
             m<-grep(rpall[k,1],tbu)
         
@@ -347,6 +371,8 @@ for (f in 1:length(filelist2)){
   dir.create(paste(dirtext,dirchat,sep = "/"))
   chatfilename<-paste0(kids[[f]][1],"_CHAT.txt")
 #delete hardcoded linenumbers
+  tbu_cpt<-c(tbuheader,tbu)
+   tbu<-tbu_cpt
     rn25<-"([0-9]{1,3}\\. )(?=\\*|@)"
   tbum<-gsub(rn25,"",tbu,perl = T)
 
@@ -368,14 +394,13 @@ for (f in 1:length(filelist2)){
   rnbcpt<-c(rnb01,rnb02,rnb03,rnb04,rnb05)
   rpbcpt<-c(rpb01,rpb02,rpb03,rpb04,rpb05)
   rpball<-cbind(rnbcpt,rpbcpt)
-  tbu_e<-tbum
-#  for (l in 1:length(rpball[,"rnbcpt"])) {
-    for (l in 1:length(rpball[,"rnbcpt"])) {
+ #  for (l in 1:length(rpball[,"rnbcpt"])) {
+   for (l in 1:length(rpball[,"rnbcpt"])) {
       
-        tbu_e<-gsub(rpball[l,"rnbcpt"],rpball[l,"rpbcpt"],tbu_e)
+        tbu_e<-gsub(rpball[l,"rnbcpt"],rpball[l,"rpbcpt"],tbu_cpt)
   }
   
-  
+#  tbu_f<-
   writeLines(tbu_e,paste(dirtext,dirchat,chatfilename,sep = "/"))
   
 }
@@ -640,4 +665,10 @@ set<-codes_cpt4
  dd[ order(x, -y, z), ]
  ## or along 1st column, ties along 2nd, ... *arbitrary* no.{columns}:
  dd[ do.call(order, dd), ]
+ 
+ 
+ cat("Current tempdir(): ", tempdir(), "\n")
+ cat("Removing it :", file.remove(tempdir()),
+     "; dir.exists(tempdir()):", dir.exists(tempdir()), "\n")
+ cat("and now  tempdir(check = TRUE) :", tempdir(check = TRUE),"\n")
  
