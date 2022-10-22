@@ -15,9 +15,9 @@ library(readr)
 library(glue)
 library(stringi)
 #mini
-#setwd("~/boxHKW/21S/DH/")
+setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
-setwd("~/boxHKW/UNI/21S/DH/")
+#setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
@@ -29,7 +29,7 @@ dirout<-paste(dirtext,"out2",sep = "/")
 dirout  
 dir.create(dirout)
 codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt_regx.csv"), 
-                        delim = ";", escape_double = FALSE, trim_ws = TRUE)
+                        delim = ";", escape_double = T, trim_ws = TRUE)
 #create code substitution array with search/replace patterns
 getms<-function(){
   rn01a<-"(#9semantics#)|(#9semantics)"
@@ -112,7 +112,7 @@ getms<-function(){
 #f<-1
 #dirmod
 #filelist
-#filelist<-list.files(dirtext,pattern="(\\.txt)")
+filelist<-list.files(dirtext,pattern="(\\.txt)")
 #filelist
 
 #paste0(dirchat,"/",kids[[f]][1],"_CHAT.txt")
@@ -339,6 +339,7 @@ for (f in 1:length(filelist2)){
   writeLines(tbu_e,paste(dirtext,dirchat,chatfilename,sep = "/"))
   
 }
+########################
 tempfun0<-function(zer){
 ###wks.
 # general find #codes#
@@ -398,6 +399,7 @@ codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3.csv"),
 #rpformAG<-glue_collapse(rp3,sep = ")|(")          
 #rpformAG<-paste0('"(',rpformA,')"')
 #rpformAG
+codes_cpt<-codes_cpt2
 pre3<-unique(codes_cpt$pre3)
 chna<-!is.na(pre3)
 chna
@@ -416,11 +418,11 @@ chna
 postphrase<-postphrase[chna]
 ### w/o com fields
 rpform<-data.frame()
-subwocom<-subset(codes_cpt,set$category!=3)
-set<-subwocom
-set<-codes_cpt
+#subwocom<-subset(codes_cpt,set$category!=3)
+#set<-subwocom
+#set<-codes_cpt
 ###
-getcodes<-function(set){
+getcodes<-function(set,codes){
 pre3<-unique(paste0(set$pre2,set$pre3))
 chna<-!is.na(pre3)
 chna
@@ -445,23 +447,25 @@ postphrase<-postphrase[chna]
 for(k in 1:length(postphrase)){
 #rp4<-subset(codes_cpt$codes,codes_cpt$pre3==pre3[k],)
 #rp4<-subset(set$codes,set$pre3==pre3[k],)          
-rp4<-subset(set$codes,set$subst==postphrase[k])          
+####wks.rp4<-subset(set$codes,set$subst==postphrase[k])          
+rp4<-subset(set$regexcor,set$subst==postphrase[k])          
 
 rpformX<-glue_collapse(rp4,sep = ")|(")          
-rpformXA<-paste0('"(',rpformX,')"')
+rpformXA<-paste0('(',rpformX,')')
 rpform[k,1]<-rpformXA
 #rpform[k,2]<-set$pre3[k]
 rpform[k,2]<-postphrase[k]
 #rpform[k,2]<-
 }
-return(rpform)
+return(rpform) #codesarray
 }
-codesarray<-getcodes(subwocom)
-codesarray<-getcodes(codes_cpt)
-
+#codesarray<-getcodes(subwocom)
+codesarray<-getcodes(codes_cpt2,regexcor)
+codesarray[24,1]
+###well.
 feat_array<-data.frame()
-set<-subwocom
-set<-codes_cpt
+#set<-subwocom
+set<-codes_cpt2
 length(set[[1]])
 for (k in 1:length(set[[1]])){
 feat_array[k,1]<-paste0(set$pre1[k],set$pre2[k],
@@ -471,20 +475,24 @@ feat_array[k,1]<-paste0(set$pre1[k],set$pre2[k],
 #subwocom["subst"]<-feat_array[,1]
 codes_cpt["subst"]<-feat_array[,1]
 getwd()
-write.csv2(codesarray,paste0(dirtext,"/r-temp/codesarray.csv"))
-write.csv2(codes_cpt,paste0(dirtext,"/r-temp/codes_cpt_regx.csv"))
+write.csv2(codesarray,paste0(dirtext,"/r-temp/codesarray_m02.csv"))
+write.csv2(codes_cpt,paste0(dirtext,"/r-temp/codes_cpt_regx_m02.csv"))
 #write regex to codescpt
 for (k in 1:length(codes_cpt$ar)){
 m<-codes_cpt$ar
-  codes_cpt["regex"]<-codesarray$V1[m]
-}
+  codes_cpt3["regex"]<-codesarray$V1[m]
+  codes_cpt3["regexcor"]<-codesarray$V1[m]
+  
+  }
 codes_cpt["ar"]<-match(codes_cpt$subst,codesarray$V2)
 
 } #end temp function
 
+regxmean<-function(set){
 #get regex gefräszigkeit, sort array by
 #loop
 #k<-15
+  codes_cpt<-set
 regxout<-array()
 nfiles<-length(filelist2)
 regxmatrix<-matrix(nrow = length(codes_cpt$codes),ncol = nfiles+1)
@@ -505,12 +513,16 @@ regxmatrix[k,nfiles+1]<-mean(regxmatrix[k,],na.rm = T)
 #regxmatrix[,nfiles+1]<-lapply(regxmatrix,mean)
 codes_cpt$regxmean<-regxmatrix[,nfiles+1]
 }
+return(codes_cpt)
+}
 #regxout[[1]]
 #mean(stri_count_boundaries(regxout[[1]],"character"))
 #regxmatrix[4,]
 #mean(regxmatrix[k,],na.rm = T)
 #wks.
+
 ### correct codes with escaped characters
+regxcor<-function(){
 codelength<-length(codes_cpt$codes)
 for (k in 1:codelength){
   regxa<-codes_cpt$codes[k]
@@ -520,20 +532,46 @@ for (k in 1:codelength){
   regx2<-"\\."
   repl2<-"\\\\."
   regxc<-gsub(regx2,repl2,regxb)
-  codes_cpt[k,"regexcor"]<-regxc
+  regx3<-'"'
+  #codes_cpt$codes[70]
+  #minunderstands "wann"?#
+  repl3<-"."
+  regxd<-gsub(regx3,repl3,regxc)
   
+  codes_cpt[k,"regexcor"]<-regxd
+  codes_cpt[k,"test"]<-"test3"
 }
-codes_cpt$regexcor[7]
-teststr<-"dreimal.schwarzer?kater"
-regx1<-"\\?"
-repl1<-"\\\\?"
-regxb<-stri_replace(teststr,repl1,regex=regx1)
-#stri_trans_char('id?123', '?', '??')
-#stri_unescape_unicode('a\\u0105!\\u0032\\n')
-#stri_escape_unicode('\\?')
-#regxb<-gsub(regx1,repl1,teststr)
-regx2<-"\\."
-repl2<-"\\\\."
-regxc<-gsub(regx2,repl2,regxb)
-regxc
+return(codes_cpt)
+}
+codes_cpt2<-regxcor()
+codes_cpt4<-regxmean(codes_cpt3)
 
+
+# codes_cpt$regexcor[7]
+ teststr<-'dreimal.schwarzer?kater'
+ regx1<-'w+'
+ repl1<-"K"
+ stri_replace_all(teststr,repl1,regex=regx1)
+# #stri_trans_char('id?123', '?', '??')
+# #stri_unescape_unicode('a\\u0105!\\u0032\\n')
+# #stri_escape_unicode('\\?')
+# #regxb<-gsub(regx1,repl1,teststr)
+# regx2<-"\\."
+# repl2<-"\\\\."
+# regxc<-gsub(regx2,repl2,regxb)
+# regxc
+# 
+set<-codes_cpt4
+ testarray<-function(set,kcode){
+   regx1<-set$regex[71]
+ regx1 
+ regx1<-"#misunderstands .welchen.#"
+ #filelist2[13]
+# testkid<-readtext(paste0(dirtext,"/",filelist[13]))
+# testkid<-readtext(paste0(dirtext,"/",filelist[13]))
+ stri_extract_all(testkid$text,regex=regx1)  
+   
+   
+   
+ }
+ 
