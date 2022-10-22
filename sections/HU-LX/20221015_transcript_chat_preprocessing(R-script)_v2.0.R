@@ -10,9 +10,10 @@
 ################
 library(R.utils)
 library(readtext)
-library(memoise)
+#library(memoise)
 library(readr)
 library(glue)
+library(stringi)
 #mini
 #setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
@@ -21,7 +22,7 @@ dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted 
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-dirchat<-"CHAT_5"
+dirchat<-"CHAT_5b"
 dirtext
 dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
@@ -107,7 +108,7 @@ getms<-function(){
 
 #list.files(dirtext)
 #search-replace array from which to read subsitutions
-rpall<-getms()
+#rpall<-getms()
 #f<-1
 #dirmod
 #filelist
@@ -480,3 +481,31 @@ m<-codes_cpt$ar
 codes_cpt["ar"]<-match(codes_cpt$subst,codesarray$V2)
 
 } #end temp function
+
+#get regex gefräszigkeit, sort array by
+#loop
+k<-15
+regxout<-array()
+nfiles<-length(filelist2)
+regxmatrix<-matrix(nrow = length(codes_cpt$codes),ncol = nfiles+1)
+for (f in 1:length(filelist2)){
+tbu<-readtext(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
+   # tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
+  for (k in 1:length(codes_cpt$codes)){
+  regx1<-codes_cpt$codes[k]
+regxout<-stri_extract_all(tbu$text,regex=regx1)
+#regxout<-stri_extract_all(tbu$text,regex=codes_cpt$codes[21])
+#regxout<-stri_extract_all(tbu$text,regex=codes_cpt$codes[21])
+
+#codes_cpt$regxmean[k]<-mean(stri_count_boundaries(regxout[[1]],"character"))
+regxmatrix[k,f]<-mean(stri_count_boundaries(regxout[[1]],"character"),na.rm = T)
+regxmatrix[k,nfiles+1]<-mean(regxmatrix[k,],na.rm = T)
+
+  }
+#regxmatrix[,nfiles+1]<-lapply(regxmatrix,mean)
+codes_cpt$regxmean<-regxmatrix[,nfiles+1]
+}
+regxout[[1]]
+mean(stri_count_boundaries(regxout[[1]],"character"))
+regxmatrix[4,]
+mean(regxmatrix[k,],na.rm = T)
