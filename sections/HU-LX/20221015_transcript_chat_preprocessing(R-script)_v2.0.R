@@ -28,7 +28,7 @@ dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
 dirout  
 dir.create(dirout)
-codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt_regx.csv"), 
+codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt_regx_m02.csv"), 
                         delim = ";", escape_double = T, trim_ws = TRUE)
 #create code substitution array with search/replace patterns
 getms<-function(){
@@ -244,17 +244,28 @@ linecor(k,filelist1)
 ############
 #from here substitute #coding#
 #rpall<-getms()
-rpall<-unique(codes_cpt$regex)
-
+#rm(rpall)
+#rpall<-data.frame()
+#rpall<-as.data.frame(unique(codes_cpt4$regex))
+#rpall["regex"]<-codesarray[,1]
+#unique(codes_cpt4$regex)
 #filelist2<-list.files(dirout,pattern="(\\.txt)")
 #filelist2
 filelist2<-list.files(trans_mod_tempdir,pattern="(\\.txt)")
 filelist2
 #kids<-strsplit(filelist,"\\.")
 #kids[[2]][1]
-
+ii<-order(-codes_cpt4$regxmean)
+codes_cpt4$regexcor[ii]
+rpall<-as.data.frame(codes_cpt4$regex[ii])
+rpall[,1]
+rpall["subst"]<-codes_cpt4$subst[ii]
+rpall["category"]<-codes_cpt4$category[ii]
+f<-1
+### THIS complete replacement loop
 for (f in 1:length(filelist2)){
   #print(f)}
+  
  # tbutemp<-tempfile("tbu.temp")
   #writeLines(trans_mod_array[[f]],tbutemp)
   #tbu<-readLines(tbutemp)
@@ -266,35 +277,62 @@ for (f in 1:length(filelist2)){
   tbu<-insert(tbu,p1+1,"@Elicitation files: (placeholder)")
   p2<-grep("@.oding",tbu)
     tbu<-insert(tbu,p2+1,"@TIER descriptions:")
+    #get unique alphabetically sorted tier description
+    is<-order(rpall$subst,rpall$subst)
+    rp3<-rpall$subst[is]
+    rpcom<-rpall$category!=3
+    rp3<-unique(rpall$subst[rpcom])
+#    tbu<-insert(tbu,p2+2,rp3)
+    tbu<-append(tbu,rp3,after = p2+2)
     
-  for (k in 1:length(rpall)) {
-    #lineposition of code
-    m<-grep(rpall[k],tbu)
+     # k<-5
+#  for (k in 1:length(rpall[,1])) {
+  #  for (k in ii) {
+ #     rpall[k,]
+        #lineposition of code
+  #  m<-grep(rpall[k,1],tbu)
     
-    m<-insert(m,1,p2+1)
+   # m<-insert(m,1,p2+1)
     #header info on tiers: # probably NO!
     # tierhead<-unique(paste0(rpall[k,"rpcpt2"]," ",rpall[k,"rpcpt3"]))
     # tbu<-insert(tbu,m+1,tierhead)
     #subtier<-subset(codesarray,codesarray$)
-    tierhead<-unique(subset(codes_cpt$subst,codes_cpt$category!=3))
-    tbu<-insert(tbu,m+1,tierhead[k])
+    #tierhead<-unique(subset(codes_cpt4$subst,codes_cpt4$category!=3))
+#    tierhead<-unique(subset(codes_cpt4$subst,codes_cpt4$category!=3))
+    
+       # tierhead<-tierhead[order(tierhead)]
+  #  tbu<-insert(tbu,m+1,codes_cpt4$subst[k])
     ##### as from backup script:
     ########## important: insert %CHAT line with code HERE >
 #    m<-insert(m,1,p2+1) # HEADER lines, codes explanation
  #   tbu<-insert(tbu,m+1,unique(rpall[k,"rpcpt"])) #"backup"
     ########################################################
-      }
-    m
-    tbu
+      
+  #  m
+   # tbu
     #####################################
     ### this section main replacement ###
   # for (k in 1:length(rpall[,"rncpt"])) {
   #   tbu<-gsub(rpall[k,"rncpt"],rpall[k,"rpcpt1"],tbu)
   # }
     #new substitute from codesarray
-    for (k in 1:length(rpall)) {
-      tbu<-gsub(rpall[k],"%*%",tbu)
-    }
+    #for (k in ii) {
+  #  rpall
+   # k<-20
+    ##### wks.
+      for (k in 1:length(rpall[,1])) {
+    
+            m<-grep(rpall[k,1],tbu)
+        
+            tbu<-gsub(rpall[k,],"%#%",tbu)
+            ifelse(m!=0,tbu<-insert(tbu,m+1,rpall$subst[k]),m<-"no")
+            #m<-insert(m,1,p2+1)
+    #        m[2]
+      }
+   # m
+  #  insert
+  #  !is.na(m)
+   # tbu
     #problem: as looping through the array of regex, it finds all instances, i.e
     #also those regex not coded # # like single 9nst. so it replaces 9nst with the
     #subst and leaves any other #9nst compar.# e.g. unsubstituted. 
@@ -331,15 +369,17 @@ for (f in 1:length(filelist2)){
   rpbcpt<-c(rpb01,rpb02,rpb03,rpb04,rpb05)
   rpball<-cbind(rnbcpt,rpbcpt)
   tbu_e<-tbum
-  for (l in 1:length(rpball[,"rnbcpt"])) {
-    tbu_e<-gsub(rpball[l,"rnbcpt"],rpball[l,"rpbcpt"],tbu_e)
+#  for (l in 1:length(rpball[,"rnbcpt"])) {
+    for (l in 1:length(rpball[,"rnbcpt"])) {
+      
+        tbu_e<-gsub(rpball[l,"rnbcpt"],rpball[l,"rpbcpt"],tbu_e)
   }
   
   
   writeLines(tbu_e,paste(dirtext,dirchat,chatfilename,sep = "/"))
   
 }
-########################
+### END replacement loop #########
 tempfun0<-function(zer){
 ###wks.
 # general find #codes#
@@ -442,7 +482,7 @@ postphrase<-postphrase[chna]
 #cat1<-codes_cpt$category[postphrase]
 #cat1!=is.na(codesarray)
 #codes_cpt$pre3[codesarray$V2]
-#rpform<-data.frame()
+rpform<-data.frame()
 
 for(k in 1:length(postphrase)){
 #rp4<-subset(codes_cpt$codes,codes_cpt$pre3==pre3[k],)
@@ -459,10 +499,11 @@ rpform[k,2]<-postphrase[k]
 }
 return(rpform) #codesarray
 }
-#codesarray<-getcodes(subwocom)
-codesarray<-getcodes(codes_cpt2,regexcor)
-codesarray[24,1]
+# #codesarray<-getcodes(subwocom)
+# codesarray<-getcodes(codes_cpt2,regexcor)
+# codesarray[24,1]
 ###well.
+### run after 4 codesarray
 feat_array<-data.frame()
 #set<-subwocom
 set<-codes_cpt2
@@ -475,16 +516,17 @@ feat_array[k,1]<-paste0(set$pre1[k],set$pre2[k],
 #subwocom["subst"]<-feat_array[,1]
 codes_cpt["subst"]<-feat_array[,1]
 getwd()
-write.csv2(codesarray,paste0(dirtext,"/r-temp/codesarray_m02.csv"))
-write.csv2(codes_cpt,paste0(dirtext,"/r-temp/codes_cpt_regx_m02.csv"))
 #write regex to codescpt
 for (k in 1:length(codes_cpt$ar)){
 m<-codes_cpt$ar
-  codes_cpt3["regex"]<-codesarray$V1[m]
-  codes_cpt3["regexcor"]<-codesarray$V1[m]
+  codes_cpt2["regex"]<-codesarray$V1[m]
+  codes_cpt2["regexcor"]<-codesarray$V1[m]
   
   }
-codes_cpt["ar"]<-match(codes_cpt$subst,codesarray$V2)
+codes_cpt2["ar"]<-match(codes_cpt$subst,codesarray$V2)
+
+write.csv2(codesarray,paste0(dirtext,"/r-temp/codesarray_m02.csv"))
+write.csv2(codes_cpt2,paste0(dirtext,"/r-temp/codes_cpt3.csv"))
 
 } #end temp function
 
@@ -520,7 +562,7 @@ return(codes_cpt)
 #regxmatrix[4,]
 #mean(regxmatrix[k,],na.rm = T)
 #wks.
-
+#--- 3.
 ### correct codes with escaped characters
 regxcor<-function(){
 codelength<-length(codes_cpt$codes)
@@ -544,8 +586,13 @@ for (k in 1:codelength){
 return(codes_cpt)
 }
 codes_cpt2<-regxcor()
-codes_cpt4<-regxmean(codes_cpt3)
-
+#then create neues regex combined array
+#codesarray<-getcodes(subwocom)
+codesarray<-getcodes(codes_cpt2,regexcor)
+codesarray[24,1]
+#
+codes_cpt4<-regxmean(codes_cpt2)
+#now apply replacement from codes_cpt2 according to rank
 
 # codes_cpt$regexcor[7]
  teststr<-'dreimal.schwarzer?kater'
@@ -570,8 +617,27 @@ set<-codes_cpt4
 # testkid<-readtext(paste0(dirtext,"/",filelist[13]))
 # testkid<-readtext(paste0(dirtext,"/",filelist[13]))
  stri_extract_all(testkid$text,regex=regx1)  
-   
-   
-   
  }
+ 
+# codes_cpt5<-codes_cpt4[sort(codes_cpt4$regxmean)] 
+#  codes_cpt4[sort(codes_cpt4$regxmean)]
+#  rank(codes_cpt4$regxmean)
+#  
+#  
+#  (ii <- order(x <- c(1,1,3:1,1:4,3), y <- c(9,9:1), z <- c(2,1:9)))
+#  ## 6  5  2  1  7  4 10  8  3  9
+#  rbind(x, y, z)[,ii] # shows the reordering (ties via 2nd & 3rd arg)
+#  ii<-order(x<-c(1:4,3,3))
+#  x[ii]
+ # ii<-order(codes_cpt4$regxmean)
+ # codes_cpt4$regexcor[ii]
+ # rpall<-as.data.frame(codes_cpt4$regex[ii])
+ for (k in ii){print(codes_cpt4$regex[k])}
+ ## Sorting data frames:
+ dd <- transform(data.frame(x, y, z),
+                 z = factor(z, labels = LETTERS[9:1]))
+ ## Either as above {for factor 'z' : using internal coding}:
+ dd[ order(x, -y, z), ]
+ ## or along 1st column, ties along 2nd, ... *arbitrary* no.{columns}:
+ dd[ do.call(order, dd), ]
  
