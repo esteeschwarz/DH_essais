@@ -24,10 +24,11 @@ list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"v2_1"
-dirchat<-"CHAT_5chat"
-#chatfileextension<-".cha"
 dirchat<-paste0("CHAT",version)
 chatfileextension<-".txt"
+#for export in .cha format to import into exmaralda
+#dirchat<-paste0(dirchat,"_cha_",version)
+#chatfileextension<-".cha"
 
 dirtext
 dirmod
@@ -121,6 +122,7 @@ filelist
 #remove hardcoded linenumbers in some transcripts
 #loop correction
 trans_mod_array<-list()
+k<-2
 linecor<-function(k,filelist){
 cc<-readtext(paste(dirtext,filelist[k],sep = "/"))
 cc1<-cc$text
@@ -142,16 +144,18 @@ cc2b<-gsub(regx1,repl1,cc2,perl = T)
 cc2b
 #"(#nl#)(@|[0-9]{1,3}|\*)"
 #only for linenumbered transcripts
-regx1<-"(#nl#)(?=[^@|[^0-9]|[^\\*])" #newline not introduced by @ or line numbering
+regx1<-"(#nl#)(?=[A-Za-z#%,\\.])" #newline not introduced by @ or line numbering
 repl1<-" "
 cc3<-gsub(regx1,repl1,cc2b,perl = T)
-regx1<-"(@.egin.)(?=%|\\*)" #second obsolete @Begin tag
-repl1<-""
-cc3<-gsub(regx1,repl1,cc2b,perl = T)
+cc3
+#regx1<-"(@.egin.)(?=%|\\*)" #second obsolete @Begin tag
+#repl1<-""
+#cc3<-gsub(regx1,repl1,cc3,perl = T)
 #restore linebreaks
 regx1<-"#nl#"
 repl1<-"\n"
 cc4<-gsub(regx1,repl1,cc3)
+cc4
 #wks.
 dir.create(dirout)
 #delete hard line numbering
@@ -453,7 +457,7 @@ tempfun0<-function(zer){
 ##################################
 #from here substitute #coding#
 ### THIS complete replacement loop
-
+f<-10
 for (f in 1:length(filelist2)){
   tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
   p1<-grep(".ctivities",tbu)
@@ -466,6 +470,11 @@ for (f in 1:length(filelist2)){
     ifelse(!is.na(tbu[p3[1]]),tbu[p3[1]]<-"@Annotation checked:",
            tbu<-insert(tbu,p2[1]+1,"@Annotation checked:"))
     tbu[p1[1]+2]
+    #delete evtl. second obsolete @Begin tag
+    p3<-grep("@.egin",tbu)
+    
+    if (length(p3)>=1){tbu[p3[2:3]]<-""}
+#           tbu<-insert(tbu,p2[1]+1,"@Annotation checked:"))
       #get unique alphabetically sorted tier description
     rp3<-paste0("@",rpall$subst)
     rpall["headex"]<-rp3
