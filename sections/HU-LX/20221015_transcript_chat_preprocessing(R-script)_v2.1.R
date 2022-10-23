@@ -16,21 +16,26 @@ library(glue)
 library(stringi)
 # 1. global variables
 #mini
-#setwd("~/boxHKW/21S/DH/")
+setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
-setwd("~/boxHKW/UNI/21S/DH/")
+#setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
+version<-"v2_1"
 dirchat<-"CHAT_5chat"
-chatfileextension<-".cha"
+#chatfileextension<-".cha"
+dirchat<-paste0("CHAT",version)
+chatfileextension<-".txt"
+
 dirtext
 dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
 dirout  
 dir.create(dirout)
-
+dirtemp<-paste(dirtext,"r-temp",sep="/")
+dirtemp
 #obsolete, array created from above table (create code substitution array with search/replace patterns
 getms<-function(){
   rn01a<-"(#9semantics#)|(#9semantics)"
@@ -173,8 +178,6 @@ linecor(k,filelist1)
 }
 ### end linecorrection
 #wks.
-#vs search unlabeled lines
-#"^\*[^A-Z]"
 ############
 # 3.
 #get modified files from temp dir
@@ -185,20 +188,21 @@ filelist2
 #change codes from table to valid regex formula
 #external codes .csv table
 codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3mod.csv"), 
-                        delim = ";", escape_double = T, trim_ws = TRUE)
-
+                        delim = ";", escape_double = T)
+#tail(codes_cpt$regex)
 regxcor<-function(codeset,subset){
   #subset codes
   codes_cpt<-subset(codeset,codeset$category==subset[1]|codeset$category==subset[2]|codeset$category==subset[3]|codeset$category==subset[4]|codeset$category==subset[5])
   codelength<-length(codes_cpt$codes)
- # k<-158
+ # k<-60
+  codes_cpt$feature[55:67]
  #regxa<-"(mostly)"
   for (k in 1:codelength){
     regxa<-codes_cpt$codes[k]
     regx1<-"\\?"
     repl1<-"\\\\?"
     regxb<-gsub(regx1,repl1,regxa)
-    regx2<-"[\\.]"
+    regx2<-"\\."
     repl2<-"\\\\."
     regxc<-gsub(regx2,repl2,regxb)
     regx3<-'"'
@@ -214,7 +218,7 @@ regxcor<-function(codeset,subset){
     regxf<-gsub(regx4,repl4,regxe)
     
     codes_cpt[k,"regexcor"]<-regxd
-    codes_cpt[k,"test"]<-"test3"
+    codes_cpt[k,"version"]<-version
   }
   return(codes_cpt)
 }
@@ -232,14 +236,9 @@ regxmean<-function(set){
   regxmatrix<-matrix(nrow = length(codes_cpt$codes),ncol = nfiles+1)
   for (f in 1:length(filelist2)){
     tbu<-readtext(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
-    # tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
     for (k in 1:length(codes_cpt$codes)){
       regx1<-codes_cpt$regexcor[k]
       regxout<-stri_extract_all(tbu$text,regex=regx1)
-      #regxout<-stri_extract_all(tbu$text,regex=codes_cpt$codes[21])
-      #regxout<-stri_extract_all(tbu$text,regex=codes_cpt$codes[21])
-      
-      #codes_cpt$regxmean[k]<-mean(stri_count_boundaries(regxout[[1]],"character"))
       regxmatrix[k,f]<-mean(stri_count_boundaries(regxout[[1]],"character"),na.rm = T)
       regxmatrix[k,nfiles+1]<-mean(regxmatrix[k,],na.rm = T)
       
@@ -253,44 +252,6 @@ regxmean<-function(set){
 #wks.
 #
 #then create neues regex combined array from escape corrected codes
-#codesarray<-getcodes(subwocom)
-# getcodes<-function(set,codes){
-#   pre3<-unique(paste0(set$pre2,set$pre3))
-#   chna<-!is.na(pre3)
-#   chna
-#   pre3<-pre3[chna]
-#   pre2<-unique(set$pre2)
-#   chna<-!is.na(pre2)
-#   chna
-#   pre2<-pre2[chna]
-#   prephrase<-unique(set$phrase)
-#   chna<-!is.na(prephrase)
-#   chna
-#   prephrase<-prephrase[chna]
-#   postphrase<-unique(set$subst)
-#   chna<-!is.na(postphrase)
-#   chna
-#   postphrase<-postphrase[chna]
-#   #cat1<-codes_cpt$category[postphrase]
-#   #cat1!=is.na(codesarray)
-#   #codes_cpt$pre3[codesarray$V2]
-#   rpform<-data.frame()
-#   
-#   for(k in 1:length(postphrase)){
-#     #rp4<-subset(codes_cpt$codes,codes_cpt$pre3==pre3[k],)
-#     #rp4<-subset(set$codes,set$pre3==pre3[k],)          
-#     ####wks.rp4<-subset(set$codes,set$subst==postphrase[k])          
-#     rp4<-subset(set$regexcor,set$subst==postphrase[k])          
-#     
-#     rpformX<-glue_collapse(rp4,sep = ")|(")          
-#     rpformXA<-paste0('(',rpformX,')')
-#     rpform[k,1]<-rpformXA
-#     #rpform[k,2]<-set$pre3[k]
-#     rpform[k,2]<-postphrase[k]
-#     #rpform[k,2]<-
-#   }
-#   return(rpform) #codesarray
-# }
 getcodescpt<-function(set,codes){
   pre3<-paste0(set$pre2,set$pre3)
   chna<-!is.na(pre3)
@@ -308,14 +269,9 @@ getcodescpt<-function(set,codes){
   chna<-!is.na(postphrase)
   chna
   postphrase<-postphrase[chna]
-  #cat1<-codes_cpt$category[postphrase]
-  #cat1!=is.na(codesarray)
-  #codes_cpt$pre3[codesarray$V2]
   rpform<-data.frame()
   
   for(k in 1:length(postphrase)){
-    #rp4<-subset(codes_cpt$codes,codes_cpt$pre3==pre3[k],)
-    #rp4<-subset(set$codes,set$pre3==pre3[k],)          
     ####wks.rp4<-subset(set$codes,set$subst==postphrase[k])          
     rp4<-subset(set$regexcor,set$subst==postphrase[k])          
     
@@ -358,7 +314,8 @@ codes_cpt2["ar"]<-match(codes_cpt2$subst,ar)
 # m<-codes_cpt$ar
 codes_cpt2["regex"]<-codesarray$V1
 codes_cpt4<-regxmean(codes_cpt2)
-
+#save codes table
+write_csv2(codes_cpt4,paste0(dirtemp,"/codes_cpt4",version,".csv"))
 ii<-order(-codes_cpt4$regxmean)
 codes_cpt4$regexcor[ii]
 rpall<-as.data.frame(codes_cpt4$regex[ii])
@@ -496,7 +453,7 @@ tempfun0<-function(zer){
 ##################################
 #from here substitute #coding#
 ### THIS complete replacement loop
-#f<-1
+
 for (f in 1:length(filelist2)){
   tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
   p1<-grep(".ctivities",tbu)
@@ -505,7 +462,11 @@ for (f in 1:length(filelist2)){
   p2<-grep("@.oding",tbu)
   tbu[p2[1]]
     tbu<-insert(tbu,p2[1]+1,"@TIER descriptions:")
-    #get unique alphabetically sorted tier description
+    p3<-grep("@.roofer:",tbu)
+    ifelse(!is.na(tbu[p3[1]]),tbu[p3[1]]<-"@Annotation checked:",
+           tbu<-insert(tbu,p2[1]+1,"@Annotation checked:"))
+    tbu[p1[1]+2]
+      #get unique alphabetically sorted tier description
     rp3<-paste0("@",rpall$subst)
     rpall["headex"]<-rp3
     #rp4
@@ -548,11 +509,12 @@ for (f in 1:length(filelist2)){
   rn25<-"([0-9]{1,3}\\. )(?=\\*|@)"
   tbum<-gsub(rn25,"",tbu,perl = T)
 tail(tbum)
+codesarray$V1[61]
   #################################
     #post processing substitutes
   #this routine data TODO fetch from external array
 set<-codes_cpt
-  
+  (codes_cpt$regex[codes_cpt$category==4])
  #   postprocess<-function(set,tbum,mstart){
   depr<-function(){
       rnb01<-"STATIC(a|b|c|d|e|f)"
@@ -583,10 +545,11 @@ set<-codes_cpt
   #rm(codes)
   ii<-!is.na(postcodes$regex)
   postcodes<-subset(postcodes,ii)
-  postcodes$repl
+  postcodes$regex
   regx<-stri_unescape_unicode(postcodes$regex)
   repl<-stri_unescape_unicode(postcodes$repl)
   repl
+  regx
   #postcodescor$regexcor
   #postcodescor<-regxcor(postcodes,c(4,5,5,5,5))
   tbu_e<-tbum
@@ -612,13 +575,6 @@ set<-codes_cpt
   regx<-stri_unescape_unicode(postcodes$regex)
   repl<-stri_unescape_unicode(postcodes$repl)
   repl
-  #postcodescor$regexcor
-  #postcodescor<-regxcor(postcodes,c(4,5,5,5,5))
-  #tbu_e<-tbum
-  #tbu<-tbu_e
-  #tbub<-tbu[1:mstart-1]
-  #tbusafe<-tbu
-  #tbuheader<-tbu[1:mstart]
   tbuheader
     for (l in 1:length(regx)) {
     tbuheader<-gsub(regx[l],repl[l],tbuheader)
@@ -638,58 +594,3 @@ set<-codes_cpt
 
 tail(codes_cpt["repl"])
 #call replacement loop with last tbum(transcript) and set(codeset) as arguments
-#now apply replacement from codes_cpt2 according to rank
-
-# # codes_cpt$regexcor[7]
-#  teststr<-'dreimal.schwarzer?kater'
-#  regx1<-'w+'
-#  repl1<-"K"
-#  stri_replace_all(teststr,repl1,regex=regx1)
-# # #stri_trans_char('id?123', '?', '??')
-# # #stri_unescape_unicode('a\\u0105!\\u0032\\n')
-# # #stri_escape_unicode('\\?')
-# # #regxb<-gsub(regx1,repl1,teststr)
-# # regx2<-"\\."
-# # repl2<-"\\\\."
-# # regxc<-gsub(regx2,repl2,regxb)
-# # regxc
-# # 
-# set<-codes_cpt4
-#  testarray<-function(set,kcode){
-#    regx1<-set$regex[71]
-#  regx1 
-#  regx1<-"#misunderstands .welchen.#"
-#  #filelist2[13]
-# # testkid<-readtext(paste0(dirtext,"/",filelist[13]))
-# # testkid<-readtext(paste0(dirtext,"/",filelist[13]))
-#  stri_extract_all(testkid$text,regex=regx1)  
-#  }
-#  
-# # codes_cpt5<-codes_cpt4[sort(codes_cpt4$regxmean)] 
-# #  codes_cpt4[sort(codes_cpt4$regxmean)]
-# #  rank(codes_cpt4$regxmean)
-# #  
-# #  
-# #  (ii <- order(x <- c(1,1,3:1,1:4,3), y <- c(9,9:1), z <- c(2,1:9)))
-# #  ## 6  5  2  1  7  4 10  8  3  9
-# #  rbind(x, y, z)[,ii] # shows the reordering (ties via 2nd & 3rd arg)
-# #  ii<-order(x<-c(1:4,3,3))
-# #  x[ii]
-#  # ii<-order(codes_cpt4$regxmean)
-#  # codes_cpt4$regexcor[ii]
-#  # rpall<-as.data.frame(codes_cpt4$regex[ii])
-#  for (k in ii){print(codes_cpt4$regex[k])}
-#  ## Sorting data frames:
-#  dd <- transform(data.frame(x, y, z),
-#                  z = factor(z, labels = LETTERS[9:1]))
-#  ## Either as above {for factor 'z' : using internal coding}:
-#  dd[ order(x, -y, z), ]
-#  ## or along 1st column, ties along 2nd, ... *arbitrary* no.{columns}:
-#  dd[ do.call(order, dd), ]
-#  
-#  
-#  cat("Current tempdir(): ", tempdir(), "\n")
-#  cat("Removing it :", file.remove(tempdir()),
-#      "; dir.exists(tempdir()):", dir.exists(tempdir()), "\n")
-#  cat("and now  tempdir(check = TRUE) :", tempdir(check = TRUE),"\n")
-#  
