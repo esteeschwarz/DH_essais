@@ -16,14 +16,15 @@ library(glue)
 library(stringi)
 # 1. global variables
 #mini
-setwd("~/boxHKW/21S/DH/")
+#setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
 setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-dirchat<-"CHAT_5d"
+dirchat<-"CHAT_5chat"
+chatfileextension<-".cha"
 dirtext
 dirmod
 dirout<-paste(dirtext,"out2",sep = "/")
@@ -539,7 +540,7 @@ for (f in 1:length(filelist2)){
   kids[[f]][1]
   dirtext
   dir.create(paste(dirtext,dirchat,sep = "/"))
-  chatfilename<-paste0(kids[[f]][1],"_CHAT.txt")
+  chatfilename<-paste0(kids[[f]][1],"_CHAT",chatfileextension)
   chatfilename
   #delete hardcoded linenumbers
   tbu_cpt<-c(tbuheader,tbu)
@@ -634,6 +635,8 @@ set<-codes_cpt
     
     }
 ### END replacement loop #########
+
+tail(codes_cpt["repl"])
 #call replacement loop with last tbum(transcript) and set(codeset) as arguments
 #now apply replacement from codes_cpt2 according to rank
 
