@@ -14,17 +14,20 @@ library(readtext)
 library(readr)
 library(glue)
 library(stringi)
+#library(clipr)
 # 1. global variables
 #mini
-setwd("~/boxHKW/21S/DH/")
+#setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
-#setwd("~/boxHKW/UNI/21S/DH/")
+setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"v2_1"
 dirchat<-paste0("CHAT",version)
+dirchat<-paste0("CHAT_temp")
+
 chatfileextension<-".txt"
 #for export in .cha format to import into exmaralda
 #dirchat<-paste0(dirchat,"_cha_",version)
@@ -462,7 +465,7 @@ for (f in 1:length(filelist2)){
   tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
   p1<-grep(".ctivities",tbu)
   tbu[p1[1]]
-  tbu<-insert(tbu,p1[1]+1,"@Elicitation files: (placeholder)")
+  tbu<-insert(tbu,p1[1]+1,"@Elicitation files: box.FU folder:00_SES Documents (to revise) for BERLANGDEV")
   p2<-grep("@.oding",tbu)
   tbu[p2[1]]
     tbu<-insert(tbu,p2[1]+1,"@TIER descriptions:")
@@ -603,3 +606,24 @@ set<-codes_cpt
 
 tail(codes_cpt["repl"])
 #call replacement loop with last tbum(transcript) and set(codeset) as arguments
+###
+write_clip(filelist2)
+regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+repl1<-"\\1\\2"
+filelist_ren<-gsub(regx1,repl1,filelist2)
+regx2<-".+(ELL|TUR)_([A-Za-z]{3}).+"
+repl2<-"\\2"
+filekids<-gsub(regx2,repl2,filelist_ren)
+kids_upper<-toupper(filekids)
+k<-1
+filelist_end<-array()
+for (k in 1:length(filelist2)){
+  # regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+  # repl1<-"\\1\\2"
+  # filelist_ren<-gsub(regx1,repl1,filelist2[k])
+  regx3<-"(?<=(ELL|TUR)_)([A-Za-z]{3})"
+  # repl2<-"\\2"
+  # filekids<-gsub(regx2,repl2,filelist_ren)
+  filelist_end[k]<-gsub(regx3,kids_upper[k],filelist_ren[k],perl = T)
+}
+filelist_end
