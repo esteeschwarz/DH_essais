@@ -24,9 +24,9 @@ dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted 
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-version<-"v2_1"
+version<-"v2_2"
 dirchat<-paste0("CHAT",version)
-dirchat<-paste0("CHAT_temp")
+#dirchat<-paste0("CHAT_temp")
 
 chatfileextension<-".txt"
 #for export in .cha format to import into exmaralda
@@ -604,26 +604,26 @@ set<-codes_cpt
     }
 ### END replacement loop #########
 
-tail(codes_cpt["repl"])
-#call replacement loop with last tbum(transcript) and set(codeset) as arguments
-###
-write_clip(filelist2)
-regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
-repl1<-"\\1\\2"
-filelist_ren<-gsub(regx1,repl1,filelist2)
-regx2<-".+(ELL|TUR)_([A-Za-z]{3}).+"
-repl2<-"\\2"
-filekids<-gsub(regx2,repl2,filelist_ren)
-kids_upper<-toupper(filekids)
-k<-1
-filelist_end<-array()
-for (k in 1:length(filelist2)){
-  # regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
-  # repl1<-"\\1\\2"
-  # filelist_ren<-gsub(regx1,repl1,filelist2[k])
-  regx3<-"(?<=(ELL|TUR)_)([A-Za-z]{3})"
-  # repl2<-"\\2"
-  # filekids<-gsub(regx2,repl2,filelist_ren)
-  filelist_end[k]<-gsub(regx3,kids_upper[k],filelist_ren[k],perl = T)
-}
-filelist_end
+# tail(codes_cpt["repl"])
+# #call replacement loop with last tbum(transcript) and set(codeset) as arguments
+# ###
+# write_clip(filelist2)
+# regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+# repl1<-"\\1\\2"
+# filelist_ren<-gsub(regx1,repl1,filelist2)
+# regx2<-".+(ELL|TUR)_([A-Za-z]{3}).+"
+# repl2<-"\\2"
+# filekids<-gsub(regx2,repl2,filelist_ren)
+# kids_upper<-toupper(filekids)
+# k<-1
+# filelist_end<-array()
+# for (k in 1:length(filelist2)){
+#   # regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+#   # repl1<-"\\1\\2"
+#   # filelist_ren<-gsub(regx1,repl1,filelist2[k])
+#   regx3<-"(?<=(ELL|TUR)_)([A-Za-z]{3})"
+#   # repl2<-"\\2"
+#   # filekids<-gsub(regx2,repl2,filelist_ren)
+#   filelist_end[k]<-gsub(regx3,kids_upper[k],filelist_ren[k],perl = T)
+# }
+# filelist_end
