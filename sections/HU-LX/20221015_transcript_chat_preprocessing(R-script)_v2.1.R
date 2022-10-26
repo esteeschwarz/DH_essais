@@ -14,19 +14,19 @@ library(readtext)
 library(readr)
 library(glue)
 library(stringi)
-#library(clipr)
+library(clipr)
 # 1. global variables
 #mini
-#setwd("~/boxHKW/21S/DH/")
+setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
-setwd("~/boxHKW/UNI/21S/DH/")
+#setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"v2_2"
 dirchat<-paste0("CHAT",version)
-#dirchat<-paste0("CHAT_temp")
+dirchat<-paste0("CHAT_temp",version)
 
 chatfileextension<-".txt"
 #for export in .cha format to import into exmaralda
@@ -40,7 +40,7 @@ dirout
 dir.create(dirout)
 dirtemp<-paste(dirtext,"r-temp",sep="/")
 dirtemp
-#obsolete, array created from above table (create code substitution array with search/replace patterns
+#obsolete, array created from fix .csv table (create code substitution array with search/replace patterns
 getms<-function(){
   rn01a<-"(#9semantics#)|(#9semantics)"
   rp01a<-c("#%#","%NSS:", "nonstandard semantics:")
@@ -125,7 +125,8 @@ filelist
 #remove hardcoded linenumbers in some transcripts
 #loop correction
 trans_mod_array<-list()
-k<-2
+k<-9
+
 linecor<-function(k,filelist){
 cc<-readtext(paste(dirtext,filelist[k],sep = "/"))
 cc1<-cc$text
@@ -135,30 +136,48 @@ repl1<-" "
 cc1<-gsub(regx1,repl1,cc1)
 #find lines not properly introduced (false hard line breaks)
 regx1<-"\n"
-repl1<-"#nl#"
+repl1<-"§%#nl#§%"
 cc2<-gsub(regx1,repl1,cc1)
 cc2
+#write_clip(cc2)
+
+
 #restore newline in not numbered scripts:
-regx1<-"#nl#(?=(@|[0-9]{1,3}|\\*))"
+#only for linenumbered transcripts
+regx1<-"(§%#nl#§%)([0-9]{0,3}. |([A-Za-z#%,\\.]))(?!\\*)" #newline not introduced by @ or line numbering
+repl1<-" "
+cc3<-gsub(regx1,repl1,cc2,perl = T)
+write_clip(cc3)
+regx1<-"(§%#nl#§%)(?=[A-Za-z#%\\.,;])" #newline starting with character or special character
+repl1<-" "
+cc3<-gsub(regx1,repl1,cc3,perl = T)
+#write_clip(cc3)
+
+regx1<-"(?<=(\\*[A-Z]{3}))(\\*)"
+repl1<-""
+m<-gregexec(regx1,cc2,perl = T)
+regmatches(cc2,m)
+cc2b<-gsub(regx1,repl1,cc3,perl = T)
+cc3<-cc2b
+
+regx1<-"§%#nl#§%(?=(@|[0-9]{1,3}|\\*))"
 repl1<-"\n"
 m<-gregexec(regx1,cc2,perl = T)
 regmatches(cc2,m)
-cc2b<-gsub(regx1,repl1,cc2,perl = T)
-cc2b
-#"(#nl#)(@|[0-9]{1,3}|\*)"
-#only for linenumbered transcripts
-regx1<-"(#nl#)(?=[A-Za-z#%,\\.])" #newline not introduced by @ or line numbering
-repl1<-" "
-cc3<-gsub(regx1,repl1,cc2b,perl = T)
-cc3
+cc2b<-gsub(regx1,repl1,cc3,perl = T)
+cc3<-cc2b
+
+
+#(?<=(\*[A-Z]{3}))(\*)
 #regx1<-"(@.egin.)(?=%|\\*)" #second obsolete @Begin tag
 #repl1<-""
 #cc3<-gsub(regx1,repl1,cc3,perl = T)
 #restore linebreaks
-regx1<-"#nl#"
+regx1<-"§%#nl#§%"
 repl1<-"\n"
 cc4<-gsub(regx1,repl1,cc3)
-cc4
+#write_clip(cc5)
+
 #wks.
 dir.create(dirout)
 #delete hard line numbering
@@ -171,8 +190,10 @@ corfilename<-paste0(kids[[k]][1],"_cor03.txt")
 writeLines(cc5,paste(dirout,corfilename,sep = "/"))
 #writeLines(cc5,paste(trans_mod_temp,corfilename,sep = "/"))
 writeLines(cc5,paste(trans_mod_tempdir,corfilename,sep = "/"))
-trans_mod_array[k]<-"cc5"
+trans_mod_array[k]<-cc5
+return(cc5)
 }
+#cc5
 #call line correction function over source files array
 filelist1<-list.files(dirtext,pattern="(\\.txt)")
 filelist1
@@ -183,13 +204,19 @@ for (k in 1:length(filelist1)){
 linecor(k,filelist1)
  trans_mod_array[k]<-linecor(k,filelist1)
 }
+k<-9
+cctemp<-linecor(k,filelist1)
+cat(cctemp)
+trans_mod_array[k]
 ### end linecorrection
 #wks.
+#13435.fail newest linecorrection,
+
 ############
 # 3.
 #get modified files from temp dir
 filelist2<-list.files(trans_mod_tempdir,pattern="(\\.txt)")
-filelist2
+filelist2[k]
 #wks.
 #here insert 4 & 5
 #change codes from table to valid regex formula
