@@ -21,6 +21,7 @@ library(clipr)
 #lapsi, ewa
 setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
+codesource<-"/r-temp/codes_cpt3mod.csv"
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
@@ -125,9 +126,10 @@ filelist
 #remove hardcoded linenumbers in some transcripts
 #loop correction
 trans_mod_array<-list()
-k<-10
+k<-9
 
 linecor<-function(k,filelist){
+  ###single run
 cc<-readtext(paste(dirtext,filelist[k],sep = "/"))
 cc1<-cc$text
 #find obsolete whitespace range 2 to 200 blanks
@@ -139,19 +141,25 @@ regx1<-"\n"
 repl1<-"§%#nl#§%"
 cc2<-gsub(regx1,repl1,cc1)
 cc2
-#write_clip(cc2)
+write_clip(cc2)
 
 
 #only for linenumbered transcripts
 #delete linenumbering & hard breaks within IP
 #regex groups: 1:newline 2:linenumbering 3:phrase
-regx1<-"(§%#nl#§%)([0-9]{0,3}. |([A-Za-z#%,\\.]))(?!\\*)" 
-repl1<-" \\3"
+regx1<-"(?<=(§%#nl#§%))([0-9]{0,3}). " 
+repl1<-""
 cc3<-gsub(regx1,repl1,cc2,perl = T)
 write_clip(cc3)
-regx1<-"(§%#nl#§%)(?=[A-Za-z#%\\.,;])" #newline starting with character or special character
+#solve: " '
+regx1<-'"'
+repl<-"'"
+cc3<-gsub(regx1,repl1,cc3,perl = T)
+
+regx1<-"(§%#nl#§%)(?=[A-Za-z#%\\.,;'-])" #newline starting with character or special character
 repl1<-" "
 cc3<-gsub(regx1,repl1,cc3,perl = T)
+write_clip(cc3)
 #write_clip(cc3)
 
 regx1<-"(?<=(\\*[A-Z]{3}))(\\*)" #doubled false * after speaker spec
@@ -161,12 +169,18 @@ regmatches(cc2,m)
 cc2b<-gsub(regx1,repl1,cc3,perl = T)
 cc3<-cc2b
 
+###: solve "*TAH: Oh Lachen*INT: Nein is ist gar keine schwere" (source) (not linebreaked IP)
+regx1<-"(?<!(§%#nl#§%))(\\*[A-Z]{3})"
+repl1<-"§%#nl#§%\\2"
+cc3<-gsub(regx1,repl1,cc3,perl = T)
+  
 regx1<-"§%#nl#§%(?=(@|[0-9]{1,3}|\\*))"
 repl1<-"\n"
 m<-gregexec(regx1,cc2,perl = T)
 regmatches(cc2,m)
 cc2b<-gsub(regx1,repl1,cc3,perl = T)
 cc3<-cc2b
+
 
 #restore linebreaks
 regx1<-"§%#nl#§%"
@@ -217,7 +231,7 @@ filelist2[k]
 #here insert 4 & 5
 #change codes from table to valid regex formula
 #external codes .csv table
-codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3mod.csv"), 
+codes_cpt <- read_delim(paste0(dirtext,codesource), 
                         delim = ";", escape_double = T)
 #tail(codes_cpt$regex)
 regxcor<-function(codeset,subset){
@@ -409,7 +423,7 @@ tempfun0<-function(zer){
   # import code .csv to create substitution array
   getwd()
   #read.csv2(paste0(dirtext,"/r-temp/codes_cpt.csv")
-  codes_cpt <- read_delim(paste0(dirtext,"/r-temp/codes_cpt3mod.csv"), 
+  codes_cpt <- read_delim(paste0(dirtext,codesource), 
                           delim = ";", escape_double = FALSE, trim_ws = TRUE)
   #rncpt2<-codes_cpt$codes         
   #rpcpt2<-paste0(codes_cpt$pre1,codes_cpt$pre2,codes_cpt$pre3)          
