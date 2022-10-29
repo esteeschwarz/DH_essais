@@ -26,13 +26,14 @@ list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"13441.3"
+version<-"v2_3"
 dirchat<-paste0("CHAT",version)
-dirchat<-paste0("CHAT_temp",version)
+#dirchat<-paste0("CHAT_temp",version)
 
 chatfileextension<-".txt"
 #for export in .cha format to import into exmaralda
-dirchat<-paste0(dirchat,"_cha_",version)
-chatfileextension<-".cha"
+#dirchat<-paste0(dirchat,"_cha_",version)
+#chatfileextension<-".cha"
 
 dirtext
 dirmod
