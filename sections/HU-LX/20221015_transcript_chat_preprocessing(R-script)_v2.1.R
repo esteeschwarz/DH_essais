@@ -126,7 +126,7 @@ filelist
 #remove hardcoded linenumbers in some transcripts
 #loop correction
 trans_mod_array<-list()
-k<-2
+k<-5
 
 linecor<-function(k,filelist){
   ###single run
@@ -143,7 +143,7 @@ cc2<-gsub(regx1,repl1,cc1)
 cc2
 write_clip(cc2)
 
-regx1<-"(§%#nl#§%)([A-Za-z#%\\.,;'-])" #newline starting with character or special character
+regx1<-"(§%#nl#§%)([A-Za-z#%\\.,;'-\\(\\)])" #newline starting with character or special character
 repl1<-" \\2"
 cc3<-gsub(regx1,repl1,cc2,perl = T)
 write_clip(cc3)
@@ -186,14 +186,14 @@ cc3<-cc2b
 regx1<-"§%#nl#§%"
 repl1<-"\n"
 cc4<-gsub(regx1,repl1,cc3)
-#write_clip(cc5)
-
+write_clip(cc4)
+cc5<-cc4
 #wks.
 dir.create(dirout)
 #delete hard line numbering
-regx1<-"[0-9]{1,3}.[^\n](\\*)"
-repl1<-"\\1"
-cc5<-gsub(regx1,repl1,cc4)
+# regx1<-"[0-9]{1,3}.[^\n](\\*)"
+# repl1<-"\\1"
+# cc5<-gsub(regx1,repl1,cc4)
 kids<-strsplit(filelist,"\\.")
 #kids[[2]][1]
 corfilename<-paste0(kids[[k]][1],"_cor03.txt")
