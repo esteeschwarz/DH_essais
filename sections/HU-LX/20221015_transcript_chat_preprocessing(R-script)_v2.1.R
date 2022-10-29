@@ -25,14 +25,14 @@ codesource<-"/r-temp/codes_cpt3mod.csv"
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-version<-"13441"
+version<-"13441.2"
 dirchat<-paste0("CHAT",version)
 dirchat<-paste0("CHAT_temp",version)
 
 chatfileextension<-".txt"
 #for export in .cha format to import into exmaralda
-#dirchat<-paste0(dirchat,"_cha_",version)
-#chatfileextension<-".cha"
+dirchat<-paste0(dirchat,"_cha_",version)
+chatfileextension<-".cha"
 
 dirtext
 dirmod
@@ -126,7 +126,7 @@ filelist
 #remove hardcoded linenumbers in some transcripts
 #loop correction
 trans_mod_array<-list()
-k<-9
+k<-2
 
 linecor<-function(k,filelist){
   ###single run
@@ -143,23 +143,23 @@ cc2<-gsub(regx1,repl1,cc1)
 cc2
 write_clip(cc2)
 
+regx1<-"(§%#nl#§%)([A-Za-z#%\\.,;'-])" #newline starting with character or special character
+repl1<-" \\2"
+cc3<-gsub(regx1,repl1,cc2,perl = T)
+write_clip(cc3)
+
 
 #only for linenumbered transcripts
 #delete linenumbering & hard breaks within IP
 #regex groups: 1:newline 2:linenumbering 3:phrase
 regx1<-"(?<=(§%#nl#§%))([0-9]{0,3}). " 
 repl1<-""
-cc3<-gsub(regx1,repl1,cc2,perl = T)
+cc3<-gsub(regx1,repl1,cc3,perl = T)
 write_clip(cc3)
 #solve: " '
 regx1<-'"'
 repl<-"'"
 cc3<-gsub(regx1,repl1,cc3,perl = T)
-
-regx1<-"(§%#nl#§%)(?=[A-Za-z#%\\.,;'-])" #newline starting with character or special character
-repl1<-" "
-cc3<-gsub(regx1,repl1,cc3,perl = T)
-write_clip(cc3)
 #write_clip(cc3)
 
 regx1<-"(?<=(\\*[A-Z]{3}))(\\*)" #doubled false * after speaker spec
@@ -546,11 +546,37 @@ for (f in 1:length(filelist2)){
     }
     #tbu[105:130]
   #####################################
-  kids<-strsplit(filelist2,"\\.")
-  kids[[f]][1]
+    kids<-strsplit(filelist2,"\\.")
+  #kids[[f]][1]
   dirtext
   dir.create(paste(dirtext,dirchat,sep = "/"))
-  chatfilename<-paste0(kids[[f]][1],"_CHAT",chatfileextension)
+
+  #nameschemeing the files
+  #write_clip(filelist2)
+  regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+  repl1<-"\\1\\2"
+  kids1<-gsub(regx1,repl1,filelist2)
+  regx2<-".+(ELL|TUR)_([A-Za-z]{3}).+"
+  repl2<-"\\2"
+  kids2<-gsub(regx2,repl2,kids1)
+  kids3<-toupper(kids2)
+  # k<-1
+  kids4<-array()
+  for (k in 1:length(filelist2)){
+    # regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+    # repl1<-"\\1\\2"
+    # filelist_ren<-gsub(regx1,repl1,filelist2[k])
+    regx3<-"(?<=(ELL|TUR)_)([A-Za-z]{3})"
+    # repl2<-"\\2"
+    # filekids<-gsub(regx2,repl2,filelist_ren)
+    kids4[k]<-gsub(regx3,kids3[k],kids1[k],perl = T)
+  }
+    kids4<-strsplit(kids4,"\\.")
+
+  #filelist2<-kids4
+  ################
+  
+    chatfilename<-paste0(kids4[[f]][1],"_CHAT",chatfileextension)
   chatfilename
   #delete hardcoded linenumbers
   tbu_cpt<-c(tbuheader,tbu)
@@ -643,17 +669,18 @@ set<-codes_cpt
 
 # tail(codes_cpt["repl"])
 # #call replacement loop with last tbum(transcript) and set(codeset) as arguments
-# ###
-# write_clip(filelist2)
+# ######
+#nameschemeing the files
+#write_clip(filelist2)
 # regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
 # repl1<-"\\1\\2"
-# filelist_ren<-gsub(regx1,repl1,filelist2)
+# kids1<-gsub(regx1,repl1,filelist2)
 # regx2<-".+(ELL|TUR)_([A-Za-z]{3}).+"
 # repl2<-"\\2"
-# filekids<-gsub(regx2,repl2,filelist_ren)
-# kids_upper<-toupper(filekids)
+# kids2<-gsub(regx2,repl2,kids1)
+# kids3<-toupper(kids2)
 # k<-1
-# filelist_end<-array()
+# kids4<-array()
 # for (k in 1:length(filelist2)){
 #   # regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
 #   # repl1<-"\\1\\2"
@@ -661,6 +688,7 @@ set<-codes_cpt
 #   regx3<-"(?<=(ELL|TUR)_)([A-Za-z]{3})"
 #   # repl2<-"\\2"
 #   # filekids<-gsub(regx2,repl2,filelist_ren)
-#   filelist_end[k]<-gsub(regx3,kids_upper[k],filelist_ren[k],perl = T)
+#   kids4[k]<-gsub(regx3,kids3[k],kids1[k],perl = T)
 # }
-# filelist_end
+# kids4
+# filelist2<-kids4
