@@ -17,14 +17,14 @@ library(stringi)
 library(clipr)
 # 1. global variables
 #mini
-setwd("~/boxHKW/21S/DH/")
+#setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
-#setwd("~/boxHKW/UNI/21S/DH/")
+setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-version<-"v2_2"
+version<-"13441"
 dirchat<-paste0("CHAT",version)
 dirchat<-paste0("CHAT_temp",version)
 
@@ -125,7 +125,7 @@ filelist
 #remove hardcoded linenumbers in some transcripts
 #loop correction
 trans_mod_array<-list()
-k<-9
+k<-10
 
 linecor<-function(k,filelist){
 cc<-readtext(paste(dirtext,filelist[k],sep = "/"))
@@ -134,7 +134,7 @@ cc1<-cc$text
 regx1<-"[ ]{2,200}"
 repl1<-" "
 cc1<-gsub(regx1,repl1,cc1)
-#find lines not properly introduced (false hard line breaks)
+#find all line breaks
 regx1<-"\n"
 repl1<-"§%#nl#§%"
 cc2<-gsub(regx1,repl1,cc1)
@@ -142,10 +142,11 @@ cc2
 #write_clip(cc2)
 
 
-#restore newline in not numbered scripts:
 #only for linenumbered transcripts
-regx1<-"(§%#nl#§%)([0-9]{0,3}. |([A-Za-z#%,\\.]))(?!\\*)" #newline not introduced by @ or line numbering
-repl1<-" "
+#delete linenumbering & hard breaks within IP
+#regex groups: 1:newline 2:linenumbering 3:phrase
+regx1<-"(§%#nl#§%)([0-9]{0,3}. |([A-Za-z#%,\\.]))(?!\\*)" 
+repl1<-" \\3"
 cc3<-gsub(regx1,repl1,cc2,perl = T)
 write_clip(cc3)
 regx1<-"(§%#nl#§%)(?=[A-Za-z#%\\.,;])" #newline starting with character or special character
@@ -153,7 +154,7 @@ repl1<-" "
 cc3<-gsub(regx1,repl1,cc3,perl = T)
 #write_clip(cc3)
 
-regx1<-"(?<=(\\*[A-Z]{3}))(\\*)"
+regx1<-"(?<=(\\*[A-Z]{3}))(\\*)" #doubled false * after speaker spec
 repl1<-""
 m<-gregexec(regx1,cc2,perl = T)
 regmatches(cc2,m)
@@ -167,11 +168,6 @@ regmatches(cc2,m)
 cc2b<-gsub(regx1,repl1,cc3,perl = T)
 cc3<-cc2b
 
-
-#(?<=(\*[A-Z]{3}))(\*)
-#regx1<-"(@.egin.)(?=%|\\*)" #second obsolete @Begin tag
-#repl1<-""
-#cc3<-gsub(regx1,repl1,cc3,perl = T)
 #restore linebreaks
 regx1<-"§%#nl#§%"
 repl1<-"\n"
