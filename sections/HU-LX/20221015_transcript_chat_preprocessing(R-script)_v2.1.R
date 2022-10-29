@@ -25,7 +25,7 @@ codesource<-"/r-temp/codes_cpt3mod.csv"
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
-version<-"13441.2"
+version<-"13441.3"
 dirchat<-paste0("CHAT",version)
 dirchat<-paste0("CHAT_temp",version)
 
@@ -42,82 +42,12 @@ dir.create(dirout)
 dirtemp<-paste(dirtext,"r-temp",sep="/")
 dirtemp
 #obsolete, array created from fix .csv table (create code substitution array with search/replace patterns
-getms<-function(){
-  rn01a<-"(#9semantics#)|(#9semantics)"
-  rp01a<-c("#%#","%NSS:", "nonstandard semantics:")
-  rn02a<-"#9nst agmt.?#"
-  rp02a<-c("#%#","%NSA:", "nonstandard agreement:")
-  rn03a<-"(#9nst prep#)|(#9nst prep\\.)|(#9nst prep\\.#)|(#9nst prep)|(#90 prep)"
-  rp03a<-c("#%#","%NSP:" ,"nonstandard preposition:")
-  rn04b<-"(#90 art#)|(#90 art)|(#90 art\\.)|(#90 art\\.#)|(90 art#)" # dash!
-  rp04b<-c("#%#","%0-A:", "zero article:")
-  rn05b<-"#90 obj.?#"
-  rp05b<-c("#%#","%0-O:" ,"zero object:")
-  rn06c<-"#check tape#"
-  rp06c<-c("#%#","%COM:", "check tape")
-  rn07c<-"#.achen#"
-  rp07c<-c("#%#","%COM:", "laughter")
-  rn08a<-"(#9nst#)|(#9nst #)"
-  rp08a<-c("#%#","%NST:" ,"nonstandard:")
-  rn09b<-"(#90 subj#)|(#90 subj)"
-  rp09b<-c("#%#","%0-S:" ,"zero subject:")
-  rn10c<-"(#.?unclear script#)|(#script unclear#)"
-  rp10c<-c("#%#","%COM:" ,"script unclear")
-  rn11c<-"#unverstaendlich#"
-  rp11c<-c("#%#","%COM:", "unintelligible")
-  rn12a<-"#9nst verb#"
-  rp12a<-c("#%#","%NSV:", "nonstandard verbform:")
-  #rn13<-"#script unclear#"
-  #rp13<-"%COM: script unclear"
-  rn14a<-"#9nst conditional#"
-  rp14a<-c("#%#","%NSC:" ,"nonstandard conditional:")
-  rn15a<-"(#9nst gen#)|(#9nst gen)"
-  rp15a<-c("#%#","%NSG:", "nonstandard genus:")
-  rn16a<-"#9nst pers#"
-  rp16a<-c("#%#","%NSP:", "nonstandard person:")
-  rn17b<-"#9no pl/num#"
-  rp17b<-c("#%#","%0-N:", "no plural/numeral marker:")
-  rn18a<-"#9nst compar\\.#"
-  rp18a<-c("#%#","%NSR:", "nonstandard comparison:")
-  rn19c<-"#9misunderstand#"
-  rp19c<-c("#%#","%COM:", "misunderstanding")
-  rn20a<-"#9nst w\\.o\\.#"
-  rp20a<-c("#%#","%NSW:" ,"nonstandard word order:")
-  rn21b<-"#90 verb#"
-  rp21b<-c("#%#","%0-V:", "zero VP:")
-  #rn22<-"#90 subj"
-  #rp22<-"%0-S: zero subject:"
-  rn23b<-"(#90 prep#)|(#90 prep\\.#)"
-  rp23b<-c("#%#","%0-P:", "zero preposition:")
-  #rn24<-"#9semantics"
-  #rp24<-"%NSS: nonstandard semantics:"
-  rn26b<-"#90 refl#"
-  rp26b<-c("#%#","%0-R:", "zero reflexive:")
-  rn27e<-"#\\*#"
-  rp27e<-c("#*#","#*#: ", "pause (inline)")
-  rn28a<-"#9nst i.o.#"
-  rp28a<-c("#%#","%N-?:", "nonstandard i dont know")
-  rn29a<-"#9rel#"
-  rp29a<-c("#%#","%N-?:", "nonstandard i dont know")
-  rn30b<-"#90 aux #"
-  rp30b<-c("#%#","%0-X","zero auxiliary:")
-  "90 art"
-  "90 verb"
-  "90 cop"
-  "9nst agmt"
-  "9nst gen"
-  "90 prep"
-  "90 subj"
-  rncpt<-c(rn01a,rn02a,rn03a,rn20a,rn12a,rn14a,rn15a,rn16a,rn18a,rn08a,rn28a,rn29a,rn30b,rn04b,rn05b,rn09b,rn17b,rn21b,rn23b,rn26b,rn06c,rn10c,rn11c,rn19c,rn27e)
-  rpcpt1<-c(rp01a[1],rp02a[1],rp03a[1],rp20a[1],rp12a[1],rp14a[1],rp15a[1],rp16a[1],rp18a[1],rp08a[1],rp28a[1],rp29a[1],rp30b[1],rp04b[1],rp05b[1],rp09b[1],rp17b[1],rp21b[1],rp23b[1],rp26b[1],rp06c[1],rp10c[1],rp11c[1],rp19c[1],rp27e[1])
-  rpcpt2<-c(rp01a[2],rp02a[2],rp03a[2],rp20a[2],rp12a[2],rp14a[2],rp15a[2],rp16a[2],rp18a[2],rp08a[2],rp28a[2],rp29a[2],rp30b[2],rp04b[2],rp05b[2],rp09b[2],rp17b[2],rp21b[2],rp23b[2],rp26b[2],rp06c[2],rp10c[2],rp11c[2],rp19c[2],rp27e[2])
-  rpcpt3<-c(rp01a[3],rp02a[3],rp03a[3],rp20a[3],rp12a[3],rp14a[3],rp15a[3],rp16a[3],rp18a[3],rp08a[3],rp28a[3],rp29a[3],rp30b[3],rp04b[3],rp05b[3],rp09b[3],rp17b[3],rp21b[3],rp23b[3],rp26b[3],rp06c[3],rp10c[3],rp11c[3],rp19c[3],rp27e[3])
-  
-    #rpcpt<-c(rp1,rp2,rp3,rp4,rp5,rp6,rp7,rp8,rp9,rp10,rp11,rp12,rp14,rp15,rp16,rp17,rp18,rp19,rp20,rp21,rp23)
-  rpall<-cbind(rncpt,rpcpt1,rpcpt2,rpcpt3)
-}
 ###wks.
 #######
+#external codes .csv table
+codes_cpt <- read_delim(paste0(dirtext,codesource), 
+                        delim = ";", escape_double = T)
+
 # 2.
 #get source files in top directory
 filelist<-list.files(dirtext,pattern="(\\.txt)")
@@ -126,12 +56,59 @@ filelist
 #remove hardcoded linenumbers in some transcripts
 #loop correction
 trans_mod_array<-list()
-k<-5
-
-linecor<-function(k,filelist){
+#k<-8
+#f<-8
+#TODO: the following function has must be applied only to the transcript, not to the header section
+#try create subscript of transcript containing just the interview section
+#maybe apply part of postprocessing routine first to tag discrete coding in header
+#precodesfun<-function(set,f){
+#f<-8
+  linecor<-function(k,filelist){
+#     
+#   precodes<-subset(codes_cpt,codes_cpt$category==7)
+# # for (f in length(filelist)){
+# #   tbu<-readLines(paste(dirtext,filelist[f],sep = "/"))
+# #   tbu<-gsub(precodes$regex,precodes$repl,tbu)
+# # }
+# #find transcript start
+# #for (f in 1:length(filelist2)){
+#   tbu<-readLines(paste(dirtext,filelist[f],sep = "/"))
+#   
+# mstart<-grep("^\\*",tbu)[1]
+# tbub<-tbu[mstart:length(tbu)]
+# tbusafe<-tbu
+# tbuheader<-tbu[1:mstart-1]
+# tbu<-tbuheader
+# rpall<-precodes
+# #for (k in 1:length(rpall$regex)) {
+#   m<-grep(rpall$regex,tbu)
+#   tbu<-gsub(rpall$regex,rpall$repl,tbu,perl = T)
+#  # ifelse(m!=0,tbu<-insert(tbu,m+1,rpall$subst[k]),m<-"no")
+# #}
+# tburec<-c(tbu,tbub)
+# tburec
+# zzfil<-tempfile("kidschar")
+# #zz<-file(zzfil,"wb")
+# #nc<-nchar(tburec)
+# writeLines(tburec,zzfil,sep="§%#nl#§%")
+#return(zz)
+#}
+#write_clip(tburec)
+#k<-8
+# linecor<-function(k,filelist){
   ###single run
+#  readtext(zz)
 cc<-readtext(paste(dirtext,filelist[k],sep = "/"))
-cc1<-cc$text
+#cc<-readtext(zzfil)
+ # cc1<-readtext(precodesfun(codes_cpt,f))
+  #cc<-precodesfun(codes_cpt,f)
+  cc1<-cc$text
+  #cc1<-readChar(cc,nchars=nchar(cc))
+  #zzfil<-tempfile("kidschar")
+  cc1
+ #   zz<-file(zzfil,"rb")
+#readChar(zz,nc)
+  #    cc1<-readChar(zz,nchar(tburec)+8)
 #find obsolete whitespace range 2 to 200 blanks
 regx1<-"[ ]{2,200}"
 repl1<-" "
@@ -160,7 +137,7 @@ write_clip(cc3)
 regx1<-'"'
 repl<-"'"
 cc3<-gsub(regx1,repl1,cc3,perl = T)
-#write_clip(cc3)
+write_clip(cc3)
 
 regx1<-"(?<=(\\*[A-Z]{3}))(\\*)" #doubled false * after speaker spec
 repl1<-""
@@ -209,13 +186,15 @@ filelist1<-list.files(dirtext,pattern="(\\.txt)")
 filelist1
 #temporary directory where output is saved during session and accessed in
 #section 3.
+#k<-8
 trans_mod_tempdir<-tempdir("trans_temp")
 for (k in 1:length(filelist1)){
 linecor(k,filelist1)
  trans_mod_array[k]<-linecor(k,filelist1)
 }
-k<-9
-cctemp<-linecor(k,filelist1)
+#k<-8
+filelist
+cctemp<-linecor(k,filelist)
 cat(cctemp)
 trans_mod_array[k]
 ### end linecorrection
@@ -230,9 +209,9 @@ filelist2[k]
 #wks.
 #here insert 4 & 5
 #change codes from table to valid regex formula
-#external codes .csv table
-codes_cpt <- read_delim(paste0(dirtext,codesource), 
-                        delim = ";", escape_double = T)
+# #external codes .csv table
+# codes_cpt <- read_delim(paste0(dirtext,codesource), 
+#                         delim = ";", escape_double = T)
 #tail(codes_cpt$regex)
 regxcor<-function(codeset,subset){
   #subset codes
@@ -497,7 +476,7 @@ tempfun0<-function(zer){
 ##################################
 #from here substitute #coding#
 ### THIS complete replacement loop
-f<-10
+#f<-8
 for (f in 1:length(filelist2)){
   tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
   p1<-grep(".ctivities",tbu)
