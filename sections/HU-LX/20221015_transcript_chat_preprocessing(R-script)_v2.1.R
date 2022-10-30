@@ -17,9 +17,9 @@ library(stringi)
 library(clipr)
 # 1. global variables
 #mini
-setwd("~/boxHKW/21S/DH/")
+#setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
-#setwd("~/boxHKW/UNI/21S/DH/")
+setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 codesource<-"/r-temp/codes_cpt3mod.csv"
 list.files(dirtext)
@@ -672,8 +672,12 @@ set<-codes_cpt
 # }
 # kids4
 # filelist2<-kids4
-# complete filelist of all converted files:
-# dirchat
-# filelist<-list.files(paste0(dirtext,dirchat),pattern="(\\.txt)")
-# write_clip(filelist)
-# writeLines(filelist,paste0(dirtemp,"/CHAT_transcripts_list.txt"))
+#complete filelist of all converted files:
+dirchat
+translist<-list.files(paste(dirtext,dirchat,sep="/"),pattern="(\\.txt)")
+#write_clip(filelist)
+#date()
+#format(Sys.time(), "%a %b %e %H:%M:%S %Y")
+datestamp<-format(Sys.time(), "%Y%m%d(%H.%M)")
+translistname<-paste0("CHAT_transcripts_list_",datestamp,".txt")
+writeLines(translist,paste(dirtemp,translistname,sep = "/"))
