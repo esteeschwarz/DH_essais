@@ -73,6 +73,7 @@
 80;80;80;NA;#9..#;3;1;%;C;OM;cmnt;Q;%COM: cmnt Q;26;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);%#%;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);test3
 81;81;81;63;9direct quote?@.;3;9;%;C;OM;cmnt;quote;%COM: cmnt quote;27;(9direct quote\?@\.);%#%;(9direct quote\?@\.);test3
 82;82;82;NA;# unclear script#;3;1;%;C;OM;cmnt;script unclear;%COM: cmnt script unclear;28;(# unclear script#)|(#script unclear#);%#%;(# unclear script#)|(#script unclear#);test3
+82;82;82;NA;unclear script;3;1;%;C;OM;cmnt;script unclear;%COM: cmnt script unclear;28;(# unclear script#)|(#script unclear#);%#%;(# unclear script#)|(#script unclear#);test3
 83;83;83;NA;#script unclear#;3;1;%;C;OM;cmnt;script unclear;%COM: cmnt script unclear;28;(# unclear script#)|(#script unclear#);%#%;(# unclear script#)|(#script unclear#);test3
 84;84;84;NA;#self-correction#;3;1;%;C;OM;cmnt;self-correction;%COM: cmnt self-correction;29;(#self-correction#);%#%;(#self-correction#);test3
 85;85;85;NA;#Kopfschuetteln#;3;1;%;C;OM;cmnt;shakes head;%COM: cmnt shakes head;30;(#Kopfschuetteln#);%#%;(#Kopfschuetteln#);test3

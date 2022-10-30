@@ -34,7 +34,7 @@ dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"13441.3"
 version<-"v2_5"
 dirchat<-paste0("SES_CHAT_transcripts_",version)
-dirchat<-paste0("CHAT_temp",version)
+#dirchat<-paste0("CHAT_temp",version)
 
 chatfileextension<-".txt"
 #for export in .cha format to import into exmaralda
@@ -216,8 +216,10 @@ filelist2[k]
 #here insert 4 & 5
 #change codes from table to valid regex formula
 # #external codes .csv table
- codeset <- read_delim(codesource, delim = ";", escape_double = T)
-subset<-c(1,2,3,4,4)
+####
+# codeset <- read_delim(codesource, delim = ";", escape_double = T)
+#subset<-c(1,2,3,4,4)
+####
  #tail(codes_cpt$regex)
 regxcor<-function(codeset,subset){
   #subset codes
