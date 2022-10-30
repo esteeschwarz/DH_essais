@@ -60,9 +60,10 @@
 69;69;69;NA;#9misunderstands#;3;1;%;C;OM;cmnt;misunderstanding;%COM: cmnt misunderstanding;24;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);%#%;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);test3
 70;70;70;NA;"#minunderstands ""wann""?#";3;1;%;C;OM;cmnt;misunderstanding 'wann';%COM: cmnt misunderstanding;24;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);%#%;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);test3
 71;71;71;NA;"#misunderstands ""welchen""#";3;1;%;C;OM;cmnt;misunderstanding 'welchen';%COM: cmnt misunderstanding;24;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);%#%;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);test3
-72;72;72;NA;#Pause#;4;2;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(…@); #(P)#;(#Pause#)|(…@);test3
-73;73;73;NA;…@;4;1;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(…@); #(P)#;(#Pause#)|(…@);test3
-73;73;73;NA;...@;4;1;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(...@); #(P)#;(#Pause#)|(…@);test3
+72;72;72;NA;#Pause#;4;2;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(…@);((...));(#Pause#)|(…@);test3
+73;73;73;NA;…@;4;1;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(…@);((...));(#Pause#)|(…@);test3
+73;73;73;NA;...@;4;1;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(...@);((...));(#Pause#)|(…@);test3
+73;73;73;NA;#(P)#;4;1;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(...@);((...));(#Pause#)|(…@);test3
 74;74;74;NA;#? #;3;1;%;C;OM;cmnt;Q;%COM: cmnt Q;26;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);%#%;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);test3
 75;75;75;NA;# ---#;3;1;%;C;OM;cmnt;Q;%COM: cmnt Q;26;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);%#%;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);test3
 76;76;76;NA;---#;3;1;%;C;OM;cmnt;Q;%COM: cmnt Q;26;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);%#%;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);test3
