@@ -101,3 +101,8 @@ simple_vertex_df$residence
   speaker<-paste0("klemm_",nodes$id)
   nodes$speaker<-speaker  
 nodes
+
+library(syuzhet)
+a2<-get_sentiment(dtatxt$text[5[1:4]],method = "syuzhet",language = "german")
+a2
+dtatxt$text[[5]][1:4]
