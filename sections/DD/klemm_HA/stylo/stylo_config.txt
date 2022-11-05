@@ -1,5 +1,5 @@
 corpus.format = "plain"
-corpus.lang = "German"
+corpus.lang = "English.all"
 analyzed.features = "w"
 ngram.size = 1
 preserve.case = FALSE
@@ -16,7 +16,7 @@ delete.pronouns = FALSE
 use.existing.freq.tables = FALSE
 use.existing.wordlist = FALSE
 use.custom.list.of.files = FALSE
-analysis.type = "tSNE"
+analysis.type = "CA"
 consensus.strength = 0.5
 distance.measure = "delta"
 sampling = "no.sampling"
