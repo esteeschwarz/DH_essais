@@ -26,20 +26,36 @@ plotsentiment<-function(set,book,chapter,pl){
 dtatxt<-set
 dtatarget<-dtatxt[["content"]][["body"]][["text"]][[book]][["pg"]][[chapter]][["div"]]["#text"]
 a4<-!is.na(dtatarget$`#text`)
+
+dtasubna<-as.data.frame(dtatarget$`#text`[a4])
+colnames(dtasubna)<-"text"
+
 al<-length(a4)
-a2<-get_sentiment(dtatarget$`#text`[1:al][a4],method = "syuzhet",language = "german")
+#a2<-get_sentiment(dtatarget$`#text`[1:al][a4],method = "syuzhet",language = "german")
+a2<-get_sentiment(dtasubna$text,method = "syuzhet",language = "german")
+
 a3<-get_transformed_values(a2)
 #label<-c("main"=chapter)
 plot(a3,type="h",main="sentiment analysis",ylab="relative value",xlab="distribution over:",sub=paste0("chapter ",chapter),col=2,asp=1)
 points(a3, cex = .2, col = "dark red")
 if (pl==1){
 plot(a2,type="l")}
-return(dtatarget$`#text`)
+#m1<-match(a2,max(a2))
+#m1
+#m2<-!is.na(m1)
+#dim(dtatarget)
+#dtatarget$peak<-dtatarget$`#text`[m2]
+dtasubna$peak<-a2
+colnames(dtasubna)<-c("text","peak")
+
+return(dtasubna)
+
+#return(dtatarget$`#text`)
 }
 #?plot
-targettxt<-plotsentiment(dtatxt,2,1,1)
+#dtatarget<-plotsentiment(dtatxt,2,1,1)
 
-k<-4
+#k<-4
 stoplist<-read.csv("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv",sep = ";")
 
 stoplist_t<-subset(stoplist,stoplist$stop==1)$word
@@ -50,57 +66,61 @@ stoplist_t<-subset(stoplist,stoplist$stop==1)$word
 #stoplist_t<-stoplist_m
 #textnr<-2
 #gsub()
+#dtatarget<-dtasubna
+mfw<-function(){
+dtasubna<-dtatarget
+  #text<-dtatarget$`#text`[textnr]
+#text<-dtatarget[textnr]
+m1<-match(dtatarget$peak,max(dtatarget$peak))
+m2<-!is.na(m1)
+textmax<-dtasubna$text[m2]
+m1<-match(dtatarget$peak,min(dtatarget$peak))
+m3<-!is.na(m1)
+textmin<-dtasubna$text[m3]
 
-mfw<-function(textnr){
-#text<-dtatarget$`#text`[textnr]
-text<-dtatarget[textnr]
-if (is.na(text)){
-  print("no data available for this text")
-  return()
-  }
-text2<-stri_split_boundaries(text)
+# if (is.na(text)){
+#   print("no data available for this text")
+#   return()
+#   }
+text2<-stri_split_boundaries(textmin)
 text3<-(text2[[1]]) #raw single words of text
 text4<-unique(text3)
-#m<-array()
-# for (k in 1:length(text4)){
-# m[k]<-length(gregexec(text4[k],text[1])[[1]])
-# }
-# text4
-
 m2<-!match(text3,stoplist_t,nomatch = F)
-#m2<-match(text3,stoplist_t,nomatch = F)
-#sum(m2)
-#m2
-#t4<-unique(text3[m2]) #alle unique wörter ohne stopwords
+t6<-text3[m2]
+#häufungen finden für ranking
+#match(t6,t4)
+#p1<-t6[duplicated(t6)]
+p2<-gsub("[^A-Za-z0-9äöü]","",t6)
+p2<-p2[duplicated(p2)]
+p2<-unique(p2)
+#print(p2)
+cat("minimum text wordlist of duplicates:\n")
+print(p2)
+#wks. now repeat for maximum
+text2<-stri_split_boundaries(textmax)
+text3<-(text2[[1]]) #raw single words of text
+text4<-unique(text3)
+m2<-!match(text3,stoplist_t,nomatch = F)
 t6<-text3[m2]
 #häufungen finden für ranking
 #match(t6,t4)
 p1<-t6[duplicated(t6)]
-p2<-gsub("[^A-Za-z0-9äöü]","",p1)
+p2<-gsub("[^A-Za-z0-9äöü]","",t6)
+p2<-p2[duplicated(p2)]
 p2<-unique(p2)
-#t4<-t5
-# count occurences of !stopwords in text 
-# m<-array()
-# for (k in 1:length(t4)){
-#   m[k]<-length(gregexec(t4[k],text[1])[[1]])
-# }
-# for (k in 1:length(t4)){
-#   m[k]<-match(stopwords,text3)
-# }
-# 
-# m
-# grep(t4[k],text[1],perl = F)
-# stoplist_m
-# 
-# #sort(t4)
-# t4<-gsub("\\.","",t4)
-# print(t4[m>2])
+cat("maximum text wordlist of duplicates:\n")
+print(p2)
+#t6
+#p2<-unique(p2)
+#print(p2)
+#text2
 # return(t4[m>1])
-return(p2)
+#return(p2)
 }
-#mfw(13)
+#mfw()
 #plotsentiment(dtatxt,book,chapter,plot_abs) #ARG: (set,book,chapter,absolute)
-
+####
+#find peak text in curve
 # grep(stoplist_t[1:3,1],text4)
 # stoplist_t<-subset(stoplist,stoplist$stop==1)
 # m<-grep(stoplist[k,1],text4)

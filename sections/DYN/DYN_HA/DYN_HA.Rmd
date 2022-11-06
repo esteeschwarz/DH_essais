@@ -79,11 +79,11 @@ source("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #calls miracle function from external script:
 book<-2
-chapter<-4
+chapter<-1
 plot_abs<-0
 text<-2
 dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs) #ARG: (set,book,chapter,absolute)
-mfw(text)
+mfw()
 ```
 
 Q: networks graph cf. [[@poggel_10_2022]](https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html), [[@franceschet_communities_2022]](https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html)
