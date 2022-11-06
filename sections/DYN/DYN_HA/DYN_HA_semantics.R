@@ -77,6 +77,7 @@ textmax<-dtasubna$text[m2]
 m1<-match(dtatarget$peak,min(dtatarget$peak))
 m3<-!is.na(m1)
 textmin<-dtasubna$text[m3]
+###wks. TODO: display name of text! dafür titel im df erhalten!
 
 # if (is.na(text)){
 #   print("no data available for this text")

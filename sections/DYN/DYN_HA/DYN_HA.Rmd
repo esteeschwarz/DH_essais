@@ -86,7 +86,7 @@ dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs) #ARG: (set,book,chapter,a
 mfw()
 ```
 
-Q: networks graph cf. [[@poggel_10_2022]](https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html), [[@franceschet_communities_2022]](https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html)
+Q: cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)
 
 ## 4.5 varianzen
 Auf dieser Grundlage bieten sich weitere Analysen an, die den Rahmen dieser Arbeit jedoch übersteigen. (m) Erste Vergleiche beider Editionen lassen vermuten, dasz die Varianzen in Stil und Orthographie auf Klemm selbst zurückgehen, da wir hier davon ausgehen, dasz er als Herausgeber der Wochenblätter, in denen die erste und zweite Ausgabe erschienen, weitgehend eigenverantwortlich editorisch tätig war.
