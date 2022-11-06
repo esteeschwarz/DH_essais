@@ -21,19 +21,22 @@ getwd()
 #dtatxt<-as.data.frame(fromJSON(src))
 dtatxt<-(fromJSON(src))
 book<-2
-chapter<-5
-#a4<-!is.na(dtatxt[["content"]][["body"]][["text"]][[2]][["pg"]][[2]]$div$`#text`)
-#dtatxt[["content"]][["body"]][["text"]][[2]][["pg"]][[1]]
-#dtatxt[["content"]][["body"]][["text"]][[2]][["pg"]][[1]][["div"]][["#text"]]
-#dtatxt$content$body$text[[2]]$pg[1]
+chapter<-4
+plotsentiment<-function(set,book,chapter,pl){
+dtatxt<-set
 dtatarget<-dtatxt[["content"]][["body"]][["text"]][[book]][["pg"]][[chapter]][["div"]]["#text"]
 a4<-!is.na(dtatarget$`#text`)
 al<-length(a4)
 a2<-get_sentiment(dtatarget$`#text`[1:al][a4],method = "syuzhet",language = "german")
 a3<-get_transformed_values(a2)
-plot(a3,type="h")
-#plot(a2,type="l")
-#dtatarget$`#text`
+#label<-c("main"=chapter)
+plot(a3,type="h",main="sentiment analysis",ylab="relative value",xlab="distribution over:",sub=paste0("chapter ",chapter),col=2,asp=1)
+points(a3, cex = .2, col = "dark red")
+if (pl==1){
+plot(a2,type="l")}
+}
+#?plot
+dtatarget$`#text`[10]
 # typeof(dtatxt$text[[k]])
 # speakerdir<-paste0(root,"/gith/DH_essais/sections/DYN/DYN_HA/corpus/")
 # dir.create(speakerdir)
