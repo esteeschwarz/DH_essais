@@ -43,12 +43,12 @@ k<-4
 stoplist<-read.csv("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv",sep = ";")
 
 stoplist_t<-subset(stoplist,stoplist$stop==1)$word
-stoplist_m<-gsub("[()?+]|\\[|\\]",".",stoplist_t)
-stoplist_m<-gsub("[^A-Za-z0-9äöü]","",stoplist_t)
-stoplist_m<-gsub("[\\.]{2,8}","",stoplist_m)
+#stoplist_m<-gsub("[()?+]|\\[|\\]",".",stoplist_t)
+#stoplist_m<-gsub("[^A-Za-z0-9äöü]","",stoplist_t)
+#stoplist_m<-gsub("[\\.]{2,8}","",stoplist_m)
 
-stoplist_t<-stoplist_m
-textnr<-2
+#stoplist_t<-stoplist_m
+#textnr<-2
 #gsub()
 
 mfw<-function(textnr){
@@ -75,8 +75,9 @@ m2<-!match(text3,stoplist_t,nomatch = F)
 t6<-text3[m2]
 #häufungen finden für ranking
 #match(t6,t4)
-p1<-unique(t6[duplicated(t6)])
+p1<-t6[duplicated(t6)]
 p2<-gsub("[^A-Za-z0-9äöü]","",p1)
+p2<-unique(p2)
 #t4<-t5
 # count occurences of !stopwords in text 
 # m<-array()
@@ -98,6 +99,8 @@ p2<-gsub("[^A-Za-z0-9äöü]","",p1)
 return(p2)
 }
 #mfw(13)
+#plotsentiment(dtatxt,book,chapter,plot_abs) #ARG: (set,book,chapter,absolute)
+
 # grep(stoplist_t[1:3,1],text4)
 # stoplist_t<-subset(stoplist,stoplist$stop==1)
 # m<-grep(stoplist[k,1],text4)

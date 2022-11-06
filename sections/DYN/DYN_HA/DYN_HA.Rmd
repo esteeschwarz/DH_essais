@@ -52,72 +52,38 @@ You would hear audio but your browser does not support the audio element.
 ## 4.1 basic statistics
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
-library(DramaAnalysis)
-library(magrittr)
-library(igraph)
-library(Hmisc)
-src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
-source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/klemm_HA/scripts/script_ext.R")
-source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/klemm_HA/scripts/tut_netzwerke.R")
-d<-loadDramaTEI(src)
-charStats <- characterStatistics(d, filterPunctuation = TRUE)
-charStats <- characterNames(charStats, d)
-cat("load TEI from:",src)
+library(jsonlite)
+library(syuzhet)
+
+root<-"~/boxHKW/21S/DH/"
+local<-paste0(root,"local/DYN/")
+setwd(local)
+#src<-"wolf_FF_1.json"
+src<-paste0(local,"wolf_FF-LEN_1.json")
+#getwd()
+#k<-2
+#dtatxt<-as.data.frame(fromJSON(src))
+dtatxt<-(fromJSON(src))
+#cat("load TEI from:",src)
+source("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
 ```
 
 ```{r echo = FALSE,warning=FALSE}
-#renderPlot({ #reactive consumer, necessary for get input values from selection
- # xin="tokens"
-  par(mar=c(9,3,2,2)) #position grafik
-#if (xin=="tokens"|xin=="types")  
-barplot(charStats$tokens, main="types & tokens",
-        names.arg = charStats$character, # Beschriftung der x-Achse: hier sollen die IDs der Figuren aus der Spalte "character" stehen
-        las=2, legend.txt="tokens" # Beschriftung der Achsen rotieren (Figuren-IDs auf der x-Achse würden sich sonst überlappen)
-)
-
-
-barplot(charStats$types,
-       # names.arg = charStats$character, # Beschriftung der x-Achse: hier sollen die IDs der Figuren aus der Spalte "character" stehen
-        las=2,col=2,add=TRUE,legend.txt="types"  ) 
-#  if(xin=="utterance length"){
-xrel<-charStats$types/charStats$tokens
-  par(mar=c(9,3,2,2))
-barplot(xrel, main="type/token relation",
-        names.arg = charStats$character, 
-        las=2 
-)
 ```
 
 ```{r echo = FALSE,warning=FALSE}
-uStat <- utteranceStatistics(d) %>%
-  characterNames(d)
-par(mar=c(9,4,2,2)) 
-boxplot(utteranceLength ~ character, main="global utterance length",
-        data=uStat,   
-      
-        las = 2
-)
-    
-#   if (xin==42) {
-# top<-100000
-# #a<-sample(top,top)
-# #c<-sqrt(length(a))
-# #b<-matrix(a,c,c)
-# writeimage(top) #what miracle: this function called from self external script sourced in head
-# 
-# }
-
 ```
 
-## 4.3 network
+## 4.3 sentiment
 
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #calls miracle function from external script:
-#this part is critical and calls an error if deployed
-library(igraph)
-#install.packages("lsa")
-library(lsa)
-showcommunities()
+book<-2
+chapter<-4
+plot_abs<-0
+text<-2
+dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs) #ARG: (set,book,chapter,absolute)
+mfw(text)
 ```
 
 Q: networks graph cf. [[@poggel_10_2022]](https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html), [[@franceschet_communities_2022]](https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html)
