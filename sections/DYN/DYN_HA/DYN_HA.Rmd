@@ -1,0 +1,130 @@
+---
+#--- official ---#
+# Hausarbeit im Seminar: Digitale Dramenanalyse, Frank Fischer, SS2022 FUB
+# im Fach: Allgemeine und Vergleichende Literaturwissenschaften
+# eingereicht von Stephan Schwarz
+# Abgabe: 2022-10-03
+
+title: "Digitale Dramenanalyse / SS22 FUB / Frank Fischer"
+author: "St. Schwarz"
+date: "`r Sys.Date()`"
+zotero: AVL_dyn
+output: 
+  html_document:
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    self_contained: FALSE #TRUE for standalone html page knit
+    #css: ../style_HA.css
+#swap / decomment ff .bib/.css references for self compile .Rmd to html
+#bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
+    css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
+bibliography: DYN_HA.bib
+---
+# A. head
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+to self compile the RMarkdown template to this page in RStudio cf. [@esteeschwarz_klemm_2022-1](https://github.com/esteeschwarz/DH_essais/blob/main/sections/DD/klemm_HA/top/M/klemm_HA_temp_BASE.Rmd)
+
+switch on podcast audio if you like...
+```{=html}
+<!-- placeholder for begleitaudiospur static .mp3-->
+<!----><audio controls>
+  <source src="https://ephemeridenmusik.rotefadenbuecher.de/wp-content/uploads/FM017_klemmHA.mp3" type="audio/mpeg">
+You would hear audio but your browser does not support the audio element.
+</audio><!---->
+<!-- placeholder for begleitaudiospur spotify podcast-->
+<!--<iframe src="https://open.spotify.com/embed/episode/0Z9JS54zC15Fh099ovAKce?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>-->
+```
+
+---
+
+# 1. einleitung
+
+# 2. klemm
+
+
+# 3. dokumentation aufbereitung
+
+# 4. some visualisations
+## 4.1 basic statistics
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+library(DramaAnalysis)
+library(magrittr)
+library(igraph)
+library(Hmisc)
+src<-"https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei"
+source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/klemm_HA/scripts/script_ext.R")
+source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DD/klemm_HA/scripts/tut_netzwerke.R")
+d<-loadDramaTEI(src)
+charStats <- characterStatistics(d, filterPunctuation = TRUE)
+charStats <- characterNames(charStats, d)
+cat("load TEI from:",src)
+```
+
+```{r echo = FALSE,warning=FALSE}
+#renderPlot({ #reactive consumer, necessary for get input values from selection
+ # xin="tokens"
+  par(mar=c(9,3,2,2)) #position grafik
+#if (xin=="tokens"|xin=="types")  
+barplot(charStats$tokens, main="types & tokens",
+        names.arg = charStats$character, # Beschriftung der x-Achse: hier sollen die IDs der Figuren aus der Spalte "character" stehen
+        las=2, legend.txt="tokens" # Beschriftung der Achsen rotieren (Figuren-IDs auf der x-Achse würden sich sonst überlappen)
+)
+
+
+barplot(charStats$types,
+       # names.arg = charStats$character, # Beschriftung der x-Achse: hier sollen die IDs der Figuren aus der Spalte "character" stehen
+        las=2,col=2,add=TRUE,legend.txt="types"  ) 
+#  if(xin=="utterance length"){
+xrel<-charStats$types/charStats$tokens
+  par(mar=c(9,3,2,2))
+barplot(xrel, main="type/token relation",
+        names.arg = charStats$character, 
+        las=2 
+)
+```
+
+```{r echo = FALSE,warning=FALSE}
+uStat <- utteranceStatistics(d) %>%
+  characterNames(d)
+par(mar=c(9,4,2,2)) 
+boxplot(utteranceLength ~ character, main="global utterance length",
+        data=uStat,   
+      
+        las = 2
+)
+    
+#   if (xin==42) {
+# top<-100000
+# #a<-sample(top,top)
+# #c<-sqrt(length(a))
+# #b<-matrix(a,c,c)
+# writeimage(top) #what miracle: this function called from self external script sourced in head
+# 
+# }
+
+```
+
+## 4.3 network
+
+```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
+#calls miracle function from external script:
+#this part is critical and calls an error if deployed
+library(igraph)
+#install.packages("lsa")
+library(lsa)
+showcommunities()
+```
+
+Q: networks graph cf. [[@poggel_10_2022]](https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html), [[@franceschet_communities_2022]](https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html)
+
+## 4.5 varianzen
+Auf dieser Grundlage bieten sich weitere Analysen an, die den Rahmen dieser Arbeit jedoch übersteigen. (m) Erste Vergleiche beider Editionen lassen vermuten, dasz die Varianzen in Stil und Orthographie auf Klemm selbst zurückgehen, da wir hier davon ausgehen, dasz er als Herausgeber der Wochenblätter, in denen die erste und zweite Ausgabe erschienen, weitgehend eigenverantwortlich editorisch tätig war.
+Die im folgenden genannten Varianzen lieszen sich mithilfe des oben verwendeten tools LERA als deutlich unterschieden unterhalb der Editionen erkennen. Welche Gründe Klemm hier zur Neuschreibung bewegten, liesz sich im Rahmen der Arbeit nicht mehr eruieren; die folgende Graphik veranschaulicht eventuelle Zusammenhänge, die sich mir jedoch nicht erschlieszen.
+---
+
+# B. REF:
