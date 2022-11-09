@@ -19,8 +19,8 @@ library(fs)
 # 1. global variables
 #setwd("~")
 #getwd()
-#path_home()
-codesource<-paste0(path_home(),"/Documents/GitHub/DH_essais/sections/HU-LX/codes_cpt4mod.csv")
+path_home()
+#codesource<-paste0(path_home(),"/Documents/GitHub/DH_essais/sections/HU-LX/codes_cpt4mod.csv")
 #######
 #mini
 #setwd("~/boxHKW/21S/DH/")
@@ -28,6 +28,8 @@ codesource<-paste0(path_home(),"/Documents/GitHub/DH_essais/sections/HU-LX/codes
 setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 #codesource<-"/r-temp/codes_cpt3mod.csv"
+codesource<-"gith/DH_essais/sections/HU-LX/codes_cpt4mod.csv"
+
 list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
@@ -410,19 +412,21 @@ for (f in 1:length(filelist2)){
   tbuheader<-tbu[1:mstart-1] #header section
   tbu<-tbub
   for (k in 1:length(rpall[,1])) {
+    flag<-1
     m<-grep(rpall[k,1],tbu)
     tier<-rpall$category[k]
     tbu<-gsub(rpall[k,1],rpall[k,"repl"],tbu)
-    ifelse(m!=0&tier!=4,tbu<-insert(tbu,m+1,rpall$subst[k]),m<-"no")
+    ifelse(m!=0&tier!=4,tbu<-insert(tbu,m+1,rpall$subst[k]),flag<-0)
     ###extra, essai: note number of instances/code in header
     mh<-grep(rpall$subst[k],tbuheader) #grep headercodedescription line
     tier<-rpall$category[k]
 #    tbu<-gsub(rpall[k,1],rpall[k,"repl"],tbu)
   #  ifelse(m!=0&tier!=4,tbuheader<-
-    ### this adds number of occurences o code o header description of code, has to be formatted
-            tbuheader<- gsub(rpall$headex[k],paste0(rpall$headex[k]," #: ",length(m)),tbuheader)
-            tbuheader<- gsub(" #: 0","#todeletespace#",tbuheader)
-            tbuheader<- gsub("#todeletespace#","",tbuheader)
+    ### this adds number of occurences of code to header description of code, has to be formatted
+            ifelse (m!=0,tbuheader<- gsub(rpall$headex[k],
+                       paste0(rpall$headex[k]," #: ",length(m)),tbuheader),flag<-0)
+          #  tbuheader<- gsub(" #: 0","#todeletespace#",tbuheader)
+          #  tbuheader<- gsub("#todeletespace#","",tbuheader)
             
     
     } #replace coding with replacement + add extra tier with code below speakerline 
