@@ -23,9 +23,9 @@ path_home()
 #codesource<-paste0(path_home(),"/Documents/GitHub/DH_essais/sections/HU-LX/codes_cpt4mod.csv")
 #######
 #mini
-#setwd("~/boxHKW/21S/DH/")
+setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
-setwd("~/boxHKW/UNI/21S/DH/")
+#setwd("~/boxHKW/UNI/21S/DH/")
 dirtext<-paste0(getwd(),"/local/HU-LX/000_SES_REFORMATTED_transcripts/Formatted with header info/text")
 #codesource<-"/r-temp/codes_cpt3mod.csv"
 codesource<-"gith/DH_essais/sections/HU-LX/codes_cpt4mod.csv"
@@ -34,7 +34,7 @@ list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"13441.3"
-version<-"v2_6"
+version<-"v2_7"
 dirchat<-paste0("SES_CHAT_transcripts_",version)
 #dirchat<-paste0("CHAT_temp",version)
 
@@ -423,13 +423,15 @@ for (f in 1:length(filelist2)){
 #    tbu<-gsub(rpall[k,1],rpall[k,"repl"],tbu)
   #  ifelse(m!=0&tier!=4,tbuheader<-
     ### this adds number of occurences of code to header description of code, has to be formatted
-            ifelse (m!=0,tbuheader<- gsub(rpall$headex[k],
-                       paste0(rpall$headex[k]," #: ",length(m)),tbuheader),flag<-0)
+            ifelse (length(m)!=0,tbuheader<-gsub(rpall$headex[k],
+                       paste0(rpall$headex[k]," n = ",length(m)),tbuheader),flag<-0)
           #  tbuheader<- gsub(" #: 0","#todeletespace#",tbuheader)
           #  tbuheader<- gsub("#todeletespace#","",tbuheader)
-            
-    
-    } #replace coding with replacement + add extra tier with code below speakerline 
+         rpall[k,5+f]<-length(m)   
+    #rpall$instance[k]<-c(f,length(m))
+    } #replace coding with replacement + add extra tier with code below speakerline
+  #TODO: create table of code instances in transcript:
+  
   
   #tbu[105:130]
   #####################################
@@ -450,6 +452,8 @@ for (f in 1:length(filelist2)){
   kids2<-gsub(regx2,repl2,kids1)
   kids2
   kids3<-toupper(kids2)
+  #length(rpall)
+ # colnames(rpall)<-c("regex","subst","category","repl","headex",kids3)
   # k<-1
   kids4<-array()
   for (k in 1:length(filelist2)){
@@ -464,7 +468,14 @@ for (f in 1:length(filelist2)){
     kids4[k]<-gsub(regx3,kids3[k],kids1[k],perl = T)
   }
   kids4<-strsplit(kids4,"\\.")
-  
+ # codestable<-rpall[5:length(rpall)]
+#  sum(codestable[1,6:length(codestable)]) #check for instance in line
+  # for (k in 1:length(codestable$headex) ){
+  # if (sum(codestable[k,6:length(codestable)])!=0){
+  #   codest2<-rbind (codestable[k,6:length(codestable)]
+  # 
+  #   write.csv(codestable,paste0(dirtext,"/r-temp/kidscodestable.csv"))
+ # getwd()
   #filelist2<-kids4
   ################
   
