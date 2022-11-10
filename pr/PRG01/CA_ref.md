@@ -20,6 +20,7 @@ hhh
 - diskursanalyse
 - CA
 - dialoggrammatik
+hhh
 #### 2.4
 > unter Gesprächsforschung zusammenfassend all jene Richtungen verstanden
 werden sollen, die es sich zur zentralen Aufgabe gemacht haben, 
