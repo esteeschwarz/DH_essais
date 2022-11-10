@@ -21,11 +21,9 @@ hhh
 - CA
 - dialoggrammatik
 hhh
-#### 2.4
-> unter Gesprächsforschung zusammenfassend all jene Richtungen verstanden
+#### 2.4 Q: Brinker, Klaus, Gerd Antos, and Wolfgang Heinemann. Text- und Gesprächslinguistik (Part 2). 1. Aufl. Mouton de Gruyter, 2008. Print.
+> ...unter Gesprächsforschung zusammenfassend all jene Richtungen verstanden
 werden sollen, die es sich zur zentralen Aufgabe gemacht haben, „die Bedingungen und Regeln systematisch zu erforschen, die die ‘natürliche’ Gesprächskommunikation, d. h. dialogisches sprachliches Handeln in verschiedenen gesellschaftlichen Bereichen (Alltag, Institutionen, Medien usw.), bestimmen" (Brinker, Klaus, and Sven F. Sager. Linguistische Gesprächsanalyse : eine Einführung / von Klaus Brinker und Sven F. Sager. 3., durchges. und erg. Aufl. Berlin: Erich Schmidt, 2001. Print.)
-
-Q: Brinker, Klaus, Gerd Antos, and Wolfgang Heinemann. Text- und Gesprächslinguistik (Part 2). 1. Aufl. Mouton de Gruyter, 2008. Print.
 hhh
 #### 3.CA
 ```
