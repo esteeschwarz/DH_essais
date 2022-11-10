@@ -41,21 +41,22 @@ hhh
 *SP1:	[dis is auch     ]
 *SP0:	[die] richtung ge[hen]
 *SP1:	[ja ]            [deu]tsch als fremdsprache äh
-*PAU:   (0.6)
+*PAU:	(0.6)
 *SP0:	ja
 *SP1:	musz ich auch definitiv belegen
-*SP1:   dis_s auch was
-*SP1:   was (..) bei mir dranhängt
-*SP1:   und dann wäre ja sowas (1.1) was (.) was man
-*SP1:   (0.9) zusammen belegen könnte
+*SP1:	dis_s auch was
+*SP1:	was (..) bei mir dranhängt
+*SP1:	und dann wäre ja sowas (1.1) was (.) was man
+*SP1:	(0.9) zusammen belegen könnte
 *SP0:	dis wär (.) dis wär auch für mich interessant 
-*SP0:   weil ich (0.3)
+*SP0:	weil ich (0.3)
 *SP1:	ja
-*PAU:   (1.4)
+*PAU:	(1.4)
 *SP0:	zum beispiel mit (0.1) 
-*SP0:   türkischen_  
-*SP0:   türkischen_ n_
-*SP0:   lern_ (.) lernern  also (...) äh deutsch als (...) zweitspra [che]
+*SP0:	türkischen_  
+*SP0:	türkischen_ n_
+*SP0:	lern_ (.) lernern  also (...) äh deutsch als (...) zweitspra [che]
+*SP1:	                                                             [ja ]
 [...abreviated...]
 @end
 ```
