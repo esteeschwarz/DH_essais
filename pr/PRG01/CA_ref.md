@@ -4,19 +4,19 @@
 ###### [info]
 ###### [output folienset as .pdf](https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-11-14/?print-pdf)
 hhh
-#### 1.head
+#### 1.     head
 hhh
-#### 2.gesprächsforschung:
+#### 2.     gesprächsforschung
 sprechakttheorie > gesprächsforschung
 hhh
-#### 2.1.gesprächsforschung:
+#### 2.1.   gesprächsforschung
 - diskursanalyse
 hhh
-#### 2.2.gesprächsforschung:
+#### 2.2.   gesprächsforschung
 - diskursanalyse
 - CA
 hhh
-#### 2.3.gesprächsforschung:
+#### 2.3.   gesprächsforschung
 - diskursanalyse
 - CA
 - dialoggrammatik
@@ -25,7 +25,7 @@ hhh
 > ...unter Gesprächsforschung zusammenfassend all jene Richtungen verstanden
 werden sollen, die es sich zur zentralen Aufgabe gemacht haben, „die Bedingungen und Regeln systematisch zu erforschen, die die ‘natürliche’ Gesprächskommunikation, d. h. dialogisches sprachliches Handeln in verschiedenen gesellschaftlichen Bereichen (Alltag, Institutionen, Medien usw.), bestimmen" (Brinker, Klaus, and Sven F. Sager. Linguistische Gesprächsanalyse : eine Einführung / von Klaus Brinker und Sven F. Sager. 3., durchges. und erg. Aufl. Berlin: Erich Schmidt, 2001. Print.)
 hhh
-#### 3.CA
+#### 3.     CA
 ```
 @begin
 @participants:  SP0: (M), SP1: (F)
@@ -58,4 +58,5 @@ hhh
 @end
 ```
 hhh
-#### 5.references
+#### 4.     analysis
+#### 5.     references
