@@ -4,11 +4,12 @@
 ###### [info]
 hhh
 
-#### 1.
+#### 1.head
 hhh
-#### 2.1
+#### 2.premises
 sprechakttheorie > gesprächsforschung
 hhh
+#### 2.1
 gesprächsforschung:
 - diskursanalyse
 hhh
