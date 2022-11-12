@@ -6,21 +6,34 @@
 hhh
 #### 1.     head
 hhh
-#### 2.     gesprächsforschung
+#### 2.1     gesprächsforschung
 sprechakttheorie > gesprächsforschung
 hhh
-#### 2.1.   gesprächsforschung
+#### 2.1     gesprächsforschung
+sprechakttheorie > gesprächsforschung
+ethnomethodologie (garfinkel)
+hhh
+#### 2.1     gesprächsforschung
+sprechakttheorie > gesprächsforschung
+ethnomethodologie (garfinkel)
+interaktionsanalyse (goffman)
+hhh
+#### 2.2   ansätze
 - diskursanalyse
 hhh
-#### 2.2.   gesprächsforschung
+#### 2.2   ansätze
 - diskursanalyse
 - CA
 hhh
-#### 2.3.   gesprächsforschung
+#### 2.2   ansätze
 - diskursanalyse
 - CA
 - dialoggrammatik
 hhh
+#### 2.2.1 diskursanalyse
+> Diskurse sind Text- und Gesprächsnetze zu einem Thema. Texte und Gespräche, die thematisch in Teilen oder im Ganzen das benannte Diskursthema betreffen, können als Diskursbestandteile oder Textmanifestationen des Diskurses zum Diskurs gezählt werden. Diskurs ist demnach ein Konstrukt, dem der Analytiker ein Diskursthema als Etikett zuschreibt und dem auf Grund mehr oder weniger vorgegebener thematischer Bezugnahme Texte als Bestandteile des Diskurses zugerechnet werden.
+
+Q: 
 #### 2.4 Q: Brinker, Klaus, Gerd Antos, and Wolfgang Heinemann. Text- und Gesprächslinguistik (Part 2). 1. Aufl. Mouton de Gruyter, 2008. Print.
 > ...unter Gesprächsforschung zusammenfassend all jene Richtungen verstanden
 werden sollen, die es sich zur zentralen Aufgabe gemacht haben, „die Bedingungen und Regeln systematisch zu erforschen, die die ‘natürliche’ Gesprächskommunikation, d. h. dialogisches sprachliches Handeln in verschiedenen gesellschaftlichen Bereichen (Alltag, Institutionen, Medien usw.), bestimmen" (Brinker, Klaus, and Sven F. Sager. Linguistische Gesprächsanalyse : eine Einführung / von Klaus Brinker und Sven F. Sager. 3., durchges. und erg. Aufl. Berlin: Erich Schmidt, 2001. Print.)
