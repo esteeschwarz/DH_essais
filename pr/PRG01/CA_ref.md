@@ -73,10 +73,11 @@ hhh
 ```
 @begin
 @participants:  SP0: (M), SP1: (F)
+@audio file:    boxHKW/UNI/21S/SPUND/PRG/PRG_CA_schnipsel.wav
 @duration:  02:10
-@file:  Users/guhl/boxHKW/UNI/21S/SPUND/PRG/PRG_CA_elan.eaf
+@transcript source: boxHKW/UNI/21S/SPUND/PRG/PRG_CA_elan.eaf
 @date:  2022 Oct 31, Mon 17:39
-@transcriber: ST
+@transcriber:   ST
 @annotator: ST
 
 *SP0:	[also dis (.) dis] wärn ja hier sachen die dann konkret in
