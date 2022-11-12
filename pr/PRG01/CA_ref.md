@@ -7,16 +7,16 @@ hhh
 #### 1.     head
 hhh
 #### 2.1     gesprächsforschung
-sprechakttheorie > gesprächsforschung
+- sprechakttheorie > gesprächsforschung
 hhh
 #### 2.1     gesprächsforschung
-sprechakttheorie > gesprächsforschung
-ethnomethodologie (garfinkel)
+- sprechakttheorie > gesprächsforschung
+- ethnomethodologie (garfinkel)
 hhh
 #### 2.1     gesprächsforschung
-sprechakttheorie > gesprächsforschung
-ethnomethodologie (garfinkel)
-interaktionsanalyse (goffman)
+- sprechakttheorie > gesprächsforschung
+- ethnomethodologie (garfinkel)
+- interaktionsanalyse (goffman)
 hhh
 #### 2.2   ansätze
 - diskursanalyse
@@ -42,7 +42,6 @@ hhh
 - sequenzierung
     - pausen (turn vakanz)
     - sprachmelodisch strukturierte pakete (IP=intonationsphrasen)
-
 hhh
 #### 3.2    keywords
 - turn
