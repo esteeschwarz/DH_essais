@@ -41,7 +41,9 @@ hhh
 - zeilenstrukturiertes vertikaltranscript
 - sequenzierung
     - pausen (turn vakanz)
-    - sprachmelodisch strukturierte pakete (IP=intonationsphrasen)
+    - sprachmelodisch strukturierte pakete (IP: intonationsphrasen)
+    - TCU: turn construction unit
+    - diskurs
 hhh
 #### 3.2    keywords
 - turn
@@ -80,7 +82,10 @@ hhh
 *SP0:	[also dis (.) dis] wärn ja hier sachen die dann konkret in
 *SP1:	[dis is auch     ]
 *SP0:	[die] richtung ge[hen]
+%TRN:   absinkende stimme, TCU final
 *SP1:	[ja ]            [deu]tsch als fremdsprache äh
+%TRN:   turn wird aufgenommen, TCU start
+%TOP:   topic continuity 
 *PAU:	(0.6)
 *SP0:	ja
 *SP1:	musz ich auch definitiv belegen
