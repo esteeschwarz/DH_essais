@@ -32,8 +32,7 @@ hhh
 hhh
 #### 2.2.1 Q: Felder/Müller/Vogel (2012)
 > **Diskurse** sind Text- und Gesprächsnetze zu einem Thema. Texte und Gespräche, die thematisch in Teilen oder im Ganzen das benannte Diskursthema betreffen, können als Diskursbestandteile oder Textmanifestationen des Diskurses zum Diskurs gezählt werden. Diskurs ist demnach ein Konstrukt, dem der Analytiker ein Diskursthema als Etikett zuschreibt und dem auf Grund mehr oder weniger vorgegebener thematischer Bezugnahme Texte als Bestandteile des Diskurses zugerechnet werden.
-
-Q: 
+hhh
 #### 2.4 Q: Brinker/Antos/Heinemann (2008)
 > ...unter **Gesprächsforschung** zusammenfassend all jene Richtungen verstanden
 werden sollen, die es sich zur zentralen Aufgabe gemacht haben, „die Bedingungen und Regeln systematisch zu erforschen, die die ‘natürliche’ Gesprächskommunikation, d. h. dialogisches sprachliches Handeln in verschiedenen gesellschaftlichen Bereichen (Alltag, Institutionen, Medien usw.), bestimmen" (Brinker, Klaus, and Sven F. Sager. Linguistische Gesprächsanalyse : eine Einführung / von Klaus Brinker und Sven F. Sager. 3., durchges. und erg. Aufl. Berlin: Erich Schmidt, 2001. Print.)
