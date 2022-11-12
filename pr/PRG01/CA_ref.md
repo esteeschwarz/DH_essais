@@ -45,7 +45,7 @@ hhh
     - TCU: turn construction unit
     - diskurs
 hhh
-#### 3.2    keywords
+#### 3.2    dialoggrammatik: keywords
 - turn
 hhh
 #### 3.2    keywords
@@ -63,11 +63,10 @@ hhh
 - WP: wahrnehmungsprüfung
 - TCU: turn construction unit (handlungs/sinn konstitution)
 hhh
-#### 3.3    sequenzialität und sequenzposition
+#### 3.3    dialoggrammatik sample
 1. *SP1: handlung zur interpretation angeboten
 2. *SP2: (next turn) interpretation angezeigt (next turn proof procedure)
 3. *SP1: interpretation (SP2) ratifiziert (sequence-closing third)
-
 hhh
 #### 4.     sample CA
 ```
