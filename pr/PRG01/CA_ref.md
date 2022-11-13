@@ -165,7 +165,7 @@ vvv
 16 dat is VILlenberg,                   [TCU8]
 17 dat is nicht ARbeiterstadt;          [TCU9]
 ```
-Q: Imo/Lanwer (2019)
+Q: cf. Imo/Lanwer (2019)
 hhh
 #### 3.3    dialoggrammatik sample
 1. *SP1: handlung zur interpretation angeboten
