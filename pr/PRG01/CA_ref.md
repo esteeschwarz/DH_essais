@@ -90,6 +90,7 @@ vvv
 - zb. map tasks
 hhh
 #### 3.1     vorgehen
+- aufnahme
 - zeilenstrukturiertes vertikaltranscript
 - sequenzierung
     - pausen (turn vakanz)
