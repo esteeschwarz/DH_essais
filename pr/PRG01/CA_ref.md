@@ -140,6 +140,15 @@ hhh
 - summons - answer : paarsequenz
 - TCU: turn construction unit (handlungs/sinn konstitution)
 hhh
+- turn
+- FA: fokussierungsaufforderung
+- WP: wahrnehmungsprüfung
+- repair
+- hörersignale
+- summons - answer : paarsequenz
+- TCU: turn construction unit (handlungs/sinn konstitution)
+- TRP: transition relevant places : turnübergabe möglich
+hhh
 #### 3.3    dialoggrammatik sample
 1. *SP1: handlung zur interpretation angeboten
 2. *SP2: (next turn) interpretation angezeigt (next turn proof procedure)
