@@ -14,7 +14,7 @@ hhh
 - sprechakttheorie > gesprächsforschung
 - pragmatic turn
 vvv
-#### 2.1.2  pragmatic turn
+#### 2.1.1  pragmatic turn
 - soziales Handeln zu bestimmen und eine Methode zu finden, die es wissenschaftlicher Betrachtung zugänglich macht. (Auer 2013)
 - Max Weber 1919 in Abgrenzung zu Durkheim und Marx entwirft "verstehende Soziologie" > Einflusz auf die Interaktionsanalyse
 hhh
@@ -23,7 +23,7 @@ hhh
 - pragmatic turn
 - ethnomethodologie (garfinkel)
 vvv
-#### 2.1.1  Q: Imo/Lanwer (2019)
+#### 2.1.2  Q: Imo/Lanwer (2019)
 > Garfinkel (1973: 189) definiert das Erkenntnisziel der Ethnomethodologie wie folgt: Die Ethnomethodologie »beschäftigt sich mit dem Alltagswissen von und innerhalb gesellschaftlicher Strukturen als einem Gegenstand von theoretisch-soziologischem Interesse«. (...) Damit werden die Methoden und Regeln bezeichnet, die Menschen im Alltag anwenden, um ihr soziales Miteinander zu strukturieren. Diese Methoden und Regeln werden dabei nicht bewusst gelernt, sondern als Mitglied einer Gesellschaft erwirbt man meist in der Kindheit schon durch Beobachtung und Nachahmung, nicht aber durch explizite Instruktion, das Wissen über Handlungsroutinen.
 
 vvv
