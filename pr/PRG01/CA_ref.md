@@ -99,7 +99,7 @@ hhh
     - TCU: turn constructional unit
     - diskurs
 hhh
-#### 3.2    dialoggrammatik: keywords
+#### 3.2    keywords
 - turn
 hhh
 #### 3.2    keywords
