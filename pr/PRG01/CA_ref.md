@@ -157,13 +157,13 @@ vvv
 08 K: SIE. [TCU2]
 09 M: ja.  [TCU3]
 10 K: die lEute die (.) tUn dort GAR nichts. [TCU4]
-11 die sitzen im Auto und wärmen sich AUF einfach. [TCU4]
-12 M: [ä::h (WISsen_se-)]               [TCU5]
-13 K: [(Es is mittlerwei]le) halb EINS, [TCU6]
-14 und wir (.) S:IND hIEr;                    [TCU7]
-15 eh eh in kAtastroPHAlen verhÄltnissen;=ne, [TCU7]
-16 dat is VILlenberg,                   [TCU8]
-17 dat is nicht ARbeiterstadt;          [TCU9]
+11 die sitzen im Auto und wärmen sich AUF einfach. [TCU5]
+12 M: [ä::h (WISsen_se-)]               [TCU6]
+13 K: [(Es is mittlerwei]le) halb EINS, [TCU7]
+14 und wir (.) S:IND hIEr;                    [TCU8]
+15 eh eh in kAtastroPHAlen verhÄltnissen;=ne, [TCU8]
+16 dat is VILlenberg,                   [TCU9]
+17 dat is nicht ARbeiterstadt;          [TCU10]
 ```
 Q: cf. Imo/Lanwer (2019)
 hhh
