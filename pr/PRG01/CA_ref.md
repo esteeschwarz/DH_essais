@@ -127,6 +127,14 @@ hhh
 - turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
+- repair
+- hörersignale
+- summons - answer : paarsequenz
+hhh
+#### 3.2    keywords
+- turn
+- FA: fokussierungsaufforderung
+- WP: wahrnehmungsprüfung
 - TCU: turn construction unit (handlungs/sinn konstitution)
 hhh
 #### 3.3    dialoggrammatik sample
