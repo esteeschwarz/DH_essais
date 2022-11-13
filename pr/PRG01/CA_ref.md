@@ -40,8 +40,24 @@ vvv
 > (...) Sinngebung weitgehend mit der Interpretation von „indexikalischen Ausdrücken“ gleichgesetzt, d. h. all jenen sprachlichen Elementen, die isoliert (ohne ihren Kontext) betrachtet nicht eindeutig [sind]. Solche indexikalischen Ausdrücke wären in unserem Beispiel etwa hier, alles, ganz schön, verändert (...) Sie alle stellen unpräzise Teile der Äußerung [dar]. 
 
 vvv
-#### 2.1.4 garfinkel
-- brechungsexperiment
+#### 2.1.4.1 garfinkel: brechungsexperiment
+```
+VP: Hallo Ray, wie geht es deiner Freundin? 
+E:  Was meinst Du mit der Frage, wie es ihr geht? 
+    Meinst du das körperlich oder geistig? 
+VP: Ich meine: wie geht es ihr? Was ist denn mit dir los? 
+    (Er wirkt eingeschnappt.) 
+E:  Nichts. Aber erklär mir doch ein bisschen deutlicher, 
+    was du meinst.
+VP: Lassen wir das. Was macht deine Zulassung 
+    für die medizinische Hochschule? 
+E:  Was meinst du damit: „Was macht sie?“
+VP: Du weißt genau, was ich meine.
+E:  Ich weiß es wirklich nicht.
+VP: Was ist mit dir los? Ist dir nicht gut?
+```
+vvv
+#### 2.1.4.2
 hhh
 #### 2.1     gesprächsforschung
 - sprechakttheorie > gesprächsforschung
