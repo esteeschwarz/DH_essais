@@ -92,16 +92,16 @@ hhh
 hhh
 #### 3.2    dialoggrammatik: keywords
 - turn
-vvv
+hhh
 #### 3.2    keywords
 - turn
 - FA: fokussierungsaufforderung
-vvv
+hhh
 #### 3.2    keywords
 - turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
-vvv
+hhh
 #### 3.2    keywords
 - turn
 - FA: fokussierungsaufforderung
