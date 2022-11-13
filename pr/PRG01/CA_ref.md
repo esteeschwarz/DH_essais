@@ -87,7 +87,7 @@ hhh
 - aufnahme
 vvv
 #### 3.1.1 aufnahme
-- elicitation linguistischer phänome in natürlicher sprache
+- elicitation linguistischer phänomene in natürlicher sprache
 - zb. map tasks
 hhh
 #### 3.1     vorgehen
@@ -140,7 +140,6 @@ hhh
 - hörersignale
 - summons - answer : paarsequenz
 - TRP: transition relevant places : turnübergabe möglich
-
 hhh
 #### 3.2    keywords
 - turn
@@ -151,7 +150,6 @@ hhh
 - summons - answer : paarsequenz
 - TRP: transition relevant places : turnübergabe möglich
 - TCU: turn constructional unit (handlungs/sinn konstitution)
-
 vvv
 #### 3.2.1 TCU
 ```
