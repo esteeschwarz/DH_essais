@@ -93,9 +93,9 @@ hhh
 - aufnahme
 - zeilenstrukturiertes vertikaltranscript
 - sequenzierung
-    - pausen (turn vakanz)
+    - pausen (turn vakanz, TRP)
     - sprachmelodisch strukturierte pakete (IP: intonationsphrasen)
-    - TCU: turn construction unit
+    - TCU: turn constructional unit
     - diskurs
 hhh
 #### 3.2    dialoggrammatik: keywords
@@ -138,7 +138,7 @@ hhh
 - repair
 - hörersignale
 - summons - answer : paarsequenz
-- TCU: turn construction unit (handlungs/sinn konstitution)
+- TCU: turn constructional unit (handlungs/sinn konstitution)
 hhh
 - turn
 - FA: fokussierungsaufforderung
@@ -146,7 +146,7 @@ hhh
 - repair
 - hörersignale
 - summons - answer : paarsequenz
-- TCU: turn construction unit (handlungs/sinn konstitution)
+- TCU: turn constructional unit (handlungs/sinn konstitution)
 - TRP: transition relevant places : turnübergabe möglich
 hhh
 #### 3.3    dialoggrammatik sample
