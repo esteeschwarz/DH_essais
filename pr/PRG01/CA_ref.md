@@ -150,6 +150,7 @@ hhh
 - summons - answer : paarsequenz
 - TRP: transition relevant places : turnübergabe möglich
 - TCU: turn constructional unit (handlungs/sinn konstitution)
+
 vvv
 #### 3.2.1 TCU
 ```
@@ -173,6 +174,7 @@ hhh
 1. *SP1: handlung zur interpretation angeboten
 2. *SP2: (next turn) interpretation angezeigt (next turn proof procedure)
 3. *SP1: interpretation (SP2) ratifiziert (sequence-closing third)
+
 hhh
 #### 4.     sample CA
 ```
