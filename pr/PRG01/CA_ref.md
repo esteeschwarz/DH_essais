@@ -149,7 +149,6 @@ hhh
 - hörersignale
 - summons - answer : paarsequenz
 - TRP: transition relevant places : turnübergabe möglich
-- TCU: turn constructional unit (handlungs/sinn konstitution)
 vvv
 #### 3.2.1 TCU
 ```
