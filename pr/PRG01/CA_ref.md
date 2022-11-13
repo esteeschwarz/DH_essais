@@ -2,7 +2,7 @@
 ###### 20221114 / stephan schwarz
 #### gesprächsanalyse
 ###### [info]
-###### [output folienset as .pdf](https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-11-14/?print-pdf)
+###### [output folienset in pdf view](https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-11-14/?print-pdf)
 hhh
 #### 1.     head
 (placeholder)
@@ -12,7 +12,36 @@ hhh
 hhh
 #### 2.1     gesprächsforschung
 - sprechakttheorie > gesprächsforschung
+- pragmatic turn
+vvv
+#### 2.1.2  pragmatic turn
+- soziales Handeln zu bestimmen und eine Methode zu finden, die es wissenschaftlicher Betrachtung zugänglich macht. (Auer 2013)
+- Max Weber 1919 in Abgrenzung zu Durkheim und Marx entwirft "verstehende Soziologie" > Einflusz auf die Interaktionsanalyse
+hhh
+#### 2.1     gesprächsforschung
+- sprechakttheorie > gesprächsforschung
 - ethnomethodologie (garfinkel)
+vvv
+#### 2.1.1  Q: Imo/Lanwer (2019)
+> Garfinkel (1973: 189) definiert das Erkenntnisziel der Ethnomethodologie wie folgt: Die Ethnomethodologie »beschäftigt sich mit dem Alltagswissen von und innerhalb gesellschaftlicher Strukturen als einem Gegenstand von theoretisch-soziologischem Interesse«. (...) Damit werden die Methoden und Regeln bezeichnet, die Menschen im Alltag anwenden, um ihr soziales Miteinander zu strukturieren. Diese Methoden und Regeln werden dabei nicht bewusst gelernt, sondern als Mitglied einer Gesellschaft erwirbt man meist in der Kindheit schon durch Beobachtung und Nachahmung, nicht aber durch explizite Instruktion, das Wissen über Handlungsroutinen.
+
+vvv
+#### 2.1.2  ethnomethoden
+- institutionell > präskriptiv
+  - bewerbungsgespräch
+  - universitäres sprechstundengespräch
+- alltäglich > routiniert
+  - einkaufen
+  - einen fahrstuhl betreten
+  - einen freien sitzplatz im zug einnehmen
+vvv
+#### 2.1.3 indexikalität (Q: P. Auer (2013))
+"das hat sich aber alles ganz schön verändert hier!"
+> (...) Sinngebung weitgehend mit der Interpretation von „indexikalischen Ausdrücken“ gleichgesetzt, d. h. all jenen sprachlichen Elementen, die isoliert (ohne ihren Kontext) betrachtet nicht eindeutig [sind]. Solche indexikalischen Ausdrücke wären in unserem Beispiel etwa hier, alles, ganz schön, verändert (...) Sie alle stellen unpräzise Teile der Äußerung [dar]. 
+
+vvv
+#### 2.1.4 garfinkel
+- brechungsexperiment
 hhh
 #### 2.1     gesprächsforschung
 - sprechakttheorie > gesprächsforschung
@@ -48,16 +77,16 @@ hhh
 hhh
 #### 3.2    dialoggrammatik: keywords
 - turn
-hhh
+vvv
 #### 3.2    keywords
 - turn
 - FA: fokussierungsaufforderung
-hhh
+vvv
 #### 3.2    keywords
 - turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
-hhh
+vvv
 #### 3.2    keywords
 - turn
 - FA: fokussierungsaufforderung
