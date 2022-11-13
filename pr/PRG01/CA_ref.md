@@ -20,6 +20,7 @@ vvv
 hhh
 #### 2.1     gesprächsforschung
 - sprechakttheorie > gesprächsforschung
+- pragmatic turn
 - ethnomethodologie (garfinkel)
 vvv
 #### 2.1.1  Q: Imo/Lanwer (2019)
@@ -83,6 +84,11 @@ hhh
 hhh
 #### 3.1     vorgehen
 - aufnahme
+vvv
+#### 3.1.1 aufnahme
+- elicitation linguistischer phänome in natürlicher sprache
+- zb. map tasks
+hhh
 - zeilenstrukturiertes vertikaltranscript
 - sequenzierung
     - pausen (turn vakanz)
