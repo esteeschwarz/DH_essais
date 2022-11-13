@@ -89,6 +89,7 @@ vvv
 - elicitation linguistischer phänome in natürlicher sprache
 - zb. map tasks
 hhh
+#### 3.1     vorgehen
 - zeilenstrukturiertes vertikaltranscript
 - sequenzierung
     - pausen (turn vakanz)
