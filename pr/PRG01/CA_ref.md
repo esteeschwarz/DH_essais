@@ -112,20 +112,17 @@ hhh
 - WP: wahrnehmungsprüfung
 hhh
 #### 3.2    keywords
-- turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
 - repair
 hhh
 #### 3.2    keywords
-- turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
 - repair
 - hörersignale
 hhh
 #### 3.2    keywords
-- turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
 - repair
@@ -133,7 +130,6 @@ hhh
 - summons - answer : paarsequenz
 hhh
 #### 3.2    keywords
-- turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
 - repair
@@ -142,13 +138,13 @@ hhh
 - TRP: transition relevant places : turnübergabe möglich
 hhh
 #### 3.2    keywords
-- turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
 - repair
 - hörersignale
 - summons - answer : paarsequenz
 - TRP: transition relevant places : turnübergabe möglich
+- TCU: turn constructional unit (handlungs/sinn konstitution)
 vvv
 #### 3.2.1 TCU
 ```
