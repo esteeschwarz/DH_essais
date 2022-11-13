@@ -142,7 +142,6 @@ hhh
 - TCU: turn constructional unit (handlungs/sinn konstitution)
 vvv
 #### 3.2.1 TCU
-```
 05 K: wer is da ZUständig für den villenberg; 
 06 für diesen ROHRbruch da.
 07 M: WIR; [TCU1]
@@ -152,12 +151,6 @@ vvv
 11 die sitzen im Auto und wärmen sich AUF einfach. [TCU5]
 12 M: [ä::h (WISsen_se-)]               [TCU6]
 13 K: [(Es is mittlerwei]le) halb EINS, [TCU7]
-14 und wir (.) S:IND hIEr;                    [TCU8]
-15 eh eh in kAtastroPHAlen verhÄltnissen;=ne, [TCU8]
-16 dat is VILlenberg,                   [TCU9]
-17 dat is nicht ARbeiterstadt;          [TCU10]
-```
-Q: cf. Imo/Lanwer (2019)
 hhh
 #### 3.3    dialoggrammatik sample
 1. *SP1: handlung zur interpretation angeboten
