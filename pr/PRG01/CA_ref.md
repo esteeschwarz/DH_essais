@@ -138,7 +138,7 @@ hhh
 - repair
 - hörersignale
 - summons - answer : paarsequenz
-- TCU: turn constructional unit (handlungs/sinn konstitution)
+- TRP: transition relevant places : turnübergabe möglich
 hhh
 - turn
 - FA: fokussierungsaufforderung
@@ -146,8 +146,26 @@ hhh
 - repair
 - hörersignale
 - summons - answer : paarsequenz
-- TCU: turn constructional unit (handlungs/sinn konstitution)
 - TRP: transition relevant places : turnübergabe möglich
+- TCU: turn constructional unit (handlungs/sinn konstitution)
+vvv
+#### 3.2.1 TCU
+```
+05 K: wer is da ZUständig für den villenberg; 
+06 für diesen ROHRbruch da.
+07 M: WIR; [TCU1]
+08 K: SIE. [TCU2]
+09 M: ja.  [TCU3]
+10 K: die lEute die (.) tUn dort GAR nichts. [TCU4]
+11 die sitzen im Auto und wärmen sich AUF einfach. [TCU4]
+12 M: [ä::h (WISsen_se-)]               [TCU5]
+13 K: [(Es is mittlerwei]le) halb EINS, [TCU6]
+14 und wir (.) S:IND hIEr;                    [TCU7]
+15 eh eh in kAtastroPHAlen verhÄltnissen;=ne, [TCU7]
+16 dat is VILlenberg,                   [TCU8]
+17 dat is nicht ARbeiterstadt;          [TCU9]
+```
+Q: Imo/Lanwer (2019)
 hhh
 #### 3.3    dialoggrammatik sample
 1. *SP1: handlung zur interpretation angeboten
