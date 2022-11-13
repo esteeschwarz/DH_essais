@@ -61,6 +61,7 @@ Q: (aus Garfinkel 1961 ["Aspects of common-sense knowledge of social structures"
 hhh
 #### 2.1     gesprächsforschung
 - sprechakttheorie > gesprächsforschung
+- pragmatic turn
 - ethnomethodologie (garfinkel)
 - interaktionsanalyse (goffman)
 hhh
