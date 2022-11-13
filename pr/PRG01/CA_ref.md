@@ -100,14 +100,9 @@ hhh
     - diskurs
 hhh
 #### 3.2    keywords
-- turn
-hhh
-#### 3.2    keywords
-- turn
 - FA: fokussierungsaufforderung
 hhh
 #### 3.2    keywords
-- turn
 - FA: fokussierungsaufforderung
 - WP: wahrnehmungsprüfung
 hhh
