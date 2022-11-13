@@ -56,9 +56,7 @@ VP: Du weißt genau, was ich meine.
 E:  Ich weiß es wirklich nicht.
 VP: Was ist mit dir los? Ist dir nicht gut?
 ```
-Q: (aus Garfinkel 1961, Übersetzung P. Auer) in: P. Auer (2013)
-vvv
-#### 2.1.4.2
+Q: (aus Garfinkel 1961 ["Aspects of common-sense knowledge of social structures"], Übersetzung P. Auer) in: P. Auer (2013)
 hhh
 #### 2.1     gesprächsforschung
 - sprechakttheorie > gesprächsforschung
