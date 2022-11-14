@@ -94,7 +94,7 @@ hhh
 vvv
 #### 3.1.1 aufnahme
 - elicitation linguistischer phänomene in natürlicher sprache
-- zb. map tasks
+- zb. map tasks [corpus](https://groups.inf.ed.ac.uk/maptask/)
 hhh
 #### 3.1     vorgehen
 - aufnahme
