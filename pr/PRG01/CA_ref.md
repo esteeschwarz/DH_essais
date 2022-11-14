@@ -2,10 +2,10 @@
 ###### 20221114 / stephan schwarz
 #### gesprächsanalyse
 ###### [info]
-###### [output folienset in pdf view](https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-11-14/?print-pdf)
 hhh
 #### 1.     head
-(placeholder)
+###### [presentation: revealjs](https://revealjs.com)
+###### [output folienset in pdf view](https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-11-14/?print-pdf)
 hhh
 #### 2.1     gesprächsforschung
 - sprechakttheorie > gesprächsforschung
@@ -67,21 +67,27 @@ hhh
 hhh
 #### 2.2   ansätze
 - diskursanalyse
+vvv
+#### 2.2.1 Q: Felder/Müller/Vogel (2012)
+> **Diskurse** sind Text- und Gesprächsnetze zu einem Thema. Texte und Gespräche, die thematisch in Teilen oder im Ganzen das benannte Diskursthema betreffen, können als Diskursbestandteile oder Textmanifestationen des Diskurses zum Diskurs gezählt werden. Diskurs ist demnach ein Konstrukt, dem der Analytiker ein Diskursthema als Etikett zuschreibt und dem auf Grund mehr oder weniger vorgegebener thematischer Bezugnahme Texte als Bestandteile des Diskurses zugerechnet werden.
 hhh
 #### 2.2   ansätze
 - diskursanalyse
 - CA
+vvv
+#### 2.2.2 Q: Brinker/Antos/Heinemann (2008)
+> ...unter **Gesprächsforschung** zusammenfassend all jene Richtungen verstanden werden sollen, die es sich zur zentralen Aufgabe gemacht haben, „die Bedingungen und Regeln systematisch zu erforschen, die die ‘natürliche’ Gesprächskommunikation, d. h. dialogisches sprachliches Handeln in verschiedenen gesellschaftlichen Bereichen (Alltag, Institutionen, Medien usw.), bestimmen" (Brinker, Klaus, and Sven F. Sager. Linguistische Gesprächsanalyse : eine Einführung / von Klaus Brinker und Sven F. Sager. 3., durchges. und erg. Aufl. Berlin: Erich Schmidt, 2001. Print.)
 hhh
 #### 2.2   ansätze
 - diskursanalyse
 - CA
 - dialoggrammatik
-hhh
-#### 2.2.1 Q: Felder/Müller/Vogel (2012)
-> **Diskurse** sind Text- und Gesprächsnetze zu einem Thema. Texte und Gespräche, die thematisch in Teilen oder im Ganzen das benannte Diskursthema betreffen, können als Diskursbestandteile oder Textmanifestationen des Diskurses zum Diskurs gezählt werden. Diskurs ist demnach ein Konstrukt, dem der Analytiker ein Diskursthema als Etikett zuschreibt und dem auf Grund mehr oder weniger vorgegebener thematischer Bezugnahme Texte als Bestandteile des Diskurses zugerechnet werden.
-hhh
-#### 2.2.2 Q: Brinker/Antos/Heinemann (2008)
-> ...unter **Gesprächsforschung** zusammenfassend all jene Richtungen verstanden werden sollen, die es sich zur zentralen Aufgabe gemacht haben, „die Bedingungen und Regeln systematisch zu erforschen, die die ‘natürliche’ Gesprächskommunikation, d. h. dialogisches sprachliches Handeln in verschiedenen gesellschaftlichen Bereichen (Alltag, Institutionen, Medien usw.), bestimmen" (Brinker, Klaus, and Sven F. Sager. Linguistische Gesprächsanalyse : eine Einführung / von Klaus Brinker und Sven F. Sager. 3., durchges. und erg. Aufl. Berlin: Erich Schmidt, 2001. Print.)
+vvv
+#### 3.3    dialoggrammatik schema
+1. *SP1: handlung zur interpretation angeboten
+2. *SP2: (next turn) interpretation angezeigt (next turn proof procedure)
+3. *SP1: interpretation (SP2) ratifiziert (sequence-closing third)
+
 hhh
 #### 3.1     vorgehen
 - aufnahme
@@ -169,12 +175,6 @@ vvv
 ```
 Q: cf. Imo/Lanwer (2019)
 hhh
-#### 3.3    dialoggrammatik sample
-1. *SP1: handlung zur interpretation angeboten
-2. *SP2: (next turn) interpretation angezeigt (next turn proof procedure)
-3. *SP1: interpretation (SP2) ratifiziert (sequence-closing third)
-
-hhh
 #### 4.     sample CA
 ```
 @begin
@@ -189,10 +189,10 @@ hhh
 *SP0:	[also dis (.) dis] wärn ja hier sachen die dann konkret in
 *SP1:	[dis is auch     ]
 *SP0:	[die] richtung ge[hen]
-%TRN:   absinkende stimme, TCU final
+%TRN:   absinkende stimme, turn final
 *SP1:	[ja ]            [deu]tsch als fremdsprache äh
-%TRN:   turn wird aufgenommen, TCU start
-%TOP:   topic continuity 
+%TRN:   turn start
+%TOP:   topic continuing
 *PAU:	(0.6)
 *SP0:	ja
 *SP1:	musz ich auch definitiv belegen
