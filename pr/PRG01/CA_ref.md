@@ -93,6 +93,16 @@ hhh
 #### 3.1     vorgehen
 - aufnahme
 - zeilenstrukturiertes vertikaltranscript
+vvv
+#### 3.1.2  tools/conventions
+- GAT, CHAT
+- ELAN, exmaralda
+
+[IDS: transkriptionsindex](http://prowiki.ids-mannheim.de/bin/view/GAIS/TranskriptionIndex)
+hhh
+#### 3.1     vorgehen
+- aufnahme
+- zeilenstrukturiertes vertikaltranscript
 - sequenzierung
     - pausen (turn vakanz, TRP)
     - sprachmelodisch strukturierte pakete (IP: intonationsphrasen)
