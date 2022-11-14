@@ -1,4 +1,4 @@
-##### 13456.neuropragmatik
+##### 13456.neuropragmatik WS22/23
 ###### 20221114 / stephan schwarz
 #### gesprächsanalyse
 ###### [info]
