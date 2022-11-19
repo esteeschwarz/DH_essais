@@ -1,5 +1,5 @@
 ;...1;...2;...3;codes;category;scheme;pre1;pre2;pre3;phrase;feature;subst;ar;regex;repl;regexcor;test
-1;1;1;NA;#9 0 art/det#;2;1;%;0;AD;zero;article/determiner;%0AD: zero article/determinant;1;(#9 0 art/det#);%#%;(#9 0 art/det#);test3
+1;1;1;NA;#9 0 art/det#;2;1;%;0;AD;zero;article/determiner;%0AD: zero article/determiner;1;(#9 0 art/det#);%#%;(#9 0 art/det#);test3
 10;10;10;NA;# 90 art 90 prep#;2;1;%;0;AP;zero;article/preposition;%0AP: zero article/preposition;3;(# 90 art 90 prep#);%#%;(# 90 art 90 prep#);test3
 11;11;11;4;prep 90 art#;2;9;%;0;AR;zero;article;%0AR: zero article;4;(prep 90 art#)|(90 art#)|(# 90 art\.)|(prep 90 art#)|(90 art#)|(90 art)|(90 art)|(90 art)|(90 art\.)|(#90 art\.#)|(#90 art#)|(#9 0 art#)|(#0 art#)|(#90 art\?#);%#%;(prep 90 art#)|(90 art#)|(# 90 art\.)|(prep 90 art#)|(90 art#)|(90 art)|(90 art)|(90 art)|(90 art\.)|(#90 art\.#)|(#90 art#)|(#9 0 art#)|(#0 art#)|(#90 art\?#);test3
 12;12;12;8;90 art#;2;9;%;0;AR;zero;article;%0AR: zero article;4;(prep 90 art#)|(90 art#)|(# 90 art\.)|(prep 90 art#)|(90 art#)|(90 art)|(90 art)|(90 art)|(90 art\.)|(#90 art\.#)|(#90 art#)|(#9 0 art#)|(#0 art#)|(#90 art\?#);%#%;(prep 90 art#)|(90 art#)|(# 90 art\.)|(prep 90 art#)|(90 art#)|(90 art)|(90 art)|(90 art)|(90 art\.)|(#90 art\.#)|(#90 art#)|(#9 0 art#)|(#0 art#)|(#90 art\?#);test3
@@ -60,10 +60,10 @@
 69;69;69;NA;#9misunderstands#;3;1;%;C;OM;cmnt;misunderstanding;%COM: cmnt misunderstanding;24;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);%#%;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);test3
 70;70;70;NA;"#minunderstands ""wann""?#";3;1;%;C;OM;cmnt;misunderstanding 'wann';%COM: cmnt misunderstanding;24;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);%#%;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);test3
 71;71;71;NA;"#misunderstands ""welchen""#";3;1;%;C;OM;cmnt;misunderstanding 'welchen';%COM: cmnt misunderstanding;24;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);%#%;(#9misunderstand#)|(#9misunderstands#)|(#minunderstands .wann.\?#)|(#misunderstands .welchen.#);test3
-72;72;72;NA;#Pause#;4;2;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(…@);((...));(#Pause#)|(…@);test3
-73;73;73;NA;…@;4;1;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(…@);((...));(#Pause#)|(…@);test3
-73;73;73;NA;...@;4;1;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(...@);((...));(#Pause#)|(…@);test3
-73;73;73;NA;#(P)#;4;1;%;M;PA;meta:;pause;%MPA: meta: pause;25;(#Pause#)|(...@);((...));(#Pause#)|(…@);test3
+72;72;72;NA;#Pause#;4;2;%;P;AU;pause;;%PAU: pause;25;(#Pause#)|(…@);((...));(#Pause#)|(…@);test3
+73;73;73;NA;…@;4;1;%;P;AU;pause;;%PAU: pause;25;(#Pause#)|(…@);((...));(#Pause#)|(…@);test3
+73;73;73;NA;...@;4;1;%;P;AU;pause;;%PAU: pause;25;(#Pause#)|(...@);((...));(#Pause#)|(…@);test3
+73;73;73;NA;#(P)#;4;1;%;P;AU;pause;;%PAU: pause;25;(#Pause#)|(...@);((...));(#Pause#)|(…@);test3
 74;74;74;NA;#? #;3;1;%;C;OM;cmnt;Q;%COM: cmnt Q;26;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);%#%;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);test3
 75;75;75;NA;# ---#;3;1;%;C;OM;cmnt;Q;%COM: cmnt Q;26;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);%#%;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);test3
 76;76;76;NA;---#;3;1;%;C;OM;cmnt;Q;%COM: cmnt Q;26;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);%#%;(#\? #)|(# ---#)|(---#)|(#grrrrrr#)|(#9…#)|(#\.\.\.#)|(#9\.\.#);test3
@@ -96,9 +96,9 @@
 28;28;28;NA;#9nst compar#;1;1;%;N;CM;nonstandard;comparison;%NCM: nonstandard comparison;7;(#9nst compar\.#)|(#9nst compar#);%#%;(#9nst compar\.#)|(#9nst compar#);test3
 29;29;29;NA;#9nst conditional#;1;1;%;N;CN;nonstandard;conditional;%NCN: nonstandard conditional;8;(#9nst conditional#);%#%;(#9nst conditional#);test3
 34;34;34;NA;#9extra art#;1;1;%;N;EA;nonstandard;extra article;%NEA: nonstandard extra article;10;(#9extra art#);%#%;(#9extra art#);test3
-36;36;36;NA;#9nst existential#;1;1;%;N;ES;nonstandard;existential;%NES: nonstandard existential;12;(#9nst existential#);%#%;(#9nst existential#);test3
-37;37;37;NA;9nst ext#;1;9;%;N;EX;nonstandard;ext;%NEX: nonstandard ext;13;(9nst ext#)|(9nst ext#);%#%;(9nst ext#)|(9nst ext#);test3
-38;38;38;NA;9nst ext#;1;1;%;N;EX;nonstandard;ext;%NEX: nonstandard ext;13;(9nst ext#)|(9nst ext#);%#%;(9nst ext#)|(9nst ext#);test3
+36;36;36;NA;#9nst existential#;1;1;%;N;EX;nonstandard;existential;%NEX: nonstandard existential;12;(#9nst existential#);%#%;(#9nst existential#);test3
+37;37;37;NA;9nst ext#;1;9;%;N;EX;nonstandard;existential;%NEX: nonstandard existential;13;(9nst ext#)|(9nst ext#);%#%;(9nst ext#)|(9nst ext#);test3
+38;38;38;NA;9nst ext#;1;1;%;N;EX;nonstandard;existential;%NEX: nonstandard existential;13;(9nst ext#)|(9nst ext#);%#%;(9nst ext#)|(9nst ext#);test3
 39;39;39;11;# 9nst#;1;9;%;N;NS;nonstandard;not specified;%NGG: nonstandard general;14;(# 9nst#)|(# 9nst#)|(9nst)|(9nst)|(9nst)|(9nst\.)|(#9nst#)|(#9nst #)|(# 9nst#)|(#9nst);%#%;(# 9nst#)|(# 9nst#)|(9nst)|(9nst)|(9nst)|(9nst\.)|(#9nst#)|(#9nst #)|(# 9nst#)|(#9nst);test3
 40;40;40;22;# 9nst#;1;9;%;N;NS;nonstandard;not specified;%NGG: nonstandard general;14;(# 9nst#)|(# 9nst#)|(9nst)|(9nst)|(9nst)|(9nst\.)|(#9nst#)|(#9nst #)|(# 9nst#)|(#9nst);%#%;(# 9nst#)|(# 9nst#)|(9nst)|(9nst)|(9nst)|(9nst\.)|(#9nst#)|(#9nst #)|(# 9nst#)|(#9nst);test3
 41;41;41;38;9nst;1;9;%;N;NS;nonstandard;not specified;%NGG: nonstandard general;14;(# 9nst#)|(# 9nst#)|(9nst)|(9nst)|(9nst)|(9nst\.)|(#9nst#)|(#9nst #)|(# 9nst#)|(#9nst);%#%;(# 9nst#)|(# 9nst#)|(9nst)|(9nst)|(9nst)|(9nst\.)|(#9nst#)|(#9nst #)|(# 9nst#)|(#9nst);test3
@@ -164,7 +164,7 @@
 ;;;head;(mostly);6;;;;;;;;;(\\(mostly\\));roughly;;
 ;;;trans;(family_language-with_parents-with);5;;;;;;;;;(\\(family_language-with_parents-with\\));(family_language-with_parents-with_siblings);;
 ;;;head;., see the Elicitation documentation files.;6;;;;;;;;;\\., see the Elicitation documentation files\\.;"; see reference @Elicitation files.";;
-;;;trans;%WORD;5;;;;;;;;; %([A-Za-z]); #%#\\1;;
+;;;trans;%WORD;5;;;;;;;;; %([A-Za-z]);#%#\\1;;
 ;;;head;TUR/ELL;6;;;;;;;;;(@ID:.+)(_TUR|_ELL)_;\\1_;;
 ;;global;head;@.ctivities;6;;;;;;;;;^@.ctivities.+;@Activities: background info, directed conversation, personal narratives;;
 ;;;trans;tab after tier label, speaker;5;;;;;;;;;([\\*]...:) ;\\1\t;;
