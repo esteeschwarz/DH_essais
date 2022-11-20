@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="St. Schwarz" />
+
+<meta name="date" content="2022-11-20" />
+
+<title>N-PRG conversation analysis</title>
+
+<script src="N-PRG_CA_001_files/header-attrs-2.16/header-attrs.js"></script>
+<script src="N-PRG_CA_001_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="N-PRG_CA_001_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="N-PRG_CA_001_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="N-PRG_CA_001_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="N-PRG_CA_001_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="N-PRG_CA_001_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="N-PRG_CA_001_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="N-PRG_CA_001_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="N-PRG_CA_001_files/navigation-1.1/tabsets.js"></script>
+<script src="N-PRG_CA_001_files/navigation-1.1/codefolding.js"></script>
+<script src="N-PRG_CA_001_files/navigation-1.1/sourceembed.js"></script>
+<link href="N-PRG_CA_001_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="N-PRG_CA_001_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+<style type="text/css">
+#rmd-source-code {
+  display: none;
+}
+</style>
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="https://ada-sub.rotefadenbuecher.de/skool/public/essais/PRG01/style_HA.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">N-PRG conversation analysis</h1>
+<h3 class="subtitle">Neuropragmatik WS22/23 FUB (Pulvermüller)</h3>
+<h4 class="author">St. Schwarz</h4>
+<h4 class="date">2022-11-20</h4>
+
+</div>
+
+
+<hr />
+<div id="section" class="section level2">
+<h2>1.</h2>
+<p>the conversation is part of a 15 minutes planungsgespräch. the
+preliminary discussion revealed that one class intended to visit commune
+in the future (anschluszseminar) could be one in the section :german as
+foreign language: (DAF) that both participants considered relevant to
+their curriculum and in continuation of this classes (NPRG) program.</p>
+</div>
+<div id="the-transcript" class="section level2">
+<h2>2. the transcript</h2>
+<p>the dialogue represents minutes 08:42 - 10:45 of the recording
+transcribed according to GAT2 conventions using EXMARALDA partitur
+editor <a href="https://exmaralda.org/de/"><span
+class="citation">(Wörner and Schmidt 2014)</span></a> and ELAN <a
+href="https://archive.mpi.nl/tla/elan"><span class="citation">(ELAN
+2022)</span></a>.</p>
+<div id="basic" class="section level4">
+<h4>2.1 basic</h4>
+
+<iframe src="prime/CA_schnipsel_001.2.txt" style="border:2px solid black;" width="100%" height="300px"></iframe>
+</div>
+<div id="analysis" class="section level4">
+<h4>2.2 analysis</h4>
+
+<iframe src="prime/CA_schnipsel_001.html" style="border:2px solid black;" width="100%" height="300px"></iframe>
+</div>
+</div>
+<div id="some-visualisations-statistics" class="section level2">
+<h2>3. some visualisations &amp; statistics</h2>
+<div id="section-1" class="section level3">
+<h3>3.1</h3>
+<p>Auswertung 1. der TRP (transition relevant places) im Dialogverlauf.
+Diese werden hier 2. nach Fourier-Transformation der Positionen
+abgebildet, so dasz die frequenzanalysierte (nach Fourier also relative
+Länge) der zwischen den TRP liegenden Dialogabschnitten sichtbar ist. 3.
+Die relativierte Verlaufkurve der Intonationsphrasenlänge;
+<code>rot = SP0, grün = SP1, blau = Differenzkurve</code>.</p>
+<p><img src="N-PRG_CA_001_files/figure-html/unnamed-chunk-2-1.png" width="672" /><img src="N-PRG_CA_001_files/figure-html/unnamed-chunk-2-2.png" width="672" /><img src="N-PRG_CA_001_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+<p>Fourier transformation of data cf. “syuzhet” R-Package: <a
+href="https://www.matthewjockers.net/2015/02/02/syuzhet/"><span
+class="citation">(Jockers 2015)</span></a></p>
+</div>
+<div id="some-numbers" class="section level3">
+<h3>3.2 some numbers</h3>
+<pre><code>##     speechacts speech time (sec)  words
+## SP0         70                 80   167
+## SP1         43                 51    71</code></pre>
+</div>
+</div>
+<div id="b.-ref" class="section level2 unnumbered">
+<h2 class="unnumbered">B. REF:</h2>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-elan_elan_2022" class="csl-entry">
+ELAN. 2022. <span>“<span>ELAN</span> (<span>Version</span> 6.4)
+[<span>Computer</span> Software].”</span> <a
+href="https://archive.mpi.nl/tla/elan">https://archive.mpi.nl/tla/elan</a>.
+</div>
+<div id="ref-jockers_revealing_2015" class="csl-entry">
+Jockers, Matthew. 2015. <span>“Revealing <span>Sentiment</span> and
+<span>Plot</span> <span>Arcs</span> with the <span>Syuzhet</span>
+<span>Package</span> <span>Matthew</span> <span>L</span>.
+<span>Jockers</span>.”</span> <a
+href="https://www.matthewjockers.net/2015/02/02/syuzhet/">https://www.matthewjockers.net/2015/02/02/syuzhet/</a>.
+</div>
+<div id="ref-worner_exmaralda_2014" class="csl-entry">
+Wörner, K., and T. Schmidt. 2014. <span>“<span>EXMARaLDA</span>.”</span>
+In <em>Handbook on <span>Corpus</span> <span>Phonology</span></em>,
+402–19. Oxford University Press. <a
+href="https://exmaralda.org/de/">https://exmaralda.org/de/</a>.
+</div>
+</div>
+</div>
+
+<div id="rmd-source-code">LS0tCiMtLS0gb2ZmaWNpYWwgLS0tIwojIHNlbWluYXJhcmJlaXQgaW0gU2VtaW5hcjogTmV1cm9wcmFnbWF0aWssIFdTMjIvMjMgRlVCCiMgaW0gRmFjaCBTcHJhY2h3aXNzZW5zY2hhZnRlbgojIHZvbiBTdGVwaGFuIFNjaHdhcnoKIyBBYmdhYmU6IDIwMjItMTEtMjAKCnRpdGxlOiAiTi1QUkcgY29udmVyc2F0aW9uIGFuYWx5c2lzIgpzdWJ0aXRsZTogIk5ldXJvcHJhZ21hdGlrIFdTMjIvMjMgRlVCIChQdWx2ZXJtw7xsbGVyKSIKYXV0aG9yOiAiU3QuIFNjaHdhcnoiCmRhdGU6ICJgciBTeXMuRGF0ZSgpYCIKem90ZXJvOiBBVkxfZHluCm91dHB1dDogCiAgaHRtbF9kb2N1bWVudDoKICAgIHRvYzogeWVzCiAgICB0b2NfZmxvYXQ6CiAgICAgIGNvbGxhcHNlZDogbm8KICAgICAgc21vb3RoX3Njcm9sbDogbm8KICAgIHNlbGZfY29udGFpbmVkOiBGQUxTRSAjVFJVRSBmb3Igc3RhbmRhbG9uZSBodG1sIHBhZ2Uga25pdAogICAgY29kZV9kb3dubG9hZDogVFJVRQogICAgY3NzOiBodHRwczovL2FkYS1zdWIucm90ZWZhZGVuYnVlY2hlci5kZS9za29vbC9wdWJsaWMvZXNzYWlzL1BSRzAxL3N0eWxlX0hBLmNzcwojc3dhcCAvIGRlY29tbWVudCBmZiAuYmliLy5jc3MgcmVmZXJlbmNlcyBmb3Igc2VsZiBjb21waWxlIC5SbWQgdG8gaHRtbAojYmlibGlvZ3JhcGh5OiBodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZXN0ZWVzY2h3YXJ6L0RIX2Vzc2Fpcy9tYWluL3NlY3Rpb25zL0REL2tsZW1tX0hBL3RvcC9rbGVtbS5iaWIKICAgIyBjc3M6IGh0dHBzOi8vYWRhLXN1Yi5yb3RlZmFkZW5idWVjaGVyLmRlL3Nrb29sL3B1YmxpYy9wYXBlcnMvMDExL3N0eWxlX0hBLmNzcwojYmlibGlvZ3JhcGh5OiBodHRwczovL2FwaS56b3Rlcm8ub3JnL2dyb3Vwcy80NzEzMjQ2L2NvbGxlY3Rpb25zL1pXNk1DVTJKL2l0ZW1zL3RvcD9mb3JtYXQ9YmlibGF0ZXgKYmlibGlvZ3JhcGh5OiBQUkdfQ0EuYmliCi0tLQpgYGB7ciBzZXR1cCwgaW5jbHVkZT1GQUxTRX0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQpgYGAKCi0tLQoKYGBge3IgZXZhbD1UUlVFLCBlY2hvPUZBTFNFLCB3YXJuaW5nPUZBTFNFLG1lc3NhZ2U9RkFMU0V9CiNsaWJyYXJ5KGpzb25saXRlKQpsaWJyYXJ5KHN5dXpoZXQpCmxpYnJhcnkocmVhZHIpCmxpYnJhcnkoeGZ1bikKCnJvb3Q8LSJ+L2JveEhLVy8yMVMvREgvIgpleHBvPC1wYXN0ZTAocm9vdCwibG9jYWwvQ0EvUFJHL2V4cG8vIikKI3NldHdkKGxvY2FsKQojc3JjPC0id29sZl9GRl8xLmpzb24iCiNzcmM8LXBhc3RlMChsb2NhbCwid29sZl9GRi1MRU5fMS5qc29uIikKIyMjCiNtaW5pCiNzZXR3ZCgifi9ib3hIS1cvMjFTL0RILyIpCiNsYXBzaSwgZXdhCiNzZXR3ZCgifi9ib3hIS1cvVU5JLzIxUy9ESC8iKQpgYGAKCiMjIDEuIAp0aGUgY29udmVyc2F0aW9uIGlzIHBhcnQgb2YgYSAxNSBtaW51dGVzIHBsYW51bmdzZ2VzcHLDpGNoLiB0aGUgcHJlbGltaW5hcnkgZGlzY3Vzc2lvbiByZXZlYWxlZCB0aGF0IG9uZSBjbGFzcyBpbnRlbmRlZCB0byB2aXNpdCBjb21tdW5lIGluIHRoZSBmdXR1cmUgKGFuc2NobHVzenNlbWluYXIpIGNvdWxkIGJlIG9uZSBpbiB0aGUgc2VjdGlvbiA6Z2VybWFuIGFzIGZvcmVpZ24gbGFuZ3VhZ2U6IChEQUYpIHRoYXQgYm90aCBwYXJ0aWNpcGFudHMgY29uc2lkZXJlZCByZWxldmFudCB0byB0aGVpciBjdXJyaWN1bHVtIGFuZCBpbiBjb250aW51YXRpb24gb2YgdGhpcyBjbGFzc2VzIChOUFJHKSBwcm9ncmFtLgoKIyMgMi4gdGhlIHRyYW5zY3JpcHQKdGhlIGRpYWxvZ3VlIHJlcHJlc2VudHMgbWludXRlcyAwODo0MiAtIDEwOjQ1IG9mIHRoZSByZWNvcmRpbmcgdHJhbnNjcmliZWQgYWNjb3JkaW5nIHRvIEdBVDIgY29udmVudGlvbnMgdXNpbmcgRVhNQVJBTERBIHBhcnRpdHVyIGVkaXRvciBbW0B3b3JuZXJfZXhtYXJhbGRhXzIwMTRdXShodHRwczovL2V4bWFyYWxkYS5vcmcvZGUvKSBhbmQgRUxBTiBbW0BlbGFuX2VsYW5fMjAyMl1dKGh0dHBzOi8vYXJjaGl2ZS5tcGkubmwvdGxhL2VsYW4pLgoKIyMjIyAyLjEgYmFzaWMKYGBgIHs9aHRtbH0KCjxpZnJhbWUgc3JjPSJwcmltZS9DQV9zY2huaXBzZWxfMDAxLjIudHh0IiBzdHlsZT0iYm9yZGVyOjJweCBzb2xpZCBibGFjazsiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjMwMHB4Ij48L2lmcmFtZT4KYGBgCgojIyMjIDIuMiBhbmFseXNpcwpgYGAgez1odG1sfQoKPGlmcmFtZSBzcmM9InByaW1lL0NBX3NjaG5pcHNlbF8wMDEuaHRtbCIgc3R5bGU9ImJvcmRlcjoycHggc29saWQgYmxhY2s7IiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIzMDBweCI+PC9pZnJhbWU+CmBgYAoKIyMgMy4gc29tZSB2aXN1YWxpc2F0aW9ucyAmIHN0YXRpc3RpY3MKIyMjIDMuMQpBdXN3ZXJ0dW5nIDEuIGRlciBUUlAgKHRyYW5zaXRpb24gcmVsZXZhbnQgcGxhY2VzKSBpbSBEaWFsb2d2ZXJsYXVmLiBEaWVzZSB3ZXJkZW4gaGllciAyLiBuYWNoIEZvdXJpZXItVHJhbnNmb3JtYXRpb24gZGVyIFBvc2l0aW9uZW4gYWJnZWJpbGRldCwgc28gZGFzeiBkaWUgZnJlcXVlbnphbmFseXNpZXJ0ZSAobmFjaCBGb3VyaWVyIGFsc28gcmVsYXRpdmUgTMOkbmdlKSBkZXIgendpc2NoZW4gZGVuIFRSUCBsaWVnZW5kZW4gRGlhbG9nYWJzY2huaXR0ZW4gc2ljaHRiYXIgaXN0LiAzLiBEaWUgcmVsYXRpdmllcnRlIFZlcmxhdWZrdXJ2ZSBkZXIgSW50b25hdGlvbnNwaHJhc2VubMOkbmdlOyBgcm90ID0gU1AwLCBncsO8biA9IFNQMSwgYmxhdSA9IERpZmZlcmVuemt1cnZlYC4KCmBgYHtyIGV2YWw9VFJVRSwgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRSxtZXNzYWdlPUZBTFNFfQojcGF0aDE8LSJsb2NhbC9DQS9QUkcvZXhwby8iCnNyYzwtbGlzdC5maWxlcyhleHBvKQpzcmM8LXBhc3RlMChleHBvLHNyYykKdHJhbnNfbnM8LWMoInRpZXIiLCJ0eXBlIiwic3BlYWtlciIsInRleHQiLCJzdGFydCIsImVuZCIsImNhdGVnb3J5IiwibGFiZWwiKQojZHRhPC1yZWFkLmNzdjIoc3JjLGhlYWRlcj1GLHNlcCA9ICJcdCIsY29sLm5hbWVzID0gdHJhbnNfbnMpCmR0YSA8LSByZWFkX2RlbGltKHBhc3RlMChleHBvLCJQUkdfQ0FfZWxhblNGLWNoYXQwMDJFb3V0RVgtT1gtRVguY3N2IiksIAogICAgICAgICAgICAgICAgICBkZWxpbSA9ICJcdCIsIGVzY2FwZV9kb3VibGUgPSBGQUxTRSwgCiAgICAgICAgICAgICAgICAgIGNvbF9uYW1lcyA9IHRyYW5zX25zLCB0cmltX3dzID0gVFJVRSkKCiMjIwp0cnA8LWR0YSRjYXRlZ29yeT09IlRSUCIKdHJwMTwtZHRhJHN0YXJ0W3RycF0KdHJwMjwtYyhkdGEkc3RhcnRbMV0sdHJwMSkKdHJwMzwtYyh0cnAxLGR0YSRlbmRbbGVuZ3RoKGR0YSRlbmQpXSkKdHJwNDwtdHJwMy10cnAyCmJhcnBsb3QodHJwNCwgbWFpbiA9ICJUUlAgZXZhbHVhdGlvbiIseWxhYiA9ICJhYnNvbHV0ZSBsZW5ndGggb2YgcGhhc2UiLHhsYWI9ImZsb3cgb2YgY29udmVyc2F0aW9uIikKbGlicmFyeShzeXV6aGV0KQp0cnA1PC1nZXRfdHJhbnNmb3JtZWRfdmFsdWVzKHRycDQpCiNwbG90KHRycDUsdHlwZSA9ICJoIikKcGxvdCh0cnA1LHR5cGU9ImgiLG1haW49IlRSUCBldmFsdWF0aW9uIix5bGFiPSJyZWxhdGl2ZSBsZW5ndGggb2YgcGhhc2UiLHhsYWI9ImluZGV4IG9mIGNvbnZlcnNhdGlvbiIsY29sPTIpCnBvaW50cyh0cnA1LCBjZXggPSAuMiwgY29sID0gImRhcmsgcmVkIikKIyMjd2tzLgpzcGswPC1kdGEkc3BlYWtlcj09IlNQS19TUDAiJmR0YSRjYXRlZ29yeT09Im1haW4iCnNwazE8LWR0YSRzcGVha2VyPT0iU1BLX1NQMSImZHRhJGNhdGVnb3J5PT0ibWFpbiIKc3BrMjwtZHRhJGVuZFtzcGswXQpzcGszPC1kdGEkZW5kW3NwazFdCnNwazQ8LWR0YSRzdGFydFtzcGswXQpzcGs1PC1zcGsyLXNwazQgIwpzcGVlY2hBMDwtc3VtKHNwazApCnNwZWVjaEExPC1zdW0oc3BrMSkKCiNzcGs1W3NwazBdCiMgY2F0KCJzcGVlY2ggYWN0cyBNOiAiLHNwZWVjaEEwLCJcbiIpCiMgY2F0KCJzcGVlY2ggYWN0cyBGOiAiLHNwZWVjaEExLCJcbiIpCiNzdW0oc3BrMSkKc3BrNjwtZHRhJHN0YXJ0W3NwazFdCnNwazc8LXNwazMtc3BrNgpzdW1TUEsxPC1zdW0oc3BrNykKc3VtU1BLMDwtc3VtKHNwazUpCiMgY2F0KCJhYnNvbHV0ZSB0aW1lIHNwZWVjaCBhY3RzIE06ICIsc3VtU1BLMCwiXG4iKQojIGNhdCgiYWJzb2x1dGUgdGltZSBzcGVlY2ggYWN0cyBGOiAiLHN1bVNQSzEsIlxuIikKCnNwazg8LWdldF90cmFuc2Zvcm1lZF92YWx1ZXMoc3BrNSkKc3BrOTwtZ2V0X3RyYW5zZm9ybWVkX3ZhbHVlcyhzcGs3KQpwbG90KHNwazgsdHlwZT0iaCIsbWFpbj0idXR0ZXJhbmNlIGxlbmd0aCB+IGRpYWxvZyIseWxhYj0icmVsYXRpdmUgbGVuZ3RoIG9mIElQIChtcykiLHhsYWI9ImluZGV4IG9mIGNvbnZlcnNhdGlvbiIsY29sPTIpCnBhcihuZXc9VCkKcGxvdChzcGs5LHR5cGU9ImgiLGFubiA9IEYsY29sPTMseWF4dD0ibiIpCnNwazEwPC0oMS9zcGs5LTEvc3BrOCkKI3NwazEwPC1zcXJ0KHNwazEwKnNwazEwKQojc3BrMTA8LWdldF90cmFuc2Zvcm1lZF92YWx1ZXMoc3BrMTApCnBhcihuZXc9VCkKcGxvdChzcGsxMCx0eXBlPSJsIixhbm4gPSBGLGNvbD00LHlheHQ9Im4iKQpgYGAKCkZvdXJpZXIgdHJhbnNmb3JtYXRpb24gb2YgZGF0YSBjZi4gInN5dXpoZXQiIFItUGFja2FnZTogW1tAam9ja2Vyc19yZXZlYWxpbmdfMjAxNV1dKGh0dHBzOi8vd3d3Lm1hdHRoZXdqb2NrZXJzLm5ldC8yMDE1LzAyLzAyL3N5dXpoZXQvKQoKIyMjIDMuMiBzb21lIG51bWJlcnMKYGBge3IgZWNobyA9IEZBTFNFLHdhcm5pbmc9RkFMU0V9CiMjI3NlbWFudGljIHN0YXRpc3RpY3MKbGlicmFyeShzdHJpbmdpKQp0c3AwPC1kdGEkdGV4dFtzcGswXQp0c3AwMTwtdW5saXN0KHN0cmlfc3BsaXQodHNwMCxyZWdleCA9ICIgIikpCnJlZ3gxPC0iW15BLVphLXrDpMO2w7xdIgp0c3AwMjwtZ3N1YihyZWd4MSxOQSx0c3AwMSkKdG5hPC0haXMubmEodHNwMDIpCndvcmRzX3NwazA8LXN1bSh0bmEpCgp0c3AwPC1kdGEkdGV4dFtzcGsxXQp0c3AwMTwtdW5saXN0KHN0cmlfc3BsaXQodHNwMCxyZWdleCA9ICIgIikpCnJlZ3gxPC0iW15BLVphLXrDpMO2w7xdIgp0c3AwMjwtZ3N1YihyZWd4MSxOQSx0c3AwMSkKdG5hPC0haXMubmEodHNwMDIpCndvcmRzX3NwazE8LXN1bSh0bmEpCgojbGVuZ3RoKHRzcDAxKQpzcGV2YWw8LWRhdGEuZnJhbWUoKQpzcGV2YWw8LWNiaW5kKCJzcGVlY2hhY3RzIj1jKHNwZWVjaEEwLHNwZWVjaEExKSwic3BlZWNoIHRpbWUgKHNlYykgIj1jKHJvdW5kKHN1bVNQSzApLHJvdW5kKHN1bVNQSzEpKSwid29yZHMiPWMod29yZHNfc3BrMCx3b3Jkc19zcGsxKSkKcm93bmFtZXMoc3BldmFsKTwtYygiU1AwIiwiU1AxIikKcHJpbnQoc3BldmFsKQojeGZ1bjo6cGtnX2xvYWQyKGMoImh0bWx0b29scyIsICJtaW1lIikpCiN4ZnVuOjplbWJlZF9maWxlKCdOLVBSR19DQV8wMDEuUm1kJykKCmBgYAoKCiMjIEIuIFJFRjoK</div>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("N-PRG_CA_001.Rmd");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

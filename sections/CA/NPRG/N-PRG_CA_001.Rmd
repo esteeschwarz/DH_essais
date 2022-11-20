@@ -1,0 +1,160 @@
+---
+#--- official ---#
+# seminararbeit im Seminar: Neuropragmatik, WS22/23 FUB
+# im Fach Sprachwissenschaften
+# von Stephan Schwarz
+# Abgabe: 2022-11-20
+
+title: "N-PRG conversation analysis"
+subtitle: "Neuropragmatik WS22/23 FUB (Pulvermüller)"
+author: "St. Schwarz"
+date: "`r Sys.Date()`"
+zotero: AVL_dyn
+output: 
+  html_document:
+    toc: yes
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    self_contained: FALSE #TRUE for standalone html page knit
+    code_download: TRUE
+    css: https://ada-sub.rotefadenbuecher.de/skool/public/essais/PRG01/style_HA.css
+#swap / decomment ff .bib/.css references for self compile .Rmd to html
+#bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
+   # css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
+#bibliography: https://api.zotero.org/groups/4713246/collections/ZW6MCU2J/items/top?format=biblatex
+bibliography: PRG_CA.bib
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+#library(jsonlite)
+library(syuzhet)
+library(readr)
+library(xfun)
+
+root<-"~/boxHKW/21S/DH/"
+expo<-paste0(root,"local/CA/PRG/expo/")
+#setwd(local)
+#src<-"wolf_FF_1.json"
+#src<-paste0(local,"wolf_FF-LEN_1.json")
+###
+#mini
+#setwd("~/boxHKW/21S/DH/")
+#lapsi, ewa
+#setwd("~/boxHKW/UNI/21S/DH/")
+```
+
+## 1. 
+the conversation is part of a 15 minutes planungsgespräch. the preliminary discussion revealed that one class intended to visit commune in the future (anschluszseminar) could be one in the section :german as foreign language: (DAF) that both participants considered relevant to their curriculum and in continuation of this classes (NPRG) program.
+
+## 2. the transcript
+the dialogue represents minutes 08:42 - 10:45 of the recording transcribed according to GAT2 conventions using EXMARALDA partitur editor [[@worner_exmaralda_2014]](https://exmaralda.org/de/) and ELAN [[@elan_elan_2022]](https://archive.mpi.nl/tla/elan).
+
+#### 2.1 basic
+``` {=html}
+
+<iframe src="prime/CA_schnipsel_001.2.txt" style="border:2px solid black;" width="100%" height="300px"></iframe>
+```
+
+#### 2.2 analysis
+``` {=html}
+
+<iframe src="prime/CA_schnipsel_001.html" style="border:2px solid black;" width="100%" height="300px"></iframe>
+```
+
+## 3. some visualisations & statistics
+### 3.1
+Auswertung 1. der TRP (transition relevant places) im Dialogverlauf. Diese werden hier 2. nach Fourier-Transformation der Positionen abgebildet, so dasz die frequenzanalysierte (nach Fourier also relative Länge) der zwischen den TRP liegenden Dialogabschnitten sichtbar ist. 3. Die relativierte Verlaufkurve der Intonationsphrasenlänge; `rot = SP0, grün = SP1, blau = Differenzkurve`.
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+#path1<-"local/CA/PRG/expo/"
+src<-list.files(expo)
+src<-paste0(expo,src)
+trans_ns<-c("tier","type","speaker","text","start","end","category","label")
+#dta<-read.csv2(src,header=F,sep = "\t",col.names = trans_ns)
+dta <- read_delim(paste0(expo,"PRG_CA_elanSF-chat002EoutEX-OX-EX.csv"), 
+                  delim = "\t", escape_double = FALSE, 
+                  col_names = trans_ns, trim_ws = TRUE)
+
+###
+trp<-dta$category=="TRP"
+trp1<-dta$start[trp]
+trp2<-c(dta$start[1],trp1)
+trp3<-c(trp1,dta$end[length(dta$end)])
+trp4<-trp3-trp2
+barplot(trp4, main = "TRP evaluation",ylab = "absolute length of phase",xlab="flow of conversation")
+library(syuzhet)
+trp5<-get_transformed_values(trp4)
+#plot(trp5,type = "h")
+plot(trp5,type="h",main="TRP evaluation",ylab="relative length of phase",xlab="index of conversation",col=2)
+points(trp5, cex = .2, col = "dark red")
+###wks.
+spk0<-dta$speaker=="SPK_SP0"&dta$category=="main"
+spk1<-dta$speaker=="SPK_SP1"&dta$category=="main"
+spk2<-dta$end[spk0]
+spk3<-dta$end[spk1]
+spk4<-dta$start[spk0]
+spk5<-spk2-spk4 #
+speechA0<-sum(spk0)
+speechA1<-sum(spk1)
+
+#spk5[spk0]
+# cat("speech acts M: ",speechA0,"\n")
+# cat("speech acts F: ",speechA1,"\n")
+#sum(spk1)
+spk6<-dta$start[spk1]
+spk7<-spk3-spk6
+sumSPK1<-sum(spk7)
+sumSPK0<-sum(spk5)
+# cat("absolute time speech acts M: ",sumSPK0,"\n")
+# cat("absolute time speech acts F: ",sumSPK1,"\n")
+
+spk8<-get_transformed_values(spk5)
+spk9<-get_transformed_values(spk7)
+plot(spk8,type="h",main="utterance length ~ dialog",ylab="relative length of IP (ms)",xlab="index of conversation",col=2)
+par(new=T)
+plot(spk9,type="h",ann = F,col=3,yaxt="n")
+spk10<-(1/spk9-1/spk8)
+#spk10<-sqrt(spk10*spk10)
+#spk10<-get_transformed_values(spk10)
+par(new=T)
+plot(spk10,type="l",ann = F,col=4,yaxt="n")
+```
+
+Fourier transformation of data cf. "syuzhet" R-Package: [[@jockers_revealing_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)
+
+### 3.2 some numbers
+```{r echo = FALSE,warning=FALSE}
+###semantic statistics
+library(stringi)
+tsp0<-dta$text[spk0]
+tsp01<-unlist(stri_split(tsp0,regex = " "))
+regx1<-"[^A-Za-zäöü]"
+tsp02<-gsub(regx1,NA,tsp01)
+tna<-!is.na(tsp02)
+words_spk0<-sum(tna)
+
+tsp0<-dta$text[spk1]
+tsp01<-unlist(stri_split(tsp0,regex = " "))
+regx1<-"[^A-Za-zäöü]"
+tsp02<-gsub(regx1,NA,tsp01)
+tna<-!is.na(tsp02)
+words_spk1<-sum(tna)
+
+#length(tsp01)
+speval<-data.frame()
+speval<-cbind("speechacts"=c(speechA0,speechA1),"speech time (sec) "=c(round(sumSPK0),round(sumSPK1)),"words"=c(words_spk0,words_spk1))
+rownames(speval)<-c("SP0","SP1")
+print(speval)
+#xfun::pkg_load2(c("htmltools", "mime"))
+#xfun::embed_file('N-PRG_CA_001.Rmd')
+
+```
+
+
+## B. REF:
