@@ -49,7 +49,7 @@ expo<-paste0(root,"local/CA/PRG/expo/")
 #setwd("~/boxHKW/UNI/21S/DH/")
 ```
 
-## 1. 
+## 1. head
 the conversation is part of a 15 minutes planungsgespräch. the preliminary discussion revealed that one class intended to visit commune in the future (anschluszseminar) could be one in the section :german as foreign language: (DAF) that both participants considered relevant to their curriculum and in continuation of this classes (NPRG) program.
 
 ## 2. the transcript
@@ -68,7 +68,7 @@ the dialogue represents minutes 08:42 - 10:45 of the recording transcribed accor
 ```
 
 ## 3. some visualisations & statistics
-### 3.1
+### 3.1 TRP
 Auswertung 1. der TRP (transition relevant places) im Dialogverlauf. Diese werden hier 2. nach Fourier-Transformation der Positionen abgebildet, so dasz die frequenzanalysierte (nach Fourier also relative Länge) der zwischen den TRP liegenden Dialogabschnitten sichtbar ist. 3. Die relativierte Verlaufkurve der Intonationsphrasenlänge; `rot = SP0, grün = SP1, blau = Differenzkurve`.
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
@@ -77,7 +77,7 @@ src<-list.files(expo)
 src<-paste0(expo,src)
 trans_ns<-c("tier","type","speaker","text","start","end","category","label")
 #dta<-read.csv2(src,header=F,sep = "\t",col.names = trans_ns)
-dta <- read_delim(paste0(expo,"PRG_CA_elanSF-chat002EoutEX-OX-EX.csv"), 
+dta <- read_delim(paste0(expo,"CA_schnipsel_001.tsv"), 
                   delim = "\t", escape_double = FALSE, 
                   col_names = trans_ns, trim_ws = TRUE)
 
@@ -151,10 +151,16 @@ speval<-data.frame()
 speval<-cbind("speechacts"=c(speechA0,speechA1),"speech time (sec) "=c(round(sumSPK0),round(sumSPK1)),"words"=c(words_spk0,words_spk1))
 rownames(speval)<-c("SP0","SP1")
 print(speval)
-#xfun::pkg_load2(c("htmltools", "mime"))
-#xfun::embed_file('N-PRG_CA_001.Rmd')
+# xfun::pkg_load2(c("htmltools", "mime"))
+# xfun::embed_files(c('N-PRG_CA_001.Rmd',"prime/CA_schnipsel_001.tsv","prime/CA_schnipsel_001.2.exb","prime/CA_schnipsel_001.2.txt"))
 
 ```
-
-
+---
+## A. annex
+transcript files, tables & source code:
+```{r echo = FALSE,warning=FALSE}
+xfun::pkg_load2(c("htmltools", "mime"))
+xfun::embed_files(c('N-PRG_CA_001.Rmd',"prime/CA_schnipsel_001.tsv","prime/CA_schnipsel_001.2.exb","prime/CA_schnipsel_001.2.txt"))
+```
 ## B. REF:
+

@@ -1,0 +1,240 @@
+SP0 [main]	t	SPK_SP0	also dis ((.)) dis.	0.5065	1.013	main	TIER_SPK_SP0_MAIN
+SP0 [NST]	a	SPK_SP0	dial.	0.5065	1.013	NST	TIER_SPK_SP0_NST
+SP0 [TRN]	a	SPK_SP0	start.	0.5065	1.013	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	<reference to DAF as possible follow up class/> 	0.5065	1.013	SPA	TIER_SPK_SP0_SPA
+SP1 [main]	t	SPK_SP1	dis is auch.	0.5065	1.013	main	TIER_SPK_SP1_MAIN
+SP1 [NST]	a	SPK_SP1	dial.	0.5065	1.013	NST	TIER_SPK_SP1_NST
+SP1 [SPK]	a	SPK_SP1	overlay.	0.5065	1.013	SPK	TIER_SPK_SP1_SPK
+SP0 [main]	t	SPK_SP0	wärn ja hier sachen die dann	1.013	2.093	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	konkret in	2.093	2.45	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	die richtung	2.45	2.806	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	gehen.	2.806	3.163	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	final.	2.806	3.163	TRN	TIER_SPK_SP0_TRN
+SP1 [main]	t	SPK_SP1	ja.	2.806	3.163	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	deutsch als fremdsprache äh.	3.163	5.393	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	start.	3.163	5.393	TRN	TIER_SPK_SP1_TRN
+SP1 [SPA]	a	SPK_SP1	response.	3.163	5.393	SPA	TIER_SPK_SP1_SPA
+SP1 [SPK]	a	SPK_SP1	self select.	3.163	5.393	SPK	TIER_SPK_SP1_SPK
+SP1 [TOP]	a	SPK_SP1	vertiefung des themas (DAF)	3.163	5.393	TOP	TIER_SPK_SP1_TOP
+SP1 [HES]	a	SPK_SP1	pause, worte finden.	3.163	5.393	HES	TIER_SPK_SP1_HES
+SP1 [main]	t	SPK_SP1	musz ich auch definitiv belegen.	5.393	6.893	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	start.	5.393	6.893	TRN	TIER_SPK_SP1_TRN
+SP1 [SPA]	a	SPK_SP1	continue.	5.393	6.893	SPA	TIER_SPK_SP1_SPA
+SP0 [main]	t	SPK_SP0	ja.	6.893	7.167	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	TCU.	6.893	7.167	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	<aufforderung, weiterzusprechen/> 	6.893	7.167	SPA	TIER_SPK_SP0_SPA
+SP0 [SPK]	a	SPK_SP0	self select.	6.893	7.167	SPK	TIER_SPK_SP0_SPK
+STRUCT [main]	t	SPK_PAU	((0.6))	7.167	7.733	main	TIER_SPK_PAU_MAIN
+STRUCT [TRP]	a	SPK_PAU	1	7.167	7.733	TRP	TIER_SPK_PAU_TRP
+SP1 [main]	t	SPK_SP1	diss auch was.	7.733	8.42	main	TIER_SPK_SP1_MAIN
+SP1 [NST]	a	SPK_SP1	dial.	7.733	8.42	NST	TIER_SPK_SP1_NST
+SP1 [TRN]	a	SPK_SP1	continue.	7.733	8.42	TRN	TIER_SPK_SP1_TRN
+SP1 [SPA]	a	SPK_SP1	new, <nähere erläuterung/> 	7.733	8.42	SPA	TIER_SPK_SP1_SPA
+SP1 [main]	t	SPK_SP1	was ((.)) bei mir dranhängt.	8.42	9.6	main	TIER_SPK_SP1_MAIN
+SP1 [SPA]	a	SPK_SP1	end, <musz DAF im rahmen des studiums belegen/> 	8.42	9.6	SPA	TIER_SPK_SP1_SPA
+SP1 [main]	t	SPK_SP1	und dann wäre ja sowas.	9.6	10.833	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	((1.1))	10.833	11.967	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	was ((.)) was man.	11.967	13.087	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	((0.9))	13.087	14.013	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	zusammen belegen könnte.	14.013	14.993	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	final.	14.013	14.993	TRN	TIER_SPK_SP1_TRN
+SP0 [main]	t	SPK_SP0	dis wär ((.)) dis wär auch für mich interessant.	14.993	16.44	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	start.	14.993	16.44	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	response.	14.993	16.44	SPA	TIER_SPK_SP0_SPA
+SP0 [SPK]	a	SPK_SP0	self select.	14.993	16.44	SPK	TIER_SPK_SP0_SPK
+SP0 [REP]	a	SPK_SP0	search VP.	14.993	16.44	REP	TIER_SPK_SP0_REP
+SP0 [main]	t	SPK_SP0	weil ich.	16.44	16.84	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	((0.3))	16.84	17.133	main	TIER_SPK_SP0_MAIN
+SP1 [main]	t	SPK_SP1	ja.	16.84	17.133	main	TIER_SPK_SP1_MAIN
+SP1 [SPA]	a	SPK_SP1	<aufforderung, weiterzusprechen/>	16.84	17.133	SPA	TIER_SPK_SP1_SPA
+SP1 [SPK]	a	SPK_SP1	self select.	16.84	17.133	SPK	TIER_SPK_SP1_SPK
+SP0 [main]	t	SPK_SP0	zum beispiel mit.	17.133	17.79	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	((0.1))	17.79	18.446	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	türkischen.	18.446	19.586	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	18.446	19.586	TRN	TIER_SPK_SP0_TRN
+SP0 [main]	t	SPK_SP0	((1.4))	19.586	20.986	main	TIER_SPK_SP0_MAIN
+SP0 [HES]	a	SPK_SP0	manque NP.	19.586	20.986	HES	TIE0
+SP0 [main]	t	SPK_SP0	türkischen.	20.986	21.72	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	20.986	21.72	TRN	TIER_SPK_SP0_TRN
+SP0 [main]	t	SPK_SP0	n.	21.72	22.153	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	lern ((.)) lernern.	22.153	24.153	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	also ((.)) äh deutsch als ((.)) zweitspra	24.153	27.6	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	24.153	27.6	TRN	TIER_SPK_SP0_TRN
+SP0 [REP]	a	SPK_SP0	reparierender ersatz des objekts.	24.153	27.6	REP	TIER_SPK_SP0_REP
+SP0 [main]	t	SPK_SP0	che.	27.6	27.986	main	TIER_SPK_SP0_MAIN
+SP1 [main]	t	SPK_SP1	ja.	27.6	27.986	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	TCU	27.6	27.986	TRN	TIER_SPK_SP1_TRN
+SP1 [HER]	a	SPK_SP1	signal: verstanden	27.6	27.986	HER	TIER_SPK_SP1_HER
+SP0 [main]	t	SPK_SP0	((1.7))	27.986	29.66	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	äm.	29.66	30.686	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	29.66	30.686	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	self	29.66	30.686	SPK	TIER_SPK_SP0_SPK
+SP0 [main]	t	SPK_SP0	((0.6))	30.686	31.313	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	interviews viel zu tun habe.	31.313	32.58	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	31.313	32.58	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	<arbeitet mit turkish L2 interviewmaterial/>	31.313	32.58	SPA	TIER_SPK_SP0_SPA
+STRUCT [TRP]	a	SPK_PAU	2	32.58	33.66	TRP	TIER_SPK_PAU_TRP
+SP0 [main]	t	SPK_SP0	und da	32.58	33.66	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	start	32.58	33.66	TRN	TIER_SPK_SP0_TRN
+SP1 [main]	t	SPK_SP1	mh.	32.58	33.66	main	TIER_SPK_SP1_MAIN
+SP1 [HER]	a	SPK_SP1	signal: weiter	32.58	33.66	HER	TIER_SPK_SP1_HER
+SP0 [main]	t	SPK_SP0	da wär für mich.	33.66	34.74	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	interessant zu kucken.	34.74	35.373	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	34.74	35.373	TRN	TIER_SPK_SP0_TRN
+SP0 [main]	t	SPK_SP0	was sind die.	35.373	36.126	main	TIER_SPK_SP0_MAIN
+SP0 [NST]	a	SPK_SP0	ellipse	35.373	36.126	NST	TIER_SPK_SP0_NST
+SP0 [TRN]	a	SPK_SP0	restart	35.373	36.126	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	continue	35.373	36.126	SPK	TIER_SPK_SP0_SPK
+SP0 [main]	t	SPK_SP0	((1.0))	36.126	37.106	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	dis sind interviews aus den aus den.	37.106	39.106	main	TIER_SPK_SP0_MAIN
+SP0 [REP]	a	SPK_SP0	rückgreifende erklärung	37.106	39.106	REP	TIER_SPK_SP0_REP
+SP0 [main]	t	SPK_SP0	(unclear) achtzigern an.	39.106	40.513	main	TIER_SPK_SP0_MAIN
+STRUCT [TRP]	a	SPK_PAU	3	40.513	41.106	TRP	TIER_SPK_PAU_TRP
+SP0 [main]	t	SPK_SP0	bis.	40.513	41.106	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	40.513	41.106	TRN	TIER_SPK_SP0_TRN
+SP1 [main]	t	SPK_SP1	ja.	40.513	41.106	main	TIER_SPK_SP1_MAIN
+SP1 [HER]	a	SPK_SP1	signal: weiter	40.513	41.106	HER	TIER_SPK_SP1_HER
+SP0 [main]	t	SPK_SP0	((0.9))	41.106	41.96	main	TIER_SPK_SP0_MAIN
+SP0 [HES]	a	SPK_SP0	unsicher	41.106	41.96	HES	TIE0
+SP0 [main]	t	SPK_SP0	bis zweitausendzehn.	41.96	43.233	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	41.96	43.233	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	continue	41.96	43.233	SPK	TIER_SPK_SP0_SPK
+SP0 [main]	t	SPK_SP0	((0.9))	43.233	44.18	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	und was sind da so heute die.	44.18	45.68	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	44.18	45.68	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	<wiederaufnahme sujet: verbindende elemente zum aktuellen (NPRG) seminar/>	44.18	45.68	SPA	TIER_SPK_SP0_SPA
+SP0 [main]	t	SPK_SP0	was is heute der stand der.	45.68	47.68	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	45.68	47.68	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	continue	45.68	47.68	SPK	TIER_SPK_SP0_SPK
+SP0 [main]	t	SPK_SP0	((0.6))	47.68	48.253	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	ähm ((.)) lerner.	48.253	50.253	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	äh oder nicht der stand aber was sind die.	50.253	52.299	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	50.253	52.299	TRN	TIER_SPK_SP0_TRN
+SP0 [main]	t	SPK_SP0	((0.6))	52.299	52.933	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	was sind zum beispiel die methoden.	52.933	54.226	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	52.933	54.226	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	continue	52.933	54.226	SPK	TIER_SPK_SP0_SPK
+SP0 [main]	t	SPK_SP0	die die damals	54.226	55.039	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	verwendet haben.	55.039	55.853	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	55.039	55.853	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	continue	55.039	55.853	SPK	TIER_SPK_SP0_SPK
+SP1 [main]	t	SPK_SP1	mhh.	55.039	55.853	main	TIER_SPK_SP1_MAIN
+SP1 [SPK]	a	SPK_SP1	self	55.039	55.853	SPK	TIER_SPK_SP1_SPK
+SP0 [main]	t	SPK_SP0	und die die heute verwenden.	55.853	57.086	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	55.853	57.086	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	continue	55.853	57.086	SPK	TIER_SPK_SP0_SPK
+SP0 [main]	t	SPK_SP0	in der.	57.086	57.753	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	((1.1))	57.753	58.853	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	in der äh sprach ((.)) stands ((.)) messung zum	58.853	63.326	main	TIER_SPK_SP0_MAIN
+SP0 [HES]	a	SPK_SP0	long hesitation for right terminology	58.853	63.326	HES	TIE0
+STRUCT [TRP]	a	SPK_PAU	4	63.326	63.593	TRP	TIER_SPK_PAU_TRP
+SP0 [main]	t	SPK_SP0	beispiel.	63.326	63.593	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	63.326	63.593	TRN	TIER_SPK_SP0_TRN
+SP1 [main]	t	SPK_SP1	ja.	63.326	63.593	main	TIER_SPK_SP1_MAIN
+SP1 [HER]	a	SPK_SP1	signal: verstanden	63.326	63.593	HER	TIER_SPK_SP1_HER
+SP0 [main]	t	SPK_SP0	w was hat sich da verändert.	63.593	64.899	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	63.593	64.899	TRN	TIER_SPK_SP0_TRN
+SP0 [main]	t	SPK_SP0	also werden da immer noch dieselben methoden verwendet wie in den achtzigern.	64.899	67.993	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	64.899	67.993	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	<ausführung des längeren beitrags/>	64.899	67.993	SPA	TIER_SPK_SP0_SPA
+SP0 [main]	t	SPK_SP0	((0.8))	67.993	68.839	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	oder gibs da ((.)) gibs da ganz andre verfahren.	68.839	70.993	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	68.839	70.993	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	continue	68.839	70.993	SPA	TIER_SPK_SP0_SPA
+SP0 [main]	t	SPK_SP0	wie man misst.	70.993	71.973	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	wie weit jemand in	71.973	72.973	main	TIER_SPK_SP0_MAIN
+SP0 [SPA]	a	SPK_SP0	<ausführung sprachstandsmessung/>	71.973	72.973	SPA	TIER_SPK_SP0_SPA
+SP0 [main]	t	SPK_SP0	seiner entwicklung is.	72.973	73.973	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	72.973	73.973	TRN	TIER_SPK_SP0_TRN
+SP1 [main]	t	SPK_SP1	ja.	72.973	73.973	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	start	72.973	73.973	TRN	TIER_SPK_SP1_TRN
+SP1 [HER]	a	SPK_SP1	signal: ich möchte jetzt auch was sagen	72.973	73.973	HER	TIER_SPK_SP1_HER
+STRUCT [TRP]	a	SPK_PAU	5	73.973	75.139	TRP	TIER_SPK_PAU_TRP
+SP1 [main]	t	SPK_SP1	((1.2))	73.973	75.139	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	tis auf jeden fall sehr interessant.	75.139	77.093	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	end	75.139	77.093	TRN	TIER_SPK_SP1_TRN
+SP1 [SPA]	a	SPK_SP1	<bestätigung interesse und verstanden/>	75.139	77.093	SPA	TIER_SPK_SP1_SPA
+STRUCT [main]	t	SPK_PAU	((4.9))	77.093	82.033	main	TIER_SPK_PAU_MAIN
+STRUCT [TRP]	a	SPK_PAU	6	77.093	82.033	TRP	TIER_SPK_PAU_TRP
+SP1 [main]	t	SPK_SP1	jo.	82.033	82.413	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	restart	82.033	82.413	TRN	TIER_SPK_SP1_TRN
+SP1 [main]	t	SPK_SP1	((0.6))	82.413	83.006	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	und auch ((.)) was ((.)) was halt d interessen von uns verbindet.	83.006	87.599	main	TIER_SPK_SP1_MAIN
+SP1 [SPA]	a	SPK_SP1	will zurück zum thema	83.006	87.599	SPA	TIER_SPK_SP1_SPA
+SP1 [main]	t	SPK_SP1	((2.9))	87.599	90.486	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	so grob.	90.486	91.106	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	end	90.486	91.106	TRN	TIER_SPK_SP1_TRN
+STRUCT [main]	t	SPK_PAU	((2.0))	91.106	93.106	main	TIER_SPK_PAU_MAIN
+SP0 [HES]	a	SPK_SP0	verstehenspause	91.106	93.106	HES	TIE0
+SP0 [main]	t	SPK_SP0	naja also dis für mich besch	93.106	95.106	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	start	93.106	95.106	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	self	93.106	95.106	SPK	TIER_SPK_SP0_SPK
+SP0 [main]	t	SPK_SP0	((0.3))	95.106	95.406	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	beschränkt sich dis auf die linguistik.	95.406	96.946	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	95.406	96.946	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	ausdruck der verständnisschwierigkeit, wende ins eindeutige	95.406	96.946	SPA	TIER_SPK_SP0_SPA
+STRUCT [main]	t	SPK_PAU	((0.4))	96.946	97.379	main	TIER_SPK_PAU_MAIN
+SP0 [main]	t	SPK_SP0	h dis war jetz kein ironischer.	97.379	99.379	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	97.379	99.379	TRN	TIER_SPK_SP0_TRN
+SP0 [REP]	a	SPK_SP0	aufklärung der bestehenden doppeldeutigkeit	97.379	99.379	REP	TIER_SPK_SP0_REP
+SP1 [main]	t	SPK_SP1	mh hh ((.)) h.	97.379	99.379	main	TIER_SPK_SP1_MAIN
+SP0 [main]	t	SPK_SP0	h dis w ((.)) is mir so rausgerutscht.	99.379	101.379	main	TIER_SPK_SP0_MAIN
+SP0 [REP]	a	SPK_SP0	entschuldigung	99.379	101.379	REP	TIER_SPK_SP0_REP
+SP1 [main]	t	SPK_SP1	h.	99.379	101.379	main	TIER_SPK_SP1_MAIN
+SP0 [main]	t	SPK_SP0	nee ((.)) ähm.	101.379	102.646	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	101.379	102.646	TRN	TIER_SPK_SP0_TRN
+STRUCT [main]	t	SPK_PAU	((3.1))	102.646	105.766	main	TIER_SPK_PAU_MAIN
+SP1 [main]	t	SPK_SP1	abers sis zumindest ((.)) äh.	105.766	106.896	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	start	105.766	106.896	TRN	TIER_SPK_SP1_TRN
+SP1 [SPA]	a	SPK_SP1	einlenken auf gemeinsames anliegen	105.766	106.896	SPA	TIER_SPK_SP1_SPA
+SP1 [SPK]	a	SPK_SP1	self	105.766	106.896	SPK	TIER_SPK_SP1_SPK
+SP1 [main]	t	SPK_SP1	((0.5))	106.896	108.026	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	dann en seminar ((.)) was ((.)) äh.	108.026	110.019	main	TIER_SPK_SP1_MAIN
+SP1 [NST]	a	SPK_SP1	dial: sächsisch	108.026	110.019	NST	TIER_SPK_SP1_NST
+SP1 [main]	t	SPK_SP1	((0.6))	110.019	110.606	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	für uns beide ((.)) was bringt.	110.606	112.192	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	end	110.606	112.192	TRN	TIER_SPK_SP1_TRN
+SP1 [SPA]	a	SPK_SP1	zurück zum thema	110.606	112.192	SPA	TIER_SPK_SP1_SPA
+SP1 [main]	t	SPK_SP1	egal ((.)) von welchem ((.)) standpunkt aus.	112.192	114.959	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	restart	112.192	114.959	TRN	TIER_SPK_SP1_TRN
+SP1 [main]	t	SPK_SP1	((1.3))	114.959	116.212	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	man das betrachtet.	116.212	118.212	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	end	116.212	118.212	TRN	TIER_SPK_SP1_TRN
+SP1 [SPA]	a	SPK_SP1	conclusion, final statement	116.212	118.212	SPA	TIER_SPK_SP1_SPA
+STRUCT [main]	t	SPK_PAU	((1.5))	118.212	119.705	main	TIER_SPK_PAU_MAIN
+STRUCT [TRP]	a	SPK_PAU	7	118.212	119.705	TRP	TIER_SPK_PAU_TRP
+SP0 [main]	t	SPK_SP0	dieses.	119.705	120.179	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	start	119.705	120.179	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	verständnisschwierigkeit	119.705	120.179	SPA	TIER_SPK_SP0_SPA
+SP0 [SPK]	a	SPK_SP0	self	119.705	120.179	SPK	TIER_SPK_SP0_SPK
+STRUCT [main]	t	SPK_PAU	((0.4))	120.179	120.585	main	TIER_SPK_PAU_MAIN
+SP1 [main]	t	SPK_SP1	nee.	120.585	120.925	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	start	120.585	120.925	TRN	TIER_SPK_SP1_TRN
+SP1 [SPK]	a	SPK_SP1	selected	120.585	120.925	SPK	TIER_SPK_SP1_SPK
+SP1 [main]	t	SPK_SP1	((0.7))	120.925	121.612	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	deutsch als fremdsprache.	121.612	122.899	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	TCU	121.612	122.899	TRN	TIER_SPK_SP1_TRN
+SP0 [main]	t	SPK_SP0	dis ((.)) deutsch als fremdsprache.	122.899	123.90542499248421	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	interrupt	122.899	123.90542499248421	TRN	TIER_SPK_SP0_TRN
+SP1 [main]	t	SPK_SP1	was ((.)) was man 	122.899	123.90542499248421	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	continue	122.899	123.90542499248421	TRN	TIER_SPK_SP1_TRN
+SP0 [main]	t	SPK_SP0	((unclear)) h.	123.90542499248421	125.592	main	TIER_SPK_SP0_MAIN
+SP1 [main]	t	SPK_SP1	was wir grade planen h was wir zusammen h h.	123.90542499248421	125.592	main	TIER_SPK_SP1_MAIN
+SP1 [SPA]	a	SPK_SP1	belustigte verwunderung über nichtverstehen	123.90542499248421	125.592	SPA	TIER_SPK_SP1_SPA
+SP1 [main]	t	SPK_SP1	h.	125.592	125.812	main	TIER_SPK_SP1_MAIN
+SP1 [main]	t	SPK_SP1	belegen k.	125.812	126.279	main	TIER_SPK_SP1_MAIN
+SP0 [main]	t	SPK_SP0	nein.	126.279	126.552	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	start	126.279	126.552	TRN	TIER_SPK_SP0_TRN
+SP0 [SPK]	a	SPK_SP0	self	126.279	126.552	SPK	TIER_SPK_SP0_SPK
+SP1 [main]	t	SPK_SP1	h.	126.279	126.552	main	TIER_SPK_SP1_MAIN
+SP1 [TRN]	a	SPK_SP1	end	126.279	126.552	TRN	TIER_SPK_SP1_TRN
+SP0 [main]	t	SPK_SP0	weil dis ja weil dis ja ((.)) n groszes.	126.552	127.939	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	126.552	127.939	TRN	TIER_SPK_SP0_TRN
+SP0 [SPA]	a	SPK_SP0	verlegenes eingeständnis der verstehensprobleme	126.552	127.939	SPA	TIER_SPK_SP0_SPA
+SP0 [main]	t	SPK_SP0	((1.0))	127.939	128.979	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	ich w ich w.	128.979	129.732	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	restart	128.979	129.732	TRN	TIER_SPK_SP0_TRN
+SP0 [main]	t	SPK_SP0	h ((.)) kann mir dis garnich vorstelln.	129.732	131.019	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	was denn da passiert.	131.019	131.719	main	TIER_SPK_SP0_MAIN
+SP0 [main]	t	SPK_SP0	ob die nur.	131.719	132.345	main	TIER_SPK_SP0_MAIN
+SP0 [TRN]	a	SPK_SP0	end	131.719	132.345	TRN	TIER_SPK_SP0_TRN

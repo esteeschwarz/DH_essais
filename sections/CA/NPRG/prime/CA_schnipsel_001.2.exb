@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- http://www.exmaralda.org -->
+<basic-transcription>
+<head>
+<meta-information><project-name>NPRG 001</project-name><transcription-name>PRG_CA_schnipsel</transcription-name><referenced-file url="media/PRG_CA_schnipsel.wav"/><referenced-file url="media/PRG_CA_schnipsel.mp3"/><ud-meta-information><ud-information attribute-name="AUTO-BACKUP-FROM">/Users/lion/boxHKW/21S/DH/local/CA/PRG/PRG_CA_elanSF-chat002Eout.exb</ud-information><ud-information attribute-name="AutoSave">;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_19_05_50_40.exb at 2022_11_19_05_50_40;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_19_08_30_29.exb at 2022_11_19_08_30_29;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_07_31_17.exb at 2022_11_20_07_31_17;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_08_31_17.exb at 2022_11_20_08_31_17;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_09_31_17.exb at 2022_11_20_09_31_17;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_10_31_17.exb at 2022_11_20_10_31_17;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_11_33_24.exb at 2022_11_20_11_33_24;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_12_33_24.exb at 2022_11_20_12_33_24;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_01_33_24.exb at 2022_11_20_01_33_24;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_02_51_54.exb at 2022_11_20_02_51_54;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_03_51_54.exb at 2022_11_20_03_51_54;/Users/lion/boxHKW/21S/temp/EXMARaLDA_AutoBackup_2022_11_20_04_51_54.exb at 2022_11_20_04_51_54</ud-information><ud-information attribute-name="audio duration">02:12</ud-information></ud-meta-information><comment>the conversation is part of a 15 minutes planungsgespräch. the preliminary discussion revealed that one class intended to visit commune in the future (anschluszseminar) could be one in the section :german as foreign language: (DAF) that both participants considered relevant to their curriculum and in continuation of this classes (NPRG) program. </comment><transcription-convention>GAT</transcription-convention></meta-information><speakertable><speaker id="SPK_PAU">
+<abbreviation>STRUCT</abbreviation>
+<sex value="u"/>
+<languages-used></languages-used>
+<l1></l1>
+<l2></l2>
+<ud-speaker-information>
+<ud-information attribute-name="CHAT:Full Name">STRUCT</ud-information><ud-information attribute-name="CHAT:Role">structure</ud-information><ud-information attribute-name="CHAT:ID">STRUCT</ud-information><ud-information attribute-name="Language"></ud-information><ud-information attribute-name="Corpus"></ud-information><ud-information attribute-name="Age"></ud-information><ud-information attribute-name="Sex"></ud-information><ud-information attribute-name="Group"></ud-information><ud-information attribute-name="SES"></ud-information><ud-information attribute-name="Education"></ud-information></ud-speaker-information>
+<comment><![CDATA[tier for <speaker not specified> structural elements]]></comment>
+</speaker>
+<speaker id="SPK_SP0">
+<abbreviation>SP0</abbreviation>
+<sex value="m"/>
+<languages-used></languages-used>
+<l1></l1>
+<l2></l2>
+<ud-speaker-information>
+<ud-information attribute-name="CHAT:Full Name">SP0</ud-information><ud-information attribute-name="CHAT:Role">participant</ud-information><ud-information attribute-name="CHAT:ID">SP0</ud-information><ud-information attribute-name="Language">ger</ud-information><ud-information attribute-name="Corpus"></ud-information><ud-information attribute-name="Age"></ud-information><ud-information attribute-name="Sex">m</ud-information><ud-information attribute-name="Group"></ud-information><ud-information attribute-name="SES"></ud-information><ud-information attribute-name="Education"></ud-information></ud-speaker-information>
+<comment></comment>
+</speaker>
+<speaker id="SPK_SP1">
+<abbreviation>SP1</abbreviation>
+<sex value="m"/>
+<languages-used></languages-used>
+<l1></l1>
+<l2></l2>
+<ud-speaker-information>
+<ud-information attribute-name="CHAT:Full Name">SP1</ud-information><ud-information attribute-name="CHAT:Role">participant</ud-information><ud-information attribute-name="CHAT:ID">SP1</ud-information><ud-information attribute-name="Language">ger</ud-information><ud-information attribute-name="Corpus"></ud-information><ud-information attribute-name="Age"></ud-information><ud-information attribute-name="Sex">f</ud-information><ud-information attribute-name="Group"></ud-information><ud-information attribute-name="SES"></ud-information><ud-information attribute-name="Education"></ud-information></ud-speaker-information>
+<comment></comment>
+</speaker>
+</speakertable></head>
+<basic-body>
+<common-timeline>
+<tli id="T0" time="0.0" type="intp"/>
+<tli id="TLI_TIME_0" time="0.5065" type="intp"/>
+<tli id="TLI_TIME_1013" time="1.013"/>
+<tli id="TLI_TIME_2093" time="2.093"/>
+<tli id="TLI_TIME_2450" time="2.45"/>
+<tli id="TLI_TIME_2806" time="2.806"/>
+<tli id="TLI_TIME_3163" time="3.163"/>
+<tli id="TLI_TIME_5393" time="5.393"/>
+<tli id="TLI_TIME_6893" time="6.893"/>
+<tli id="TLI_TIME_7167" time="7.167"/>
+<tli id="TLI_TIME_7733" time="7.733"/>
+<tli id="TLI_TIME_8420" time="8.42"/>
+<tli id="TLI_TIME_9600" time="9.6"/>
+<tli id="TLI_TIME_10833" time="10.833"/>
+<tli id="TLI_TIME_11967" time="11.967"/>
+<tli id="TLI_TIME_13087" time="13.087"/>
+<tli id="TLI_TIME_14013" time="14.013"/>
+<tli id="TLI_TIME_14993" time="14.993"/>
+<tli id="TLI_TIME_16440" time="16.44"/>
+<tli id="TLI_TIME_16840" time="16.84"/>
+<tli id="TLI_TIME_17133" time="17.133"/>
+<tli id="TLI_TIME_17790" time="17.79"/>
+<tli id="TLI_TIME_18446" time="18.446"/>
+<tli id="TLI_TIME_19586" time="19.586"/>
+<tli id="TLI_TIME_20986" time="20.986"/>
+<tli id="TLI_TIME_21720" time="21.72"/>
+<tli id="TLI_TIME_22153" time="22.153"/>
+<tli id="TLI_TIME_24153" time="24.153"/>
+<tli id="TLI_TIME_27600" time="27.6"/>
+<tli id="TLI_TIME_27986" time="27.986"/>
+<tli id="TLI_TIME_29660" time="29.66"/>
+<tli id="TLI_TIME_30686" time="30.686"/>
+<tli id="TLI_TIME_31313" time="31.313"/>
+<tli id="TLI_TIME_32580" time="32.58"/>
+<tli id="TLI_TIME_33660" time="33.66"/>
+<tli id="TLI_TIME_34740" time="34.74"/>
+<tli id="TLI_TIME_35373" time="35.373"/>
+<tli id="TLI_TIME_36126" time="36.126"/>
+<tli id="TLI_TIME_37106" time="37.106"/>
+<tli id="TLI_TIME_39106" time="39.106"/>
+<tli id="TLI_TIME_40513" time="40.513"/>
+<tli id="TLI_TIME_41106" time="41.106"/>
+<tli id="TLI_TIME_41960" time="41.96"/>
+<tli id="TLI_TIME_43233" time="43.233"/>
+<tli id="TLI_TIME_44180" time="44.18"/>
+<tli id="TLI_TIME_45680" time="45.68"/>
+<tli id="TLI_TIME_47680" time="47.68"/>
+<tli id="TLI_TIME_48253" time="48.253"/>
+<tli id="TLI_TIME_50253" time="50.253"/>
+<tli id="TLI_TIME_52299" time="52.299"/>
+<tli id="TLI_TIME_52933" time="52.933"/>
+<tli id="TLI_TIME_54226" time="54.226"/>
+<tli id="TLI_TIME_55039" time="55.039"/>
+<tli id="TLI_TIME_55853" time="55.853"/>
+<tli id="TLI_TIME_57086" time="57.086"/>
+<tli id="TLI_TIME_57753" time="57.753"/>
+<tli id="TLI_TIME_58853" time="58.853"/>
+<tli id="TLI_TIME_63326" time="63.326"/>
+<tli id="TLI_TIME_63593" time="63.593"/>
+<tli id="TLI_TIME_64899" time="64.899"/>
+<tli id="TLI_TIME_67993" time="67.993"/>
+<tli id="TLI_TIME_68839" time="68.839"/>
+<tli id="TLI_TIME_70993" time="70.993"/>
+<tli id="TLI_TIME_71973" time="71.973"/>
+<tli id="TLI_TIME_72973" time="72.973"/>
+<tli id="TLI_TIME_73973" time="73.973"/>
+<tli id="TLI_TIME_75139" time="75.139"/>
+<tli id="TLI_TIME_77093" time="77.093"/>
+<tli id="TLI_TIME_82033" time="82.033"/>
+<tli id="TLI_TIME_82413" time="82.413"/>
+<tli id="TLI_TIME_83006" time="83.006"/>
+<tli id="TLI_TIME_87599" time="87.599"/>
+<tli id="TLI_TIME_90486" time="90.486"/>
+<tli id="TLI_TIME_91106" time="91.106"/>
+<tli id="TLI_TIME_93106" time="93.106"/>
+<tli id="TLI_TIME_95106" time="95.106"/>
+<tli id="TLI_TIME_95406" time="95.406"/>
+<tli id="TLI_TIME_96946" time="96.946"/>
+<tli id="TLI_TIME_97379" time="97.379"/>
+<tli id="TLI_TIME_99379" time="99.379"/>
+<tli id="TLI_TIME_101379" time="101.379"/>
+<tli id="TLI_TIME_102646" time="102.646"/>
+<tli id="TLI_TIME_105766" time="105.766"/>
+<tli id="TLI_TIME_106896" time="106.896"/>
+<tli id="TLI_TIME_108026" time="108.026"/>
+<tli id="TLI_TIME_110019" time="110.019"/>
+<tli id="TLI_TIME_110606" time="110.606"/>
+<tli id="TLI_TIME_112192" time="112.192"/>
+<tli id="TLI_TIME_114959" time="114.959"/>
+<tli id="TLI_TIME_116212" time="116.212"/>
+<tli id="TLI_TIME_118212" time="118.212"/>
+<tli id="TLI_TIME_119705" time="119.705"/>
+<tli id="TLI_TIME_120179" time="120.179"/>
+<tli id="TLI_TIME_120585" time="120.585"/>
+<tli id="TLI_TIME_120925" time="120.925"/>
+<tli id="TLI_TIME_121612" time="121.612"/>
+<tli id="TLI_TIME_122899" time="122.899"/>
+<tli id="TLI_TIME_123899" time="123.90542499248421"/>
+<tli id="TLI_TIME_125592" time="125.592"/>
+<tli id="TLI_TIME_125812" time="125.812"/>
+<tli id="TLI_TIME_126279" time="126.279"/>
+<tli id="TLI_TIME_126552" time="126.552"/>
+<tli id="TLI_TIME_127939" time="127.939"/>
+<tli id="TLI_TIME_128979" time="128.979"/>
+<tli id="TLI_TIME_129732" time="129.732"/>
+<tli id="TLI_TIME_131019" time="131.019"/>
+<tli id="TLI_TIME_131719" time="131.719"/>
+<tli id="TLI_TIME_132345" time="132.345"/>
+<tli id="T1" time="133.051"/>
+</common-timeline>
+<tier id="TIER_SPK_PAU_MAIN" speaker="SPK_PAU" category="main" type="t" display-name="STRUCT [main]"><event start="TLI_TIME_7167" end="TLI_TIME_7733">((0.6))</event>
+<event start="TLI_TIME_77093" end="TLI_TIME_82033">((4.9))</event>
+<event start="TLI_TIME_91106" end="TLI_TIME_93106">((2.0))</event>
+<event start="TLI_TIME_96946" end="TLI_TIME_97379">((0.4))</event>
+<event start="TLI_TIME_102646" end="TLI_TIME_105766">((3.1))</event>
+<event start="TLI_TIME_118212" end="TLI_TIME_119705">((1.5))</event>
+<event start="TLI_TIME_120179" end="TLI_TIME_120585">((0.4))</event>
+</tier><tier id="TIER_SPK_PAU_HES" speaker="SPK_PAU" category="HES" type="a" display-name="STRUCT [HES]"></tier><tier id="TIER_SPK_PAU_TRP" speaker="SPK_PAU" category="TRP" type="a" display-name="STRUCT [TRP]"><event start="TLI_TIME_7167" end="TLI_TIME_7733">1</event>
+<event start="TLI_TIME_32580" end="TLI_TIME_33660">2</event>
+<event start="TLI_TIME_40513" end="TLI_TIME_41106">3</event>
+<event start="TLI_TIME_63326" end="TLI_TIME_63593">4</event>
+<event start="TLI_TIME_73973" end="TLI_TIME_75139">5</event>
+<event start="TLI_TIME_77093" end="TLI_TIME_82033">6</event>
+<event start="TLI_TIME_118212" end="TLI_TIME_119705">7</event>
+</tier><tier id="TIER_SPK_SP0_MAIN" speaker="SPK_SP0" category="main" type="t" display-name="SP0 [main]"><event start="TLI_TIME_0" end="TLI_TIME_1013">also dis ((.)) dis.</event>
+<event start="TLI_TIME_1013" end="TLI_TIME_2093">wärn ja hier sachen die dann</event>
+<event start="TLI_TIME_2093" end="TLI_TIME_2450">konkret in</event>
+<event start="TLI_TIME_2450" end="TLI_TIME_2806">die richtung</event>
+<event start="TLI_TIME_2806" end="TLI_TIME_3163">gehen.</event>
+<event start="TLI_TIME_6893" end="TLI_TIME_7167">ja.</event>
+<event start="TLI_TIME_14993" end="TLI_TIME_16440">dis wär ((.)) dis wär auch für mich interessant.</event>
+<event start="TLI_TIME_16440" end="TLI_TIME_16840">weil ich.</event>
+<event start="TLI_TIME_16840" end="TLI_TIME_17133">((0.3))</event>
+<event start="TLI_TIME_17133" end="TLI_TIME_17790">zum beispiel mit.</event>
+<event start="TLI_TIME_17790" end="TLI_TIME_18446">((0.1))</event>
+<event start="TLI_TIME_18446" end="TLI_TIME_19586">türkischen.</event>
+<event start="TLI_TIME_19586" end="TLI_TIME_20986">((1.4))</event>
+<event start="TLI_TIME_20986" end="TLI_TIME_21720">türkischen.</event>
+<event start="TLI_TIME_21720" end="TLI_TIME_22153">n.</event>
+<event start="TLI_TIME_22153" end="TLI_TIME_24153">lern ((.)) lernern.</event>
+<event start="TLI_TIME_24153" end="TLI_TIME_27600">also ((.)) äh deutsch als ((.)) zweitspra</event>
+<event start="TLI_TIME_27600" end="TLI_TIME_27986">che.</event>
+<event start="TLI_TIME_27986" end="TLI_TIME_29660">((1.7))</event>
+<event start="TLI_TIME_29660" end="TLI_TIME_30686">äm.</event>
+<event start="TLI_TIME_30686" end="TLI_TIME_31313">((0.6))</event>
+<event start="TLI_TIME_31313" end="TLI_TIME_32580">interviews viel zu tun habe.</event>
+<event start="TLI_TIME_32580" end="TLI_TIME_33660">und da</event>
+<event start="TLI_TIME_33660" end="TLI_TIME_34740">da wär für mich.</event>
+<event start="TLI_TIME_34740" end="TLI_TIME_35373">interessant zu kucken.</event>
+<event start="TLI_TIME_35373" end="TLI_TIME_36126">was sind die.</event>
+<event start="TLI_TIME_36126" end="TLI_TIME_37106">((1.0))</event>
+<event start="TLI_TIME_37106" end="TLI_TIME_39106">dis sind interviews aus den aus den.</event>
+<event start="TLI_TIME_39106" end="TLI_TIME_40513">(unclear) achtzigern an.</event>
+<event start="TLI_TIME_40513" end="TLI_TIME_41106">bis.</event>
+<event start="TLI_TIME_41106" end="TLI_TIME_41960">((0.9))</event>
+<event start="TLI_TIME_41960" end="TLI_TIME_43233">bis zweitausendzehn.</event>
+<event start="TLI_TIME_43233" end="TLI_TIME_44180">((0.9))</event>
+<event start="TLI_TIME_44180" end="TLI_TIME_45680">und was sind da so heute die.</event>
+<event start="TLI_TIME_45680" end="TLI_TIME_47680">was is heute der stand der.</event>
+<event start="TLI_TIME_47680" end="TLI_TIME_48253">((0.6))</event>
+<event start="TLI_TIME_48253" end="TLI_TIME_50253">ähm ((.)) lerner.</event>
+<event start="TLI_TIME_50253" end="TLI_TIME_52299">äh oder nicht der stand aber was sind die.</event>
+<event start="TLI_TIME_52299" end="TLI_TIME_52933">((0.6))</event>
+<event start="TLI_TIME_52933" end="TLI_TIME_54226">was sind zum beispiel die methoden.</event>
+<event start="TLI_TIME_54226" end="TLI_TIME_55039">die die damals</event>
+<event start="TLI_TIME_55039" end="TLI_TIME_55853">verwendet haben.</event>
+<event start="TLI_TIME_55853" end="TLI_TIME_57086">und die die heute verwenden.</event>
+<event start="TLI_TIME_57086" end="TLI_TIME_57753">in der.</event>
+<event start="TLI_TIME_57753" end="TLI_TIME_58853">((1.1))</event>
+<event start="TLI_TIME_58853" end="TLI_TIME_63326">in der äh sprach ((.)) stands ((.)) messung zum</event>
+<event start="TLI_TIME_63326" end="TLI_TIME_63593">beispiel.</event>
+<event start="TLI_TIME_63593" end="TLI_TIME_64899">w was hat sich da verändert.</event>
+<event start="TLI_TIME_64899" end="TLI_TIME_67993">also werden da immer noch dieselben methoden verwendet wie in den achtzigern.</event>
+<event start="TLI_TIME_67993" end="TLI_TIME_68839">((0.8))</event>
+<event start="TLI_TIME_68839" end="TLI_TIME_70993">oder gibs da ((.)) gibs da ganz andre verfahren.</event>
+<event start="TLI_TIME_70993" end="TLI_TIME_71973">wie man misst.</event>
+<event start="TLI_TIME_71973" end="TLI_TIME_72973">wie weit jemand in</event>
+<event start="TLI_TIME_72973" end="TLI_TIME_73973">seiner entwicklung is.</event>
+<event start="TLI_TIME_93106" end="TLI_TIME_95106">naja also dis für mich besch</event>
+<event start="TLI_TIME_95106" end="TLI_TIME_95406">((0.3))</event>
+<event start="TLI_TIME_95406" end="TLI_TIME_96946">beschränkt sich dis auf die linguistik.</event>
+<event start="TLI_TIME_97379" end="TLI_TIME_99379">h dis war jetz kein ironischer.</event>
+<event start="TLI_TIME_99379" end="TLI_TIME_101379">h dis w ((.)) is mir so rausgerutscht.</event>
+<event start="TLI_TIME_101379" end="TLI_TIME_102646">nee ((.)) ähm.</event>
+<event start="TLI_TIME_119705" end="TLI_TIME_120179">dieses.</event>
+<event start="TLI_TIME_122899" end="TLI_TIME_123899">dis ((.)) deutsch als fremdsprache.</event>
+<event start="TLI_TIME_123899" end="TLI_TIME_125592">((unclear)) h.</event>
+<event start="TLI_TIME_126279" end="TLI_TIME_126552">nein.</event>
+<event start="TLI_TIME_126552" end="TLI_TIME_127939">weil dis ja weil dis ja ((.)) n groszes.</event>
+<event start="TLI_TIME_127939" end="TLI_TIME_128979">((1.0))</event>
+<event start="TLI_TIME_128979" end="TLI_TIME_129732">ich w ich w.</event>
+<event start="TLI_TIME_129732" end="TLI_TIME_131019">h ((.)) kann mir dis garnich vorstelln.</event>
+<event start="TLI_TIME_131019" end="TLI_TIME_131719">was denn da passiert.</event>
+<event start="TLI_TIME_131719" end="TLI_TIME_132345">ob die nur.</event>
+</tier><tier id="TIER_SPK_SP0_RPT" speaker="SPK_SP0" category="RPT" type="a" display-name="SP0 [RPT]"></tier><tier id="TIER_SPK_SP0_NST" speaker="SPK_SP0" category="NST" type="a" display-name="SP0 [NST]"><event start="TLI_TIME_0" end="TLI_TIME_1013">dial.</event>
+<event start="TLI_TIME_35373" end="TLI_TIME_36126">ellipse</event>
+</tier><tier id="TIER_SPK_SP0_TRN" speaker="SPK_SP0" category="TRN" type="a" display-name="SP0 [TRN]"><event start="TLI_TIME_0" end="TLI_TIME_1013">start.</event>
+<event start="TLI_TIME_2806" end="TLI_TIME_3163">final.</event>
+<event start="TLI_TIME_6893" end="TLI_TIME_7167">TCU.</event>
+<event start="TLI_TIME_14993" end="TLI_TIME_16440">start.</event>
+<event start="TLI_TIME_18446" end="TLI_TIME_19586">end</event>
+<event start="TLI_TIME_20986" end="TLI_TIME_21720">restart</event>
+<event start="TLI_TIME_24153" end="TLI_TIME_27600">end</event>
+<event start="TLI_TIME_29660" end="TLI_TIME_30686">restart</event>
+<event start="TLI_TIME_31313" end="TLI_TIME_32580">end</event>
+<event start="TLI_TIME_32580" end="TLI_TIME_33660">start</event>
+<event start="TLI_TIME_34740" end="TLI_TIME_35373">end</event>
+<event start="TLI_TIME_35373" end="TLI_TIME_36126">restart</event>
+<event start="TLI_TIME_40513" end="TLI_TIME_41106">end</event>
+<event start="TLI_TIME_41960" end="TLI_TIME_43233">restart</event>
+<event start="TLI_TIME_44180" end="TLI_TIME_45680">end</event>
+<event start="TLI_TIME_45680" end="TLI_TIME_47680">restart</event>
+<event start="TLI_TIME_50253" end="TLI_TIME_52299">end</event>
+<event start="TLI_TIME_52933" end="TLI_TIME_54226">restart</event>
+<event start="TLI_TIME_55039" end="TLI_TIME_55853">end</event>
+<event start="TLI_TIME_55853" end="TLI_TIME_57086">restart</event>
+<event start="TLI_TIME_63326" end="TLI_TIME_63593">end</event>
+<event start="TLI_TIME_63593" end="TLI_TIME_64899">restart</event>
+<event start="TLI_TIME_64899" end="TLI_TIME_67993">end</event>
+<event start="TLI_TIME_68839" end="TLI_TIME_70993">restart</event>
+<event start="TLI_TIME_72973" end="TLI_TIME_73973">end</event>
+<event start="TLI_TIME_93106" end="TLI_TIME_95106">start</event>
+<event start="TLI_TIME_95406" end="TLI_TIME_96946">end</event>
+<event start="TLI_TIME_97379" end="TLI_TIME_99379">restart</event>
+<event start="TLI_TIME_101379" end="TLI_TIME_102646">end</event>
+<event start="TLI_TIME_119705" end="TLI_TIME_120179">start</event>
+<event start="TLI_TIME_122899" end="TLI_TIME_123899">interrupt</event>
+<event start="TLI_TIME_126279" end="TLI_TIME_126552">start</event>
+<event start="TLI_TIME_126552" end="TLI_TIME_127939">end</event>
+<event start="TLI_TIME_128979" end="TLI_TIME_129732">restart</event>
+<event start="TLI_TIME_131719" end="TLI_TIME_132345">end</event>
+</tier><tier id="TIER_SPK_SP0_SPA" speaker="SPK_SP0" category="SPA" type="a" display-name="SP0 [SPA]"><event start="TLI_TIME_0" end="TLI_TIME_1013"><![CDATA[<reference to DAF as possible follow up class/> ]]></event>
+<event start="TLI_TIME_6893" end="TLI_TIME_7167"><![CDATA[<aufforderung, weiterzusprechen/> ]]></event>
+<event start="TLI_TIME_14993" end="TLI_TIME_16440">response.</event>
+<event start="TLI_TIME_31313" end="TLI_TIME_32580"><![CDATA[<arbeitet mit turkish L2 interviewmaterial/>]]></event>
+<event start="TLI_TIME_44180" end="TLI_TIME_45680"><![CDATA[<wiederaufnahme sujet: verbindende elemente zum aktuellen (NPRG) seminar/>]]></event>
+<event start="TLI_TIME_64899" end="TLI_TIME_67993"><![CDATA[<ausführung des längeren beitrags/>]]></event>
+<event start="TLI_TIME_68839" end="TLI_TIME_70993">continue</event>
+<event start="TLI_TIME_71973" end="TLI_TIME_72973"><![CDATA[<ausführung sprachstandsmessung/>]]></event>
+<event start="TLI_TIME_95406" end="TLI_TIME_96946">ausdruck der verständnisschwierigkeit, wende ins eindeutige</event>
+<event start="TLI_TIME_119705" end="TLI_TIME_120179">verständnisschwierigkeit</event>
+<event start="TLI_TIME_126552" end="TLI_TIME_127939">verlegenes eingeständnis der verstehensprobleme</event>
+</tier><tier id="TIER_SPK_SP0_SPK" speaker="SPK_SP0" category="SPK" type="a" display-name="SP0 [SPK]"><event start="TLI_TIME_6893" end="TLI_TIME_7167">self select.</event>
+<event start="TLI_TIME_14993" end="TLI_TIME_16440">self select.</event>
+<event start="TLI_TIME_29660" end="TLI_TIME_30686">self</event>
+<event start="TLI_TIME_35373" end="TLI_TIME_36126">continue</event>
+<event start="TLI_TIME_41960" end="TLI_TIME_43233">continue</event>
+<event start="TLI_TIME_45680" end="TLI_TIME_47680">continue</event>
+<event start="TLI_TIME_52933" end="TLI_TIME_54226">continue</event>
+<event start="TLI_TIME_55039" end="TLI_TIME_55853">continue</event>
+<event start="TLI_TIME_55853" end="TLI_TIME_57086">continue</event>
+<event start="TLI_TIME_93106" end="TLI_TIME_95106">self</event>
+<event start="TLI_TIME_119705" end="TLI_TIME_120179">self</event>
+<event start="TLI_TIME_126279" end="TLI_TIME_126552">self</event>
+</tier><tier id="TIER_SPK_SP0_HER" speaker="SPK_SP0" category="HER" type="a" display-name="SP0 [HER]"></tier><tier id="TIER_SPK_SP0_REP" speaker="SPK_SP0" category="REP" type="a" display-name="SP0 [REP]"><event start="TLI_TIME_14993" end="TLI_TIME_16440">search VP.</event>
+<event start="TLI_TIME_24153" end="TLI_TIME_27600">reparierender ersatz des objekts.</event>
+<event start="TLI_TIME_37106" end="TLI_TIME_39106">rückgreifende erklärung</event>
+<event start="TLI_TIME_97379" end="TLI_TIME_99379">aufklärung der bestehenden doppeldeutigkeit</event>
+<event start="TLI_TIME_99379" end="TLI_TIME_101379">entschuldigung</event>
+</tier><tier id="TIER_SPK_SP1_MAIN" speaker="SPK_SP1" category="main" type="t" display-name="SP1 [main]"><event start="TLI_TIME_0" end="TLI_TIME_1013">dis is auch.</event>
+<event start="TLI_TIME_2806" end="TLI_TIME_3163">ja.</event>
+<event start="TLI_TIME_3163" end="TLI_TIME_5393">deutsch als fremdsprache äh.</event>
+<event start="TLI_TIME_5393" end="TLI_TIME_6893">musz ich auch definitiv belegen.</event>
+<event start="TLI_TIME_7733" end="TLI_TIME_8420">diss auch was.</event>
+<event start="TLI_TIME_8420" end="TLI_TIME_9600">was ((.)) bei mir dranhängt.</event>
+<event start="TLI_TIME_9600" end="TLI_TIME_10833">und dann wäre ja sowas.</event>
+<event start="TLI_TIME_10833" end="TLI_TIME_11967">((1.1))</event>
+<event start="TLI_TIME_11967" end="TLI_TIME_13087">was ((.)) was man.</event>
+<event start="TLI_TIME_13087" end="TLI_TIME_14013">((0.9))</event>
+<event start="TLI_TIME_14013" end="TLI_TIME_14993">zusammen belegen könnte.</event>
+<event start="TLI_TIME_16840" end="TLI_TIME_17133">ja.</event>
+<event start="TLI_TIME_27600" end="TLI_TIME_27986">ja.</event>
+<event start="TLI_TIME_32580" end="TLI_TIME_33660">mh.</event>
+<event start="TLI_TIME_40513" end="TLI_TIME_41106">ja.</event>
+<event start="TLI_TIME_55039" end="TLI_TIME_55853">mhh.</event>
+<event start="TLI_TIME_63326" end="TLI_TIME_63593">ja.</event>
+<event start="TLI_TIME_72973" end="TLI_TIME_73973">ja.</event>
+<event start="TLI_TIME_73973" end="TLI_TIME_75139">((1.2))</event>
+<event start="TLI_TIME_75139" end="TLI_TIME_77093">tis auf jeden fall sehr interessant.</event>
+<event start="TLI_TIME_82033" end="TLI_TIME_82413">jo.</event>
+<event start="TLI_TIME_82413" end="TLI_TIME_83006">((0.6))</event>
+<event start="TLI_TIME_83006" end="TLI_TIME_87599">und auch ((.)) was ((.)) was halt d interessen von uns verbindet.</event>
+<event start="TLI_TIME_87599" end="TLI_TIME_90486">((2.9))</event>
+<event start="TLI_TIME_90486" end="TLI_TIME_91106">so grob.</event>
+<event start="TLI_TIME_97379" end="TLI_TIME_99379">mh hh ((.)) h.</event>
+<event start="TLI_TIME_99379" end="TLI_TIME_101379">h.</event>
+<event start="TLI_TIME_105766" end="TLI_TIME_106896">abers sis zumindest ((.)) äh.</event>
+<event start="TLI_TIME_106896" end="TLI_TIME_108026">((0.5))</event>
+<event start="TLI_TIME_108026" end="TLI_TIME_110019">dann en seminar ((.)) was ((.)) äh.</event>
+<event start="TLI_TIME_110019" end="TLI_TIME_110606">((0.6))</event>
+<event start="TLI_TIME_110606" end="TLI_TIME_112192">für uns beide ((.)) was bringt.</event>
+<event start="TLI_TIME_112192" end="TLI_TIME_114959">egal ((.)) von welchem ((.)) standpunkt aus.</event>
+<event start="TLI_TIME_114959" end="TLI_TIME_116212">((1.3))</event>
+<event start="TLI_TIME_116212" end="TLI_TIME_118212">man das betrachtet.</event>
+<event start="TLI_TIME_120585" end="TLI_TIME_120925">nee.</event>
+<event start="TLI_TIME_120925" end="TLI_TIME_121612">((0.7))</event>
+<event start="TLI_TIME_121612" end="TLI_TIME_122899">deutsch als fremdsprache.</event>
+<event start="TLI_TIME_122899" end="TLI_TIME_123899">was ((.)) was man </event>
+<event start="TLI_TIME_123899" end="TLI_TIME_125592">was wir grade planen h was wir zusammen h h.</event>
+<event start="TLI_TIME_125592" end="TLI_TIME_125812">h.</event>
+<event start="TLI_TIME_125812" end="TLI_TIME_126279">belegen k.</event>
+<event start="TLI_TIME_126279" end="TLI_TIME_126552">h.</event>
+</tier><tier id="TIER_SPK_SP1_NST" speaker="SPK_SP1" category="NST" type="a" display-name="SP1 [NST]"><event start="TLI_TIME_0" end="TLI_TIME_1013">dial.</event>
+<event start="TLI_TIME_7733" end="TLI_TIME_8420">dial.</event>
+<event start="TLI_TIME_108026" end="TLI_TIME_110019">dial: sächsisch</event>
+</tier><tier id="TIER_SPK_SP1_TRN" speaker="SPK_SP1" category="TRN" type="a" display-name="SP1 [TRN]"><event start="TLI_TIME_3163" end="TLI_TIME_5393">start.</event>
+<event start="TLI_TIME_5393" end="TLI_TIME_6893">start.</event>
+<event start="TLI_TIME_7733" end="TLI_TIME_8420">continue.</event>
+<event start="TLI_TIME_14013" end="TLI_TIME_14993">final.</event>
+<event start="TLI_TIME_27600" end="TLI_TIME_27986">TCU</event>
+<event start="TLI_TIME_72973" end="TLI_TIME_73973">start</event>
+<event start="TLI_TIME_75139" end="TLI_TIME_77093">end</event>
+<event start="TLI_TIME_82033" end="TLI_TIME_82413">restart</event>
+<event start="TLI_TIME_90486" end="TLI_TIME_91106">end</event>
+<event start="TLI_TIME_105766" end="TLI_TIME_106896">start</event>
+<event start="TLI_TIME_110606" end="TLI_TIME_112192">end</event>
+<event start="TLI_TIME_112192" end="TLI_TIME_114959">restart</event>
+<event start="TLI_TIME_116212" end="TLI_TIME_118212">end</event>
+<event start="TLI_TIME_120585" end="TLI_TIME_120925">start</event>
+<event start="TLI_TIME_121612" end="TLI_TIME_122899">TCU</event>
+<event start="TLI_TIME_122899" end="TLI_TIME_123899">continue</event>
+<event start="TLI_TIME_126279" end="TLI_TIME_126552">end</event>
+</tier><tier id="TIER_SPK_SP1_SPA" speaker="SPK_SP1" category="SPA" type="a" display-name="SP1 [SPA]"><event start="TLI_TIME_3163" end="TLI_TIME_5393">response.</event>
+<event start="TLI_TIME_5393" end="TLI_TIME_6893">continue.</event>
+<event start="TLI_TIME_7733" end="TLI_TIME_8420"><![CDATA[new, <nähere erläuterung/> ]]></event>
+<event start="TLI_TIME_8420" end="TLI_TIME_9600"><![CDATA[end, <musz DAF im rahmen des studiums belegen/> ]]></event>
+<event start="TLI_TIME_16840" end="TLI_TIME_17133"><![CDATA[<aufforderung, weiterzusprechen/>]]></event>
+<event start="TLI_TIME_75139" end="TLI_TIME_77093"><![CDATA[<bestätigung interesse und verstanden/>]]></event>
+<event start="TLI_TIME_83006" end="TLI_TIME_87599">will zurück zum thema</event>
+<event start="TLI_TIME_105766" end="TLI_TIME_106896">einlenken auf gemeinsames anliegen</event>
+<event start="TLI_TIME_110606" end="TLI_TIME_112192">zurück zum thema</event>
+<event start="TLI_TIME_116212" end="TLI_TIME_118212">conclusion, final statement</event>
+<event start="TLI_TIME_123899" end="TLI_TIME_125592">belustigte verwunderung über nichtverstehen</event>
+</tier><tier id="TIER_SPK_SP1_SPK" speaker="SPK_SP1" category="SPK" type="a" display-name="SP1 [SPK]"><event start="TLI_TIME_0" end="TLI_TIME_1013">overlay.</event>
+<event start="TLI_TIME_3163" end="TLI_TIME_5393">self select.</event>
+<event start="TLI_TIME_16840" end="TLI_TIME_17133">self select.</event>
+<event start="TLI_TIME_55039" end="TLI_TIME_55853">self</event>
+<event start="TLI_TIME_105766" end="TLI_TIME_106896">self</event>
+<event start="TLI_TIME_120585" end="TLI_TIME_120925">selected</event>
+</tier><tier id="TIER_SPK_SP1_TOP" speaker="SPK_SP1" category="TOP" type="a" display-name="SP1 [TOP]"><event start="TLI_TIME_3163" end="TLI_TIME_5393">vertiefung des themas (DAF)</event>
+</tier><tier id="TIER_SPK_SP1_HES" speaker="SPK_SP1" category="HES" type="a" display-name="SP1 [HES]"><event start="TLI_TIME_3163" end="TLI_TIME_5393">pause, worte finden.</event>
+</tier><tier id="TIER_SPK_SP1_HER" speaker="SPK_SP1" category="HER" type="a" display-name="SP1 [HER]"><event start="TLI_TIME_27600" end="TLI_TIME_27986">signal: verstanden</event>
+<event start="TLI_TIME_32580" end="TLI_TIME_33660">signal: weiter</event>
+<event start="TLI_TIME_40513" end="TLI_TIME_41106">signal: weiter</event>
+<event start="TLI_TIME_63326" end="TLI_TIME_63593">signal: verstanden</event>
+<event start="TLI_TIME_72973" end="TLI_TIME_73973">signal: ich möchte jetzt auch was sagen</event>
+</tier><tier id="TIE0" speaker="SPK_SP0" category="HES" type="a" display-name="SP0 [HES]"><event start="TLI_TIME_19586" end="TLI_TIME_20986">manque NP.</event>
+<event start="TLI_TIME_41106" end="TLI_TIME_41960">unsicher</event>
+<event start="TLI_TIME_58853" end="TLI_TIME_63326">long hesitation for right terminology</event>
+<event start="TLI_TIME_91106" end="TLI_TIME_93106">verstehenspause</event>
+</tier></basic-body>
+</basic-transcription>
