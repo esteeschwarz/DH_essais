@@ -163,4 +163,19 @@ xfun::pkg_load2(c("htmltools", "mime"))
 xfun::embed_files(c('N-PRG_CA_001.Rmd',"prime/CA_schnipsel_001.tsv","prime/CA_schnipsel_001.2.exb","prime/CA_schnipsel_001.2.txt"))
 ```
 ## B. REF:
+```{=html}
+<!--			<p id="zt_content">temp</p>
+
+<script>  
+//function import_zt(block_id,api){
+    var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", 'https://api.zotero.org/groups/4713246/collections/YTVL6QLM/items/top?format=bib&linkwrap=1', false);
+      xhttp.send();
+      document.getElementById("zt_content").innerHTML = xhttp.responseText;
+    //  document.getElementById("show_button").style.display="none";
+      //document.getElementById("hide_button").style.display="inline";
+  //  }
+</script>
+-->
+```
 
