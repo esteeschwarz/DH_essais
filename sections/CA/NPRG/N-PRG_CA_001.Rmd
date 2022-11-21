@@ -22,7 +22,7 @@ output:
 #swap / decomment ff .bib/.css references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
    # css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
-#bibliography: https://api.zotero.org/groups/4713246/collections/ZW6MCU2J/items/top?format=biblatex
+#bibliography: https://api.zotero.org/groups/4713246/collections/YTVL6QLM/items/top?format=bibtex
 bibliography: PRG_CA.bib
 ---
 ```{r setup, include=FALSE}
@@ -156,13 +156,17 @@ print(speval)
 
 ```
 ---
-## A. annex
+## A. notes
+## B. REF:
+<div id="refs"></div>
+
+## C. annex
 transcript files, tables & source code:
 ```{r echo = FALSE,warning=FALSE}
 xfun::pkg_load2(c("htmltools", "mime"))
 xfun::embed_files(c('N-PRG_CA_001.Rmd',"prime/CA_schnipsel_001.tsv","prime/CA_schnipsel_001.2.exb","prime/CA_schnipsel_001.2.txt"))
 ```
-## B. REF:
+
 ```{=html}
 <!--			<p id="zt_content">temp</p>
 
