@@ -1,34 +1,42 @@
 ---
-#--- official ---#
 # seminararbeit im Seminar: Neuropragmatik, WS22/23 FUB
-# im Fach Sprachwissenschaften
-# von Stephan Schwarz
 # Abgabe: 2022-11-20
-
 title: "N-PRG conversation analysis"
 subtitle: "Neuropragmatik WS22/23 FUB (Pulvermüller)"
 author: "St. Schwarz"
 date: "`r Sys.Date()`"
 zotero: AVL_dyn
 output: 
-  html_document:
+  html_document: 
     toc: yes
     toc_float:
       collapsed: no
       smooth_scroll: no
-    self_contained: FALSE #TRUE for standalone html page knit
-    code_download: TRUE
-    css: https://ada-sub.rotefadenbuecher.de/skool/public/essais/PRG01/style_HA.css
-#swap / decomment ff .bib/.css references for self compile .Rmd to html
+    self_contained: no
+    code_download: no
+    css: "https://ada-sub.rotefadenbuecher.de/skool/public/essais/PRG01/style_HA.css"
+    keep_md: yes
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
    # css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
-#bibliography: https://api.zotero.org/groups/4713246/collections/YTVL6QLM/items/top?format=bibtex
+#bibliography: "https://api.zotero.org/groups/4713246/collections/YTVL6QLM/items/top?format=bibtex"
 bibliography: PRG_CA.bib
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+library(httr)
+share <- runif(1)
+x<-GET("https://api.zotero.org/groups/4713246/collections/YTVL6QLM/items/top?format=bibtex")
+bib<-content(x,"text")
+y<-tempfile("ref",fileext = ".bib")
+writeLines(bib,y)
+
+
+```
+---
+bibliography: "`r y`"
 ---
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
@@ -36,6 +44,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(syuzhet)
 library(readr)
 library(xfun)
+library(httr)
 
 root<-"~/boxHKW/21S/DH/"
 expo<-paste0(root,"local/CA/PRG/expo/")
@@ -47,6 +56,12 @@ expo<-paste0(root,"local/CA/PRG/expo/")
 #setwd("~/boxHKW/21S/DH/")
 #lapsi, ewa
 #setwd("~/boxHKW/UNI/21S/DH/")
+
+x<-GET("https://api.zotero.org/groups/4713246/collections/YTVL6QLM/items/top?format=bibtex")
+bib<-content(x,"text")
+
+
+
 ```
 
 ## 1. head
