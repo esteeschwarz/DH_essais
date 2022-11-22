@@ -184,7 +184,7 @@ transcript files, tables & source code:
 ```{r echo = FALSE,warning=FALSE}
 xfun::pkg_load2(c("htmltools", "mime"))
 #xfun::embed_files(c('N-PRG_CA_001.Rmd',"prime/CA_schnipsel_001.tsv","prime/CA_schnipsel_001.2.exb","prime/CA_schnipsel_001.2.txt","prime/CA_schnipsel_001.2.rtf"))
-xfun::embed_dir("annex")
+xfun::embed_dir("prime")
 ```
 
 ```{=html}
