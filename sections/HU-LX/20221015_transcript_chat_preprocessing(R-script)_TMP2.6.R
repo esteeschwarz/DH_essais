@@ -34,10 +34,10 @@ list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"13441.3"
-version<-"v2_7"
+version<-"v2_73"
 dirchat<-paste0("SES_CHAT_transcripts_",version)
-#dirchat<-paste0("CHAT_temp",version)
-
+dirchat<-paste0("CHAT_temp",version)
+chatvmodified<-paste0(version,"_mod")
 chatfileextension<-".txt"
 #for export in .cha format to import into exmaralda
 #dirchat<-paste0(dirchat,"_cha_",version)
@@ -60,6 +60,11 @@ codes_cpt <- read_delim(codesource,
 #get source files in top directory
 filelist<-list.files(dirtext,pattern="(\\.txt)")
 filelist
+# chatv1<-grepl("CHAT",filelist)
+# #filelist<-filelist[chatv1==F]
+# #from here skip with already CHAT transformed transcript to second run
+# filelist3<-filelist[chatv1]
+#secondrun(filelist[chatv1==T])
 #surface changes to transcript
 #remove hardcoded linenumbers in some transcripts
 #loop correction
@@ -359,6 +364,7 @@ rpall<-as.data.frame(codes_cpt4$regex[ii])
 rpall["subst"]<-codes_cpt4$subst[ii]
 rpall["category"]<-codes_cpt4$category[ii]
 rpall["repl"]<-codes_cpt4$repl[ii]
+rpall["shortcode"]<-paste0(codes_cpt4$pre1[ii],codes_cpt4$pre2[ii],codes_cpt4$pre3[ii])
 
 ###
 
@@ -367,6 +373,7 @@ rpall["repl"]<-codes_cpt4$repl[ii]
 
 ##################################
 #from here substitute #coding#
+### section D
 ### THIS complete replacement loop
 #f<-8
 for (f in 1:length(filelist2)){
@@ -604,3 +611,225 @@ translist<-list.files(paste(dirtext,dirchat,sep="/"),pattern="(\\.txt)")
 datestamp<-format(Sys.time(), "%Y%m%d(%H.%M)")
 translistname<-paste0("CHAT_transcripts_list_",datestamp,".txt")
 writeLines(translist,paste(dirtemp,translistname,sep = "/"))
+##### ----
+#second run
+#13475.
+chatv1<-grepl("CHAT",filelist)
+#filelist<-filelist[chatv1==F]
+#from here skip with already CHAT transformed transcript to second run
+filelist3<-filelist[chatv1]
+
+
+for (f in 1:length(filelist3)){
+  tbu<-readLines(paste(dirtext,filelist3[f],sep = "/"))
+  # p1<-grep(".ctivities",tbu)
+  # tbu[p1[1]]
+  # tbu<-insert(tbu,p1[1]+1,"@Elicitation files: box.FU folder:00_SES Documents (to revise) for BERLANGDEV")
+  # p2<-grep("@.oding",tbu)
+  # tbu[p2[1]]
+  # tbu<-insert(tbu,p2[1]+1,"@TIER descriptions:")
+  # p3<-grep("@.roofer:",tbu)
+  # ifelse(!is.na(tbu[p3[1]]),tbu[p3[1]]<-"@Annotation checked:",
+  #        tbu<-insert(tbu,p2[1]+1,"@Annotation checked:"))
+  # tbu[p1[1]+2]
+  #delete evtl. second obsolete @Begin tag
+  p3<-grep("@.egin",tbu)
+  
+  if (length(p3)>=1){tbu[p3[2:3]]<-""}
+  #           tbu<-insert(tbu,p2[1]+1,"@Annotation checked:"))
+  #get unique alphabetically sorted tier description
+  # rp3<-paste0("@",rpall$subst)
+  # rpall["headex"]<-rp3
+  # #rp4
+  # is<-order(rp3)
+  # rp3<-rpall$subst[is]
+  # rp3
+  # #add @ to tier explanations
+  # rpcom<-rpall$category!=3
+  # rp5<-unique(rpall$headex[rpcom])
+  # is<-order(rp5)
+  # rp5<-rp5[is]
+  # rp5
+  # tbu<-append(tbu,rp5,after = p2[1]+1)
+  # #tbu
+  rptiers<-subset(rpall,rpall$category==1|rpall$category==2|rpall$category==3)
+  #####################################
+  ### this section main replacement ###
+  ##### wks.
+  #find transcript start
+  mstart<-grep("^\\*",tbu)[1]
+  tbub<-tbu[mstart:length(tbu)] #transcript section
+  tbusafe<-tbu
+  tbuheader<-tbu[1:mstart-1] #header section
+  tbu<-tbub
+  for (k in 1:length(rpall[,1])) {
+    flag<-1
+    m<-grep(rpall[k,1],tbu)
+    tier<-rpall$category[k]
+    tbu<-gsub(rpall[k,1],rpall[k,"repl"],tbu)
+    ifelse(m!=0&tier!=4,tbu<-insert(tbu,m+1,rpall$subst[k]),flag<-0)#if out 0 findings & category==4
+    }
+    tbuheader
+    k<-79
+    rpall$shortcode[k]
+    ###extra, essai: note number of instances/code in header
+   # regx1<-paste0(codes_cpt4$pre1[k],codes_cpt4$pre2[k],codes_cpt4$pre3[k]) #codesshortcode
+regx1<-rpall$shortcode[k]
+      mh<-grep(regx1,tbuheader) #position of tierdescription
+  tbuheader[mh]
+      #tier<-rpall$category[k]
+  m<-grep(regx1,tbu)
+  #sum(m)
+  tbu[m]
+  ifelse (length(m)!=0,tbuheader[mh]<-paste0(rpall$headex[k]," n = ",length(m)),flag<-0)
+  tbuheader
+    #   mh<-grep(rpall$subst[k],tbuheader) #grep headercodedescription line
+    # tier<-rpall$category[k]
+    # ### this adds number of occurences of code to header description of code, has to be formatted
+    # ifelse (length(m)!=0,tbuheader<-gsub(rpall$headex[k],
+    # paste0(rpall$headex[k]," n = ",length(m)),tbuheader),flag<-0)
+    #  tbuheader<- gsub(" #: 0","#todeletespace#",tbuheader)
+    #  tbuheader<- gsub("#todeletespace#","",tbuheader)
+    rpall[k,5+f]<-length(m) # writes instances into array
+    #rpall$instance[k]<-c(f,length(m))
+  } #replace coding with replacement + add extra tier with code below speakerline
+  #TODO: create table of code instances in transcript:
+  
+  
+  #tbu[105:130]
+  #####################################
+  kids<-strsplit(filelist3,"\\.")
+  kids[[1]][1]
+  dirtext
+  dir.create(paste(dirtext,chatvmodified,sep = "/"))
+  
+  #nameschemeing the files
+  #write_clip(filelist2)
+  regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+  repl1<-"\\1\\2"
+  
+  kids1<-gsub(regx1,repl1,filelist3)
+  kids1
+  regx2<-".+(ELL|TUR)_([A-Za-z]{3}).+"
+  repl2<-"\\2"
+  kids2<-gsub(regx2,repl2,kids1)
+  kids2
+  kids3<-toupper(kids2)
+  #length(rpall)
+  # colnames(rpall)<-c("regex","subst","category","repl","headex",kids3)
+  # k<-1
+  kids4<-array()
+  for (k in 1:length(filelist3)){
+    # regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+    # repl1<-"\\1\\2"
+    # filelist_ren<-gsub(regx1,repl1,filelist2[k])
+    #  regx3<-"(?<=(ELL|TUR)_)([A-Za-z]{3})"
+    regx3<-"(ELL|TUR)_([A-Za-z]{3})"
+    
+    # repl2<-"\\2"
+    # filekids<-gsub(regx2,repl2,filelist_ren)
+    kids4[k]<-gsub(regx3,kids3[k],kids1[k],perl = T)
+  }
+  kids4<-strsplit(kids4,"\\.")
+  # codestable<-rpall[5:length(rpall)]
+  #  sum(codestable[1,6:length(codestable)]) #check for instance in line
+  # for (k in 1:length(codestable$headex) ){
+  # if (sum(codestable[k,6:length(codestable)])!=0){
+  #   codest2<-rbind (codestable[k,6:length(codestable)]
+  # 
+  #   write.csv(codestable,paste0(dirtext,"/r-temp/kidscodestable.csv"))
+  # getwd()
+  #filelist2<-kids4
+  ################
+  
+  chatfilename<-paste0(kids4[[f]][1],"_CHAT_2nd",chatfileextension)
+  chatfilename
+  #delete hardcoded linenumbers
+  tbu_cpt<-c(tbuheader,tbu)
+  tbu<-tbu_cpt
+  # rn25<-"([0-9]{1,3}\\. )(?=\\*|@)"
+  # tbum<-gsub(rn25,"",tbu,perl = T)
+  # tail(tbum)
+  # codesarray$V1[61]
+  # #################################
+  # #post processing substitutes
+  # #this routine data TODO fetch from external array
+  # set<-codes_cpt
+  # (codes_cpt$regex[codes_cpt$category==4])
+  # #   postprocess<-function(set,tbum,mstart){
+  # depr<-function(){
+  #   rnb01<-"STATIC(a|b|c|d|e|f)"
+  #   rpb01<-"STATIC-\\1"
+  #   rnb02<-"(but the some of the interviewer’s utterances)"
+  #   rpb02<-"but the interviewer’s utterances"
+  #   rnb03<-"(\\(mostly\\))"
+  #   rpb03<-"roughly"
+  #   rnb04<-"(\\(family_language-with_parents-with\\))"
+  #   rpb04<-"(family_language-with_parents-with_siblings)"
+  #   rnb05<-"\\., see the Elicitation documentation files\\."
+  #   rpb05<-"; see reference @Elicitation files."
+  #   rnb06<-"\\.\\.\\.@" #inline pauses
+  #   #rpb06<-rpall[24,2] # global pause replacement, set up in getms()
+  #   rnbcpt<-c(rnb01,rnb02,rnb03,rnb04,rnb05)
+  #   rpbcpt<-c(rpb01,rpb02,rpb03,rpb04,rpb05)
+  #   rpball<-cbind(rnbcpt,rpbcpt)
+  #   for (l in 1:length(rpball[,"rnbcpt"])) {
+  #     tbu_e<-gsub(rpball[l,"rnbcpt"],rpball[l,"rpbcpt"],tbu_cpt)
+  #   }
+  # }#edn depr
+  # #only transcript 
+  # postcodes<-subset(set,set$category==4|set$category==5|set$category==6)
+  # transcodes<-subset(postcodes,postcodes$category==4|postcodes$category==5)
+  # postcodes<-transcodes
+  # #postcodes$regex<-stri_unescape_unicode(postcodes$regex)
+  # typeof(postcodes)
+  # #rm(codes)
+  # ii<-!is.na(postcodes$regex)
+  # postcodes<-subset(postcodes,ii)
+  # postcodes$regex
+  # regx<-stri_unescape_unicode(postcodes$regex)
+  # repl<-stri_unescape_unicode(postcodes$repl)
+  # repl
+  # regx
+  # #postcodescor$regexcor
+  # #postcodescor<-regxcor(postcodes,c(4,5,5,5,5))
+  # tbu_e<-tbum
+  # tbu<-tbu_e
+  # tbub<-tbu[mstart:length(tbu)]
+  # tbusafe<-tbu
+  # tbuheader<-tbu[1:mstart-1]
+  # tbu_e<-tbub
+  # #transcript post
+  # for (l in 1:length(regx)) {
+  #   tbu_e<-gsub(regx[l],repl[l],tbu_e)
+  # }
+  # tbu_e[1:50]
+  # postcodes<-subset(set,set$category==4|set$category==5|set$category==6)
+  # headcodes<-subset(postcodes,postcodes$category==6)
+  # postcodes<-headcodes
+  # #postcodes$regex<-stri_unescape_unicode(postcodes$regex)
+  # typeof(postcodes)
+  # #rm(codes)
+  # ii<-!is.na(postcodes$regex)
+  # postcodes<-subset(postcodes,ii)
+  # postcodes$repl
+  # regx<-stri_unescape_unicode(postcodes$regex)
+  # repl<-stri_unescape_unicode(postcodes$repl)
+  # repl
+  # tbuheader
+  # for (l in 1:length(regx)) {
+  #   tbuheader<-gsub(regx[l],repl[l],tbuheader)
+  # }
+  # #tbu_e[1:50]
+  # tbu_cpt<-c(tbuheader,tbu_e)
+  # tbu_e<-tbu_cpt
+  
+  #tbu_e[52]
+  #tbu_e[148]
+tbu_e<-tbu
+    writeLines(tbu_e,paste(dirtext,chatvmodified,chatfilename,sep = "/"))
+  #  }
+  #  postprocess(codes_cpt,tbum)
+  
+}
+### END replacement loop #########
