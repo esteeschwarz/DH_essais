@@ -83,7 +83,7 @@ the dialogue represents minutes 08:42 - 10:45 of the recording transcribed accor
 #### 2.2 analysis
 ``` {=html}
 
-<iframe src="prime/CA_schnipsel_001.html" style="border:2px solid black;" width="100%" height="400px"></iframe>
+<iframe src="prime/CA_schnipsel_001.2.html" style="border:2px solid black;" width="100%" height="400px"></iframe>
 ```
 
 ## 3. some visualisations & statistics
@@ -184,7 +184,12 @@ transcript files, tables & source code:
 ```{r echo = FALSE,warning=FALSE}
 xfun::pkg_load2(c("htmltools", "mime"))
 #xfun::embed_files(c('N-PRG_CA_001.Rmd',"prime/CA_schnipsel_001.tsv","prime/CA_schnipsel_001.2.exb","prime/CA_schnipsel_001.2.txt","prime/CA_schnipsel_001.2.rtf"))
-xfun::embed_dir("prime")
+#setwd(prg)
+#xfun::embed_dir("annex")
+```
+
+```{=html}
+<p>download <a href="annex.zip">annex.zip</a></p>
 ```
 
 ```{=html}
