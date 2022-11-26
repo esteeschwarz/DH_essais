@@ -77,11 +77,11 @@ source("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
 
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #calls miracle function from external script:
-book<-2
-chapter<-1
+book<-3
+chapter<-3
 plot_abs<-0
 text<-2
-dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs) #ARG: (set,book,chapter,absolute)
+dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs,3) #ARG: (set,book,chapter,absolute)
 mfw()
 ```
 

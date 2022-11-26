@@ -15,18 +15,21 @@ root<-"~/boxHKW/21S/DH/"
 local<-paste0(root,"local/DYN/")
 setwd(local)
 #src<-"wolf_FF_1.json"
-src<-paste0(local,"wolf_FF-LEN_1.json")
+src<-paste0(local,"wolf_FF-LEN-KOCHANIE.json")
 getwd()
 #k<-2
 #dtatxt<-as.data.frame(fromJSON(src))
 dtatxt<-(fromJSON(src))
 book<-2
 chapter<-4
-plotsentiment<-function(set,book,chapter,pl){
+dtaoutput<-data.frame()
+plotsentiment<-function(set,book,chapter,pl,color){
 dtatxt<-set
-dtatarget<-dtatxt[["content"]][["body"]][["text"]][[book]][["pg"]][[chapter]][["div"]]["#text"]
+#dtatarget<-dtatxt[["content"]][["body"]][["text"]][[book]][["pg"]][[chapter]][["div"]]["#text"]
+#dtatxt[["content"]][["body"]][["text"]][[3]][["pg"]][[1]]
+dtatarget<-dtatxt[["content"]][["body"]][["text"]][[book]][["pg"]][[chapter]][["div"]]
 a4<-!is.na(dtatarget$`#text`)
-
+#dtatxt[["content"]][["body"]][["text"]][[book]][["pg"]][[chapter]][["peaks"]]<-a3
 dtasubna<-as.data.frame(dtatarget$`#text`[a4])
 colnames(dtasubna)<-"text"
 
@@ -36,8 +39,8 @@ a2<-get_sentiment(dtasubna$text,method = "syuzhet",language = "german")
 
 a3<-get_transformed_values(a2)
 #label<-c("main"=chapter)
-plot(a3,type="h",main="sentiment analysis",ylab="relative value",xlab="distribution over:",sub=paste0("chapter ",chapter),col=2,asp=1)
-points(a3, cex = .2, col = "dark red")
+plot(a3,type="l",main="sentiment analysis",ylab="relative value",xlab="distribution over:",sub=paste0("book ",book,", chapter ",chapter),col=color,asp=1)
+#points(a3, cex = .2, col = "dark red")
 if (pl==1){
 plot(a2,type="l")}
 #m1<-match(a2,max(a2))
@@ -47,7 +50,9 @@ plot(a2,type="l")}
 #dtatarget$peak<-dtatarget$`#text`[m2]
 dtasubna$peak<-a2
 colnames(dtasubna)<-c("text","peak")
+#dtatxt[["content"]][["body"]][["text"]][[book]][["pg"]][[chapter]]["peaks"]<-a3
 
+#dtaoutput[,book]<-a3
 return(dtasubna)
 
 #return(dtatarget$`#text`)
@@ -160,3 +165,33 @@ getwd()
 write.csv(textarray,"~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/corpus/wolf_LE_textarray.csv")
 }
 #stoplist<-read.csv("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv",sep = ";")
+
+#call function, comment in for main Rmd
+# dtsubna<-plotsentiment(dtatxt,book,chapter,plot_abs)
+ book<-3
+ chapter<-3
+# par(new=T)
+dtasubna<-plotsentiment(dtatxt,book,chapter,0,7)
+# 
+# dtaoutput2<-plotsentiment(dtatxt,book,chapter,0)["peak"]
+dtasubna
+x2<-data.frame("text"="start","value"=1)
+x2<-array()
+x4<-array()
+for (k in 2:3){
+  ldtc<-length(dtatxt[["content"]][["body"]][["text"]][[k]][["pg"]])  
+  ldta<-length(dtatxt[["content"]][["body"]][["text"]][[k]][["pg"]][[ldtc]][["div"]][["#text"]])
+  for (i in 1:ldtc){
+  x<-plotsentiment(dtatxt,k,i,0,4)
+#  x2[1:ldta]<-x$text
+  x2<-append(x2,x$text,after = ldta)
+
+  x4<-append(x4,x$peak,after = ldta)
+  x4d<-cbind(i,x4)
+  x2d<-cbind(k,x2)
+  
+    }
+  
+  }
+x5<-cbind(x2d,x4d)
+ldta<-length(dtatxt[["content"]][["body"]][["text"]][[book]][["pg"]][[chapter]][["div"]][["#text"]])
