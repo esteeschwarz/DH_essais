@@ -4,11 +4,8 @@
     <pref key="FrameSize">
         <Object class="java.awt.Dimension">1204,774</Object>
     </pref>
-    <pref key="FrameLocation">
-        <Object class="java.awt.Point">240,147</Object>
-    </pref>
-    <pref key="Interlinear.SelectionOnly">
-        <Boolean>false</Boolean>
+    <pref key="LayoutManager.SelectedTabIndex">
+        <Int>6</Int>
     </pref>
     <pref key="LayoutManager.VisibleMultiTierViewer">
         <String>mpi.eudico.client.annotator.viewer.TimeLineViewer</String>
@@ -38,6 +35,79 @@
     <pref key="MultiTierViewer.ActiveTierName">
         <String>SP0 [HES] (TIE0)</String>
     </pref>
+    <pref key="SelectionEndTime">
+        <Long>0</Long>
+    </pref>
+    <pref key="LayoutManager.CurrentMode">
+        <Int>1</Int>
+    </pref>
+    <prefGroup key="CommentViewer.Columns">
+        <pref key="Sender">
+            <Int>0</Int>
+        </pref>
+        <pref key="Kommentar">
+            <Int>75</Int>
+        </pref>
+        <pref key="Zeile">
+            <Int>75</Int>
+        </pref>
+        <pref key="Empfänger">
+            <Int>0</Int>
+        </pref>
+        <pref key="Initialen">
+            <Int>75</Int>
+        </pref>
+        <pref key="Änderungsdatum">
+            <Int>75</Int>
+        </pref>
+        <pref key="Erstellungsdatum">
+            <Int>75</Int>
+        </pref>
+        <pref key="Anfangszeit">
+            <Int>75</Int>
+        </pref>
+        <pref key="Endzeit">
+            <Int>75</Int>
+        </pref>
+        <pref key="Thread">
+            <Int>75</Int>
+        </pref>
+    </prefGroup>
+    <prefList key="CommentViewer.Columns.Order">
+        <String>Anfangszeit</String>
+        <String>Endzeit</String>
+        <String>Zeile</String>
+        <String>Initialen</String>
+        <String>Kommentar</String>
+        <String>Thread</String>
+        <String>Sender</String>
+        <String>Empfänger</String>
+        <String>Erstellungsdatum</String>
+        <String>Änderungsdatum</String>
+    </prefList>
+    <pref key="ActiveRecognizerName">
+        <String>AAM-LR Phone level audio segmentation</String>
+    </pref>
+    <pref key="FrameLocation">
+        <Object class="java.awt.Point">240,147</Object>
+    </pref>
+    <pref key="Interlinear.SelectionOnly">
+        <Boolean>false</Boolean>
+    </pref>
+    <pref key="LayoutManager.AudioSplitPaneDividerLocation">
+        <Int>23</Int>
+    </pref>
+    <pref key="SelectionBeginTime">
+        <Long>0</Long>
+    </pref>
+    <prefGroup key="AAM-LR Phone level audio segmentation">
+        <pref key="base_url">
+            <String>http://lux17.mpi.nl/aamlr/</String>
+        </pref>
+        <pref key="source_audio">
+            <String>/Users/guhl/boxHKW/UNI/21S/SPUND/PRG/media/PRG_CA_schnipsel.wav</String>
+        </pref>
+    </prefGroup>
     <prefList key="MultiTierViewer.HiddenTiers"/>
     <prefList key="Interlinear.TierOrder">
         <String>STRUCT [main]</String>
@@ -61,6 +131,12 @@
         <String>SP1 [HER]</String>
         <String>SP0 [HES]</String>
     </prefList>
+    <pref key="TimeScaleBeginTime">
+        <Long>0</Long>
+    </pref>
+    <pref key="MediaTime">
+        <Long>0</Long>
+    </pref>
     <prefGroup key="TierColors">
         <pref key="STRUCT [main]">
             <Object class="java.awt.Color">90,160,0</Object>
@@ -94,8 +170,8 @@
         <String>SP1 [HER]</String>
         <String>SP0 [HES]</String>
     </prefList>
-    <pref key="LayoutManager.CurrentMode">
-        <Int>1</Int>
+    <pref key="LayoutManager.SplitPaneDividerLocation">
+        <Int>70</Int>
     </pref>
     <prefGroup key="Interlinear.FontSizes">
         <pref key="SP0 [SPK]">
@@ -159,4 +235,8 @@
             <Int>12</Int>
         </pref>
     </prefGroup>
+    <prefList key="CommentViewer.Columns.Hidden">
+        <String>Sender</String>
+        <String>Empfänger</String>
+    </prefList>
 </preferences>
