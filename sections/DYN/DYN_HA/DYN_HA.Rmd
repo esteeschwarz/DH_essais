@@ -1,11 +1,11 @@
 ---
 #--- official ---#
-# Hausarbeit im Seminar: Digitale Dramenanalyse, Frank Fischer, SS2022 FUB
+# Hausarbeit im Seminar: Dynamiken postdeutscher Gegenwartsliteratur, Clara Liso, SS2022 FUB
 # im Fach: Allgemeine und Vergleichende Literaturwissenschaften
 # eingereicht von Stephan Schwarz
-# Abgabe: 2022-10-03
+# Abgabe: due
 
-title: "Digitale Dramenanalyse / SS22 FUB / Frank Fischer"
+title: "DYN HA / SS22 FUB / Clara Liso"
 author: "St. Schwarz"
 date: "`r Sys.Date()`"
 zotero: AVL_dyn
@@ -32,19 +32,18 @@ switch on podcast audio if you like...
 ```{=html}
 <!-- placeholder for begleitaudiospur static .mp3-->
 <!----><audio controls>
-  <source src="https://ephemeridenmusik.rotefadenbuecher.de/wp-content/uploads/FM017_klemmHA.mp3" type="audio/mpeg">
+  <source src="xxxdue.mp3" type="audio/mpeg">
 You would hear audio but your browser does not support the audio element.
 </audio><!---->
 <!-- placeholder for begleitaudiospur spotify podcast-->
-<!--<iframe src="https://open.spotify.com/embed/episode/0Z9JS54zC15Fh099ovAKce?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>-->
+<!--<iframe src="xxxdue"></iframe>-->
 ```
 
 ---
 
 # 1. einleitung
 
-# 2. klemm
-
+# 2. u. wolf
 
 # 3. dokumentation aufbereitung
 
@@ -78,19 +77,17 @@ source("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
 
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #calls miracle function from external script:
-book<-2
-chapter<-1
+book<-3
+chapter<-3
 plot_abs<-0
 text<-2
-dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs) #ARG: (set,book,chapter,absolute)
+dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs,3) #ARG: (set,book,chapter,absolute)
 mfw()
 ```
 
 Q: cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)
 
 ## 4.5 varianzen
-Auf dieser Grundlage bieten sich weitere Analysen an, die den Rahmen dieser Arbeit jedoch übersteigen. (m) Erste Vergleiche beider Editionen lassen vermuten, dasz die Varianzen in Stil und Orthographie auf Klemm selbst zurückgehen, da wir hier davon ausgehen, dasz er als Herausgeber der Wochenblätter, in denen die erste und zweite Ausgabe erschienen, weitgehend eigenverantwortlich editorisch tätig war.
-Die im folgenden genannten Varianzen lieszen sich mithilfe des oben verwendeten tools LERA als deutlich unterschieden unterhalb der Editionen erkennen. Welche Gründe Klemm hier zur Neuschreibung bewegten, liesz sich im Rahmen der Arbeit nicht mehr eruieren; die folgende Graphik veranschaulicht eventuelle Zusammenhänge, die sich mir jedoch nicht erschlieszen.
 ---
 
 # B. REF:
