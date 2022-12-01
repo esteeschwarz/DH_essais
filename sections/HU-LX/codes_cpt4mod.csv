@@ -179,10 +179,11 @@
 ;;;head;(mostly);6;;;;;;;;;(\\(mostly\\));roughly;;
 ;;;trans;(family_language-with_parents-with);5;;;;;;;;;(\\(family_language-with_parents-with\\));(family_language-with_parents-with_siblings);;
 ;;;head;., see the Elicitation documentation files.;6;;;;;;;;;\\., see the Elicitation documentation files\\.;"; see reference @Elicitation files.";;
-;;;trans;%WORD;5;;;;;;;;; %([A-Za-z]);#%#\\1;;
+;;;trans;%WORD;5;;;;;;;;; %([A-Za-z]);\t#%#\\1;;
 ;;;head;TUR/ELL;6;;;;;;;;;(@ID:.+)(_TUR|_ELL)_;\\1_;;
 ;;global;head;@.ctivities;6;;;;;;;;;^@.ctivities.+;@Activities: background info, directed conversation, personal narratives;;
 ;;;trans;tab after tier label, speaker;5;;;;;;;;;([\\*]...:) ;\\1\t;;
 ;;;;tab after tier label, annotation;5;;;;;;;;;([%]...:) ;\\1\t;;
 ;;;;;6;;;;;;;;;(@(%...:)) ;@TD: \\2\t;;
-;;;;discrete coding in header;7;;;;;;;;;(\*)([A-Z]{3})(:?);<\2\3>;;
+;;;;discrete coding in header;7;;;;;;;;;([\\*])([A-Z]{3})(:?);<\2\3>;;
+;;;trans;missing space in tier start;5;;;;;;;;;([\\*])([A-Z]{3}):([^ |\t]);\1\2:\t\3;;
