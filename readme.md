@@ -10,5 +10,5 @@ repository on digital humanities essais.
   - conversation analysis essais: [interaktion](https://github.com/esteeschwarz/essais/tree/main/docs/INT_CA) / [N-PRG](https://github.com/esteeschwarz/DH_essais/tree/main/sections/CA)
   - corpus linguistics essais: [SPUND LX](https://github.com/esteeschwarz/essais/tree/main/docs/corpusLX) / [HU-LX multilingual studies](https://github.com/esteeschwarz/DH_essais/tree/main/sections/HU-LX)
   ----
-  - [frontend output assembly](https://ada-sub.rotefadenbuecher.de/skool/public) of (recent relevant learnings.)
+  - [frontend output assembly](https://userpage.fu-berlin.de/stschwarz/links?title=adaskool&ref=github) of (recent relevant learnings.)
 
