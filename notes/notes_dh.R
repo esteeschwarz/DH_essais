@@ -75,3 +75,13 @@ txtmxml<-read_xml(txtm20)
 write_clip(klemm_xml1)
 klemmxml2<-xml_add_child(data,txtm20,"//insert")
 klemmxml2
+
+### sort dataframe:
+#ordering dataframe by column 1
+df[with(df,order(df[,1])), ]
+#ordering dataframe by column name 'a'
+df[with(df,order(df[,"a"])), ]
+df[order(df[[var]]),]
+df[order(df[,var]),]
+
+

@@ -25,6 +25,8 @@ bibliography: DYN_HA.bib
 # A. head
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir="~/boxHKW/21S/DH")
+knitr::opts_knit$set(base.dir = "~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA")
 ```
 to self compile the RMarkdown template to this page in RStudio cf. [@esteeschwarz_klemm_2022-1](https://github.com/esteeschwarz/DH_essais/blob/main/sections/DD/klemm_HA/top/M/klemm_HA_temp_BASE.Rmd)
 
@@ -53,16 +55,28 @@ You would hear audio but your browser does not support the audio element.
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 library(jsonlite)
 library(syuzhet)
+library(mongolite)
+library(readr)
+library(ggplot2)
+library(lme4)
+library(stringi)
 
-root<-"~/boxHKW/21S/DH/"
-local<-paste0(root,"local/DYN/")
-setwd(local)
+
+
+#root<-"/Users/lion/boxHKW/21S/DH/"
+#local<-paste0(root,"local/DYN/")
+setwd("~/boxHKW/21S/DH")
 #src<-"wolf_FF_1.json"
-src<-paste0(local,"wolf_FF-LEN_1.json")
-#getwd()
+#src<-paste0(local,"wolf_FF-LEN_1.json")
+getwd()
+src<-paste0(getwd(),"/local/R/cred_gener.csv")
+  cred<-read.csv(src)
+  con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
+    dta<-con$find('{}')
+
 #k<-2
 #dtatxt<-as.data.frame(fromJSON(src))
-dtatxt<-(fromJSON(src))
+#dtatxt<-(fromJSON(src))
 #cat("load TEI from:",src)
 source("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
 ```
@@ -81,8 +95,9 @@ book<-3
 chapter<-3
 plot_abs<-0
 text<-2
-dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs,3) #ARG: (set,book,chapter,absolute)
-mfw()
+#dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs,3) #ARG: (set,book,chapter,absolute)
+do_sentiment(dta)
+mfw(dta)
 ```
 
 Q: cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)
