@@ -73,12 +73,13 @@ stoplist_t<-subset(stoplist,stoplist$stop==1)$word
 #gsub()
 #dtatarget<-dtasubna
 getwd()
+dta$top<-0
+
 do_sentiment<-function(dta){
   # src<-paste0(getwd(),"/local/R/cred_gener.csv")
   # cred<-read.csv(src)
   # con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
   # x<-con$find('{}')
-  dta$top<-0
   dta<-subset(dta,!is.na(dta$content))
   #dta<-dtam
   a1<-get_sentiment(dta$content[dta$book=="kochanie"],method = "syuzhet",language = "german")
@@ -102,14 +103,15 @@ do_sentiment<-function(dta){
   dta$top[dta$book=="lengevitch"]<-2013
   dta<-dta[with(dta,order(dta$top)),]
   #dta<-ds
-  #attach(dta)
-  #dtans<-colnames(dta)
-  #dta0<-c(NA,NA,"a-intercept","a-intercept","null","null","null","null","null")
-  #dtalm<-rbind(dta0,dta)
-  #dtalm$sentiment[1]<-0
-  #mode(dtalm$sentiment)<-"double"
+  attach(dta)
+  dtans<-colnames(dta)
+  dta0<-c(NA,NA,"a-intercept","a-intercept","null","null","null","null","null")
+  dtalm<-rbind(dta0,dta)
+  dtalm$sentiment[1]<-0
+  mode(dtalm$sentiment)<-"double"
   #dtalm<-dta
-  lm<-lmer(dta$sentiment~dta$book+(dta$book|dta$chapter),dta)
+  #sum(is.na(dta$chapter))
+  lm<-lmer(dta$sentiment~dta$book+(dta$book|dta$chapter),dta,na.action = na.omit(dta))
   le<-summary(lm)
   le
   res<-le$residuals
