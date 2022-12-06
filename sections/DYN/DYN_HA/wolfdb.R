@@ -206,7 +206,7 @@ res<-le$residuals
 #library(lmerTest)
 #plot(a1,type = "h")
 lm2<-get_transformed_values(res)
-scatter.smooth(le$residuals,1:length(le$residuals),.1,.1,family = "gaussian")
+#scatter.smooth(le$residuals,1:length(le$residuals),.1,.1,family = "gaussian")
 # plot(lm2,type = "h",col=2,ylab = "sentiment factorized",xlab="books",main="sentiment analysis: book/chapter dependency")
 ####
 m1<-mean(dtalm$sentiment[dtalm$book=="kochanie"])
