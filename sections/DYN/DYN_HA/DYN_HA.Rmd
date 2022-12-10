@@ -11,6 +11,7 @@ date: "`r Sys.Date()`"
 zotero: AVL_dyn
 output: 
   html_document:
+    code_download: yes
     toc: yes
     toc_float:
       collapsed: no
@@ -18,27 +19,30 @@ output:
     self_contained: FALSE #TRUE for standalone html page knit
     #css: ../style_HA.css
 #swap / decomment ff .bib/.css references for self compile .Rmd to html
-#bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
+#bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DYN/DYN_HA/DYN_HA.bib
     css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
 bibliography: DYN_HA.bib
 ---
 # A. head
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir="~/boxHKW/21S/DH")
-knitr::opts_knit$set(base.dir = "~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA")
-```
-to self compile the RMarkdown template to this page in RStudio cf. [@esteeschwarz_klemm_2022-1](https://github.com/esteeschwarz/DH_essais/blob/main/sections/DD/klemm_HA/top/M/klemm_HA_temp_BASE.Rmd)
+#mini critical: dont find relative files in path
+#knitr::opts_knit$set(root.dir="~/boxHKW/21S/DH")
+#knitr::opts_knit$set(base.dir = "~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA")
+#EWA, lapsi
+#knitr::opts_knit$set(root.dir="~/boxHKW/UNI/21S/DH")
+#knitr::opts_knit$set(base.dir = "~/boxHKW/UNI/21S/DH/gith/DH_essais/sections/DYN/DYN_HA")
 
-switch on podcast audio if you like...
-```{=html}
-<!-- placeholder for begleitaudiospur static .mp3-->
-<!----><audio controls>
-  <source src="xxxdue.mp3" type="audio/mpeg">
-You would hear audio but your browser does not support the audio element.
-</audio><!---->
-<!-- placeholder for begleitaudiospur spotify podcast-->
-<!--<iframe src="xxxdue"></iframe>-->
+```
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+library(httr)
+#fetch zotero .bib online
+share <- runif(1)
+x<-GET("https://api.zotero.org/groups/4713246/collections/9LNRRJQN/items/top?format=bibtex")
+bib<-content(x,"text")
+y<-tempfile("ref",fileext = ".bib")
+writeLines(bib,y)
 ```
 
 ---
@@ -47,15 +51,15 @@ You would hear audio but your browser does not support the audio element.
 
 # 2. u. wolf
 
-# 3. dokumentation aufbereitung
+# 3. corpus aufbereitung
 
 # 4. some visualisations
 ## 4.1 basic statistics
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+library(mongolite)
 library(jsonlite)
 library(syuzhet)
-library(mongolite)
 library(readr)
 library(ggplot2)
 library(lme4)
@@ -65,20 +69,25 @@ library(stringi)
 
 #root<-"/Users/lion/boxHKW/21S/DH/"
 #local<-paste0(root,"local/DYN/")
-setwd("~/boxHKW/21S/DH")
+#setwd("~/boxHKW/21S/DH")
 #src<-"wolf_FF_1.json"
 #src<-paste0(local,"wolf_FF-LEN_1.json")
 getwd()
-src<-paste0(getwd(),"/local/R/cred_gener.csv")
+src<-"../../../../../local/R/cred_gener.csv"
   cred<-read.csv(src)
-  con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
-    dta<-con$find('{}')
+#  con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
+ #   dta<-con$find('{}')
+#local data:
+    src<-"../../../../../local/DYN/db/wolfdb003.csv"
 
+    dta<-read.csv(src)
 #k<-2
 #dtatxt<-as.data.frame(fromJSON(src))
 #dtatxt<-(fromJSON(src))
 #cat("load TEI from:",src)
-source("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
+    src<-"DYN_HA_semantics.R"
+#source("/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
+   source(src)
 ```
 
 ```{r echo = FALSE,warning=FALSE}
@@ -88,21 +97,41 @@ source("~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
 ```
 
 ## 4.3 sentiment
-
+### 4.3.1 visualisation
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #calls miracle function from external script:
-book<-3
-chapter<-3
-plot_abs<-0
-text<-2
+#book<-3
+#chapter<-3
+#plot_abs<-0
+#text<-2
 #dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs,3) #ARG: (set,book,chapter,absolute)
-do_sentiment(dta)
-mfw(dta)
-```
+le<-do_sentiment(dta)
+mfw_dta<-list()
+for (k in 2: length(chapter_ex)){
+  
 
+mfw_dta[[k]]<-mfw(dta,k)
+}
+#mfw_dta[[3]]$max$id
+```
 Q: cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)
 
+### 4.3.2 data
+summary:
+```{r echo=F}
+print (mfw_dta)
+exc<-3
+```
+```{css echo=F}
+pre {max-height: 400px;}
+```
+Zur Erklärung: Die höchsten *sentiment* Werte, hier zb. im Kapitel ``r mfw_dta[[exc]]$max$chapter`` lassen sich in ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind ``r mfw_dta[[exc]]$max$words``, 
+die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` 
+mit ``r mfw_dta[[exc]]$min$words``. 
+
+
 ## 4.5 varianzen
+
 ---
 
 # B. REF:

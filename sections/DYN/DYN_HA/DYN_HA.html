@@ -11,9 +11,9 @@
 
 <meta name="author" content="St. Schwarz" />
 
-<meta name="date" content="2022-11-06" />
+<meta name="date" content="2022-12-10" />
 
-<title>Digitale Dramenanalyse / SS22 FUB / Frank Fischer</title>
+<title>DYN HA / SS22 FUB / Clara Liso</title>
 
 <script src="DYN_HA_files/header-attrs-2.16/header-attrs.js"></script>
 <script src="DYN_HA_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -35,6 +35,8 @@
 <link href="DYN_HA_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="DYN_HA_files/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="DYN_HA_files/navigation-1.1/tabsets.js"></script>
+<script src="DYN_HA_files/navigation-1.1/codefolding.js"></script>
+<script src="DYN_HA_files/navigation-1.1/sourceembed.js"></script>
 <link href="DYN_HA_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="DYN_HA_files/highlightjs-9.12.0/highlight.js"></script>
 
@@ -61,6 +63,11 @@ if (window.hljs) {
 
 
 
+<style type="text/css">
+#rmd-source-code {
+  display: none;
+}
+</style>
 
 <style type="text/css">
 /* for pandoc --citeproc since 2.11 */
@@ -177,6 +184,9 @@ pre code {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -272,71 +282,443 @@ div.tocify {
 
 <div id="header">
 
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore">Digitale Dramenanalyse / SS22 FUB / Frank
-Fischer</h1>
+
+<h1 class="title toc-ignore">DYN HA / SS22 FUB / Clara Liso</h1>
 <h4 class="author">St. Schwarz</h4>
-<h4 class="date">2022-11-06</h4>
+<h4 class="date">2022-12-10</h4>
 
 </div>
 
 
 <div id="a.-head" class="section level1">
 <h1>A. head</h1>
-<p>to self compile the RMarkdown template to this page in RStudio cf. <a
-href="https://github.com/esteeschwarz/DH_essais/blob/main/sections/DD/klemm_HA/top/M/klemm_HA_temp_BASE.Rmd"><span
-class="citation">(<strong>esteeschwarz_klemm_2022-1?</strong>)</span></a></p>
-<p>switch on podcast audio if you like…</p>
-<!-- placeholder for begleitaudiospur static .mp3-->
-<!----><audio controls>
-  <source src="https://ephemeridenmusik.rotefadenbuecher.de/wp-content/uploads/FM017_klemmHA.mp3" type="audio/mpeg">
-You would hear audio but your browser does not support the audio element.
-</audio><!---->
-<!-- placeholder for begleitaudiospur spotify podcast-->
-<!--<iframe src="https://open.spotify.com/embed/episode/0Z9JS54zC15Fh099ovAKce?utm_source=generator" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>-->
 <hr />
 </div>
 <div id="einleitung" class="section level1">
 <h1>1. einleitung</h1>
 </div>
-<div id="klemm" class="section level1">
-<h1>2. klemm</h1>
+<div id="u.-wolf" class="section level1">
+<h1>2. u. wolf</h1>
 </div>
-<div id="dokumentation-aufbereitung" class="section level1">
-<h1>3. dokumentation aufbereitung</h1>
+<div id="corpus-aufbereitung" class="section level1">
+<h1>3. corpus aufbereitung</h1>
 </div>
 <div id="some-visualisations" class="section level1">
 <h1>4. some visualisations</h1>
 <div id="basic-statistics" class="section level2">
 <h2>4.1 basic statistics</h2>
+<pre><code>## [1] &quot;/Users/lion/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA&quot;</code></pre>
 </div>
 <div id="sentiment" class="section level2">
 <h2>4.3 sentiment</h2>
-<p><img src="DYN_HA_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<pre><code>## minimum text wordlist of duplicates:
-## [1] &quot;zügel&quot;      &quot;mit&quot;        &quot;steht&quot;      &quot;nicht&quot;      &quot;man&quot;       
-## [6] &quot;schabracke&quot; &quot;flur&quot;       &quot;hier&quot;      
-## maximum text wordlist of duplicates:
-## [1] &quot;lining&quot;     &quot;man&quot;        &quot;fütterung&quot;  &quot;nicht&quot;      &quot;gedieht&quot;   
-## [6] &quot;ein&quot;        &quot;ohne&quot;       &quot;gewissheit&quot; &quot;du&quot;</code></pre>
-<p>Q: cf. <a
+<div id="visualisation" class="section level3">
+<h3>4.3.1 visualisation</h3>
+<p><img src="DYN_HA_files/figure-html/unnamed-chunk-5-1.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-2.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-3.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-4.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-5.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-6.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-7.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-8.png" width="672" />
+Q: cf. <a
 href="https://www.matthewjockers.net/2015/02/02/syuzhet/"><span
 class="citation">(Jockers 2015)</span></a></p>
 </div>
+<div id="data" class="section level3">
+<h3>4.3.2 data</h3>
+<p>summary:</p>
+<pre><code>## [[1]]
+## NULL
+## 
+## [[2]]
+## [[2]]$min
+## [[2]]$min$head
+## [1] &quot;IV&quot;                  &quot;V legnica /liegnitz&quot;
+## 
+## [[2]]$min$book
+## [1] &quot;kochanie&quot; &quot;kochanie&quot;
+## 
+## [[2]]$min$chapter
+## [1] &quot;kochanie ich habe brot gekauft&quot; &quot;kochanie ich habe brot gekauft&quot;
+## 
+## [[2]]$min$id
+## [1] &quot;126&quot; &quot;127&quot;
+## 
+## [[2]]$min$words
+## [1] &quot;wir&quot; &quot;uns&quot;
+## 
+## 
+## [[2]]$max
+## [[2]]$max$head
+## [1] &quot;reisende&quot;     &quot;übersetzen&quot;   &quot;post&quot;         &quot;knirschen II&quot; &quot;I&quot;           
+## 
+## [[2]]$max$book
+## [1] &quot;kochanie&quot; &quot;kochanie&quot; &quot;kochanie&quot; &quot;kochanie&quot; &quot;kochanie&quot;
+## 
+## [[2]]$max$chapter
+## [1] &quot;kochanie ich habe brot gekauft&quot; &quot;kochanie ich habe brot gekauft&quot;
+## [3] &quot;kochanie ich habe brot gekauft&quot; &quot;kochanie ich habe brot gekauft&quot;
+## [5] &quot;kochanie ich habe brot gekauft&quot;
+## 
+## [[2]]$max$id
+## [1] &quot;129&quot; &quot;130&quot; &quot;133&quot; &quot;135&quot; &quot;136&quot;
+## 
+## [[2]]$max$words
+## [1] &quot;no duplicate words&quot;
+## 
+## 
+## 
+## [[3]]
+## [[3]]$min
+## [[3]]$min$head
+## [1] &quot;kreisau, nebelvoliere&quot;
+## 
+## [[3]]$min$book
+## [1] &quot;kochanie&quot;
+## 
+## [[3]]$min$chapter
+## [1] &quot;krzyżowa, gefährten&quot;
+## 
+## [[3]]$min$id
+## [1] &quot;142&quot;
+## 
+## [[3]]$min$words
+## [1] &quot;brust&quot; &quot;ein&quot;   &quot;halb&quot;  &quot;du&quot;    &quot;mich&quot;  &quot;ich&quot;   &quot;vogel&quot; &quot;dein&quot; 
+## 
+## 
+## [[3]]$max
+## [[3]]$max$head
+## [1] &quot;an die kreisauer hunde&quot;          &quot;nachtrag an die kreisauer hunde&quot;
+## 
+## [[3]]$max$book
+## [1] &quot;kochanie&quot; &quot;kochanie&quot;
+## 
+## [[3]]$max$chapter
+## [1] &quot;krzyżowa, gefährten&quot; &quot;krzyżowa, gefährten&quot;
+## 
+## [[3]]$max$id
+## [1] &quot;143&quot; &quot;144&quot;
+## 
+## [[3]]$max$words
+## [1] &quot;euch&quot;   &quot;gehört&quot; &quot;jeden&quot;  &quot;meine&quot; 
+## 
+## 
+## 
+## [[4]]
+## [[4]]$min
+## [[4]]$min$head
+## [1] &quot;fall - falls - fast - fell - flog&quot;
+## 
+## [[4]]$min$book
+## [1] &quot;FF&quot;
+## 
+## [[4]]$min$chapter
+## [1] &quot;DICHTionary&quot;
+## 
+## [[4]]$min$id
+## [1] &quot;7&quot;
+## 
+## [[4]]$min$words
+## [1] &quot;dir&quot;
+## 
+## 
+## [[4]]$max
+## [[4]]$max$head
+## [1] &quot;kau - kind - kiss ~en&quot;
+## 
+## [[4]]$max$book
+## [1] &quot;FF&quot;
+## 
+## [[4]]$max$chapter
+## [1] &quot;DICHTionary&quot;
+## 
+## [[4]]$max$id
+## [1] &quot;12&quot;
+## 
+## [[4]]$max$words
+## [1] &quot;du&quot;  &quot;ein&quot;
+## 
+## 
+## 
+## [[5]]
+## [[5]]$min
+## [[5]]$min$head
+## [1] &quot;REDE MIT AUFGEPICKTEM WORT&quot;
+## 
+## [[5]]$min$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[5]]$min$chapter
+## [1] &quot;BRICKLEBRIT&quot;
+## 
+## [[5]]$min$id
+## [1] &quot;40&quot;
+## 
+## [[5]]$min$words
+## [1] &quot;zügel&quot;      &quot;mit&quot;        &quot;steht&quot;      &quot;nicht&quot;      &quot;man&quot;       
+## [6] &quot;schabracke&quot; &quot;flur&quot;       &quot;hier&quot;      
+## 
+## 
+## [[5]]$max
+## [[5]]$max$head
+## [1] &quot;REDE MIT LANGEN LEINEN&quot; &quot;KLEINE STERNMULLREDE&quot;  
+## 
+## [[5]]$max$book
+## [1] &quot;lengevitch&quot; &quot;lengevitch&quot;
+## 
+## [[5]]$max$chapter
+## [1] &quot;BRICKLEBRIT&quot; &quot;BRICKLEBRIT&quot;
+## 
+## [[5]]$max$id
+## [1] &quot;34&quot; &quot;35&quot;
+## 
+## [[5]]$max$words
+## [1] &quot;lining&quot;     &quot;man&quot;        &quot;fütterung&quot;  &quot;nicht&quot;      &quot;gedieht&quot;   
+## [6] &quot;ein&quot;        &quot;ohne&quot;       &quot;gewissheit&quot; &quot;du&quot;        
+## 
+## 
+## 
+## [[6]]
+## [[6]]$min
+## [[6]]$min$head
+## [1] &quot;TIMISOARA&quot;
+## 
+## [[6]]$min$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[6]]$min$chapter
+## [1] &quot;MITTENS&quot;
+## 
+## [[6]]$min$id
+## [1] &quot;47&quot;
+## 
+## [[6]]$min$words
+##  [1] &quot;halb&quot;    &quot;&quot;        &quot;sie&quot;     &quot;lautet&quot;  &quot;erste&quot;   &quot;zeile&quot;   &quot;mit&quot;    
+##  [8] &quot;fluss&quot;   &quot;während&quot; &quot;vorhang&quot; &quot;ein&quot;    
+## 
+## 
+## [[6]]$max
+## [[6]]$max$head
+## [1] &quot;CORDOBA&quot;
+## 
+## [[6]]$max$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[6]]$max$chapter
+## [1] &quot;MITTENS&quot;
+## 
+## [[6]]$max$id
+## [1] &quot;46&quot;
+## 
+## [[6]]$max$words
+## [1] &quot;&quot;      &quot;wir&quot;   &quot;jedes&quot; &quot;nach&quot;  &quot;ein&quot;   &quot;uns&quot;   &quot;mit&quot;  
+## 
+## 
+## 
+## [[7]]
+## [[7]]$min
+## [[7]]$min$head
+## [1] &quot;III&quot;
+## 
+## [[7]]$min$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[7]]$min$chapter
+## [1] &quot;KALTE KÜCHE&quot;
+## 
+## [[7]]$min$id
+## [1] &quot;51&quot;
+## 
+## [[7]]$min$words
+## [1] &quot;ein&quot;
+## 
+## 
+## [[7]]$max
+## [[7]]$max$head
+## [1] &quot;I&quot;
+## 
+## [[7]]$max$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[7]]$max$chapter
+## [1] &quot;KALTE KÜCHE&quot;
+## 
+## [[7]]$max$id
+## [1] &quot;49&quot;
+## 
+## [[7]]$max$words
+## [1] &quot;fichten&quot; &quot;für&quot;    
+## 
+## 
+## 
+## [[8]]
+## [[8]]$min
+## [[8]]$min$head
+## [1] &quot;a&quot;
+## 
+## [[8]]$min$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[8]]$min$chapter
+## [1] &quot;METHOD ACTING MIT ANNA 0.&quot;
+## 
+## [[8]]$min$id
+## [1] &quot;59&quot;
+## 
+## [[8]]$min$words
+##  [1] &quot;zeit&quot;        &quot;für&quot;         &quot;orangen&quot;     &quot;no&quot;          &quot;nicht&quot;      
+##  [6] &quot;viel&quot;        &quot;ich&quot;         &quot;rundum&quot;      &quot;wand&quot;        &quot;orange&quot;     
+## [11] &quot;sie&quot;         &quot;stundenlang&quot; &quot;keeps&quot;       &quot;me&quot;          &quot;wärterin&quot;   
+## [16] &quot;mit&quot;         &quot;täglich&quot;     &quot;sies&quot;        &quot;gedacht&quot;     &quot;ehe&quot;        
+## [21] &quot;tee&quot;         &quot;keine&quot;       &quot;time&quot;        &quot;wasser&quot;      &quot;eignes&quot;     
+## [26] &quot;weil&quot;        &quot;züge&quot;        &quot;brücken&quot;     &quot;schiffchen&quot;  &quot;lack&quot;       
+## [31] &quot;zeiten&quot;      &quot;were&quot;        &quot;mangel&quot;      &quot;ihr&quot;         &quot;geh&quot;        
+## [36] &quot;esse&quot;        &quot;doktor&quot;     
+## 
+## 
+## [[8]]$max
+## [[8]]$max$head
+## [1] &quot;d&quot;
+## 
+## [[8]]$max$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[8]]$max$chapter
+## [1] &quot;METHOD ACTING MIT ANNA 0.&quot;
+## 
+## [[8]]$max$id
+## [1] &quot;62&quot;
+## 
+## [[8]]$max$words
+## [1] &quot;my&quot;
+## 
+## 
+## 
+## [[9]]
+## [[9]]$min
+## [[9]]$min$head
+## [1] &quot;c&quot;
+## 
+## [[9]]$min$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[9]]$min$chapter
+## [1] &quot;SPITZEN&quot;
+## 
+## [[9]]$min$id
+## [1] &quot;72&quot;
+## 
+## [[9]]$min$words
+## [1] &quot;they&quot;   &quot;ohr&quot;    &quot;pine&quot;   &quot;collar&quot; &quot;form&quot;  
+## 
+## 
+## [[9]]$max
+## [[9]]$max$head
+## [1] &quot;g&quot;
+## 
+## [[9]]$max$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[9]]$max$chapter
+## [1] &quot;SPITZEN&quot;
+## 
+## [[9]]$max$id
+## [1] &quot;75&quot;
+## 
+## [[9]]$max$words
+## [1] &quot;schaut&quot;
+## 
+## 
+## 
+## [[10]]
+## [[10]]$min
+## [[10]]$min$head
+## [1] &quot;IV&quot;
+## 
+## [[10]]$min$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[10]]$min$chapter
+## [1] &quot;BOUGAINVILLE&quot;
+## 
+## [[10]]$min$id
+## [1] &quot;82&quot;
+## 
+## [[10]]$min$words
+## [1] &quot;nach&quot; &quot;sag&quot; 
+## 
+## 
+## [[10]]$max
+## [[10]]$max$head
+## [1] &quot;III&quot;
+## 
+## [[10]]$max$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[10]]$max$chapter
+## [1] &quot;BOUGAINVILLE&quot;
+## 
+## [[10]]$max$id
+## [1] &quot;81&quot;
+## 
+## [[10]]$max$words
+## [1] &quot;finde&quot; &quot;sie&quot;   &quot;mit&quot;  
+## 
+## 
+## 
+## [[11]]
+## [[11]]$min
+## [[11]]$min$head
+## [1] &quot;BABELTRACK\n\n(NOTIZEN ZU EINER LENGEVITCH)&quot;
+## 
+## [[11]]$min$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[11]]$min$chapter
+## [1] &quot;BABELTRACK&quot;
+## 
+## [[11]]$min$id
+## [1] &quot;87&quot;
+## 
+## [[11]]$min$words
+##  [1] &quot;ich&quot;     &quot;wollte&quot;  &quot;man&quot;     &quot;kind&quot;    &quot;stehlen&quot; &quot;mein&quot;    &quot;warum&quot;  
+##  [8] &quot;tal&quot;     &quot;kommen&quot;  &quot;mich&quot;    &quot;meinen&quot;  &quot;ihr&quot;    
+## 
+## 
+## [[11]]$max
+## [[11]]$max$head
+## [1] &quot;BABELTRACK\n\n(NOTIZEN ZU EINER LENGEVITCH)&quot;
+## 
+## [[11]]$max$book
+## [1] &quot;lengevitch&quot;
+## 
+## [[11]]$max$chapter
+## [1] &quot;BABELTRACK&quot;
+## 
+## [[11]]$max$id
+## [1] &quot;85&quot;
+## 
+## [[11]]$max$words
+## [1] &quot;werden&quot;      &quot;milchbahnen&quot; &quot;festländer&quot;  &quot;insel&quot;       &quot;sprache&quot;    
+## [6] &quot;macht&quot;       &quot;mit&quot;         &quot;blase&quot;       &quot;sie&quot;</code></pre>
+<style type="text/css">
+pre {max-height: 400px;}
+</style>
+<p>Zur Erklärung: Die höchsten <em>sentiment</em> Werte, hier zb. im
+Kapitel <code>krzyżowa, gefährten, krzyżowa, gefährten</code> lassen
+sich in
+<code>an die kreisauer hunde, nachtrag an die kreisauer hunde</code>
+finden. Die <em>most frequent words</em> dieses Abschnitts sind
+<code>euch, gehört, jeden, meine</code>, die niedrigsten finden sich im
+Text <code>kreisau, nebelvoliere</code> mit
+<code>brust, ein, halb, du, mich, ich, vogel, dein</code>.</p>
+</div>
+</div>
 <div id="varianzen" class="section level2">
 <h2>4.5 varianzen</h2>
-<p>Auf dieser Grundlage bieten sich weitere Analysen an, die den Rahmen
-dieser Arbeit jedoch übersteigen. (m) Erste Vergleiche beider Editionen
-lassen vermuten, dasz die Varianzen in Stil und Orthographie auf Klemm
-selbst zurückgehen, da wir hier davon ausgehen, dasz er als Herausgeber
-der Wochenblätter, in denen die erste und zweite Ausgabe erschienen,
-weitgehend eigenverantwortlich editorisch tätig war. Die im folgenden
-genannten Varianzen lieszen sich mithilfe des oben verwendeten tools
-LERA als deutlich unterschieden unterhalb der Editionen erkennen. Welche
-Gründe Klemm hier zur Neuschreibung bewegten, liesz sich im Rahmen der
-Arbeit nicht mehr eruieren; die folgende Graphik veranschaulicht
-eventuelle Zusammenhänge, die sich mir jedoch nicht erschlieszen. —</p>
+<hr />
 </div>
 </div>
 <div id="b.-ref" class="section level1 unnumbered">
@@ -352,6 +734,7 @@ href="https://www.matthewjockers.net/2015/02/02/syuzhet/">https://www.matthewjoc
 </div>
 </div>
 
+<div id="rmd-source-code">LS0tCiMtLS0gb2ZmaWNpYWwgLS0tIwojIEhhdXNhcmJlaXQgaW0gU2VtaW5hcjogRHluYW1pa2VuIHBvc3RkZXV0c2NoZXIgR2VnZW53YXJ0c2xpdGVyYXR1ciwgQ2xhcmEgTGlzbywgU1MyMDIyIEZVQgojIGltIEZhY2g6IEFsbGdlbWVpbmUgdW5kIFZlcmdsZWljaGVuZGUgTGl0ZXJhdHVyd2lzc2Vuc2NoYWZ0ZW4KIyBlaW5nZXJlaWNodCB2b24gU3RlcGhhbiBTY2h3YXJ6CiMgQWJnYWJlOiBkdWUKCnRpdGxlOiAiRFlOIEhBIC8gU1MyMiBGVUIgLyBDbGFyYSBMaXNvIgphdXRob3I6ICJTdC4gU2Nod2FyeiIKZGF0ZTogImByIFN5cy5EYXRlKClgIgp6b3Rlcm86IEFWTF9keW4Kb3V0cHV0OiAKICBodG1sX2RvY3VtZW50OgogICAgY29kZV9kb3dubG9hZDogeWVzCiAgICB0b2M6IHllcwogICAgdG9jX2Zsb2F0OgogICAgICBjb2xsYXBzZWQ6IG5vCiAgICAgIHNtb290aF9zY3JvbGw6IG5vCiAgICBzZWxmX2NvbnRhaW5lZDogRkFMU0UgI1RSVUUgZm9yIHN0YW5kYWxvbmUgaHRtbCBwYWdlIGtuaXQKICAgICNjc3M6IC4uL3N0eWxlX0hBLmNzcwojc3dhcCAvIGRlY29tbWVudCBmZiAuYmliLy5jc3MgcmVmZXJlbmNlcyBmb3Igc2VsZiBjb21waWxlIC5SbWQgdG8gaHRtbAojYmlibGlvZ3JhcGh5OiBodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZXN0ZWVzY2h3YXJ6L0RIX2Vzc2Fpcy9tYWluL3NlY3Rpb25zL0RZTi9EWU5fSEEvRFlOX0hBLmJpYgogICAgY3NzOiBodHRwczovL2FkYS1zdWIucm90ZWZhZGVuYnVlY2hlci5kZS9za29vbC9wdWJsaWMvcGFwZXJzLzAxMS9zdHlsZV9IQS5jc3MKYmlibGlvZ3JhcGh5OiBEWU5fSEEuYmliCi0tLQojIEEuIGhlYWQKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkKI21pbmkgY3JpdGljYWw6IGRvbnQgZmluZCByZWxhdGl2ZSBmaWxlcyBpbiBwYXRoCiNrbml0cjo6b3B0c19rbml0JHNldChyb290LmRpcj0ifi9ib3hIS1cvMjFTL0RIIikKI2tuaXRyOjpvcHRzX2tuaXQkc2V0KGJhc2UuZGlyID0gIn4vYm94SEtXLzIxUy9ESC9naXRoL0RIX2Vzc2Fpcy9zZWN0aW9ucy9EWU4vRFlOX0hBIikKI0VXQSwgbGFwc2kKI2tuaXRyOjpvcHRzX2tuaXQkc2V0KHJvb3QuZGlyPSJ+L2JveEhLVy9VTkkvMjFTL0RIIikKI2tuaXRyOjpvcHRzX2tuaXQkc2V0KGJhc2UuZGlyID0gIn4vYm94SEtXL1VOSS8yMVMvREgvZ2l0aC9ESF9lc3NhaXMvc2VjdGlvbnMvRFlOL0RZTl9IQSIpCgpgYGAKCmBgYHtyIGV2YWw9VFJVRSwgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRSxtZXNzYWdlPUZBTFNFfQpsaWJyYXJ5KGh0dHIpCiNmZXRjaCB6b3Rlcm8gLmJpYiBvbmxpbmUKc2hhcmUgPC0gcnVuaWYoMSkKeDwtR0VUKCJodHRwczovL2FwaS56b3Rlcm8ub3JnL2dyb3Vwcy80NzEzMjQ2L2NvbGxlY3Rpb25zLzlMTlJSSlFOL2l0ZW1zL3RvcD9mb3JtYXQ9YmlidGV4IikKYmliPC1jb250ZW50KHgsInRleHQiKQp5PC10ZW1wZmlsZSgicmVmIixmaWxlZXh0ID0gIi5iaWIiKQp3cml0ZUxpbmVzKGJpYix5KQpgYGAKCi0tLQoKIyAxLiBlaW5sZWl0dW5nCgojIDIuIHUuIHdvbGYKCiMgMy4gY29ycHVzIGF1ZmJlcmVpdHVuZwoKIyA0LiBzb21lIHZpc3VhbGlzYXRpb25zCiMjIDQuMSBiYXNpYyBzdGF0aXN0aWNzCgpgYGB7ciBldmFsPVRSVUUsIGVjaG89RkFMU0UsIHdhcm5pbmc9RkFMU0UsbWVzc2FnZT1GQUxTRX0KbGlicmFyeShtb25nb2xpdGUpCmxpYnJhcnkoanNvbmxpdGUpCmxpYnJhcnkoc3l1emhldCkKbGlicmFyeShyZWFkcikKbGlicmFyeShnZ3Bsb3QyKQpsaWJyYXJ5KGxtZTQpCmxpYnJhcnkoc3RyaW5naSkKCgoKI3Jvb3Q8LSIvVXNlcnMvbGlvbi9ib3hIS1cvMjFTL0RILyIKI2xvY2FsPC1wYXN0ZTAocm9vdCwibG9jYWwvRFlOLyIpCiNzZXR3ZCgifi9ib3hIS1cvMjFTL0RIIikKI3NyYzwtIndvbGZfRkZfMS5qc29uIgojc3JjPC1wYXN0ZTAobG9jYWwsIndvbGZfRkYtTEVOXzEuanNvbiIpCmdldHdkKCkKc3JjPC0iLi4vLi4vLi4vLi4vLi4vbG9jYWwvUi9jcmVkX2dlbmVyLmNzdiIKICBjcmVkPC1yZWFkLmNzdihzcmMpCiMgIGNvbjwtIG1vbmdvKGNvbGxlY3Rpb24gPSAid29sZmRiMDAzIiwgZGIgPSJkZWFkZW5kIiwgdXJsPWNyZWQkdXJsW2NyZWQkcT09Im1vbmdvZGIiXSkKICMgICBkdGE8LWNvbiRmaW5kKCd7fScpCiNsb2NhbCBkYXRhOgogICAgc3JjPC0iLi4vLi4vLi4vLi4vLi4vbG9jYWwvRFlOL2RiL3dvbGZkYjAwMy5jc3YiCgogICAgZHRhPC1yZWFkLmNzdihzcmMpCiNrPC0yCiNkdGF0eHQ8LWFzLmRhdGEuZnJhbWUoZnJvbUpTT04oc3JjKSkKI2R0YXR4dDwtKGZyb21KU09OKHNyYykpCiNjYXQoImxvYWQgVEVJIGZyb206IixzcmMpCiAgICBzcmM8LSJEWU5fSEFfc2VtYW50aWNzLlIiCiNzb3VyY2UoIi9naXRoL0RIX2Vzc2Fpcy9zZWN0aW9ucy9EWU4vRFlOX0hBL0RZTl9IQV9zZW1hbnRpY3MuUiIpCiAgIHNvdXJjZShzcmMpCmBgYAoKYGBge3IgZWNobyA9IEZBTFNFLHdhcm5pbmc9RkFMU0V9CmBgYAoKYGBge3IgZWNobyA9IEZBTFNFLHdhcm5pbmc9RkFMU0V9CmBgYAoKIyMgNC4zIHNlbnRpbWVudAojIyMgNC4zLjEgdmlzdWFsaXNhdGlvbgpgYGB7ciBldmFsPVRSVUUsIGVjaG89RkFMU0UsIGNvbGxhcHNlPVRSVUUsIHdhcm5pbmc9RkFMU0UsbWVzc2FnZT1GQUxTRX0KI2NhbGxzIG1pcmFjbGUgZnVuY3Rpb24gZnJvbSBleHRlcm5hbCBzY3JpcHQ6CiNib29rPC0zCiNjaGFwdGVyPC0zCiNwbG90X2FiczwtMAojdGV4dDwtMgojZHRhdGFyZ2V0PC1wbG90c2VudGltZW50KGR0YXR4dCxib29rLGNoYXB0ZXIscGxvdF9hYnMsMykgI0FSRzogKHNldCxib29rLGNoYXB0ZXIsYWJzb2x1dGUpCmxlPC1kb19zZW50aW1lbnQoZHRhKQptZndfZHRhPC1saXN0KCkKZm9yIChrIGluIDI6IGxlbmd0aChjaGFwdGVyX2V4KSl7CiAgCgptZndfZHRhW1trXV08LW1mdyhkdGEsaykKfQojbWZ3X2R0YVtbM11dJG1heCRpZApgYGAKUTogY2YuIFtbQGpvY2tlcnNfMjAxNV1dKGh0dHBzOi8vd3d3Lm1hdHRoZXdqb2NrZXJzLm5ldC8yMDE1LzAyLzAyL3N5dXpoZXQvKQoKIyMjIDQuMy4yIGRhdGEKc3VtbWFyeToKYGBge3IgZWNobz1GfQpwcmludCAobWZ3X2R0YSkKZXhjPC0zCmBgYApgYGB7Y3NzIGVjaG89Rn0KcHJlIHttYXgtaGVpZ2h0OiA0MDBweDt9CmBgYApadXIgRXJrbMOkcnVuZzogRGllIGjDtmNoc3RlbiAqc2VudGltZW50KiBXZXJ0ZSwgaGllciB6Yi4gaW0gS2FwaXRlbCBgYHIgbWZ3X2R0YVtbZXhjXV0kbWF4JGNoYXB0ZXJgYCBsYXNzZW4gc2ljaCBpbiBgYHIgbWZ3X2R0YVtbZXhjXV0kbWF4JGhlYWRgYCBmaW5kZW4uIERpZSAqbW9zdCBmcmVxdWVudCB3b3JkcyogZGllc2VzIEFic2Nobml0dHMgc2luZCBgYHIgbWZ3X2R0YVtbZXhjXV0kbWF4JHdvcmRzYGAsIApkaWUgbmllZHJpZ3N0ZW4gZmluZGVuIHNpY2ggaW0gVGV4dCBgYHIgbWZ3X2R0YVtbZXhjXV0kbWluJGhlYWRgYCAKbWl0IGBgciBtZndfZHRhW1tleGNdXSRtaW4kd29yZHNgYC4gCgoKIyMgNC41IHZhcmlhbnplbgoKLS0tCgojIEIuIFJFRjoK</div>
 
 
 </div>
@@ -387,6 +770,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("DYN_HA.Rmd");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {
