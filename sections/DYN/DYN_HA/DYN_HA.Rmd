@@ -10,7 +10,9 @@ author: "St. Schwarz"
 date: "`r Sys.Date()`"
 zotero: AVL_dyn
 output: 
-  html_document:
+  bookdown::html_document2:
+    global_numbering: TRUE
+    number_sections: TRUE
     code_download: yes
     toc: yes
     toc_float:
@@ -45,17 +47,6 @@ y<-tempfile("ref",fileext = ".bib")
 writeLines(bib,y)
 ```
 
----
-
-# 1. einleitung
-
-# 2. u. wolf
-
-# 3. corpus aufbereitung
-
-# 4. some visualisations
-## 4.1 basic statistics
-
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 library(mongolite)
 library(jsonlite)
@@ -72,7 +63,7 @@ library(stringi)
 #setwd("~/boxHKW/21S/DH")
 #src<-"wolf_FF_1.json"
 #src<-paste0(local,"wolf_FF-LEN_1.json")
-getwd()
+#getwd()
 src<-"../../../../../local/R/cred_gener.csv"
   cred<-read.csv(src)
 #  con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
@@ -81,6 +72,7 @@ src<-"../../../../../local/R/cred_gener.csv"
     src<-"../../../../../local/DYN/db/wolfdb003.csv"
 
     dta<-read.csv(src)
+    dta_sf<-dta
 #k<-2
 #dtatxt<-as.data.frame(fromJSON(src))
 #dtatxt<-(fromJSON(src))
@@ -88,16 +80,71 @@ src<-"../../../../../local/R/cred_gener.csv"
     src<-"DYN_HA_semantics.R"
 #source("/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
    source(src)
+  lc<-length(dta$content)-1
+
+    
 ```
 
+---
+
+# einleitung
+
+# u. wolf
+
+# work
+## corpus aufbereitung
+Das Korpus, welches nach Digitalisierung der Buchvorlagen aus einer Datenbank abgerufen wird, enthält `r length(dta_sf$content)` Einträge, nach Abzug der Kapitelüberschriften und Zitate `r length(dta$content)-1` Datensätze (Texte), die zur Auswertung herangezogen werden können.
+Für die Analyse wurde das gesamte (publizierte) lyrische Werk Uljana Wolfs, bestehend aus, in der Reihenfolge des Erscheinens:
+
+- kochanie, ich habe Brot gekauft (2005)
+- falsche freunde (2009)
+- meine schönste lengevitch (2013)
+
+herangezogen.
+
+## basic statistics
 ```{r echo = FALSE,warning=FALSE}
+# wolfcpt<-dta$content
+# wolftokens<-stri_count_boundaries(wolfcpt,"word")
+# dta$tokens<-wolftokens
+# tk1<-dta$tokens[dta$book_id==1]
+# tk2<-dta$tokens[dta$book_id==2]
+# tk3<-dta$tokens[dta$book_id==3]
+# stk1<-sum(tk1,na.rm = T)
+# stk2<-sum(tk2,na.rm = T)
+# stk3<-sum(tk3,na.rm = T)
+# stkcpt<-sum(dta$tokens,na.rm = T)
+# wolfcpt_s<-stri_split_boundaries(dta$content,type="word")
+# wolfcpt_s
+md<-median(dta_t$tokens) #durchschnittliche textlänge
+#dta_t$types
+#set$types
 ```
 
-```{r echo = FALSE,warning=FALSE}
+Die `r lc` Texte (Lyrik und lyrische Prosa) haben einen Umfang von ``r sum(dta_t$tokens)`` Wörtern (tokens), die sich in ``r sum(dta_t$types)`` distinct types einteilen lassen, die type/token ratio beträgt demnach ``r sum(dta_t$types)/sum(dta_t$tokens)``. Die durchschnittliche Textlänge (median) beträgt ``r md`` Wörter. Wir haben noch keine Vergleichswerte, die sinnvoll wären...
+Mit der entstandenen Textmatrix (cf. Table \@ref(tab:text-matrix)) läszt sich noch weiter rechnen.
+
+
+```{r text-matrix, echo = F,warning=FALSE}
+knitr::kable(wolfmatrix[1:10, 1:8], caption = "*simplest matrix of text beginnings*")
+end<-50
 ```
 
-## 4.3 sentiment
-### 4.3.1 visualisation
+Zum Beispiel lassen sich die Worgleichungen visualisieren, die an bestimmten Positionen des Textes aufscheinen. Die peaks in der folgenden Graphik zeigen Wortpositionen von Position 1 bis `r end`, an denen von Wolf die meisten analogen Wörter verwendet wurden. 
+
+
+```{r text-sim-gr,fig.cap="similarity of text beginnings", echo = F,warning=FALSE}
+#end<-50
+plot(typearray[1:50],type="h",xlab = paste0("first ", end," words of texts"),ylab="count of distinct types")
+```
+
+
+## sentiment analysis
+Für jeden einzelnen Text liesz sich ein Wert bestimmen (zur Berechnung cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)), der Aussagen darüber zuläszt, in welchem Spektrum (positive/negative sentiment) sich dieser verorten läszt.
+Die absoluten *sentiment values* werden weiterhin durch Fourier-Transformation auf die Gesamtheit der gemessenen Werte projiziert, um eine glatte, von den absoluten Werten unabhängige Darstellung zu ermöglichen. (cf. Figure \@ref(fig:sent-freq)).
+Welche Aussagen sich aus diesen Erkenntnissen ableiten lassen sollen, ist mir noch nicht ganz klar. I will elaborate on that.
+
+### visualisation
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #calls miracle function from external script:
 #book<-3
@@ -106,6 +153,7 @@ src<-"../../../../../local/R/cred_gener.csv"
 #text<-2
 #dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs,3) #ARG: (set,book,chapter,absolute)
 le<-do_sentiment(dta)
+dta_t<-get_types(dta,1)
 mfw_dta<-list()
 for (k in 2: length(chapter_ex)){
   
@@ -114,9 +162,50 @@ mfw_dta[[k]]<-mfw(dta,k)
 }
 #mfw_dta[[3]]$max$id
 ```
-Q: cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)
 
-### 4.3.2 data
+ 
+ 
+```{r sent-abs, fig.cap="absolute *sentiment values* über das gesamte Textkorpus",echo=FALSE}
+ # sent2<-c(a1,a2,a3) #untransformed sentiment, absolute
+  scatter.smooth(1:length(le$sentiment$cpt_s2),le$sentiment$cpt_s2,.1,.1,type="h",family = "gaussian",ylab="absolute sentiment vaules",xlab="text corpus",main="sentiment over texts")
+```
+
+```{r sent-koch, fig.cap="absolute *sentiment values* über *kochanie ich habe brot gekauft*",echo=FALSE}
+  scatter.smooth(1:length(le$sentiment$a1),le$sentiment$a1,.1,.1,type="h",family = "gaussian",ylab="absolute sentiment vaules",xlab="text: kochanie",main="sentiment over texts")
+```
+
+```{r sent-ff, fig.cap="absolute *sentiment values* über *falsche freunde*",echo=FALSE}
+  scatter.smooth(1:length(le$sentiment$a2),le$sentiment$a2,.1,.1,type="h",family = "gaussian",ylab="absolute sentiment vaules",xlab="text: FF",main="sentiment over texts")
+```
+
+```{r sent-leng, fig.cap="absolute *sentiment values* über *meine schönste lengevitch*",echo=FALSE}
+  scatter.smooth(1:length(le$sentiment$a3),le$sentiment$a3,.1,.1,type="h",family = "gaussian",ylab="absolute sentiment vaules",xlab="text: lengevitch",main="sentiment over texts")
+#  sent3<-get_transformed_values(sent2)
+```
+
+```{r sent-abs-cpt, fig.cap="absolute *sentiment values* over corpus",echo=FALSE}
+  p<-ggplot(dta, aes(1:length(sentiment), sentiment, colour = book)) + 
+    geom_line()
+  p +  labs(x="corpus", y="sentiment absolute", title="sentiment over texts", fill="book")
+```
+
+```{r sent-freq, fig.cap="frequenzanalysierte (Fourier) *sentiment values* über Korpus",echo=FALSE}
+  plot(le$sentiment$cpt_s1,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus",main="sentiment over texts")
+```
+
+```{r sent-fr-cpt, fig.cap="frequency analysis cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)",echo=FALSE}
+  plot(le$sentiment$cpt_s3,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus agglomerated",main="sentiment analysis over texts")
+```
+
+```{r sent-lm1, fig.cap="linear regression of sentiment dependencies, absolute",echo=FALSE}
+  scatter.smooth(1:length(le$lm$sum$residuals),le$lm$sum$residuals,.1,.1,type="h",family = "gaussian",ylab="dependencies: lmer sentiment residuals",xlab="text corpus",main="sentiment book/chapter dependency")
+```
+
+```{r sent-lm-fr, fig.cap="linear regression of sentiment dependencies, relative",echo=FALSE}
+  plot(le$lm$scaled,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus",main="sentiment analysis over texts")
+```
+
+### data
 summary:
 ```{r echo=F}
 print (mfw_dta)
@@ -125,12 +214,11 @@ exc<-3
 ```{css echo=F}
 pre {max-height: 400px;}
 ```
-Zur Erklärung: Die höchsten *sentiment* Werte, hier zb. im Kapitel ``r mfw_dta[[exc]]$max$chapter`` lassen sich in ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind ``r mfw_dta[[exc]]$max$words``, 
+Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[exc]]$max$chapter``, lassen sich in [text:] ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind [duplicates:] ``r mfw_dta[[exc]]$max$words``, 
 die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` 
-mit ``r mfw_dta[[exc]]$min$words``. 
+mit ``r mfw_dta[[exc]]$min$words``.
 
-
-## 4.5 varianzen
+## varianzen
 
 ---
 

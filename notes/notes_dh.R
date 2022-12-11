@@ -84,4 +84,9 @@ df[with(df,order(df[,"a"])), ]
 df[order(df[[var]]),]
 df[order(df[,var]),]
 
+### split array:
+x<-c(1:10)
+split(x,1:2)
+
+
 

@@ -11,11 +11,10 @@
 
 <meta name="author" content="St. Schwarz" />
 
-<meta name="date" content="2022-12-10" />
+<meta name="date" content="2022-12-11" />
 
 <title>DYN HA / SS22 FUB / Clara Liso</title>
 
-<script src="DYN_HA_files/header-attrs-2.16/header-attrs.js"></script>
 <script src="DYN_HA_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="DYN_HA_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -293,41 +292,225 @@ div.tocify {
 
 <h1 class="title toc-ignore">DYN HA / SS22 FUB / Clara Liso</h1>
 <h4 class="author">St. Schwarz</h4>
-<h4 class="date">2022-12-10</h4>
+<h4 class="date">2022-12-11</h4>
 
 </div>
 
 
-<div id="a.-head" class="section level1">
-<h1>A. head</h1>
+<div id="a.-head" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> A. head</h1>
 <hr />
 </div>
-<div id="einleitung" class="section level1">
-<h1>1. einleitung</h1>
+<div id="einleitung" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> einleitung</h1>
 </div>
-<div id="u.-wolf" class="section level1">
-<h1>2. u. wolf</h1>
+<div id="u.-wolf" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> u. wolf</h1>
 </div>
-<div id="corpus-aufbereitung" class="section level1">
-<h1>3. corpus aufbereitung</h1>
+<div id="work" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> work</h1>
+<div id="corpus-aufbereitung" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> corpus aufbereitung</h2>
+<p>Das Korpus, welches nach Digitalisierung der Buchvorlagen aus einer Datenbank abgerufen wird, enthält 144 Einträge, nach Abzug der Kapitelüberschriften und Zitate 130 Datensätze (Texte), die zur Auswertung herangezogen werden können.
+Für die Analyse wurde das gesamte (publizierte) lyrische Werk Uljana Wolfs, bestehend aus, in der Reihenfolge des Erscheinens:</p>
+<ul>
+<li>kochanie, ich habe Brot gekauft (2005)</li>
+<li>falsche freunde (2009)</li>
+<li>meine schönste lengevitch (2013)</li>
+</ul>
+<p>herangezogen.</p>
 </div>
-<div id="some-visualisations" class="section level1">
-<h1>4. some visualisations</h1>
-<div id="basic-statistics" class="section level2">
-<h2>4.1 basic statistics</h2>
-<pre><code>## [1] &quot;/Users/lion/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA&quot;</code></pre>
+<div id="basic-statistics" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> basic statistics</h2>
+<p>Die 130 Texte (Lyrik und lyrische Prosa) haben einen Umfang von <code>20750</code> Wörtern (tokens), die sich in <code>8481</code> distinct types einteilen lassen, die type/token ratio beträgt demnach <code>0.4087229</code>. Die durchschnittliche Textlänge (median) beträgt <code>137</code> Wörter. Wir haben noch keine Vergleichswerte, die sinnvoll wären…
+Mit der entstandenen Textmatrix (cf. Table <a href="#tab:text-matrix">1</a>) läszt sich noch weiter rechnen.</p>
+<table style="width:100%;">
+<caption><span id="tab:text-matrix">Table 1: </span><em>simplest matrix of text beginnings</em></caption>
+<colgroup>
+<col width="9%" />
+<col width="8%" />
+<col width="12%" />
+<col width="11%" />
+<col width="12%" />
+<col width="14%" />
+<col width="13%" />
+<col width="17%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">gegen</td>
+<td align="left">vier</td>
+<td align="left">uhr</td>
+<td align="left">morgens</td>
+<td align="left">beobachte</td>
+<td align="left">ich</td>
+<td align="left">die</td>
+<td align="left">verschiebung</td>
+</tr>
+<tr class="even">
+<td align="left">ach</td>
+<td align="left">wär</td>
+<td align="left">ich</td>
+<td align="left">nur</td>
+<td align="left">im</td>
+<td align="left">aufwachraum</td>
+<td align="left">geblieben</td>
+<td align="left">traumverloren</td>
+</tr>
+<tr class="odd">
+<td align="left">ach</td>
+<td align="left">wär</td>
+<td align="left">ich</td>
+<td align="left">nie</td>
+<td align="left">im</td>
+<td align="left">aufwachraum</td>
+<td align="left">gewesen</td>
+<td align="left">taub</td>
+</tr>
+<tr class="even">
+<td align="left">schließ</td>
+<td align="left">mich</td>
+<td align="left">ein</td>
+<td align="left">liebe</td>
+<td align="left">ins</td>
+<td align="left">gebet</td>
+<td align="left">in</td>
+<td align="left">die</td>
+</tr>
+<tr class="odd">
+<td align="left">diese</td>
+<td align="left">kästen</td>
+<td align="left">enthalten</td>
+<td align="left">frauen</td>
+<td align="left">die</td>
+<td align="left">nicht</td>
+<td align="left">bearbeitet</td>
+<td align="left">werden</td>
+</tr>
+<tr class="even">
+<td align="left">meine</td>
+<td align="left">väter</td>
+<td align="left">sind</td>
+<td align="left">einfache</td>
+<td align="left">männer</td>
+<td align="left">sie</td>
+<td align="left">haben</td>
+<td align="left">töchter</td>
+</tr>
+<tr class="odd">
+<td align="left">meine</td>
+<td align="left">väter</td>
+<td align="left">sind</td>
+<td align="left">keine</td>
+<td align="left">einfachen</td>
+<td align="left">männer</td>
+<td align="left">sie</td>
+<td align="left">haben</td>
+</tr>
+<tr class="even">
+<td align="left">meine</td>
+<td align="left">münder</td>
+<td align="left">sind</td>
+<td align="left">keine</td>
+<td align="left">einfachen</td>
+<td align="left">väter</td>
+<td align="left">der</td>
+<td align="left">erste</td>
+</tr>
+<tr class="odd">
+<td align="left">meine</td>
+<td align="left">väter</td>
+<td align="left">sind</td>
+<td align="left">einfache</td>
+<td align="left">vermesser</td>
+<td align="left">der</td>
+<td align="left">erste</td>
+<td align="left">geht</td>
+</tr>
+<tr class="even">
+<td align="left">meine</td>
+<td align="left">väter</td>
+<td align="left">sind</td>
+<td align="left">keine</td>
+<td align="left">einfachen</td>
+<td align="left">vermesser</td>
+<td align="left">der</td>
+<td align="left">erste</td>
+</tr>
+</tbody>
+</table>
+<p>Zum Beispiel lassen sich die Worgleichungen visualisieren, die an bestimmten Positionen des Textes aufscheinen. Die peaks in der folgenden Graphik zeigen Wortpositionen von Position 1 bis 50, an denen von Wolf die meisten analogen Wörter verwendet wurden.</p>
+<div class="figure"><span style="display:block;" id="fig:text-sim-gr"></span>
+<img src="DYN_HA_files/figure-html/text-sim-gr-1.png" alt="similarity of text beginnings" width="672" />
+<p class="caption">
+Figure 1: similarity of text beginnings
+</p>
 </div>
-<div id="sentiment" class="section level2">
-<h2>4.3 sentiment</h2>
-<div id="visualisation" class="section level3">
-<h3>4.3.1 visualisation</h3>
-<p><img src="DYN_HA_files/figure-html/unnamed-chunk-5-1.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-2.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-3.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-4.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-5.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-6.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-7.png" width="672" /><img src="DYN_HA_files/figure-html/unnamed-chunk-5-8.png" width="672" />
-Q: cf. <a
-href="https://www.matthewjockers.net/2015/02/02/syuzhet/"><span
-class="citation">(Jockers 2015)</span></a></p>
 </div>
-<div id="data" class="section level3">
-<h3>4.3.2 data</h3>
+<div id="sentiment-analysis" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> sentiment analysis</h2>
+<p>Für jeden einzelnen Text liesz sich ein Wert bestimmen (zur Berechnung cf. <a href="https://www.matthewjockers.net/2015/02/02/syuzhet/"><span class="citation">(Jockers 2015)</span></a>), der Aussagen darüber zuläszt, in welchem Spektrum (positive/negative sentiment) sich dieser verorten läszt.
+Die absoluten <em>sentiment values</em> werden weiterhin durch Fourier-Transformation auf die Gesamtheit der gemessenen Werte projiziert, um eine glatte, von den absoluten Werten unabhängige Darstellung zu ermöglichen. (cf. Figure <a href="#fig:sent-freq">7</a>).
+Welche Aussagen sich aus diesen Erkenntnissen ableiten lassen sollen, ist mir noch nicht ganz klar. I will elaborate on that.</p>
+<div id="visualisation" class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> visualisation</h3>
+<div class="figure"><span style="display:block;" id="fig:sent-abs"></span>
+<img src="DYN_HA_files/figure-html/sent-abs-1.png" alt="absolute *sentiment values* über das gesamte Textkorpus" width="672" />
+<p class="caption">
+Figure 2: absolute <em>sentiment values</em> über das gesamte Textkorpus
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:sent-koch"></span>
+<img src="DYN_HA_files/figure-html/sent-koch-1.png" alt="absolute *sentiment values* über *kochanie ich habe brot gekauft*" width="672" />
+<p class="caption">
+Figure 3: absolute <em>sentiment values</em> über <em>kochanie ich habe brot gekauft</em>
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:sent-ff"></span>
+<img src="DYN_HA_files/figure-html/sent-ff-1.png" alt="absolute *sentiment values* über *falsche freunde*" width="672" />
+<p class="caption">
+Figure 4: absolute <em>sentiment values</em> über <em>falsche freunde</em>
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:sent-leng"></span>
+<img src="DYN_HA_files/figure-html/sent-leng-1.png" alt="absolute *sentiment values* über *meine schönste lengevitch*" width="672" />
+<p class="caption">
+Figure 5: absolute <em>sentiment values</em> über <em>meine schönste lengevitch</em>
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:sent-abs-cpt"></span>
+<img src="DYN_HA_files/figure-html/sent-abs-cpt-1.png" alt="absolute *sentiment values* over corpus" width="672" />
+<p class="caption">
+Figure 6: absolute <em>sentiment values</em> over corpus
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:sent-freq"></span>
+<img src="DYN_HA_files/figure-html/sent-freq-1.png" alt="frequenzanalysierte (Fourier) *sentiment values* über Korpus" width="672" />
+<p class="caption">
+Figure 7: frequenzanalysierte (Fourier) <em>sentiment values</em> über Korpus
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:sent-fr-cpt"></span>
+<img src="DYN_HA_files/figure-html/sent-fr-cpt-1.png" alt="frequency analysis cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)" width="672" />
+<p class="caption">
+Figure 8: frequency analysis cf. <a href="https://www.matthewjockers.net/2015/02/02/syuzhet/"><span class="citation">(Jockers 2015)</span></a>
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:sent-lm1"></span>
+<img src="DYN_HA_files/figure-html/sent-lm1-1.png" alt="linear regression of sentiment dependencies, absolute" width="672" />
+<p class="caption">
+Figure 9: linear regression of sentiment dependencies, absolute
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:sent-lm-fr"></span>
+<img src="DYN_HA_files/figure-html/sent-lm-fr-1.png" alt="linear regression of sentiment dependencies, relative" width="672" />
+<p class="caption">
+Figure 10: linear regression of sentiment dependencies, relative
+</p>
+</div>
+</div>
+<div id="data" class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> data</h3>
 <p>summary:</p>
 <pre><code>## [[1]]
 ## NULL
@@ -706,35 +889,26 @@ class="citation">(Jockers 2015)</span></a></p>
 <style type="text/css">
 pre {max-height: 400px;}
 </style>
-<p>Zur Erklärung: Die höchsten <em>sentiment</em> Werte, hier zb. im
-Kapitel <code>krzyżowa, gefährten, krzyżowa, gefährten</code> lassen
-sich in
-<code>an die kreisauer hunde, nachtrag an die kreisauer hunde</code>
-finden. Die <em>most frequent words</em> dieses Abschnitts sind
-<code>euch, gehört, jeden, meine</code>, die niedrigsten finden sich im
-Text <code>kreisau, nebelvoliere</code> mit
-<code>brust, ein, halb, du, mich, ich, vogel, dein</code>.</p>
+<p>Zum Beispiel: Die höchsten <em>sentiment</em> Werte, hier in [chapter:] <code>krzyżowa, gefährten, krzyżowa, gefährten</code>, lassen sich in [text:] <code>an die kreisauer hunde, nachtrag an die kreisauer hunde</code> finden. Die <em>most frequent words</em> dieses Abschnitts sind [duplicates:] <code>euch, gehört, jeden, meine</code>,
+die niedrigsten finden sich im Text <code>kreisau, nebelvoliere</code>
+mit <code>brust, ein, halb, du, mich, ich, vogel, dein</code>.</p>
 </div>
 </div>
-<div id="varianzen" class="section level2">
-<h2>4.5 varianzen</h2>
+<div id="varianzen" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> varianzen</h2>
 <hr />
 </div>
 </div>
 <div id="b.-ref" class="section level1 unnumbered">
-<h1 class="unnumbered">B. REF:</h1>
+<h1>B. REF:</h1>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-jockers_2015" class="csl-entry">
-Jockers, Matthew. 2015. <span>“» <span>Revealing</span>
-<span>Sentiment</span> and <span>Plot</span> <span>Arcs</span> with the
-<span>Syuzhet</span> <span>Package</span> <span>Matthew</span>
-<span>L</span>. <span>Jockers</span>.”</span> <a
-href="https://www.matthewjockers.net/2015/02/02/syuzhet/">https://www.matthewjockers.net/2015/02/02/syuzhet/</a>.
+Jockers, Matthew. 2015. <span>“» <span>Revealing</span> <span>Sentiment</span> and <span>Plot</span> <span>Arcs</span> with the <span>Syuzhet</span> <span>Package</span> <span>Matthew</span> <span>L</span>. <span>Jockers</span>.”</span> <a href="https://www.matthewjockers.net/2015/02/02/syuzhet/">https://www.matthewjockers.net/2015/02/02/syuzhet/</a>.
 </div>
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCiMtLS0gb2ZmaWNpYWwgLS0tIwojIEhhdXNhcmJlaXQgaW0gU2VtaW5hcjogRHluYW1pa2VuIHBvc3RkZXV0c2NoZXIgR2VnZW53YXJ0c2xpdGVyYXR1ciwgQ2xhcmEgTGlzbywgU1MyMDIyIEZVQgojIGltIEZhY2g6IEFsbGdlbWVpbmUgdW5kIFZlcmdsZWljaGVuZGUgTGl0ZXJhdHVyd2lzc2Vuc2NoYWZ0ZW4KIyBlaW5nZXJlaWNodCB2b24gU3RlcGhhbiBTY2h3YXJ6CiMgQWJnYWJlOiBkdWUKCnRpdGxlOiAiRFlOIEhBIC8gU1MyMiBGVUIgLyBDbGFyYSBMaXNvIgphdXRob3I6ICJTdC4gU2Nod2FyeiIKZGF0ZTogImByIFN5cy5EYXRlKClgIgp6b3Rlcm86IEFWTF9keW4Kb3V0cHV0OiAKICBodG1sX2RvY3VtZW50OgogICAgY29kZV9kb3dubG9hZDogeWVzCiAgICB0b2M6IHllcwogICAgdG9jX2Zsb2F0OgogICAgICBjb2xsYXBzZWQ6IG5vCiAgICAgIHNtb290aF9zY3JvbGw6IG5vCiAgICBzZWxmX2NvbnRhaW5lZDogRkFMU0UgI1RSVUUgZm9yIHN0YW5kYWxvbmUgaHRtbCBwYWdlIGtuaXQKICAgICNjc3M6IC4uL3N0eWxlX0hBLmNzcwojc3dhcCAvIGRlY29tbWVudCBmZiAuYmliLy5jc3MgcmVmZXJlbmNlcyBmb3Igc2VsZiBjb21waWxlIC5SbWQgdG8gaHRtbAojYmlibGlvZ3JhcGh5OiBodHRwczovL3Jhdy5naXRodWJ1c2VyY29udGVudC5jb20vZXN0ZWVzY2h3YXJ6L0RIX2Vzc2Fpcy9tYWluL3NlY3Rpb25zL0RZTi9EWU5fSEEvRFlOX0hBLmJpYgogICAgY3NzOiBodHRwczovL2FkYS1zdWIucm90ZWZhZGVuYnVlY2hlci5kZS9za29vbC9wdWJsaWMvcGFwZXJzLzAxMS9zdHlsZV9IQS5jc3MKYmlibGlvZ3JhcGh5OiBEWU5fSEEuYmliCi0tLQojIEEuIGhlYWQKYGBge3Igc2V0dXAsIGluY2x1ZGU9RkFMU0V9CmtuaXRyOjpvcHRzX2NodW5rJHNldChlY2hvID0gVFJVRSkKI21pbmkgY3JpdGljYWw6IGRvbnQgZmluZCByZWxhdGl2ZSBmaWxlcyBpbiBwYXRoCiNrbml0cjo6b3B0c19rbml0JHNldChyb290LmRpcj0ifi9ib3hIS1cvMjFTL0RIIikKI2tuaXRyOjpvcHRzX2tuaXQkc2V0KGJhc2UuZGlyID0gIn4vYm94SEtXLzIxUy9ESC9naXRoL0RIX2Vzc2Fpcy9zZWN0aW9ucy9EWU4vRFlOX0hBIikKI0VXQSwgbGFwc2kKI2tuaXRyOjpvcHRzX2tuaXQkc2V0KHJvb3QuZGlyPSJ+L2JveEhLVy9VTkkvMjFTL0RIIikKI2tuaXRyOjpvcHRzX2tuaXQkc2V0KGJhc2UuZGlyID0gIn4vYm94SEtXL1VOSS8yMVMvREgvZ2l0aC9ESF9lc3NhaXMvc2VjdGlvbnMvRFlOL0RZTl9IQSIpCgpgYGAKCmBgYHtyIGV2YWw9VFJVRSwgZWNobz1GQUxTRSwgd2FybmluZz1GQUxTRSxtZXNzYWdlPUZBTFNFfQpsaWJyYXJ5KGh0dHIpCiNmZXRjaCB6b3Rlcm8gLmJpYiBvbmxpbmUKc2hhcmUgPC0gcnVuaWYoMSkKeDwtR0VUKCJodHRwczovL2FwaS56b3Rlcm8ub3JnL2dyb3Vwcy80NzEzMjQ2L2NvbGxlY3Rpb25zLzlMTlJSSlFOL2l0ZW1zL3RvcD9mb3JtYXQ9YmlidGV4IikKYmliPC1jb250ZW50KHgsInRleHQiKQp5PC10ZW1wZmlsZSgicmVmIixmaWxlZXh0ID0gIi5iaWIiKQp3cml0ZUxpbmVzKGJpYix5KQpgYGAKCi0tLQoKIyAxLiBlaW5sZWl0dW5nCgojIDIuIHUuIHdvbGYKCiMgMy4gY29ycHVzIGF1ZmJlcmVpdHVuZwoKIyA0LiBzb21lIHZpc3VhbGlzYXRpb25zCiMjIDQuMSBiYXNpYyBzdGF0aXN0aWNzCgpgYGB7ciBldmFsPVRSVUUsIGVjaG89RkFMU0UsIHdhcm5pbmc9RkFMU0UsbWVzc2FnZT1GQUxTRX0KbGlicmFyeShtb25nb2xpdGUpCmxpYnJhcnkoanNvbmxpdGUpCmxpYnJhcnkoc3l1emhldCkKbGlicmFyeShyZWFkcikKbGlicmFyeShnZ3Bsb3QyKQpsaWJyYXJ5KGxtZTQpCmxpYnJhcnkoc3RyaW5naSkKCgoKI3Jvb3Q8LSIvVXNlcnMvbGlvbi9ib3hIS1cvMjFTL0RILyIKI2xvY2FsPC1wYXN0ZTAocm9vdCwibG9jYWwvRFlOLyIpCiNzZXR3ZCgifi9ib3hIS1cvMjFTL0RIIikKI3NyYzwtIndvbGZfRkZfMS5qc29uIgojc3JjPC1wYXN0ZTAobG9jYWwsIndvbGZfRkYtTEVOXzEuanNvbiIpCmdldHdkKCkKc3JjPC0iLi4vLi4vLi4vLi4vLi4vbG9jYWwvUi9jcmVkX2dlbmVyLmNzdiIKICBjcmVkPC1yZWFkLmNzdihzcmMpCiMgIGNvbjwtIG1vbmdvKGNvbGxlY3Rpb24gPSAid29sZmRiMDAzIiwgZGIgPSJkZWFkZW5kIiwgdXJsPWNyZWQkdXJsW2NyZWQkcT09Im1vbmdvZGIiXSkKICMgICBkdGE8LWNvbiRmaW5kKCd7fScpCiNsb2NhbCBkYXRhOgogICAgc3JjPC0iLi4vLi4vLi4vLi4vLi4vbG9jYWwvRFlOL2RiL3dvbGZkYjAwMy5jc3YiCgogICAgZHRhPC1yZWFkLmNzdihzcmMpCiNrPC0yCiNkdGF0eHQ8LWFzLmRhdGEuZnJhbWUoZnJvbUpTT04oc3JjKSkKI2R0YXR4dDwtKGZyb21KU09OKHNyYykpCiNjYXQoImxvYWQgVEVJIGZyb206IixzcmMpCiAgICBzcmM8LSJEWU5fSEFfc2VtYW50aWNzLlIiCiNzb3VyY2UoIi9naXRoL0RIX2Vzc2Fpcy9zZWN0aW9ucy9EWU4vRFlOX0hBL0RZTl9IQV9zZW1hbnRpY3MuUiIpCiAgIHNvdXJjZShzcmMpCmBgYAoKYGBge3IgZWNobyA9IEZBTFNFLHdhcm5pbmc9RkFMU0V9CmBgYAoKYGBge3IgZWNobyA9IEZBTFNFLHdhcm5pbmc9RkFMU0V9CmBgYAoKIyMgNC4zIHNlbnRpbWVudAojIyMgNC4zLjEgdmlzdWFsaXNhdGlvbgpgYGB7ciBldmFsPVRSVUUsIGVjaG89RkFMU0UsIGNvbGxhcHNlPVRSVUUsIHdhcm5pbmc9RkFMU0UsbWVzc2FnZT1GQUxTRX0KI2NhbGxzIG1pcmFjbGUgZnVuY3Rpb24gZnJvbSBleHRlcm5hbCBzY3JpcHQ6CiNib29rPC0zCiNjaGFwdGVyPC0zCiNwbG90X2FiczwtMAojdGV4dDwtMgojZHRhdGFyZ2V0PC1wbG90c2VudGltZW50KGR0YXR4dCxib29rLGNoYXB0ZXIscGxvdF9hYnMsMykgI0FSRzogKHNldCxib29rLGNoYXB0ZXIsYWJzb2x1dGUpCmxlPC1kb19zZW50aW1lbnQoZHRhKQptZndfZHRhPC1saXN0KCkKZm9yIChrIGluIDI6IGxlbmd0aChjaGFwdGVyX2V4KSl7CiAgCgptZndfZHRhW1trXV08LW1mdyhkdGEsaykKfQojbWZ3X2R0YVtbM11dJG1heCRpZApgYGAKUTogY2YuIFtbQGpvY2tlcnNfMjAxNV1dKGh0dHBzOi8vd3d3Lm1hdHRoZXdqb2NrZXJzLm5ldC8yMDE1LzAyLzAyL3N5dXpoZXQvKQoKIyMjIDQuMy4yIGRhdGEKc3VtbWFyeToKYGBge3IgZWNobz1GfQpwcmludCAobWZ3X2R0YSkKZXhjPC0zCmBgYApgYGB7Y3NzIGVjaG89Rn0KcHJlIHttYXgtaGVpZ2h0OiA0MDBweDt9CmBgYApadXIgRXJrbMOkcnVuZzogRGllIGjDtmNoc3RlbiAqc2VudGltZW50KiBXZXJ0ZSwgaGllciB6Yi4gaW0gS2FwaXRlbCBgYHIgbWZ3X2R0YVtbZXhjXV0kbWF4JGNoYXB0ZXJgYCBsYXNzZW4gc2ljaCBpbiBgYHIgbWZ3X2R0YVtbZXhjXV0kbWF4JGhlYWRgYCBmaW5kZW4uIERpZSAqbW9zdCBmcmVxdWVudCB3b3JkcyogZGllc2VzIEFic2Nobml0dHMgc2luZCBgYHIgbWZ3X2R0YVtbZXhjXV0kbWF4JHdvcmRzYGAsIApkaWUgbmllZHJpZ3N0ZW4gZmluZGVuIHNpY2ggaW0gVGV4dCBgYHIgbWZ3X2R0YVtbZXhjXV0kbWluJGhlYWRgYCAKbWl0IGBgciBtZndfZHRhW1tleGNdXSRtaW4kd29yZHNgYC4gCgoKIyMgNC41IHZhcmlhbnplbgoKLS0tCgojIEIuIFJFRjoK</div>
+<div id="rmd-source-code">LS0tCiMtLS0gb2ZmaWNpYWwgLS0tIwojIEhhdXNhcmJlaXQgaW0gU2VtaW5hcjogRHluYW1pa2VuIHBvc3RkZXV0c2NoZXIgR2VnZW53YXJ0c2xpdGVyYXR1ciwgQ2xhcmEgTGlzbywgU1MyMDIyIEZVQgojIGltIEZhY2g6IEFsbGdlbWVpbmUgdW5kIFZlcmdsZWljaGVuZGUgTGl0ZXJhdHVyd2lzc2Vuc2NoYWZ0ZW4KIyBlaW5nZXJlaWNodCB2b24gU3RlcGhhbiBTY2h3YXJ6CiMgQWJnYWJlOiBkdWUKCnRpdGxlOiAiRFlOIEhBIC8gU1MyMiBGVUIgLyBDbGFyYSBMaXNvIgphdXRob3I6ICJTdC4gU2Nod2FyeiIKZGF0ZTogImByIFN5cy5EYXRlKClgIgp6b3Rlcm86IEFWTF9keW4Kb3V0cHV0OiAKICBib29rZG93bjo6aHRtbF9kb2N1bWVudDI6CiAgICBnbG9iYWxfbnVtYmVyaW5nOiBUUlVFCiAgICBudW1iZXJfc2VjdGlvbnM6IFRSVUUKICAgIGNvZGVfZG93bmxvYWQ6IHllcwogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDoKICAgICAgY29sbGFwc2VkOiBubwogICAgICBzbW9vdGhfc2Nyb2xsOiBubwogICAgc2VsZl9jb250YWluZWQ6IEZBTFNFICNUUlVFIGZvciBzdGFuZGFsb25lIGh0bWwgcGFnZSBrbml0CiAgICAjY3NzOiAuLi9zdHlsZV9IQS5jc3MKI3N3YXAgLyBkZWNvbW1lbnQgZmYgLmJpYi8uY3NzIHJlZmVyZW5jZXMgZm9yIHNlbGYgY29tcGlsZSAuUm1kIHRvIGh0bWwKI2JpYmxpb2dyYXBoeTogaHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2VzdGVlc2Nod2Fyei9ESF9lc3NhaXMvbWFpbi9zZWN0aW9ucy9EWU4vRFlOX0hBL0RZTl9IQS5iaWIKICAgIGNzczogaHR0cHM6Ly9hZGEtc3ViLnJvdGVmYWRlbmJ1ZWNoZXIuZGUvc2tvb2wvcHVibGljL3BhcGVycy8wMTEvc3R5bGVfSEEuY3NzCmJpYmxpb2dyYXBoeTogRFlOX0hBLmJpYgotLS0KIyBBLiBoZWFkCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQprbml0cjo6b3B0c19jaHVuayRzZXQoZWNobyA9IFRSVUUpCiNtaW5pIGNyaXRpY2FsOiBkb250IGZpbmQgcmVsYXRpdmUgZmlsZXMgaW4gcGF0aAoja25pdHI6Om9wdHNfa25pdCRzZXQocm9vdC5kaXI9In4vYm94SEtXLzIxUy9ESCIpCiNrbml0cjo6b3B0c19rbml0JHNldChiYXNlLmRpciA9ICJ+L2JveEhLVy8yMVMvREgvZ2l0aC9ESF9lc3NhaXMvc2VjdGlvbnMvRFlOL0RZTl9IQSIpCiNFV0EsIGxhcHNpCiNrbml0cjo6b3B0c19rbml0JHNldChyb290LmRpcj0ifi9ib3hIS1cvVU5JLzIxUy9ESCIpCiNrbml0cjo6b3B0c19rbml0JHNldChiYXNlLmRpciA9ICJ+L2JveEhLVy9VTkkvMjFTL0RIL2dpdGgvREhfZXNzYWlzL3NlY3Rpb25zL0RZTi9EWU5fSEEiKQoKYGBgCgpgYGB7ciBldmFsPVRSVUUsIGVjaG89RkFMU0UsIHdhcm5pbmc9RkFMU0UsbWVzc2FnZT1GQUxTRX0KbGlicmFyeShodHRyKQojZmV0Y2ggem90ZXJvIC5iaWIgb25saW5lCnNoYXJlIDwtIHJ1bmlmKDEpCng8LUdFVCgiaHR0cHM6Ly9hcGkuem90ZXJvLm9yZy9ncm91cHMvNDcxMzI0Ni9jb2xsZWN0aW9ucy85TE5SUkpRTi9pdGVtcy90b3A/Zm9ybWF0PWJpYnRleCIpCmJpYjwtY29udGVudCh4LCJ0ZXh0IikKeTwtdGVtcGZpbGUoInJlZiIsZmlsZWV4dCA9ICIuYmliIikKd3JpdGVMaW5lcyhiaWIseSkKYGBgCgpgYGB7ciBldmFsPVRSVUUsIGVjaG89RkFMU0UsIHdhcm5pbmc9RkFMU0UsbWVzc2FnZT1GQUxTRX0KbGlicmFyeShtb25nb2xpdGUpCmxpYnJhcnkoanNvbmxpdGUpCmxpYnJhcnkoc3l1emhldCkKbGlicmFyeShyZWFkcikKbGlicmFyeShnZ3Bsb3QyKQpsaWJyYXJ5KGxtZTQpCmxpYnJhcnkoc3RyaW5naSkKCgoKI3Jvb3Q8LSIvVXNlcnMvbGlvbi9ib3hIS1cvMjFTL0RILyIKI2xvY2FsPC1wYXN0ZTAocm9vdCwibG9jYWwvRFlOLyIpCiNzZXR3ZCgifi9ib3hIS1cvMjFTL0RIIikKI3NyYzwtIndvbGZfRkZfMS5qc29uIgojc3JjPC1wYXN0ZTAobG9jYWwsIndvbGZfRkYtTEVOXzEuanNvbiIpCiNnZXR3ZCgpCnNyYzwtIi4uLy4uLy4uLy4uLy4uL2xvY2FsL1IvY3JlZF9nZW5lci5jc3YiCiAgY3JlZDwtcmVhZC5jc3Yoc3JjKQojICBjb248LSBtb25nbyhjb2xsZWN0aW9uID0gIndvbGZkYjAwMyIsIGRiID0iZGVhZGVuZCIsIHVybD1jcmVkJHVybFtjcmVkJHE9PSJtb25nb2RiIl0pCiAjICAgZHRhPC1jb24kZmluZCgne30nKQojbG9jYWwgZGF0YToKICAgIHNyYzwtIi4uLy4uLy4uLy4uLy4uL2xvY2FsL0RZTi9kYi93b2xmZGIwMDMuY3N2IgoKICAgIGR0YTwtcmVhZC5jc3Yoc3JjKQogICAgZHRhX3NmPC1kdGEKI2s8LTIKI2R0YXR4dDwtYXMuZGF0YS5mcmFtZShmcm9tSlNPTihzcmMpKQojZHRhdHh0PC0oZnJvbUpTT04oc3JjKSkKI2NhdCgibG9hZCBURUkgZnJvbToiLHNyYykKICAgIHNyYzwtIkRZTl9IQV9zZW1hbnRpY3MuUiIKI3NvdXJjZSgiL2dpdGgvREhfZXNzYWlzL3NlY3Rpb25zL0RZTi9EWU5fSEEvRFlOX0hBX3NlbWFudGljcy5SIikKICAgc291cmNlKHNyYykKICBsYzwtbGVuZ3RoKGR0YSRjb250ZW50KS0xCgogICAgCmBgYAoKLS0tCgojIGVpbmxlaXR1bmcKCiMgdS4gd29sZgoKIyB3b3JrCiMjIGNvcnB1cyBhdWZiZXJlaXR1bmcKRGFzIEtvcnB1cywgd2VsY2hlcyBuYWNoIERpZ2l0YWxpc2llcnVuZyBkZXIgQnVjaHZvcmxhZ2VuIGF1cyBlaW5lciBEYXRlbmJhbmsgYWJnZXJ1ZmVuIHdpcmQsIGVudGjDpGx0IGByIGxlbmd0aChkdGFfc2YkY29udGVudClgIEVpbnRyw6RnZSwgbmFjaCBBYnp1ZyBkZXIgS2FwaXRlbMO8YmVyc2NocmlmdGVuIHVuZCBaaXRhdGUgYHIgbGVuZ3RoKGR0YSRjb250ZW50KS0xYCBEYXRlbnPDpHR6ZSAoVGV4dGUpLCBkaWUgenVyIEF1c3dlcnR1bmcgaGVyYW5nZXpvZ2VuIHdlcmRlbiBrw7ZubmVuLgpGw7xyIGRpZSBBbmFseXNlIHd1cmRlIGRhcyBnZXNhbXRlIChwdWJsaXppZXJ0ZSkgbHlyaXNjaGUgV2VyayBVbGphbmEgV29sZnMsIGJlc3RlaGVuZCBhdXMsIGluIGRlciBSZWloZW5mb2xnZSBkZXMgRXJzY2hlaW5lbnM6CgotIGtvY2hhbmllLCBpY2ggaGFiZSBCcm90IGdla2F1ZnQgKDIwMDUpCi0gZmFsc2NoZSBmcmV1bmRlICgyMDA5KQotIG1laW5lIHNjaMO2bnN0ZSBsZW5nZXZpdGNoICgyMDEzKQoKaGVyYW5nZXpvZ2VuLgoKIyMgYmFzaWMgc3RhdGlzdGljcwpgYGB7ciBlY2hvID0gRkFMU0Usd2FybmluZz1GQUxTRX0KIyB3b2xmY3B0PC1kdGEkY29udGVudAojIHdvbGZ0b2tlbnM8LXN0cmlfY291bnRfYm91bmRhcmllcyh3b2xmY3B0LCJ3b3JkIikKIyBkdGEkdG9rZW5zPC13b2xmdG9rZW5zCiMgdGsxPC1kdGEkdG9rZW5zW2R0YSRib29rX2lkPT0xXQojIHRrMjwtZHRhJHRva2Vuc1tkdGEkYm9va19pZD09Ml0KIyB0azM8LWR0YSR0b2tlbnNbZHRhJGJvb2tfaWQ9PTNdCiMgc3RrMTwtc3VtKHRrMSxuYS5ybSA9IFQpCiMgc3RrMjwtc3VtKHRrMixuYS5ybSA9IFQpCiMgc3RrMzwtc3VtKHRrMyxuYS5ybSA9IFQpCiMgc3RrY3B0PC1zdW0oZHRhJHRva2VucyxuYS5ybSA9IFQpCiMgd29sZmNwdF9zPC1zdHJpX3NwbGl0X2JvdW5kYXJpZXMoZHRhJGNvbnRlbnQsdHlwZT0id29yZCIpCiMgd29sZmNwdF9zCm1kPC1tZWRpYW4oZHRhX3QkdG9rZW5zKSAjZHVyY2hzY2huaXR0bGljaGUgdGV4dGzDpG5nZQojZHRhX3QkdHlwZXMKI3NldCR0eXBlcwpgYGAKCkRpZSBgciBsY2AgVGV4dGUgKEx5cmlrIHVuZCBseXJpc2NoZSBQcm9zYSkgaGFiZW4gZWluZW4gVW1mYW5nIHZvbiBgYHIgc3VtKGR0YV90JHRva2VucylgYCBXw7ZydGVybiAodG9rZW5zKSwgZGllIHNpY2ggaW4gYGByIHN1bShkdGFfdCR0eXBlcylgYCBkaXN0aW5jdCB0eXBlcyBlaW50ZWlsZW4gbGFzc2VuLCBkaWUgdHlwZS90b2tlbiByYXRpbyBiZXRyw6RndCBkZW1uYWNoIGBgciBzdW0oZHRhX3QkdHlwZXMpL3N1bShkdGFfdCR0b2tlbnMpYGAuIERpZSBkdXJjaHNjaG5pdHRsaWNoZSBUZXh0bMOkbmdlIChtZWRpYW4pIGJldHLDpGd0IGBgciBtZGBgIFfDtnJ0ZXIuIFdpciBoYWJlbiBub2NoIGtlaW5lIFZlcmdsZWljaHN3ZXJ0ZSwgZGllIHNpbm52b2xsIHfDpHJlbi4uLgpNaXQgZGVyIGVudHN0YW5kZW5lbiBUZXh0bWF0cml4IChjZi4gVGFibGUgXEByZWYodGFiOnRleHQtbWF0cml4KSkgbMOkc3p0IHNpY2ggbm9jaCB3ZWl0ZXIgcmVjaG5lbi4KCgpgYGB7ciB0ZXh0LW1hdHJpeCwgZWNobyA9IEYsd2FybmluZz1GQUxTRX0Ka25pdHI6OmthYmxlKHdvbGZtYXRyaXhbMToxMCwgMTo4XSwgY2FwdGlvbiA9ICIqc2ltcGxlc3QgbWF0cml4IG9mIHRleHQgYmVnaW5uaW5ncyoiKQplbmQ8LTUwCmBgYAoKWnVtIEJlaXNwaWVsIGxhc3NlbiBzaWNoIGRpZSBXb3JnbGVpY2h1bmdlbiB2aXN1YWxpc2llcmVuLCBkaWUgYW4gYmVzdGltbXRlbiBQb3NpdGlvbmVuIGRlcyBUZXh0ZXMgYXVmc2NoZWluZW4uIERpZSBwZWFrcyBpbiBkZXIgZm9sZ2VuZGVuIEdyYXBoaWsgemVpZ2VuIFdvcnRwb3NpdGlvbmVuIHZvbiBQb3NpdGlvbiAxIGJpcyBgciBlbmRgLCBhbiBkZW5lbiB2b24gV29sZiBkaWUgbWVpc3RlbiBhbmFsb2dlbiBXw7ZydGVyIHZlcndlbmRldCB3dXJkZW4uIAoKCmBgYHtyIHRleHQtc2ltLWdyLGZpZy5jYXA9InNpbWlsYXJpdHkgb2YgdGV4dCBiZWdpbm5pbmdzIiwgZWNobyA9IEYsd2FybmluZz1GQUxTRX0KI2VuZDwtNTAKcGxvdCh0eXBlYXJyYXlbMTo1MF0sdHlwZT0iaCIseGxhYiA9IHBhc3RlMCgiZmlyc3QgIiwgZW5kLCIgd29yZHMgb2YgdGV4dHMiKSx5bGFiPSJjb3VudCBvZiBkaXN0aW5jdCB0eXBlcyIpCmBgYAoKCiMjIHNlbnRpbWVudCBhbmFseXNpcwpGw7xyIGplZGVuIGVpbnplbG5lbiBUZXh0IGxpZXN6IHNpY2ggZWluIFdlcnQgYmVzdGltbWVuICh6dXIgQmVyZWNobnVuZyBjZi4gW1tAam9ja2Vyc18yMDE1XV0oaHR0cHM6Ly93d3cubWF0dGhld2pvY2tlcnMubmV0LzIwMTUvMDIvMDIvc3l1emhldC8pKSwgZGVyIEF1c3NhZ2VuIGRhcsO8YmVyIHp1bMOkc3p0LCBpbiB3ZWxjaGVtIFNwZWt0cnVtIChwb3NpdGl2ZS9uZWdhdGl2ZSBzZW50aW1lbnQpIHNpY2ggZGllc2VyIHZlcm9ydGVuIGzDpHN6dC4KRGllIGFic29sdXRlbiAqc2VudGltZW50IHZhbHVlcyogd2VyZGVuIHdlaXRlcmhpbiBkdXJjaCBGb3VyaWVyLVRyYW5zZm9ybWF0aW9uIGF1ZiBkaWUgR2VzYW10aGVpdCBkZXIgZ2VtZXNzZW5lbiBXZXJ0ZSBwcm9qaXppZXJ0LCB1bSBlaW5lIGdsYXR0ZSwgdm9uIGRlbiBhYnNvbHV0ZW4gV2VydGVuIHVuYWJow6RuZ2lnZSBEYXJzdGVsbHVuZyB6dSBlcm3DtmdsaWNoZW4uIChjZi4gRmlndXJlIFxAcmVmKGZpZzpzZW50LWZyZXEpKS4KV2VsY2hlIEF1c3NhZ2VuIHNpY2ggYXVzIGRpZXNlbiBFcmtlbm50bmlzc2VuIGFibGVpdGVuIGxhc3NlbiBzb2xsZW4sIGlzdCBtaXIgbm9jaCBuaWNodCBnYW56IGtsYXIuIEkgd2lsbCBlbGFib3JhdGUgb24gdGhhdC4KCiMjIyB2aXN1YWxpc2F0aW9uCmBgYHtyIGV2YWw9VFJVRSwgZWNobz1GQUxTRSwgY29sbGFwc2U9VFJVRSwgd2FybmluZz1GQUxTRSxtZXNzYWdlPUZBTFNFfQojY2FsbHMgbWlyYWNsZSBmdW5jdGlvbiBmcm9tIGV4dGVybmFsIHNjcmlwdDoKI2Jvb2s8LTMKI2NoYXB0ZXI8LTMKI3Bsb3RfYWJzPC0wCiN0ZXh0PC0yCiNkdGF0YXJnZXQ8LXBsb3RzZW50aW1lbnQoZHRhdHh0LGJvb2ssY2hhcHRlcixwbG90X2FicywzKSAjQVJHOiAoc2V0LGJvb2ssY2hhcHRlcixhYnNvbHV0ZSkKbGU8LWRvX3NlbnRpbWVudChkdGEpCmR0YV90PC1nZXRfdHlwZXMoZHRhLDEpCm1md19kdGE8LWxpc3QoKQpmb3IgKGsgaW4gMjogbGVuZ3RoKGNoYXB0ZXJfZXgpKXsKICAKCm1md19kdGFbW2tdXTwtbWZ3KGR0YSxrKQp9CiNtZndfZHRhW1szXV0kbWF4JGlkCmBgYAoKIAogCmBgYHtyIHNlbnQtYWJzLCBmaWcuY2FwPSJhYnNvbHV0ZSAqc2VudGltZW50IHZhbHVlcyogw7xiZXIgZGFzIGdlc2FtdGUgVGV4dGtvcnB1cyIsZWNobz1GQUxTRX0KICMgc2VudDI8LWMoYTEsYTIsYTMpICN1bnRyYW5zZm9ybWVkIHNlbnRpbWVudCwgYWJzb2x1dGUKICBzY2F0dGVyLnNtb290aCgxOmxlbmd0aChsZSRzZW50aW1lbnQkY3B0X3MyKSxsZSRzZW50aW1lbnQkY3B0X3MyLC4xLC4xLHR5cGU9ImgiLGZhbWlseSA9ICJnYXVzc2lhbiIseWxhYj0iYWJzb2x1dGUgc2VudGltZW50IHZhdWxlcyIseGxhYj0idGV4dCBjb3JwdXMiLG1haW49InNlbnRpbWVudCBvdmVyIHRleHRzIikKYGBgCgpgYGB7ciBzZW50LWtvY2gsIGZpZy5jYXA9ImFic29sdXRlICpzZW50aW1lbnQgdmFsdWVzKiDDvGJlciAqa29jaGFuaWUgaWNoIGhhYmUgYnJvdCBnZWthdWZ0KiIsZWNobz1GQUxTRX0KICBzY2F0dGVyLnNtb290aCgxOmxlbmd0aChsZSRzZW50aW1lbnQkYTEpLGxlJHNlbnRpbWVudCRhMSwuMSwuMSx0eXBlPSJoIixmYW1pbHkgPSAiZ2F1c3NpYW4iLHlsYWI9ImFic29sdXRlIHNlbnRpbWVudCB2YXVsZXMiLHhsYWI9InRleHQ6IGtvY2hhbmllIixtYWluPSJzZW50aW1lbnQgb3ZlciB0ZXh0cyIpCmBgYAoKYGBge3Igc2VudC1mZiwgZmlnLmNhcD0iYWJzb2x1dGUgKnNlbnRpbWVudCB2YWx1ZXMqIMO8YmVyICpmYWxzY2hlIGZyZXVuZGUqIixlY2hvPUZBTFNFfQogIHNjYXR0ZXIuc21vb3RoKDE6bGVuZ3RoKGxlJHNlbnRpbWVudCRhMiksbGUkc2VudGltZW50JGEyLC4xLC4xLHR5cGU9ImgiLGZhbWlseSA9ICJnYXVzc2lhbiIseWxhYj0iYWJzb2x1dGUgc2VudGltZW50IHZhdWxlcyIseGxhYj0idGV4dDogRkYiLG1haW49InNlbnRpbWVudCBvdmVyIHRleHRzIikKYGBgCgpgYGB7ciBzZW50LWxlbmcsIGZpZy5jYXA9ImFic29sdXRlICpzZW50aW1lbnQgdmFsdWVzKiDDvGJlciAqbWVpbmUgc2Now7Zuc3RlIGxlbmdldml0Y2gqIixlY2hvPUZBTFNFfQogIHNjYXR0ZXIuc21vb3RoKDE6bGVuZ3RoKGxlJHNlbnRpbWVudCRhMyksbGUkc2VudGltZW50JGEzLC4xLC4xLHR5cGU9ImgiLGZhbWlseSA9ICJnYXVzc2lhbiIseWxhYj0iYWJzb2x1dGUgc2VudGltZW50IHZhdWxlcyIseGxhYj0idGV4dDogbGVuZ2V2aXRjaCIsbWFpbj0ic2VudGltZW50IG92ZXIgdGV4dHMiKQojICBzZW50MzwtZ2V0X3RyYW5zZm9ybWVkX3ZhbHVlcyhzZW50MikKYGBgCgpgYGB7ciBzZW50LWFicy1jcHQsIGZpZy5jYXA9ImFic29sdXRlICpzZW50aW1lbnQgdmFsdWVzKiBvdmVyIGNvcnB1cyIsZWNobz1GQUxTRX0KICBwPC1nZ3Bsb3QoZHRhLCBhZXMoMTpsZW5ndGgoc2VudGltZW50KSwgc2VudGltZW50LCBjb2xvdXIgPSBib29rKSkgKyAKICAgIGdlb21fbGluZSgpCiAgcCArICBsYWJzKHg9ImNvcnB1cyIsIHk9InNlbnRpbWVudCBhYnNvbHV0ZSIsIHRpdGxlPSJzZW50aW1lbnQgb3ZlciB0ZXh0cyIsIGZpbGw9ImJvb2siKQpgYGAKCmBgYHtyIHNlbnQtZnJlcSwgZmlnLmNhcD0iZnJlcXVlbnphbmFseXNpZXJ0ZSAoRm91cmllcikgKnNlbnRpbWVudCB2YWx1ZXMqIMO8YmVyIEtvcnB1cyIsZWNobz1GQUxTRX0KICBwbG90KGxlJHNlbnRpbWVudCRjcHRfczEsdHlwZSA9ICJoIixjb2w9Mix5bGFiID0gInNlbnRpbWVudCBmcmVxdWVuY2llcyIseGxhYj0iY29ycHVzIixtYWluPSJzZW50aW1lbnQgb3ZlciB0ZXh0cyIpCmBgYAoKYGBge3Igc2VudC1mci1jcHQsIGZpZy5jYXA9ImZyZXF1ZW5jeSBhbmFseXNpcyBjZi4gW1tAam9ja2Vyc18yMDE1XV0oaHR0cHM6Ly93d3cubWF0dGhld2pvY2tlcnMubmV0LzIwMTUvMDIvMDIvc3l1emhldC8pIixlY2hvPUZBTFNFfQogIHBsb3QobGUkc2VudGltZW50JGNwdF9zMyx0eXBlID0gImgiLGNvbD0yLHlsYWIgPSAic2VudGltZW50IGZyZXF1ZW5jaWVzIix4bGFiPSJjb3JwdXMgYWdnbG9tZXJhdGVkIixtYWluPSJzZW50aW1lbnQgYW5hbHlzaXMgb3ZlciB0ZXh0cyIpCmBgYAoKYGBge3Igc2VudC1sbTEsIGZpZy5jYXA9ImxpbmVhciByZWdyZXNzaW9uIG9mIHNlbnRpbWVudCBkZXBlbmRlbmNpZXMsIGFic29sdXRlIixlY2hvPUZBTFNFfQogIHNjYXR0ZXIuc21vb3RoKDE6bGVuZ3RoKGxlJGxtJHN1bSRyZXNpZHVhbHMpLGxlJGxtJHN1bSRyZXNpZHVhbHMsLjEsLjEsdHlwZT0iaCIsZmFtaWx5ID0gImdhdXNzaWFuIix5bGFiPSJkZXBlbmRlbmNpZXM6IGxtZXIgc2VudGltZW50IHJlc2lkdWFscyIseGxhYj0idGV4dCBjb3JwdXMiLG1haW49InNlbnRpbWVudCBib29rL2NoYXB0ZXIgZGVwZW5kZW5jeSIpCmBgYAoKYGBge3Igc2VudC1sbS1mciwgZmlnLmNhcD0ibGluZWFyIHJlZ3Jlc3Npb24gb2Ygc2VudGltZW50IGRlcGVuZGVuY2llcywgcmVsYXRpdmUiLGVjaG89RkFMU0V9CiAgcGxvdChsZSRsbSRzY2FsZWQsdHlwZSA9ICJoIixjb2w9Mix5bGFiID0gInNlbnRpbWVudCBmcmVxdWVuY2llcyIseGxhYj0iY29ycHVzIixtYWluPSJzZW50aW1lbnQgYW5hbHlzaXMgb3ZlciB0ZXh0cyIpCmBgYAoKIyMjIGRhdGEKc3VtbWFyeToKYGBge3IgZWNobz1GfQpwcmludCAobWZ3X2R0YSkKZXhjPC0zCmBgYApgYGB7Y3NzIGVjaG89Rn0KcHJlIHttYXgtaGVpZ2h0OiA0MDBweDt9CmBgYApadW0gQmVpc3BpZWw6IERpZSBow7ZjaHN0ZW4gKnNlbnRpbWVudCogV2VydGUsIGhpZXIgaW4gW2NoYXB0ZXI6XSBgYHIgbWZ3X2R0YVtbZXhjXV0kbWF4JGNoYXB0ZXJgYCwgbGFzc2VuIHNpY2ggaW4gW3RleHQ6XSBgYHIgbWZ3X2R0YVtbZXhjXV0kbWF4JGhlYWRgYCBmaW5kZW4uIERpZSAqbW9zdCBmcmVxdWVudCB3b3JkcyogZGllc2VzIEFic2Nobml0dHMgc2luZCBbZHVwbGljYXRlczpdIGBgciBtZndfZHRhW1tleGNdXSRtYXgkd29yZHNgYCwgCmRpZSBuaWVkcmlnc3RlbiBmaW5kZW4gc2ljaCBpbSBUZXh0IGBgciBtZndfZHRhW1tleGNdXSRtaW4kaGVhZGBgIAptaXQgYGByIG1md19kdGFbW2V4Y11dJG1pbiR3b3Jkc2BgLgoKIyMgdmFyaWFuemVuCgotLS0KCiMgQi4gUkVGOgo=</div>
 
 
 </div>
