@@ -53,11 +53,25 @@ do_sentiment<-function(dta){
   #dta<-dtam
   a1<-get_sentiment(dta$content[dta$book=="kochanie"],method = "syuzhet",language = "german")
   a1i<-get_transformed_values(a1)
+  a1m<-max(a1)+.001
+  a1im<-max(a1i)
+  y<-max(a1im)/max(a1m)
+ # a1i<-a1i/y
   
   a2<-get_sentiment(dta$content[dta$book=="FF"],method = "syuzhet",language = "german")
   a2i<-get_transformed_values(a2)
+  a2m<-max(a2)+.001
+  a2im<-max(a2i)
+  y<-max(a2im)/max(a2m)
+#  a2i<-a2i/y
+  
   a3<-get_sentiment(dta$content[dta$book=="lengevitch"],method = "syuzhet",language = "german")
   a3i<-get_transformed_values(a3)
+  a3m<-max(a3)+.001
+  a3im<-max(a3i)
+  y<-max(a3im)/max(a3m)
+#  a3i<-a3i/y
+  
   #plot(a1i~a2i)
   #plot(a1i~a3i)
   #plot(a2i~a3i)
@@ -87,9 +101,9 @@ do_sentiment<-function(dta){
   m1<-mean(dta$sentiment[dta$book=="kochanie"])
   m2<-mean(dta$sentiment[dta$book=="FF"])
   m3<-mean(dta$sentiment[dta$book=="lengevitch"])
-  le_out$means$mean1<m1
-  le_out$means$mean2<m2
-  le_out$means$mean3<m3
+  le_out$means$mean1<-m1
+  le_out$means$mean2<-m2
+  le_out$means$mean3<-m3
   sent1<-c(a1i,a2i,a3i)
   sent2<-c(a1,a2,a3) #untransformed sentiment, absolute
   sent3<-get_transformed_values(sent2)
@@ -264,16 +278,52 @@ wolfmatrix<-matrix(stri_split_boundaries(dta_t$contentp[2:131],simplify = T),nro
 wolfmatrix<-gsub("[^A-Za-z0-9äöüß]","",wolfmatrix)
 #grep("[^A-Za-z0-9äöüß]",w)
 #count of unique words/position: most distinct positions!
-typearray<-array()
-for (k in 1:130){
-typearray[k]<-length(unique(wolfmatrix[,k]))
+# typearray<-array()
+# for (k in 1:130){
+# typearray[k]<-length(unique(wolfmatrix[,k]))
+# 
+# }
+# typearray<-array()
+# for (k in 1:344){
+#   typearray[k]<-length(unique(wolfmatrix[,k]))
+#   
+# }
 
+#wm<-rbind(wolfmatrix,x)
+#md<-median(dta_t$tokens) #durchschnittliche textlänge
+wc<-matrix(stri_count_boundaries(wolfmatrix,type="character"),nrow=130) #character/position
+#image(wc)
+wc2<-matrix(wc)
+wc0<-matrix(nrow = 130,ncol = 344)
+for(k in 1:length(wc2)){
+ifelse(wc2[k]==0,wc0[k]<-NA,wc0[k]<-wc2[k])
+} # put NA for zero characters
+wc3<-matrix(wolfmatrix,nrow = 130)
+for(k in 1:length(wc3)){
+  ifelse(wolfmatrix[k]=="",wc3[k]<-NA,wc3[k]<-wolfmatrix[k])
+} # put NA for zero word on position
+typearray2<-array()
+for (k in 1:344){
+  x<-sum(!is.na(wc3[,k]))
+  typearray2[k]<-length(unique(wc3[,k]))/x #distinct words (types/tokens per position)
 }
-wm<-rbind(wolfmatrix,x)
-md<-median(dta_t$tokens) #durchschnittliche textlänge
-#plot(x[1:50],type = "h")
+chararray_m<-array()
+for (k in 1:344){
+  chararray_m[k]<-mean(wc0[,k],na.rm=T)
+} # 
 
-#mfw(dta,3)
-####
-###
-#create stopword list
+#typearray<-typearray2
+
+
+#mean(wc[,1])
+#image(wc,xaxt="n",yaxt="n",xlab="textposition in corpus",ylab="wordposition in text")
+#plot(chararray_m,type="h")
+#wcmd<-median(wc[])
+typearray_f<-get_transformed_values(typearray2)
+chararray_f<-get_transformed_values(chararray_m)
+y<-max(typearray_f)/max(typearray2)
+#plot(typearray_f/y,type="h")
+x<-max(chararray_f)/max(chararray_m)
+#plot(chararray_f/x)
+typearray_f<-typearray_f/y
+chararray_f<-chararray_f/x

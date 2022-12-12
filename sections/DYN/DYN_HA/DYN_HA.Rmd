@@ -119,6 +119,7 @@ herangezogen.
 md<-median(dta_t$tokens) #durchschnittliche textlänge
 #dta_t$types
 #set$types
+min<-min(dta_t$tokens[2:length(dta_t$tokens)])
 ```
 
 Die `r lc` Texte (Lyrik und lyrische Prosa) haben einen Umfang von ``r sum(dta_t$tokens)`` Wörtern (tokens), die sich in ``r sum(dta_t$types)`` distinct types einteilen lassen, die type/token ratio beträgt demnach ``r sum(dta_t$types)/sum(dta_t$tokens)``. Die durchschnittliche Textlänge (median) beträgt ``r md`` Wörter. Wir haben noch keine Vergleichswerte, die sinnvoll wären...
@@ -130,18 +131,27 @@ knitr::kable(wolfmatrix[1:10, 1:8], caption = "*simplest matrix of text beginnin
 end<-50
 ```
 
-Zum Beispiel lassen sich die Worgleichungen visualisieren, die an bestimmten Positionen des Textes aufscheinen. Die peaks in der folgenden Graphik zeigen Wortpositionen von Position 1 bis `r end`, an denen von Wolf die meisten analogen Wörter verwendet wurden. 
+Zum Beispiel lassen sich die Wortgleichungen visualisieren, die an bestimmten Positionen des Textes aufscheinen. Die Höhen in der folgenden Graphik markieren relative (Fourier-transformierte) Wortpositionen, an denen von Wolf die **wenigsten** analogen Wörter verwendet wurden. Es läszt sich erkennen, dasz ein Text meist mit denselben Wörtern anfängt, die immer verschiedener werden, um sich bei der Hälfte des Textes über eine lange Strecke zu gleichen und ab 60% sprunghaft zu divergieren bis sie bei 80% einen peak erreichen an Verschiedenheit.
 
-
-```{r text-sim-gr,fig.cap="similarity of text beginnings", echo = F,warning=FALSE}
+```{r text-sim-gr,fig.cap="distinctness of word positions", echo = F,warning=FALSE}
 #end<-50
-plot(typearray[1:50],type="h",xlab = paste0("first ", end," words of texts"),ylab="count of distinct types")
-```
+#plot(typearray[1:50],type="h",xlab = paste0("first ", end," words of texts"),ylab="count of distinct types")
+# scatter.smooth(1:end,typearray[1:end],.1,.1,type="h",family = "gaussian",ylab="count of distinct types",xlab = paste0("first ", end," words of texts"))
+scatter.smooth(1:length(typearray_f),typearray_f,.1,.1,type="h",family = "gaussian",ylab="mean of distinct types",xlab = "relative position of words in texts")
 
+```
+Eine weiterhin schöne Graphik entsteht, wenn man die Matrix der Zeichenanzahl über die Gesamtheit der Wörter visualisiert. Hier zeigt sich, dasz der Text zwischen 20-40% die längsten Wörter enthält, die zur Mitte hin kürzer werden um bei 80% einen erneuten peak in der Zeichenanzahl zu erreichen.
+
+```{r wc,fig.cap="characters per position", echo = F,warning=FALSE}
+#end<-50
+scatter.smooth(1:length(chararray_f),chararray_f,.1,.1,type="h",family = "gaussian",ylab="mean count of characters",xlab = "relative position of words in texts")
+
+#image(wc,xaxt="n",yaxt="n",xlab="textposition in corpus",ylab="wordposition in #text")
+```
 
 ## sentiment analysis
 Für jeden einzelnen Text liesz sich ein Wert bestimmen (zur Berechnung cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)), der Aussagen darüber zuläszt, in welchem Spektrum (positive/negative sentiment) sich dieser verorten läszt.
-Die absoluten *sentiment values* werden weiterhin durch Fourier-Transformation auf die Gesamtheit der gemessenen Werte projiziert, um eine glatte, von den absoluten Werten unabhängige Darstellung zu ermöglichen. (cf. Figure \@ref(fig:sent-freq)).
+Die absoluten *sentiment values* werden weiterhin durch Fourier-Transformation auf die Gesamtheit des Korpus projiziert, um eine glatte, von der absoluten Position unabhängige Darstellung zu ermöglichen. (cf. Figure \@ref(fig:sent-freq)).
 Welche Aussagen sich aus diesen Erkenntnissen ableiten lassen sollen, ist mir noch nicht ganz klar. I will elaborate on that.
 
 ### visualisation
