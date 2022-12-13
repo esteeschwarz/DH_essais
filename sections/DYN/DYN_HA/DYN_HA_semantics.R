@@ -327,3 +327,35 @@ x<-max(chararray_f)/max(chararray_m)
 #plot(chararray_f/x)
 typearray_f<-typearray_f/y
 chararray_f<-chararray_f/x
+##########################
+#probability matrix of word position
+get_p<-function(set){
+  
+parray<-set
+# c<-3
+# r<-4
+wc4<-wc3
+for (c in 1:344){
+  for (r in 1:130){
+    m<-grep(wc4[r,c],wc4[,c]) #positions of matches
+x<-length(m) #match count
+#wc4[r,c]<-r*c #erase matches to not match again #blödsinn!
+  parray[r,c]<-x
+    }
+}
+p5<-parray
+for (c in 1:344){
+  for (r in 1:130){
+    p<-parray[r,c]/100    
+    p5[r,c]<-p
+  }
+}
+# 
+# p<-parray[r,c]/100
+# length(grep(wc3[15,1],wc3[,1]))
+# #match
+# wc3[4,3]
+# sum(parray[,1])
+
+return(p5)
+}
