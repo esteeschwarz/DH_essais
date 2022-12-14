@@ -332,14 +332,17 @@ chararray_f<-chararray_f/x
 get_p<-function(set){
   
 parray<-wc3
-# c<-3
-# r<-4
+ c<-3
+ r<-4
 wc4<-wc3
-for (c in 1:344){
+#for (c in 1:344){
   for (r in 1:130){
-    na<-is.na(wc4[r,]) 
-    fin<-sum(na) # textlength
-    m<-grep(wc4[r,c],wc4[,c]) #positions of matches
+    nna<-!is.na(wc4[r,]) 
+ #   for (c in 1: fin)
+    fin<-sum(nna) # textlength
+    for (c in 1: fin){ #wks. with NA, counts over whole matrix, provisorisch...
+      
+        m<-grep(wc4[r,c],wc4[,c]) #positions of matches
     ### TODO: the NAs have to be excluded!
     na<-is.na(wc4[r,])
 x<-as.double(length(m)) #match count
@@ -347,42 +350,65 @@ x<-as.double(length(m)) #match count
   parray[r,c]<-x
   
       }
-}
-wc4[9,19]
-sum(na)
+  }
+#}
+#x<-c(1,2,3,4,4,3,3,2,4,5,6,NA)
+#unique(x,incomparables = 3)
+#wc4[9,19]
+#sum(na)
 mode(parray)<-"double"
 
 p5<-matrix(parray,nrow = 130)
 for (c in 1:344){
   for (r in 1:130){
-    l<-sum(!is.na(wc3[r,]))
-
-    p<-parray[r,c]/130/l   
+    #m<-grep(130,p5[r,])
+    #   for (c in 1: fin)
+    nna<-!is.na(p5[r,]) 
+    l<-sum(nna) # textlength
+    #p5[r,m]
+    p<-parray[r,c]/130*l 
+   # p<-parray[r,c]/130/l #same sure
+    
     p5[r,c]<-p
   }
 }
+#sum(!is.na(wc4[98,]))
+#m<-grep(130,parray)
+#p5[m]<-NA
+
 #parray[3,3]/100
-wc3[max(parray[,3]),3] # most probable 1st word
+#wc3[max(p5[,3]),3] # most probable 1st word
 psent<-array()
-wc3[5,5]
+#wc3[5,5]
 for (k in 1:344){
-  m<-max(p5[,k])
+  m<-max(p5[,k],na.rm = T)
   g<-grep(m,p5[,k])
   x<-wc3[g,k]
 #  x<-wc3[max(p5[,k]),k]
  psent[k]<-x 
 #  ifelse (x!="",psent[k]<-x,psent[k]<-NA)
 }
-p6<-max.col(p5)
-wc3[1,255]
+#max(p5[,1])
+#p6
+#wc3[1,255]
 psent
-sum(!is.na(wc3[1,]))
-# 
-# p<-parray[r,c]/100
-# length(grep(wc3[15,1],wc3[,1]))
-# #match
-# wc3[4,3]
-# sum(parray[,1])
-
+#sum(!is.na(wc3[1,]))
+#m<-max(p5[,1])
+#g<-grep(m,p5[,1])
+#x<-wc3[g,1]
+x
+text<-paste(psent,sep = " ")
+cat(text)
 return(p5)
+
+cat(text,file="local/DYN/db/wolf_p_text_qL.txt",sep = " ")
+#check
+m<-grep("stottersaft",dta_t$contentp)
+dta_t$contentp[m]
+wc4[m-10:m+10]
+m-10
+wc4[28819:28840]
+wc6<-table(wc4)
+
 }
+#getwd()
