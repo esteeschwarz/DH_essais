@@ -331,25 +331,52 @@ chararray_f<-chararray_f/x
 #probability matrix of word position
 get_p<-function(set){
   
-parray<-set
+parray<-wc3
 # c<-3
 # r<-4
 wc4<-wc3
 for (c in 1:344){
   for (r in 1:130){
+    na<-is.na(wc4[r,]) 
+    fin<-sum(na) # textlength
     m<-grep(wc4[r,c],wc4[,c]) #positions of matches
-x<-length(m) #match count
+    ### TODO: the NAs have to be excluded!
+    na<-is.na(wc4[r,])
+x<-as.double(length(m)) #match count
 #wc4[r,c]<-r*c #erase matches to not match again #blödsinn!
   parray[r,c]<-x
-    }
+  
+      }
 }
-p5<-parray
+wc4[9,19]
+sum(na)
+mode(parray)<-"double"
+
+p5<-matrix(parray,nrow = 130)
 for (c in 1:344){
   for (r in 1:130){
-    p<-parray[r,c]/100    
+    l<-sum(!is.na(wc3[r,]))
+
+    p<-parray[r,c]/130/l   
     p5[r,c]<-p
   }
 }
+#parray[3,3]/100
+wc3[max(parray[,3]),3] # most probable 1st word
+psent<-array()
+wc3[5,5]
+for (k in 1:344){
+  m<-max(p5[,k])
+  g<-grep(m,p5[,k])
+  x<-wc3[g,k]
+#  x<-wc3[max(p5[,k]),k]
+ psent[k]<-x 
+#  ifelse (x!="",psent[k]<-x,psent[k]<-NA)
+}
+p6<-max.col(p5)
+wc3[1,255]
+psent
+sum(!is.na(wc3[1,]))
 # 
 # p<-parray[r,c]/100
 # length(grep(wc3[15,1],wc3[,1]))
