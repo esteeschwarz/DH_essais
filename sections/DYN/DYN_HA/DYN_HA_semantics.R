@@ -330,10 +330,10 @@ chararray_f<-chararray_f/x
 ##########################
 #probability matrix of word position
 get_p<-function(set){
-  
-parray<-wc3
- c<-3
- r<-4
+#set<-wc3  
+parray<-set
+# c<-3
+# r<-4
 wc4<-wc3
 #for (c in 1:344){
   for (r in 1:130){
@@ -342,9 +342,11 @@ wc4<-wc3
     fin<-sum(nna) # textlength
     for (c in 1: fin){ #wks. with NA, counts over whole matrix, provisorisch...
       
-        m<-grep(wc4[r,c],wc4[,c]) #positions of matches
+        m<-grep(wc4[r,c],wc4[,c]) #positions of matches in column
+        # ml<-grep(wc4[r,c],wc4[r,])
+        # lml<-length(ml)
     ### TODO: the NAs have to be excluded!
-    na<-is.na(wc4[r,])
+   # na<-is.na(wc4[r,])
 x<-as.double(length(m)) #match count
 #wc4[r,c]<-r*c #erase matches to not match again #blödsinn!
   parray[r,c]<-x
@@ -365,8 +367,10 @@ for (c in 1:344){
     #   for (c in 1: fin)
     nna<-!is.na(p5[r,]) 
     l<-sum(nna) # textlength
+    ml<-grep(wc4[r,c],wc4[r,],invert = T)
+    lml<-length(ml)
     #p5[r,m]
-    p<-parray[r,c]/130*l 
+    p<-parray[r,c]/130*lml 
    # p<-parray[r,c]/130/l #same sure
     
     p5[r,c]<-p
@@ -391,24 +395,28 @@ for (k in 1:344){
 #max(p5[,1])
 #p6
 #wc3[1,255]
-psent
+#psent
 #sum(!is.na(wc3[1,]))
 #m<-max(p5[,1])
 #g<-grep(m,p5[,1])
 #x<-wc3[g,1]
-x
+#x
 text<-paste(psent,sep = " ")
-cat(text)
-return(p5)
+#cat(text)
+return(text)
 
-cat(text,file="local/DYN/db/wolf_p_text_qL.txt",sep = " ")
+#cat(text,file="local/DYN/db/wolf_p_text_qalongS.txt",sep = " ")
 #check
-m<-grep("stottersaft",dta_t$contentp)
-dta_t$contentp[m]
-wc4[m-10:m+10]
-m-10
-wc4[28819:28840]
-wc6<-table(wc4)
+#m<-grep("stottersaft",dta_t$contentp)
+#dta_t$contentp[m]
+#wc4[m-10:m+10]
+#m-10
+#wc4[28819:28840]
+#wc6<-table(wc4)
 
 }
 #getwd()
+printptext<-function(){
+  cat(ptext)
+}
+
