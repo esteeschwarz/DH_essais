@@ -401,9 +401,10 @@ for (k in 1:344){
 #g<-grep(m,p5[,1])
 #x<-wc3[g,1]
 #x
-text<-paste(psent,sep = " ")
+#text<-paste(psent,sep = " ")
 #cat(text)
-return(text)
+t<-stri_join(psent,sep = " ")
+return(t)
 
 #cat(text,file="local/DYN/db/wolf_p_text_qalongS.txt",sep = " ")
 #check
@@ -416,7 +417,7 @@ return(text)
 
 }
 #getwd()
-printptext<-function(){
-  cat(ptext)
-}
+# printptext<-function(){
+#   t<-stri_join(psent,sep = " ")
+# }
 
