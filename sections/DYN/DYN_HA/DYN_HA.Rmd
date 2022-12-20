@@ -40,13 +40,30 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 library(httr)
 #fetch zotero .bib online
-share <- runif(1)
+#share <- runif(1)
 x<-GET("https://api.zotero.org/groups/4713246/collections/9LNRRJQN/items/top?format=bibtex")
 bib<-content(x,"text")
+#ref1<-citation("lme4")
+#ref2<-print(ref1,style="bibtex")
+#ref2
+#bib2
+#print(bib,style="bibtex")
+#b4<-bibentry(b)
 y<-tempfile("ref",fileext = ".bib")
+#blm<-toBibtex(ref1)
 writeLines(bib,y)
+#b3<-unlist(bib2)
+#print(b,style="Bibtex")
+#b<-pandoc_citeproc_convert(y)
+#bib2<-append(b,ref1,after = length(b))
+#x<-readLines(y)
+#b5<-readCitationFile()
+#b7<-citation("lme4")
+#toBibtex(b7)
 ```
-
+---
+bibliography: "`r y`"
+---
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 library(mongolite)
 library(jsonlite)
@@ -56,6 +73,7 @@ library(ggplot2)
 library(lme4)
 library(stringi)
 library(stringr)
+library(rmarkdown)
 
 
 
@@ -71,8 +89,12 @@ src<-"../../../../../local/R/cred_gener.csv"
  #   dta<-con$find('{}')
 #local data:
     src<-"../../../../../local/DYN/db/wolfdb003.csv"
+    src_lx<-"../../../../../local/DYN/db/tokensMultiLX_m.csv"
 
     dta<-read.csv(src)
+    lxtable<-read_csv2(src_lx)
+    mlx<-subset(lxtable,lxtable$multi=="multiLX")
+
     dta_sf<-dta
 #k<-2
 #dtatxt<-as.data.frame(fromJSON(src))
@@ -89,17 +111,21 @@ src<-"../../../../../local/R/cred_gener.csv"
 ---
 
 # einleitung
+Wir werden im Folgenden den Versuch unternehmen, aus einigen statistischen Berechnungen Aussagen zum lyrischen Werk Uljana Wolfs abzuleiten. Ob daraus Erkenntnisse hinsichtlich des Aspekts *postdeutsch* erwachsen, können wir noch nicht sagen.
+Die Arbeit wird explorativ vorgehen, dh. unser Erkenntnisinteresse ist durchaus ungerichtet. Wir wollen wesentlich einige Methoden zur Anwendung bringen, die geeignet erscheinen, weitere literaturwissenschaftliche Fragestellungen zu beantworten. Eine weiter gefasste Aufgabenstellung dieser Arbeit würde ca. lauten:
+## fragestellung
+Bestimmung charakteristischer Merkmale im lyrischen Werk Uljana Wolfs mithilfe statistischer Methoden. 
 
-# u. wolf
-
+# zur autorin
+Uljana Wolf, der Öffentlichkeit seit 2005 durch ihre Gedichte bekannt, wurde 2006 für ihr Debüt *kochanie ich habe brot gekauft* (kookbooks 2005) mit dem Peter-Huchel-Preis geehrt und veröffentlichte seitdem zwei weitere Gedichtbände, ebenfalls bei *kookbooks*. Dort ist sie in ein enges Netzwerk junger deutschsprachiger Autor* eingebunden, die sich (hier zum Aspekt *postdeutsch*) mehrheitlich durch ihre Affinität zu mehr- oder polylingualer Dichtung auszeichnen. Es gibt bei kook kaum ein* Dichter* 
 # work
 ## corpus aufbereitung
 Das Korpus, welches nach Digitalisierung der Buchvorlagen aus einer Datenbank abgerufen wird, enthält `r length(dta_sf$content)` Einträge, nach Abzug der Kapitelüberschriften und Zitate `r length(dta$content)-1` Datensätze (Texte), die zur Auswertung herangezogen werden können.
 Für die Analyse wurde das gesamte (publizierte) lyrische Werk Uljana Wolfs, bestehend aus, in der Reihenfolge des Erscheinens:
 
-- kochanie, ich habe Brot gekauft (2005)
-- falsche freunde (2009)
-- meine schönste lengevitch (2013)
+- kochanie, ich habe Brot gekauft [@wolf_kochanie_2005]
+- falsche freunde [@wolf_falsche_2009]
+- meine schönste lengevitch [@wolf_meine_2013]
 
 herangezogen.
 
@@ -117,22 +143,40 @@ herangezogen.
 # stkcpt<-sum(dta$tokens,na.rm = T)
 # wolfcpt_s<-stri_split_boundaries(dta$content,type="word")
 # wolfcpt_s
-md<-median(dta_t$tokens) #durchschnittliche textlänge
+md_t<-median(dta_t$tokens) #durchschnittliche textlänge
 #dta_t$types
 #set$types
-min<-min(dta_t$tokens[2:length(dta_t$tokens)])
+min_t<-min(dta_t$tokens[2:length(dta_t$tokens)])
+#lxtable<-get_lxtable(src_lx)
+mlx<-subset(lxtable,lxtable$multi=="multiLX")
+lmlx<-length(mlx$lxtok)
+mlx_u<-unique(mlx$lxtok[1:lmlx])
+
+#700/20000
 ```
 
-Die `r lc` Texte (Lyrik und lyrische Prosa) haben einen Umfang von ``r sum(dta_t$tokens)`` Wörtern (tokens), die sich in ``r sum(dta_t$types)`` distinct types einteilen lassen, die type/token ratio beträgt demnach ``r sum(dta_t$types)/sum(dta_t$tokens)``. Die durchschnittliche Textlänge (median) beträgt ``r md`` Wörter. Wir haben noch keine Vergleichswerte, die sinnvoll wären...
+Die `r lc` Texte (Lyrik und lyrische Prosa) haben einen Umfang von ``r sum(dta_t$tokens)`` Wörtern (tokens), die sich in ``r sum(dta_t$types)`` distinct types einteilen lassen, die type/token ratio beträgt demnach ``r sum(dta_t$types)/sum(dta_t$tokens)``. Die durchschnittliche Textlänge (median) beträgt ``r md_t`` Wörter. Wir haben noch keine Vergleichswerte, die sinnvoll wären...
+
+### multiLX
+Die multilingualen Elemente des Korpus (insgesamt `r lmlx` tokens) haben einen Anteil von `r round(length(mlx_u)/sum(dta_t$types)*100)`% an den types.
 Mit der entstandenen Textmatrix (cf. Table \@ref(tab:text-matrix)) läszt sich noch weiter rechnen.
 
+```{r lx-matches, echo=F,fig.cap="multilingual elements over corpus",warning=FALSE}
+#lxm_f<-get_transformed_values(get_lxmatches())
+sent_global_f<-get_transformed_values(sent_global)
+plot(get_lxmatches(),type = "h",xlab="text corpus",ylab="occurences")
+#par(new=T)
+#plot(sent_global_f,type = "h",col=2,xaxt="n",yaxt="n",ann = F)
 
+#scatter.smooth(1:length(sent_global),sent_global,.1,.1,type="l",family = "gaussian",col=2,xaxt="n",yaxt="n",ann = F)
+```
+### similarities
 ```{r text-matrix, echo = F,warning=FALSE}
 knitr::kable(wolfmatrix[1:10, 1:8], caption = "*simplest matrix of text beginnings*")
 end<-50
 ```
 
-Zum Beispiel lassen sich die Wortgleichungen visualisieren, die an bestimmten Positionen des Textes aufscheinen. Die Höhen in der folgenden Graphik markieren relative (Fourier-transformierte) Wortpositionen, an denen von Wolf die **wenigsten** analogen Wörter verwendet wurden. Es läszt sich erkennen, dasz ein Text meist mit denselben Wörtern anfängt, die immer verschiedener werden, um sich bei der Hälfte des Textes über eine lange Strecke zu gleichen und ab 60% sprunghaft zu divergieren bis sie bei 80% einen peak erreichen an Verschiedenheit.
+Zum Beispiel lassen sich die Wortgleichungen visualisieren, die an bestimmten Positionen des Textes aufscheinen. Die Höhen in der folgenden Graphik markieren relative (Fourier-transformierte) Wortpositionen, an denen von Wolf die **wenigsten** analogen Wörter verwendet wurden. Es läszt sich erkennen, dasz ein Text meist mit denselben Wörtern anfängt (baisse), die immer verschiedener werden, um sich bei der Hälfte des Textes über eine lange Strecke zu gleichen und ab 60% sprunghaft zu divergieren bis sie bei 80% einen peak (hausse) erreichen an Verschiedenheit.
 
 ```{r text-sim-gr,fig.cap="distinctness of word positions", echo = F,warning=FALSE}
 #end<-50
@@ -141,7 +185,7 @@ Zum Beispiel lassen sich die Wortgleichungen visualisieren, die an bestimmten Po
 scatter.smooth(1:length(typearray_f),typearray_f,.1,.1,type="h",family = "gaussian",ylab="mean of distinct types",xlab = "relative position of words in texts")
 
 ```
-Eine weiterhin schöne Graphik entsteht, wenn man die Matrix der Zeichenanzahl über die Gesamtheit der Wörter visualisiert. Hier zeigt sich, dasz der Text zwischen 20-40% die längsten Wörter enthält, die zur Mitte hin kürzer werden um bei 80% einen erneuten peak in der Zeichenanzahl zu erreichen.
+Eine weiterhin schöne Graphik entsteht, wenn man die Matrix der Zeichenanzahl über die Gesamtheit der Wörter visualisiert. Hier zeigt sich, dasz der Text zwischen 20-40% die längsten Wörter enthält, diese zur Mitte hin kürzer werden um bei 80% einen erneuten peak in der Zeichenanzahl zu erreichen.
 
 ```{r wc,fig.cap="characters per position", echo = F,warning=FALSE}
 #end<-50
@@ -151,7 +195,7 @@ scatter.smooth(1:length(chararray_f),chararray_f,.1,.1,type="h",family = "gaussi
 ```
 
 ## sentiment analysis
-Für jeden einzelnen Text liesz sich ein Wert bestimmen (zur Berechnung cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)), der Aussagen darüber zuläszt, in welchem Spektrum (positive/negative sentiment) sich dieser verorten läszt.
+Für jeden einzelnen Text liesz sich ein Wert bestimmen (zur Berechnung cf. [[@jockers_revealing_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)), der Aussagen darüber zuläszt, in welchem Spektrum (positive/negative sentiment) sich dieser verorten läszt.
 Die absoluten *sentiment values* werden weiterhin durch Fourier-Transformation auf die Gesamtheit des Korpus projiziert, um eine glatte, von der absoluten Position unabhängige Darstellung zu ermöglichen. (cf. Figure \@ref(fig:sent-freq)).
 Welche Aussagen sich aus diesen Erkenntnissen ableiten lassen sollen, ist mir noch nicht ganz klar. I will elaborate on that.
 
@@ -163,8 +207,8 @@ Welche Aussagen sich aus diesen Erkenntnissen ableiten lassen sollen, ist mir no
 #plot_abs<-0
 #text<-2
 #dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs,3) #ARG: (set,book,chapter,absolute)
-le<-do_sentiment(dta)
 dta_t<-get_types(dta,1)
+le<-do_sentiment(dta_t)
 mfw_dta<-list()
 for (k in 2: length(chapter_ex)){
   
@@ -174,8 +218,6 @@ mfw_dta[[k]]<-mfw(dta,k)
 #mfw_dta[[3]]$max$id
 ```
 
- 
- 
 ```{r sent-abs, fig.cap="absolute *sentiment values* über das gesamte Textkorpus",echo=FALSE}
  # sent2<-c(a1,a2,a3) #untransformed sentiment, absolute
   scatter.smooth(1:length(le$sentiment$cpt_s2),le$sentiment$cpt_s2,.1,.1,type="h",family = "gaussian",ylab="absolute sentiment vaules",xlab="text corpus",main="sentiment over texts")
@@ -194,32 +236,74 @@ mfw_dta[[k]]<-mfw(dta,k)
 #  sent3<-get_transformed_values(sent2)
 ```
 
+Wir sehen in der frequenzanalysierten Graphik, dasz sich die relative Verteilung der sentiment values über die Bücher in der Tendenz unterscheidet. Während in *kochanie* und *lengevitch* schon zu Beginn Höhen verzeichnet sind, die Werte dann zur Buchmitte hin sinken, zeigt sich bei *FF* ein erster Wechsel von negativ zu positiv schon im ersten Drittel. Die Stimmung aller drei Bücher ist in der Mitte gleich negativ, in *kochanie* aber schon wieder aufsteigend, *falsche freunde* weist die gröszten Schwankungen auf. 
+
+```{r sent-comp,fig.cap="relative sentiment values singled",echo=FALSE}
+par(new=F)
+plot(le$sentiment$a1i,type = "h",col=4,ylab = "sentiment frequencies",xlab="blue: kochanie, red: FF, yellow: lengevitch",main="sentiment distribution over book")
+par(new=T) #red
+plot(le$sentiment$a2i,type = "h",col=2,xaxt="n",yaxt="n",ann = F)
+par(new=T) #green
+plot(le$sentiment$a3i,type = "h",col=7,xaxt="n",yaxt="n",ann = F) #blue
+```
+
 ```{r sent-abs-cpt, fig.cap="absolute *sentiment values* over corpus",echo=FALSE}
   p<-ggplot(dta, aes(1:length(sentiment), sentiment, colour = book)) + 
     geom_line()
   p +  labs(x="corpus", y="sentiment absolute", title="sentiment over texts", fill="book")
 ```
 
+In *kochanie* weisen die Werte die niedrigste, in *falsche freunde* die höchste Varianz auf. 
+
 ```{r sent-freq, fig.cap="frequenzanalysierte (Fourier) *sentiment values* über Korpus",echo=FALSE}
   plot(le$sentiment$cpt_s1,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus",main="sentiment over texts")
 ```
 
-```{r sent-fr-cpt, fig.cap="frequency analysis cf. [[@jockers_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)",echo=FALSE}
+```{r sent-fr-cpt, fig.cap="frequency analysis cf. [[@jockers_revealing_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)",echo=FALSE}
   plot(le$sentiment$cpt_s3,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus agglomerated",main="sentiment analysis over texts")
+```
+
+### dependencies
+Mit der Regressionsanalyse des *R lme4 package* [@bates_fitting_2015] lassen sich hier Abhängigkeiten (Korrelationen) der *sentiment values* von verschiedenen Faktoren (chapter, book) aufzeigen.
+
+#### lmer summary
+```{r sum-lmer, echo=FALSE}
+print(le$lm$sum)
 ```
 
 ```{r sent-lm1, fig.cap="linear regression of sentiment dependencies, absolute",echo=FALSE}
   scatter.smooth(1:length(le$lm$sum$residuals),le$lm$sum$residuals,.1,.1,type="h",family = "gaussian",ylab="dependencies: lmer sentiment residuals",xlab="text corpus",main="sentiment book/chapter dependency")
+depmax<-which.max(le$lm$sum$residuals)
+depmin<-which.min(le$lm$sum$residuals)
+depmaxr<-round(max(le$lm$scaled))
+depminr<-round(min(le$lm$scaled))
+
+#dta_t$phead[depmin]
+#depmax
+#length(le$lm$sum$residuals)
 ```
+
+Es ist zu zeigen, dasz die Abhängigkeit durchaus variiert. Die relativen Korrelationswerte schwanken zwischen `r depminr` und `r depmaxr` (bei f(x)=x/100), zwischen 40-80% läszt sich gröszere Abhängigkeit beobachten, dh. hier sind die sentiment values am stärksten vom Kapitel beeinfluszt, beispielhaft beim Text[`r depmax`]  *`r dta_t$phead[depmax]`*, am wenigsten beim Text[`r depmin`]  *`r dta_t$phead[depmin]`*. 
 
 ```{r sent-lm-fr, fig.cap="linear regression of sentiment dependencies, relative",echo=FALSE}
-  plot(le$lm$scaled,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus",main="sentiment analysis over texts")
+  plot(le$lm$scaled,type = "h",col=2,ylab = "sentiment frequencies auf 100%",xlab="corpus",main="sentiment analysis over texts")
 ```
 
+Weiterhin können wir versuchen, eine Abhängigkeit der sentiment values von der Verwendung multilingualer Elemente aufzuzeigen. Die verdichteten schwarzen Balken (cf. Figure \@ref(fig:lx-matches)) korrelieren hier mit der roten Linie der Stimmungswerte, was eine Abhängigkeit vermuten läszt.
+
+```{r lx-sent-projection, echo=F,fig.cap="multilingual elements over sentiment",warning=FALSE}
+sent_global_f<-get_transformed_values(sent_global)
+plot(get_lxmatches(),type = "h",xlab="text corpus",ylab="occurences",main="sentiment/language correlation")
+par(new=T)
+plot(sent_global_f,type = "l",col=2,xaxt="n",yaxt="n",ann = F)
+
+#scatter.smooth(1:length(sent_global),sent_global,.1,.1,type="l",family = "gaussian",col=2,xaxt="n",yaxt="n",ann = F)
+```
 ### data
 summary:
 ```{r echo=F}
 print (mfw_dta)
+#knitr::kable(mfw_dta,5,5)
 exc<-3
 ```
 ```{css echo=F}
@@ -231,9 +315,10 @@ die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head``
 mit ``r mfw_dta[[exc]]$min$words``.
 
 ## corpus play
-Das Folgende zeigt einen Text, dem ein Algoritmus zugrundeliegt, der roughly die Wahrscheinlichkeit des Vorhandenseins eines Wortes an der jeweiligen Position im Satz, über den gesamten Korpus betrachtet, bestimmt. Es tritt also jedes Wort dieses künstlichen Textes am wahrscheinlichsten an dieser Stelle auf, szsg. ein sehr simples *transformer* experiment, ohne jegliche Berücksichtigung semantisch-syntaktischer Kategorien.
+Das Folgende zeigt einen Text, dem ein Algoritmus zugrundeliegt, der roughly die Wahrscheinlichkeit des Vorhandenseins eines Wortes an der jeweiligen Position im Text, über den gesamten Korpus betrachtet, bestimmt. Es tritt also jedes Wort dieses künstlichen Textes am wahrscheinlichsten an dieser Stelle auf, szsg. ein sehr simples *transformer* experiment, ohne jegliche Berücksichtigung semantisch-syntaktischer Kategorien.
 ```{r p-text, echo=F, warning=FALSE,caption="text generated by words with highest probability on fixed positions along text length"}
-ptext<-get_p(wc3)
+ptext<-c("sample","comment in","for","final","output")
+#ptext<-get_p(wc3)
 #text<-cat(ptext)
 text<-stri_join(ptext, collapse=" ")
 #text

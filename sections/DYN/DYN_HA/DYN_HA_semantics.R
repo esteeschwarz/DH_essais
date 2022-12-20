@@ -50,22 +50,27 @@ do_sentiment<-function(dta){
   # con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
   # x<-con$find('{}')
  # dta<-subset(dta,!is.na(dta$content))
-  #dta<-dtam
-  a1<-get_sentiment(dta$content[dta$book=="kochanie"],method = "syuzhet",language = "german")
+  dta<-dta_t
+  a1<-get_sentiment(dta$content[dta$book=="kochanie"],method = "nrc",language = "german")
+  dta$sentiment[dta$book=="kochanie"]<-a1
   a1i<-get_transformed_values(a1)
   a1m<-max(a1)+.001
   a1im<-max(a1i)
   y<-max(a1im)/max(a1m)
  # a1i<-a1i/y
   
-  a2<-get_sentiment(dta$content[dta$book=="FF"],method = "syuzhet",language = "german")
+  a2<-get_sentiment(dta$content[dta$book=="FF"],method = "nrc",language = "german")
+  dta$sentiment[dta$book=="FF"]<-a2
+  
   a2i<-get_transformed_values(a2)
   a2m<-max(a2)+.001
   a2im<-max(a2i)
   y<-max(a2im)/max(a2m)
 #  a2i<-a2i/y
   
-  a3<-get_sentiment(dta$content[dta$book=="lengevitch"],method = "syuzhet",language = "german")
+  a3<-get_sentiment(dta$content[dta$book=="lengevitch"],method = "nrc",language = "german")
+  dta$sentiment[dta$book=="lengevitch"]<-a3
+  
   a3i<-get_transformed_values(a3)
   a3m<-max(a3)+.001
   a3im<-max(a3i)
@@ -88,7 +93,7 @@ do_sentiment<-function(dta){
     # formel: test dependency sentiment of book
   ################################################
   # new with sorted df (after year of publication)
-  lm<-lmer(dta$sentiment~dta$book+(dta$book|dta$chapter),dta)
+  lm<-lmer(dta$sentiment~dta$book+(dta$book|dta$chapter)+(1+dta$lxp),dta)
  # lm<-lmer(dtalm$sentiment~dtalm$book+(dtalm$book|dtalm$chapter),dtalm)
   length(dta$book)
     le<-summary(lm)
@@ -311,7 +316,7 @@ chararray_m<-array()
 for (k in 1:344){
   chararray_m[k]<-mean(wc0[,k],na.rm=T)
 } # 
-
+wc4<-wc3
 #typearray<-typearray2
 
 
@@ -367,13 +372,19 @@ for (c in 1:344){
     #   for (c in 1: fin)
     nna<-!is.na(p5[r,]) 
     l<-sum(nna) # textlength
-    ml<-grep(wc4[r,c],wc4[r,],invert = T)
+    ml<-grep(wc4[r,c],wc4[r,],invert = T) #matches x over textlength #for idunno reason NAs are not matched/counted which is great
     lml<-length(ml)
+    px<-lml/l #p(x) of word
     #p5[r,m]
-    p<-parray[r,c]/130*lml 
+    p<-parray[r,c]/130*px #-lml
+    mcpt<-grep(wc4[r,c],wc4) # match word over corpus
+    lmcpt<-length(mcpt)
+    lc<-sum(!is.na(wc4))
+    pcpt<-lmcpt/lc
+    p<-p*pcpt
    # p<-parray[r,c]/130/l #same sure
     
-    p5[r,c]<-p
+    p5[r,c]<-p  
   }
 }
 #sum(!is.na(wc4[98,]))
@@ -385,9 +396,11 @@ for (c in 1:344){
 psent<-array()
 #wc3[5,5]
 for (k in 1:344){
-  m<-max(p5[,k],na.rm = T)
-  g<-grep(m,p5[,k])
-  x<-wc3[g,k]
+#    m<-max(p5[,k],na.rm = T)
+ # g<-grep(m,p5[,k])
+  #x<-wc3[g,k]
+  mm<-which.max(p5[,k])
+  x<-wc3[mm,k]
 #  x<-wc3[max(p5[,k]),k]
  psent[k]<-x 
 #  ifelse (x!="",psent[k]<-x,psent[k]<-NA)
@@ -403,8 +416,8 @@ for (k in 1:344){
 #x
 #text<-paste(psent,sep = " ")
 #cat(text)
-t<-stri_join(psent,sep = " ")
-return(t)
+text<-stri_join(psent,sep = " ")
+return(text)
 
 #cat(text,file="local/DYN/db/wolf_p_text_qalongS.txt",sep = " ")
 #check
@@ -414,6 +427,8 @@ return(t)
 #m-10
 #wc4[28819:28840]
 #wc6<-table(wc4)
+# x<-c(1,2,3,4,5,6,7,8,NA)
+# match(NA,x)
 
 }
 #getwd()
@@ -421,3 +436,175 @@ return(t)
 #   t<-stri_join(psent,sep = " ")
 # }
 
+get_lxdf<-function(){
+library(quanteda.textstats)
+t<-stri_join(wc4,sep = " ")
+cat(head(t))
+x<-textstat_lexdiv(t,measure="all")
+tokens<-dta_t$contentp
+head(tokens)
+tokens<-str_split(tokens," ")
+tokens<-unlist(tokens)
+writeLines(tokens,"local/DYN/db/tokens.txt")
+dtatok<-read_table("local/DYN/db/tokensquery.csv",header)
+url<-"https://www.deutschestextarchiv.de/public/cab/query?a=default&fmt=text&clean=1&pretty=1&raw=1&q=i"
+ns<-c("token","t2","t3","lex","lemma","ka")
+#library(readr)
+dtatok <- read_delim("local/DYN/db/tokensquery.csv", 
+                          delim = "\t", escape_double = FALSE, 
+                          col_names = ns, trim_ws = TRUE)
+text
+lxtok<-dtatok$token[dtatok$lex=="NE"|dtatok$lex=="FM"]
+lx1<-cbind(lxtok,"de","multiLX","neoLX")
+write.csv2(lx1,"local/DYN/db/tokensMultiLX.csv")
+}
+getwd()
+
+
+### edited
+get_tarray<-function(set){
+#ns<-c("token","t2","t3","lex","lemma","ka")
+#lxtable<-read_delim("local/DYN/db/tokensMultiLX_m.csv",delim =";",col_names = ns)
+# lxtable<-read_csv2(set)
+# mlx<-subset(lxtable,lxtable$multi=="multiLX")
+### add multilx attribute to dta
+wc6<-list()
+wc6$text<-wc4
+#wc6$y_matches<-parray
+#wc6$p<-p5
+#wc6$textp
+tarray<-array()
+r<-6
+c<-6
+for (c in 1:length(wc6[[1]][1,])){
+  for (r in 1:length(wc6[[1]][,1])){
+# for (c in 1:length(wc6[[1]][1,])){
+    l<-sum(!is.na(wc6[[1]][r,]))
+  for (lc in 1:l){
+    pos<-r*lc
+    
+      tarray[pos]<-wc6[[1]][r,lc]
+  }
+}
+}
+#c<-6
+#r<-6
+tarray<-array(dim = 44720)
+head(tarray)
+for (r in 1:length(wc6[[1]][,1])){
+  l<-sum(!is.na(wc6[[1]][r,]))
+for (c in 1:l){
+#for (k in 1:length(wc6[[1]][,1])){
+  #l<-sum(!is.na(wc6[[1]][,c]))
+  #for (r in 1:l){
+    pos_o<-(c-1)*130+r
+    pos_m<-(r-1)*344+c
+    tarray[pos_m]<-wc6[[1]][pos_o]
+  }
+}
+return(tarray)
+}
+
+get_lxmatches<-function(){
+ # mlx<-get_lxtable()
+#q
+  tarray<-get_tarray()
+#assign multilx attributes
+#match postdeutsch in text
+q<-unique(mlx$lxtok)
+#mt<-match(wc6$text[68,],q)
+#mt<-match(q,wc6$text[68,])
+mt<-match(tarray,q)
+tarray[mt]
+mt1<-!is.na(mt)
+#plot(mt1,type = "h")
+#x<-tapply(q,mt)
+#match
+matchlx<-mt[!is.na(q[mt])]
+#q[matchlx]
+#wc6$text[68,matchlx]
+return(mt1)
+}
+
+sent_global<-get_sentiment(get_tarray())
+# get lx percentage
+lx_matches<-get_lxmatches()
+# per text
+txtbonds<-function(){
+ # wc6<-list()
+  #wc6$text<-wc4
+  #wc6$y_matches<-parray
+  #wc6$p<-p5
+  #wc6$textp
+  tarray<-data.frame()
+  r<-1
+  c<-6
+  
+  for (r in 1:length(wc4[,c])){
+#    for (r in 1:length(wc4[,c])){
+      # for (c in 1:length(wc6[[1]][1,])){
+      l<-sum(!is.na(wc4[r,]))
+      #for (lc in 1:l){
+        #pos<-r*lc
+      
+      tarray[1,"start"]<-1
+      tarray[1,"end"]<-sum(!is.na(wc4[1,]))
+      tarray[1,"length"]<-tarray[1,2]-tarray[1,1]+1
+      
+      # if (r >=2){
+      #   tarray[r,"start"]<-tarray[r-1,2]+1
+      #   tarray[r,"end"]<-l+tarray[r,1]-1
+      # }
+       if (r<=length(wc4[,c])&r>=2)
+      {tarray[r,"start"]<-tarray[r-1,2]+1
+      tarray[r,"end"]<-l+tarray[r,1]-1
+      tarray[r,"length"]<-tarray[r,2]-tarray[r,1]+1
+      }
+
+  }
+t1<-c(0,0,0)
+tarray<-rbind(t1,tarray)
+  return(tarray)
+  }
+dta_t<-cbind(dta_t,txtbonds())
+
+# now for lx percentage
+tokenarray<-get_tarray()
+token_na<-tokenarray[!is.na(tokenarray)]
+q<-unique(mlx$lxtok)
+lxpmatches<-array()
+for(r in 1:length(dta_t$X_id)){
+trange<-as.vector(token_na[dta_t$start[r]:dta_t$end[r]])
+mt<-match(trange,q)
+#tarray[mt]
+mt1<-!is.na(mt)
+mt2<-sum(mt1)
+mt3<-mt2/length(trange)*100
+lxpmatches[r]<-mt3
+#plot(mt1,type = "h")
+#x<-tapply(q,mt)
+#match
+#matchlx<-mt[!is.na(q[mt])]
+}
+dta_t$lxp<-lxpmatches
+dta_t$lxp[1]<-0
+dta_t$contentp[101]
+
+
+temp.fun1<-function(){
+head(tarray)
+nt<-tarray[!is.na((tarray))]
+wc6[[1]][6,6]
+library(purrr)
+tlist<-transpose(wc6)
+tmatrix<-matrix(stri_split_boundaries(dta_t$contentp[2:131]))
+t3<-matrix(stri_split_boundaries(t2,simplify = T),ncol=344)
+wc6[[1]][pos]
+wc6[[1]][(5)*344+6]
+wolfmatrix[5*130+4]
+nt[40:70]
+#nt<-subset(tarray,!is.na(tarray))
+x<-split(nt,1:100)
+sent<-get_sentiment_dictionary("nrc",language = "german")    
+unique(sent$sentiment)
+}
