@@ -334,8 +334,8 @@ typearray_f<-typearray_f/y
 chararray_f<-chararray_f/x
 ##########################
 #probability matrix of word position
+set<-wc3  
 get_p<-function(set){
-#set<-wc3  
 parray<-set
 # c<-3
 # r<-4
@@ -366,20 +366,28 @@ x<-as.double(length(m)) #match count
 mode(parray)<-"double"
 
 p5<-matrix(parray,nrow = 130)
+lc<-sum(!is.na(wc4))
+r<-2
+c<-2
+#################
+
 for (c in 1:344){
   for (r in 1:130){
     #m<-grep(130,p5[r,])
     #   for (c in 1: fin)
     nna<-!is.na(p5[r,]) 
     l<-sum(nna) # textlength
-    ml<-grep(wc4[r,c],wc4[r,],invert = T) #matches x over textlength #for idunno reason NAs are not matched/counted which is great
+    #ml<-grep(wc4[r,c],wc4[r,c:l],invert = T) #matches x over textlength #for idunno reason NAs are not matched/counted which is great
+    ml<-match(wc4[r,c],wc4[r,1:l]) #matches x over textlength #for idunno reason NAs are not matched/counted which is great
     lml<-length(ml)
+    lml<-sum(!is.na(ml))
     px<-lml/l #p(x) of word
     #p5[r,m]
     p<-parray[r,c]/130*px #-lml
-    mcpt<-grep(wc4[r,c],wc4) # match word over corpus
-    lmcpt<-length(mcpt)
-    lc<-sum(!is.na(wc4))
+    #mcpt<-grep(wc4[r,c],wc4) # match word over corpus
+    mcpt<-match(wc4[r,c],wc4) # match word over corpus
+    #lmcpt<-length(mcpt)
+    lmcpt<-sum(!is.na(mcpt))
     pcpt<-lmcpt/lc
     p<-p*pcpt
    # p<-parray[r,c]/130/l #same sure
@@ -418,7 +426,7 @@ for (k in 1:344){
 #cat(text)
 text<-stri_join(psent,sep = " ")
 return(text)
-
+cat(text)
 #cat(text,file="local/DYN/db/wolf_p_text_qalongS.txt",sep = " ")
 #check
 #m<-grep("stottersaft",dta_t$contentp)
@@ -603,6 +611,7 @@ dta_t$lxp<-lxpmatches
 #dta_t$contentp[101]
 ### new lmer
 #dta<-dta_t
+### new lmer with multilingual elements random effect
 lm<-lmer(dta_t$sentiment~dta_t$book+(dta_t$book|dta_t$chapter)+(dta_t$lxp|dta_t$chapter)+(1+dta_t$lxp),dta_t)
 lms<-summary(lm)
 #lms
@@ -613,6 +622,20 @@ lms<-summary(lm)
 lmdif1<-lms$vcov[5,3]-lms$vcov[5,2]
 lmdif2<-lms$vcov[5,4]-lms$vcov[5,2]
 lmdif3<-lmdif1-lmdif2
+### type/token ratio per text & chapter
+ttr_b1<-data.frame()
+dta_t$ttr<-dta_t$types/dta_t$tokens
+plot(get_transformed_values(dta_t$ttr),type = "h",col=3)
+par(new=T)
+plot(get_transformed_values(dta_t$sentiment),type = "l",col=2,ann = F,xaxt="n",yaxt="n")
+lm<-lmer(dta_t$sentiment~dta_t$book+(dta_t$book|dta_t$chapter)+(dta_t$lxp|dta_t$chapter)+(1+dta_t$lxp)+(1+dta_t$ttr),dta_t)
+lms<-summary(lm)
+#lms
+#eval
+#lms$vcov[5,]
+
+# Die Abhängigkeit der sentiment values vom Vorhandensein multilingualer Elemente läszt sich kurz umreiszen: Wir stellen den gröszten Zusammenhang mit [coefficient] ``r round(lmmax,2)`` bei ``r cnsmax`` fest, die Differenz zu ``r cnsmin`` beträgt ``r round(lmdif1,2)``, zu ``r cnsmed`` ``r round(lmdif2,2)`` Punkte, der Abstand der Abhängigkeit hier also ``r round(lmdif3,2)`` Punkte.   
+
 
 
 temp.fun1<-function(){
@@ -631,4 +654,58 @@ nt[40:70]
 x<-split(nt,1:100)
 sent<-get_sentiment_dictionary("nrc",language = "german")    
 unique(sent$sentiment)
+}
+
+### try neue KI for text generation #######################################
+# i need p-corrective residuals for every word position
+# formula: position ~ position in text + (textlength) + (wordlength)
+# df
+newki<-function(){
+  nna<-!is.na(wc4)
+  wc7<-as.list(tokenarray)
+  k<-1
+  #fun<-function(){stri_count_boundaries(wc7[[]],"character")}
+  for (k in 1:length(wc7)){
+    wc7[[k]]["l"]<-stri_count_boundaries(wc7[[k]],"character")
+  }
+  #for (r in 1:length(wc7)){
+  for (k in 2:length(dta_t$X_id)){
+    rng<-dta_t$length[k]
+    rngs<-dta_t$start[k]
+    rnge<-dta_t$end[k]
+    p<-0
+    for (w in rngs:rnge){
+      wc7[[w]]["tl"]<-rng
+      #for (p in 1:rng){
+      p<-p+1
+      wc7[[w]]["p"]<-p
+    }
+  }
+  
+  #}
+  #}
+  for (k in 1:length(wc7)){
+    wc7[[k]]["ap"]<-k
+  }
+  #wc8<-transform_position(wc7)
+  #wc8<-data.frame(wc7)
+  wc8<-unlist(wc7)
+  wc9<-matrix(wc8,nrow = 5)
+  wc10<-cbind(wc9[1,],wc9[2,],wc9[3,],wc9[4,],wc9[5,])
+  #is.na(wc7[[]]["ap"])
+  wns<-c("word","length","tlength","pos","apos")
+  colnames(wc10)<-wns
+  wc10<-data.frame(wc10)
+  mode(wc10$pos)<-"double"
+  mode(wc10$length)<-"double"
+  mode(wc10$p)<-"double"
+  mode(wc10$apos)<-"double"
+  
+  sum(wc10$length)
+  
+  lm<-lmer(apos  ~ word +(pos|tlength)+(1+length),wc10)
+  lms2<-summary(lm)
+  length(wc10$pos)
+  lms2
+  length(lms2$residuals)
 }

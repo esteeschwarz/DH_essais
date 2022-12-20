@@ -347,18 +347,33 @@ plot(sent_global_f,type = "l",col=2,xaxt="n",yaxt="n",ann = F)
 summary:
 ```{r sum-lmer2, echo=FALSE, warning=FALSE}
 print(lms)
-lmmax1<-which.max(lms$vcov[2:4,5])
-lmmax<-round(lms$vcov[lmmax1,5],6)
-cns2<-colnames(lms$vcov)[lmmax1]
-cns3<-colnames(lms$vcov)[3]
-cns4<-colnames(lms$vcov)[4]
-lmdif1<-round(lms$vcov[5,3]-lms$vcov[5,2],6)*10^4
-lmdif2<-round(lms$vcov[5,4]-lms$vcov[5,2],6)*10^4
-lmdif3<-round(lmdif1-lmdif2,6)
-
+# lm eval for row(5)=lxp
+r<-5
+rng<-2:4
+get_lmer<-function(r,rng){
+c0<-rng[1]-rng[1]+1
+lmmax1<-which.max(lms$vcov[r,rng])
+#lms$vcov[r,rng]
+lmmax<-lms$vcov[r,lmmax1+c0]
+lmmin1<-which.min(lms$vcov[r,rng])
+lmmin<-lms$vcov[r,lmmin1+c0]
+cnsmax<-colnames(lms$vcov)[lmmax1+c0]
+cnsmin<-colnames(lms$vcov)[lmmin1+c0]
+cin<-match(rng,c(lmmax1+c0,lmmin1+c0))
+pmed<-rng[is.na(cin)]
+cnsmed<-colnames(lms$vcov)[pmed]
+#cns3<-colnames(lms$vcov)[3]
+#cns4<-colnames(lms$vcov)[4]
+lmdif1<-(lms$vcov[r,lmmax1+c0]-lms$vcov[r,lmmin1+c0])*10^4
+lmdif2<-(lms$vcov[r,lmmax1+c0]-lms$vcov[r,pmed])*10^4
+lmdif3<-lmdif1-lmdif2
+dfeval<-c(round(lmmax,6),cnsmax,cnsmin,round(lmdif1,2),cnsmed,round(lmdif2,2),round(lmdif3,2))
+}
 ```
 
-Die Abhängigkeit der sentiment values vom Vorhandensein multilingualer Elemente läszt sich kurz umreiszen: Wir stellen den gröszten Zusammenhang mit [coefficient] ``r lmmax`` bei ``r cns2`` fest, die Differenz zu ``r cns3`` beträgt ``r lmdif1``, zu ``r cns4`` ``r lmdif2`` Punkte, der Abstand der Abhängigkeit hier also ``r lmdif3`` Punkte.   
+Die Abhängigkeit der sentiment values vom Vorhandensein multilingualer Elemente läszt sich kurz umreiszen: Wir stellen den gröszten Zusammenhang mit [coefficient] ``r get_lmer(5,2:4)[1]`` bei ``r get_lmer(5,2:4)[2]`` fest, die Differenz zu ``r get_lmer(5,2:4)[3]`` beträgt ``r get_lmer(5,2:4)[4]``, zu ``r get_lmer(5,2:4)[5]`` ``r get_lmer(5,2:4)[6]`` Punkte, der Abstand der Abhängigkeit hier also ``r get_lmer(5,2:4)[7]`` Punkte.   
+
+Die Abhängigkeit der sentiment values von der type/token ratio der Texte ebenfalls kurz umrissen: Wir stellen den gröszten Zusammenhang mit [coefficient] ``r get_lmer(6,2:4)[1]`` bei ``r get_lmer(6,2:4)[2]`` fest, die Differenz zu ``r get_lmer(6,2:4)[3]`` beträgt ``r get_lmer(6,2:4)[4]``, zu ``r get_lmer(6,2:4)[5]`` ``r get_lmer(6,2:4)[6]`` Punkte, der Abstand der Abhängigkeit hier also ``r get_lmer(6,2:4)[7]`` Punkte.   
 
 ### in words
 summary:
