@@ -93,7 +93,7 @@ do_sentiment<-function(dta){
     # formel: test dependency sentiment of book
   ################################################
   # new with sorted df (after year of publication)
-  lm<-lmer(dta$sentiment~dta$book+(dta$book|dta$chapter)+(1+dta$lxp),dta)
+  lm<-lmer(dta$sentiment~dta$book+(dta$book|dta$chapter),dta)
  # lm<-lmer(dtalm$sentiment~dtalm$book+(dtalm$book|dtalm$chapter),dtalm)
   length(dta$book)
     le<-summary(lm)
@@ -200,7 +200,7 @@ ifelse(length(p2)!=0,mfw_out$max$words<-p2,mfw_out$max$words<-"no duplicate word
 # return(t4[m>1])
 return(mfw_out)
 }
-set<-dta
+#set<-dta_t
 get_types<-function(set,opt){
 #  set
   set$contentp<-gsub("[^A-Za-z0-9äöüß \n]","",set$content) #get clean text
@@ -213,12 +213,12 @@ get_types<-function(set,opt){
   set$contentp<-gsub("^( )","",set$contentp) #get clean text
   m<-matrix(stri_split_boundaries(set$contentp,simplify = T),nrow = 131)
   #wks.
-  set$tokens<-stri_count_boundaries(set$contentp,"word")
+  set$tokens<-stri_count_boundaries(set$contentp) # IMPORTANT: with type=word far too much!
   #tokens<-stri_split_boundaries(set$contentp,type="word")
   #tokens<-gsub(" ","",tokens)
    # ltokens<-lapply(tokens,length)
     #  set$ltoken<-ltokens
-     wolftypes<-stri_split_boundaries(set$contentp,type="word")
+     wolftypes<-stri_split_boundaries(set$contentp)
      types<-lapply(wolftypes,unique)
      ltypes<-lapply(types,length)
      set$types<-unlist(ltypes)
@@ -508,19 +508,23 @@ return(tarray)
 get_lxmatches<-function(){
  # mlx<-get_lxtable()
 #q
-  tarray<-get_tarray()
-#assign multilx attributes
+#tarray<-get_tarray()
+  tokenarray<-get_tarray()
+  token_na<-tokenarray[!is.na(tokenarray)]
+  
+  #assign multilx attributes
 #match postdeutsch in text
 q<-unique(mlx$lxtok)
 #mt<-match(wc6$text[68,],q)
 #mt<-match(q,wc6$text[68,])
-mt<-match(tarray,q)
-tarray[mt]
+#mt<-match(tarray,q) #first
+mt<-match(token_na,q) #second essai, match over real corpus without na and along text flow
+#tarray[mt]
 mt1<-!is.na(mt)
 #plot(mt1,type = "h")
 #x<-tapply(q,mt)
 #match
-matchlx<-mt[!is.na(q[mt])]
+#matchlx<-mt[!is.na(q[mt])]
 #q[matchlx]
 #wc6$text[68,matchlx]
 return(mt1)
@@ -566,7 +570,7 @@ t1<-c(0,0,0)
 tarray<-rbind(t1,tarray)
   return(tarray)
   }
-dta_t<-cbind(dta_t,txtbonds())
+dta_t<-cbind(dta_t,txtbonds()) #add start end texts columns to set
 
 # now for lx percentage
 tokenarray<-get_tarray()
@@ -586,9 +590,29 @@ lxpmatches[r]<-mt3
 #match
 #matchlx<-mt[!is.na(q[mt])]
 }
+lxpmatches[1]<-0
 dta_t$lxp<-lxpmatches
-dta_t$lxp[1]<-0
-dta_t$contentp[101]
+
+#dta_t$lxp[1]<-0
+# lxp_f<-get_transformed_values(dta_t$lxp)
+# lxpmatches
+# plot(lxpmatches,type = "h")
+# plot(lxp_f,type="h")
+# plot()
+# lxp_f
+#dta_t$contentp[101]
+### new lmer
+#dta<-dta_t
+lm<-lmer(dta_t$sentiment~dta_t$book+(dta_t$book|dta_t$chapter)+(dta_t$lxp|dta_t$chapter)+(1+dta_t$lxp),dta_t)
+lms<-summary(lm)
+#lms
+#lms$coefficients
+#lms$vcov[5,]
+#lms$vcov
+#which.max(lms$vcov[5,2:4])
+lmdif1<-lms$vcov[5,3]-lms$vcov[5,2]
+lmdif2<-lms$vcov[5,4]-lms$vcov[5,2]
+lmdif3<-lmdif1-lmdif2
 
 
 temp.fun1<-function(){
