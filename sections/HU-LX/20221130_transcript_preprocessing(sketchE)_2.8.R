@@ -37,7 +37,7 @@ list.files(dirtext)
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"13485"
 version<-"v2_8_sketchE_INLINE_C"
-#version<-"v2_8"
+#version<-"v2_8b"
 dirchat<-paste0("SES_CHAT_transcripts_",version)
 dirchat<-paste0("SES_transcripts_clean-without-codes_",version)
 dirchat<-paste0("SES_transcripts_",version)
@@ -65,7 +65,10 @@ dirtemp
 #external codes .csv table
 codes_cpt <- read_delim(codesource, 
                         delim = ";", escape_double = T)
-
+codes_nna<-!is.na(codes_cpt[,1])
+codes_nna<-array(codes_nna)
+codes_cpt_nna<-codes_cpt[codes_nna,]
+codes_cpt<-codes_cpt_nna
 # 2.
 #get source files in top directory
 filelist<-list.files(dirtext,pattern="(\\.txt)")
