@@ -37,7 +37,8 @@ list.files(dirtext)
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"13485"
 version<-"v2_8_sketchE_INLINE_C"
-#version<-"v2_8b"
+#version<-"v2_8"
+sketchversion<-"v2.8b"
 dirchat<-paste0("SES_CHAT_transcripts_",version)
 dirchat<-paste0("SES_transcripts_clean-without-codes_",version)
 dirchat<-paste0("SES_transcripts_",version)
@@ -89,6 +90,7 @@ trans_mod_array<-list()
 #maybe apply part of postprocessing routine first to tag discrete coding in header
 #precodesfun<-function(set,f){
 #f<-8
+k<-1
 linecor<-function(k,filelist){
   #     
   #   precodes<-subset(codes_cpt,codes_cpt$category==7)
@@ -131,7 +133,7 @@ linecor<-function(k,filelist){
   cc1<-cc$text
   #cc1<-readChar(cc,nchars=nchar(cc))
   #zzfil<-tempfile("kidschar")
-  cc1
+  #cc1
   #   zz<-file(zzfil,"rb")
   #readChar(zz,nc)
   #    cc1<-readChar(zz,nchar(tburec)+8)
@@ -144,12 +146,12 @@ linecor<-function(k,filelist){
   repl1<-"§%#nl#§%"
   cc2<-gsub(regx1,repl1,cc1)
   cc2
-  write_clip(cc2)
+  #write_clip(cc2)
   
   regx1<-"(§%#nl#§%)([A-Za-z#%\\.,;'-\\(\\)])" #newline starting with character or special character
   repl1<-" \\2"
   cc3<-gsub(regx1,repl1,cc2,perl = T)
-  write_clip(cc3)
+  #write_clip(cc3)
   
   
   #only for linenumbered transcripts
@@ -158,12 +160,12 @@ linecor<-function(k,filelist){
   regx1<-"(?<=(§%#nl#§%))([0-9]{0,3}). " 
   repl1<-""
   cc3<-gsub(regx1,repl1,cc3,perl = T)
-  write_clip(cc3)
+  #write_clip(cc3)
   #solve: " '
   regx1<-'"'
   repl<-"'"
   cc3<-gsub(regx1,repl1,cc3,perl = T)
-  write_clip(cc3)
+  #write_clip(cc3)
   
   regx1<-"(?<=(\\*[A-Z]{3}))(\\*)" #doubled false * after speaker spec
   repl1<-""
@@ -219,7 +221,7 @@ for (k in 1:length(filelist1)){
   linecor(k,filelist1)
   trans_mod_array[k]<-linecor(k,filelist1)
 }
-#k<-8
+k<-1
 filelist
 cctemp<-linecor(k,filelist)
 cat(cctemp)
@@ -360,7 +362,7 @@ codes_cpt2["subst"]<-feat_array[,1]
 #codesarray<-getcodes(codes_cpt2,regexcor)
 codesarray<-getcodescpt(codes_cpt2,regexcor)
 #157 cpt
-#codesarray[50,1]
+codesarray[50,1]
 #
 ar<-unique(codesarray$V2)
 codes_cpt2["ar"]<-match(codes_cpt2$subst,ar)
@@ -378,7 +380,9 @@ rpall<-as.data.frame(codes_cpt4$regex[ii])
 rpall["subst"]<-codes_cpt4$subst[ii]
 rpall["category"]<-codes_cpt4$category[ii]
 rpall["repl"]<-codes_cpt4$repl[ii]
-rpall["shortcode"]<-paste0(codes_cpt4$pre1[ii],codes_cpt4$pre2[ii],codes_cpt4$pre3[ii])
+#rpall["shortcode"]<-paste0(codes_cpt4$pre1[ii],codes_cpt4$pre2[ii],codes_cpt4$pre3[ii])
+rpall["shortcode"]<-paste0("#",codes_cpt4$pre2[ii],codes_cpt4$pre3[ii],"#")
+
 
 ###
 
@@ -389,7 +393,8 @@ rpall["shortcode"]<-paste0(codes_cpt4$pre1[ii],codes_cpt4$pre2[ii],codes_cpt4$pr
 #from here substitute #coding#
 ### section D
 ### THIS complete replacement loop
-#f<-5
+filelist2
+f<-1
 for (f in 1:length(filelist2)){
   tbu<-readLines(paste(trans_mod_tempdir,filelist2[f],sep = "/"))
   p1<-grep(".ctivities",tbu)
@@ -401,7 +406,7 @@ for (f in 1:length(filelist2)){
   p3<-grep("@.roofer:",tbu)
   ifelse(!is.na(tbu[p3[1]]),tbu[p3[1]]<-"@Annotation checked:",
          tbu<-insert(tbu,p2[1]+1,"@Annotation checked:"))
-  tbu[p1[1]+2]
+  tbu[p1[1]+1]
   #delete evtl. second obsolete @Begin tag
   p3<-grep("@.egin",tbu)
   p3
@@ -420,10 +425,11 @@ for (f in 1:length(filelist2)){
   is<-order(rp5)
   rp5<-rp5[is]
   rp5
-  ### > add codes decription in header:
-  #tbu<-append(tbu,rp5,after = p2[1]+1) #removed for codeless transcripts
-  tbu[p2[1]+1]<-"@TIER descriptions: removed for unannotated transcript"
-    #####################################
+  ######### comment in for complete transcript with tier codes #########
+  ### > add codes decription in header: ################################
+#  tbu<-append(tbu,rp5,after = p2[1]+1) #removed for codeless transcripts
+  #tbu[p2[1]+1]<-"@TIER descriptions: removed for unannotated transcript"
+  ######################################################################
   tbu
   rptiers<-subset(rpall,rpall$category==1|rpall$category==2|rpall$category==3)
   #####################################
@@ -441,12 +447,12 @@ for (f in 1:length(filelist2)){
     tier<-rpall$category[k]
     #########################################################################################################
     ### main: 13485 outcommented to remove codes. comment in / decomment commands to remove / restore codes #
-    #tbu<-gsub(rpall[k,1],rpall[k,"repl"],tbu) ### >>>>>>>>> decomment 1. <<<<<<<<<<<<<<< ####################
-    tbu<-gsub(rpall[k,1],rpall[k,"shortcode"],tbu) ### >>>>>>>>> decomment 2. <<<<<<<<<<<<<<< ################
+    #tbu<-gsub(rpall[k,1],rpall[k,"repl"],tbu) ### >> decomment 1. original CHAT replace ####################
+    tbu<-gsub(rpall[k,1],rpall[k,"shortcode"],tbu) ### >> decomment 2. just #0AR# shortcode #################
     ################################################## >>>>>>>>> for ouput just shortcodes INLINE codes #####
     ### try remove all codes instead of replacing formerly: #################################################
-   # tbu<-gsub(rpall[k,1],"<#coding removed#>",tbu) ### >>> comment in <<<<< for original replacement #######
-  #  ifelse(m!=0&tier!=4,tbu<-insert(tbu,m+1,rpall$subst[k]),flag<-0) #removed 13485, >>>>> decomment 3. <<<<<
+   # tbu<-gsub(rpall[k,1],"<#coding removed#>",tbu) ### >> comment in for trans without coding ##############
+  #  ifelse(m!=0&tier!=4,tbu<-insert(tbu,m+1,rpall$subst[k]),flag<-0) # >> decomment 3. add annotation tier #
     ### 13485################################################################################################
     ###extra, essai: note number of instances/code in header
     mh<-grep(rpall$subst[k],tbuheader) #grep headercodedescription line
@@ -464,7 +470,7 @@ for (f in 1:length(filelist2)){
   #TODO: create table of code instances in transcript:
   
   
-  #tbu[105:130]
+  tbu[]
   #####################################
   kids<-strsplit(filelist2,"\\.")
   kids[[1]][1]
@@ -885,11 +891,11 @@ tbu_e<-tbu
 sketchcoding<-function(){
   ##############################
   ### >>> run this on preprocessed last version transcript to modify for sketch #####
-    chatlastoutdir<-paste(dirtext,dirchat,sep="/")
+  chatlastoutdir<-paste(dirtext,dirchat,sep="/")
   chatlastoutdir
   filelist3<-list.files(chatlastoutdir)
-  
-  #f<-1
+  filelist3
+  f<-1
 
   for (f in 1:length(filelist3)){
     tbu<-readLines(paste(chatlastoutdir,filelist3[f],sep = "/"))
@@ -908,9 +914,12 @@ sketchcoding<-function(){
   mkid<-grep(regx1,tbub,invert = T) # *CHILD: lines    
   regx2<-"^(.*)" # sentences
   sent<-grep(regx2,tbub)
-  tbub[sent[1]]
-  tbuwrap<-gsub(regx2,"<s>\\1</s>",tbub[sent]) # wrap all sentences
-  tbuwrap<-gsub(regx2,"<s>\\1</s>",tbub[mkid]) # wrap child sentences
+  regx3<-"\\*([A-Z]{3}:)"
+  repl3<-"#\\1"
+  tbub<-gsub(regx3,repl3,tbub[sent])
+  tbub[sent]
+  tbuwrap<-gsub(regx2,"<s>\\1</s>",tbub[sent]) # wrap with all sentences
+    #tbuwrap<-gsub(regx2,"<s>\\1</s>",tbub[mkid]) # wrap only with child sentences
   
     tbuheader
     k<-79
@@ -941,17 +950,17 @@ sketchcoding<-function(){
   # ################
   ns<-sans_ext(filelist3[f])
   ext<-file_ext(filelist3[f])
-  chatfilename<-paste0(ns,"_sansINT_ICodes.",ext)
-  version<-"2.8a"
+  chatfilename<-paste0(ns,"_iCodes.",ext)
+  #version<-"2.8a"
   dir_2ndmod<-paste0("sketchmode")
-  chat2ndoutdir<-paste(dirtext,dir_2ndmod,sep = "/")
+  chat2ndoutdir<-paste(dirtext,dir_2ndmod,sketchversion,sep = "/")
   chat2ndoutdir
   dir.create(chat2ndoutdir)
-  dir.create(paste(chat2ndoutdir,version,sep = "/"))
+  #dir.create(paste(chat2ndoutdir,sketchversion,sep = "/"))
   #tbu_cpt<-c(tbuheader,tbu)
   #tbu<-tbu_cpt
   tbu_out<-tbuwrap
-  writeLines(tbu_out,paste(chat2ndoutdir,version,chatfilename,sep = "/"))
+  writeLines(tbu_out,paste(chat2ndoutdir,chatfilename,sep = "/"))
   }
   ### END replacement loop #########
   
