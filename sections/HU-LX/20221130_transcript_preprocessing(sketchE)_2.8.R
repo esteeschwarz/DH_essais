@@ -200,7 +200,7 @@ linecor<-function(k,filelist){
   kids<-strsplit(filelist,"\\.")
   #kids[[2]][1]
   corfilename<-paste0(kids[[k]][1],"_cor03.txt")
-  writeLines(cc5,paste(dirout,corfilename,sep = "/"))
+ # writeLines(cc5,paste(dirout,corfilename,sep = "/"))
   #writeLines(cc5,paste(trans_mod_temp,corfilename,sep = "/"))
   writeLines(cc5,paste(trans_mod_tempdir,corfilename,sep = "/"))
   trans_mod_array[k]<-cc5
@@ -884,10 +884,13 @@ tbu_e<-tbu
 #function not called!#########
 sketchcoding<-function(){
   ##############################
-  chatlastoutdir<-paste(dirtext,dirchat,sep="/")
+  ### >>> run this on preprocessed last version transcript to modify for sketch #####
+    chatlastoutdir<-paste(dirtext,dirchat,sep="/")
+  chatlastoutdir
   filelist3<-list.files(chatlastoutdir)
   
-  f<-1
+  #f<-1
+
   for (f in 1:length(filelist3)){
     tbu<-readLines(paste(chatlastoutdir,filelist3[f],sep = "/"))
     p3<-grep("@.egin",tbu)
@@ -938,7 +941,9 @@ sketchcoding<-function(){
   # ################
   ns<-sans_ext(filelist3[f])
   ext<-file_ext(filelist3[f])
-  chatfilename<-paste0(ns,"_sansINT.",ext)
+  chatfilename<-paste0(ns,"_sansINT_ICodes.",ext)
+  version<-"2.8a"
+  dir_2ndmod<-paste0("sketchmode")
   chat2ndoutdir<-paste(dirtext,dir_2ndmod,sep = "/")
   chat2ndoutdir
   dir.create(chat2ndoutdir)
