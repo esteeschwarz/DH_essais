@@ -426,7 +426,7 @@ for (k in 1:344){
 #cat(text)
 text<-stri_join(psent,sep = " ")
 return(text)
-cat(text)
+#cat(text)
 #cat(text,file="local/DYN/db/wolf_p_text_qalongS.txt",sep = " ")
 #check
 #m<-grep("stottersaft",dta_t$contentp)
