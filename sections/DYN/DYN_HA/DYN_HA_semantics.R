@@ -709,3 +709,23 @@ newki<-function(){
   lms2
   length(lms2$residuals)
 }
+
+library(lsa)
+td=tempfile()
+dir.create(td)
+for (k in 1:length(dta_t$contentp)){
+write(dta_t$contentp[k], file = paste(td,dta_t$text[k],sep = "/"))
+
+}
+lsaessai<-function(){
+d<-textmatrix(td,stopwords = stopwords_de)
+summary(d)
+d2<-lw_logtf(d)*gw_idf(d)
+d2<-lsa(d, dims = dimcalc_share())
+d2$sk
+list.files(td)
+library(NLP)
+names(Universal_POS_tags_map)
+dim(Universal_POS_tags)
+Universal_POS_tags
+}
