@@ -118,7 +118,7 @@ Die Arbeit wird explorativ vorgehen, dh. unser Erkenntnisinteresse ist durchaus 
 Bestimmung charakteristischer Merkmale im lyrischen Werk Uljana Wolfs mithilfe statistischer Methoden. 
 
 # zur autorin
-Uljana Wolf, der Öffentlichkeit seit 2005 durch ihre Gedichte bekannt, wurde 2006 für ihr Debüt *kochanie ich habe brot gekauft* (kookbooks 2005) mit dem Peter-Huchel-Preis geehrt und veröffentlichte seitdem zwei weitere Gedichtbände, ebenfalls bei *kookbooks*. Dort ist sie in ein enges Netzwerk junger deutschsprachiger Autor:innen eingebunden, die sich auch (hier zum Aspekt *postdeutsch*) mehrheitlich durch ihre Affinität zu mehr- oder polylingualer Dichtung auszeichnen. Es gibt bei kook kaum Dichter:innen, deren Werk nicht irgendwie Mehrsprachigkeit künstlerisch umsetzt, damit arbeitet. 
+Uljana Wolf, der Öffentlichkeit seit 2005 durch ihre Gedichte bekannt, wurde 2006 für ihr Debüt *kochanie ich habe brot gekauft* (kookbooks 2005) mit dem Peter-Huchel-Preis geehrt und veröffentlichte seitdem neben Übersetzungen und essayistischen Schriften zwei weitere Gedichtbände, ebenfalls bei *kookbooks*. Dort ist sie in ein enges Netzwerk junger deutschsprachiger Autor:innen eingebunden, die sich auch (hier zum Aspekt *postdeutsch*) mehrheitlich durch ihre Affinität zu mehr- oder polylingualer Dichtung auszeichnen. Es gibt bei kook kaum Dichter:innen, deren Werk nicht irgendwie Mehrsprachigkeit künstlerisch umsetzt, damit arbeitet. 
 
 # work
 ## corpus aufbereitung
@@ -161,7 +161,7 @@ lty<-length(unique(token_na))
 #700/20000
 ```
 
-Wir werden versuchen, in der Arbeit einige Kennzahlen zu bestimmen, die charakteristisch für das Werk sein sollen. Basis sind hier Statistiken über Wortlängen und -frequenzen, Distribution multilingualer Elemente über das Korpus und Annäherungswerte zur Bestimmung des *sentiment*. Die Zahlen werden absolut und/oder relativ angegeben; absolut meint hier die konkrete Verortung an einer Position im Korpus, relativ meint jeweils die indexikalisierte, auf einer Gesamtheit v.H. angenommene Position oder Relation. Diese Relativierung ermöglicht eine gleichförmige Darstellung in glatten Frequenzkurven und veranschaulicht die Verhältnisse schematisch. (zur Berechnung der Fourier-transformierten (FFT) Frequenzen cf. [[@jockers_revealing_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/))
+Wir werden versuchen, in der Arbeit einige Kennzahlen zu bestimmen, die charakteristisch für das Werk sein sollen. Basis sind hier Statistiken über Wortlängen und -frequenzen, Distribution multilingualer Elemente über das Korpus und Annäherungswerte zur Bestimmung des *sentiment*. Die Zahlen werden absolut und/oder relativ angegeben; absolut meint hier die konkrete Beziehung zu einer Position im Korpus, relativ meint jeweils die indexikalisierte, auf einer Gesamtheit v.H. angenommene Position oder Relation. Diese Relativierung ermöglicht eine gleichförmige Visualisierung der Daten in glatten Frequenzkurven, um die Verhältnisse schematisch abzubilden. (Zur Berechnung der Fourier-transformierten (FFT) Frequenzen cf. [[@jockers_revealing_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/))
 
 ### ground truth
 Die `r lc` Texte (Lyrik und lyrische oder experimentelle Prosa) haben einen Umfang von `r lto` Wörtern (tokens), die sich in `r lty` distinct types einteilen lassen, die type/token ratio, ein Indikator für *lexical diversity*, beträgt demnach `r lty/lto`. Die durchschnittliche Textlänge (median) beträgt `r md_t` Wörter. Wir haben noch keine Vergleichswerte, die sinnvoll wären...
@@ -218,7 +218,7 @@ scatter.smooth(1:length(chararray_f),chararray_f,.1,.1,type="h",family = "gaussi
 ```
 
 ## sentiment analysis
-Für jeden einzelnen Text liesz sich ein Wert bestimmen, der Aussagen darüber zuläszt, in welchem Spektrum (positive/negative sentiment) sich dieser verorten läszt.
+Für jeden einzelnen Text kann ein Wert bestimmt werden, der Aussagen darüber zuliesze, wo im Spektrum positive/negative sentiment sich dieser verorten läszt.
 Die absoluten *sentiment values* werden weiterhin durch Fourier-Transformation auf die Gesamtheit des Korpus projiziert, um eine glatte, von der absoluten Position unabhängige Darstellung zu ermöglichen. (cf. Figure \@ref(fig:sent-freq)).
 Welche Aussagen sich aus diesen Erkenntnissen ableiten lassen sollen, ist mir noch nicht ganz klar. I will elaborate on that.
 
@@ -259,7 +259,7 @@ mfw_dta[[k]]<-mfw(dta,k)
 #  sent3<-get_transformed_values(sent2)
 ```
 
-Wir sehen in der frequenzanalysierten Graphik, dasz sich die relative Verteilung der sentiment values über die Bücher in der Tendenz unterscheidet. Während in *kochanie* und *lengevitch* schon zu Beginn Höhen verzeichnet sind, die Werte dann zur Buchmitte hin sinken, zeigt sich bei *FF* ein erster Wechsel von negativ zu positiv schon im ersten Drittel. Die Stimmung aller drei Bücher ist in der Mitte gleich negativ, in *kochanie* aber schon wieder aufsteigend, *falsche freunde* weist die gröszten Schwankungen auf. 
+Wir sehen in der frequenzanalysierten Graphik, dasz sich die relative Verteilung der sentiment values über die Bücher in der Tendenz unterscheidet. Während in *kochanie* und *lengevitch* schon zu Beginn Höhen verzeichnet sind, die Werte dann zur Buchmitte hin sinken, zeigt sich bei *FF* ein erster Wechsel von negativ zu positiv schon im ersten Drittel. Die Stimmung aller drei Bücher ist in der Mitte gleich negativ (bewertet), in *kochanie* aber schon wieder aufsteigend, *falsche freunde* weist die gröszten Schwankungen auf. 
 
 ```{r sent-comp,fig.cap="relative sentiment values singled",echo=FALSE}
 par(new=F)
@@ -271,9 +271,10 @@ plot(le$sentiment$a3i,type = "h",col=7,xaxt="n",yaxt="n",ann = F) #blue
 ```
 
 ```{r sent-abs-cpt, fig.cap="absolute *sentiment values* over corpus",echo=FALSE}
-  p<-ggplot(dta, aes(1:length(sentiment), sentiment, colour = book)) + 
+df<-subset(dta_t,dta_t$page!="null")
+  p<-ggplot(df, aes(1:length(sentiment), sentiment, colour = book)) + 
     geom_line()
-  p +  labs(x="corpus", y="sentiment absolute", title="sentiment over texts", fill="book")
+  p +  labs(x="corpus", y="sentiment absolute", title="sentiment over texts")
 ```
 
 In *kochanie* weisen die Werte die niedrigste, in *falsche freunde* die höchste Varianz auf. 
@@ -282,14 +283,14 @@ In *kochanie* weisen die Werte die niedrigste, in *falsche freunde* die höchste
   plot(le$sentiment$cpt_s1,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus",main="sentiment over texts")
 ```
 
-```{r sent-fr-cpt, fig.cap="frequency analysis cf. [[@jockers_revealing_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/)",echo=FALSE}
+```{r sent-fr-cpt, fig.cap="frequency analysis" ,echo=FALSE}
   plot(le$sentiment$cpt_s3,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus agglomerated",main="sentiment analysis over texts")
 ```
 
 ### dependencies
 Mit der Regressionsanalyse des *R lme4 package* [@bates_fitting_2015] lassen sich hier Abhängigkeiten (Korrelationen) der *sentiment values* von verschiedenen Faktoren (chapter, book, multilingual elements) aufzeigen.
 
-#### lmer book/chapter dependency
+#### book/chapter dependency
 summary:
 ```{r sum-lmer, echo=FALSE}
 print(le$lm$sum)
@@ -307,13 +308,13 @@ depminr<-round(min(le$lm$scaled))
 #length(le$lm$sum$residuals)
 ```
 
-Es ist zu zeigen, dasz die Abhängigkeit durchaus variiert. Die relativen Korrelationswerte schwanken zwischen `r depminr` und `r depmaxr` (bei f(x)=x/100), zwischen 40-80% läszt sich gröszere Abhängigkeit beobachten, dh. hier sind die sentiment values am stärksten vom Kapitel beeinfluszt, beispielhaft beim Text[`r depmax`]  *`r dta_t$phead[depmax]`*, am wenigsten beim Text[`r depmin`]  *`r dta_t$phead[depmin]`*. 
+Es ist zu zeigen, dasz die Abhängigkeit durchaus variiert. Die relativen Korrelationswerte schwanken zwischen `r depminr` und `r depmaxr` (bei f(x)=x/100), zwischen 40-80% läszt sich gröszere Abhängigkeit beobachten, dh. hier sind die sentiment values am stärksten vom Kapitel beeinfluszt, beispielhaft beim Text[`r depmax`]  *`r dta_t$phead[depmax]`*, am wenigsten beim Text[`r depmin`]  *`r dta_t$phead[depmin]`*. (In der Regressionsanalyse wurden Veränderungen der Werte (Variablen) `sentiment` der Texte auf einen Zusammenhang mit Buch und Kapitel der jeweiligen Messung geprüft, dh. bestimmt, ob Buch und/oder Kapitel einen Einflusz auf den Wert haben.)    
 
 ```{r sent-lm-fr, fig.cap="linear regression of sentiment dependencies, relative",echo=FALSE}
   plot(le$lm$scaled,type = "h",col=2,ylab = "sentiment frequencies auf 100%",xlab="corpus",main="sentiment analysis over texts")
 ```
 
-#### lmer multiLX dependency
+#### multiLX dependency
 Weiterhin können wir versuchen, eine Abhängigkeit der sentiment values von der Verwendung multilingualer Elemente aufzuzeigen. Die verdichteten schwarzen Balken (cf. Figure \@ref(fig:lx-matches)) korrelieren hier mit der roten Linie der Stimmungswerte, was eine Abhängigkeit vermuten läszt.
 
 ```{r lx-sent-projection, echo=F,fig.cap="absolute positioned multilingual elements over sentiment",warning=FALSE}
@@ -390,7 +391,7 @@ pre {max-height: 400px;}
 Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[exc]]$max$chapter``, lassen sich in [text:] ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind [duplicates:] ``r mfw_dta[[exc]]$max$words``, die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` mit ``r mfw_dta[[exc]]$min$words``.
 
 ## corpus play
-Das Folgende zeigt einen Text, dem ein Algoritmus zugrundeliegt, der roughly die Wahrscheinlichkeit des Vorhandenseins eines Wortes an der jeweiligen Position im Text, über den gesamten Korpus betrachtet, bestimmt. Es tritt also jedes Wort dieses künstlichen Textes am wahrscheinlichsten an dieser Stelle auf, szsg. ein sehr simples *transformer* experiment, ohne jegliche Berücksichtigung semantisch-syntaktischer Kategorien.
+Das Folgende zeigt einen Text, dem ein Algoritmus zugrundeliegt, der roughly die Wahrscheinlichkeit des Vorhandenseins eines Wortes an der jeweiligen Position im Text, über den gesamten Korpus betrachtet, bestimmt. Es tritt also jedes Wort dieses künstlichen Textes am wahrscheinlichsten an dieser Stelle auf, szsg. ein sehr simples *transformer* experiment, ohne jegliche Berücksichtigung semantisch-syntaktischer Kategorien und (noch) weit von einem lernfähigen Algorithmus entfernt
 ```{r p-text, echo=F, warning=FALSE,caption="text generated by words with highest probability on fixed positions along text length"}
 ptext<-c("sample","comment in","for","final","output")
 ptext<-get_p(wc3)

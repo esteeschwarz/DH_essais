@@ -625,9 +625,9 @@ lmdif3<-lmdif1-lmdif2
 ### type/token ratio per text & chapter
 ttr_b1<-data.frame()
 dta_t$ttr<-dta_t$types/dta_t$tokens
-plot(get_transformed_values(dta_t$ttr),type = "h",col=3)
-par(new=T)
-plot(get_transformed_values(dta_t$sentiment),type = "l",col=2,ann = F,xaxt="n",yaxt="n")
+# plot(get_transformed_values(dta_t$ttr),type = "h",col=3)
+# par(new=T)
+# plot(get_transformed_values(dta_t$sentiment),type = "l",col=2,ann = F,xaxt="n",yaxt="n")
 lm<-lmer(dta_t$sentiment~dta_t$book+(dta_t$book|dta_t$chapter)+(dta_t$lxp|dta_t$chapter)+(1+dta_t$lxp)+(1+dta_t$ttr),dta_t)
 lms<-summary(lm)
 #lms
@@ -709,7 +709,8 @@ newki<-function(){
   lms2
   length(lms2$residuals)
 }
-
+lsaessai<-function(){
+  
 library(lsa)
 td=tempfile()
 dir.create(td)
@@ -717,7 +718,6 @@ for (k in 1:length(dta_t$contentp)){
 write(dta_t$contentp[k], file = paste(td,dta_t$text[k],sep = "/"))
 
 }
-lsaessai<-function(){
 d<-textmatrix(td,stopwords = stopwords_de)
 summary(d)
 d2<-lw_logtf(d)*gw_idf(d)
@@ -728,7 +728,7 @@ library(NLP)
 names(Universal_POS_tags_map)
 dim(Universal_POS_tags)
 Universal_POS_tags
-}
+
 td=tempfile()
 getwd()
 corpus<-"local/DYN/db/corpus"
@@ -738,27 +738,43 @@ for (k in 1:length(dta_t$contentp)){
   write(dta_t$contentp[k], file = paste(corpus,filename,sep = "/"))
   
 }
+}
+library(tm)
 mining<-function(){
-tf<-termFreq(dta_t$contentp)
-findMostFreqTerms(tf)
 library(quanteda)
+library(rematch2)
 c<-corpus(dta_t$contentp)
 x<-kwic(c,"glaub.*",window=5,valuetype="regex")
 x$from
 x$pre
-tf1<-tokenize_word(dta_t$contentp,split_hyphens = F)
+tf1<-stri_extract_all_words(dta_t$contentp)
 stoplist_clean<-gsub("[^A-Za-z0-9äöü]","",stoplist_t)
-stoplist_clean
-
+stoplist_clean<-unique(stoplist_clean)
+stoplist_clean<-stoplist_clean[2:length(stoplist_clean)]
 tf2<-unlist(tf1)
-for (k in 1:length(stoplist_clean)){
-m[k]<-invert_match(match(stoplist_clean[k],tf2))
-}
-m2<-invert_match(m)
-m
-tf2<-termFreq(tf1[])
-tf3<-tf2[!m]
-length(tf2)
-length(tf3)
-m
+df<-tf2[!tf2 %in% stoplist_clean]
+tf<-termFreq(df)
+findMostFreqTerms(tf)
+library(udpipe)
+#model at:
+modelurl<-"gith/DH_essais/files/german-hdt-ud-2.5-191206.udpipe"
+modelurl<-"german-gsd-ud-2.5-191206.udpipe"
+model<-udpipe_load_model(modelurl)
+dmodel<-udpipe_download_model(language = "german-gsd")
+udpipe
+x<-udpipe_annotate(model,tf2)
+x$conllu
+df<-as.data.frame(x)
+write_csv(df,"local/DYN/db/wolfPOS.csv")
+
+library(httr)
+#conllu
+cab<-"http://www.deutschestextarchiv.de/public/cab/query?fmt=jsonu&q="
+req<-paste0(cab,q)
+
+q<-"schneit"
+x<-GET(req)
+y<-content(x,"text")
+df<-as.data.frame(y)
+jsonlite::fromJSON(y)
 }
