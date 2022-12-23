@@ -729,3 +729,36 @@ names(Universal_POS_tags_map)
 dim(Universal_POS_tags)
 Universal_POS_tags
 }
+td=tempfile()
+getwd()
+corpus<-"local/DYN/db/corpus"
+dir.create(corpus)
+for (k in 1:length(dta_t$contentp)){
+  filename<-paste0("wolf_txt-",k,".txt")
+  write(dta_t$contentp[k], file = paste(corpus,filename,sep = "/"))
+  
+}
+mining<-function(){
+tf<-termFreq(dta_t$contentp)
+findMostFreqTerms(tf)
+library(quanteda)
+c<-corpus(dta_t$contentp)
+x<-kwic(c,"glaub.*",window=5,valuetype="regex")
+x$from
+x$pre
+tf1<-tokenize_word(dta_t$contentp,split_hyphens = F)
+stoplist_clean<-gsub("[^A-Za-z0-9äöü]","",stoplist_t)
+stoplist_clean
+
+tf2<-unlist(tf1)
+for (k in 1:length(stoplist_clean)){
+m[k]<-invert_match(match(stoplist_clean[k],tf2))
+}
+m2<-invert_match(m)
+m
+tf2<-termFreq(tf1[])
+tf3<-tf2[!m]
+length(tf2)
+length(tf3)
+m
+}
