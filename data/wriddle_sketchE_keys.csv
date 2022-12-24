@@ -1,6 +1,4 @@
-﻿"corpus","user/st.schwarz/keyword_essais"
-"subcorpus","-"
-Item,Frequency (focus),Frequency (reference),Relative frequency (focus),Relative frequency (reference),Score
+﻿item,frequency-focus,frequency-reference,relative-frequency-focus,relative-frequency-reference,Score
 "gesuchte",5,14877,2648.30518,0.70844,1550.714
 "öko-kandidat",1,0,529.66101,0.00000,530.661
 "alterssünden",1,26,529.66101,0.00124,530.005
