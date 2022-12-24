@@ -45,3 +45,16 @@ keydf<-read.csv("https://github.com/esteeschwarz/DH_essais/raw/main/data/wriddle
 keys2<-stri_join(keydf$item,collapse = ",")
 write_clip(keys2) # just for paste to blog entry, could be simpler...
 keys2
+#3rd list with rank after frequency:
+key3<-order(keydf$relative.frequency.focus,decreasing = T)
+order(keydf$relative.frequency.focus,decreasing = T)
+order()
+key3<-keydf[with(keydf,order(keydf$Score,decreasing=T)), ]
+#for paritätische gründe select 66 highest score entries
+key4<-key3$item[1:length(keywords)]
+write_clip(stri_join(key4,collapse = ","))
+###
+intersect <- function(x, y) y[match(x, y, nomatch = 0)]
+intersect # the R function in base is slightly more careful
+key5<-intersect(keywords, key4) #only 4
+
