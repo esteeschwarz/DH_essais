@@ -101,8 +101,8 @@ library(rmarkdown)
 #dtatxt<-(fromJSON(src))
 #cat("load TEI from:",src)
 #    src<-"DYN_HA_semantics.R"
-#source("/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
-    src<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/DYN/DYN_HA/DYN_HA_semantics_o.R"
+source("DYN_HA_semantics.R")
+    #src<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/DYN/DYN_HA/DYN_HA_semantics_o.R"
    source(src)
   lc<-length(dta$content)-1
 
