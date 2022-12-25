@@ -65,7 +65,7 @@ writeLines(bib,y)
 bibliography: "`r y`"
 ---
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
-library(mongolite)
+#library(mongolite)
 library(jsonlite)
 library(syuzhet)
 library(readr)
