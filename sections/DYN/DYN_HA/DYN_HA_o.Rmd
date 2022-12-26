@@ -28,9 +28,12 @@ bibliography: DYN_HA.bib
 # A. head
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$get("out.format"="html")
 #mini critical: dont find relative files in path
 #knitr::opts_knit$set(root.dir="~/boxHKW/21S/DH")
 #knitr::opts_knit$set(base.dir = "~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA")
+#knitr::opts_knit$set(base.dir = "~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA")
+
 #EWA, lapsi
 #knitr::opts_knit$set(root.dir="~/boxHKW/UNI/21S/DH")
 #knitr::opts_knit$set(base.dir = "~/boxHKW/UNI/21S/DH/gith/DH_essais/sections/DYN/DYN_HA")
@@ -93,7 +96,7 @@ library(rmarkdown)
     dta<-read.csv(src)
     lxtable<-read_csv2(src_lx)
     mlx<-subset(lxtable,lxtable$multi=="multiLX")
-
+#getwd()
     dta_sf<-dta
 #k<-2
 #dtatxt<-as.data.frame(fromJSON(src))
