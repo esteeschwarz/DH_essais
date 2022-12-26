@@ -90,7 +90,7 @@ library(rmarkdown)
 #local data:
     src<-   "../db/wolfdb003.csv"
     src_lx<-"../db/tokensMultiLX_m.csv"
-    src_st<-"../db/wolf_LE_stopwords.csv"
+    src_st<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv"
 
     dta<-read.csv(src)
     lxtable<-read_csv2(src_lx)
