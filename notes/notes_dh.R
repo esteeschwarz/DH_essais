@@ -88,5 +88,5 @@ df[order(df[,var]),]
 x<-c(1:10)
 split(x,1:2)
 
-
+download.file()
 

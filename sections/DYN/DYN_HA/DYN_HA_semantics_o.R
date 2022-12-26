@@ -17,8 +17,8 @@
 #src<-"wolf_FF_1.json"
 #src<-paste0(local,"wolf_FF-LEN-KOCHANIE.json")
 getwd()
-stoplist<-read.csv("https://github.com/esteeschwarz/DH_essais/raw/main/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv",sep = ";")
-#stoplist<-read.csv("corpus/wolf_LE_stopwords.csv",sep = ";")
+#stoplist<-read.csv("/gith/DH_essais/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv",sep = ";")
+stoplist<-read.csv(src_st,sep = ";")
 stoplist_t<-subset(stoplist,stoplist$stop==1)$word
 dta$top<-0
 dta<-subset(dta,!is.na(dta$content))
@@ -49,7 +49,7 @@ do_sentiment<-function(dta){
   # cred<-read.csv(src)
   # con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
   # x<-con$find('{}')
- # dta<-subset(dta,!is.na(dta$content))
+  # dta<-subset(dta,!is.na(dta$content))
   dta<-dta_t
   a1<-get_sentiment(dta$content[dta$book=="kochanie"],method = "nrc",language = "german")
   dta$sentiment[dta$book=="kochanie"]<-a1
@@ -57,7 +57,7 @@ do_sentiment<-function(dta){
   a1m<-max(a1)+.001
   a1im<-max(a1i)
   y<-max(a1im)/max(a1m)
- # a1i<-a1i/y
+  # a1i<-a1i/y
   
   a2<-get_sentiment(dta$content[dta$book=="FF"],method = "nrc",language = "german")
   dta$sentiment[dta$book=="FF"]<-a2
@@ -66,7 +66,7 @@ do_sentiment<-function(dta){
   a2m<-max(a2)+.001
   a2im<-max(a2i)
   y<-max(a2im)/max(a2m)
-#  a2i<-a2i/y
+  #  a2i<-a2i/y
   
   a3<-get_sentiment(dta$content[dta$book=="lengevitch"],method = "nrc",language = "german")
   dta$sentiment[dta$book=="lengevitch"]<-a3
@@ -75,7 +75,7 @@ do_sentiment<-function(dta){
   a3m<-max(a3)+.001
   a3im<-max(a3i)
   y<-max(a3im)/max(a3m)
-#  a3i<-a3i/y
+  #  a3i<-a3i/y
   
   #plot(a1i~a2i)
   #plot(a1i~a3i)
@@ -90,13 +90,13 @@ do_sentiment<-function(dta){
   le_out$sentiment$a2i<-a2i
   le_out$sentiment$a3i<-a3i
   
-    # formel: test dependency sentiment of book
+  # formel: test dependency sentiment of book
   ################################################
   # new with sorted df (after year of publication)
   lm<-lmer(dta$sentiment~dta$book+(dta$book|dta$chapter),dta)
- # lm<-lmer(dtalm$sentiment~dtalm$book+(dtalm$book|dtalm$chapter),dtalm)
+  # lm<-lmer(dtalm$sentiment~dtalm$book+(dtalm$book|dtalm$chapter),dtalm)
   length(dta$book)
-    le<-summary(lm)
+  le<-summary(lm)
   le
   res<-le$residuals
   lm2<-get_transformed_values(res)
@@ -128,81 +128,81 @@ do_sentiment<-function(dta){
   # p +  labs(x="corpus", y="sentiment absolute", title="sentiment over texts", fill="book")
   # #print(le)
   le<-summary(lm)
- # attach(le_out)
-return(le_out)
+  # attach(le_out)
+  return(le_out)
 }
 mfw_out<-list()
 #do_sentiment(dta)
 #set<-dta
 chapterx<-2
 mfw<-function(set,chapterx){
-#dtasubna<-set
-#dtasubna<-dta
-#dtatarget<-set
-dtatarget<-subset(set,set$chapter_id==chapterx)
-#dtatarget<-subset(set,set$chapter_id==)
-
-dtasubna<-dtatarget
-#m1<-match(dtatarget$peak,max(dtatarget$peak))
-m1<-match(dtatarget$sentiment,max(dtatarget$sentiment))
-m2<-!is.na(m1)
-textmax<-dtasubna$content[m2]
-#m1<-match(dtatarget$peak,min(dtatarget$peak))
-m1<-match(dtatarget$sentiment,min(dtatarget$sentiment))
-m3<-!is.na(m1)
-textmin<-dtasubna$content[m3]
-###wks. TODO: display name of text! dafür titel im df erhalten!
-mfw_out$min$head<-dtasubna$head[m3]
-mfw_out$max$head<-dtasubna$head[m2]
-mfw_out$min$book<-dtasubna$book[m3]
-mfw_out$max$book<-dtasubna$book[m2]
-mfw_out$min$chapter<-dtasubna$chapter[m3]
-mfw_out$max$chapter<-dtasubna$chapter[m2]
-mfw_out$min$id<-dtasubna$text[m3]
-mfw_out$max$id<-dtasubna$text[m2]
-
-text2<-stri_split_boundaries(textmin)
-text3<-(text2[[1]]) #raw single words of text
-text4<-unique(text3)
-m2<-!match(text3,stoplist_t,nomatch = F)
-t6<-text3[m2]
-#häufungen finden für ranking
-#match(t6,t4)
-#p1<-t6[duplicated(t6)]
-p2<-gsub("[^A-Za-z0-9äöü]","",t6)
-p2<-p2[duplicated(p2)]
-p2<-unique(p2)
-ifelse(length(p2)!=0,mfw_out$min$words<-p2,mfw_out$min$words<-"no duplicate words")
-#print(p2)
-#cat("sentiment (minimum) text most frequent words:\n")
-#print(p2)
-#wks. now repeat for maximum
-text2<-stri_split_boundaries(textmax)
-text3<-(text2[[1]]) #raw single words of text
-text4<-unique(text3)
-m2<-!match(text3,stoplist_t,nomatch = F)
-t6<-text3[m2]
-#häufungen finden für ranking
-#match(t6,t4)
-p1<-t6[duplicated(t6)]
-p2<-gsub("[^A-Za-z0-9äöü]","",t6)
-p2<-p2[duplicated(p2)]
-p2<-unique(p2)
-ifelse(length(p2)!=0,mfw_out$max$words<-p2,mfw_out$max$words<-"no duplicate words")
-#cat("sentiment (maximum) text most frequent words:\n")
-#print(p2)
-#print(mfw_out)
-#mfw_out$max[3]
-#t6
-#p2<-unique(p2)
-#print(p2)
-#text2
-# return(t4[m>1])
-return(mfw_out)
+  #dtasubna<-set
+  #dtasubna<-dta
+  #dtatarget<-set
+  dtatarget<-subset(set,set$chapter_id==chapterx)
+  #dtatarget<-subset(set,set$chapter_id==)
+  
+  dtasubna<-dtatarget
+  #m1<-match(dtatarget$peak,max(dtatarget$peak))
+  m1<-match(dtatarget$sentiment,max(dtatarget$sentiment))
+  m2<-!is.na(m1)
+  textmax<-dtasubna$content[m2]
+  #m1<-match(dtatarget$peak,min(dtatarget$peak))
+  m1<-match(dtatarget$sentiment,min(dtatarget$sentiment))
+  m3<-!is.na(m1)
+  textmin<-dtasubna$content[m3]
+  ###wks. TODO: display name of text! dafür titel im df erhalten!
+  mfw_out$min$head<-dtasubna$head[m3]
+  mfw_out$max$head<-dtasubna$head[m2]
+  mfw_out$min$book<-dtasubna$book[m3]
+  mfw_out$max$book<-dtasubna$book[m2]
+  mfw_out$min$chapter<-dtasubna$chapter[m3]
+  mfw_out$max$chapter<-dtasubna$chapter[m2]
+  mfw_out$min$id<-dtasubna$text[m3]
+  mfw_out$max$id<-dtasubna$text[m2]
+  
+  text2<-stri_split_boundaries(textmin)
+  text3<-(text2[[1]]) #raw single words of text
+  text4<-unique(text3)
+  m2<-!match(text3,stoplist_t,nomatch = F)
+  t6<-text3[m2]
+  #häufungen finden für ranking
+  #match(t6,t4)
+  #p1<-t6[duplicated(t6)]
+  p2<-gsub("[^A-Za-z0-9äöü]","",t6)
+  p2<-p2[duplicated(p2)]
+  p2<-unique(p2)
+  ifelse(length(p2)!=0,mfw_out$min$words<-p2,mfw_out$min$words<-"no duplicate words")
+  #print(p2)
+  #cat("sentiment (minimum) text most frequent words:\n")
+  #print(p2)
+  #wks. now repeat for maximum
+  text2<-stri_split_boundaries(textmax)
+  text3<-(text2[[1]]) #raw single words of text
+  text4<-unique(text3)
+  m2<-!match(text3,stoplist_t,nomatch = F)
+  t6<-text3[m2]
+  #häufungen finden für ranking
+  #match(t6,t4)
+  p1<-t6[duplicated(t6)]
+  p2<-gsub("[^A-Za-z0-9äöü]","",t6)
+  p2<-p2[duplicated(p2)]
+  p2<-unique(p2)
+  ifelse(length(p2)!=0,mfw_out$max$words<-p2,mfw_out$max$words<-"no duplicate words")
+  #cat("sentiment (maximum) text most frequent words:\n")
+  #print(p2)
+  #print(mfw_out)
+  #mfw_out$max[3]
+  #t6
+  #p2<-unique(p2)
+  #print(p2)
+  #text2
+  # return(t4[m>1])
+  return(mfw_out)
 }
 #set<-dta_t
 get_types<-function(set,opt){
-#  set
+  #  set
   set$contentp<-gsub("[^A-Za-z0-9äöüß \n]","",set$content) #get clean text
   set$contentp<-gsub("(\n)"," ",set$contentp) #get clean text
   set$contentp<-gsub("(   )"," ",set$contentp) #get clean text
@@ -216,65 +216,65 @@ get_types<-function(set,opt){
   set$tokens<-stri_count_boundaries(set$contentp) # IMPORTANT: with type=word far too much!
   #tokens<-stri_split_boundaries(set$contentp,type="word")
   #tokens<-gsub(" ","",tokens)
-   # ltokens<-lapply(tokens,length)
-    #  set$ltoken<-ltokens
-     wolftypes<-stri_split_boundaries(set$contentp)
-     types<-lapply(wolftypes,unique)
-     ltypes<-lapply(types,length)
-     set$types<-unlist(ltypes)
-   #  dta$types<-stri_split_boundaries(dta$contentp,type="word",simplify = T)
-     #wolftypec<-stri_count_boundaries(dta$types,"word")
-     #m<-match(wolftypes," ")
-     #m<-lapply(wolftypes,grep("[^A-Za-z0-9äöüß]"))
-     #m<-stri_subset(wolftypes,regex = " ")
+  # ltokens<-lapply(tokens,length)
+  #  set$ltoken<-ltokens
+  wolftypes<-stri_split_boundaries(set$contentp)
+  types<-lapply(wolftypes,unique)
+  ltypes<-lapply(types,length)
+  set$types<-unlist(ltypes)
+  #  dta$types<-stri_split_boundaries(dta$contentp,type="word",simplify = T)
+  #wolftypec<-stri_count_boundaries(dta$types,"word")
+  #m<-match(wolftypes," ")
+  #m<-lapply(wolftypes,grep("[^A-Za-z0-9äöüß]"))
+  #m<-stri_subset(wolftypes,regex = " ")
   
-     #m<-matrix(stri_split_boundaries(dta$contentp,simplify = T),nrow = 131)
-     #m<-stri_split_boundaries(dta$contentp)
-     #dta$contentp[dta$text==37]
-    #  grep
-     
-     #m2<-grep("[A-Za-z0-9äöüß]",m)
-     #m3<-matrix(m[m2],nrow = 131)
-     #m[6]
-     #k<-6
-     #l<-list()
-     #m<-grep("[^A-Za-z0-9äöüß]",wolftypes[[k]])
-     #for (k in 1:131){
-    #   m<-grep("[^A-Za-z0-9äöüß]",wolftypes[[k]])
-    # ifelse(length(m)!=0,l[[k]]<-m,l[[k]]<-NA)
-    # }
-     #wolftypes[l[[6]]]
-     #l[[6]]
-     #length(grep("[^A-Za-z0-9äöüß]",wolftypes[[k]]))
-#k<-1:length(wolfcpt)
-#x[k]<-c
- # x<-unlist(wolftypes)
-#wolftypes[[2]]
- # length(textcpt[[2]])
-#   dta$types<-x
-#   k<-3
-#   for (k in 1:length(dta$content)){
-#     dta$types[k]<-dta$types[[k]]
-#   }
-#   x[2]<-stri_split_boundaries(dta$content[2])
-#   
-# dta$tokens<-wolftokens
-# tk1<-dta$tokens[dta$book_id==1]
-# tk2<-dta$tokens[dta$book_id==2]
-# tk3<-dta$tokens[dta$book_id==3]
-# stk1<-sum(tk1,na.rm = T)
-# stk2<-sum(tk2,na.rm = T)
-# stk3<-sum(tk3,na.rm = T)
-# stkcpt<-sum(dta$tokens,na.rm = T)
-# wolfcpt_s<-stri_split_boundaries(wolfcpt,type="word")
-# textcpt<-wolfcpt_s
-# tokens<-unlist(textcpt)
-# #text3<-(text2[[1]]) #raw single words of text
-# p2<-gsub("[^A-Za-z0-9äöü ]","",tokens)
-# p3<-unique(p2)
-# #m2<-!match(text3,stoplist_t,nomatch = F)
-# t6<-text3[m2]
-     return(set)
+  #m<-matrix(stri_split_boundaries(dta$contentp,simplify = T),nrow = 131)
+  #m<-stri_split_boundaries(dta$contentp)
+  #dta$contentp[dta$text==37]
+  #  grep
+  
+  #m2<-grep("[A-Za-z0-9äöüß]",m)
+  #m3<-matrix(m[m2],nrow = 131)
+  #m[6]
+  #k<-6
+  #l<-list()
+  #m<-grep("[^A-Za-z0-9äöüß]",wolftypes[[k]])
+  #for (k in 1:131){
+  #   m<-grep("[^A-Za-z0-9äöüß]",wolftypes[[k]])
+  # ifelse(length(m)!=0,l[[k]]<-m,l[[k]]<-NA)
+  # }
+  #wolftypes[l[[6]]]
+  #l[[6]]
+  #length(grep("[^A-Za-z0-9äöüß]",wolftypes[[k]]))
+  #k<-1:length(wolfcpt)
+  #x[k]<-c
+  # x<-unlist(wolftypes)
+  #wolftypes[[2]]
+  # length(textcpt[[2]])
+  #   dta$types<-x
+  #   k<-3
+  #   for (k in 1:length(dta$content)){
+  #     dta$types[k]<-dta$types[[k]]
+  #   }
+  #   x[2]<-stri_split_boundaries(dta$content[2])
+  #   
+  # dta$tokens<-wolftokens
+  # tk1<-dta$tokens[dta$book_id==1]
+  # tk2<-dta$tokens[dta$book_id==2]
+  # tk3<-dta$tokens[dta$book_id==3]
+  # stk1<-sum(tk1,na.rm = T)
+  # stk2<-sum(tk2,na.rm = T)
+  # stk3<-sum(tk3,na.rm = T)
+  # stkcpt<-sum(dta$tokens,na.rm = T)
+  # wolfcpt_s<-stri_split_boundaries(wolfcpt,type="word")
+  # textcpt<-wolfcpt_s
+  # tokens<-unlist(textcpt)
+  # #text3<-(text2[[1]]) #raw single words of text
+  # p2<-gsub("[^A-Za-z0-9äöü ]","",tokens)
+  # p3<-unique(p2)
+  # #m2<-!match(text3,stoplist_t,nomatch = F)
+  # t6<-text3[m2]
+  return(set)
 }
 dta_t<-get_types(dta,1)
 
@@ -301,7 +301,7 @@ wc<-matrix(stri_count_boundaries(wolfmatrix,type="character"),nrow=130) #charact
 wc2<-matrix(wc)
 wc0<-matrix(nrow = 130,ncol = 344)
 for(k in 1:length(wc2)){
-ifelse(wc2[k]==0,wc0[k]<-NA,wc0[k]<-wc2[k])
+  ifelse(wc2[k]==0,wc0[k]<-NA,wc0[k]<-wc2[k])
 } # put NA for zero characters
 wc3<-matrix(wolfmatrix,nrow = 130)
 for(k in 1:length(wc3)){
@@ -336,108 +336,108 @@ chararray_f<-chararray_f/x
 #probability matrix of word position
 set<-wc3  
 get_p<-function(set){
-parray<-set
-# c<-3
-# r<-4
-wc4<-wc3
-#for (c in 1:344){
+  parray<-set
+  # c<-3
+  # r<-4
+  wc4<-wc3
+  #for (c in 1:344){
   for (r in 1:130){
     nna<-!is.na(wc4[r,]) 
- #   for (c in 1: fin)
+    #   for (c in 1: fin)
     fin<-sum(nna) # textlength
     for (c in 1: fin){ #wks. with NA, counts over whole matrix, provisorisch...
       
-        m<-grep(wc4[r,c],wc4[,c]) #positions of matches in column
-        # ml<-grep(wc4[r,c],wc4[r,])
-        # lml<-length(ml)
-    ### TODO: the NAs have to be excluded!
-   # na<-is.na(wc4[r,])
-x<-as.double(length(m)) #match count
-#wc4[r,c]<-r*c #erase matches to not match again #blödsinn!
-  parray[r,c]<-x
+      m<-grep(wc4[r,c],wc4[,c]) #positions of matches in column
+      # ml<-grep(wc4[r,c],wc4[r,])
+      # lml<-length(ml)
+      ### TODO: the NAs have to be excluded!
+      # na<-is.na(wc4[r,])
+      x<-as.double(length(m)) #match count
+      #wc4[r,c]<-r*c #erase matches to not match again #blödsinn!
+      parray[r,c]<-x
+      
+    }
+  }
+  #}
+  #x<-c(1,2,3,4,4,3,3,2,4,5,6,NA)
+  #unique(x,incomparables = 3)
+  #wc4[9,19]
+  #sum(na)
+  mode(parray)<-"double"
   
-      }
+  p5<-matrix(parray,nrow = 130)
+  lc<-sum(!is.na(wc4))
+  r<-2
+  c<-2
+  #################
+  
+  for (c in 1:344){
+    for (r in 1:130){
+      #m<-grep(130,p5[r,])
+      #   for (c in 1: fin)
+      nna<-!is.na(p5[r,]) 
+      l<-sum(nna) # textlength
+      #ml<-grep(wc4[r,c],wc4[r,c:l],invert = T) #matches x over textlength #for idunno reason NAs are not matched/counted which is great
+      ml<-match(wc4[r,c],wc4[r,1:l]) #matches x over textlength #for idunno reason NAs are not matched/counted which is great
+      lml<-length(ml)
+      lml<-sum(!is.na(ml))
+      px<-lml/l #p(x) of word
+      #p5[r,m]
+      p<-parray[r,c]/130*px #-lml
+      #mcpt<-grep(wc4[r,c],wc4) # match word over corpus
+      mcpt<-match(wc4[r,c],wc4) # match word over corpus
+      #lmcpt<-length(mcpt)
+      lmcpt<-sum(!is.na(mcpt))
+      pcpt<-lmcpt/lc
+      p<-p*pcpt
+      # p<-parray[r,c]/130/l #same sure
+      
+      p5[r,c]<-p  
+    }
   }
-#}
-#x<-c(1,2,3,4,4,3,3,2,4,5,6,NA)
-#unique(x,incomparables = 3)
-#wc4[9,19]
-#sum(na)
-mode(parray)<-"double"
-
-p5<-matrix(parray,nrow = 130)
-lc<-sum(!is.na(wc4))
-r<-2
-c<-2
-#################
-
-for (c in 1:344){
-  for (r in 1:130){
-    #m<-grep(130,p5[r,])
-    #   for (c in 1: fin)
-    nna<-!is.na(p5[r,]) 
-    l<-sum(nna) # textlength
-    #ml<-grep(wc4[r,c],wc4[r,c:l],invert = T) #matches x over textlength #for idunno reason NAs are not matched/counted which is great
-    ml<-match(wc4[r,c],wc4[r,1:l]) #matches x over textlength #for idunno reason NAs are not matched/counted which is great
-    lml<-length(ml)
-    lml<-sum(!is.na(ml))
-    px<-lml/l #p(x) of word
-    #p5[r,m]
-    p<-parray[r,c]/130*px #-lml
-    #mcpt<-grep(wc4[r,c],wc4) # match word over corpus
-    mcpt<-match(wc4[r,c],wc4) # match word over corpus
-    #lmcpt<-length(mcpt)
-    lmcpt<-sum(!is.na(mcpt))
-    pcpt<-lmcpt/lc
-    p<-p*pcpt
-   # p<-parray[r,c]/130/l #same sure
-    
-    p5[r,c]<-p  
+  #sum(!is.na(wc4[98,]))
+  #m<-grep(130,parray)
+  #p5[m]<-NA
+  
+  #parray[3,3]/100
+  #wc3[max(p5[,3]),3] # most probable 1st word
+  psent<-array()
+  #wc3[5,5]
+  for (k in 1:344){
+    #    m<-max(p5[,k],na.rm = T)
+    # g<-grep(m,p5[,k])
+    #x<-wc3[g,k]
+    mm<-which.max(p5[,k])
+    x<-wc3[mm,k]
+    #  x<-wc3[max(p5[,k]),k]
+    psent[k]<-x 
+    #  ifelse (x!="",psent[k]<-x,psent[k]<-NA)
   }
-}
-#sum(!is.na(wc4[98,]))
-#m<-grep(130,parray)
-#p5[m]<-NA
-
-#parray[3,3]/100
-#wc3[max(p5[,3]),3] # most probable 1st word
-psent<-array()
-#wc3[5,5]
-for (k in 1:344){
-#    m<-max(p5[,k],na.rm = T)
- # g<-grep(m,p5[,k])
-  #x<-wc3[g,k]
-  mm<-which.max(p5[,k])
-  x<-wc3[mm,k]
-#  x<-wc3[max(p5[,k]),k]
- psent[k]<-x 
-#  ifelse (x!="",psent[k]<-x,psent[k]<-NA)
-}
-#max(p5[,1])
-#p6
-#wc3[1,255]
-#psent
-#sum(!is.na(wc3[1,]))
-#m<-max(p5[,1])
-#g<-grep(m,p5[,1])
-#x<-wc3[g,1]
-#x
-#text<-paste(psent,sep = " ")
-#cat(text)
-text<-stri_join(psent,sep = " ")
-return(text)
-#cat(text)
-#cat(text,file="local/DYN/db/wolf_p_text_qalongS.txt",sep = " ")
-#check
-#m<-grep("stottersaft",dta_t$contentp)
-#dta_t$contentp[m]
-#wc4[m-10:m+10]
-#m-10
-#wc4[28819:28840]
-#wc6<-table(wc4)
-# x<-c(1,2,3,4,5,6,7,8,NA)
-# match(NA,x)
-
+  #max(p5[,1])
+  #p6
+  #wc3[1,255]
+  #psent
+  #sum(!is.na(wc3[1,]))
+  #m<-max(p5[,1])
+  #g<-grep(m,p5[,1])
+  #x<-wc3[g,1]
+  #x
+  #text<-paste(psent,sep = " ")
+  #cat(text)
+  text<-stri_join(psent,sep = " ")
+  return(text)
+  #cat(text)
+  #cat(text,file="local/DYN/db/wolf_p_text_qalongS.txt",sep = " ")
+  #check
+  #m<-grep("stottersaft",dta_t$contentp)
+  #dta_t$contentp[m]
+  #wc4[m-10:m+10]
+  #m-10
+  #wc4[28819:28840]
+  #wc6<-table(wc4)
+  # x<-c(1,2,3,4,5,6,7,8,NA)
+  # match(NA,x)
+  
 }
 #getwd()
 # printptext<-function(){
@@ -445,97 +445,97 @@ return(text)
 # }
 
 get_lxdf<-function(){
-library(quanteda.textstats)
-t<-stri_join(wc4,sep = " ")
-cat(head(t))
-x<-textstat_lexdiv(t,measure="all")
-tokens<-dta_t$contentp
-head(tokens)
-tokens<-str_split(tokens," ")
-tokens<-unlist(tokens)
-writeLines(tokens,"local/DYN/db/tokens.txt")
-dtatok<-read_table("local/DYN/db/tokensquery.csv",header)
-url<-"https://www.deutschestextarchiv.de/public/cab/query?a=default&fmt=text&clean=1&pretty=1&raw=1&q=i"
-ns<-c("token","t2","t3","lex","lemma","ka")
-#library(readr)
-dtatok <- read_delim("local/DYN/db/tokensquery.csv", 
-                          delim = "\t", escape_double = FALSE, 
-                          col_names = ns, trim_ws = TRUE)
-text
-lxtok<-dtatok$token[dtatok$lex=="NE"|dtatok$lex=="FM"]
-lx1<-cbind(lxtok,"de","multiLX","neoLX")
-write.csv2(lx1,"local/DYN/db/tokensMultiLX.csv")
+  library(quanteda.textstats)
+  t<-stri_join(wc4,sep = " ")
+  cat(head(t))
+  x<-textstat_lexdiv(t,measure="all")
+  tokens<-dta_t$contentp
+  head(tokens)
+  tokens<-str_split(tokens," ")
+  tokens<-unlist(tokens)
+  writeLines(tokens,"local/DYN/db/tokens.txt")
+  dtatok<-read_table("local/DYN/db/tokensquery.csv",header)
+  url<-"https://www.deutschestextarchiv.de/public/cab/query?a=default&fmt=text&clean=1&pretty=1&raw=1&q=i"
+  ns<-c("token","t2","t3","lex","lemma","ka")
+  #library(readr)
+  dtatok <- read_delim("local/DYN/db/tokensquery.csv", 
+                       delim = "\t", escape_double = FALSE, 
+                       col_names = ns, trim_ws = TRUE)
+  text
+  lxtok<-dtatok$token[dtatok$lex=="NE"|dtatok$lex=="FM"]
+  lx1<-cbind(lxtok,"de","multiLX","neoLX")
+  write.csv2(lx1,"local/DYN/db/tokensMultiLX.csv")
 }
 getwd()
 
 
 ### edited
 get_tarray<-function(set){
-#ns<-c("token","t2","t3","lex","lemma","ka")
-#lxtable<-read_delim("local/DYN/db/tokensMultiLX_m.csv",delim =";",col_names = ns)
-# lxtable<-read_csv2(set)
-# mlx<-subset(lxtable,lxtable$multi=="multiLX")
-### add multilx attribute to dta
-wc6<-list()
-wc6$text<-wc4
-#wc6$y_matches<-parray
-#wc6$p<-p5
-#wc6$textp
-tarray<-array()
-r<-6
-c<-6
-for (c in 1:length(wc6[[1]][1,])){
+  #ns<-c("token","t2","t3","lex","lemma","ka")
+  #lxtable<-read_delim("local/DYN/db/tokensMultiLX_m.csv",delim =";",col_names = ns)
+  # lxtable<-read_csv2(set)
+  # mlx<-subset(lxtable,lxtable$multi=="multiLX")
+  ### add multilx attribute to dta
+  wc6<-list()
+  wc6$text<-wc4
+  #wc6$y_matches<-parray
+  #wc6$p<-p5
+  #wc6$textp
+  tarray<-array()
+  r<-6
+  c<-6
+  for (c in 1:length(wc6[[1]][1,])){
+    for (r in 1:length(wc6[[1]][,1])){
+      # for (c in 1:length(wc6[[1]][1,])){
+      l<-sum(!is.na(wc6[[1]][r,]))
+      for (lc in 1:l){
+        pos<-r*lc
+        
+        tarray[pos]<-wc6[[1]][r,lc]
+      }
+    }
+  }
+  #c<-6
+  #r<-6
+  tarray<-array(dim = 44720)
+  head(tarray)
   for (r in 1:length(wc6[[1]][,1])){
-# for (c in 1:length(wc6[[1]][1,])){
     l<-sum(!is.na(wc6[[1]][r,]))
-  for (lc in 1:l){
-    pos<-r*lc
-    
-      tarray[pos]<-wc6[[1]][r,lc]
+    for (c in 1:l){
+      #for (k in 1:length(wc6[[1]][,1])){
+      #l<-sum(!is.na(wc6[[1]][,c]))
+      #for (r in 1:l){
+      pos_o<-(c-1)*130+r
+      pos_m<-(r-1)*344+c
+      tarray[pos_m]<-wc6[[1]][pos_o]
+    }
   }
-}
-}
-#c<-6
-#r<-6
-tarray<-array(dim = 44720)
-head(tarray)
-for (r in 1:length(wc6[[1]][,1])){
-  l<-sum(!is.na(wc6[[1]][r,]))
-for (c in 1:l){
-#for (k in 1:length(wc6[[1]][,1])){
-  #l<-sum(!is.na(wc6[[1]][,c]))
-  #for (r in 1:l){
-    pos_o<-(c-1)*130+r
-    pos_m<-(r-1)*344+c
-    tarray[pos_m]<-wc6[[1]][pos_o]
-  }
-}
-return(tarray)
+  return(tarray)
 }
 
 get_lxmatches<-function(){
- # mlx<-get_lxtable()
-#q
-#tarray<-get_tarray()
+  # mlx<-get_lxtable()
+  #q
+  #tarray<-get_tarray()
   tokenarray<-get_tarray()
   token_na<-tokenarray[!is.na(tokenarray)]
   
   #assign multilx attributes
-#match postdeutsch in text
-q<-unique(mlx$lxtok)
-#mt<-match(wc6$text[68,],q)
-#mt<-match(q,wc6$text[68,])
-#mt<-match(tarray,q) #first
-mt<-match(token_na,q) #second essai, match over real corpus without na and along text flow
-#tarray[mt]
-mt1<-!is.na(mt)
-#plot(mt1,type = "h")
-#x<-tapply(q,mt)
-#match
-#matchlx<-mt[!is.na(q[mt])]
-#q[matchlx]
-#wc6$text[68,matchlx]
-return(mt1)
+  #match postdeutsch in text
+  q<-unique(mlx$lxtok)
+  #mt<-match(wc6$text[68,],q)
+  #mt<-match(q,wc6$text[68,])
+  #mt<-match(tarray,q) #first
+  mt<-match(token_na,q) #second essai, match over real corpus without na and along text flow
+  #tarray[mt]
+  mt1<-!is.na(mt)
+  #plot(mt1,type = "h")
+  #x<-tapply(q,mt)
+  #match
+  #matchlx<-mt[!is.na(q[mt])]
+  #q[matchlx]
+  #wc6$text[68,matchlx]
+  return(mt1)
 }
 
 sent_global<-get_sentiment(get_tarray())
@@ -543,7 +543,7 @@ sent_global<-get_sentiment(get_tarray())
 lx_matches<-get_lxmatches()
 # per text
 txtbonds<-function(){
- # wc6<-list()
+  # wc6<-list()
   #wc6$text<-wc4
   #wc6$y_matches<-parray
   #wc6$p<-p5
@@ -553,31 +553,31 @@ txtbonds<-function(){
   c<-6
   
   for (r in 1:length(wc4[,c])){
-#    for (r in 1:length(wc4[,c])){
-      # for (c in 1:length(wc6[[1]][1,])){
-      l<-sum(!is.na(wc4[r,]))
-      #for (lc in 1:l){
-        #pos<-r*lc
-      
-      tarray[1,"start"]<-1
-      tarray[1,"end"]<-sum(!is.na(wc4[1,]))
-      tarray[1,"length"]<-tarray[1,2]-tarray[1,1]+1
-      
-      # if (r >=2){
-      #   tarray[r,"start"]<-tarray[r-1,2]+1
-      #   tarray[r,"end"]<-l+tarray[r,1]-1
-      # }
-       if (r<=length(wc4[,c])&r>=2)
-      {tarray[r,"start"]<-tarray[r-1,2]+1
-      tarray[r,"end"]<-l+tarray[r,1]-1
-      tarray[r,"length"]<-tarray[r,2]-tarray[r,1]+1
-      }
-
+    #    for (r in 1:length(wc4[,c])){
+    # for (c in 1:length(wc6[[1]][1,])){
+    l<-sum(!is.na(wc4[r,]))
+    #for (lc in 1:l){
+    #pos<-r*lc
+    
+    tarray[1,"start"]<-1
+    tarray[1,"end"]<-sum(!is.na(wc4[1,]))
+    tarray[1,"length"]<-tarray[1,2]-tarray[1,1]+1
+    
+    # if (r >=2){
+    #   tarray[r,"start"]<-tarray[r-1,2]+1
+    #   tarray[r,"end"]<-l+tarray[r,1]-1
+    # }
+    if (r<=length(wc4[,c])&r>=2)
+    {tarray[r,"start"]<-tarray[r-1,2]+1
+    tarray[r,"end"]<-l+tarray[r,1]-1
+    tarray[r,"length"]<-tarray[r,2]-tarray[r,1]+1
+    }
+    
   }
-t1<-c(0,0,0)
-tarray<-rbind(t1,tarray)
+  t1<-c(0,0,0)
+  tarray<-rbind(t1,tarray)
   return(tarray)
-  }
+}
 dta_t<-cbind(dta_t,txtbonds()) #add start end texts columns to set
 
 # now for lx percentage
@@ -586,17 +586,17 @@ token_na<-tokenarray[!is.na(tokenarray)]
 q<-unique(mlx$lxtok)
 lxpmatches<-array()
 for(r in 1:length(dta_t$X_id)){
-trange<-as.vector(token_na[dta_t$start[r]:dta_t$end[r]])
-mt<-match(trange,q)
-#tarray[mt]
-mt1<-!is.na(mt)
-mt2<-sum(mt1)
-mt3<-mt2/length(trange)*100
-lxpmatches[r]<-mt3
-#plot(mt1,type = "h")
-#x<-tapply(q,mt)
-#match
-#matchlx<-mt[!is.na(q[mt])]
+  trange<-as.vector(token_na[dta_t$start[r]:dta_t$end[r]])
+  mt<-match(trange,q)
+  #tarray[mt]
+  mt1<-!is.na(mt)
+  mt2<-sum(mt1)
+  mt3<-mt2/length(trange)*100
+  lxpmatches[r]<-mt3
+  #plot(mt1,type = "h")
+  #x<-tapply(q,mt)
+  #match
+  #matchlx<-mt[!is.na(q[mt])]
 }
 lxpmatches[1]<-0
 dta_t$lxp<-lxpmatches
@@ -639,21 +639,21 @@ lms<-summary(lm)
 
 
 temp.fun1<-function(){
-head(tarray)
-nt<-tarray[!is.na((tarray))]
-wc6[[1]][6,6]
-library(purrr)
-tlist<-transpose(wc6)
-tmatrix<-matrix(stri_split_boundaries(dta_t$contentp[2:131]))
-t3<-matrix(stri_split_boundaries(t2,simplify = T),ncol=344)
-wc6[[1]][pos]
-wc6[[1]][(5)*344+6]
-wolfmatrix[5*130+4]
-nt[40:70]
-#nt<-subset(tarray,!is.na(tarray))
-x<-split(nt,1:100)
-sent<-get_sentiment_dictionary("nrc",language = "german")    
-unique(sent$sentiment)
+  head(tarray)
+  nt<-tarray[!is.na((tarray))]
+  wc6[[1]][6,6]
+  library(purrr)
+  tlist<-transpose(wc6)
+  tmatrix<-matrix(stri_split_boundaries(dta_t$contentp[2:131]))
+  t3<-matrix(stri_split_boundaries(t2,simplify = T),ncol=344)
+  wc6[[1]][pos]
+  wc6[[1]][(5)*344+6]
+  wolfmatrix[5*130+4]
+  nt[40:70]
+  #nt<-subset(tarray,!is.na(tarray))
+  x<-split(nt,1:100)
+  sent<-get_sentiment_dictionary("nrc",language = "german")    
+  unique(sent$sentiment)
 }
 
 ### try neue KI for text generation #######################################
@@ -711,70 +711,70 @@ newki<-function(){
 }
 lsaessai<-function(){
   
-library(lsa)
-td=tempfile()
-dir.create(td)
-for (k in 1:length(dta_t$contentp)){
-write(dta_t$contentp[k], file = paste(td,dta_t$text[k],sep = "/"))
-
-}
-d<-textmatrix(td,stopwords = stopwords_de)
-summary(d)
-d2<-lw_logtf(d)*gw_idf(d)
-d2<-lsa(d, dims = dimcalc_share())
-d2$sk
-list.files(td)
-library(NLP)
-names(Universal_POS_tags_map)
-dim(Universal_POS_tags)
-Universal_POS_tags
-
-td=tempfile()
-getwd()
-corpus<-"local/DYN/db/corpus"
-dir.create(corpus)
-for (k in 1:length(dta_t$contentp)){
-  filename<-paste0("wolf_txt-",k,".txt")
-  write(dta_t$contentp[k], file = paste(corpus,filename,sep = "/"))
+  library(lsa)
+  td=tempfile()
+  dir.create(td)
+  for (k in 1:length(dta_t$contentp)){
+    write(dta_t$contentp[k], file = paste(td,dta_t$text[k],sep = "/"))
+    
+  }
+  d<-textmatrix(td,stopwords = stopwords_de)
+  summary(d)
+  d2<-lw_logtf(d)*gw_idf(d)
+  d2<-lsa(d, dims = dimcalc_share())
+  d2$sk
+  list.files(td)
+  library(NLP)
+  names(Universal_POS_tags_map)
+  dim(Universal_POS_tags)
+  Universal_POS_tags
   
-}
+  td=tempfile()
+  getwd()
+  corpus<-"local/DYN/db/corpus"
+  dir.create(corpus)
+  for (k in 1:length(dta_t$contentp)){
+    filename<-paste0("wolf_txt-",k,".txt")
+    write(dta_t$contentp[k], file = paste(corpus,filename,sep = "/"))
+    
+  }
 }
 library(tm)
 mining<-function(){
-library(quanteda)
-library(rematch2)
-c<-corpus(dta_t$contentp)
-x<-kwic(c,"glaub.*",window=5,valuetype="regex")
-x$from
-x$pre
-tf1<-stri_extract_all_words(dta_t$contentp)
-stoplist_clean<-gsub("[^A-Za-z0-9äöü]","",stoplist_t)
-stoplist_clean<-unique(stoplist_clean)
-stoplist_clean<-stoplist_clean[2:length(stoplist_clean)]
-tf2<-unlist(tf1)
-df<-tf2[!tf2 %in% stoplist_clean]
-tf<-termFreq(df)
-findMostFreqTerms(tf)
-library(udpipe)
-#model at:
-modelurl<-"gith/DH_essais/files/german-hdt-ud-2.5-191206.udpipe"
-modelurl<-"german-gsd-ud-2.5-191206.udpipe"
-model<-udpipe_load_model(modelurl)
-dmodel<-udpipe_download_model(language = "german-gsd")
-udpipe
-x<-udpipe_annotate(model,tf2)
-x$conllu
-df<-as.data.frame(x)
-write_csv(df,"local/DYN/db/wolfPOS.csv")
-
-library(httr)
-#conllu
-cab<-"http://www.deutschestextarchiv.de/public/cab/query?fmt=jsonu&q="
-req<-paste0(cab,q)
-
-q<-"schneit"
-x<-GET(req)
-y<-content(x,"text")
-df<-as.data.frame(y)
-jsonlite::fromJSON(y)
+  library(quanteda)
+  library(rematch2)
+  c<-corpus(dta_t$contentp)
+  x<-kwic(c,"glaub.*",window=5,valuetype="regex")
+  x$from
+  x$pre
+  tf1<-stri_extract_all_words(dta_t$contentp)
+  stoplist_clean<-gsub("[^A-Za-z0-9äöü]","",stoplist_t)
+  stoplist_clean<-unique(stoplist_clean)
+  stoplist_clean<-stoplist_clean[2:length(stoplist_clean)]
+  tf2<-unlist(tf1)
+  df<-tf2[!tf2 %in% stoplist_clean]
+  tf<-termFreq(df)
+  findMostFreqTerms(tf)
+  library(udpipe)
+  #model at:
+  modelurl<-"gith/DH_essais/files/german-hdt-ud-2.5-191206.udpipe"
+  modelurl<-"german-gsd-ud-2.5-191206.udpipe"
+  model<-udpipe_load_model(modelurl)
+  dmodel<-udpipe_download_model(language = "german-gsd")
+  udpipe
+  x<-udpipe_annotate(model,tf2)
+  x$conllu
+  df<-as.data.frame(x)
+  write_csv(df,"local/DYN/db/wolfPOS.csv")
+  
+  library(httr)
+  #conllu
+  cab<-"http://www.deutschestextarchiv.de/public/cab/query?fmt=jsonu&q="
+  req<-paste0(cab,q)
+  
+  q<-"schneit"
+  x<-GET(req)
+  y<-content(x,"text")
+  df<-as.data.frame(y)
+  jsonlite::fromJSON(y)
 }

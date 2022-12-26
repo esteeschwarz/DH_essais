@@ -83,13 +83,14 @@ library(rmarkdown)
 #src<-"wolf_FF_1.json"
 #src<-paste0(local,"wolf_FF-LEN_1.json")
 #getwd()
-# src<-"../../../../../local/R/cred_gener.csv"
-#   cred<-read.csv(src)
+#src<-"../../../../../local/R/cred_gener.csv"
+#  cred<-read.csv(src)
 #  con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
  #   dta<-con$find('{}')
 #local data:
-    src<-"wolfdb003.csv"
-    src_lx<-"tokensMultiLX_m.csv"
+    src<-   "../db/wolfdb003.csv"
+    src_lx<-"../db/tokensMultiLX_m.csv"
+    src_st<-"../db/wolf_LE_stopwords.csv"
 
     dta<-read.csv(src)
     lxtable<-read_csv2(src_lx)
@@ -100,10 +101,9 @@ library(rmarkdown)
 #dtatxt<-as.data.frame(fromJSON(src))
 #dtatxt<-(fromJSON(src))
 #cat("load TEI from:",src)
-#    src<-"DYN_HA_semantics.R"
-source("DYN_HA_semantics.R")
-    #src<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/DYN/DYN_HA/DYN_HA_semantics_o.R"
-   source(src)
+    src_se<-"DYN_HA_semantics.R"
+#source("/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
+   source(src_se)
   lc<-length(dta$content)-1
 
     
