@@ -52,14 +52,12 @@ bib<-httr::content(response,"text")
 y<-tempfile("ref",fileext = ".bib")
 #blm<-toBibtex(ref1)
 writeLines(bib,y)
-#b3<-unlist(bib2)
-#print(b,style="Bibtex")
-#b<-pandoc_citeproc_convert(y)
-#bib2<-append(b,ref1,after = length(b))
-#x<-readLines(y)
-#b5<-readCitationFile()
-#b7<-citation("lme4")
-#toBibtex(b7)
+t<-Sys.time()
+tf<-format(t,"%a %b %d %Y (%H.%M)")
+tcsv<-paste(t,"rmd_start",sep = ",")
+dt<-file("datestamp_current3.csv",open = "a")
+writeLines(tcsv,dt)
+close(dt)
 ```
 ---
 bibliography: "`r y`"
@@ -399,6 +397,13 @@ ptext<-get_p(wc3)
 #text<-cat(ptext)
 text<-stri_join(ptext, collapse=" ")
 #text
+t<-Sys.time()
+tf<-format(t,"%a %b %d %Y (%H.%M)")
+tcsv<-paste(t,"rmd_fin",sep = ",")
+dt<-file("datestamp_current3.csv",open = "a")
+writeLines(tcsv,dt)
+close(dt)
+
 ```
 
 ### most probable text
