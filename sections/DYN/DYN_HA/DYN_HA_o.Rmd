@@ -41,8 +41,8 @@ knitr::opts_chunk$set(echo = TRUE)
 library(httr)
 #fetch zotero .bib online
 #share <- runif(1)
-x<-GET("https://api.zotero.org/groups/4713246/collections/9LNRRJQN/items/top?format=bibtex")
-bib<-content(x,"text")
+response<-GET("https://api.zotero.org/groups/4713246/collections/9LNRRJQN/items/top?format=bibtex")
+bib<-httr::content(response,"text")
 #ref1<-citation("lme4")
 #ref2<-print(ref1,style="bibtex")
 #ref2
