@@ -82,11 +82,11 @@ library(rmarkdown)
 #  con<- mongo(collection = "wolfdb003", db ="deadend", url=cred$url[cred$q=="mongodb"])
  #   dta<-con$find('{}')
 #local data:
-    src<-   "../db/wolfdb003.csv"
-    src_lx<-"../db/tokensMultiLX_m.csv"
+    # src<-   "../db/wolfdb003.csv"
+    # src_lx<-"../db/tokensMultiLX_m.csv"
     src_st<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv"
 
-    dta<-read.csv(src)
+    dta<-read.csv(src_db)
     lxtable<-read_csv2(src_lx)
     mlx<-subset(lxtable,lxtable$multi=="multiLX")
 getwd()
