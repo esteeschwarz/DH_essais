@@ -75,6 +75,13 @@ txtmxml<-read_xml(txtm20)
 write_clip(klemm_xml1)
 klemmxml2<-xml_add_child(data,txtm20,"//insert")
 klemmxml2
+### DYN
+ts<-read_lines("/var/folders/y3/_0j6ntls0p3b4bmwng47r4dm0000gn/T//RtmpQIrcTY/ref2e9ba3b106.bib")
+
+
+
+
+
 
 ### sort dataframe:
 #ordering dataframe by column 1
@@ -89,4 +96,9 @@ x<-c(1:10)
 split(x,1:2)
 
 download.file()
+
+library(httr)
+response<-GET("https://api.zotero.org/groups/4713246/collections/9LNRRJQN/items/top?format=bibtex")
+bib<-httr::content(response,"text")
+
 
