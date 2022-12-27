@@ -101,4 +101,18 @@ library(httr)
 response<-GET("https://api.zotero.org/groups/4713246/collections/9LNRRJQN/items/top?format=bibtex")
 bib<-httr::content(response,"text")
 
+#### summary MFW
+library(quanteda)
+#library(rematch2)
+c<-corpus(dta_t$contentp)
+#x<-kwic(c,"glaub.*",window=5,valuetype="regex")
+#x$from
+#x$pre
+#summary(c)
+x<-(dfm(c))
+#x2<-dfm_weight(x)
+#x2
+x2<-featfreq(x)
+char_wordstem(a)
+head(x2[order(x2,decreasing = T)])
 

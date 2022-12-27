@@ -69,6 +69,7 @@ library(lme4)
 library(stringi)
 library(stringr)
 library(rmarkdown)
+library(quanteda)
 
 
 
@@ -88,6 +89,7 @@ library(rmarkdown)
     # src_st<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv"
 
     dta<-read.csv(src_db)
+   # dta_t<-get_types(dta,1)
     lxtable<-read_csv2(src_lx)
     mlx<-subset(lxtable,lxtable$multi=="multiLX")
 #getwd()
@@ -387,7 +389,7 @@ pre {max-height: 400px;}
 #most-probable-text p {font-family: Courier;}
 ```
 
-Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[exc]]$max$chapter``, lassen sich in [text:] ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind [duplicates:] ``r mfw_dta[[exc]]$max$words``, die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` mit ``r mfw_dta[[exc]]$min$words``.
+Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[exc]]$max$chapter``, lassen sich in [text:] ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind ``r names(mfw_dta[[exc]]$max$words)``, die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` mit ``r names(mfw_dta[[exc]]$min$words)``.
 
 ## corpus play
 Das Folgende zeigt einen Text, dem ein Algoritmus zugrundeliegt, der roughly die Wahrscheinlichkeit des Vorhandenseins eines Wortes an der jeweiligen Position im Text, über den gesamten Korpus betrachtet, bestimmt. Es tritt also jedes Wort dieses künstlichen Textes am wahrscheinlichsten an dieser Stelle auf, szsg. ein sehr simples *transformer* experiment, ohne jegliche Berücksichtigung semantisch-syntaktischer Kategorien und (noch) weit von einem lernfähigen Algorithmus entfernt
