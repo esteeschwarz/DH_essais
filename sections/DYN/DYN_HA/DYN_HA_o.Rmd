@@ -89,7 +89,7 @@ library(rmarkdown)
     dta<-read.csv(src_db)
     lxtable<-read_csv2(src_lx)
     mlx<-subset(lxtable,lxtable$multi=="multiLX")
-getwd()
+#getwd()
     dta_sf<-dta
 #k<-2
 #dtatxt<-as.data.frame(fromJSON(src))
