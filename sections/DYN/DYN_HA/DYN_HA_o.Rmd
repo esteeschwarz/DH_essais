@@ -49,11 +49,11 @@ bib<-httr::content(response,"text")
 y<-tempfile("ref",fileext = ".bib")
 writeLines(bib,y)
 t<-Sys.time()
-tf<-format(t,"%a %b %d %Y (%H.%M)")
-tcsv<-paste(1,t,"rmd_start",sep = ",")
-dt<-file("datestamp_current3.csv",open = "a")
-writeLines(tcsv,dt)
-close(dt)
+# tf<-format(t,"%a %b %d %Y (%H.%M)")
+# tcsv<-paste(1,t,"rmd_start",sep = ",")
+# dt<-file("datestamp_current3.csv",open = "a")
+# writeLines(tcsv,dt)
+# close(dt)
 ```
 ---
 bibliography: "`r y`"
@@ -393,12 +393,12 @@ ptext<-c("sample","comment in","for","final","output")
 #text<-cat(ptext)
 text<-stri_join(ptext, collapse=" ")
 #text
-t<-Sys.time()
-tf<-format(t,"%a %b %d %Y (%H.%M)")
-tcsv<-paste(2,t,"rmd_fin",sep = ",")
-dt<-file("datestamp_current3.csv",open = "a")
-writeLines(tcsv,dt)
-close(dt)
+# t<-Sys.time()
+# tf<-format(t,"%a %b %d %Y (%H.%M)")
+# tcsv<-paste(2,t,"rmd_fin",sep = ",")
+# dt<-file("datestamp_current3.csv",open = "a")
+# writeLines(tcsv,dt)
+# close(dt)
 
 ```
 
