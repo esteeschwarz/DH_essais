@@ -169,8 +169,8 @@ Mit der Textmatrix (cf. Table \@ref(tab:text-matrix)) läszt sich noch weiter re
 ```{r lx-matches, echo=F,fig.cap="multilingual elements over corpus",warning=FALSE}
 #lxm_f<-get_transformed_values(get_lxmatches())
 
-#sent_global_f<-get_transformed_values(sent_global)
-#plot(get_lxmatches(),type = "h",xlab="text corpus",ylab="occurences", main="occurences of non german words")
+sent_global_f<-get_transformed_values(sent_global)
+plot(get_lxmatches(),type = "h",xlab="text corpus",ylab="occurences", main="occurences of non german words")
 ###
 #par(new=T)
 #plot(sent_global_f,type = "h",col=2,xaxt="n",yaxt="n",ann = F)
