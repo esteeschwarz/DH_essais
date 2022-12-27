@@ -30,8 +30,9 @@ bibliography: DYN_HA.bib
 knitr::opts_chunk$set(echo = TRUE)
 #knitr::opts_knit$get("out.format"="html")
 #mini critical: dont find relative files in path
-#knitr::opts_knit$set(root.dir="")
-#knitr::opts_knit$set(base.dir = "")
+#knitr::opts_knit$set(root.dir="/")
+#knitr::opts_knit$set(base.dir = "local/DYN/knitessai") #creates this dir in Rmd directory, including xxx.files, if out cant create output dir
+#knitr::opts_knit$set(base.dir = "/") #creates this dir in Rmd directory, including xxx.files, if out cant create output dir
 #knitr::opts_knit$set(base.dir = "~/boxHKW/21S/DH/gith/DH_essais/sections/DYN/DYN_HA")
 #getwd()
 #EWA, lapsi
@@ -48,7 +49,7 @@ response<-GET("https://api.zotero.org/groups/4713246/collections/9LNRRJQN/items/
 bib<-httr::content(response,"text")
 y<-tempfile("ref",fileext = ".bib")
 writeLines(bib,y)
-t<-Sys.time()
+# t<-Sys.time()
 # tf<-format(t,"%a %b %d %Y (%H.%M)")
 # tcsv<-paste(1,t,"rmd_start",sep = ",")
 # dt<-file("datestamp_current3.csv",open = "a")
@@ -84,12 +85,12 @@ library(rmarkdown)
 #local data:
     # src<-   "../db/wolfdb003.csv"
     # src_lx<-"../db/tokensMultiLX_m.csv"
-    src_st<-"https://github.com/esteeschwarz/DH_essais/raw/main/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv"
+    src_st<-"https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DYN/DYN_HA/corpus/wolf_LE_stopwords.csv"
 
     dta<-read.csv(src_db)
     lxtable<-read_csv2(src_lx)
     mlx<-subset(lxtable,lxtable$multi=="multiLX")
-#getwd()
+getwd()
     dta_sf<-dta
 #k<-2
 #dtatxt<-as.data.frame(fromJSON(src))
@@ -167,8 +168,10 @@ Mit der Textmatrix (cf. Table \@ref(tab:text-matrix)) läszt sich noch weiter re
 
 ```{r lx-matches, echo=F,fig.cap="multilingual elements over corpus",warning=FALSE}
 #lxm_f<-get_transformed_values(get_lxmatches())
-sent_global_f<-get_transformed_values(sent_global)
-plot(get_lxmatches(),type = "h",xlab="text corpus",ylab="occurences", main="occurences of non german words")
+
+#sent_global_f<-get_transformed_values(sent_global)
+#plot(get_lxmatches(),type = "h",xlab="text corpus",ylab="occurences", main="occurences of non german words")
+###
 #par(new=T)
 #plot(sent_global_f,type = "h",col=2,xaxt="n",yaxt="n",ann = F)
 
@@ -199,7 +202,8 @@ Zum Beispiel lassen sich die Wortgleichungen visualisieren, die an bestimmten Po
 #end<-50
 #plot(typearray[1:50],type="h",xlab = paste0("first ", end," words of texts"),ylab="count of distinct types")
 # scatter.smooth(1:end,typearray[1:end],.1,.1,type="h",family = "gaussian",ylab="count of distinct types",xlab = paste0("first ", end," words of texts"))
-scatter.smooth(1:length(typearray_f),typearray_f,.1,.1,type="h",family = "gaussian",ylab="mean of distinct types",xlab = "relative position of words in texts")
+
+#scatter.smooth(1:length(typearray_f),typearray_f,.1,.1,type="h",family = "gaussian",ylab="mean of distinct types",xlab = "relative position of words in texts")
 
 ```
 
