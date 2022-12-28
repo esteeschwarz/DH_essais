@@ -621,7 +621,7 @@ tokenarray<-get_tarray()
 token_na<-tokenarray[!is.na(tokenarray)]
 q<-unique(mlx$lxtok)
 lxpmatches<-array()
-for(r in 1:length(dta_t$X_id)){
+for(r in 1:length(dta_t$page)){
 trange<-as.vector(token_na[dta_t$start[r]:dta_t$end[r]])
 mt<-match(trange,q)
 #tarray[mt]
@@ -823,3 +823,54 @@ y<-content(x,"text")
 df<-as.data.frame(y)
 jsonlite::fromJSON(y)
 }
+
+###### network part
+library(stylo)
+library(igraph)
+#library(network)
+
+#root<-"~/boxHKW/21S/DH"
+#rootdir<-getwd()
+workdir<-"../network"
+setwd(workdir)
+library(xfun)
+
+#corpusdir<-
+# stylo(gui=T,corpus.dir = speakerdir)
+#stylo
+# x<-stylo(mfw.min = 30,mfw.max = 70,corpus.dir<-workdir,display.on.screen = F,
+#         network=T,path=workdir,write.png.file=T,gui=T)
+dtanet<-stylo(mfw.min = 30,mfw.max = 70,display.on.screen = F,
+         network=T,path=workdir,write.png.file=T,gui=F,visualization=F,corpus.lang="german",dump.samples=F,output=F)
+
+#names(stylo.default.settings())
+#network according to MFW
+#dtanet<-read.csv("stylo_Consensus_100-100_MFWs_Culled_0__Classic Delta_C_0.5_EDGES.csv")
+# f<-list.files(workdir)
+# f
+# 
+# iscsv<-grep("csv", file_ext(f))
+# src<-f[iscsv][2]
+#edges <- read.csv("stylo_Consensus_100-100_MFWs_Culled_0__Classic Delta_C_0.5_EDGES.csv")
+#edges <- read.csv(src)
+
+plot_net<-function(set){
+edges<-dtanet$list.of.edges
+net <- graph_from_data_frame(d=edges, 
+                             directed=FALSE)
+
+n <- 5 # für die Knotengröße
+col <- "orange" # für die Knotenfarbe
+  V(net)$name<-dta_t$head[2:length(dta_t$head)]
+ # par(new=T)
+  # Knotengröße ändern
+  # Gekrümmte Kanten (edge.curved=.4) :
+  #par(new=T)
+  par(pty="m")
+  #par(pin=c(3.7,3.7))
+  plot(net, edge.arrow.size=.5,
+       vertex.size=n, vertex.color=col,
+       vertex.label=V(net)$name,
+       vertex.label.cex=.5, edge.curved=.6)
+}
+#plot(net)
