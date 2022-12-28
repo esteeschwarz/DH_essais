@@ -58,6 +58,7 @@ t<-Sys.time()
 ```
 ---
 bibliography: "`r y`"
+output: "`r output_o`"
 ---
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 #library(mongolite)
@@ -116,7 +117,7 @@ Die Arbeit wird explorativ vorgehen, dh. unser Erkenntnisinteresse ist durchaus 
 Bestimmung charakteristischer Merkmale im lyrischen Werk Uljana Wolfs mithilfe statistischer Methoden. 
 
 # zur autorin
-Uljana Wolf, in der Öffentlichkeit seit 2005 durch ihre Gedichte bekannt, wurde 2006 für ihr Debüt *kochanie ich habe brot gekauft* (kookbooks 2005) mit dem Peter-Huchel-Preis ausgezeichnet und veröffentlichte seitdem neben Übersetzungen und essayistischen Schriften zwei weitere Gedichtbände, ebenfalls bei *kookbooks*. Dort ist sie in ein enges Netzwerk junger deutschsprachiger Autor:innen eingebunden, die sich auch (hier zum Aspekt *postdeutsch*) mehrheitlich durch ihre Affinität zu mehr- oder polylingualer Dichtung auszeichnen. Es gibt bei kook kaum Dichter:innen, deren Werk nicht irgendwie Mehrsprachigkeit künstlerisch ausdrückt, damit arbeitet. 
+Uljana Wolf, der Öffentlichkeit seit 2005 durch ihre Gedichte bekannt, wurde 2006 für ihr Debüt *kochanie ich habe brot gekauft* (kookbooks 2005) mit dem Peter-Huchel-Preis ausgezeichnet und veröffentlichte seitdem neben Übersetzungen und essayistischen Schriften zwei weitere Gedichtbände, ebenfalls bei *kookbooks*. Dort ist sie in ein enges Netzwerk junger deutschsprachiger Autor:innen eingebunden, die sich auch (hier zum Aspekt *postdeutsch*) mehrheitlich durch ihre Affinität zu mehr- oder polylingualer Dichtung auszeichnen. Es gibt bei kook kaum Dichter:innen, deren Werk nicht irgendwie Mehrsprachigkeit künstlerisch ausdrückt, damit arbeitet. Nicht alle vereint eine wirklich (muttersprachliche Provenienz) in anderen europäischen u.a. Sprachen als dem Deutschen, die meisten jedoch deren unmittelbarer Einflusz auf ihre Dichtung. Uljana Wolf hält dazu in ihrem Aufsatz *ZU MEHRSPRACHIGKEIT IM GEDICHT* fest, dasz Mehrsprachigkeit "ein ästhetisches, kein biografisches Moment" sei und "dass auch von einsprachigen oder einmuttersprachigen Autor:innen translinguale Literatur durch verschiedene Schreibstrategien erzeugt werden kann, um festgefügte Sprachordnungen zu verunsichern." [@wolf_etymologischer_2021,118]. Wolf kommt nicht - sie meint, ihres *kochanie* wegen vielfach vermutet [@wolf_etymologischer_2021,5] - aus dem polnisch-ukrainischen Grenzland, sondern aus Ostberlin, hat jedoch intensiv russisch und eben auch polnisch gelernt (und gelebt) und sich in alle Sprachen begeben, die für sie fruchtbar waren; zahlreiche Stipendienaufenthalte und nicht zuletzt ihr zwischen New York und Berlin pendelndes Arbeitswesen zeugen davon.  
 
 # work
 ## corpus aufbereitung
