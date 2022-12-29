@@ -58,7 +58,7 @@ Seminar: "DIE SCHÖNSTEN LENGEVITCHES: DYNAMIKEN DER POST-DEUTSCHEN GEGENWARTSLY
 Dozentin: Clara Liso.   
 SoSe 2022.   
 eingereicht: `r Sys.Date()`   
-Arbeit als PDF: [view](`r pdfsrc`)
+weiteres format: `r message`
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -197,7 +197,7 @@ lty<-length(unique(token_na))
 #700/20000
 ```
 
-Wir werden versuchen, in der Arbeit einige Kennzahlen zu bestimmen, die charakteristisch für das Werk sein sollen. Basis sind hier Statistiken über Wortlängen und -frequenzen, Distribution multilingualer Elemente über das Korpus und Annäherungswerte zur Bestimmung des *sentiment*. Die Zahlen werden absolut und/oder relativ angegeben; absolut meint hier die konkrete Beziehung zu einer Position im Korpus, relativ meint jeweils die indexikalisierte, auf einer Gesamtheit v.H. angenommene Position oder Relation. Diese Relativierung ermöglicht eine gleichförmige Visualisierung der Daten in glatten Frequenzkurven, um die Verhältnisse schematisch abzubilden. (Zur Berechnung der Fourier-transformierten (FFT) Frequenzen cf. [[@jockers_revealing_2015]](https://www.matthewjockers.net/2015/02/02/syuzhet/))
+Wir werden versuchen, in der Arbeit einige Kennzahlen zu bestimmen, die charakteristisch für das Werk sein sollen. Basis sind hier Statistiken über Wortlängen und -frequenzen, Distribution multilingualer Elemente über das Korpus und Annäherungswerte zur Bestimmung des *sentiment*. Die Zahlen werden absolut und/oder relativ angegeben; absolut meint hier die konkrete Beziehung zu einer Position im Korpus, relativ meint jeweils die indexikalisierte, auf einer Gesamtheit v.H. angenommene Position oder Relation. Diese Relativierung ermöglicht eine gleichförmige Visualisierung der Daten in glatten Frequenzkurven, um die Verhältnisse schematisch abzubilden. (Zur Berechnung der Fourier-transformierten (FFT) Frequenzen cf. [@jockers_revealing_2015](https://www.matthewjockers.net/2015/02/02/syuzhet/))
 
 ### ground truth
 Die `r lc` Texte (Lyrik und lyrische oder experimentelle Prosa) haben einen Umfang von `r lto` Wörtern (tokens), die sich in `r lty` distinct types einteilen lassen, die type/token ratio, ein Indikator für *lexical diversity*, beträgt demnach `r lty/lto`. Die durchschnittliche Textlänge (median) beträgt `r md_t` Wörter. Wir haben noch keine Vergleichswerte, die sinnvoll wären...
@@ -241,9 +241,9 @@ Zum Beispiel lassen sich die Wortgleichungen visualisieren, die an bestimmten Po
 ```{r text-sim-gr,fig.cap="distinctness of word positions", echo = F,warning=FALSE}
 #end<-50
 #plot(typearray[1:50],type="h",xlab = paste0("first ", end," words of texts"),ylab="count of distinct types")
-# scatter.smooth(1:end,typearray[1:end],.1,.1,type="h",family = "gaussian",ylab="count of distinct types",xlab = paste0("first ", end," words of texts"))
+#scatter.smooth(1:end,typearray[1:end],.1,.1,type="h",family = "gaussian",ylab="count of distinct types",xlab = paste0("first ", end," words of texts"))
 
-#scatter.smooth(1:length(typearray_f),typearray_f,.1,.1,type="h",family = "gaussian",ylab="mean of distinct types",xlab = "relative position of words in texts")
+scatter.smooth(1:length(typearray_f),typearray_f,.1,.1,type="h",family = "gaussian",ylab="mean of distinct types",xlab = "relative position of words in texts")
 
 ```
 
@@ -260,6 +260,20 @@ scatter.smooth(1:length(chararray_f),chararray_f,.1,.1,type="h",family = "gaussi
 Für jeden einzelnen Text kann ein Wert bestimmt werden, der Aussagen darüber zuliesze, wo im Spektrum positive/negative sentiment sich dieser verorten läszt.
 Die absoluten *sentiment values* werden weiterhin durch Fourier-Transformation auf die Gesamtheit des Korpus projiziert, um eine glatte, von der absoluten Position unabhängige Darstellung zu ermöglichen. (cf. Figure \@ref(fig:sent-freq)).
 Welche Aussagen sich aus diesen Erkenntnissen ableiten lassen sollen, ist mir noch nicht ganz klar. I will elaborate on that.
+
+### in words
+summary:
+```{r echo=F}
+exc<-3
+print (mfw_dta[[exc]])
+#knitr::kable(mfw_dta,5,5)
+```
+```{css echo=F}
+pre {max-height: 400px;}
+#most-probable-text p {font-family: Courier;}
+```
+
+Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[exc]]$max$chapter``, lassen sich in [text:] ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind ``r names(mfw_dta[[exc]]$max$words)``, die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` mit ``r names(mfw_dta[[exc]]$min$words)``.
 
 ### visualisation
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
@@ -298,7 +312,7 @@ mfw_dta[[k]]<-mfw(dta,k)
 #  sent3<-get_transformed_values(sent2)
 ```
 
-Wir sehen in der frequenzanalysierten Graphik, dasz sich die relative Verteilung der sentiment values über die Bücher in der Tendenz unterscheidet. Während in *kochanie* und *lengevitch* schon zu Beginn Höhen verzeichnet sind, die Werte dann zur Buchmitte hin sinken, zeigt sich bei *FF* ein erster Wechsel von negativ zu positiv schon im ersten Drittel. Die Stimmung aller drei Bücher ist in der Mitte gleich negativ (bewertet), in *kochanie* aber schon wieder aufsteigend, *falsche freunde* weist die gröszten Schwankungen auf. 
+Wir sehen in den frequenzanalysierten Graphiken, dasz sich die relative Verteilung der sentiment values über die Bücher in der Tendenz unterscheidet. Während in *kochanie* und *lengevitch* schon zu Beginn Höhen verzeichnet sind, die Werte dann zur Buchmitte hin sinken, zeigt sich bei *FF* ein erster Wechsel von negativ zu positiv schon im ersten Drittel. Die Stimmung aller drei Bücher ist in der Mitte gleich negativ (bewertet), in *kochanie* aber schon wieder aufsteigend, *falsche freunde* weist die gröszten Schwankungen auf. 
 
 ```{r sent-comp,fig.cap="relative sentiment values singled",echo=FALSE}
 par(new=F)
@@ -326,23 +340,8 @@ In *kochanie* weisen die Werte die niedrigste, in *falsche freunde* die höchste
   plot(le$sentiment$cpt_s3,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus agglomerated",main="sentiment analysis over texts")
 ```
 
-### in words
-summary:
-```{r echo=F}
-exc<-3
-print (mfw_dta[[exc]])
-#knitr::kable(mfw_dta,5,5)
-```
-```{css echo=F}
-pre {max-height: 400px;}
-#most-probable-text p {font-family: Courier;}
-```
-
-Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[exc]]$max$chapter``, lassen sich in [text:] ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind ``r names(mfw_dta[[exc]]$max$words)``, die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` mit ``r names(mfw_dta[[exc]]$min$words)``.
-
 ### dependencies
 Mit der Regressionsanalyse des *R lme4 package* [@bates_fitting_2015] lassen sich hier Abhängigkeiten (Korrelationen) der *sentiment values* von verschiedenen Faktoren (chapter, book, multilingual elements) aufzeigen.
-
 
 #### book/chapter dependency
 summary:
