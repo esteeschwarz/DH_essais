@@ -326,6 +326,20 @@ In *kochanie* weisen die Werte die niedrigste, in *falsche freunde* die höchste
   plot(le$sentiment$cpt_s3,type = "h",col=2,ylab = "sentiment frequencies",xlab="corpus agglomerated",main="sentiment analysis over texts")
 ```
 
+### in words
+summary:
+```{r echo=F}
+exc<-3
+print (mfw_dta[[exc]])
+#knitr::kable(mfw_dta,5,5)
+```
+```{css echo=F}
+pre {max-height: 400px;}
+#most-probable-text p {font-family: Courier;}
+```
+
+Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[exc]]$max$chapter``, lassen sich in [text:] ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind ``r names(mfw_dta[[exc]]$max$words)``, die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` mit ``r names(mfw_dta[[exc]]$min$words)``.
+
 ### dependencies
 Mit der Regressionsanalyse des *R lme4 package* [@bates_fitting_2015] lassen sich hier Abhängigkeiten (Korrelationen) der *sentiment values* von verschiedenen Faktoren (chapter, book, multilingual elements) aufzeigen.
 
@@ -416,20 +430,6 @@ dfeval<-c(round(lmmax,6),cnsmax,cnsmin,round(lmdif1,2),cnsmed,round(lmdif2,2),ro
 Die Abhängigkeit der sentiment values vom Vorhandensein multilingualer Elemente läszt sich kurz umreiszen: Wir stellen den gröszten Zusammenhang mit [coefficient] ``r get_lmer(5,2:4)[1]`` bei ``r get_lmer(5,2:4)[2]`` fest, die Differenz zu ``r get_lmer(5,2:4)[3]`` beträgt ``r get_lmer(5,2:4)[4]``, zu ``r get_lmer(5,2:4)[5]`` ``r get_lmer(5,2:4)[6]`` Punkte, der Abstand der Abhängigkeit hier also ``r get_lmer(5,2:4)[7]`` Punkte.   
 
 Die Abhängigkeit der sentiment values von der type/token ratio der Texte ebenfalls kurz umrissen: Wir stellen den gröszten Zusammenhang mit [coefficient] ``r get_lmer(6,2:4)[1]`` bei ``r get_lmer(6,2:4)[2]`` fest, die Differenz zu ``r get_lmer(6,2:4)[3]`` beträgt ``r get_lmer(6,2:4)[4]``, zu ``r get_lmer(6,2:4)[5]`` ``r get_lmer(6,2:4)[6]`` Punkte, der Abstand der Abhängigkeit hier also ``r get_lmer(6,2:4)[7]`` Punkte.   
-
-### in words
-summary:
-```{r echo=F}
-print (mfw_dta)
-#knitr::kable(mfw_dta,5,5)
-exc<-3
-```
-```{css echo=F}
-pre {max-height: 400px;}
-#most-probable-text p {font-family: Courier;}
-```
-
-Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[exc]]$max$chapter``, lassen sich in [text:] ``r mfw_dta[[exc]]$max$head`` finden. Die *most frequent words* dieses Abschnitts sind ``r names(mfw_dta[[exc]]$max$words)``, die niedrigsten finden sich im Text ``r mfw_dta[[exc]]$min$head`` mit ``r names(mfw_dta[[exc]]$min$words)``.
 
 ## nice network
 ```{r plot-net,fig.cap="coocurrences network of text elements",echo=F,warning=F}
