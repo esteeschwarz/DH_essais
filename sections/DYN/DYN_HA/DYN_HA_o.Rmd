@@ -65,7 +65,7 @@ bibliography: DYN_HA.bib
 # A. head
 Hausarbeit im Fach AVL, Modul "Vergleichende Literaturgeschichte".   
 Seminar: "DIE SCHÖNSTEN LENGEVITCHES: DYNAMIKEN DER POST-DEUTSCHEN GEGENWARTSLYRIK".    
-Dozentin: Clara Liso.   
+Dozentin: Chiara Liso.   
 SoSe 2022.   
 eingereicht: `r Sys.Date()`   
 weiteres format: `r message`
