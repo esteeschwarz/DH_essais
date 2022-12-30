@@ -9,15 +9,21 @@ title: "DYN HA / SS22 FUB / Liso"
 author: "st. schwarz"
 date: "`r Sys.time()`"
 zotero: AVL_dyn
+fontfamily: iwona
+
 output:
+  bookdown::pdf_document2:
+    extra_dependencies: ["float"]
   bookdown::html_document2:
     global_numbering: TRUE
     number_sections: TRUE
     code_download: yes
     toc: yes
+    toc_depth: 4
     toc_float:
       collapsed: no
       smooth_scroll: no
+      #toc-depth: 4
     self_contained: FALSE #TRUE for standalone html page knit
 #css: ../style_HA.css
 #swap / decomment ff .bib/.css references for self compile .Rmd to html
@@ -48,7 +54,11 @@ output:
 #     fontfamily: Arial
 #     linkcolor: blue
 #     links-as-notes: false
-  
+number_sections: yes
+global_numbering: yes
+linkcolor: blue  ##leftleft
+toc-depth: 4  ##leftleft
+
 
 bibliography: DYN_HA.bib
 ---
@@ -60,8 +70,8 @@ SoSe 2022.
 eingereicht: `r Sys.Date()`   
 weiteres format: `r message`
 
-```{r setup, include=TRUE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
 knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
 #knitr::opts_knit$get("out.format"="html")
 #mini critical: dont find relative files in path
@@ -333,7 +343,7 @@ In *kochanie* weisen die Werte die niedrigste, in *falsche freunde* die höchste
 ### dependencies
 Mit der Regressionsanalyse des *R lme4 package* [@bates_fitting_2015] lassen sich hier Abhängigkeiten (Korrelationen) der *sentiment values* von verschiedenen Faktoren (chapter, book, multilingual elements) aufzeigen.
 
-#### book/chapter dependency
+#### book/chapter dependency   
 summary:
 
 ```{r sum-lmer, echo=FALSE}
