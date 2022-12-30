@@ -60,9 +60,9 @@ SoSe 2022.
 eingereicht: `r Sys.Date()`   
 weiteres format: `r message`
 
-```{r setup, include=FALSE}
+```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
-#knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
+knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
 #knitr::opts_knit$get("out.format"="html")
 #mini critical: dont find relative files in path
 #knitr::opts_knit$set(root.dir="/")
@@ -97,7 +97,7 @@ tf<-format(t,"%Y%m%d(%H.%M)")
 bibliography: "`r y`"
 date: `r tf`
 ---
-```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #library(mongolite)
 #library(jsonlite)
 library(syuzhet)
@@ -140,6 +140,13 @@ library(quanteda)
 #source("/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
    source(src_se)
   lc<-length(dta$content)-1
+  mfw_dta<-list()
+for (k in 2: length(chapter_ex)){
+  
+
+mfw_dta[[k]]<-mfw(dta,k)
+}
+
 
     
 ```
@@ -169,23 +176,8 @@ herangezogen.
 
 ## basic statistics
 ```{r echo = FALSE,warning=FALSE}
-# wolfcpt<-dta$content
-# wolftokens<-stri_count_boundaries(wolfcpt,"word")
-# dta$tokens<-wolftokens
-# tk1<-dta$tokens[dta$book_id==1]
-# tk2<-dta$tokens[dta$book_id==2]
-# tk3<-dta$tokens[dta$book_id==3]
-# stk1<-sum(tk1,na.rm = T)
-# stk2<-sum(tk2,na.rm = T)
-# stk3<-sum(tk3,na.rm = T)
-# stkcpt<-sum(dta$tokens,na.rm = T)
-# wolfcpt_s<-stri_split_boundaries(dta$content,type="word")
-# wolfcpt_s
 md_t<-median(dta_t$tokens) #durchschnittliche textlänge
-#dta_t$types
-#set$types
 min_t<-min(dta_t$tokens[2:length(dta_t$tokens)])
-#lxtable<-get_lxtable(src_lx)
 mlx<-subset(lxtable,lxtable$multi=="multiLX")
 lmlx<-length(mlx$lxtok)
 mlx_u<-unique(mlx$lxtok[1:lmlx])
@@ -193,8 +185,6 @@ tokenarray<-get_tarray()
 token_na<-tokenarray[!is.na(tokenarray)]
 lto<-length(token_na)
 lty<-length(unique(token_na))
-
-#700/20000
 ```
 
 Wir werden versuchen, in der Arbeit einige Kennzahlen zu bestimmen, die charakteristisch für das Werk sein sollen. Basis sind hier Statistiken über Wortlängen und -frequenzen, Distribution multilingualer Elemente über das Korpus und Annäherungswerte zur Bestimmung des *sentiment*. Die Zahlen werden absolut und/oder relativ angegeben; absolut meint hier die konkrete Beziehung zu einer Position im Korpus, relativ meint jeweils die indexikalisierte, auf einer Gesamtheit v.H. angenommene Position oder Relation. Diese Relativierung ermöglicht eine gleichförmige Visualisierung der Daten in glatten Frequenzkurven, um die Verhältnisse schematisch abzubilden. (Zur Berechnung der Fourier-transformierten (FFT) Frequenzen cf. [@jockers_revealing_2015](https://www.matthewjockers.net/2015/02/02/syuzhet/))
@@ -207,15 +197,8 @@ Die multilingualen Elemente des Korpus (insgesamt `r lmlx` tokens) haben einen A
 Mit der Textmatrix (cf. Table \@ref(tab:text-matrix)) läszt sich noch weiter rechnen.
 
 ```{r lx-matches, echo=F,fig.cap="multilingual elements over corpus",warning=FALSE}
-#lxm_f<-get_transformed_values(get_lxmatches())
-
 sent_global_f<-get_transformed_values(sent_global)
 plot(get_lxmatches(),type = "h",xlab="text corpus",ylab="occurences", main="occurences of non german words")
-###
-#par(new=T)
-#plot(sent_global_f,type = "h",col=2,xaxt="n",yaxt="n",ann = F)
-
-#scatter.smooth(1:length(sent_global),sent_global,.1,.1,type="l",family = "gaussian",col=2,xaxt="n",yaxt="n",ann = F)
 ```
 
 ### similarities
@@ -263,8 +246,15 @@ Welche Aussagen sich aus diesen Erkenntnissen ableiten lassen sollen, ist mir no
 
 ### in words
 summary:
-```{r echo=F}
+```{r echo=F,eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 exc<-3
+# mfw_dta<-list()
+# for (k in 2: length(chapter_ex)){
+#   
+# 
+# mfw_dta[[k]]<-mfw(dta,k)
+# }
+
 print (mfw_dta[[exc]])
 #knitr::kable(mfw_dta,5,5)
 ```
@@ -285,12 +275,12 @@ Zum Beispiel: Die höchsten *sentiment* Werte, hier in [chapter:] ``r mfw_dta[[e
 #dtatarget<-plotsentiment(dtatxt,book,chapter,plot_abs,3) #ARG: (set,book,chapter,absolute)
 #out dta_t<-get_types(dta,1)
 le<-do_sentiment(dta_t)
-mfw_dta<-list()
-for (k in 2: length(chapter_ex)){
-  
-
-mfw_dta[[k]]<-mfw(dta,k)
-}
+# mfw_dta<-list()
+# for (k in 2: length(chapter_ex)){
+#   
+# 
+# mfw_dta[[k]]<-mfw(dta,k)
+# }
 #mfw_dta[[3]]$max$id
 ```
 
