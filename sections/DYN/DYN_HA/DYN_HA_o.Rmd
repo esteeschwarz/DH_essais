@@ -67,8 +67,9 @@ Hausarbeit im Fach AVL, Modul "Vergleichende Literaturgeschichte".
 Seminar: "DIE SCHÖNSTEN LENGEVITCHES: DYNAMIKEN DER POST-DEUTSCHEN GEGENWARTSLYRIK".    
 Dozentin: Chiara Liso.   
 SoSe 2022.   
-eingereicht: `r Sys.Date()`   
-weiteres format: `r message`
+eingereicht: `r date_abgabe`   
+edited: `r date_edit`   
+anderes format: `r message`   
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -105,7 +106,7 @@ tf<-format(t,"%Y%m%d(%H.%M)")
 ```
 ---
 bibliography: "`r y`"
-date: `r tf`
+date: `r timestamp_act`
 ---
 ```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #library(mongolite)
