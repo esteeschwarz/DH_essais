@@ -1,10 +1,4 @@
-word;;stop
-"
-";WAHR;1
-" 
-";WAHR;1
-    ;WAHR;1
-        ;WAHR;1
+word;value;stop
 "_ 
 ";WAHR;1
 -;WAHR;1
@@ -13,58 +7,27 @@ word;;stop
 -uhichten ;WAHR;1
 , ;WAHR;1
 ,,ein ;WAHR;1
-,,Ereignisse ;FALSCH;0
 ,,i ;WAHR;1
-,,people ;FALSCH;0
-,liindlicher ;WAHR;1
-.,Ausgehend ;WAHR;1
+,liindlicher ;WAHR;0
+.,Ausgehend ;WAHR;0
 """as ";WAHR;1
 „als ;WAHR;1
 „einen ;WAHR;1
-"„fenster"" ";FALSCH;0
-„geistige ;FALSCH;0
-"„solide 
-";FALSCH;0
-"„spitze 
-";FALSCH;0
-"„spitze"" ";FALSCH;0
-"„zumutbar"". ";FALSCH;0
 ( dahin ) ;WAHR;1
-( deck ;FALSCH;0
-( Freud ;FALSCH;0
 ( mein ;WAHR;1
 ( sagt ;WAHR;1
-( schleier ) ;FALSCH;0
 "( tat 
-";FALSCH;0
+";FALSCH;1
 ( u ;WAHR;1
-( vergeigten) ;FALSCH;0
 ( weil ;WAHR;1
 ( what ;WAHR;1
 ( wo ;WAHR;1
 (als ;WAHR;1
 (auf ;WAHR;1
-(auto-;FALSCH;0
 (ein ;WAHR;1
-(fenster ;FALSCH;0
 (for ;WAHR;1
-(freudless ;FALSCH;0
-(grün) ;FALSCH;0
 (in ;WAHR;1
-(irrationale) ;FALSCH;0
 (it ;WAHR;1
-(lines) ;FALSCH;0
-(lining). ;FALSCH;0
-(mitten ;FALSCH;0
-(ohr) ;FALSCH;0
-(russ. ;FALSCH;0
-(schlag ;FALSCH;0
-(strait ;FALSCH;0
-(symptom) ;FALSCH;0
-(themen) ;FALSCH;0
-"(timemissing)"" 
-";FALSCH;0
-(tinseln?), ;FALSCH;0
 [, ;WAHR;1
 "[rioolite 
 ";WAHR;1
@@ -105,13 +68,329 @@ a) ;WAHR;1
 ab ;WAHR;1
 ab.;WAHR;1
 ab. ;WAHR;1
+aber ;WAHR;1
+"aber 
+";WAHR;1
+"about 
+";WAHR;1
+abrr ;WAHR;1
+Abs. ;WAHR;1
+again, ;WAHR;1
+again. ;WAHR;1
+als ;WAHR;1
+also ;WAHR;1
+also, ;WAHR;1
+although ;WAHR;1
+am ;WAHR;1
+an ;WAHR;1
+an, ;WAHR;1
+an.;WAHR;1
+an. ;WAHR;1
+and ;WAHR;1
+ans ;WAHR;1
+around ;WAHR;1
+as ;WAHR;1
+at ;WAHR;1
+au-;WAHR;1
+auch ;WAHR;1
+"auch 
+";WAHR;1
+auch, ;WAHR;1
+auch: ;WAHR;1
+auch. ;WAHR;1
+auf ;WAHR;1
+auf, ;WAHR;1
+auf. ;WAHR;1
+aus ;WAHR;1
+aus, ;WAHR;1
+aus. ;WAHR;1
+b ;WAHR;1
+b. ;WAHR;1
+b) ;WAHR;1
+be?;WAHR;1
+be? ;WAHR;1
+been ;WAHR;1
+bei ;WAHR;1
+beim ;WAHR;1
+"beim 
+";WAHR;1
+bin ;WAHR;1
+bis ;WAHR;1
+bis, ;WAHR;1
+but ;WAHR;1
+by ;WAHR;1
+by, ;WAHR;1
+can ;WAHR;1
+cri. ;WAHR;1
+d ;WAHR;1
+d. ;WAHR;1
+D1P;WAHR;1
+da ;WAHR;1
+"da 
+";WAHR;1
+da, ;WAHR;1
+da? ;WAHR;1
+"da?""";WAHR;1
+damit ;WAHR;1
+"damit 
+";WAHR;1
+dann ;WAHR;1
+dann, ;WAHR;1
+das ;WAHR;1
+das, ;WAHR;1
+dass;WAHR;1
+dass ;WAHR;1
+"dass 
+";WAHR;1
+davon ;WAHR;1
+dazu ;WAHR;1
+dazu. ;WAHR;1
+de ;WAHR;1
+dem ;WAHR;1
+"dem 
+";WAHR;1
+den ;WAHR;1
+"den 
+";WAHR;1
+denn ;WAHR;1
+"denn 
+";WAHR;1
+der ;WAHR;1
+deren ;WAHR;1
+des ;WAHR;1
+did ;WAHR;1
+die ;WAHR;1
+"die 
+";WAHR;1
+die. ;WAHR;1
+diese ;WAHR;1
+diesem ;WAHR;1
+diesen ;WAHR;1
+dieser ;WAHR;1
+dieses ;WAHR;1
+durch ;WAHR;1
+"ein 
+";WAHR;1
+ein, ;WAHR;1
+ein.;WAHR;1
+eine ;WAHR;1
+"eine 
+";WAHR;1
+einem ;WAHR;1
+einen ;WAHR;1
+einer ;WAHR;1
+"einer 
+";WAHR;1
+einer, ;WAHR;1
+eines ;WAHR;1
+es;WAHR;1
+es ;WAHR;1
+"es 
+";WAHR;1
+es, ;WAHR;1
+go ;WAHR;1
+goes ;WAHR;1
+going ;WAHR;1
+h. ;WAHR;1
+habe ;WAHR;1
+haben ;WAHR;1
+"haben 
+";WAHR;1
+haben, ;WAHR;1
+haben. ;WAHR;1
+hat, ;WAHR;1
+hat. ;WAHR;1
+hatte ;WAHR;1
+hätte ;WAHR;1
+hatten ;WAHR;1
+hatten, ;WAHR;1
+have ;WAHR;1
+im ;WAHR;1
+"im 
+";WAHR;1
+in ;WAHR;1
+in.;WAHR;1
+in. ;WAHR;1
+ins ;WAHR;1
+"ins 
+";WAHR;1
+into ;WAHR;1
+is ;WAHR;1
+ist ;WAHR;1
+ist, ;WAHR;1
+it ;WAHR;1
+it's ;WAHR;1
+k-;WAHR;1
+l ;WAHR;1
+L ;WAHR;1
+l6.;WAHR;1
+ld ;WAHR;1
+lu ;WAHR;1
+lu-;WAHR;1
+m ;WAHR;1
+mr. ;WAHR;1
+mrs. ;WAHR;1
+muss ;WAHR;1
+muss ...;WAHR;1
+muss, ;WAHR;1
+muss. ;WAHR;1
+musst ;WAHR;1
+n ;WAHR;1
+nd ;WAHR;1
+noch ;WAHR;1
+noch-;WAHR;1
+noch, ;WAHR;1
+noch. ;WAHR;1
+o ;WAHR;1
+o'clock ;WAHR;0
+ob ;WAHR;1
+oder ;WAHR;1
+"oder 
+";WAHR;1
+or ;WAHR;1
+p. ;WAHR;1
+r ;WAHR;1
+r-;WAHR;1
+rlc-;WAHR;1
+rluzu., ;WAHR;1
+rn ;WAHR;1
+schon ;WAHR;1
+schon, ;WAHR;1
+schon. ;WAHR;1
+sei ;WAHR;1
+seid ;WAHR;1
+sein ;WAHR;1
+"sein 
+";WAHR;1
+sein. ;WAHR;1
+seine ;WAHR;1
+seinem ;WAHR;1
+seinen ;WAHR;1
+seiner ;WAHR;1
+seit ;WAHR;1
+sich;WAHR;1
+sich ;WAHR;1
+"sich 
+";WAHR;1
+sich, ;WAHR;1
+sich. ;WAHR;1
+sind ;WAHR;1
+"sind 
+";WAHR;1
+sind, ;WAHR;1
+sind: ;WAHR;1
+sind. ;WAHR;1
+so ;WAHR;1
+so, ;WAHR;1
+so: ;WAHR;1
+so/;WAHR;1
+sogar ;WAHR;1
+solchem ;WAHR;1
+solcher ;WAHR;1
+solches ;WAHR;1
+statt ;WAHR;1
+such ;WAHR;1
+t ;WAHR;1
+the ;WAHR;1
+"this 
+";WAHR;1
+till ;WAHR;1
+to ;WAHR;1
+u ;WAHR;1
+über ;WAHR;1
+ui ;WAHR;1
+um ;WAHR;1
+und ;WAHR;1
+"und 
+";WAHR;1
+une ;WAHR;1
+unter ;WAHR;1
+unterm ;WAHR;1
+usw. ;WAHR;1
+usw.) ;WAHR;1
+vom ;WAHR;1
+von ;WAHR;1
+"von 
+";WAHR;1
+vor ;WAHR;1
+vor, ;WAHR;1
+vor. ;WAHR;1
+vorm ;WAHR;1
+w ;WAHR;1
+war ;WAHR;1
+war. ;WAHR;1
+wäre ;WAHR;1
+wären ;WAHR;1
+wären. ;WAHR;1
+was ;WAHR;1
+"was 
+";WAHR;1
+was, ;WAHR;1
+wen ;WAHR;1
+wenn ;WAHR;1
+wer ;WAHR;1
+what ;WAHR;1
+what. ;WAHR;1
+where;WAHR;1
+which ;WAHR;1
+who ;WAHR;1
+wie ;WAHR;1
+Wie ;WAHR;1
+"wie 
+";WAHR;1
+wie ) ;WAHR;1
+wie) ;WAHR;1
+wieder ;WAHR;1
+wieder, ;WAHR;1
+wo ;WAHR;1
+wurde ;WAHR;1
+wurden, ;WAHR;1
+würden, ;WAHR;1
+z. ;WAHR;1
+zt ;WAHR;1
+"zu
+";WAHR;1
+zu ;WAHR;1
+zu, ;WAHR;1
+zu. ;WAHR;1
+zum ;WAHR;1
+zur ;WAHR;1
+zwar ;WAHR;1
+,,Ereignisse ;FALSCH;0
+,,people ;FALSCH;0
+"„fenster"" ";FALSCH;0
+„geistige ;FALSCH;0
+"„solide 
+";FALSCH;0
+"„spitze 
+";FALSCH;0
+"„spitze"" ";FALSCH;0
+"„zumutbar"". ";FALSCH;0
+( deck ;FALSCH;0
+( Freud ;FALSCH;0
+( schleier ) ;FALSCH;0
+( vergeigten) ;FALSCH;0
+(auto-;FALSCH;0
+(fenster ;FALSCH;0
+(freudless ;FALSCH;0
+(grün) ;FALSCH;0
+(irrationale) ;FALSCH;0
+(lines) ;FALSCH;0
+(lining). ;FALSCH;0
+(mitten ;FALSCH;0
+(ohr) ;FALSCH;0
+(russ. ;FALSCH;0
+(schlag ;FALSCH;0
+(strait ;FALSCH;0
+(symptom) ;FALSCH;0
+(themen) ;FALSCH;0
+"(timemissing)"" 
+";FALSCH;0
+(tinseln?), ;FALSCH;0
 abbau ;FALSCH;0
 abbrechen ;FALSCH;0
 abend ;FALSCH;0
 abende, ;FALSCH;0
-aber ;WAHR;1
-"aber 
-";WAHR;1
 abgekommen, ;FALSCH;0
 abgerissen ;FALSCH;0
 abgeseilt, ;FALSCH;0
@@ -122,13 +401,9 @@ ablegen ;FALSCH;0
 ablenkung. ;FALSCH;0
 abnabeln, ;FALSCH;0
 abnehmen ;FALSCH;0
-"about 
-";WAHR;1
 abreiben ;FALSCH;0
 abreibestelle, ;FALSCH;0
 abreibung, ;FALSCH;0
-abrr ;WAHR;1
-Abs. ;WAHR;1
 abschlagen? ;FALSCH;0
 absehen ;FALSCH;0
 abständen ;FALSCH;0
@@ -141,8 +416,6 @@ adel ;FALSCH;0
 adeln, ;FALSCH;0
 adern ;FALSCH;0
 affektiver ;FALSCH;0
-again, ;WAHR;1
-again. ;WAHR;1
 ah ;FALSCH;0
 "ähnelt 
 ";FALSCH;0
@@ -155,11 +428,11 @@ ahweh, ;FALSCH;0
 albenvolle ;FALSCH;0
 alexandria. ;FALSCH;0
 Alice! ;FALSCH;0
-all ;WAHR;1
-all, ;WAHR;1
-alle ;WAHR;1
-Alle ;WAHR;1
-alle.;WAHR;1
+all ;WAHR;0
+all, ;WAHR;0
+alle ;WAHR;0
+Alle ;WAHR;0
+alle.;WAHR;0
 allein ;FALSCH;0
 allem ;FALSCH;0
 allem, ;FALSCH;0
@@ -169,22 +442,12 @@ allerdings ;FALSCH;0
 alles ;FALSCH;0
 "allmählich 
 ";FALSCH;0
-als ;WAHR;1
-also ;WAHR;1
-also, ;WAHR;1
 alt ;FALSCH;0
 alte ;FALSCH;0
 alten ;FALSCH;0
-although ;WAHR;1
 alveolar ;FALSCH;0
-am ;WAHR;1
 amt, ;FALSCH;0
 amüsiert, ;FALSCH;0
-an ;WAHR;1
-an, ;WAHR;1
-an.;WAHR;1
-an. ;WAHR;1
-and ;WAHR;1
 andere ;FALSCH;0
 anderen ;FALSCH;0
 anderer ;FALSCH;0
@@ -213,7 +476,6 @@ annablumetalent! ;FALSCH;0
 annan ;FALSCH;0
 another ;FALSCH;0
 anprall ;FALSCH;0
-ans ;WAHR;1
 "ansah""";FALSCH;0
 anschauen, ;FALSCH;0
 anschaute, ;FALSCH;0
@@ -241,33 +503,20 @@ arme. ;FALSCH;0
 ärmel ;FALSCH;0
 ärmeln ;FALSCH;0
 armen, ;FALSCH;0
-around ;WAHR;1
 arrangieren ;FALSCH;0
 art ;FALSCH;0
 Art ;FALSCH;0
 artig ;FALSCH;0
 artikel ;FALSCH;0
-as ;WAHR;1
 ashberys ;FALSCH;0
 ästen, ;FALSCH;0
 ästlein ;FALSCH;0
 asyl ;FALSCH;0
-at ;WAHR;1
 atemabstand ;FALSCH;0
 "athletik 
 ";FALSCH;0
 atlantik, ;FALSCH;0
 attrition, ;FALSCH;0
-au-;WAHR;1
-auch ;WAHR;1
-"auch 
-";WAHR;1
-auch, ;WAHR;1
-auch: ;WAHR;1
-auch. ;WAHR;1
-auf ;WAHR;1
-auf, ;WAHR;1
-auf. ;WAHR;1
 aufbau ;FALSCH;0
 aufbaus, ;FALSCH;0
 aufbockt, ;FALSCH;0
@@ -295,9 +544,6 @@ augenspitze ;FALSCH;0
 ";FALSCH;0
 augenübergehn ;FALSCH;0
 augenweitendes ;FALSCH;0
-aus ;WAHR;1
-aus, ;WAHR;1
-aus. ;WAHR;1
 ausgebauten ;FALSCH;0
 ausgebildetes, ;FALSCH;0
 ausgesetzt ;FALSCH;0
@@ -311,9 +557,6 @@ außen ;FALSCH;0
 ausspracheregeln ;FALSCH;0
 aussuchen ;FALSCH;0
 austreibt ;FALSCH;0
-b ;WAHR;1
-b. ;WAHR;1
-b) ;WAHR;1
 babeltrack ;FALSCH;0
 bad ;FALSCH;0
 bahnen, ;FALSCH;0
@@ -341,15 +584,12 @@ baum ;FALSCH;0
 baum: ;FALSCH;0
 baum. ;FALSCH;0
 Bayern§ ;FALSCH;0
-be?;WAHR;1
-be? ;WAHR;1
 becher ;FALSCH;0
 becher, ;FALSCH;0
 becherchen. ;FALSCH;0
 bedacht ;FALSCH;0
 bedenke ;FALSCH;0
 bedeutungsschwanger ;FALSCH;0
-been ;WAHR;1
 beere, ;FALSCH;0
 beerenpause ;FALSCH;0
 beerenpause, ;FALSCH;0
@@ -359,14 +599,10 @@ begrüßen ;FALSCH;0
 beherrschen ;FALSCH;0
 beherrschte ;FALSCH;0
 behördlich. ;FALSCH;0
-bei ;WAHR;1
 "beiden 
 ";FALSCH;0
 beider ;FALSCH;0
 beige ;FALSCH;0
-beim ;WAHR;1
-"beim 
-";WAHR;1
 bein ;FALSCH;0
 beinahe ;FALSCH;0
 beispiel ;FALSCH;0
@@ -407,9 +643,6 @@ bild ;FALSCH;0
 bild. ;FALSCH;0
 bilden ;FALSCH;0
 bilingual ;FALSCH;0
-bin ;WAHR;1
-bis ;WAHR;1
-bis, ;WAHR;1
 "bisschen) 
 ";FALSCH;0
 black ;FALSCH;0
@@ -501,14 +734,10 @@ buh, ;FALSCH;0
 bürgerlicher ;FALSCH;0
 bus ;FALSCH;0
 business ;FALSCH;0
-but ;WAHR;1
-by ;WAHR;1
-by, ;WAHR;1
 cäcilie ;FALSCH;0
 "calves 
 ";FALSCH;0
 Camp, ;FALSCH;0
-can ;WAHR;1
 cancelt ;FALSCH;0
 "ceillet 
 ";FALSCH;0
@@ -528,55 +757,30 @@ conversion ;FALSCH;0
 "cotton 
 ";FALSCH;0
 cramps ;FALSCH;0
-cri. ;WAHR;1
-d ;WAHR;1
-d. ;WAHR;1
-D1P;WAHR;1
-da ;WAHR;1
-"da 
-";WAHR;1
-da, ;WAHR;1
-da? ;WAHR;1
-"da?""";WAHR;1
 dabei ;FALSCH;0
 dächer ;FALSCH;0
 dafür ;FALSCH;0
 dagegen ;FALSCH;0
 dahinter ;FALSCH;0
 dame ;FALSCH;0
-damit ;WAHR;1
-"damit 
-";WAHR;1
 dämmerns ;FALSCH;0
 dämmerung ;FALSCH;0
 dampfend, ;FALSCH;0
 dancerbeard ;FALSCH;0
 daneben, ;FALSCH;0
-dann ;WAHR;1
-dann, ;WAHR;1
 darauf ;FALSCH;0
 darbend. ;FALSCH;0
 darin, ;FALSCH;0
 darin.;FALSCH;0
 darüber ;FALSCH;0
-darum ;FALSCH;0
-darum, ;FALSCH;0
-das ;WAHR;1
-das, ;WAHR;1
-dass;WAHR;1
-dass ;WAHR;1
-"dass 
-";WAHR;1
+darum ;FALSCH;1
+darum, ;FALSCH;1
 dattern ;FALSCH;0
 "dattern 
 ";FALSCH;0
 "daumengroß 
 ";FALSCH;0
-davon ;WAHR;1
-dazu ;WAHR;1
-dazu. ;WAHR;1
 dazwischen ;FALSCH;0
-de ;WAHR;1
 deck ;FALSCH;0
 deckchen ;FALSCH;0
 decke, ;FALSCH;0
@@ -588,25 +792,13 @@ dehnung ;FALSCH;0
 dein ;FALSCH;0
 deine ;FALSCH;0
 deiner ;FALSCH;0
-dem ;WAHR;1
-"dem 
-";WAHR;1
-den ;WAHR;1
-"den 
-";WAHR;1
 denen ;FALSCH;0
 denken ;FALSCH;0
 denklichen ;FALSCH;0
-denn ;WAHR;1
-"denn 
-";WAHR;1
 dennoch, ;FALSCH;0
 deplacierer, ;FALSCH;0
-der ;WAHR;1
-deren ;WAHR;1
 derselbe ;FALSCH;0
 derweil ;FALSCH;0
-des ;WAHR;1
 deutend ;FALSCH;0
 deutlich ;FALSCH;0
 deutschen ;FALSCH;0
@@ -615,18 +807,8 @@ dich, ;FALSCH;0
 dichterdoktor ;FALSCH;0
 dick ;FALSCH;0
 dickichten, ;FALSCH;0
-did ;WAHR;1
 dideldum: ;FALSCH;0
-die ;WAHR;1
-"die 
-";WAHR;1
-die. ;WAHR;1
 dienst ;FALSCH;0
-diese ;WAHR;1
-diesem ;WAHR;1
-diesen ;WAHR;1
-dieser ;WAHR;1
-dieses ;WAHR;1
 dieu ;FALSCH;0
 different ;FALSCH;0
 diktieren, ;FALSCH;0
@@ -642,15 +824,15 @@ direktverbindung ;FALSCH;0
 dis: ;FALSCH;0
 dislike ;FALSCH;0
 disorder ;FALSCH;0
-doch ;FALSCH;0
-doesn't ;FALSCH;0
+doch ;FALSCH;1
+doesn't ;FALSCH;1
 dog ;FALSCH;0
 dog. ;FALSCH;0
 doktor ;FALSCH;0
 doktor, ;FALSCH;0
 doktor. ;FALSCH;0
 dolmetscher ;FALSCH;0
-don't ;FALSCH;0
+don't ;FALSCH;1
 doppel ;FALSCH;0
 doppel. ;FALSCH;0
 doppeln, ;FALSCH;0
@@ -663,15 +845,15 @@ dorthin ;FALSCH;0
 döselte. ;FALSCH;0
 dösen, ;FALSCH;0
 dösiger ;FALSCH;0
-dran. ;FALSCH;0
+dran. ;FALSCH;1
 drängte ;FALSCH;0
-draus ;FALSCH;0
+draus ;FALSCH;1
 draußen ;FALSCH;0
 draußen, ;FALSCH;0
 drehtest ;FALSCH;0
 dreieinhalb ;FALSCH;0
 dreimal ;FALSCH;0
-drin ;FALSCH;0
+drin ;FALSCH;1
 drive ;FALSCH;0
 drüber. ;FALSCH;0
 druck ;FALSCH;0
@@ -685,7 +867,6 @@ dunkel), ;FALSCH;0
 dunkeldeutsch ;FALSCH;0
 dunklen ;FALSCH;0
 dünne ;FALSCH;0
-durch ;WAHR;1
 durchbrechung ;FALSCH;0
 durchbruchsgurren, ;FALSCH;0
 durchfressen. ;FALSCH;0
@@ -698,7 +879,7 @@ dürfen ;FALSCH;0
 durst, ;FALSCH;0
 durst. ;FALSCH;0
 DVAsyl ;FALSCH;0
-eben ;FALSCH;0
+eben ;FALSCH;1
 echo. ;FALSCH;0
 eckzähne, ;FALSCH;0
 egal, ;FALSCH;0
@@ -712,22 +893,8 @@ eigenen ;FALSCH;0
 eigenhändig ;FALSCH;0
 eigenschaftswörter, ;FALSCH;0
 eignes ;FALSCH;0
-ein ;FALSCH;0
-"ein 
-";WAHR;1
-ein, ;WAHR;1
-ein.;WAHR;1
+ein ;FALSCH;1
 einander ;FALSCH;0
-eine ;WAHR;1
-"eine 
-";WAHR;1
-einem ;WAHR;1
-einen ;WAHR;1
-einer ;WAHR;1
-"einer 
-";WAHR;1
-einer, ;WAHR;1
-eines ;WAHR;1
 einfällt, ;FALSCH;0
 eingerollt, ;FALSCH;0
 eingesperrt, ;FALSCH;0
@@ -783,11 +950,6 @@ erwischt, ;FALSCH;0
 "erzählt 
 ";FALSCH;0
 erzeugen, ;FALSCH;0
-es;WAHR;1
-es ;WAHR;1
-"es 
-";WAHR;1
-es, ;WAHR;1
 esel, ;FALSCH;0
 esse ;FALSCH;0
 essen, ;FALSCH;0
@@ -835,7 +997,7 @@ fahren ;FALSCH;0
 fala ;FALSCH;0
 fälle ;FALSCH;0
 fallen ;FALSCH;0
-falls ;FALSCH;0
+falls ;FALSCH;1
 falsch, ;FALSCH;0
 falta ;FALSCH;0
 faltbrigaden ;FALSCH;0
@@ -857,7 +1019,7 @@ färbe ;FALSCH;0
 farbpaletten, ;FALSCH;0
 fassenden ;FALSCH;0
 fassliche ;FALSCH;0
-fast ;FALSCH;0
+fast ;FALSCH;1
 fate ;FALSCH;0
 februar. ;FALSCH;0
 feder ;FALSCH;0
@@ -934,7 +1096,7 @@ folgt ;FALSCH;0
 ";FALSCH;0
 folie ;FALSCH;0
 folly, ;FALSCH;0
-for ;FALSCH;0
+for ;FALSCH;1
 fordere ;FALSCH;0
 fördern. ;FALSCH;0
 form ;FALSCH;0
@@ -989,8 +1151,8 @@ führten, ;FALSCH;0
 führung, ;FALSCH;0
 füllt ;FALSCH;0
 fünf ;FALSCH;0
-für ;FALSCH;0
-für, ;FALSCH;0
+für ;FALSCH;1
+für, ;FALSCH;1
 fürwaswörter. ;FALSCH;0
 fürwörter, ;FALSCH;0
 fusselig. ;FALSCH;0
@@ -1192,9 +1354,6 @@ glider ;FALSCH;0
 glimmern ;FALSCH;0
 "Glücksfall 
 ";FALSCH;0
-go ;WAHR;1
-goes ;WAHR;1
-going ;WAHR;1
 good ;FALSCH;0
 gossamer ;FALSCH;0
 gossip ;FALSCH;0
@@ -1235,18 +1394,11 @@ gut, ;FALSCH;0
 ";FALSCH;0
 gute ;FALSCH;0
 H,imigen ;FALSCH;0
-h. ;WAHR;1
 haare ;FALSCH;0
 haaren, ;FALSCH;0
 hab ;FALSCH;0
 "habch 
 ";FALSCH;0
-habe ;WAHR;1
-haben ;WAHR;1
-"haben 
-";WAHR;1
-haben, ;WAHR;1
-haben. ;WAHR;1
 hafen ;FALSCH;0
 haifa, ;FALSCH;0
 häkellichter, ;FALSCH;0
@@ -1271,16 +1423,10 @@ handschuhschnüren.;FALSCH;0
 hang ;FALSCH;0
 hängten, ;FALSCH;0
 hart ;FALSCH;0
-has ;FALSCH;0
+has ;FALSCH;1
 "has 
-";FALSCH;0
-hat ;FALSCH;0
-hat, ;WAHR;1
-hat. ;WAHR;1
-hatte ;WAHR;1
-hätte ;WAHR;1
-hatten ;WAHR;1
-hatten, ;WAHR;1
+";FALSCH;1
+hat ;FALSCH;1
 häubchen, ;FALSCH;0
 häubte ;FALSCH;0
 hauch. ;FALSCH;0
@@ -1293,7 +1439,6 @@ hause ;FALSCH;0
 haut, ;FALSCH;0
 haut! ;FALSCH;0
 häutig, ;FALSCH;0
-have ;WAHR;1
 he ;FALSCH;0
 he, ;FALSCH;0
 heben ;FALSCH;0
@@ -1417,30 +1562,20 @@ ihre ;FALSCH;0
 ihrem ;FALSCH;0
 ihren ;FALSCH;0
 ihrer ;FALSCH;0
-im ;WAHR;1
-"im 
-";WAHR;1
 im! ;FALSCH;0
 immer ;FALSCH;0
 immerhin ;FALSCH;0
-in ;WAHR;1
-in.;WAHR;1
-in. ;WAHR;1
 indielufthauen, ;FALSCH;0
 indogermanischen ;FALSCH;0
 ineinander ;FALSCH;0
 innen ;FALSCH;0
 inneres ;FALSCH;0
-ins ;WAHR;1
-"ins 
-";WAHR;1
 inscriptions ;FALSCH;0
 insel ;FALSCH;0
 insel, ;FALSCH;0
 Insel, ;FALSCH;0
 inseln, ;FALSCH;0
 interessanterweise ;FALSCH;0
-into ;WAHR;1
 inventar, ;FALSCH;0
 irgendwas ;FALSCH;0
 irgendwie ;FALSCH;0
@@ -1448,13 +1583,8 @@ irisierende ;FALSCH;0
 irre ;FALSCH;0
 irritierend ;FALSCH;0
 irritierende ;FALSCH;0
-is ;WAHR;1
 isch ;FALSCH;0
 isst, ;FALSCH;0
-ist ;WAHR;1
-ist, ;WAHR;1
-it ;WAHR;1
-it's ;WAHR;1
 ja ;FALSCH;0
 ja, ;FALSCH;0
 ja: ;FALSCH;0
@@ -1488,7 +1618,6 @@ jugend! ;FALSCH;0
 jungen ;FALSCH;0
 jungend ;FALSCH;0
 just ;FALSCH;0
-k-;WAHR;1
 kaffee ;FALSCH;0
 kairo, ;FALSCH;0
 kalk. ;FALSCH;0
@@ -1685,9 +1814,6 @@ kurzem ;FALSCH;0
 küsten ;FALSCH;0
 küstendüne ;FALSCH;0
 küstenwärter ;FALSCH;0
-l ;WAHR;1
-L ;WAHR;1
-l6.;WAHR;1
 lace ;FALSCH;0
 "lace 
 ";FALSCH;0
@@ -1715,10 +1841,10 @@ lang ;FALSCH;0
 lange ;FALSCH;0
 langhin ;FALSCH;0
 lanzettlicher ;FALSCH;0
-lassen ;FALSCH;0
-lassen, ;FALSCH;0
-lassen. ;FALSCH;0
-lässt ;FALSCH;0
+lassen ;FALSCH;1
+lassen, ;FALSCH;1
+lassen. ;FALSCH;1
+lässt ;FALSCH;1
 lasten ;FALSCH;0
 lasten, ;FALSCH;0
 laster ;FALSCH;0
@@ -1744,7 +1870,6 @@ läutete ;FALSCH;0
 lautkette, ;FALSCH;0
 lautlichen ;FALSCH;0
 lautwechsel ;FALSCH;0
-ld ;WAHR;1
 least ;FALSCH;0
 lebensmittelpunkt. ;FALSCH;0
 lebenszweck ;FALSCH;0
@@ -1799,8 +1924,8 @@ liegen ;FALSCH;0
 liegen, ;FALSCH;0
 liegt ;FALSCH;0
 liegt, ;FALSCH;0
-ließ ;FALSCH;0
-ließ, ;FALSCH;0
+ließ ;FALSCH;1
+ließ, ;FALSCH;1
 liest ;FALSCH;0
 like ;FALSCH;0
 linen ;FALSCH;0
@@ -1827,8 +1952,6 @@ lose ;FALSCH;0
 lösen ;FALSCH;0
 "losen 
 ";FALSCH;0
-lu ;WAHR;1
-lu-;WAHR;1
 lücke ;FALSCH;0
 lücken, ;FALSCH;0
 luft ;FALSCH;0
@@ -1837,25 +1960,24 @@ luftblasensprache, ;FALSCH;0
 lüften ;FALSCH;0
 luld ;FALSCH;0
 lurken, ;FALSCH;0
-m ;WAHR;1
-mach ;FALSCH;0
-machen ;FALSCH;0
-machen, ;FALSCH;0
+mach ;FALSCH;1
+machen ;FALSCH;1
+machen, ;FALSCH;1
 macht ;FALSCH;0
-machte ;FALSCH;0
-machte, ;FALSCH;0
+machte ;FALSCH;1
+machte, ;FALSCH;1
 mädchen ;FALSCH;0
 mädchen, ;FALSCH;0
-made ;FALSCH;0
-make ;FALSCH;0
-making ;FALSCH;0
-mal ;FALSCH;0
+made ;FALSCH;1
+make ;FALSCH;1
+making ;FALSCH;1
+mal ;FALSCH;1
 "mal 
-";FALSCH;0
-mal? ;FALSCH;0
+";FALSCH;1
+mal? ;FALSCH;1
 "mal? 
-";FALSCH;0
-mal.;FALSCH;0
+";FALSCH;1
+mal.;FALSCH;1
 malheur. ;FALSCH;0
 man ;FALSCH;0
 man, ;FALSCH;0
@@ -1947,8 +2069,6 @@ morphende ;FALSCH;0
 morphoformen ;FALSCH;0
 movable ;FALSCH;0
 moving ;FALSCH;0
-mr. ;WAHR;1
-mrs. ;WAHR;1
 mücke ;FALSCH;0
 "müder 
 ";FALSCH;0
@@ -1967,11 +2087,6 @@ mundhimmel ;FALSCH;0
 ";FALSCH;0
 mundstülpen ;FALSCH;0
 muscheln ;FALSCH;0
-muss ;WAHR;1
-muss ...;WAHR;1
-muss, ;WAHR;1
-muss. ;WAHR;1
-musst ;WAHR;1
 muster ;FALSCH;0
 mustern ;FALSCH;0
 mutter, ;FALSCH;0
@@ -1980,7 +2095,6 @@ muttersprach, ;FALSCH;0
 muttersprache ;FALSCH;0
 mützen ;FALSCH;0
 my ;FALSCH;0
-n ;WAHR;1
 na ;FALSCH;0
 nach ;FALSCH;0
 nach? ;FALSCH;0
@@ -2031,7 +2145,6 @@ nasse ;FALSCH;0
 native ;FALSCH;0
 naturmagische ;FALSCH;0
 nbwesenheiten, ;FALSCH;0
-nd ;WAHR;1
 nebel ;FALSCH;0
 nebelschwaden ;FALSCH;0
 nebelstränge ;FALSCH;0
@@ -2080,10 +2193,6 @@ nische, ;FALSCH;0
 nisten, ;FALSCH;0
 no ;FALSCH;0
 NO ;FALSCH;0
-noch ;WAHR;1
-noch-;WAHR;1
-noch, ;WAHR;1
-noch. ;WAHR;1
 non, ;FALSCH;0
 nostalgische ;FALSCH;0
 not ;FALSCH;0
@@ -2098,9 +2207,6 @@ null ;FALSCH;0
 nummern ;FALSCH;0
 nur ;FALSCH;0
 nutzen. ;FALSCH;0
-o ;WAHR;1
-o'clock ;WAHR;1
-ob ;WAHR;1
 "oberen 
 ";FALSCH;0
 "object)"" 
@@ -2112,10 +2218,7 @@ obwohl, ;FALSCH;0
 ";FALSCH;0
 occhispitze ;FALSCH;0
 och ;FALSCH;0
-oder ;WAHR;1
-"oder 
-";WAHR;1
-of ;FALSCH;0
+of ;FALSCH;1
 offen ;FALSCH;0
 offen, ;FALSCH;0
 öffentlichen ;FALSCH;0
@@ -2140,7 +2243,6 @@ old ;FALSCH;0
 olles ;FALSCH;0
 one;FALSCH;0
 one ;FALSCH;0
-or ;WAHR;1
 orange ;FALSCH;0
 Orange ;FALSCH;0
 orangen;FALSCH;0
@@ -2162,7 +2264,6 @@ osterglocken, ;FALSCH;0
 other ;FALSCH;0
 otherweiß, ;FALSCH;0
 ouschn, ;FALSCH;0
-p. ;WAHR;1
 paar ;FALSCH;0
 paarige ;FALSCH;0
 päckchen, ;FALSCH;0
@@ -2237,8 +2338,6 @@ quadranten, ;FALSCH;0
 quaken ;FALSCH;0
 quellen ;FALSCH;0
 querulanten, ;FALSCH;0
-r ;WAHR;1
-r-;WAHR;1
 racker, ;FALSCH;0
 rädchen ;FALSCH;0
 radiese ;FALSCH;0
@@ -2320,9 +2419,6 @@ ring ;FALSCH;0
 ringding, ;FALSCH;0
 rippelnder ;FALSCH;0
 rippig, ;FALSCH;0
-rlc-;WAHR;1
-rluzu., ;WAHR;1
-rn ;WAHR;1
 robbt, ;FALSCH;0
 rock.;FALSCH;0
 rollen, ;FALSCH;0
@@ -2509,9 +2605,6 @@ schnickschnack, ;FALSCH;0
 schnipselsprache ;FALSCH;0
 schnittenfregatten, ;FALSCH;0
 schnuppern, ;FALSCH;0
-schon ;WAHR;1
-schon, ;WAHR;1
-schon. ;WAHR;1
 "schönheit 
 ";FALSCH;0
 schräg ;FALSCH;0
@@ -2571,20 +2664,9 @@ sehen: ;FALSCH;0
 sehl, ;FALSCH;0
 sehn. ;FALSCH;0
 sehnte ;FALSCH;0
-sei ;WAHR;1
-seid ;WAHR;1
 seidene ;FALSCH;0
 seile ;FALSCH;0
-sein ;WAHR;1
-"sein 
-";WAHR;1
 "sein: ,,schnurz"". ";FALSCH;0
-sein. ;WAHR;1
-seine ;WAHR;1
-seinem ;WAHR;1
-seinen ;WAHR;1
-seiner ;WAHR;1
-seit ;WAHR;1
 seite ;FALSCH;0
 selber ;FALSCH;0
 selbst ;FALSCH;0
@@ -2600,12 +2682,6 @@ shuttle ;FALSCH;0
 ";FALSCH;0
 "shuttles 
 ";FALSCH;0
-sich;WAHR;1
-sich ;WAHR;1
-"sich 
-";WAHR;1
-sich, ;WAHR;1
-sich. ;WAHR;1
 sichtbar ;FALSCH;0
 sichtbares ;FALSCH;0
 sickerlicht ;FALSCH;0
@@ -2622,12 +2698,6 @@ sies ;FALSCH;0
 signale ;FALSCH;0
 silben ;FALSCH;0
 simsen, ;FALSCH;0
-sind ;WAHR;1
-"sind 
-";WAHR;1
-sind, ;WAHR;1
-sind: ;WAHR;1
-sind. ;WAHR;1
 sing, ;FALSCH;0
 singsang ;FALSCH;0
 sinne ;FALSCH;0
@@ -2646,22 +2716,14 @@ skandinavischen ;FALSCH;0
 small,;FALSCH;0
 small, ;FALSCH;0
 snort, ;FALSCH;0
-so ;WAHR;1
-so, ;WAHR;1
-so: ;WAHR;1
-so/;WAHR;1
 socken ;FALSCH;0
-sogar ;WAHR;1
 "solange 
 ";FALSCH;0
-solchem ;WAHR;1
-solcher ;WAHR;1
-solches ;WAHR;1
 solidarisieren, ;FALSCH;0
 solide ;FALSCH;0
-soll ;FALSCH;0
-sollte. ;FALSCH;0
-sollten ;FALSCH;0
+soll ;FALSCH;1
+sollte. ;FALSCH;1
+sollten ;FALSCH;1
 solos ;FALSCH;0
 something ;FALSCH;0
 sonne, ;FALSCH;0
@@ -2748,7 +2810,6 @@ starb, ;FALSCH;0
 starb. ;FALSCH;0
 starrt ;FALSCH;0
 statik. ;FALSCH;0
-statt ;WAHR;1
 stattdessen ;FALSCH;0
 stäubchen ;FALSCH;0
 steck ;FALSCH;0
@@ -2818,7 +2879,6 @@ stummheit ;FALSCH;0
 stundenlang ;FALSCH;0
 stundenlang, ;FALSCH;0
 substanziell, ;FALSCH;0
-such ;WAHR;1
 suchen, ;FALSCH;0
 sucht ;FALSCH;0
 suchten, ;FALSCH;0
@@ -2832,7 +2892,6 @@ süstikpitsi ;FALSCH;0
 "symptom 
 ";FALSCH;0
 symptomen, ;FALSCH;0
-t ;WAHR;1
 tablett. ;FALSCH;0
 tabletten, ;FALSCH;0
 taftvorhänge, ;FALSCH;0
@@ -2890,15 +2949,12 @@ text ;FALSCH;0
 textverbunds ;FALSCH;0
 than ;FALSCH;0
 that ;FALSCH;0
-the ;WAHR;1
 their ;FALSCH;0
 There ;FALSCH;0
 they ;FALSCH;0
 "they 
 ";FALSCH;0
 things ;FALSCH;0
-"this 
-";WAHR;1
 thread ;FALSCH;0
 through ;FALSCH;0
 tick ;FALSCH;0
@@ -2906,7 +2962,6 @@ tick. ;FALSCH;0
 ticken ;FALSCH;0
 tier) ;FALSCH;0
 tiere. ;FALSCH;0
-till ;WAHR;1
 time ;FALSCH;0
 timing, ;FALSCH;0
 tingeling, ;FALSCH;0
@@ -2915,7 +2970,6 @@ tippenden ;FALSCH;0
 tisch, ;FALSCH;0
 tischlein ;FALSCH;0
 tischlein: ;FALSCH;0
-to ;WAHR;1
 toffee, ;FALSCH;0
 tofuwürfel ;FALSCH;0
 "told 
@@ -2963,8 +3017,6 @@ tunnelblick. ;FALSCH;0
 türen ;FALSCH;0
 türmte ;FALSCH;0
 tzte ;FALSCH;0
-u ;WAHR;1
-über ;WAHR;1
 überdeterminiertheit ;FALSCH;0
 überdeterminierung ;FALSCH;0
 übereinander ;FALSCH;0
@@ -2987,10 +3039,8 @@ ufer ;FALSCH;0
 ";FALSCH;0
 uhcr ;FALSCH;0
 uhstände ;FALSCH;0
-ui ;WAHR;1
 ulas. ;FALSCH;0
 uleich ;FALSCH;0
-um ;WAHR;1
 umbeschriften, ;FALSCH;0
 umgebung ;FALSCH;0
 umgekehrt. .i ;FALSCH;0
@@ -3006,10 +3056,6 @@ umwege, ;FALSCH;0
 unbegleitet, ;FALSCH;0
 unbegründeten, ;FALSCH;0
 unbeschwichtigt. ;FALSCH;0
-und ;WAHR;1
-"und 
-";WAHR;1
-une ;WAHR;1
 uneindeutigen ;FALSCH;0
 unfold ;FALSCH;0
 ungar, ;FALSCH;0
@@ -3031,12 +3077,10 @@ unsere ;FALSCH;0
 unseren ;FALSCH;0
 unserer ;FALSCH;0
 unstetem ;FALSCH;0
-unter ;WAHR;1
 unterbrechung ;FALSCH;0
 untereinander ;FALSCH;0
 unterkiefer, ;FALSCH;0
 unterkunft: ,,alles ;FALSCH;0
-unterm ;WAHR;1
 unterschiede ;FALSCH;0
 unterschrieben ;FALSCH;0
 unterspült ;FALSCH;0
@@ -3054,8 +3098,6 @@ use ;FALSCH;0
 usual ;FALSCH;0
 "usual"" 
 ";FALSCH;0
-usw. ;WAHR;1
-usw.) ;WAHR;1
 uus ;FALSCH;0
 vater ;FALSCH;0
 vater, ;FALSCH;0
@@ -3158,14 +3200,7 @@ vol-;FALSCH;0
 voll ;FALSCH;0
 volle ;FALSCH;0
 volleyballspieler, ;FALSCH;0
-vom ;WAHR;1
-von ;WAHR;1
-"von 
-";WAHR;1
 von ,,beobachten ;FALSCH;0
-vor ;WAHR;1
-vor, ;WAHR;1
-vor. ;WAHR;1
 vorahnen ;FALSCH;0
 vorbei, ;FALSCH;0
 vorgestellten ;FALSCH;0
@@ -3174,14 +3209,12 @@ vorhang, ;FALSCH;0
 vorhänge, ;FALSCH;0
 vorhängen, ;FALSCH;0
 vorkam, ;FALSCH;0
-vorm ;WAHR;1
 vorne ;FALSCH;0
 vorsetzte, ;FALSCH;0
 vorspringende ;FALSCH;0
 vorstellbar ;FALSCH;0
 vorwehte, ;FALSCH;0
 vorzeitige ;FALSCH;0
-w ;WAHR;1
 wa ;FALSCH;0
 wabenartige ;FALSCH;0
 wabenartigen ;FALSCH;0
@@ -3217,15 +3250,10 @@ wandern, ;FALSCH;0
 wandern. ;FALSCH;0
 wandert, ;FALSCH;0
 wanderte ;FALSCH;0
-war ;WAHR;1
-war. ;WAHR;1
 ward ;FALSCH;0
-wäre ;WAHR;1
 ware, ;FALSCH;0
 waren ;FALSCH;0
-wären ;WAHR;1
 waren, ;FALSCH;0
-wären. ;WAHR;1
 warm ;FALSCH;0
 warm, ;FALSCH;0
 warmem ;FALSCH;0
@@ -3238,10 +3266,6 @@ wartung, ;FALSCH;0
 warum ;FALSCH;0
 "warum 
 ";FALSCH;0
-was ;WAHR;1
-"was 
-";WAHR;1
-was, ;WAHR;1
 "waschen. 
 ";FALSCH;0
 wasser ;FALSCH;0
@@ -3296,12 +3320,9 @@ wellenkämme ;FALSCH;0
 welt ;FALSCH;0
 welten ;FALSCH;0
 weltenden, ;FALSCH;0
-wen ;WAHR;1
 wenig ;FALSCH;0
-wenn ;WAHR;1
 wenn, ,,bei ;FALSCH;0
-wer ;WAHR;1
-Wer ;FALSCH;0
+Wer ;FALSCH;1
 werden ;FALSCH;0
 werden, ;FALSCH;0
 wernicke, ;FALSCH;0
@@ -3309,22 +3330,9 @@ wers ;FALSCH;0
 westliches, ;FALSCH;0
 westwind ;FALSCH;0
 wetzten? ;FALSCH;0
-what ;WAHR;1
-what. ;WAHR;1
-where;WAHR;1
-which ;WAHR;1
-who ;WAHR;1
 wickelt ;FALSCH;0
 "widerstand: 
 ";FALSCH;0
-wie ;WAHR;1
-Wie ;WAHR;1
-"wie 
-";WAHR;1
-wie ) ;WAHR;1
-wie) ;WAHR;1
-wieder ;WAHR;1
-wieder, ;WAHR;1
 wiederhole ;FALSCH;0
 "wiederholen : 
 ";FALSCH;0
@@ -3359,7 +3367,6 @@ wischen) ;FALSCH;0
 wissen ;FALSCH;0
 wissen, ;FALSCH;0
 with ;FALSCH;0
-wo ;WAHR;1
 woanders ;FALSCH;0
 wob ;FALSCH;0
 woher ;FALSCH;0
@@ -3403,9 +3410,6 @@ wuchsen, ;FALSCH;0
 wunder, ;FALSCH;0
 wunderlich ;FALSCH;0
 wundsinn ;FALSCH;0
-wurde ;WAHR;1
-wurden, ;WAHR;1
-würden, ;WAHR;1
 wurzellos! ;FALSCH;0
 wurzeln ;FALSCH;0
 wurzeln, ;FALSCH;0
@@ -3418,7 +3422,6 @@ you ;FALSCH;0
 you. ;FALSCH;0
 "you"". ";FALSCH;0
 yourself! ;FALSCH;0
-z. ;WAHR;1
 zacken, ;FALSCH;0
 zackenkranz ;FALSCH;0
 zagen ;FALSCH;0
@@ -3495,12 +3498,6 @@ zitternd ;FALSCH;0
 "zöge 
 ";FALSCH;0
 zottelartig, ;FALSCH;0
-zt ;WAHR;1
-"zu
-";WAHR;1
-zu ;WAHR;1
-zu, ;WAHR;1
-zu. ;WAHR;1
 zuerst ;FALSCH;0
 zufriedenheit ;FALSCH;0
 zug. ;FALSCH;0
@@ -3509,12 +3506,10 @@ züge, ;FALSCH;0
 zugehörigkeit ;FALSCH;0
 zügel ;FALSCH;0
 zügel, ;FALSCH;0
-zum ;WAHR;1
 zunge ;FALSCH;0
 zungen ;FALSCH;0
 zupfe ;FALSCH;0
 zupft ;FALSCH;0
-zur ;WAHR;1
 zurück, ;FALSCH;0
 zurück. ;FALSCH;0
 "zurück. 
@@ -3528,7 +3523,6 @@ zutraulicher ;FALSCH;0
 zutsche ;FALSCH;0
 zutsche, ;FALSCH;0
 zwängte ;FALSCH;0
-zwar ;WAHR;1
 zwei ;FALSCH;0
 zweideutig, ;FALSCH;0
 zweifel ;FALSCH;0
