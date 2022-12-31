@@ -138,7 +138,7 @@ return(le_out)
 mfw_out<-list()
 #do_sentiment(dta)
 #set<-dta_t
-chapterx<-2
+chapterx<-3
 mfw<-function(set,chapterx){
   set<-dta_t
 #dtasubna<-set
@@ -173,10 +173,16 @@ x2<-featfreq(x)
 #stoplist_t<-unique(stoplist_clean)
 #stoplist_clean
 #x2[3]
-m2<-!is.na(!match(stoplist_t,x2))
+# m2<-!is.na(!match(stoplist_t,x2))
+# x3<-x2[m2]
+# t6<-head(x3[order(x3,decreasing = T)])
+# t6
+m2<-is.na(match(names(x2),stoplist_clean))
 x3<-x2[m2]
 t6<-head(x3[order(x3,decreasing = T)])
 t6
+
+
 #m2
 mfw_out$max$words<-t6
 #mfw_out$max$words
@@ -200,9 +206,15 @@ x2<-featfreq(x)
 #char_wordstem(a)
 #head(x2[order(x2,decreasing = T)])
 #x2[3]
-m2<-!is.na(!match(stoplist_t,x2))
+# m2<-!is.na(!match(stoplist_t,x2))
+# x3<-x2[m2]
+# t6<-head(x3[order(x3,decreasing = T)])
+m2<-is.na(match(names(x2),stoplist_clean))
 x3<-x2[m2]
 t6<-head(x3[order(x3,decreasing = T)])
+t6
+
+
 #t6
 #m2
 mfw_out$min$words<-t6

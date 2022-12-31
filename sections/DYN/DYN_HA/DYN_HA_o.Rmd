@@ -147,9 +147,9 @@ library(quanteda)
 #dtatxt<-as.data.frame(fromJSON(src))
 #dtatxt<-(fromJSON(src))
 #cat("load TEI from:",src)
-    src_se<-"DYN_HA_semantics.R"
+   ######## #src_se<-"DYN_HA_semantics.R"
 #source("/gith/DH_essais/sections/DYN/DYN_HA/DYN_HA_semantics.R")
-   source(src_se)
+   source(tempse)
   lc<-length(dta$content)-1
   mfw_dta<-list()
 for (k in 2: length(chapter_ex)){
