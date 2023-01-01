@@ -28,7 +28,7 @@ output:
 #css: ../style_HA.css
 #swap / decomment ff .bib/.css references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DYN/DYN_HA/DYN_HA.bib
-    css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
+    css: https://school.dh-index.org/public/papers/011/style_HA.css
 # output:
 #   pdf_document:
 #     mainfont: Arial

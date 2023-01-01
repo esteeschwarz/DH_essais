@@ -24,7 +24,7 @@ bibliography: ../klemm.bib
 # A. head
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-dep_path<-"https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/preview/klemm_HA_temp_fm_files/"
+dep_path<-"https://school.dh-index.org/public/papers/011/preview/klemm_HA_temp_fm_files/"
 ```
 to self compile this page in RStudio cf. [@klemm_HA_2022](https://github.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/M/klemm_HA_temp_BASE.Rmd)
 
@@ -206,7 +206,7 @@ Q: networks graph cf. [@poggel_10_2022](https://lipogg.github.io/r-tutorium-webs
 ### (LERA)
 
 ```{=html}
-<!--<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
+<!--<iframe src="https://school.dh-index.org/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
 -->
 ```
 

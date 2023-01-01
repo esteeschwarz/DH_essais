@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = FALSE)
 20221114 / stephan schwarz
 gesprächsanalyse
 [info]
-[output folienset as .pdf](https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-11-14/?print-pdf)
+[output folienset as .pdf](https://school.dh-index.org/public/pr/2022-11-14/?print-pdf)
 
 ## 1.     head
 

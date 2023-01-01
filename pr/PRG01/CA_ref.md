@@ -5,7 +5,7 @@
 hhh
 #### 1.     head
 ###### [presentation: revealjs](https://revealjs.com)
-###### [output folienset in pdf view](https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-11-14/?print-pdf)
+###### [output folienset in pdf view](https://school.dh-index.org/public/pr/2022-11-14/?print-pdf)
 hhh
 #### 2.1     gesprächsforschung
 - sprechakttheorie > gesprächsforschung

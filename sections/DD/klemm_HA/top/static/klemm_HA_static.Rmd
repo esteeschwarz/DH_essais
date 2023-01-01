@@ -195,7 +195,7 @@ Q: networks graph cf. [@poggel_10_2022],[@franceschet_communities_2022]
 ### (LERA)
 
 ```{=html}
-<!--<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
+<!--<iframe src="https://school.dh-index.org/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
 -->
 ```
 
