@@ -10,7 +10,6 @@ author: "st. schwarz"
 date: "`r Sys.time()`"
 zotero: AVL_dyn
 #fontfamily: iwona
-
 output:
   bookdown::pdf_document2:
     extra_dependencies: ["float"]
@@ -87,7 +86,7 @@ knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
 
 ```
 
-```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+```{r bib, eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 library(httr)
 #fetch zotero .bib online
 #share <- runif(1)
@@ -108,7 +107,7 @@ tf<-format(t,"%Y%m%d(%H.%M)")
 bibliography: "`r y`"
 date: `r timestamp_act`
 ---
-```{r eval=TRUE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
+```{r sources, eval=FALSE, echo=FALSE, collapse=TRUE, warning=FALSE,message=FALSE}
 #library(mongolite)
 #library(jsonlite)
 library(syuzhet)
@@ -157,9 +156,14 @@ for (k in 2: length(chapter_ex)){
 
 mfw_dta[[k]]<-mfw(dta,k)
 }
+  #neuerding R watermark with plot(cars) as first img source? 
+  #try prevent
+    top<-10000
+  a<-sample(top,top)
+  c<-sqrt(length(a))
+  b<-matrix(a,c,c)
+image(b,xaxt="n",yaxt="n")  
 
-
-    
 ```
 
 ---
@@ -186,7 +190,7 @@ Für die Analyse wurde das gesamte (publizierte) lyrische Werk Uljana Wolfs, bes
 herangezogen.
 
 ## basic statistics
-```{r echo = FALSE,warning=FALSE}
+```{r basic, echo = FALSE,warning=FALSE}
 md_t<-median(dta_t$tokens) #durchschnittliche textlänge
 min_t<-min(dta_t$tokens[2:length(dta_t$tokens)])
 mlx<-subset(lxtable,lxtable$multi=="multiLX")

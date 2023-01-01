@@ -865,7 +865,7 @@ dtanet<-stylo(mfw.min = 30,mfw.max = 70,display.on.screen = F,
 # src<-f[iscsv][2]
 #edges <- read.csv("stylo_Consensus_100-100_MFWs_Culled_0__Classic Delta_C_0.5_EDGES.csv")
 #edges <- read.csv(src)
-
+#plot(cars)
 plot_net<-function(set){
 edges<-dtanet$list.of.edges
 net <- graph_from_data_frame(d=edges, 
@@ -885,4 +885,4 @@ col <- "orange" # für die Knotenfarbe
        vertex.label=V(net)$name,
        vertex.label.cex=.5, edge.curved=.6)
 }
-#plot(net)
+plot(net)
