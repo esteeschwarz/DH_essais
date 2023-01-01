@@ -115,4 +115,26 @@ x<-(dfm(c))
 x2<-featfreq(x)
 char_wordstem(a)
 head(x2[order(x2,decreasing = T)])
+### to match x2 against stoplist (x2 is a named vector, the values are the frequencies, the vectornames are the words)
+m2<-is.na(match(names(x2),stoplist_clean))
+x3<-x2[m2]
+t6<-head(x3[order(x3,decreasing = T)])
+t6
 
+
+#### plot to browser
+library(httpgd)
+
+  hgd()
+  hgd_browse() # open browser
+  plot(cars)
+  plot(iris,5:3)
+#  dev.off()
+  
+  top<-10000
+  a<-sample(top,top)
+  c<-sqrt(length(a))
+  b<-matrix(a,c,c)
+image(b)  
+
+# Warning: The working directory was changed to /Users/lion/boxHKW/21S/DH/local/HU-LX/SES/conc inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks.
