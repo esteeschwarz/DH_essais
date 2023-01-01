@@ -9,7 +9,7 @@ title: "DYN HA / SS22 FUB / Liso"
 author: "st. schwarz"
 date: "`r Sys.time()`"
 zotero: AVL_dyn
-fontfamily: iwona
+#fontfamily: iwona
 
 output:
   bookdown::pdf_document2:
