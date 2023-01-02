@@ -75,6 +75,13 @@ txtmxml<-read_xml(txtm20)
 write_clip(klemm_xml1)
 klemmxml2<-xml_add_child(data,txtm20,"//insert")
 klemmxml2
+### DYN
+ts<-read_lines("/var/folders/y3/_0j6ntls0p3b4bmwng47r4dm0000gn/T//RtmpQIrcTY/ref2e9ba3b106.bib")
+
+
+
+
+
 
 ### sort dataframe:
 #ordering dataframe by column 1
@@ -84,4 +91,50 @@ df[with(df,order(df[,"a"])), ]
 df[order(df[[var]]),]
 df[order(df[,var]),]
 
+### split array:
+x<-c(1:10)
+split(x,1:2)
 
+download.file()
+
+library(httr)
+response<-GET("https://api.zotero.org/groups/4713246/collections/9LNRRJQN/items/top?format=bibtex")
+bib<-httr::content(response,"text")
+
+#### summary MFW
+library(quanteda)
+#library(rematch2)
+c<-corpus(dta_t$contentp)
+#x<-kwic(c,"glaub.*",window=5,valuetype="regex")
+#x$from
+#x$pre
+#summary(c)
+x<-(dfm(c))
+#x2<-dfm_weight(x)
+#x2
+x2<-featfreq(x)
+char_wordstem(a)
+head(x2[order(x2,decreasing = T)])
+### to match x2 against stoplist (x2 is a named vector, the values are the frequencies, the vectornames are the words)
+m2<-is.na(match(names(x2),stoplist_clean))
+x3<-x2[m2]
+t6<-head(x3[order(x3,decreasing = T)])
+t6
+
+
+#### plot to browser
+library(httpgd)
+
+  hgd()
+  hgd_browse() # open browser
+  plot(cars)
+  plot(iris,5:3)
+#  dev.off()
+  
+  top<-10000
+  a<-sample(top,top)
+  c<-sqrt(length(a))
+  b<-matrix(a,c,c)
+image(b)  
+
+# Warning: The working directory was changed to /Users/lion/boxHKW/21S/DH/local/HU-LX/SES/conc inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks.

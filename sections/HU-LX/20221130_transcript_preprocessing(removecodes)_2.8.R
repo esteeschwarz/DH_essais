@@ -16,6 +16,8 @@ library(glue)
 library(stringi)
 library(clipr)
 library(fs)
+library(xfun)
+
 # 1. global variables
 #setwd("~")
 #getwd()
@@ -34,13 +36,16 @@ list.files(dirtext)
 #dirmod<-paste0(dirtext,"modified/")
 dirmod<-dirtext #after manual regex modifying in VSCode
 version<-"13485"
-version<-"v2_8_wo_Codes"
-version<-"v2_8"
+version<-"v2_8_sketchE"
+#version<-"v2_8"
 dirchat<-paste0("SES_CHAT_transcripts_",version)
 dirchat<-paste0("SES_transcripts_clean-without-codes_",version)
+dirchat<-paste0("SES_transcripts_",version)
 #dirchat<-paste0("CHAT_temp",version)
+dir_2ndmod<-"sketchmod"
 chatvmodified<-paste0(version,"_mod")
 transextension<-"_sanscodes"
+transextension<-"_sketchE"
 chatfileextension<-".txt"
 #for export in .cha format to import into exmaralda
 #dirchat<-paste0(dirchat,"_cha_",version)
@@ -429,13 +434,13 @@ for (f in 1:length(filelist2)){
     flag<-1
     m<-grep(rpall[k,1],tbu)
     tier<-rpall$category[k]
-    ############################################
-    ### main: 13485 outcommented to remove codes
-#    tbu<-gsub(rpall[k,1],rpall[k,"repl"],tbu) # decomment 
-    ### try remove all codes instead of replacing formerly:
-    tbu<-gsub(rpall[k,1],"<#coding removed#>",tbu) # comment in for original replacement
-    #ifelse(m!=0&tier!=4,tbu<-insert(tbu,m+1,rpall$subst[k]),flag<-0) #removed 13485, decomment
-    ### 13485###################################
+    #########################################################################################################
+    ### main: 13485 outcommented to remove codes. comment in / decomment commands to remove / restore codes #
+    tbu<-gsub(rpall[k,1],rpall[k,"repl"],tbu) ### >>>>>>>>> decomment 1. <<<<<<<<<<<<<<< ####################
+    ### try remove all codes instead of replacing formerly: #################################################
+   # tbu<-gsub(rpall[k,1],"<#coding removed#>",tbu) ### >>> comment in <<<<< for original replacement #######
+    ifelse(m!=0&tier!=4,tbu<-insert(tbu,m+1,rpall$subst[k]),flag<-0) #removed 13485, >>>>> decomment 2. <<<<<
+    ### 13485################################################################################################
     ###extra, essai: note number of instances/code in header
     mh<-grep(rpall$subst[k],tbuheader) #grep headercodedescription line
     tier<-rpall$category[k]
@@ -647,6 +652,7 @@ chatv1<-grepl("CHAT",filelist)
 ##############################
 ##############################
 #from here skip with already CHAT transformed transcript to second run
+#function not called!#########
 postchatcoding<-function(){
 ##############################
 filelist3<-filelist[chatv1]
@@ -866,3 +872,75 @@ tbu_e<-tbu
 }
 #end postchatcoding temp function, not called
 ### END replacement loop #########
+
+#function not called!#########
+sketchcoding<-function(){
+  ##############################
+  chatlastoutdir<-paste(dirtext,dirchat,sep="/")
+  filelist3<-list.files(chatlastoutdir)
+  
+  f<-1
+  for (f in 1:length(filelist3)){
+    tbu<-readLines(paste(chatlastoutdir,filelist3[f],sep = "/"))
+    p3<-grep("@.egin",tbu)
+    #####################################
+    ### this section main replacement ###
+    ##### wks.
+    #find transcript start
+    mstart<-grep("^\\*",tbu)[1]
+    tbub<-tbu[mstart:length(tbu)] #transcript section
+    tbusafe<-tbu
+    tbuheader<-tbu[1:mstart-1] #header section
+    tbu<-tbub
+  regx1<-"(^\\*INT:)"
+  mint<-grep(regx1,tbub) # *INT: lines
+  mkid<-grep(regx1,tbub,invert = T) # *CHILD: lines    
+  regx2<-"^(.*)" # sentences
+  sent<-grep(regx2,tbub)
+  tbub[sent[1]]
+  tbuwrap<-gsub(regx2,"<s>\\1</s>",tbub[sent]) # wrap all sentences
+  tbuwrap<-gsub(regx2,"<s>\\1</s>",tbub[mkid]) # wrap child sentences
+  
+    tbuheader
+    k<-79
+  #####################################
+  # kids<-strsplit(filelist3,"\\.")
+  # kids[[1]][1]
+  # dirtext
+  # dir.create(paste(dirtext,chatvmodified,sep = "/"))
+  # 
+  # #nameschemeing the files
+  # #write_clip(filelist2)
+  # regx1<-"(.+_[0-9]{1,2}).+(\\.txt)"
+  # repl1<-"\\1\\2"
+  # 
+  # kids1<-gsub(regx1,repl1,filelist3)
+  # kids1
+  # regx2<-".+(ELL|TUR)_([A-Za-z]{3}).+"
+  # repl2<-"\\2"
+  # kids2<-gsub(regx2,repl2,kids1)
+  # kids2
+  # kids3<-toupper(kids2)
+  # kids4<-array()
+  # for (k in 1:length(filelist3)){
+  #   regx3<-"(ELL|TUR)_([A-Za-z]{3})"
+  #   kids4[k]<-gsub(regx3,kids3[k],kids1[k],perl = T)
+  # }
+  # kids4<-strsplit(kids4,"\\.")
+  # ################
+  ns<-sans_ext(filelist3[f])
+  ext<-file_ext(filelist3[f])
+  chatfilename<-paste0(ns,"_sansINT.",ext)
+  chat2ndoutdir<-paste(dirtext,dir_2ndmod,sep = "/")
+  chat2ndoutdir
+  dir.create(chat2ndoutdir)
+  dir.create(paste(chat2ndoutdir,version,sep = "/"))
+  #tbu_cpt<-c(tbuheader,tbu)
+  #tbu<-tbu_cpt
+  tbu_out<-tbuwrap
+  writeLines(tbu_out,paste(chat2ndoutdir,version,chatfilename,sep = "/"))
+  }
+  ### END replacement loop #########
+  
+}
+#end postchatcoding temp function, not called

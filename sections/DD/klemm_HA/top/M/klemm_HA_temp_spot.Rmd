@@ -14,7 +14,7 @@ output:
     #css: ../style_HA.css
 #swap / decomment ff .bib/.css references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
-    css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
+    css: https://school.dh-index.org/public/papers/011/style_HA.css
 bibliography: ../klemm.bib
 ---
 # A. head
@@ -201,7 +201,7 @@ Q: networks graph cf. [[@poggel_10_2022]](https://lipogg.github.io/r-tutorium-we
 ### (LERA)
 
 ```{=html}
-<!--<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
+<!--<iframe src="https://school.dh-index.org/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
 -->
 <!--this works satisfying only in online html, not in the standalone version, therefore discarded as for paperlike version. output similar to the following...-->
 ```

@@ -210,7 +210,7 @@ networks graph cf. [@lipogg_net],[@communities]
 ### 4.3 sources comparison (LERA)
 
 ```{=html}
-<iframe src="https://ada-sub.rotefadenbuecher.de/skool/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%" frameborder="0"></iframe>
+<iframe src="https://school.dh-index.org/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%" frameborder="0"></iframe>
 ```
 
 LERA output cf. [@poeckelmann2022]

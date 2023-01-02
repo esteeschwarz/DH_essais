@@ -14,10 +14,10 @@ output:
       smooth_scroll: no
     self_contained: no
     code_download: no
-    css: "https://ada-sub.rotefadenbuecher.de/skool/public/essais/PRG01/style_HA.css"
+    css: "https://school.dh-index.org/public/essais/PRG01/style_HA.css"
     keep_md: yes
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
-   # css: https://ada-sub.rotefadenbuecher.de/skool/public/papers/011/style_HA.css
+   # css: https://school.dh-index.org/public/papers/011/style_HA.css
 #bibliography: "https://api.zotero.org/groups/4713246/collections/YTVL6QLM/items/top?format=bibtex"
 bibliography: PRG_CA.bib
 ---
