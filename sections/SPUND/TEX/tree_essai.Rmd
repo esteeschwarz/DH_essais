@@ -146,14 +146,32 @@ model <- lm(mpg~.,mtcars)
 
 $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 ```{=latex}  
+%-Baumdiagramm-Notation-%
+
+%!forest-Baumdiagramm: Standard
+%!forest-Baumdiagramm: Standard
+\newcommand{\lingforest}[2]{%
+	\noindent\makebox[\textwidth]{
+		\begin{forest}
+			where n children=0{tier=word}{},
+			for tree={l=#1pt}
+			#2
+	\end{forest}
+	}
+}
+
 \begin{figure}[h]\label{figure01} 
-\centering
-\begin{forest}
-%[PP Bühnen [P von] [NP den[AP [Ad ganz]  [A großen]]]]
-[S [NP[ART die] [N Katze]][PP [PR auf][NP [ART dem] [[AD heiszen][N Blechdach]]]]]
-\end{forest}
-\caption{fenced forest}
+\lingforest{30}{%
+[NP, for tree={circle, draw}
+	[Art|Pro, dashed]
+	[AP, dashed, double]
+	[N]
+]
+}
 \end{figure}
+%\end{forest}
+%\caption{fenced forest}
+%\end{figure}
 
 
 
