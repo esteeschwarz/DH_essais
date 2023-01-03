@@ -177,10 +177,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 		\begin{forest}
 			where n children=0{tier=word}{},
 			for tree={l=#1pt}
-			[,phantom
-			#2
-			#3
-			]
+			[]
 	\end{forest}}
 }
 
@@ -232,16 +229,30 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 
 \begin{figure}[h]\label{figure01} 
 \lingforest{30}{%
-[NP, for tree={circle, draw}
-	[Art|Pro, dashed]
-	[AP, dashed, double]
-	[N]
+[PP, dashed
+	[AdvP|NP|, dashed
+		[links, no edge, tier=3]
+	]
+	[\textbf{P},dashed,tier=1
+		[auf, no edge, tier=2
+			[neben, no edge, tier=3,
+				[ins, no edge, tier=4]
+			]
+		]
+	]
+	[NP, dashed,tier=1
+		[der Einfahrt, no edge, tier=2
+			[der Einfahrt, no edge, tier=3
+				[Gebäude, no edge, tier=4]
+			]
+		]
+	]
 ]
 }
-\end{figure}
-%\end{forest}
-%\caption{fenced forest}
 %\end{figure}
+%\end{forest}
+\caption{fenced forest}
+\end{figure}
 
 
 
@@ -249,23 +260,58 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 
 ```{=latex}
 %try if command declaration of above block can be used within this block
-\begin{figure}[h]\label{figure01} 
-\lingforestpittner{30}{%
-[NP, dashed
-	[Art|Pro, dashed]
-	[AP, dashed, double]
-	[N]
+
+
+\vbox{%
+\begin{Sch}[Präpositionalphrase (PP)]
+\lingforest{30}{%
+[PP, circle, draw
+	[AdvP|NP|\\$\ldots$, circle, draw, dashed
+		[links, no edge, tier=3]
+	]
+	[\textbf{P}, circle, draw, tier=1
+		[auf, no edge, tier=2
+			[neben, no edge, tier=3,
+				[ins, no edge, tier=4]
+			]
+		]
+	]
+	[NP, circle, draw, tier=1
+		[der Einfahrt, no edge, tier=2
+			[der Einfahrt, no edge, tier=3
+				[Gebäude, no edge, tier=4]
+			]
+		]
+	]
 ]
 }
-%\end{figure}
-%\end{forest}
-\caption{fenced forest with outside command declaration, pittner notation}
-\end{figure}
+%\caption{with declared captions}
+
+\end{Sch}
+}
 
 
 ```
 
+```{=latex}
 
+\begin{figure}[h]\label{figure01} 
+\begin{forest}
+[PP, dashed, tier=1
+	[AdvP|NP, dashed,tier=2[
+	links, dashed, tier=3]]
+	[PP, dashed, tier=2
+	[neben, dashed, tier=3]]
+	[NP, dashed,tier=2
+	[der Einfahrt, dashed, tier=3]]
+]
+%\end{figure}
+\end{forest}
+\caption{fenced forest}
+\end{figure}
+
+
+```
 
 
 <!-- oben funktioniert, unten findet nicht das environment "Bsp", ich nehme an, das liegt an deklarationsconventionen pdf-text vs. luatex-->
