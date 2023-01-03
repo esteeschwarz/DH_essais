@@ -4,6 +4,7 @@ author: "st."
 date: "`r Sys.Date()`"
 # extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 output: 
+##<Pos:pdf###>:
   pdf_document:   
 # documentclass: scrartcl
 #   usegeometry: yes,
@@ -14,7 +15,8 @@ output:
 #   toc: sectionentrywithdots
 # includes: 
 #   before_body: "calibration.tex"
-  # extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
+####<Pos:dependencies    
+    extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 
    # extra_dependencies: ["tikz"]
 
@@ -30,13 +32,13 @@ library(tinytex)
 #library(knitr)
 library(tikzDevice)
 check_installed("forest")
-#check_installed("tikz")
+check_installed("tikz")
 #tinytex::install_tinytex(bundle = 'TinyTeX-2')
 
 
 library(rmarkdown)
-#latex_dependency("forest")
-#latex_dependency("tikz")
+latex_dependency("forest")
+latex_dependency("tikz")
 
 #tinytex::tlmgr()
 #tinytex::tlmgr("install forest")
@@ -143,16 +145,19 @@ model <- lm(mpg~.,mtcars)
 ```
 
 $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
-$$figure  
-\begin{figure} 
+```{=latex}  
+\begin{figure}[h]\label{figure01} 
 \centering
 \begin{forest}
 %[PP Bühnen [P von] [NP den[AP [Ad ganz]  [A großen]]]]
 [S [NP[ART die] [N Katze]][PP [PR auf][NP [ART dem] [[AD heiszen][N Blechdach]]]]]
 \end{forest}
+\caption{fenced forest}
+\end{figure}
 
-\end{figure}$$  
 
+
+```
 
 
 
@@ -231,6 +236,24 @@ child {node {child}}};
 %!\caption{this is a figure}
 %!\label{figure1}
 \end {tikzpicture}$$
+
+## baum fenced
+```{=latex}
+\begin{figure}[h]\label{figure1}
+\centering
+
+\begin{tikzpicture}
+\node {root} 
+child {node {left}} 
+child {node {right} 
+child {node {child}} 
+child {node {child}}};
+%!\caption{this is a figure}
+%!\label{figure1}
+  \end{tikzpicture}
+  \caption{A picture}
+  \end{figure}
+```
 
 <!-- NOPE-->
 <!-- $$latex   -->
