@@ -2,13 +2,24 @@
 title: "texessai"
 author: "st."
 date: "`r Sys.Date()`"
-output:
+output: 
   bookdown::pdf_document2:
-    extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm"]
+# documentclass: scrartcl
+#   usegeometry: yes 
+#   paper: a4
+#   parskip: half
+#   numbers: enddot
+#   fontsize: 11pt
+#   toc: sectionentrywithdots
+    extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
+# includes: 
+#   before_body: "calibration.tex"
+
 #    extra_dependencies: ["tikz"]
 
 ---
-
+this script works, packages included in yaml header  
+TODO not working: figure captions, inclusion of external .tex configuration
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE,engine="lualatex")
@@ -45,12 +56,20 @@ library(rmarkdown)
 # tlmgr(c('info', '--list', '--only-installed', '--data', 'name'))
 
 pandoc_include_args(in_header  = "calibration.tex")
-pandoc_latex_engine_args("lualatex")
+#pandoc_latex_engine_args("lualatex")
 #tinytex::lualatex()
 #latexmk(engine = "l")
 #getwd()
 
 ```
+
+<!-- $$latex -->
+<!-- \documentclass[paper=a4]{scrartcl} -->
+<!-- \begin{document}$$ -->
+
+
+
+
 <!-- \begin {document}[Unvollständiges Schema der Nominalphrase (NP)]\label{bsp:np} -->
 
 <!-- <!-- %!forest-Baumdiagramm: Standard --> -->
@@ -66,6 +85,20 @@ pandoc_latex_engine_args("lualatex")
 
 
 ## tree essai
+
+<!-- $$latex -->
+<!-- \begin{tikzpicture} -->
+<!-- \node {root}  -->
+<!-- child {node {left}}  -->
+<!-- child {node {right}  -->
+<!-- child {node {child}}  -->
+<!-- child {node {child}}}; -->
+<!-- %!\caption{this is a figure} -->
+<!-- %!\label{figure1} -->
+<!--   \end{tikzpicture} -->
+<!--   \caption{A picture} -->
+<!--   \end{figure}$$   -->
+  
 <!-- \lingforest{30}{% -->
 <!-- [NP, for tree={circle, draw} -->
 <!-- 	[Art|Pro, dashed] -->
@@ -93,6 +126,7 @@ pandoc_latex_engine_args("lualatex")
 
 ```
 
+
 $$latex
 \begin{tabular}{ll}
 A & B \\
@@ -108,14 +142,14 @@ model <- lm(mpg~.,mtcars)
 ```
 
 $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
-$$latex  
-\begin{forest}
-[NP, dashed
-	[Art|Pro, dashed]
-	[AP, dashed, double]
-	[N]
-]
-\end{forest}$$
+<!-- $$latex   -->
+<!-- \begin{forest} -->
+<!-- [NP, dashed -->
+<!-- 	[Art|Pro, dashed] -->
+<!-- 	[AP, dashed, double] -->
+<!-- 	[N] -->
+<!-- ] -->
+<!-- \end{forest}$$ -->
 
 
 
@@ -205,39 +239,39 @@ child {node {child}}};
 
 <!-- Im Folgenden werden die im Seminar genutzten Phrasenschemata aufgelistet. Sie sind absichtlich z.T. unvollständig, um ihre Einfachheit zu garantieren. So markieren im Folgenden die drei Punkte `$\ldots$', dass weitere Kürzel im Kreis stehen könnten. Dies betrifft Phrasen, die weniger häufig bzw. prominent an den entsprechenden Stellen auftreten. Die Köpfe von Phrasen sind fett hervorgehoben. -->
 
-$$latex
-\begin{figure}
-\lingforest{30}{%
-[NP, circle, draw
-	[D|Pro, circle, draw, dashed, tier=1
-		[Die, no edge, tier=3
-			[Mein, no edge, tier=4
-				%[Meine, no edge, tier=5]
-			]
-		]
-	]
-	[AP, circle, draw, dashed, double, tier=1
-		[alter{,} betrunkener, no edge, tier=4
-			[Betrunkene, no edge, tier=5]
-		]
-	]
-	[\textbf{N}, circle, draw, tier=1
-		[Mönche, no edge, tier=2
-			[Mönche, no edge, tier=3
-				[Mönch, no edge, tier=4
-					[Mönche, no edge , tier=5]
-				]
-			]
-		]
-	]
-	[NP\textsubscript{Gen}|PP|\\$\ldots$, circle, draw, dashed, double, tier=1
-		[des Klosters, no edge, tier=3
-			[des Klosters mit Bart, no edge, tier=5]
-		]
-	]
-]
-}
-\end{figure}$$  
+<!-- $$latex -->
+<!-- \begin{figure} -->
+<!-- \lingforest{30}{% -->
+<!-- [NP, circle, draw -->
+<!-- 	[D|Pro, circle, draw, dashed, tier=1 -->
+<!-- 		[Die, no edge, tier=3 -->
+<!-- 			[Mein, no edge, tier=4 -->
+<!-- 				%[Meine, no edge, tier=5] -->
+<!-- 			] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[AP, circle, draw, dashed, double, tier=1 -->
+<!-- 		[alter{,} betrunkener, no edge, tier=4 -->
+<!-- 			[Betrunkene, no edge, tier=5] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[\textbf{N}, circle, draw, tier=1 -->
+<!-- 		[Mönche, no edge, tier=2 -->
+<!-- 			[Mönche, no edge, tier=3 -->
+<!-- 				[Mönch, no edge, tier=4 -->
+<!-- 					[Mönche, no edge , tier=5] -->
+<!-- 				] -->
+<!-- 			] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[NP\textsubscript{Gen}|PP|\\$\ldots$, circle, draw, dashed, double, tier=1 -->
+<!-- 		[des Klosters, no edge, tier=3 -->
+<!-- 			[des Klosters mit Bart, no edge, tier=5] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- ] -->
+<!-- } -->
+<!-- \end{figure}$$   -->
 
 
 <!-- \vspace{0.5cm} -->
@@ -365,3 +399,5 @@ plot(pressure)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
+<!-- $$latex -->
+<!-- \end{document}$$ -->
