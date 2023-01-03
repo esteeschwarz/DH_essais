@@ -4,20 +4,23 @@ author: "st."
 date: "`r Sys.Date()`"
 output:
   bookdown::pdf_document2:
-    extra_dependencies: ["float","pgf","forest"]
+    extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm"]
 #    extra_dependencies: ["tikz"]
 
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-options(tinytex.verbose = TRUE)
+options(tinytex.verbose = TRUE,engine="lualatex")
 
 
 library(tinytex)
+#library(knitr)
 library(tikzDevice)
 check_installed("forest")
 #check_installed("tikz")
+#tinytex::install_tinytex(bundle = 'TinyTeX-2')
+
 
 library(rmarkdown)
 #latex_dependency("forest")
@@ -29,7 +32,9 @@ library(rmarkdown)
 # tlmgr pinning add pgf-development "*"
 # $ tlmgr update --self --all
 # $ tlmgr install pgf --reinstall
-# tinytex::tlmgr ("repository add http://pgf-tikz.github.io/pgf/tlnet pgf-development")
+# tinytex::tlmgr ("repository add http://pgf-tikz.github.io/pgf/tlnet pgf-development") #>>>> NOT WORKING THEN, choose below!!!<<
+#tinytex::tlmgr ("repository add https://ftp.rrzn.uni-hannover.de/pub/mirror/tex-archive/systems/texlive/tlnet")
+
 # tinytex::tlmgr ('pinning add pgf-development "*"')
 # tinytex::tlmgr ('update --self --all')
 # tinytex::tlmgr ('install pgf --reinstall')
@@ -39,7 +44,11 @@ library(rmarkdown)
 # tlmgr_update()
 # tlmgr(c('info', '--list', '--only-installed', '--data', 'name'))
 
-pandoc_include_args(before_body = "calibration.tex")
+pandoc_include_args(in_header  = "calibration.tex")
+pandoc_latex_engine_args("lualatex")
+#tinytex::lualatex()
+#latexmk(engine = "l")
+#getwd()
 
 ```
 <!-- \begin {document}[Unvollständiges Schema der Nominalphrase (NP)]\label{bsp:np} -->
@@ -113,7 +122,7 @@ $$latex
 
 
 
-<!-- oben funktioniert, unten findet nicht das environment "Bsp"-->
+<!-- oben funktioniert, unten findet nicht das environment "Bsp", ich nehme an, das liegt an deklarationsconventionen pdf-text vs. luatex-->
 <!-- $$latex -->
 <!-- \section{Notation der Phrasenschemata}\label{sec:notation} -->
 
@@ -131,29 +140,60 @@ $$latex
 
 ### wald/bäume usw.
 
-$$latex  
-\begin{forest}
-[AdvP, circle, draw
-	[Ptkl|AdvP|\\$\ldots$, circle, draw, dashed, tier=1
-		[auch, no edge, tier=3]
-	]
-	[\textbf{Adv}, circle, draw, tier=1
-		[gestern, no edge, tier=2
-			[gestern, no edge, tier=3]
-		]
-	]
-]
-\end{forest}$$
+<!-- $$latex -->
+<!-- \begin{figure} -->
+<!-- \centering -->
+<!-- \begin{picture}(90,90) -->
+<!-- \begin{forest} -->
+<!-- [AdvP, circle, draw -->
+<!-- 	[Ptkl|AdvP|\\$\ldots$, circle, draw, dashed, tier=1 -->
+<!-- 		[auch, no edge, tier=3] -->
+<!-- 	] -->
+<!-- 	[\textbf{Adv}, circle, draw, tier=1 -->
+<!-- 		[gestern, no edge, tier=2 -->
+<!-- 			[gestern, no edge, tier=3] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- ] -->
+<!-- \end{forest} -->
+<!-- \end{picture} -->
+<!-- \caption{A picture} -->
+<!-- \label{figure} -->
+<!-- \end{figure}$$ -->
+
+<!-- $$latex -->
+<!-- \lipsum[1] -->
+<!--   \begin{figure}[ht] -->
+<!--   \centering -->
+<!--   \begin{minipage}{1.3in} -->
+<!--   \begin{picture}(185,90) -->
+<!--   \put(0,0){\framebox(30,30)} -->
+<!--   \put(30,0){\framebox(30,30)} -->
+<!--   \put(60,0){\framebox(30,30)} -->
+<!--   \put(0,30){\framebox(30,30)} -->
+<!--   \put(30,30){\framebox(30,30)} -->
+<!--   \put(60,30){\framebox(30,30){\Large{\#}}} -->
+<!--     \put(0,60){\framebox(30,30){\Large{\#}}} -->
+<!--       \put(30,60){\framebox(30,30){\Large{\#}}} -->
+<!--         \put(60,60){\framebox(30,30){\Large{\#}}} -->
+<!--           \put(15,45){\vector(1,0){30}} -->
+<!--           \end{picture} -->
+<!--           \end{minipage} -->
+<!--           \caption{Here is my caption.} -->
+<!--           \end{figure} -->
+<!--           \lipsum[2]$$   -->
 
 ## another baum
 
 $$latex  
-\begin{tikzpicture} 
+\begin{tikzpicture}
 \node {root} 
 child {node {left}} 
 child {node {right} 
 child {node {child}} 
-child {node {child}}}; 
+child {node {child}}};
+%!\caption{this is a figure}
+%!\label{figure1}
 \end {tikzpicture}$$
 
 <!-- NOPE-->
@@ -165,40 +205,40 @@ child {node {child}}};
 
 <!-- Im Folgenden werden die im Seminar genutzten Phrasenschemata aufgelistet. Sie sind absichtlich z.T. unvollständig, um ihre Einfachheit zu garantieren. So markieren im Folgenden die drei Punkte `$\ldots$', dass weitere Kürzel im Kreis stehen könnten. Dies betrifft Phrasen, die weniger häufig bzw. prominent an den entsprechenden Stellen auftreten. Die Köpfe von Phrasen sind fett hervorgehoben. -->
 
-<!-- \vbox{% -->
-<!-- \begin{Sch}[Nominalphrase (NP)] -->
-<!-- \lingforest{30}{% -->
-<!-- [NP, circle, draw -->
-<!-- 	[D|Pro, circle, draw, dashed, tier=1 -->
-<!-- 		[Die, no edge, tier=3 -->
-<!-- 			[Mein, no edge, tier=4 -->
-<!-- 				%[Meine, no edge, tier=5] -->
-<!-- 			] -->
-<!-- 		] -->
-<!-- 	] -->
-<!-- 	[AP, circle, draw, dashed, double, tier=1 -->
-<!-- 		[alter{,} betrunkener, no edge, tier=4 -->
-<!-- 			[Betrunkene, no edge, tier=5] -->
-<!-- 		] -->
-<!-- 	] -->
-<!-- 	[\textbf{N}, circle, draw, tier=1 -->
-<!-- 		[Mönche, no edge, tier=2 -->
-<!-- 			[Mönche, no edge, tier=3 -->
-<!-- 				[Mönch, no edge, tier=4 -->
-<!-- 					[Mönche, no edge , tier=5] -->
-<!-- 				] -->
-<!-- 			] -->
-<!-- 		] -->
-<!-- 	] -->
-<!-- 	[NP\textsubscript{Gen}|PP|\\$\ldots$, circle, draw, dashed, double, tier=1 -->
-<!-- 		[des Klosters, no edge, tier=3 -->
-<!-- 			[des Klosters mit Bart, no edge, tier=5] -->
-<!-- 		] -->
-<!-- 	] -->
-<!-- ] -->
-<!-- } -->
-<!-- \end{Sch} -->
-<!-- } -->
+$$latex
+\begin{figure}
+\lingforest{30}{%
+[NP, circle, draw
+	[D|Pro, circle, draw, dashed, tier=1
+		[Die, no edge, tier=3
+			[Mein, no edge, tier=4
+				%[Meine, no edge, tier=5]
+			]
+		]
+	]
+	[AP, circle, draw, dashed, double, tier=1
+		[alter{,} betrunkener, no edge, tier=4
+			[Betrunkene, no edge, tier=5]
+		]
+	]
+	[\textbf{N}, circle, draw, tier=1
+		[Mönche, no edge, tier=2
+			[Mönche, no edge, tier=3
+				[Mönch, no edge, tier=4
+					[Mönche, no edge , tier=5]
+				]
+			]
+		]
+	]
+	[NP\textsubscript{Gen}|PP|\\$\ldots$, circle, draw, dashed, double, tier=1
+		[des Klosters, no edge, tier=3
+			[des Klosters mit Bart, no edge, tier=5]
+		]
+	]
+]
+}
+\end{figure}$$  
+
 
 <!-- \vspace{0.5cm} -->
 
