@@ -4,13 +4,13 @@ author: "st."
 date: "`r Sys.Date()`"
 extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 output: pdf_document
-documentclass: scrartcl
-usegeometry: yes
-paper: a4
-parskip: half
-numbers: enddot
-fontsize: 11pt
-toc: sectionentrywithdots
+ documentclass: scrartcl
+  usegeometry: yes
+  paper: a4
+  parskip: half
+  numbers: enddot
+  fontsize: 11pt
+  toc: sectionentrywithdots
 # includes: 
 #   before_body: "calibration.tex"
 
