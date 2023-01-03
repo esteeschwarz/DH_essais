@@ -1,0 +1,327 @@
+---
+title: "texessai"
+author: "st."
+date: "`r Sys.Date()`"
+output:
+  bookdown::pdf_document2:
+    extra_dependencies: ["float","pgf","forest"]
+#    extra_dependencies: ["tikz"]
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(tinytex.verbose = TRUE)
+
+
+library(tinytex)
+library(tikzDevice)
+check_installed("forest")
+#check_installed("tikz")
+
+library(rmarkdown)
+#latex_dependency("forest")
+#latex_dependency("tikz")
+
+#tinytex::tlmgr()
+#tinytex::tlmgr("install forest")
+#tinytex::tlmgr("install tikz")
+# tlmgr pinning add pgf-development "*"
+# $ tlmgr update --self --all
+# $ tlmgr install pgf --reinstall
+# tinytex::tlmgr ("repository add http://pgf-tikz.github.io/pgf/tlnet pgf-development")
+# tinytex::tlmgr ('pinning add pgf-development "*"')
+# tinytex::tlmgr ('update --self --all')
+# tinytex::tlmgr ('install pgf --reinstall')
+#tlmgr_search('/pdftex')
+#tlmgr
+#tlmgr_install('calendar')
+# tlmgr_update()
+# tlmgr(c('info', '--list', '--only-installed', '--data', 'name'))
+
+pandoc_include_args(before_body = "calibration.tex")
+
+```
+<!-- \begin {document}[Unvollständiges Schema der Nominalphrase (NP)]\label{bsp:np} -->
+
+<!-- <!-- %!forest-Baumdiagramm: Standard --> -->
+<!-- \newcommand{\lingforest}[2]{% -->
+<!-- 	\noindent\makebox[\textwidth]{ -->
+<!-- 		\begin{forest} -->
+<!-- 			where n children=0{tier=word}{}, -->
+<!-- 			for tree={l=#1pt} -->
+<!-- 			#2 -->
+<!-- 	\end{forest}} -->
+<!-- } -->
+<!-- \end{document} -->
+
+
+## tree essai
+<!-- \lingforest{30}{% -->
+<!-- [NP, for tree={circle, draw} -->
+<!-- 	[Art|Pro, dashed] -->
+<!-- 	[AP, dashed, double] -->
+<!-- 	[N] -->
+<!-- ] -->
+<!-- } -->
+
+```{r}
+# #td<-tempdir()
+# td<-getwd()
+# tf<-file.path(td,'example.tex')
+# oldwd<-getwd()
+# setwd(td)
+# 
+# tikz(tf,standAlone=T)
+# plot(1)
+# dev.off()
+# 
+# tools::texi2dvi(tf,pdf=T)
+# system(paste(getOption('pdfviewer'),file.path(td,'example1.pdf')))
+# setwd(oldwd)
+
+
+
+```
+
+$$latex
+\begin{tabular}{ll}
+A & B \\
+A & B \\
+\end{tabular}$$
+
+```{r}
+
+
+model <- lm(mpg~.,mtcars)
+ coef1 <- coef(model)[[1]]
+ coef2 <- coef(model)[[2]]
+```
+
+$$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
+$$latex  
+\begin{forest}
+[NP, dashed
+	[Art|Pro, dashed]
+	[AP, dashed, double]
+	[N]
+]
+\end{forest}$$
+
+
+
+
+
+
+<!-- oben funktioniert, unten findet nicht das environment "Bsp"-->
+<!-- $$latex -->
+<!-- \section{Notation der Phrasenschemata}\label{sec:notation} -->
+
+<!-- Die folgenden Phrasenschemata werden mithilfe von Baumdiagrammen ausgedrückt, wobei diese aus a) Kreisen und b) Kürzeln bestehen: -->
+
+<!-- \begin{Bsp}[Unvollständiges Schema der Nominalphrase (NP)]\label{bsp:np} -->
+<!-- \lingforest{30}{% -->
+<!-- [NP, for tree={circle, draw} -->
+<!-- 	[Art|Pro, dashed] -->
+<!-- 	[AP, dashed, double] -->
+<!-- 	[N] -->
+<!-- ] -->
+<!-- }; -->
+<!-- \end{Bsp}$$ -->
+
+### wald/bäume usw.
+
+$$latex  
+\begin{forest}
+[AdvP, circle, draw
+	[Ptkl|AdvP|\\$\ldots$, circle, draw, dashed, tier=1
+		[auch, no edge, tier=3]
+	]
+	[\textbf{Adv}, circle, draw, tier=1
+		[gestern, no edge, tier=2
+			[gestern, no edge, tier=3]
+		]
+	]
+]
+\end{forest}$$
+
+## another baum
+
+$$latex  
+\begin{tikzpicture} 
+\node {root} 
+child {node {left}} 
+child {node {right} 
+child {node {child}} 
+child {node {child}}}; 
+\end {tikzpicture}$$
+
+<!-- NOPE-->
+<!-- $$latex   -->
+<!-- \tikz \calendar [dates =2000-01-01 to 2000-01-31 , week list , 2 month label above centered , 3 month text = \textcolor {red}{\%mt} \%y-];$$ -->
+
+<!-- $$latex   -->
+<!-- \section{Liste der im Seminar relevanten bzw. besprochenen Phrasenschemata}\label{sec:liste_phrasenschemata} -->
+
+<!-- Im Folgenden werden die im Seminar genutzten Phrasenschemata aufgelistet. Sie sind absichtlich z.T. unvollständig, um ihre Einfachheit zu garantieren. So markieren im Folgenden die drei Punkte `$\ldots$', dass weitere Kürzel im Kreis stehen könnten. Dies betrifft Phrasen, die weniger häufig bzw. prominent an den entsprechenden Stellen auftreten. Die Köpfe von Phrasen sind fett hervorgehoben. -->
+
+<!-- \vbox{% -->
+<!-- \begin{Sch}[Nominalphrase (NP)] -->
+<!-- \lingforest{30}{% -->
+<!-- [NP, circle, draw -->
+<!-- 	[D|Pro, circle, draw, dashed, tier=1 -->
+<!-- 		[Die, no edge, tier=3 -->
+<!-- 			[Mein, no edge, tier=4 -->
+<!-- 				%[Meine, no edge, tier=5] -->
+<!-- 			] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[AP, circle, draw, dashed, double, tier=1 -->
+<!-- 		[alter{,} betrunkener, no edge, tier=4 -->
+<!-- 			[Betrunkene, no edge, tier=5] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[\textbf{N}, circle, draw, tier=1 -->
+<!-- 		[Mönche, no edge, tier=2 -->
+<!-- 			[Mönche, no edge, tier=3 -->
+<!-- 				[Mönch, no edge, tier=4 -->
+<!-- 					[Mönche, no edge , tier=5] -->
+<!-- 				] -->
+<!-- 			] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[NP\textsubscript{Gen}|PP|\\$\ldots$, circle, draw, dashed, double, tier=1 -->
+<!-- 		[des Klosters, no edge, tier=3 -->
+<!-- 			[des Klosters mit Bart, no edge, tier=5] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- ] -->
+<!-- } -->
+<!-- \end{Sch} -->
+<!-- } -->
+
+<!-- \vspace{0.5cm} -->
+
+<!-- \vbox{% -->
+<!-- \begin{Sch}[Adjektivphrase (AP)] -->
+<!-- \lingforest{30}{% -->
+<!-- [AP, circle, draw -->
+<!-- 	[AdvP|PP|\\$\ldots$, circle, draw, dashed, double, tier=1 -->
+<!-- 		[heute, no edge, tier=4, -->
+<!-- 			[heute im Bett, no edge, tier=5] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[Ptkl|AdvP, circle, draw, dashed, tier=1 -->
+<!-- 		[höchst, no edge, tier=3 -->
+<!-- 			[höchst, no edge, tier=4] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[\textbf{A}, circle, draw, tier=1 -->
+<!-- 		[betrunkene, no edge, tier=2 -->
+<!-- 			[betrunkene, no edge ,tier=3 -->
+<!-- 				[betrunkene, no edge, tier=4] -->
+<!-- 					[liegende, no edge, tier=5] -->
+<!-- 			] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- ] -->
+<!-- } -->
+<!-- \end{Sch} -->
+<!-- } -->
+
+<!-- \vspace{0.5cm} -->
+
+<!-- \vbox{% -->
+<!-- \begin{Sch}[Nominalphrase (NP) mit pronominalem Kopf] -->
+<!-- \lingforest{30}{% -->
+<!-- [NP, circle, draw -->
+<!-- 	[\textbf{Pro}, circle, draw, tier=1 -->
+<!-- 		[Sie, no edge, tier=2 -->
+<!-- 			[Meins, no edge, tier=3 -->
+<!-- 				[Dieses, no edge, tier=4 -->
+<!-- 					[Das, no edge, tier=5] -->
+<!-- 				] -->
+<!-- 			] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- ] -->
+<!-- } -->
+<!-- \end{Sch} -->
+<!-- } -->
+
+<!-- \vspace{0.5cm} -->
+
+<!-- \vbox{% -->
+<!-- \begin{Sch}[Präpositionalphrase (PP)] -->
+<!-- \lingforest{30}{% -->
+<!-- [PP, circle, draw -->
+<!-- 	[AdvP|NP|\\$\ldots$, circle, draw, dashed -->
+<!-- 		[links, no edge, tier=3] -->
+<!-- 	] -->
+<!-- 	[\textbf{P}, circle, draw, tier=1 -->
+<!-- 		[auf, no edge, tier=2 -->
+<!-- 			[neben, no edge, tier=3, -->
+<!-- 				[ins, no edge, tier=4] -->
+<!-- 			] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- 	[NP, circle, draw, tier=1 -->
+<!-- 		[der Einfahrt, no edge, tier=2 -->
+<!-- 			[der Einfahrt, no edge, tier=3 -->
+<!-- 				[Gebäude, no edge, tier=4] -->
+<!-- 			] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- ] -->
+<!-- } -->
+<!-- \end{Sch} -->
+<!-- } -->
+
+<!-- \vspace{0.5cm} -->
+
+<!-- \vbox{% -->
+<!-- \begin{Sch}[Adverbphrase (AdvP)] -->
+<!-- \lingforest{30}{% -->
+<!-- [AdvP, circle, draw -->
+<!-- 	[Ptkl|AdvP|\\$\ldots$, circle, draw, dashed, tier=1 -->
+<!-- 		[auch, no edge, tier=3] -->
+<!-- 	] -->
+<!-- 	[\textbf{Adv}, circle, draw, tier=1 -->
+<!-- 		[gestern, no edge, tier=2 -->
+<!-- 			[gestern, no edge, tier=3] -->
+<!-- 		] -->
+<!-- 	] -->
+<!-- ] -->
+<!-- } -->
+<!-- \end{Sch} -->
+<!-- }$$ -->
+
+
+$$latex  
+We are working on
+\begin{tikzpicture}
+\draw (-1.5,0) -- (1.5,0);
+\draw (0,-1.5) -- (0,1.5);
+\end{tikzpicture}$$
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
