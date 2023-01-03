@@ -2,10 +2,16 @@
 title: "texessai"
 author: "st."
 date: "`r Sys.Date()`"
-# extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
+#extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 output: 
 ##<Pos:pdf###>:
-  pdf_document:   
+  bookdown::html_document2:
+  # header-includes:
+  # - \usepackage{forest,float}
+  # - \pretitle{\begin{center}
+  #   \includegraphics[width=2in,height=2in]{logo.jpg}\LARGE\\}
+  # - \posttitle{\end{center}}
+
 # documentclass: scrartcl
 #   usegeometry: yes,
 #   paper: a4,
@@ -16,9 +22,9 @@ output:
 # includes: 
 #   before_body: "calibration.tex"
 ####<Pos:dependencies    
-    extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
+  # extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 
-   # extra_dependencies: ["tikz"]
+   #extra_dependencies: "tikz"
 
 ---
 this script works, packages included in yaml header  
@@ -27,7 +33,6 @@ TODO not working: figure captions, inclusion of external .tex configuration
 knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE,engine="lualatex")
 
-
 library(tinytex)
 #library(knitr)
 library(tikzDevice)
@@ -35,10 +40,11 @@ check_installed("forest")
 check_installed("tikz")
 #tinytex::install_tinytex(bundle = 'TinyTeX-2')
 
-
+#library(pandoc)
 library(rmarkdown)
-latex_dependency("forest")
-latex_dependency("tikz")
+#latex_dependency("forest")
+latex_dependency_tikz("tikzpicture")
+#pandoc_include_args("--template='calibration.tex'")
 
 #tinytex::tlmgr()
 #tinytex::tlmgr("install forest")
@@ -66,6 +72,27 @@ pandoc_include_args(before_body  = "calibration.tex")
 
 ```
 
+## baum fenced
+```{=latex}
+%[h]\label{figure1}
+\begin{document}
+\begin{figure}
+%\centering
+
+\begin{tikzpicture}
+\node {root} 
+child {node {left}} 
+child {node {right} 
+child {node {child}} 
+child {node {child}}};
+%!\caption{this is a figure}
+%!\label{figure1}
+\end{tikzpicture}
+%  \caption{A picture}
+\end{figure}
+\end{document}
+```
+
 <!-- $$latex -->
 <!-- \documentclass[paper=a4]{scrartcl} -->
 <!-- \begin{document}$$ -->
@@ -75,7 +102,7 @@ pandoc_include_args(before_body  = "calibration.tex")
 
 <!-- \begin {document}[Unvollständiges Schema der Nominalphrase (NP)]\label{bsp:np} -->
 
-<!-- <!-- %!forest-Baumdiagramm: Standard --> -->
+<!-- <!-- %!forest-Baumdiagramm: Standard --> 
 <!-- \newcommand{\lingforest}[2]{% -->
 <!-- 	\noindent\makebox[\textwidth]{ -->
 <!-- 		\begin{forest} -->
@@ -89,18 +116,17 @@ pandoc_include_args(before_body  = "calibration.tex")
 
 ## tree essai
 
-<!-- $$latex -->
-<!-- \begin{tikzpicture} -->
-<!-- \node {root}  -->
-<!-- child {node {left}}  -->
-<!-- child {node {right}  -->
-<!-- child {node {child}}  -->
-<!-- child {node {child}}}; -->
-<!-- %!\caption{this is a figure} -->
-<!-- %!\label{figure1} -->
-<!--   \end{tikzpicture} -->
-<!--   \caption{A picture} -->
-<!--   \end{figure}$$   -->
+$$latex
+\begin{figure}
+\node {root}
+child {node {left}}
+child {node {right}
+child {node {child}}
+child {node {child}}};
+%!\caption{this is a figure}
+%!\label{figure1}
+  \caption{A picture}
+  \end{figure}$$
   
 <!-- \lingforest{30}{% -->
 <!-- [NP, for tree={circle, draw} -->
