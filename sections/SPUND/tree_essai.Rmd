@@ -142,14 +142,15 @@ model <- lm(mpg~.,mtcars)
 ```
 
 $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
-<!-- $$latex   -->
-<!-- \begin{forest} -->
-<!-- [NP, dashed -->
-<!-- 	[Art|Pro, dashed] -->
-<!-- 	[AP, dashed, double] -->
-<!-- 	[N] -->
-<!-- ] -->
-<!-- \end{forest}$$ -->
+$$figure  
+\begin{figure} 
+\centering
+\begin{forest}
+%[PP Bühnen [P von] [NP den[AP [Ad ganz]  [A großen]]]]
+[S [NP[ART die] [N Katze],dashed,double][PP [PR auf][NP [ART dem] [[AD heiszen][N Blechdach]],dashed,double]]]
+\end{forest}
+
+\end{figure}$$  
 
 
 
