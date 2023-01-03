@@ -3,8 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  11pt,
-]{scrartcl}
+]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
 \usepackage{iftex}
@@ -34,6 +33,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -110,13 +110,89 @@
 \begin{document}
 \maketitle
 
-{
-\setcounter{tocdepth}{3}
-\tableofcontents
-}
 this script works, packages included in yaml header\\
 TODO not working: figure captions, inclusion of external .tex
 configuration
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\NormalTok{opts\_chunk}\SpecialCharTok{$}\FunctionTok{set}\NormalTok{(}\AttributeTok{echo =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{options}\NormalTok{(}\AttributeTok{tinytex.verbose =} \ConstantTok{TRUE}\NormalTok{,}\AttributeTok{engine=}\StringTok{"lualatex"}\NormalTok{)}
+
+
+\FunctionTok{library}\NormalTok{(tinytex)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tinytex' was built under R version 4.1.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#library(knitr)}
+\FunctionTok{library}\NormalTok{(tikzDevice)}
+\FunctionTok{check\_installed}\NormalTok{(}\StringTok{"forest"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#check\_installed("tikz")}
+\CommentTok{\#tinytex::install\_tinytex(bundle = \textquotesingle{}TinyTeX{-}2\textquotesingle{})}
+
+
+\FunctionTok{library}\NormalTok{(rmarkdown)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'rmarkdown' was built under R version 4.1.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#latex\_dependency("forest")}
+\CommentTok{\#latex\_dependency("tikz")}
+
+\CommentTok{\#tinytex::tlmgr()}
+\CommentTok{\#tinytex::tlmgr("install forest")}
+\CommentTok{\#tinytex::tlmgr("install tikz")}
+\CommentTok{\# tlmgr pinning add pgf{-}development "*"}
+\CommentTok{\# $ tlmgr update {-}{-}self {-}{-}all}
+\CommentTok{\# $ tlmgr install pgf {-}{-}reinstall}
+\CommentTok{\# tinytex::tlmgr ("repository add http://pgf{-}tikz.github.io/pgf/tlnet pgf{-}development") \#\textgreater{}\textgreater{}\textgreater{}\textgreater{} NOT WORKING THEN, choose below!!!\textless{}\textless{}}
+\CommentTok{\#tinytex::tlmgr ("repository add https://ftp.rrzn.uni{-}hannover.de/pub/mirror/tex{-}archive/systems/texlive/tlnet")}
+
+\CommentTok{\# tinytex::tlmgr (\textquotesingle{}pinning add pgf{-}development "*"\textquotesingle{})}
+\CommentTok{\# tinytex::tlmgr (\textquotesingle{}update {-}{-}self {-}{-}all\textquotesingle{})}
+\CommentTok{\# tinytex::tlmgr (\textquotesingle{}install pgf {-}{-}reinstall\textquotesingle{})}
+\CommentTok{\#tlmgr\_search(\textquotesingle{}/pdftex\textquotesingle{})}
+\CommentTok{\#tlmgr}
+\CommentTok{\#tlmgr\_install(\textquotesingle{}calendar\textquotesingle{})}
+\CommentTok{\# tlmgr\_update()}
+\CommentTok{\# tlmgr(c(\textquotesingle{}info\textquotesingle{}, \textquotesingle{}{-}{-}list\textquotesingle{}, \textquotesingle{}{-}{-}only{-}installed\textquotesingle{}, \textquotesingle{}{-}{-}data\textquotesingle{}, \textquotesingle{}name\textquotesingle{}))}
+
+\FunctionTok{pandoc\_include\_args}\NormalTok{(}\AttributeTok{before\_body  =} \StringTok{"calibration.tex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "--include-before-body" "calibration.tex"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#pandoc\_latex\_engine\_args("lualatex")}
+\CommentTok{\#tinytex::lualatex()}
+\CommentTok{\#latexmk(engine = "l")}
+\CommentTok{\#getwd()}
+\end{Highlighting}
+\end{Shaded}
 
 --\textgreater{}
 
