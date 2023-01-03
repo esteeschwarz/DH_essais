@@ -146,6 +146,76 @@ model <- lm(mpg~.,mtcars)
 
 $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 ```{=latex}  
+
+%-Theoreme-%
+
+\theoremstyle{definition}
+\newtheorem{D}{Definition}
+\newtheorem{B}{Beispiel}
+\newtheorem{Satz}{Satz}
+\newtheorem{N}{Notation}
+
+%!Theoremstil definition mit Zeilenumbruch
+\newtheoremstyle{break}
+{\topsep}%
+{\topsep}%
+{\normalfont}%
+{}%
+{\bfseries}%
+{.}%
+{\newline}
+{}%
+
+\theoremstyle{break}
+\newtheorem{R}{Regularität}
+\newtheorem{Bsp.}[B]{Beispiel}
+\newtheorem{Sch}{Schema}
+
+%!forest-Baumdiagramm: Pittner-Notation
+\newcommand{\lingforestpittner}[3]{%
+	\noindent\makebox[\textwidth]{
+		\begin{forest}
+			where n children=0{tier=word}{},
+			for tree={l=#1pt}
+			[,phantom
+			#2
+			#3
+			]
+	\end{forest}}
+}
+
+%-Klammer-Notation (Pittner)-%
+
+%!Klammern
+\newcommand{\klammer}[2]{[#1]\textsubscript{\textbf{#2}}}
+\newcommand{\Klammer}[2]{$\biggl[$#1$\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\KKlammer}[2]{$\Biggl[$#1$\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\pos}[1]{\textsubscript{\textbf{#1}}}
+
+%!Grüne Klammern
+\newcommand{\greenklammer}[2]{\textcolor{dartmouthgreen}{[}#1\textcolor{dartmouthgreen}{]}\textsubscript{\textbf{#2}}}
+\newcommand{\greenKlammer}[2]{$\color{dartmouthgreen}\biggl[$#1$\color{dartmouthgreen}\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\greenKKlammer}[2]{$\color{dartmouthgreen}\Biggl[$#1$\color{dartmouthgreen}\Biggr]$\textsubscript{\textbf{#2}}}
+%\newcommand{\greenpos}[1]{\textsubscript{\textbf{\textcolor{dartmouthgreen}{#1}}}}
+\newcommand{\green}[1]{\textcolor{dartmouthgreen}{#1}}
+
+%!Klammern: Übungen
+\newcommand{\exklammer}[1]{[#1]\textsubscript{\subleer}}
+\newcommand{\exKlammer}[1]{$\biggl[$#1$\biggr]$\textsubscript{\subleer}}
+\newcommand{\exKKlammer}[1]{$\Biggl[$#1$\biggr]$\textsubscript{\subleer}}
+
+%!Leerstelle im Subskript
+\newcommand{\subleer}{\textsubscript{\textlarger[4]{\_}}}
+
+%-Skripte-%
+
+%!Oberskript
+\newcommand{\oberskript}[2]{[$\overset{\textbf{#2}}{\text{#1}}$]}
+
+%!Unterskript
+\newcommand{\unterskript}[2]{$\underset{\textbf{#2}}{\text{\ul{#1}}}$}
+
+
 %-Baumdiagramm-Notation-%
 
 %!forest-Baumdiagramm: Standard
@@ -180,17 +250,17 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 ```{=latex}
 %try if command declaration of above block can be used within this block
 \begin{figure}[h]\label{figure01} 
-\lingforest{30}{%
-[NP, for tree={circle, draw}
+\lingforestpittner{30}{%
+[NP, dashed
 	[Art|Pro, dashed]
 	[AP, dashed, double]
 	[N]
 ]
 }
-\end{figure}
-%\end{forest}
-%\caption{fenced forest}
 %\end{figure}
+%\end{forest}
+\caption{fenced forest with outside command declaration, pittner notation}
+\end{figure}
 
 
 ```
