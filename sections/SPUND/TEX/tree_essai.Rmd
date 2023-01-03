@@ -296,6 +296,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 ```{=latex}
 
 \begin{figure}[h]\label{figure01} 
+\centering
 \begin{forest}
 [PP, dashed, tier=1
 	[AdvP|NP, dashed,tier=2[
