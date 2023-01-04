@@ -286,7 +286,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 }
 %\end{figure}
 %\end{forest}
-\caption{fenced forest}
+\caption{fenced lingforest}
 \end{figure}
 
 
@@ -297,7 +297,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 %try if command declaration of above block can be used within this block
 
 
-%\vbox{%
+\vbox{%
 \begin{Sch}[Präpositionalphrase (PP)]
 \lingforest{30}{%
 [PP, circle, draw
@@ -323,14 +323,17 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 %\caption{with declared captions}
 
 \end{Sch}
-%}
+}
 
 
 ```
 
+### try where float
+before figure 2
+
 ```{=latex}
 
-\begin{figure}[h]\label{figure01} 
+\begin{figure}[h]\label{figure02} 
 \centering
 \begin{forest}
 [PP, dashed, tier=1
@@ -349,6 +352,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 
 ```
 
+after figure 2
 
 <!-- oben funktioniert, unten findet nicht das environment "Bsp", ich nehme an, das liegt an deklarationsconventionen pdf-text vs. luatex-->
 <!-- $$latex -->
