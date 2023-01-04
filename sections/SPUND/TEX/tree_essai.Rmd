@@ -5,12 +5,15 @@ date: "`r Sys.Date()`"
 #extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 output: 
 ##<Pos:pdf###>:
-  bookdown::html_document2:
+  pdf_document:
+  # bookdown::html_document2:
   # header-includes:
   # - \usepackage{forest,float}
   # - \pretitle{\begin{center}
   #   \includegraphics[width=2in,height=2in]{logo.jpg}\LARGE\\}
   # - \posttitle{\end{center}}
+####<Pos:dependencies    
+    extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 
 # documentclass: scrartcl
 #   usegeometry: yes,
@@ -21,14 +24,14 @@ output:
 #   toc: sectionentrywithdots
 # includes: 
 #   before_body: "calibration.tex"
-####<Pos:dependencies    
-  # extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 
    #extra_dependencies: "tikz"
 
 ---
 this script works, packages included in yaml header  
-TODO not working: figure captions, inclusion of external .tex configuration
+TODO not working: figure captions, inclusion of external .tex configuration, html output
+- MIND: restore githistory commented "wks." for working output configurations
+
 ```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE,engine="lualatex")
