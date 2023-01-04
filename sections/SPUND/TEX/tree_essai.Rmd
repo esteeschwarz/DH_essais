@@ -331,26 +331,29 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 \end{Sch}
 }
 \vbox{%
-\begin{Sch}[try own schema caption]%\label{figure03}
+\begin{Sch}[try own schema caption: long sentences grafix]%\label{figure03}
 \lingforest{40}{%
-[PP, circle, draw
-	[AdvP|NP|\\$\ldots$, circle, draw, dashed
-		[links, no edge, tier=3]
-	]
-	[\textbf{P}, circle, draw, tier=1
-		[auf, no edge, tier=2
-			[neben, no edge, tier=3,
-				[ins, no edge, tier=4]
-			]
-		]
-	]
-	[NP, circle, draw, tier=1
-		[der Einfahrt, no edge, tier=2
-			[der Einfahrt, no edge, tier=3
-				[Gebäude, no edge, tier=4]
-			]
-		]
-	]
+[S, dashed, tier=1
+	[AdvP, dashed
+	[links, dashed]]
+	[PP, dashed
+	[neben, dashed]
+	[NP, dashed
+	[ART,dashed
+	[der,dashed]]
+	[N,dashed
+	[Einfahrt, dashed]]]]
+	[VP, dashed
+	[stehen,dashed
+	[AdB, dashed[
+	[jede,dashed]]
+	[NP, dashed
+	[N,dashed
+	[Menge,dashed]]
+	[N, dashed
+	[Leute,dashed]]]]
+	[V, dashed
+	[rum,dashed]]]]
 ]
 }
 %\caption{lingforest with long sentences}
@@ -358,6 +361,8 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 \end{Sch} %cannot be in environment {figure}, has to be {Sch}, but then no \caption possible
 }
 %last error: LaTeX Error: Not in outer par mode.
+%Package forest Error: Circular tier hierarchy (tier 2).
+%verlängerung der zweige without tier declaration possible
 
 
 ```
