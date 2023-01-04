@@ -46,7 +46,7 @@ check_installed("tikz")
 #library(pandoc)
 library(rmarkdown)
 #latex_dependency("forest")
-latex_dependency_tikz("tikzpicture")
+#latex_dependency_tikz("tikzpicture")
 #pandoc_include_args("--template='calibration.tex'")
 
 #tinytex::tlmgr()
@@ -67,7 +67,7 @@ latex_dependency_tikz("tikzpicture")
 # tlmgr_update()
 # tlmgr(c('info', '--list', '--only-installed', '--data', 'name'))
 
-pandoc_include_args(before_body  = "calibration.tex")
+#pandoc_include_args(in_header  = "calibration.tex")
 #pandoc_latex_engine_args("lualatex")
 #tinytex::lualatex()
 #latexmk(engine = "l")
@@ -78,7 +78,7 @@ pandoc_include_args(before_body  = "calibration.tex")
 ## baum fenced
 ```{=latex}
 %[h]\label{figure1}
-\begin{document}
+%\begin{document}
 \begin{figure}
 %\centering
 
@@ -93,7 +93,7 @@ child {node {child}}};
 \end{tikzpicture}
 %  \caption{A picture}
 \end{figure}
-\end{document}
+%\end{document}
 ```
 
 <!-- $$latex -->
@@ -120,7 +120,8 @@ child {node {child}}};
 ## tree essai
 
 $$latex
-\begin{figure}
+\begin{figure}[h]\label{fail prevdepth}
+\begin{tikzpicture}
 \node {root}
 child {node {left}}
 child {node {right}
@@ -128,7 +129,8 @@ child {node {child}}
 child {node {child}}};
 %!\caption{this is a figure}
 %!\label{figure1}
-  \caption{A picture}
+\end{tikzpicture}
+ % \caption{A picture}
   \end{figure}$$
   
 <!-- \lingforest{30}{% -->
@@ -291,7 +293,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 %try if command declaration of above block can be used within this block
 
 
-\vbox{%
+%\vbox{%
 \begin{Sch}[Präpositionalphrase (PP)]
 \lingforest{30}{%
 [PP, circle, draw
@@ -317,7 +319,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 %\caption{with declared captions}
 
 \end{Sch}
-}
+%}
 
 
 ```

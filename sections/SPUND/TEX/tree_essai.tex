@@ -174,26 +174,7 @@ for working output configurations
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\#latex\_dependency("forest")}
-\FunctionTok{latex\_dependency\_tikz}\NormalTok{(}\StringTok{"tikzpicture"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## $name
-## [1] "tikz"
-## 
-## $options
-## NULL
-## 
-## $extra_lines
-## [1] "\\usetikzlibrary{tikzpicture}"
-## 
-## attr(,"class")
-## [1] "latex_dependency"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{\#latex\_dependency\_tikz("tikzpicture")}
 \CommentTok{\#pandoc\_include\_args("{-}{-}template=\textquotesingle{}calibration.tex\textquotesingle{}")}
 
 \CommentTok{\#tinytex::tlmgr()}
@@ -214,16 +195,7 @@ for working output configurations
 \CommentTok{\# tlmgr\_update()}
 \CommentTok{\# tlmgr(c(\textquotesingle{}info\textquotesingle{}, \textquotesingle{}{-}{-}list\textquotesingle{}, \textquotesingle{}{-}{-}only{-}installed\textquotesingle{}, \textquotesingle{}{-}{-}data\textquotesingle{}, \textquotesingle{}name\textquotesingle{}))}
 
-\FunctionTok{pandoc\_include\_args}\NormalTok{(}\AttributeTok{before\_body  =} \StringTok{"calibration.tex"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## [1] "--include-before-body" "calibration.tex"
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
+\CommentTok{\#pandoc\_include\_args(in\_header  = "calibration.tex")}
 \CommentTok{\#pandoc\_latex\_engine\_args("lualatex")}
 \CommentTok{\#tinytex::lualatex()}
 \CommentTok{\#latexmk(engine = "l")}
@@ -235,7 +207,7 @@ for working output configurations
 \subsection{baum fenced}\label{baum-fenced}}
 
 %[h]\label{figure1}
-\begin{document}
+%\begin{document}
 \begin{figure}
 %\centering
 
@@ -250,13 +222,14 @@ child {node {child}}};
 \end{tikzpicture}
 %  \caption{A picture}
 \end{figure}
-\end{document}
+%\end{document}
 
 \hypertarget{tree-essai}{%
 \subsection{tree essai}\label{tree-essai}}
 
 \[latex
-\begin{figure}
+\begin{figure}[h]\label{fail prevdepth}
+\begin{tikzpicture}
 \node {root}
 child {node {left}}
 child {node {right}
@@ -264,7 +237,8 @@ child {node {child}}
 child {node {child}}};
 %!\caption{this is a figure}
 %!\label{figure1}
-  \caption{A picture}
+\end{tikzpicture}
+ % \caption{A picture}
   \end{figure}\]
 
 \begin{Shaded}
@@ -411,7 +385,7 @@ A & B \\
 %try if command declaration of above block can be used within this block
 
 
-\vbox{%
+%\vbox{%
 \begin{Sch}[Präpositionalphrase (PP)]
 \lingforest{30}{%
 [PP, circle, draw
@@ -437,7 +411,7 @@ A & B \\
 %\caption{with declared captions}
 
 \end{Sch}
-}
+%}
 
 \begin{figure}[h]\label{figure01} 
 \centering
