@@ -2,40 +2,52 @@
 title: "texessai"
 author: "st."
 date: "`r Sys.Date()`"
+#extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
 output: 
-  bookdown::pdf_document2:
-# documentclass: scrartcl
-#   usegeometry: yes 
-#   paper: a4
-#   parskip: half
-#   numbers: enddot
-#   fontsize: 11pt
-#   toc: sectionentrywithdots
+##<Pos:pdf###>:
+  pdf_document:
+  # bookdown::html_document2:
+  # header-includes:
+  # - \usepackage{forest,float}
+  # - \pretitle{\begin{center}
+  #   \includegraphics[width=2in,height=2in]{logo.jpg}\LARGE\\}
+  # - \posttitle{\end{center}}
+####<Pos:dependencies    
     extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
+
+# documentclass: scrartcl
+#   usegeometry: yes,
+#   paper: a4,
+#   parskip: half,
+#   numbers: enddot,
+#   fontsize: 11pt,
+#   toc: sectionentrywithdots
 # includes: 
 #   before_body: "calibration.tex"
 
-#    extra_dependencies: ["tikz"]
+   #extra_dependencies: "tikz"
 
 ---
 this script works, packages included in yaml header  
-TODO not working: figure captions, inclusion of external .tex configuration
-```{r setup, include=FALSE}
+TODO not working: figure captions, inclusion of external .tex configuration, html output
+- MIND: restore githistory commented "wks." for working output configurations
+
+```{r setup, include=TRUE}
 knitr::opts_chunk$set(echo = TRUE)
 options(tinytex.verbose = TRUE,engine="lualatex")
-
 
 library(tinytex)
 #library(knitr)
 library(tikzDevice)
 check_installed("forest")
-#check_installed("tikz")
+check_installed("tikz")
 #tinytex::install_tinytex(bundle = 'TinyTeX-2')
 
-
+#library(pandoc)
 library(rmarkdown)
 #latex_dependency("forest")
-#latex_dependency("tikz")
+#latex_dependency_tikz("tikzpicture")
+#pandoc_include_args("--template='calibration.tex'")
 
 #tinytex::tlmgr()
 #tinytex::tlmgr("install forest")
@@ -55,12 +67,33 @@ library(rmarkdown)
 # tlmgr_update()
 # tlmgr(c('info', '--list', '--only-installed', '--data', 'name'))
 
-pandoc_include_args(in_header  = "calibration.tex")
+#pandoc_include_args(in_header  = "calibration.tex")
 #pandoc_latex_engine_args("lualatex")
 #tinytex::lualatex()
 #latexmk(engine = "l")
 #getwd()
 
+```
+
+## baum fenced
+```{=latex}
+%[h]\label{figure1}
+%\begin{document}
+\begin{figure}
+%\centering
+
+\begin{tikzpicture}
+\node {root} 
+child {node {left}} 
+child {node {right} 
+child {node {child}} 
+child {node {child}}};
+%!\caption{this is a figure}
+%!\label{figure1}
+\end{tikzpicture}
+%  \caption{A picture}
+\end{figure}
+%\end{document}
 ```
 
 <!-- $$latex -->
@@ -72,7 +105,7 @@ pandoc_include_args(in_header  = "calibration.tex")
 
 <!-- \begin {document}[Unvollständiges Schema der Nominalphrase (NP)]\label{bsp:np} -->
 
-<!-- <!-- %!forest-Baumdiagramm: Standard --> -->
+<!-- <!-- %!forest-Baumdiagramm: Standard --> 
 <!-- \newcommand{\lingforest}[2]{% -->
 <!-- 	\noindent\makebox[\textwidth]{ -->
 <!-- 		\begin{forest} -->
@@ -86,18 +119,23 @@ pandoc_include_args(in_header  = "calibration.tex")
 
 ## tree essai
 
-<!-- $$latex -->
-<!-- \begin{tikzpicture} -->
-<!-- \node {root}  -->
-<!-- child {node {left}}  -->
-<!-- child {node {right}  -->
-<!-- child {node {child}}  -->
-<!-- child {node {child}}}; -->
-<!-- %!\caption{this is a figure} -->
-<!-- %!\label{figure1} -->
-<!--   \end{tikzpicture} -->
-<!--   \caption{A picture} -->
-<!--   \end{figure}$$   -->
+```{=latex}
+\begin{figure}[h]\label{fail prevdepth}
+\begin{tikzpicture}
+\node {root}
+child {node {left}}
+child {node {right}
+child {node {child}}
+child {node {child}}};
+%if last entry with ";" > fail previous depth, if w/o, starts searching for packages...
+%in inline coded $$ wrapped.
+%with fenced block works!!
+%!\caption{this is a figure}
+%!\label{figure1}
+\end{tikzpicture}
+ % \caption{A picture}
+  \end{figure}
+```
   
 <!-- \lingforest{30}{% -->
 <!-- [NP, for tree={circle, draw} -->
@@ -142,19 +180,174 @@ model <- lm(mpg~.,mtcars)
 ```
 
 $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
-$$figure  
-\begin{figure} 
+```{=latex}  
+
+%-Theoreme-%
+
+\theoremstyle{definition}
+\newtheorem{D}{Definition}
+\newtheorem{B}{Beispiel}
+\newtheorem{Satz}{Satz}
+\newtheorem{N}{Notation}
+
+%!Theoremstil definition mit Zeilenumbruch
+\newtheoremstyle{break}
+{\topsep}%
+{\topsep}%
+{\normalfont}%
+{}%
+{\bfseries}%
+{.}%
+{\newline}
+{}%
+
+\theoremstyle{break}
+\newtheorem{R}{Regularität}
+\newtheorem{Bsp.}[B]{Beispiel}
+\newtheorem{Sch}{Schema}
+
+%!forest-Baumdiagramm: Pittner-Notation
+\newcommand{\lingforestpittner}[3]{%
+	\noindent\makebox[\textwidth]{
+		\begin{forest}
+			where n children=0{tier=word}{},
+			for tree={l=#1pt}
+			[]
+	\end{forest}}
+}
+
+%-Klammer-Notation (Pittner)-%
+
+%!Klammern
+\newcommand{\klammer}[2]{[#1]\textsubscript{\textbf{#2}}}
+\newcommand{\Klammer}[2]{$\biggl[$#1$\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\KKlammer}[2]{$\Biggl[$#1$\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\pos}[1]{\textsubscript{\textbf{#1}}}
+
+%!Grüne Klammern
+\newcommand{\greenklammer}[2]{\textcolor{dartmouthgreen}{[}#1\textcolor{dartmouthgreen}{]}\textsubscript{\textbf{#2}}}
+\newcommand{\greenKlammer}[2]{$\color{dartmouthgreen}\biggl[$#1$\color{dartmouthgreen}\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\greenKKlammer}[2]{$\color{dartmouthgreen}\Biggl[$#1$\color{dartmouthgreen}\Biggr]$\textsubscript{\textbf{#2}}}
+%\newcommand{\greenpos}[1]{\textsubscript{\textbf{\textcolor{dartmouthgreen}{#1}}}}
+\newcommand{\green}[1]{\textcolor{dartmouthgreen}{#1}}
+
+%!Klammern: Übungen
+\newcommand{\exklammer}[1]{[#1]\textsubscript{\subleer}}
+\newcommand{\exKlammer}[1]{$\biggl[$#1$\biggr]$\textsubscript{\subleer}}
+\newcommand{\exKKlammer}[1]{$\Biggl[$#1$\biggr]$\textsubscript{\subleer}}
+
+%!Leerstelle im Subskript
+\newcommand{\subleer}{\textsubscript{\textlarger[4]{\_}}}
+
+%-Skripte-%
+
+%!Oberskript
+\newcommand{\oberskript}[2]{[$\overset{\textbf{#2}}{\text{#1}}$]}
+
+%!Unterskript
+\newcommand{\unterskript}[2]{$\underset{\textbf{#2}}{\text{\ul{#1}}}$}
+
+
+%-Baumdiagramm-Notation-%
+
+%!forest-Baumdiagramm: Standard
+%!forest-Baumdiagramm: Standard
+\newcommand{\lingforest}[2]{%
+	\noindent\makebox[\textwidth]{
+		\begin{forest}
+			where n children=0{tier=word}{},
+			for tree={l=#1pt}
+			#2
+	\end{forest}
+	}
+}
+
+\begin{figure}[h]\label{figure01} 
+\lingforest{30}{%
+[PP, dashed
+	[AdvP|NP|, dashed
+		[links, no edge, tier=3]
+	]
+	[\textbf{P},dashed,tier=1
+		[auf, no edge, tier=2
+			[neben, no edge, tier=3,
+				[ins, no edge, tier=4]
+			]
+		]
+	]
+	[NP, dashed,tier=1
+		[der Einfahrt, no edge, tier=2
+			[der Einfahrt, no edge, tier=3
+				[Gebäude, no edge, tier=4]
+			]
+		]
+	]
+]
+}
+%\end{figure}
+%\end{forest}
+\caption{fenced forest}
+\end{figure}
+
+
+
+```
+
+```{=latex}
+%try if command declaration of above block can be used within this block
+
+
+%\vbox{%
+\begin{Sch}[Präpositionalphrase (PP)]
+\lingforest{30}{%
+[PP, circle, draw
+	[AdvP|NP|\\$\ldots$, circle, draw, dashed
+		[links, no edge, tier=3]
+	]
+	[\textbf{P}, circle, draw, tier=1
+		[auf, no edge, tier=2
+			[neben, no edge, tier=3,
+				[ins, no edge, tier=4]
+			]
+		]
+	]
+	[NP, circle, draw, tier=1
+		[der Einfahrt, no edge, tier=2
+			[der Einfahrt, no edge, tier=3
+				[Gebäude, no edge, tier=4]
+			]
+		]
+	]
+]
+}
+%\caption{with declared captions}
+
+\end{Sch}
+%}
+
+
+```
+
+```{=latex}
+
+\begin{figure}[h]\label{figure01} 
 \centering
 \begin{forest}
-%[PP Bühnen [P von] [NP den[AP [Ad ganz]  [A großen]]]]
-[S [NP[ART die] [N Katze]][PP [PR auf][NP [ART dem] [[AD heiszen][N Blechdach]]]]]
+[PP, dashed, tier=1
+	[AdvP|NP, dashed,tier=2[
+	links, dashed, tier=3]]
+	[PP, dashed, tier=2
+	[neben, dashed, tier=3]]
+	[NP, dashed,tier=2
+	[der Einfahrt, dashed, tier=3]]
+]
+%\end{figure}
 \end{forest}
-
-\end{figure}$$  
-
-
+\caption{fenced forest}
+\end{figure}
 
 
+```
 
 
 <!-- oben funktioniert, unten findet nicht das environment "Bsp", ich nehme an, das liegt an deklarationsconventionen pdf-text vs. luatex-->
@@ -220,7 +413,24 @@ $$figure
 
 ## another baum
 
-$$latex  
+<!-- $$latex   -->
+<!-- \begin{figure} -->
+<!-- \begin{tikzpicture} -->
+<!-- \node {root}  -->
+<!-- child {node {left}}  -->
+<!-- child {node {right}  -->
+<!-- child {node {child}}  -->
+<!-- child {node {child}}}; -->
+<!-- %!\caption{this is a figure} -->
+<!-- %!\label{figure1} -->
+<!-- \end {tikzpicture} -->
+<!-- \end{figure}$$   -->
+
+## baum fenced
+```{=latex}
+\begin{figure}[h]\label{figure1}
+\centering
+
 \begin{tikzpicture}
 \node {root} 
 child {node {left}} 
@@ -229,7 +439,10 @@ child {node {child}}
 child {node {child}}};
 %!\caption{this is a figure}
 %!\label{figure1}
-\end {tikzpicture}$$
+  \end{tikzpicture}
+  \caption{A picture}
+  \end{figure}
+```
 
 <!-- NOPE-->
 <!-- $$latex   -->
@@ -372,12 +585,12 @@ child {node {child}}};
 <!-- }$$ -->
 
 
-$$latex  
-We are working on
-\begin{tikzpicture}
-\draw (-1.5,0) -- (1.5,0);
-\draw (0,-1.5) -- (0,1.5);
-\end{tikzpicture}$$
+<!-- $$latex   -->
+<!-- We are working on -->
+<!-- \begin{tikzpicture} -->
+<!-- \draw (-1.5,0) -- (1.5,0); -->
+<!-- \draw (0,-1.5) -- (0,1.5); -->
+<!-- \end{tikzpicture}$$ -->
 
 ## R Markdown
 
