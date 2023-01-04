@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.4)  4 JAN 2023 06:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.1.4)  4 JAN 2023 06:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -708,7 +708,11 @@ File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 \BKM@id=\count347
 )) (/Users/lion/Library/TinyTeX/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
-) (./tree_essai.aux)
+) (./tree_essai.aux
+
+LaTeX Warning: Label `figure01' multiply defined.
+
+)
 \openout1 = `tree_essai.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
@@ -848,23 +852,55 @@ File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 {/Users/lion/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 230.
+(Font)              <10> on input line 264.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 230.
+(Font)              <7> on input line 264.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 230.
-! Improper \prevdepth.
-<recently read> \prevdepth 
-                           
-l.242   \end{figure}
-                    \] 
-Here is how much of TeX's memory you used:
- 35718 strings out of 476093
- 775626 string characters out of 5789596
- 1863793 words of memory out of 5000000
- 55511 multiletter control sequences out of 15000+600000
- 551597 words of font info for 92 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 75i,13n,81p,1606b,1079s stack positions out of 10000i,1000n,20000p,200000b,200000s
+(Font)              <5> on input line 264.
+[2]
+\c@D=\count354
+\c@B=\count355
+\c@Satz=\count356
+\c@N=\count357
+\c@R=\count358
+\c@Sch=\count359
 
-!  ==> Fatal error occurred, no output PDF file produced!
+Underfull \hbox (badness 10000) in paragraph at lines 381--384
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--414
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[3]
+<tree_essai_files/figure-latex/pressure-1.pdf, id=50, 469.755pt x 325.215pt>
+File: tree_essai_files/figure-latex/pressure-1.pdf Graphic file (type pdf)
+<use tree_essai_files/figure-latex/pressure-1.pdf>
+Package pdftex.def Info: tree_essai_files/figure-latex/pressure-1.pdf  used on input line 490.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+[4] [5 <./tree_essai_files/figure-latex/pressure-1.pdf>] (./tree_essai.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 37900 strings out of 476093
+ 811376 string characters out of 5789596
+ 1870793 words of memory out of 5000000
+ 57658 multiletter control sequences out of 15000+600000
+ 554863 words of font info for 96 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 134i,12n,131p,1606b,1788s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/Users/lion/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/Users/lion/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/Users/lion/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Users/lion/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/lion/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></Users/lion/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on tree_essai.pdf (5 pages, 208832 bytes).
+PDF statistics:
+ 146 PDF objects out of 1000 (max. 8388607)
+ 114 compressed objects within 2 object streams
+ 26 named destinations out of 1000 (max. 500000)
+ 22602 words of extra memory for PDF output out of 24883 (max. 10000000)
+
