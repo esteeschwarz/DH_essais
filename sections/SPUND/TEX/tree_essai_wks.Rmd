@@ -329,7 +329,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 ```
 
 ### try where float
-before figure 2
+before figure 2 
 
 ```{=latex}
 
