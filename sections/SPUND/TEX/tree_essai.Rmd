@@ -7,14 +7,13 @@ output:
 ##<Pos:pdf###>:
   pdf_document:
   # bookdown::html_document2:
-  # header-includes:
-  # - \usepackage{forest,float}
+    
   # - \pretitle{\begin{center}
   #   \includegraphics[width=2in,height=2in]{logo.jpg}\LARGE\\}
   # - \posttitle{\end{center}}
 ####<Pos:dependencies    
     extra_dependencies: ["float","pgf","forest","caption","pict2e","lipsum","amsthm","tikz"]
-
+header-includes: '\usepackage{cleveref}'
 # documentclass: scrartcl
 #   usegeometry: yes,
 #   paper: a4,
@@ -40,14 +39,16 @@ library(tinytex)
 #library(knitr)
 library(tikzDevice)
 check_installed("forest")
-check_installed("tikz")
+check_installed("cleveref")
 #tinytex::install_tinytex(bundle = 'TinyTeX-2')
 
 #library(pandoc)
 library(rmarkdown)
 #latex_dependency("forest")
-#latex_dependency_tikz("tikzpicture")
-#pandoc_include_args("--template='calibration.tex'")
+#latex_dependency("cleveref") #doesnt \usepackage{} from here
+#pandoc_include_args("--template=calibration.tex")
+#latex_dependency_tikz("cleveref") #is installed
+
 
 #tinytex::tlmgr()
 #tinytex::tlmgr("install forest")
@@ -64,6 +65,8 @@ library(rmarkdown)
 #tlmgr_search('/pdftex')
 #tlmgr
 #tlmgr_install('calendar')
+#tlmgr_install('cleveref')
+
 # tlmgr_update()
 # tlmgr(c('info', '--list', '--only-installed', '--data', 'name'))
 
@@ -181,7 +184,7 @@ model <- lm(mpg~.,mtcars)
 
 $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 ```{=latex}  
-
+%\usepackage{cleveref} %cannot be loaded from here, only in preamble!
 %-Theoreme-%
 
 \theoremstyle{definition}
@@ -215,6 +218,9 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 			[]
 	\end{forest}}
 }
+
+\crefname{nr}{figure}
+
 
 %-Klammer-Notation (Pittner)-%
 
@@ -286,7 +292,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 }
 %\end{figure}
 %\end{forest}
-\caption{fenced forest}
+\caption{fenced lingforest}
 \end{figure}
 
 
@@ -297,7 +303,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 %try if command declaration of above block can be used within this block
 
 
-%\vbox{%
+\vbox{%
 \begin{Sch}[Präpositionalphrase (PP)]
 \lingforest{30}{%
 [PP, circle, draw
@@ -323,14 +329,17 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 %\caption{with declared captions}
 
 \end{Sch}
-%}
+}
 
 
 ```
 
+### try where float
+before figure 2 (inline:) $$latex \cref{figure:2}$$
+
 ```{=latex}
 
-\begin{figure}[h]\label{figure01} 
+\begin{figure}[h]\label{figure02} 
 \centering
 \begin{forest}
 [PP, dashed, tier=1
@@ -349,6 +358,7 @@ $$latex \hat{Y}= `r coef1` + `r coef2` \cdot Length$$
 
 ```
 
+after figure 2 $$latex \cref{figure02}$$
 
 <!-- oben funktioniert, unten findet nicht das environment "Bsp", ich nehme an, das liegt an deklarationsconventionen pdf-text vs. luatex-->
 <!-- $$latex -->
