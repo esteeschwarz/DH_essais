@@ -2,7 +2,11 @@
 ##############################
 library(readr)
 getwd()
-d<-read_delim("ses_vert.csv")
+datadir<-"local/HU-LX/SES"
+
+preprocess_temp<-function(){
+src<-paste(datadir,"ses_vert.csv",sep = "/")
+d<-read_delim(src)
 
 #d$token[1:20]
 #mi<-grep("INT",d$token)
@@ -57,34 +61,37 @@ repl<-""
 d4$sentence<-gsub(regx,repl,d4$sentence)
 #d3[10,]
 d4<-data.frame(d3)
-dns<-c("speaker","token","lemma","pos","function","case","num","gender","mode","X","snr","sentence")
+dns<-c("id","speaker","token","lemma","pos",",pos.check.OK","function","case","num","gender","mode","X","snr","sentence")
 colnames(d4)<-dns
-write.csv(d4,"sesDB001.csv")     
+#write.csv(d4,"sesDB001.csv")     
 #d4$sentence<-sp_sentence
 #d4$sentence_cn<-sp_sentence_cn
 dim(d3)
+}
 ###### wks.
-# query:
-quer<-function(){
-query<-list(dns)
-dn2<-array(dns)
-q<-data.frame(dns)
-q<-as.list(dns)
-q<-as.data.frame(dns[1:10])
-q1<-c("GCB",".*",".*",".*",".*",".*",".*",".*",".*",".*")
-qm<-rbind(dns,q1)
-qm<-data.frame(qm)
-colnames(qm)<-dns
-qm
-q1
-q1<-c("#GCB","der",".*",".*",".*",".*",".*",".*",".*",".*",".*",".*")
-m1<-grep(q1,d4)
+##########
+#dns<-colnames((d))
 
-m1<-q1%in%d4
-q2<-"der"
+quer_temp<-function(){
+#query<-list(dns)
+#dn2<-array(dns)
+#q<-data.frame(dns)
+#q<-as.list(dns)
+#q<-as.data.frame(dns[1:10])
+#q1<-c("GCB",".*",".*",".*",".*",".*",".*",".*",".*",".*")
+#qm<-rbind(dns,q1)
+#qm<-data.frame(qm)
+#colnames(qm)<-dns
+#qm
+#q1
+#q1<-c("id","#GCB","der",".*",".*",".*",".*",".*",".*",".*",".*",".*",".*")
+#m1<-grep(q1,d4)
+
+#m1<-q1%in%d4
+#q2<-"der"
 
 #d4<-data.frame(d4)
-d4$sentence
+#d4$sentence
 ############
 #subsetting after query:
 length(m1)
@@ -98,40 +105,62 @@ dq1$sentence_cn
 dq1$token
 m1<-q1%in%d3
 }
-q<-dns
-m1<-d4
-m<-1
-query<-q1
-q
-q1<-c("#GCB","das","",".*",".*",".*",".*",".*",".*",".*",".*",".*")
-q_sub<-function(set,q,query){
+########
+# query:
+getdata<-function(){
+src<-paste(datadir,"sesDB002.csv",sep = "/")
+d<-read.csv(src,sep = ";")
+d$pos.check.OK<-0
+d4<-d
+}
+dns<-colnames(d)
+q1<-c(".*","#TBV","","gehen",".*",".*",".*",".*",".*",".*",".*",".*",".*",".*")
+sampleq<-rbind(dns,q1)
+colnames(sampleq)<-dns
+sampleq<-data.frame(sampleq)
+###################
+#sampleq$id[k]
+#query[1,1]
+#k<-1
+q_sub<-function(set,k,query){
   #m1<-set
-  set<-m1
-    m1<-set[grep(query[1],set[,1]),]
-    m2<-m1[grep(query[2],m1[,2]),] ### NOT with logical but grep, match etc.
-    m3<-m2[grep(query[3],m2[,3]),]
-    m4<-m3[grep(query[4],m3[,4]),]
-    m5<-m4[grep(query[5],m4[,5]),]
-    m6<-m5[grep(query[6],m5[,6]),]
-    m7<-m6[grep(query[7],m6[,7]),]
-    m8<-m7[grep(query[8],m7[,8]),]
-    m9<-m8[grep(query[9],m8[,9]),]
-    m10<-m9[grep(query[10],m9[,10]),]
-    m11<-m10[grep(query[11],m10[,11]),]
-    m12<-m11[grep(query[12],m11[,12]),]
-    
-  return(m12)
-  
-    }
-  m2
-  m1[,1][grep(query[1],m1[,1])]
-length(m1$token)
-length(m1[,"token"])
-m2<-q_sub(m1,dns,q1)
-d4$sentence[m2$snr]
-m2$snr
-q<-"token"
-m1[,q[1]]
-m2
-
-
+  set<-d4
+  m1<-subset(set,grepl(query$id[k],set[,1]))
+  m2<-subset(m1,grepl(query$speaker[k],m1[,2])) ### NOT with logical but grep, match etc.
+  ifelse(query$token!="",
+  m3<-subset(m2,query$token[k]==m2[,3]),
+  m3<-subset(m2,grepl(query$token[k],m2[,3])))
+  m4<-subset(m3,grepl(query$lemma[k],m3[,4]))
+  m5<-subset(m4,grepl(query$pos[k],m4[,5]))
+  m6<-subset(m5,grepl(query$pos.check.OK[k],m5[,6]))
+  m7<-subset(m6,grepl(query$function.[k],m6[,7]))
+  m8<-subset(m7,grepl(query$case[k],m7[,8]))
+  m9<-subset(m8,grepl(query$num[k],m8[,9]))
+  m10<-subset(m9,grepl(query$gender[k],m9[,10]))
+  m11<-subset(m10,grepl(query$mode[k],m10[,11]))
+  m12<-subset(m11,grepl(query$regex[k],m11$sentence))
+}
+# RUN: #############
+#query declaration:
+sampleq$id<-          ".*"
+sampleq$speaker<-     "#TBU"
+sampleq$token<-       ""
+sampleq$lemma<-       ".*"
+sampleq$pos<-         ".*"
+sampleq$pos.check.OK<-".*"
+sampleq$function.<-   ".*"
+sampleq$case<-        ".*"
+sampleq$num<-         ".*"
+sampleq$gender<-      ".*"
+sampleq$mode<-        ".*"
+sampleq$X<-           ".*"
+sampleq$snr<-         ".*"
+sampleq$regex<-       "ich"
+####################
+query<-sampleq
+m2<-q_sub(getdata(),1,query)
+#set$sentence[m2]
+####################
+# OUTPUT:
+unique(m2$sentence)
+##### other method subscript
