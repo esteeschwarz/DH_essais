@@ -1,6 +1,8 @@
 #13015.HU-LX concordance essai
 ##############################
 library(readr)
+library(stringi)
+library(R.utils)
 getwd()
 datadir<-"local/HU-LX/SES"
 
@@ -111,8 +113,59 @@ getdata<-function(){
 src<-paste(datadir,"sesDB002.csv",sep = "/")
 d<-read.csv(src,sep = ";")
 d$pos.check.OK<-0
+d$pos_cpt<-paste(d4$function.,d4$case,d4$num,d4$gender,d4$mode,d4$X,sep = "-")
 d4<-d
 }
+#colnames(d4[,9])<-"person"
+d5<-d4
+7:12
+#s1<-d5$pos_cpt[18]
+#correct POS tag
+k<-16
+d5<-d4
+d5<-cbind(d4[,1:12],"fun",d4[,13:15])
+#d5<-insert(d5[1,],13,"fun")
+for (k in 1:length(d4$id)){
+s1<-d5$pos_cpt[k]
+#s2<-d4
+s1
+s2<-stri_split_regex(s1,"-",simplify = T)
+a<-c(s2)
+#a<-c(1,2,3,4,5,6,7,8,9)
+#b<-insert(a,3,11)
+#b
+s2<-a
+#b<-insert(s2,3,11)
+regx1<-"[1-3]" # if person on 2nd position push person to 3rd position of PoS tag
+m1<-grepl(regx1,s2)
+m2<-grep(regx1,s2)
+s2[m1]
+if(sum(m1)>0){
+  if (m2!=3){
+#repl<-s2[m1]  
+repl<-"-"
+#if (m!=3){s2<-append(s2,"-",after = 1)}}
+#if (m!=3){s2<-append(s2,repl,after = 3)}}
+s2<-insert(s2,2,repl)
+s2<-insert(s2,3,repl)}}
+s2
+w1<-unique(d4$case)
+w1
+regx2<-"(Nom|Gen|Dat|Acc)"
+m1<-grepl(regx2,s2)
+nom<-grep(regx2,s2,invert = T)
+repl<-s2[m1]  
+if (sum(m1)>0){
+if (nom<=3)#{s2<-insert(s2,3,repl)
+{s2<-c(s2[1],"-",s2[m1],"-",s2[3:7])}
+
+  }
+d5[k,7:13]<-s2
+}
+write.csv(d5,paste0(datadir,"sesDB003.csv"))
+          
+s2
+
 dns<-colnames(d)
 q1<-c(".*","#TBV","","gehen",".*",".*",".*",".*",".*",".*",".*",".*",".*",".*")
 sampleq<-rbind(dns,q1)
