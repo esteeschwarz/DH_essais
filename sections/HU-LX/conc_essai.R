@@ -121,8 +121,8 @@ d4<-d
 d5<-cbind(d4[,1:12],"fun",d4[,13:15])
 colnames(d5)<-dns
 d3<-d5
-}
 #dns<-c("id","speaker","token","lemma","pos","pos.check.OK","funct","cat","case","pers","num","gender","mode","snr","sentence","pos_cpt")
+}
 
 d3<-getdata()
 d4<-d3
@@ -163,55 +163,56 @@ ns_g2[["cor"]][["mode"]]<-c("Ind","Subj") #"Subj" == conditional
 ns_g2[[2]][[1]]
 k<-5
 d5<-d3
-
+r<-11
 #PoS CORRECTION LOOP
-for (k in 1:length(d4$id)){
-s1<-d5$pos_cpt[k]
-#s2<-d4
-s1
-colnames(d5[7:13])
-s2<-stri_split_regex(s1,"-",simplify = T)
-a<-c(s2)
-#a<-c(1,2,3,4,5,6,7,8,9)
-#b<-insert(a,3,11)
-#b
-s2<-a
-#c1<-0
-s2
-s2
-rstar<-match(s2,"*")
-s2[rstar==T]<-"-"
-s2
-top<-1
-top<-2
-top<-4
-l<-2
+#for (k in 1:length(d4$id)){
 ma<-array()
 s3<-"-"
 s4<-s2
 s4<-array()
 la<-length(ns_g2$cor)
-
+getarray(12)
+######################
+getarray<-function(r){
+s1<-d5$pos_cpt[r]
+s1
+colnames(d5[7:13])
+s2<-stri_split_regex(s1,"-",simplify = T)
+a<-c(s2)
+s2<-a
+rstar<-match(s2,"*")
+s2[rstar==T]<-"-"
+print(s2)
+return(s2)
+}
+s2<-getarray(10)
+for (top in 1:length(s2)){
+top_sub<-top_array(s2,top)
+}
+top<-2
 ##################
-for (top in 1:la){
- # ma<-array()
-  length(ns_g2$cor[[top]])
-  #for (s in 1:length(s2)){
- l<-2
-  s2
+  ######################################
+top_array<-function(s2,top){
+ma<-array()
   for (l in 1:length(ns_g2$cor[[top]])){
-  m1<-match(s2,ns_g2$cor[[top]][[l]])
-  m2<-!is.na(m1)
-  m3<-match(ns_g2$cor[[top]][[l]],s2)
-  m3<-!is.na(m3)
-  sum(m2)
-  m4<-!is.na(s2[m1])
-  sum(m4)
-  ifelse(sum(m2)!=0&sum(m3)!=0&sum(m4)!=0,ma[top]<-s2[m4],ma[top]<-0)
+  m1<-match(s2,ns_g2$cor[[top]]) #output position of match in y on array pos x
+  m1<-sum(m1,na.rm = T) #position
+  #m2<-!is.na(m1)
+  m3<-match(ns_g2$cor[[top]],s2)
+  #ns_g2$cor[[top]][[m1]]
+  m3<-sum(m3,na.rm = T)
+  #sum(m2)
+  #m4<-!is.na(s2[m1])
+  #sum(m4)
+  
+  ifelse(m3!=0&m1!=0,ma[top]<-ns_g2$cor[[top]][[l]],ma[top]<-"-")
+  print(ma)
+  }
+}
   #s2<-ma
 # print(ma)
  # s4[top]<-ma[!is.na(ma)]
- #   }
+    #}
 #s3
   #  ifelse(sum(m2)!=0,ma[top]<-ns_g2$cor[[top]][[m2]],ma[top]<-"-")
   s2
@@ -219,34 +220,58 @@ for (top in 1:la){
   p<-!is.na(ma)
   s4[top]<-ma[p]
   s5<-s4
+  s2
   ma
   s4
 #  cat(top,l,s4,"\n")
-}
-  cat(top,l,s4,"\n")
+
+  cat(top,l,ma,"\n")
   
 #   s2
 # ma
 # s4
 # s4
-#   ls<-length(s2)
-#   d<-la-ls
-#   dsub<-c(rep("-",d))
-#   #if (ls>=7)
-#   #d5[k,7:13]<-s2
-#   if (ls<la){s2<-c(s2,dsub)}
-#   e<-match(s2,"")
-#   e<-e!=0
-#   s2[e]<-"-"
-# s2
-#  # d5[k,7:14]<-s2
   
+  ls<-length(ma)
+  d<-la-ls
+  dsub<-c(rep("-",d))
+  #if (ls>=7)
+  #d5[k,7:13]<-s2
+  if (ls<la){ma<-c(ma,dsub)}
+ # return(ma)
+  #e<-match(s2,"")
+  #e<-e!=0
+  #s2[e]<-"-"
+#s2
+# d5[k,7:14]<-ma
+
 #  d5[k,7:13]<-ma
-}
-################# end top
+return(ma)
+  } ################# end top_array(top)
+#return(ma)
+top_array(top = top)
+la<-length(top)
+for (top in 1:la){
+  
+  ma<-array()
+  length(ns_g2$cor[[top]])
+  #for (s in 1:length(s2)){
+  l<-2
+  s2
+  
+} #end top loop
+} #end getarray #
+###############
+lr<-length(d4$id)
 
+s6<-matrix(nrow = la,ncol = length(d4$id))
+for (r in 1:lr){
+s6[r,]<-getarray(r)
 
-##########
+} #end loop call getarray
+length(getarray(114))
+getarray(15)
+#####################
 d5[k,7:14]
 ma
   s3
@@ -354,6 +379,7 @@ d5[k,7:13]<-s2
 #    d5[k,7:12]<-s2
 }
 }
+#### end getarray FALSE#########
 s2
 ds<-d5
 
