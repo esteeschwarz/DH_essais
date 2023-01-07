@@ -109,48 +109,230 @@ m1<-q1%in%d3
 }
 ########
 # query:
+
 getdata<-function(){
 src<-paste(datadir,"sesDB002.csv",sep = "/")
 d<-read.csv(src,sep = ";")
 d$pos.check.OK<-0
-d$pos_cpt<-paste(d4$function.,d4$case,d4$num,d4$gender,d4$mode,d4$X,sep = "-")
 d4<-d
+d$pos_cpt<-paste(d4$function.,d4$case,d4$num,d4$gender,d4$mode,d4$X,sep = "-")
+dns<-c("id","speaker","token","lemma","pos","pos.check.OK","funct","cat","case","pers","num","gender","mode","snr","sentence","pos_cpt")
+d4<-d
+d5<-cbind(d4[,1:12],"fun",d4[,13:15])
+colnames(d5)<-dns
+d3<-d5
 }
-#colnames(d4[,9])<-"person"
-d5<-d4
+#dns<-c("id","speaker","token","lemma","pos","pos.check.OK","funct","cat","case","pers","num","gender","mode","snr","sentence","pos_cpt")
+
+d3<-getdata()
+d4<-d3
+#d5<-cbind(d4[,1:12],"fun",d4[,13:15])
+#colnames(d5)<-dns
+ds<-d5
+d5<-d3
+
 7:12
 #s1<-d5$pos_cpt[18]
 #correct POS tag
-k<-16
-d5<-d4
-d5<-cbind(d4[,1:12],"fun",d4[,13:15])
+k<-5
+#d4<-d3
 #d5<-insert(d5[1,],13,"fun")
+#### new
+dns[7:14]
+ns_g<-list()
+ns_g[[1]]<-unique(d5[,7])
+ns_g
+ns_g[[2]]<-unique(d5[,8])
+ns_g[[3]]<-unique(d5[,9])
+ns_g[[4]]<-unique(d5[,10])
+ns_g[[5]]<-unique(d5[,11])
+ns_g[[6]]<-unique(d5[,12])
+ns_g[[7]]<-unique(d5[,13])
+ns_g2<-list()
+ns_g2[["db"]]<-ns_g
+ns_g2[["cor"]][["cat"]]<-ns_g[[1]]
+ns_g2[["cor"]][["funct"]]<-c("Subst","Sent","Left","Right","Psp","Attr","zu","Gen","XY","Auth")
+ns_g2[["cor"]][["case"]]<-c("Nom","Gen","Dat","Acc")
+ns_g2[["cor"]][["pers"]]<-c(1,2,3)
+ns_g2[["cor"]][["num"]]<-c("Sg","Pl")
+ns_g2[["cor"]][["gender"]]<-c("Neut","Fem","Masc")
+ns_g2[["cor"]][["tense"]]<-c("Pres","Past")
+ns_g2[["cor"]][["mode"]]<-c("Ind","Subj") #"Subj" == conditional
+
+
+ns_g2[[2]][[1]]
+k<-5
+d5<-d3
+
+#PoS CORRECTION LOOP
 for (k in 1:length(d4$id)){
 s1<-d5$pos_cpt[k]
 #s2<-d4
 s1
+colnames(d5[7:13])
 s2<-stri_split_regex(s1,"-",simplify = T)
 a<-c(s2)
 #a<-c(1,2,3,4,5,6,7,8,9)
 #b<-insert(a,3,11)
 #b
 s2<-a
+#c1<-0
+s2
+s2
+rstar<-match(s2,"*")
+s2[rstar==T]<-"-"
+s2
+top<-1
+top<-2
+top<-4
+l<-2
+ma<-array()
+s3<-"-"
+s4<-s2
+s4<-array()
+la<-length(ns_g2$cor)
+
+##################
+for (top in 1:la){
+ # ma<-array()
+  length(ns_g2$cor[[top]])
+  #for (s in 1:length(s2)){
+ l<-2
+  s2
+  for (l in 1:length(ns_g2$cor[[top]])){
+  m1<-match(s2,ns_g2$cor[[top]][[l]])
+  m2<-!is.na(m1)
+  m3<-match(ns_g2$cor[[top]][[l]],s2)
+  m3<-!is.na(m3)
+  sum(m2)
+  m4<-!is.na(s2[m1])
+  sum(m4)
+  ifelse(sum(m2)!=0&sum(m3)!=0&sum(m4)!=0,ma[top]<-s2[m4],ma[top]<-0)
+  #s2<-ma
+# print(ma)
+ # s4[top]<-ma[!is.na(ma)]
+ #   }
+#s3
+  #  ifelse(sum(m2)!=0,ma[top]<-ns_g2$cor[[top]][[m2]],ma[top]<-"-")
+  s2
+  ma
+  p<-!is.na(ma)
+  s4[top]<-ma[p]
+  s5<-s4
+  ma
+  s4
+#  cat(top,l,s4,"\n")
+}
+  cat(top,l,s4,"\n")
+  
+#   s2
+# ma
+# s4
+# s4
+#   ls<-length(s2)
+#   d<-la-ls
+#   dsub<-c(rep("-",d))
+#   #if (ls>=7)
+#   #d5[k,7:13]<-s2
+#   if (ls<la){s2<-c(s2,dsub)}
+#   e<-match(s2,"")
+#   e<-e!=0
+#   s2[e]<-"-"
+# s2
+#  # d5[k,7:14]<-s2
+  
+#  d5[k,7:13]<-ma
+}
+################# end top
+
+
+##########
+d5[k,7:14]
+ma
+  s3
+s2  
+
+
+#d4$token[d4$num=="Subj"]
+
+
+ns_g2$db[1]
 #b<-insert(s2,3,11)
 regx1<-"[1-3]" # if person on 2nd position push person to 3rd position of PoS tag
 m1<-grepl(regx1,s2)
 m2<-grep(regx1,s2)
+m2v<-grep(regx1,s2,value = T)
 s2[m1]
-if(sum(m1)>0){
-  if (m2!=3){
-#repl<-s2[m1]  
-repl<-"-"
-#if (m!=3){s2<-append(s2,"-",after = 1)}}
-#if (m!=3){s2<-append(s2,repl,after = 3)}}
-s2<-insert(s2,2,repl)
-s2<-insert(s2,3,repl)}}
+
+regx2<-"(Nom|Gen|Dat|Acc)"
+regx3<-"PRO"
+m3<-grepl(regx2,s2)
+m4<-grep(regx2,s2)
+m7<-match(regx3,d5$pos[k])
 s2
-w1<-unique(d4$case)
-w1
+if(sum(m1)>0){
+  if (m2<4){
+repl<-s2[m1]  
+repl<-"-"
+regx2<-"(Nom|Gen|Dat|Acc)"
+m3<-grepl(regx2,s2)
+m4<-grep(regx2,s2)
+repl<-s2[m3]  
+if (sum(m3)>0){
+  if (m4<3){s2<-insert(s2,3,repl)}
+  s2[m4]<-m2v}
+  s2<-c(s2[1],"-",repl,s2[4:7])
+  c1<-1
+  s2
+}
+  }
+#}###1st
+s2
+repl<-s2[m3]  
+repl
+m4
+# if (sum(m3)>0){
+#   if (m4<3){s2<-insert(s2,3,repl)}
+#   s2<-c(s2[1],"-",s2[3:7])
+#   c1<-1
+#   s2
+# }  
+  m5<-grepl(regx1,s2)
+  m6<-grep(regx1,s2)
+  s2[m5]
+s2
+#m5
+
+if(sum(m5)>0){
+  if (m6!=4){
+  #repl<-s2[m1]  
+  repl<-c("-","-")
+  
+  s2<-insert(s2,2,repl)}
+  c1<-1}
+  if(sum(m1)==0&c1==0){
+  #  if (m2!=4){
+      #repl<-s2[m1]  
+      repl<-c("-")
+      s2<-insert(s2,4,repl)}
+  
+s2
+m1<-grepl(regx1,s2)
+m2<-grep(regx1,s2)
+s2[m1]
+s2
+m2
+###
+if(sum(m1)>0){
+  if (m2!=4){
+    #repl<-s2[m1]  
+    repl<-c("-","-")
+    
+    s2<-insert(s2,2,repl)}
+###
+  # w1<-unique(d4$case)
+# w1
+if(c!=1){
 regx2<-"(Nom|Gen|Dat|Acc)"
 m1<-grepl(regx2,s2)
 nom<-grep(regx2,s2,invert = T)
@@ -159,9 +341,22 @@ if (sum(m1)>0){
 if (nom<=3)#{s2<-insert(s2,3,repl)
 {s2<-c(s2[1],"-",s2[m1],"-",s2[3:7])}
 
-  }
+  }}
+s2
+ls<-length(s2)
+#if (ls>=7)
+#d5[k,7:13]<-s2
+if (ls<7){s2<-c(s2,"-")}
+if (ls==8&s2[8]==""){s2<-s2[1:7]}
+s2
 d5[k,7:13]<-s2
+
+#    d5[k,7:12]<-s2
 }
+}
+s2
+ds<-d5
+
 write.csv(d5,paste0(datadir,"sesDB003.csv"))
           
 s2

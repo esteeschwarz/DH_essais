@@ -138,3 +138,12 @@ library(httpgd)
 image(b)  
 
 # Warning: The working directory was changed to /Users/lion/boxHKW/21S/DH/local/HU-LX/SES/conc inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks.
+
+na.action(na.omit(c(1, NA)))
+
+s<-c("eins","zwei",3,4,5,6,NA)
+m<-grep("ei",s)
+m2<-grep("s",s[m])
+s[m2]
+m3<-s[grep(".*",s[m2])]
+m3
