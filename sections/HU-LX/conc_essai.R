@@ -116,10 +116,13 @@ d<-read.csv(src,sep = ";")
 d$pos.check.OK<-0
 d4<-d
 d$pos_cpt<-paste(d4$function.,d4$case,d4$num,d4$gender,d4$mode,d4$X,sep = "-")
-dns<-c("id","speaker","token","lemma","pos","pos.check.OK","funct","cat","case","pers","num","gender","mode","snr","sentence","pos_cpt")
+dns<-c("id","speaker","token","lemma","pos","pos.check.OK","funct","cat","case","pers","num","gender","tense","mode","snr","sentence","pos_cpt")
 d4<-d
-d5<-cbind(d4[,1:12],"fun",d4[,13:15])
+#data.frame(dns[7:14])
+ma<-matrix(dns[7:14],ncol = 8)
+d5<-cbind(d4[,1:6],ma,d4[,13:15])
 colnames(d5)<-dns
+d5[,7:14]<-""
 d3<-d5
 #dns<-c("id","speaker","token","lemma","pos","pos.check.OK","funct","cat","case","pers","num","gender","mode","snr","sentence","pos_cpt")
 }
@@ -185,17 +188,42 @@ s2[rstar==T]<-"-"
 print(s2)
 return(s2)
 }
-s2<-getarray(10)
-for (top in 1:length(s2)){
-top_sub<-top_array(s2,top)
-}
-top<-2
+# getarray(1:50)
+# for (top in 1:length(s2)){
+# top_sub<-top_array(s2,top)
+# }
+# top<-2
 ##################
-  ######################################
+# NEW:
+# get codes cpt, grep value of useable values in code, output to useable value standard position
+d5<-getdata()
+#r<-11
+#top<-5
+d6<-d5
+#ma<-array()
+#s2
+#d6<-matrix(nrow = length(d5$id),ncol = 8)
+for (r in 1:length(d5$pos_cpt)){
+#s2<- d5$pos_cpt[r]
+s2<-getarray(r)
+for (top in 1:length(ns_g2$cor)){
+for (l in 1:length(ns_g2$cor[[top]])){
+m1<-match(ns_g2$cor[[top]][[l]],s2)
+#s2[m1]
+pos<-6+top
+ifelse (m1!=0,d6[r,pos]<-s2[m1],d6[r,pos]<-"-")
+}
+}
+#d6[pos,1:8]<-ma
+}
+head(d6)
+write.csv(d6,"local/HU-LX/SES/sesDB004.csv")
+
+##################################################
 top_array<-function(s2,top){
-ma<-array()
+ma<-array(1:top)
   for (l in 1:length(ns_g2$cor[[top]])){
-  m1<-match(s2,ns_g2$cor[[top]]) #output position of match in y on array pos x
+  m1<-match(s2,ns_g2$cor[[top]][[l]]) #output position of match in y on array pos x
   m1<-sum(m1,na.rm = T) #position
   #m2<-!is.na(m1)
   m3<-match(ns_g2$cor[[top]],s2)
@@ -205,8 +233,10 @@ ma<-array()
   #m4<-!is.na(s2[m1])
   #sum(m4)
   
-  ifelse(m3!=0&m1!=0,ma[top]<-ns_g2$cor[[top]][[l]],ma[top]<-"-")
-  print(ma)
+  #if(m3!=0&m1!=0){ma[top]<-ns_g2$cor[[top]][[l]]}
+  if(m3!=0&m1!=0){ma[top]<-ns_g2$cor[[top]][[l]]}
+  
+    print(ma)
   }
 }
   #s2<-ma
