@@ -14,29 +14,30 @@ list.files(datadir)
 d1<-read_delim("ses_vert.csv")
 # delete <g/>, <s>, </s> rows
 # grep
+set<-d2
 cleandb<-function(set){
-  d1<-set
+  #set
   regx1<-"(<g/>)"
   regx2<-"(<s>)"
   regx3<-"(</s>)"
   regx4<-"#|%|:"
   #regx5<-":"
-  m1<-grep(regx1,d1$token)
-  m2<-grep(regx2,d1$token)
-  m3<-grep(regx3,d1$token)
-  m4<-grep(regx4,d1$token)
-  #m5<-grep(regx5,d1$token)
+  m1<-grep(regx1,set$token)
+  m2<-grep(regx2,set$token)
+  m3<-grep(regx3,set$token)
+  m4<-grep(regx4,set$token)
+  #m5<-grep(regx5,set$token)
   
   #rm(m2v)
   # exclude
   ex<-c(m1,m2,m3,m4)
-  d1$gilt<-T
-  d1$gilt[ex]<-F
-  #exin<-match(ex,d1$X.1)
-  d2<-subset(d1,d1$gilt==T)
+  set$gilt<-T
+  set$gilt[ex]<-F
+  #exin<-match(ex,set$X.1)
+  d2<-subset(set,set$gilt==T)
 }
-d2<-cleandb(d1)
-
+d3<-cleandb(d2)
+d<-d1
 preprocess_temp<-function(set){
 #src<-paste(datadir,"ses_vert.csv",sep = "/")
 #d<-read_delim(src)
@@ -57,7 +58,10 @@ spk_grep2<-paste0(spk_array2,collapse = "|")
 spk_grep3<-paste0("(",spk_grep2,")")
 spk_grep3
 ms3<-grep(spk_grep3,d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+#}
 
+
+#ms3<-preprocess_temp(d1)
 spk
 # try put column with flowing speaker declaration
 sp_d<-array()
@@ -85,17 +89,17 @@ for (k in 1:length(ms)){
     sp_p2<-ms[k+1]-1
     
   sp_ns<-d$token[sp_s]
-  #if (!is.na(sp_s)){
+#  if (!is.na(sp_s)){
     sp_s_cn<-paste(d$token[sp_s:sp_e],collapse = " ")
-    sp_d[sp_s:sp_e]<-sp_s:sp_e
-  sp_ds[sp_s:sp_e]<-sp_ns
+#    sp_d[sp_s:sp_e]<-sp_s:sp_e
+ # sp_ds[sp_s:sp_e]<-sp_ns
   #sp_sentence_cn[sp_s:sp_e]<-sp_s_cn
  # d$sentence_temp[sp_s:sp_e]<-sp_s_cn
   
 #  sp_sentence[sp_s:sp_e]<-sp_s
   d$sentence_temp[sp_s:sp_e]<-sp_s_cn
   d$speaker[sp_s:sp_e]<-sp_ns  
-  #} #if
+ # } #if
 #  d$sentence_temp[30]
   #return(d)
   } 
@@ -119,16 +123,19 @@ library(stringi)
 ann<-data.frame(stri_split_fixed(d$cat,".",simplify = T))
 anns<-c("")
 d2<-cbind(d,ann)
-d3<-cbind(d2$speaker,d2$token,d2$lemma,d2$X1,d2$X2,d2$X3,d2$X4,d2$X5,d2$X6,d2$X7,d2$sentence,d2$sentence_cn)
+#d3<-cbind(d2$speaker,d2$token,d2$lemma,d2$X1,d2$X2,d2$X3,d2$X4,d2$X5,d2$X6,d2$X7,d2$sentence,d2$sentence_cn)
 getwd()
 #cleanup
 regx<-("<s>|</s>|<g/>")
 repl<-""
 d4<-data.frame(d3)
 
-d4$sentence<-gsub(regx,repl,d4$sentence_cn)
+d4$sentence<-gsub(regx,repl,d$sentence_temp)
 #d3[10,]
-dns<-c("id","speaker","token","lemma","pos",",pos.check.OK","function","case","num","gender","mode","X","snr","sentence")
+print(d3[11,])
+print(length(d3[1,]))
+#dns<-c("id","speaker","token","lemma","pos",",pos.check.OK","function","case","num","gender","mode","X","snr","sentence")
+dns<-c("speaker","token","lemma","pos","cat","p1","p2","p3","p4","p5","sen_temp","sentence","gilt")
 colnames(d4)<-dns
 #write.csv(d4,"sesDB001.csv")     
 #d4$sentence<-sp_sentence
@@ -137,7 +144,9 @@ dim(d3)
 return(d4)
 } # end preprocess
 ###### wks.
-d4<-preprocess_temp(d2)
+d2<-preprocess_temp(d1)
+d2<-d4
+d3<-cleandb(d2)
 ##########
 
 
