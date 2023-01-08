@@ -12,7 +12,7 @@ setwd(datadir)
 
 list.files(datadir)
 d1<-read_delim("ses_vert.csv")
-set<-d2
+#set<-d2
 cleandb<-function(set){
   #set
   # delete <g/>, <s>, </s> rows
@@ -81,7 +81,7 @@ for (k in 1:length(ms)){
   d$speaker[sp_s:sp_e]<-sp_ns  
 } #end sentence loop
   ################ wks.
-library(stringi)
+#library(stringi)
   
 #ann<-data.frame(stri_split_fixed(d$cat,".",simplify = T))
 #anns<-c("")
@@ -110,7 +110,7 @@ dim(d3)
 return(data.frame(d4))
 } # end preprocess
 ###### wks.
-d3<-data.frame(d2)
+#d3<-data.frame(d2)
 
 d2<-preprocess_temp(d1)
 #d2<-d4
@@ -186,16 +186,16 @@ ns_g2<-get_pos(d4,d1)
 ##################
 
 #k<-5
-d5<-d3
-r<-21
+# d5<-d3
+# r<-21
 #PoS CORRECTION LOOP
 #for (k in 1:length(d4$id)){
-ma<-array()
-s3<-"-"
-s4<-s2
-s4<-array()
-la<-length(ns_g2$cor)
-sx<-getarray(12)
+# ma<-array()
+# s3<-"-"
+# s4<-s2
+# s4<-array()
+# la<-length(ns_g2$cor)
+# sx<-getarray(12)
 ######################
 getarray<-function(set,r){
 d5<-set
@@ -213,7 +213,7 @@ s2[rstar==T]<-"-"
 print(s2)
 return(s2)
 }
-getarray(d4,21)
+#getarray(d4,21)
 # for (top in 1:length(s2)){
 # top_sub<-top_array(s2,top)
 # }
@@ -229,8 +229,8 @@ d6<-d5
 #ma<-array()
 #s2
 #d6<-matrix(nrow = length(d5$id),ncol = 8)
-top<-1
-l<-2
+#top<-1
+#l<-2
 for (r in 1:length(d5$cat)){
 #s2<- d5$pos_cpt[r]
 s2<-getarray(d4,r)
@@ -246,10 +246,49 @@ print(s2)
 }
 }
 #d6[pos,1:8]<-ma
-}
+} # end POS position correction
 head(d6)
-#finalise
-write.csv(d6,"sesDB006.csv")
+###### finalise
+colnames(d6)
+
+dns_x<-c("pos","funct","case","pers","num","gender","tense","mode")
+mxcolumns<-grep("x",colnames(d4))
+dns_o<-colnames(d6)
+pos_ok<-"PoS_OK_check"
+dns_n<-c(dns_o[1:5],pos_ok,dns_x,dns_o[14])
+
+d7<-data.frame(d6$speaker,d6$token,d6$lemma,d6$sentence,d6$cat,PoS_OK_check=1,d6$pos,d6$funct,d6$case,d6$pers,d6$num,d6$gender,d6$tense,d6$mode,d6$gilt)
+
+# dns_n<-c(1:length(dns_o))
+# dns_n[1:mxcolumns[1]-1]<-dns_o[1:mxcolumns[1]-1]
+# dns_n[mxcolumns[1]:mxcolumns[length(mxcolumns)]]<-dns_x
+# dns_n[mxcolumns[length(mxcolumns)]+1]<-
+#   dns_o[mxcolumns[length(mxcolumns)]+1:length(dns_o)]
+# dns_n[mxcolumns[1]:mxcolumns[length(mxcolumns)]]<-dns_x
+dns_n
+colnames(d7)<-dns_n
+#### 
+# delete transcript references obsolete entries
+m<-grepl("(sansHiCod)",d7$token)
+  d7$speaker[m]<-"---"
+  d7$lemma[m]<-"---"
+  d7$sentence[m]<-"---"
+  d7$cat[m]<-"---"
+  d7$PoS_OK_check[m]<-"---"
+  d7$pos[m]<-"---"
+  d7$funct[m]<-"---"
+  d7$case[m]<-"---"
+  d7$pers[m]<-"---"
+  d7$num[m]<-"---"
+  d7$gender[m]<-"---"
+  d7$tense[m]<-"---"
+  d7$mode[m]<-"---"
+  d7$gilt[m]<-"---"
+  #m_end_c[r]<-m  
+tail(d7)
+
+#write.csv(d7,"20220108(17.17)_SES_database_by_tokens_PoS_check_columns.csv")
+#write.csv(d7,"sesDB007.csv")
 #wks.
 ##################################################
 
@@ -261,41 +300,51 @@ write.csv(d6,"sesDB006.csv")
 #k<-1
 q_sub<-function(set,k,query){
   #m1<-set
-  set<-d4
-  m1<-subset(set,grepl(query$id[k],set[,1]))
-  m2<-subset(m1,grepl(query$speaker[k],m1[,2])) ### NOT with logical but grep, match etc.
+  set<-d7
+  m1<-set
+  colnames(d7)
+ # m1<-subset(set,grepl(query$id[k],set[,1]))
+  m2<-subset(m1,grepl(query$speaker[k],m1$speaker)) ### NOT with logical but grep, match etc.
   ifelse(query$token!="",
-  m3<-subset(m2,query$token[k]==m2[,3]),
-  m3<-subset(m2,grepl(query$token[k],m2[,3])))
-  m4<-subset(m3,grepl(query$lemma[k],m3[,4]))
-  m5<-subset(m4,grepl(query$pos[k],m4[,5]))
-  m6<-subset(m5,grepl(query$pos.check.OK[k],m5[,6]))
-  m7<-subset(m6,grepl(query$function.[k],m6[,7]))
-  m8<-subset(m7,grepl(query$case[k],m7[,8]))
-  m9<-subset(m8,grepl(query$num[k],m8[,9]))
-  m10<-subset(m9,grepl(query$gender[k],m9[,10]))
-  m11<-subset(m10,grepl(query$mode[k],m10[,11]))
+  m3<-subset(m2,query$token[k]==m2$token),
+  m3<-subset(m2,grepl(query$token[k],m2$token)))
+  m4<-subset(m3,grepl(query$lemma[k],m3$lemma))
+  m5<-subset(m4,grepl(query$pos[k],m4$pos))
+ # m6<-subset(m5,grepl(query$pos.check.OK[k],m5[,6]))
+  m7<-subset(m5,grepl(query$funct[k],m5$funct))
+  m8<-subset(m7,grepl(query$case[k],m7$case))
+  m9<-subset(m8,grepl(query$num[k],m8$num))
+  m10<-subset(m9,grepl(query$gender[k],m9$gender))
+  m11<-subset(m10,grepl(query$mode[k],m10$mode))
   m12<-subset(m11,grepl(query$regex[k],m11$sentence))
-}
+  m13<-subset(m12,grepl(query$tense[k],m12$tense))
+  m14<-subset(m13,grepl(query$pers[k],m13$pers))
+  m15<-subset(m14,grepl(query$cat[k],m14$cat))
+#  m16<-subset(m15,grepl(query$tense[k],m12$tense))
+  }
 # RUN: #############
 #query declaration:
-sampleq$id<-          ".*"
+sampleq<-data.frame(speaker=0,token=0,lemma=0,cat=0,pos=0,funct=0,case=0,pers=0,num=0,gender=0,tense=0,mode=0,sentence=0,regex=0)
+#sampleq$id<-          ".*"
 sampleq$speaker<-     "#TBU"
 sampleq$token<-       ""
 sampleq$lemma<-       ".*"
+sampleq$cat<-          ".*"
 sampleq$pos<-         ".*"
-sampleq$pos.check.OK<-".*"
-sampleq$function.<-   ".*"
+#sampleq$pos.check.OK<-".*"
+sampleq$funct<-       ".*"
 sampleq$case<-        ".*"
 sampleq$num<-         ".*"
-sampleq$gender<-      ".*"
+sampleq$pers<-        ".*"
+sampleq$gender<-      "Fem"
+sampleq$tense<-        ".*"
 sampleq$mode<-        ".*"
-sampleq$X<-           ".*"
-sampleq$snr<-         ".*"
-sampleq$regex<-       "ich"
+#sampleq$X<-           ".*"
+#sampleq$snr<-         ".*"
+sampleq$regex<-       ".*"
 ####################
 query<-sampleq
-m2<-q_sub(getdata(),1,query)
+m2<-q_sub(d7,1,query)
 #set$sentence[m2]
 ####################
 # OUTPUT:
