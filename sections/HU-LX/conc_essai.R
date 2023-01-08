@@ -6,15 +6,59 @@ library(R.utils)
 getwd()
 datadir<-"local/HU-LX/SES"
 
-preprocess_temp<-function(){
-src<-paste(datadir,"ses_vert.csv",sep = "/")
-d<-read_delim(src)
+# now again from base DB
+getwd()
+setwd(datadir)
 
-#d$token[1:20]
+list.files(datadir)
+d1<-read_delim("ses_vert.csv")
+# delete <g/>, <s>, </s> rows
+# grep
+cleandb<-function(set){
+  d1<-set
+  regx1<-"(<g/>)"
+  regx2<-"(<s>)"
+  regx3<-"(</s>)"
+  regx4<-"#|%|:"
+  #regx5<-":"
+  m1<-grep(regx1,d1$token)
+  m2<-grep(regx2,d1$token)
+  m3<-grep(regx3,d1$token)
+  m4<-grep(regx4,d1$token)
+  #m5<-grep(regx5,d1$token)
+  
+  #rm(m2v)
+  # exclude
+  ex<-c(m1,m2,m3,m4)
+  d1$gilt<-T
+  d1$gilt[ex]<-F
+  #exin<-match(ex,d1$X.1)
+  d2<-subset(d1,d1$gilt==T)
+}
+d2<-cleandb(d1)
+
+preprocess_temp<-function(set){
+#src<-paste(datadir,"ses_vert.csv",sep = "/")
+#d<-read_delim(src)
+#d<-d1
+d<-set
+  #d$token[1:20]
 #mi<-grep("INT",d$token)
 #nna<-!is.na(d$token)
 #length(nna)
-ms<-grep("[A-Z]{3}",d$token) #speaker lines
+ms<-grep("(#[A-Z]{3})",d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+# distinct speakers:
+ms2<-grep("(#[A-Z]{3})",d$token,value = T) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+spk<-unique(ms2)
+spk_array<-c("GCB","GCC","GDA","GDB","GDC","GDD","GDE","GDF","TAD","TAH","TAI","TBD","TBE","TBS","TBT","TBU","TBV","INT")
+spk_array2<-paste0("#",spk_array)
+#spk_grep<-paste0(spk_array2,"|")
+spk_grep2<-paste0(spk_array2,collapse = "|")
+spk_grep3<-paste0("(",spk_grep2,")")
+spk_grep3
+ms3<-grep(spk_grep3,d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+
+spk
 # try put column with flowing speaker declaration
 sp_d<-array()
 sp_ds<-array()
@@ -22,36 +66,56 @@ sp_sentence_nr<-array()
 sp_sentence<-array()
 sp_sentence_cn<-array()
 sp_s_cn<-array()
-  for (k in 1:length(ms)){
-    sp_s<-ms[k]
-  if (k<=length(ms))
-  sp_e<-ms[k+1]-1
+k<-25
+ms<-ms3
+d$sentence_temp<-"---"
+d$speaker<-"---"
+
+for (k in 1:length(ms)){
+  sp_sentence_cn<-array()
   
+      sp_s<-ms[k]
+    sp_p1<-ms[k]
+    
+    if (k<=length(ms))
+    #  sp_e<-length(d$token)
+    sp_e<-ms[k+1]-1
+    if (k==length(ms))
+      sp_e<-length(d$token)
+    sp_p2<-ms[k+1]-1
+    
   sp_ns<-d$token[sp_s]
-  if (!is.na(sp_e)){
+  #if (!is.na(sp_s)){
     sp_s_cn<-paste(d$token[sp_s:sp_e],collapse = " ")
     sp_d[sp_s:sp_e]<-sp_s:sp_e
   sp_ds[sp_s:sp_e]<-sp_ns
   #sp_sentence_cn[sp_s:sp_e]<-sp_s_cn
-  sp_sentence_cn[sp_s:sp_e]<-sp_s_cn
-  sp_sentence[sp_s:sp_e]<-sp_s
-  }
-  }
+ # d$sentence_temp[sp_s:sp_e]<-sp_s_cn
+  
+#  sp_sentence[sp_s:sp_e]<-sp_s
+  d$sentence_temp[sp_s:sp_e]<-sp_s_cn
+  d$speaker[sp_s:sp_e]<-sp_ns  
+  #} #if
+#  d$sentence_temp[30]
+  #return(d)
+  } 
 #paste(d$token[15:29],collapse = " ")
   #spdssafe<-sp_ds
-  endns<-length(sp_ds)
-  sp_ds[endns:length(d$token)]<-d$token[ms[length(ms)]]
-  sp_sentence[endns:length(d$token)]<-d$token[ms[length(ms)]]
-  sp_sentence_cn[endns:length(d$token)]<-d$token[ms[length(ms)]]
-  sp_s_cn[endns:length(d$token)]<-d$token[ms[length(ms)]]
-  
-  #sp_ds<-spdssafe
-  d$speaker<-sp_ds
-  d$sentence<-sp_sentence
-  d$sentence_cn<-sp_sentence_cn
-  
+  # endns<-length(sp_ds)
+  # sp_ds[endns:length(d$token)]<-d$token[ms[length(ms)]]
+  # sp_sentence[endns:length(d$token)]<-d$token[ms[length(ms)]]
+  # sp_sentence_cn[endns:length(d$token)]<-d$token[ms[length(ms)]]
+  # sp_s_cn[endns:length(d$token)]<-d$token[ms[length(ms)]]
+  # 
+  # #sp_ds<-spdssafe
+  # d$speaker<-sp_ds
+  # d$sentence<-sp_sentence
+  # d$sentence_cn<-sp_sentence_cn
+#return(d)
+ # }
   ################ wks.
 library(stringi)
+  
 ann<-data.frame(stri_split_fixed(d$cat,".",simplify = T))
 anns<-c("")
 d2<-cbind(d,ann)
@@ -60,55 +124,22 @@ getwd()
 #cleanup
 regx<-("<s>|</s>|<g/>")
 repl<-""
-d4$sentence<-gsub(regx,repl,d4$sentence)
-#d3[10,]
 d4<-data.frame(d3)
+
+d4$sentence<-gsub(regx,repl,d4$sentence_cn)
+#d3[10,]
 dns<-c("id","speaker","token","lemma","pos",",pos.check.OK","function","case","num","gender","mode","X","snr","sentence")
 colnames(d4)<-dns
 #write.csv(d4,"sesDB001.csv")     
 #d4$sentence<-sp_sentence
 #d4$sentence_cn<-sp_sentence_cn
 dim(d3)
-}
+return(d4)
+} # end preprocess
 ###### wks.
+d4<-preprocess_temp(d2)
 ##########
-#dns<-colnames((d))
 
-quer_temp<-function(){
-#query<-list(dns)
-#dn2<-array(dns)
-#q<-data.frame(dns)
-#q<-as.list(dns)
-#q<-as.data.frame(dns[1:10])
-#q1<-c("GCB",".*",".*",".*",".*",".*",".*",".*",".*",".*")
-#qm<-rbind(dns,q1)
-#qm<-data.frame(qm)
-#colnames(qm)<-dns
-#qm
-#q1
-#q1<-c("id","#GCB","der",".*",".*",".*",".*",".*",".*",".*",".*",".*",".*")
-#m1<-grep(q1,d4)
-
-#m1<-q1%in%d4
-#q2<-"der"
-
-#d4<-data.frame(d4)
-#d4$sentence
-############
-#subsetting after query:
-length(m1)
-unique(m1)
-q1_s
-q1u<-unique(d4$sentence[m1])
-d4$sentence[m1[3]]
-dq1<-subset(d4)
-dq1$sentence_cn
-#sentence<-
-dq1$token
-m1<-q1%in%d3
-}
-########
-# query:
 
 getdata<-function(){
 src<-paste(datadir,"sesDB002.csv",sep = "/")
@@ -193,7 +224,7 @@ return(s2)
 # top_sub<-top_array(s2,top)
 # }
 # top<-2
-##################
+#############################
 # NEW:
 # get codes cpt, grep value of useable values in code, output to useable value standard position
 d5<-getdata()
@@ -218,210 +249,11 @@ ifelse (m1!=0,d6[r,pos]<-s2[m1],d6[r,pos]<-"-")
 }
 head(d6)
 write.csv(d6,"local/HU-LX/SES/sesDB004.csv")
-
+#wks.
 ##################################################
-top_array<-function(s2,top){
-ma<-array(1:top)
-  for (l in 1:length(ns_g2$cor[[top]])){
-  m1<-match(s2,ns_g2$cor[[top]][[l]]) #output position of match in y on array pos x
-  m1<-sum(m1,na.rm = T) #position
-  #m2<-!is.na(m1)
-  m3<-match(ns_g2$cor[[top]],s2)
-  #ns_g2$cor[[top]][[m1]]
-  m3<-sum(m3,na.rm = T)
-  #sum(m2)
-  #m4<-!is.na(s2[m1])
-  #sum(m4)
-  
-  #if(m3!=0&m1!=0){ma[top]<-ns_g2$cor[[top]][[l]]}
-  if(m3!=0&m1!=0){ma[top]<-ns_g2$cor[[top]][[l]]}
-  
-    print(ma)
-  }
-}
-  #s2<-ma
-# print(ma)
- # s4[top]<-ma[!is.na(ma)]
-    #}
-#s3
-  #  ifelse(sum(m2)!=0,ma[top]<-ns_g2$cor[[top]][[m2]],ma[top]<-"-")
-  s2
-  ma
-  p<-!is.na(ma)
-  s4[top]<-ma[p]
-  s5<-s4
-  s2
-  ma
-  s4
-#  cat(top,l,s4,"\n")
-
-  cat(top,l,ma,"\n")
-  
-#   s2
-# ma
-# s4
-# s4
-  
-  ls<-length(ma)
-  d<-la-ls
-  dsub<-c(rep("-",d))
-  #if (ls>=7)
-  #d5[k,7:13]<-s2
-  if (ls<la){ma<-c(ma,dsub)}
- # return(ma)
-  #e<-match(s2,"")
-  #e<-e!=0
-  #s2[e]<-"-"
-#s2
-# d5[k,7:14]<-ma
-
-#  d5[k,7:13]<-ma
-return(ma)
-  } ################# end top_array(top)
-#return(ma)
-top_array(top = top)
-la<-length(top)
-for (top in 1:la){
-  
-  ma<-array()
-  length(ns_g2$cor[[top]])
-  #for (s in 1:length(s2)){
-  l<-2
-  s2
-  
-} #end top loop
-} #end getarray #
-###############
-lr<-length(d4$id)
-
-s6<-matrix(nrow = la,ncol = length(d4$id))
-for (r in 1:lr){
-s6[r,]<-getarray(r)
-
-} #end loop call getarray
-length(getarray(114))
-getarray(15)
-#####################
-d5[k,7:14]
-ma
-  s3
-s2  
 
 
-#d4$token[d4$num=="Subj"]
-
-
-ns_g2$db[1]
-#b<-insert(s2,3,11)
-regx1<-"[1-3]" # if person on 2nd position push person to 3rd position of PoS tag
-m1<-grepl(regx1,s2)
-m2<-grep(regx1,s2)
-m2v<-grep(regx1,s2,value = T)
-s2[m1]
-
-regx2<-"(Nom|Gen|Dat|Acc)"
-regx3<-"PRO"
-m3<-grepl(regx2,s2)
-m4<-grep(regx2,s2)
-m7<-match(regx3,d5$pos[k])
-s2
-if(sum(m1)>0){
-  if (m2<4){
-repl<-s2[m1]  
-repl<-"-"
-regx2<-"(Nom|Gen|Dat|Acc)"
-m3<-grepl(regx2,s2)
-m4<-grep(regx2,s2)
-repl<-s2[m3]  
-if (sum(m3)>0){
-  if (m4<3){s2<-insert(s2,3,repl)}
-  s2[m4]<-m2v}
-  s2<-c(s2[1],"-",repl,s2[4:7])
-  c1<-1
-  s2
-}
-  }
-#}###1st
-s2
-repl<-s2[m3]  
-repl
-m4
-# if (sum(m3)>0){
-#   if (m4<3){s2<-insert(s2,3,repl)}
-#   s2<-c(s2[1],"-",s2[3:7])
-#   c1<-1
-#   s2
-# }  
-  m5<-grepl(regx1,s2)
-  m6<-grep(regx1,s2)
-  s2[m5]
-s2
-#m5
-
-if(sum(m5)>0){
-  if (m6!=4){
-  #repl<-s2[m1]  
-  repl<-c("-","-")
-  
-  s2<-insert(s2,2,repl)}
-  c1<-1}
-  if(sum(m1)==0&c1==0){
-  #  if (m2!=4){
-      #repl<-s2[m1]  
-      repl<-c("-")
-      s2<-insert(s2,4,repl)}
-  
-s2
-m1<-grepl(regx1,s2)
-m2<-grep(regx1,s2)
-s2[m1]
-s2
-m2
-###
-if(sum(m1)>0){
-  if (m2!=4){
-    #repl<-s2[m1]  
-    repl<-c("-","-")
-    
-    s2<-insert(s2,2,repl)}
-###
-  # w1<-unique(d4$case)
-# w1
-if(c!=1){
-regx2<-"(Nom|Gen|Dat|Acc)"
-m1<-grepl(regx2,s2)
-nom<-grep(regx2,s2,invert = T)
-repl<-s2[m1]  
-if (sum(m1)>0){
-if (nom<=3)#{s2<-insert(s2,3,repl)
-{s2<-c(s2[1],"-",s2[m1],"-",s2[3:7])}
-
-  }}
-s2
-ls<-length(s2)
-#if (ls>=7)
-#d5[k,7:13]<-s2
-if (ls<7){s2<-c(s2,"-")}
-if (ls==8&s2[8]==""){s2<-s2[1:7]}
-s2
-d5[k,7:13]<-s2
-
-#    d5[k,7:12]<-s2
-}
-}
 #### end getarray FALSE#########
-s2
-ds<-d5
-
-write.csv(d5,paste0(datadir,"sesDB003.csv"))
-          
-s2
-
-dns<-colnames(d)
-q1<-c(".*","#TBV","","gehen",".*",".*",".*",".*",".*",".*",".*",".*",".*",".*")
-sampleq<-rbind(dns,q1)
-colnames(sampleq)<-dns
-sampleq<-data.frame(sampleq)
 ###################
 #sampleq$id[k]
 #query[1,1]
