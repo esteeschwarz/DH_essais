@@ -10,8 +10,9 @@ datadir<-"local/HU-LX/SES"
 getwd()
 setwd(datadir)
 
-list.files(datadir)
+#list.files(datadir)
 d1<-read_delim("ses_vert.csv")
+
 #set<-d2
 cleandb<-function(set){
   #set
@@ -35,7 +36,7 @@ cleandb<-function(set){
 
 #d3<-cleandb(d2)
 #d<-d1
-set<-d1
+#set<-d1
 preprocess_temp<-function(set){
 d<-set
 ms<-grep("(#[A-Z]{3})",d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
@@ -86,7 +87,7 @@ for (k in 1:length(ms)){
 #ann<-data.frame(stri_split_fixed(d$cat,".",simplify = T))
 #anns<-c("")
 #ann<-c(rep("-",8))
-d3<-cbind(d,"-","-","-","-","-","-","-","-") # empty POS rows
+d3<-cbind(d,"-","-","-","-","-","-","-","-","-") # 9 empty POS columns
 #d3<-cbind(d2$speaker,d2$token,d2$lemma,d2$X1,d2$X2,d2$X3,d2$X4,d2$X5,d2$X6,d2$X7,d2$sentence,d2$sentence_cn)
 getwd()
 #cleanup
@@ -100,8 +101,8 @@ print(d4[19,])
 print(length(d4[1,]))
 #dns<-c("id","speaker","token","lemma","pos",",pos.check.OK","function","case","num","gender","mode","X","snr","sentence")
 # dns<-c("speaker","token","lemma","pos","cat","p1","p2","p3","p4","p5","sen_temp","sentence")
-d4<-data.frame(d4[,1:12],x8="-",d4$sentence)
-dns<-c("token","cat","lemma","sentence_temp","speaker","x1","x2","x3","x4","x5","x6","x7","x8","sentence")
+d4<-data.frame(d4[,1:12],x8="-",x9="-",d4$sentence)
+dns<-c("token","cat","lemma","sentence_temp","speaker","x1","x2","x3","x4","x5","x6","x7","x8","x9","sentence")
 colnames(d4)<-dns
 #write.csv(d4,"sesDB001.csv")     
 #d4$sentence<-sp_sentence
@@ -111,17 +112,21 @@ return(data.frame(d4))
 } # end preprocess
 ###### wks.
 #d3<-data.frame(d2)
-
+#######################
+#######################
+#######################
 d2<-preprocess_temp(d1)
 #d2<-d4
 d3<-cleandb(d2)
 
-##########
+#######################
+#######################
+#######################
 #reorder
-print(d3[19,])
-colnames(d3)
+#print(d3[19,])
+#colnames(d3)
 d4<-data.frame(d3$speaker,d3$token,d3$lemma,d3$sentence,d3$cat,d3$x1,d3$x2,d3$x3,d3$x4,d3$x5,d3$x6,d3$x7,d3$x8,d3$gilt)
-dns<-c("speaker","token","lemma","sentence","cat","x1","x2","x3","x4","x5","x6","x7","x8","gilt")
+dns<-c("speaker","token","lemma","sentence","cat","x1","x2","x3","x4","x5","x6","x7","x8","x9","gilt")
 colnames(d4)<-dns
 colnames(d4)
 # getdata<-function(){
@@ -155,7 +160,9 @@ colnames(d4)
 #d4<-d3
 #d5<-insert(d5[1,],13,"fun")
 #### new
+#set0<-d4
 get_pos<-function(set,set0){
+  
 d4<-set
 dns[7:14]
 ann<-data.frame(stri_split_fixed(set0$cat,".",simplify = T))
@@ -171,15 +178,20 @@ ns_g[[6]]<-unique(ann$X6)
 ns_g[[7]]<-unique(ann$X7)
 ns_g2<-list()
 ns_g2[["db"]]<-ns_g
-ns_g2[["cor"]][["cat"]]<-ns_g[[1]]
-ns_g2[["cor"]][["funct"]]<-c("Subst","Sent","Left","Right","Psp","Attr","zu","Gen","XY","Auth")
+ns_g2[["cor"]][["pos"]]<-ns_g[[1]]
+ns_g2[["cor"]][["cat"]]<-c("Name","Inter","Full","Pers","Pun","Reg","Aux","Dem","Def","Neg","Pos",
+                           "Indef","Ans","Paren","Coord","Sup","SubFin","Poss","Rel","Mod","Comp",
+                           "Verb","Refl","Zu","Deg","Other","SubInf","Gen","Adj","Noun")
+ns_g2[["cor"]][["funct"]]<-c("Comma","Slash","Hyph","Aster","Subst","Sent","Left","Right","Psp","Attr","XY","Auth")
 ns_g2[["cor"]][["case"]]<-c("Nom","Gen","Dat","Acc")
 ns_g2[["cor"]][["pers"]]<-c(1,2,3)
 ns_g2[["cor"]][["num"]]<-c("Sg","Pl")
 ns_g2[["cor"]][["gender"]]<-c("Neut","Fem","Masc")
-ns_g2[["cor"]][["tense"]]<-c("Pres","Past")
+ns_g2[["cor"]][["tense"]]<-c("Pres","Past","Cont")
 ns_g2[["cor"]][["mode"]]<-c("Ind","Subj") #"Subj" == conditional
 return(ns_g2)
+# its 9 fields! not 8
+# TODO: c("zu","Auth","Sent","Psp","Cont")
 } # end get_pos
 
 ns_g2<-get_pos(d4,d1)
@@ -251,7 +263,7 @@ head(d6)
 ###### finalise
 colnames(d6)
 
-dns_x<-c("pos","funct","case","pers","num","gender","tense","mode")
+dns_x<-c("pos","cat","funct","case","pers","num","gender","tense","mode")
 mxcolumns<-grep("x",colnames(d4))
 dns_o<-colnames(d6)
 pos_ok<-"PoS_OK_check"
@@ -287,14 +299,16 @@ m<-grepl("(sansHiCod)",d7$token)
   #m_end_c[r]<-m  
 tail(d7)
 
-#write.csv(d7,"20220108(17.17)_SES_database_by_tokens_PoS_check_columns.csv")
+#write.csv(d7,"20230108(17.17)_SES_database_by_tokens_PoS_check_columns.csv")
 #write.csv(d7,"sesDB007.csv")
 #wks.
 ##################################################
 
 
 #### end getarray FALSE#########
-###################
+################################
+# queries ######################
+#d8<-read.csv("sesDB007.csv")
 #sampleq$id[k]
 #query[1,1]
 #k<-1
@@ -324,6 +338,7 @@ q_sub<-function(set,k,query){
   }
 # RUN: #############
 #query declaration:
+tempfun_query<-function(){
 sampleq<-data.frame(speaker=0,token=0,lemma=0,cat=0,pos=0,funct=0,case=0,pers=0,num=0,gender=0,tense=0,mode=0,sentence=0,regex=0)
 #sampleq$id<-          ".*"
 sampleq$speaker<-     "#TBU"
@@ -344,9 +359,10 @@ sampleq$mode<-        ".*"
 sampleq$regex<-       ".*"
 ####################
 query<-sampleq
-m2<-q_sub(d7,1,query)
+m2<-q_sub(d8,1,query)
 #set$sentence[m2]
 ####################
 # OUTPUT:
 unique(m2$sentence)
 ##### other method subscript
+}
