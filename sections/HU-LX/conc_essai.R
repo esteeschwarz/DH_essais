@@ -124,8 +124,8 @@ d3<-cleandb(d2)
 #######################
 #reorder
 #print(d3[19,])
-#colnames(d3)
-d4<-data.frame(d3$speaker,d3$token,d3$lemma,d3$sentence,d3$cat,d3$x1,d3$x2,d3$x3,d3$x4,d3$x5,d3$x6,d3$x7,d3$x8,d3$gilt)
+colnames(d3)
+d4<-data.frame(d3$speaker,d3$token,d3$lemma,d3$sentence,d3$cat,d3$x1,d3$x2,d3$x3,d3$x4,d3$x5,d3$x6,d3$x7,d3$x8,d3$x9,d3$gilt)
 dns<-c("speaker","token","lemma","sentence","cat","x1","x2","x3","x4","x5","x6","x7","x8","x9","gilt")
 colnames(d4)<-dns
 colnames(d4)
@@ -254,7 +254,9 @@ mxcolumns<-grep("x",colnames(d4))
 
 pos<-mxcolumns[1]-1+top
 ifelse (m1!=0,d6[r,pos]<-s2[m1],d6[r,pos]<-"-")
-print(s2)
+cat("check token: [",r,"], tag = ",d6[r,],"\n")
+#print(d6[r,])
+#print(s2)
 }
 }
 #d6[pos,1:8]<-ma
@@ -263,31 +265,105 @@ head(d6)
 ###### finalise
 colnames(d6)
 
-dns_x<-c("pos","cat","funct","case","pers","num","gender","tense","mode")
-mxcolumns<-grep("x",colnames(d4))
+dns_x<-c("pos","category","funct","case","pers","num","gender","tense","mode")
+mxcolumns<-grep("x",colnames(d6))
 dns_o<-colnames(d6)
-pos_ok<-"PoS_OK_check"
-dns_n<-c(dns_o[1:5],pos_ok,dns_x,dns_o[14])
-
-d7<-data.frame(d6$speaker,d6$token,d6$lemma,d6$sentence,d6$cat,PoS_OK_check=1,d6$pos,d6$funct,d6$case,d6$pers,d6$num,d6$gender,d6$tense,d6$mode,d6$gilt)
-
+pos_ok<-"PoS_ok_check"
+dns_n<-c(dns_o[1:5],pos_ok,dns_x,dns_o[length(dns_o)])
+dns_o
+dns_n
+d7<-data.frame(d6$speaker,d6$token,d6$lemma,d6$sentence,d6$cat,PoS_ok_check=1,d6$x1,d6$x2,d6$x3,d6$x4,d6$x5,d6$x6,d6$x7,d6$x8,d6$x9,d6$gilt)
+head(d7)
 # dns_n<-c(1:length(dns_o))
 # dns_n[1:mxcolumns[1]-1]<-dns_o[1:mxcolumns[1]-1]
 # dns_n[mxcolumns[1]:mxcolumns[length(mxcolumns)]]<-dns_x
 # dns_n[mxcolumns[length(mxcolumns)]+1]<-
 #   dns_o[mxcolumns[length(mxcolumns)]+1:length(dns_o)]
 # dns_n[mxcolumns[1]:mxcolumns[length(mxcolumns)]]<-dns_x
+#d7<-d6
 dns_n
 colnames(d7)<-dns_n
-#### 
+#### post processing ##########################
 # delete transcript references obsolete entries
-m<-grepl("(sansHiCod)",d7$token)
+m1<-grepl("(sansHiCod)",d7$token)
+d7$token[m1[2]]
+m4<-grep("(</sansHiCod)",d7$token) #transcript end
+d7$token[m2[1]]
+m3<-grep("(<sansHiCod id)",d7$token) #transcript start
+m5<-grep("(SES_.*)(sketchE)",d7$token,value = T)
+m6<-gsub(".*(SES_.*)(_sketchE).*","\\1",m5) #kids
+d8<-d7
+
+# m6
+ k<-1
+ r<-2
+ l<-1
+for (l in 1:length(m6)){
+  li<-array()
+  repl<-0
+  for (k in 1:length(m3)){
+  li<-m3[k]:m4[k] # define array of interview according to match start/end
+   repl<-m6[l]
+  for (lines in li){
+  #  repl<-m6[l]
+    
+    print(repl)
+    d8$interview[lines]<-repl
+}
+  }
+  
+}
+t<-data.frame(x=1:50)
+a<-c("eins","zwei","drei","vier","fünf")
+
+for (l in 1:length(a)){
+m<-l
+
+cat("k",k,"\n")
+
+  for (k in l){
+    k2<-array()
+    cat("l ",l,a[l],"\n")
+    for (r in 1:10){
+    #  a2<-r
+#    print(t[k,])
+    t$y[r]<-a[l]
+    cat("k in",k,a[l],"\n")
+    print(t$y[k])
+  #  print(t$y[k])
+    
+    # print(k)
+    cat("r in",r,"\n")
+    t$y[r]<-t$y[k]
+    cat("k in",k,"\n")
+    k2[r]<-r
+    t$y[k2]<-a[l]
+    
+        }
+cat("k out",k,"\n")
+
+  }
+cat("l out",l,"\n")
+
+}
+  # wks., check:
+##############
+### 4. add participant metadata for analysis
+m1<-stri_split_fixed(d8$interview,"_",simplify = T)
+m1[2,]
+
+
+d9$interview2[1]
+tail(d9$interview2)
+
+m2<-
   d7$speaker[m]<-"---"
   d7$lemma[m]<-"---"
   d7$sentence[m]<-"---"
   d7$cat[m]<-"---"
-  d7$PoS_OK_check[m]<-"---"
+  d7$PoS_ok_check[m]<-"---"
   d7$pos[m]<-"---"
+  d7$category[m]<-"---"
   d7$funct[m]<-"---"
   d7$case[m]<-"---"
   d7$pers[m]<-"---"
@@ -299,24 +375,24 @@ m<-grepl("(sansHiCod)",d7$token)
   #m_end_c[r]<-m  
 tail(d7)
 
-#write.csv(d7,"20230108(17.17)_SES_database_by_tokens_PoS_check_columns.csv")
+#write.csv(d7,"20230110(09.17)_SES_database_by_tokens+PoS_check_column.csv")
 #write.csv(d7,"sesDB007.csv")
 #wks.
-##################################################
-
-
-#### end getarray FALSE#########
-################################
+# 13024.
+#####################################################
+# DB created above, read DB from .csv to make queries
+# 
+#####################################################
 # queries ######################
-#d8<-read.csv("sesDB007.csv")
+d8<-read.csv("sesDB007.csv")
 #sampleq$id[k]
 #query[1,1]
 #k<-1
 q_sub<-function(set,k,query){
   #m1<-set
-  set<-d7
+  #set<-d7
   m1<-set
-  colnames(d7)
+ # colnames(m1)
  # m1<-subset(set,grepl(query$id[k],set[,1]))
   m2<-subset(m1,grepl(query$speaker[k],m1$speaker)) ### NOT with logical but grep, match etc.
   ifelse(query$token!="",
@@ -333,36 +409,51 @@ q_sub<-function(set,k,query){
   m12<-subset(m11,grepl(query$regex[k],m11$sentence))
   m13<-subset(m12,grepl(query$tense[k],m12$tense))
   m14<-subset(m13,grepl(query$pers[k],m13$pers))
-  m15<-subset(m14,grepl(query$cat[k],m14$cat))
+  m15<-subset(m14,grepl(query$category[k],m14$category))
 #  m16<-subset(m15,grepl(query$tense[k],m12$tense))
   }
 # RUN: #############
 #query declaration:
 tempfun_query<-function(){
-sampleq<-data.frame(speaker=0,token=0,lemma=0,cat=0,pos=0,funct=0,case=0,pers=0,num=0,gender=0,tense=0,mode=0,sentence=0,regex=0)
+sampleq<-data.frame(speaker=0,token=0,lemma=0,category=0,pos=0,funct=0,case=0,pers=0,num=0,gender=0,tense=0,mode=0,regex=0)
 #sampleq$id<-          ".*"
 sampleq$speaker<-     "#TBU"
-sampleq$token<-       ""
+sampleq$token<-       ""    # has to be empty or exact match, not ".*" for empty
 sampleq$lemma<-       ".*"
-sampleq$cat<-          ".*"
+sampleq$category<-          ".*"
 sampleq$pos<-         ".*"
 #sampleq$pos.check.OK<-".*"
 sampleq$funct<-       ".*"
-sampleq$case<-        ".*"
+sampleq$case<-        "Gen"
 sampleq$num<-         ".*"
 sampleq$pers<-        ".*"
-sampleq$gender<-      "Fem"
+sampleq$gender<-      ".*"
 sampleq$tense<-        ".*"
 sampleq$mode<-        ".*"
 #sampleq$X<-           ".*"
 #sampleq$snr<-         ".*"
-sampleq$regex<-       ".*"
+sampleq$regex<-       ".*" # is searched for in $sentence
 ####################
 query<-sampleq
-m2<-q_sub(d8,1,query)
+#query$
+m2<-q_sub(d7,1,query)
 #set$sentence[m2]
 ####################
 # OUTPUT:
 unique(m2$sentence)
+m2$token
+m2
 ##### other method subscript
 }
+############################
+# now concordances for kids:
+# 
+#d8<-read.csv()
+d9<-d8
+# unique tokens subsets after kids
+subkids<-function(set,kid){
+  d9<-set
+  m1<-subset(d9,d9$speaker==kid)
+  }
+t1<-unique(subkids(d8,"#GCB")$token)
+tchk<-length(subkids(d8,"#GCB")$token)
