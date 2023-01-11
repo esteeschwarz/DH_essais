@@ -285,10 +285,12 @@ dns_n
 colnames(d7)<-dns_n
 #### post processing ##########################
 # delete transcript references obsolete entries
-m1<-grepl("(sansHiCod)",d7$token)
-d7$token[m1[2]]
+# reread DB
+d7<-d8
+m1<-grep("(sansHiCod)",d7$token)
+d7$token[m1[3]]
 m4<-grep("(</sansHiCod)",d7$token) #transcript end
-d7$token[m2[1]]
+# d7$token[m2[1]]
 m3<-grep("(<sansHiCod id)",d7$token) #transcript start
 m5<-grep("(SES_.*)(sketchE)",d7$token,value = T)
 m6<-gsub(".*(SES_.*)(_sketchE).*","\\1",m5) #kids
@@ -296,65 +298,30 @@ d8<-d7
 
 # m6
  k<-1
- r<-2
+ r<-1
  l<-1
 for (l in 1:length(m6)){
   li<-array()
-  repl<-0
+  #repl<-0
   for (k in 1:length(m3)){
-  li<-m3[k]:m4[k] # define array of interview according to match start/end
-   repl<-m6[l]
-  for (lines in li){
-  #  repl<-m6[l]
-    
+    li<-m3[k]:m4[k] # define array of interview according to match start/end
+    repl<-m6[k] # transcript name in array
     print(repl)
-    d8$interview[lines]<-repl
-}
+    d8$interview[li]<-repl
+    ### 4. add participant metadata for analysis
+    m1<-stri_split_fixed(repl,"_",simplify = T)
+    m2<-stri_split_boundaries(m1[,2],type="character",simplify = T)
+    d8$part_L1[li]<-m2[1]
+    d8$part_gender[li]<-m1[3]
+    d8$part_age[li]<-m1[4]
+    #}
   }
   
 }
-t<-data.frame(x=1:50)
-a<-c("eins","zwei","drei","vier","fünf")
-
-for (l in 1:length(a)){
-m<-l
-
-cat("k",k,"\n")
-
-  for (k in l){
-    k2<-array()
-    cat("l ",l,a[l],"\n")
-    for (r in 1:10){
-    #  a2<-r
-#    print(t[k,])
-    t$y[r]<-a[l]
-    cat("k in",k,a[l],"\n")
-    print(t$y[k])
-  #  print(t$y[k])
-    
-    # print(k)
-    cat("r in",r,"\n")
-    t$y[r]<-t$y[k]
-    cat("k in",k,"\n")
-    k2[r]<-r
-    t$y[k2]<-a[l]
-    
-        }
-cat("k out",k,"\n")
-
-  }
-cat("l out",l,"\n")
-
-}
+ d8$interview[4750:2780]
+ #tail(d8$interview)
   # wks., check:
 ##############
-### 4. add participant metadata for analysis
-m1<-stri_split_fixed(d8$interview,"_",simplify = T)
-m1[2,]
-
-
-d9$interview2[1]
-tail(d9$interview2)
 
 m2<-
   d7$speaker[m]<-"---"
