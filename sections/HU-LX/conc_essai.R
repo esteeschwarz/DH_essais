@@ -21,13 +21,13 @@ cleandb<-function(set){
   regx1<-"(<g/>)"
   regx2<-"(<s>)"
   regx3<-"(</s>)"
-  regx4<-"#|%|:"
+ # regx4<-"#|%|:" # NOT! exludes tokens including, e.g. #Ioanina
   m1<-grep(regx1,set$token)
   m2<-grep(regx2,set$token)
   m3<-grep(regx3,set$token)
-  m4<-grep(regx4,set$token)
+ # m4<-grep(regx4,set$token)
   # exclude
-  ex<-c(m1,m2,m3,m4)
+  ex<-c(m1,m2,m3)
   set$gilt<-T
   set$gilt[ex]<-F
   #exin<-match(ex,set$X.1)
@@ -254,14 +254,15 @@ mxcolumns<-grep("x",colnames(d4))
 
 pos<-mxcolumns[1]-1+top
 ifelse (m1!=0,d6[r,pos]<-s2[m1],d6[r,pos]<-"-")
-cat("check token: [",r,"], tag = ",d6[r,],"\n")
+#cat("check token: [",r,"], tag = ",d6[r,],"\n")
 #print(d6[r,])
-#print(s2)
+print(r)
 }
 }
 #d6[pos,1:8]<-ma
 } # end POS position correction
 head(d6)
+d6safe<-d6
 ###### finalise
 colnames(d6)
 
@@ -285,13 +286,14 @@ dns_n
 colnames(d7)<-dns_n
 #### post processing ##########################
 # reread DB
-d7<-d8
+#d7
 m1<-grep("(sansHiCod)",d7$token)
 d7$token[m1[3]]
 m4<-grep("(</sansHiCod)",d7$token) #transcript end
 # d7$token[m2[1]]
 m3<-grep("(<sansHiCod id)",d7$token) #transcript start
 m5<-grep("(SES_.*)(sketchE)",d7$token,value = T)
+#m5<-grepl("(SES_.*)(sketchE)",d7$token)
 m6<-gsub(".*(SES_.*)(_sketchE).*","\\1",m5) #kids
 d8<-d7
 
@@ -299,6 +301,12 @@ d8<-d7
  k<-1
  r<-1
  l<-1
+ # first define 0 values to columns!
+ d8$interview<-0
+ d8$part_L1<-0
+ d8$part_gender<-0
+ d8$part_age<-0
+ 
 for (l in 1:length(m6)){
   li<-array()
   #repl<-0
@@ -306,9 +314,11 @@ for (l in 1:length(m6)){
     li<-m3[k]:m4[k] # define array of interview according to match start/end
     repl<-m6[k] # transcript name in array
     print(repl)
-    d8$interview[li]<-repl
+    typeof(repl)
+    length(repl)
     ### 4. add participant metadata for analysis
     m1<-stri_split_fixed(repl,"_",simplify = T)
+    d8$interview[li]<-m1[2]
     m2<-stri_split_boundaries(m1[,2],type="character",simplify = T)
     d8$part_L1[li]<-m2[1]
     d8$part_gender[li]<-m1[3]
@@ -318,29 +328,45 @@ for (l in 1:length(m6)){
   
 }
  # wks., check:
-   d8$interview[4750:2780]
+   d8$interview[2750:3400]
    ##############
    # delete transcript references obsolete entries
-   m<-grepl("(sansHiCod)",d7$token)
-   d7$speaker[m]<-"---"
-   d7$lemma[m]<-"---"
-   d7$sentence[m]<-"---"
-   d7$cat[m]<-"---"
-   d7$PoS_ok_check[m]<-"---"
-   d7$pos[m]<-"---"
-   d7$category[m]<-"---"
-   d7$funct[m]<-"---"
-   d7$case[m]<-"---"
-   d7$pers[m]<-"---"
-   d7$num[m]<-"---"
-   d7$gender[m]<-"---"
-   d7$tense[m]<-"---"
-   d7$mode[m]<-"---"
-   d7$gilt[m]<-"---"
+   m<-grepl("(sansHiCod)",d8$token)
+   d8$speaker[m]<-"---"
+   d8$lemma[m]<-"---"
+   d8$sentence[m]<-"---"
+   d8$cat[m]<-"---"
+   d8$PoS_ok_check[m]<-"---"
+   d8$pos[m]<-"---"
+   d8$category[m]<-"---"
+   d8$funct[m]<-"---"
+   d8$case[m]<-"---"
+   d8$pers[m]<-"---"
+   d8$num[m]<-"---"
+   d8$gender[m]<-"---"
+   d8$tense[m]<-"---"
+   d8$mode[m]<-"---"
+   d8$gilt[m]<-"---"
    #m_end_c[r]<-m  
-   tail(d7)
-   
-   write.csv(d8,"20230111(07.47)_SES_database_by_tokens+PoS_check_column.csv")
+   tail(d8)
+   lemma_a<-stri_split_boundaries(d8$lemma,type="word")
+   ll<-list()
+   x<-lapply(lemma_a,unlist)
+         for (k in 1:length(d8$lemma)){
+     ll[k]<-x[[k]][1]
+   }
+   lemmalist<-unlist(ll)
+   m<-grep("[^A-Za-z]",lemmalist)
+   lemmalist[m]<-""
+   #lemma_c<-gsub("[^A-Za-z]","",d8$lemma)
+   d8$lemma_c[1:length(d8$lemma)]<-lemmalist
+   #   x<-lemma_a[[1:length(d8$lemma)]][1]
+   # c<-c(1:10)
+   #    d8$lemma_c[1:length(d8$lemma),]<-lemma_a[[1:length(d8$lemma),]][1]
+
+      
+      
+         write.csv(d8,"20230111(14.15)_SES_database_by_tokens+PoS_check_column.csv")
    write.csv(d8,"sesDB008.csv")
    #wks.
    
@@ -356,8 +382,8 @@ for (l in 1:length(m6)){
    spk_grep2<-paste0(spk_array2,collapse = "|")
    spk_grep3<-paste0("(",spk_grep2,")")
    spk_grep3
-   ms3<-grep(spk_grep3,d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
-   spk
+   #ms3<-grep(spk_grep3,d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+   #spk
    # grep codes
    grepc<-paste0("(")
    ms4<-grep("(#[A-Z]{3})",d8$sentence,value = T)
@@ -366,6 +392,7 @@ for (l in 1:length(m6)){
    sent1[3000]
    ms5<-grep("(#[A-Z]{3,3}|0[A-Z]{1,2})",sent1)
 ms6<-head(unique(ms5))
+ms6
 # x<-ms6
 # codec<-function(x){x+10}
 # l<-c(1,2,3,4,5)   
@@ -400,7 +427,7 @@ colnames(d8)[22:37]<-dns_code
 # 
 #####################################################
 # queries ######################
-d8<-read.csv("sesDB007.csv")
+#d8<-read.csv("sesDB007.csv")
 #sampleq$id[k]
 #query[1,1]
 #k<-1
@@ -467,9 +494,48 @@ m2
 #d8<-read.csv()
 d9<-d8
 # unique tokens subsets after kids
-subkids<-function(set,kid){
+subc_int<-function(set,kid){
   d9<-set
-  m1<-subset(d9,d9$speaker==kid)
+  m1<-subset(d9,d9$interview==kid&gilt==T)
   }
-t1<-unique(subkids(d8,"#GCB")$token)
+subc_kids<-function(set,kid){
+  d9<-set
+  m1<-subset(d9,d9$speaker==kid&gilt==T)
+}
+
+#GCB<-unique(subkids(d8,"#GCB")$token)
 tchk<-length(subkids(d8,"#GCB")$token)
+GCB<-subc_kids(d8,"GCB")
+GCB_i<-subc_int(d8,"GCB")
+library(quanteda)
+cgcb<-corpus(unique(GCB$sentence))
+#summary(c1)
+c1_tokens <- tokens(cgcb)
+kwic(c1_tokens, pattern = "der")
+162-23
+q1$from[1]
+q1$pattern[1]
+q1
+print(c1_tokens[121])
+# crosscheck with db
+#d1<-read_delim("ses_vert.csv")
+### sample great concordance list for GCB
+GCB<-subc_kids(d8,"GCB")
+GCB_i<-subc_int(d8,"GCB")
+c1 <- tokens(cgcb)
+to<-unique(GCB$token)
+to
+length(GCB$token)
+t<-3
+kidc1<-function(set,to){
+kw<-list()
+    for(t in 1:length(to)){
+    c1<-corpus(unique(GCB$sentence))
+    c2 <- tokens(c1)
+    tns<-to[t]
+    kw[[tns]][[t]]<-list(kwic(c2, pattern = to[t]))
+      }
+  return(kw)
+  
+}
+GCB_c<-kidc1(GCB,t1)
