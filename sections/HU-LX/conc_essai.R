@@ -284,7 +284,6 @@ head(d7)
 dns_n
 colnames(d7)<-dns_n
 #### post processing ##########################
-# delete transcript references obsolete entries
 # reread DB
 d7<-d8
 m1<-grep("(sansHiCod)",d7$token)
@@ -318,35 +317,85 @@ for (l in 1:length(m6)){
   }
   
 }
- d8$interview[4750:2780]
- #tail(d8$interview)
-  # wks., check:
-##############
-
-m2<-
-  d7$speaker[m]<-"---"
-  d7$lemma[m]<-"---"
-  d7$sentence[m]<-"---"
-  d7$cat[m]<-"---"
-  d7$PoS_ok_check[m]<-"---"
-  d7$pos[m]<-"---"
-  d7$category[m]<-"---"
-  d7$funct[m]<-"---"
-  d7$case[m]<-"---"
-  d7$pers[m]<-"---"
-  d7$num[m]<-"---"
-  d7$gender[m]<-"---"
-  d7$tense[m]<-"---"
-  d7$mode[m]<-"---"
-  d7$gilt[m]<-"---"
-  #m_end_c[r]<-m  
-tail(d7)
-
-#write.csv(d7,"20230110(09.17)_SES_database_by_tokens+PoS_check_column.csv")
-#write.csv(d7,"sesDB007.csv")
-#wks.
-# 13024.
-#####################################################
+ # wks., check:
+   d8$interview[4750:2780]
+   ##############
+   # delete transcript references obsolete entries
+   m<-grepl("(sansHiCod)",d7$token)
+   d7$speaker[m]<-"---"
+   d7$lemma[m]<-"---"
+   d7$sentence[m]<-"---"
+   d7$cat[m]<-"---"
+   d7$PoS_ok_check[m]<-"---"
+   d7$pos[m]<-"---"
+   d7$category[m]<-"---"
+   d7$funct[m]<-"---"
+   d7$case[m]<-"---"
+   d7$pers[m]<-"---"
+   d7$num[m]<-"---"
+   d7$gender[m]<-"---"
+   d7$tense[m]<-"---"
+   d7$mode[m]<-"---"
+   d7$gilt[m]<-"---"
+   #m_end_c[r]<-m  
+   tail(d7)
+   
+   write.csv(d8,"20230111(07.47)_SES_database_by_tokens+PoS_check_column.csv")
+   write.csv(d8,"sesDB008.csv")
+   #wks.
+   
+    #tail(d8$interview)
+##############################
+   ############## TODO:
+   # add coded feature columns
+   ms2<-grep("(#[A-Z]{3})",d8$sentence,value = T) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+   spk<-unique(ms2)
+   spk_array<-c("GCB","GCC","GDA","GDB","GDC","GDD","GDE","GDF","TAD","TAH","TAI","TBD","TBE","TBS","TBT","TBU","TBV","INT")
+   spk_array2<-paste0("#",spk_array)
+   #spk_grep<-paste0(spk_array2,"|")
+   spk_grep2<-paste0(spk_array2,collapse = "|")
+   spk_grep3<-paste0("(",spk_grep2,")")
+   spk_grep3
+   ms3<-grep(spk_grep3,d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+   spk
+   # grep codes
+   grepc<-paste0("(")
+   ms4<-grep("(#[A-Z]{3})",d8$sentence,value = T)
+   # simple: delete speaker codes in sentence to grep only coded features
+   sent1<-gsub(spk_grep3,"%000%",d8$sentence)
+   sent1[3000]
+   ms5<-grep("(#[A-Z]{3,3}|0[A-Z]{1,2})",sent1)
+ms6<-head(unique(ms5))
+# x<-ms6
+# codec<-function(x){x+10}
+# l<-c(1,2,3,4,5)   
+# lapply(l,codec)
+codef<-function(x) stri_extract_all_regex(x,"(#[A-Z]{3})")
+   #ms7<-lapply(ms6, codef)
+   ms7<-lapply(sent1, codef)
+  # unlist(head(ms7[ms5][]))
+   d8[,22:34]<-"---"
+   #codem<-matrix(ms7[ms5])
+   r<-115
+   repl<-unlist(ms7[[r]])
+   for (r in 1:length(sent1)){
+     repl<-unlist(ms7[[r]])
+     l<-length(repl)
+     le<-22+l-1
+     d8[r,22:le]<-repl
+   }
+   ms8<-grep("([A-Z]{3,3})",sent1,value=T)
+   ms8<-grepl("([A-Z]{3,3})",sent1)
+#   head(ms7[ms5][][])
+#   unique(sent1[ms8])
+#   sent1[95]
+   # 13024.
+mna<-is.na(d8[])
+d8[mna]<-"---"
+lns<-length(d8[1,])-22
+dns_code<-paste0("C",1:lns)
+colnames(d8)[22:37]<-dns_code
+   #####################################################
 # DB created above, read DB from .csv to make queries
 # 
 #####################################################
