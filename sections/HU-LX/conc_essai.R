@@ -359,15 +359,17 @@ for (l in 1:length(m6)){
    m<-grep("[^A-Za-z]",lemmalist)
    lemmalist[m]<-""
    #lemma_c<-gsub("[^A-Za-z]","",d8$lemma)
-   d8$lemma_c[1:length(d8$lemma)]<-lemmalist
+   #length(lemmalist)
+   #lemmalist[7]
+   d8$lemma_c<-lemmalist
    #   x<-lemma_a[[1:length(d8$lemma)]][1]
    # c<-c(1:10)
    #    d8$lemma_c[1:length(d8$lemma),]<-lemma_a[[1:length(d8$lemma),]][1]
 
       
-      
-         write.csv(d8,"20230111(14.15)_SES_database_by_tokens+PoS_check_column.csv")
-   write.csv(d8,"sesDB008.csv")
+   #    
+   #       write.csv(d8,"20230111(14.15)_SES_database_by_tokens+PoS_check_column.csv")
+   # write.csv(d8,"sesDB008.csv")
    #wks.
    
     #tail(d8$interview)
@@ -422,10 +424,80 @@ d8[mna]<-"---"
 lns<-length(d8[1,])-22
 dns_code<-paste0("C",1:lns)
 colnames(d8)[22:37]<-dns_code
-   #####################################################
-# DB created above, read DB from .csv to make queries
+# TODO: sort columns priority
+# sentence preceding interviewer line
+# transcript lines references column, thus numbering lines in transkript
+###
+#################
+# preceding line:
+###
+#d<-d8
+postprocess_precede<-function(set){
+  d<-set
+  ms<-grep("(#[A-Z]{3})",d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+  # distinct speakers:
+  ms2<-grep("(#[A-Z]{3})",d$token,value = T) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+  spk<-unique(ms2)
+  spk_array<-c("GCB","GCC","GDA","GDB","GDC","GDD","GDE","GDF","TAD","TAH","TAI","TBD","TBE","TBS","TBT","TBU","TBV","INT")
+  spk_array2<-paste0("#",spk_array)
+  #spk_grep<-paste0(spk_array2,"|")
+  spk_grep2<-paste0(spk_array2,collapse = "|")
+  spk_grep3<-paste0("(",spk_grep2,")")
+  spk_grep3
+  ms3<-grep(spk_grep3,d$token) #speaker lines #"(#[A-Z]{3})" = 4942 matches in raw data
+  #spk
+  # try put column with flowing speaker declaration
+  sp_d<-array()
+  sp_ds<-array()
+  sp_sentence_nr<-array()
+  sp_sentence<-array()
+  sp_sentence_cn<-array()
+  sp_s_cn<-array()
+  #k<-25
+  ms<-ms3
+  #d$sentence_temp<-"---"
+  #d$speaker<-"---"
+  d$line_precede<-""
+  k<-2
+  ### output sentence
+  for (k in 1:length(ms)){
+   # sp_sentence_cn<-array()
+    sp_precede<-array()
+    sp_s<-ms[k]
+    sp_p1<-ms[k]
+    
+    if (k<=length(ms))
+      sp_e<-ms[k+1]-1
+    if (k==length(ms))
+      sp_e<-length(d$token)
+    sp_p2<-ms[k+1]-1
+    spk_c<-d$speaker[sp_s]
+    if (spk_c!="#INT"){
+    line_precede<-d$sentence[sp_s-1]
+    }
+    d$line_precede[sp_s:sp_e]<-line_precede
+    #sp_s_cn<-paste(d$token[sp_s:sp_e],collapse = " ")
+    #d$sentence_temp[sp_s:sp_e]<-sp_s_cn
+    #d$speaker[sp_s:sp_e]<-sp_ns  
+  } #end sentence loop
+  ################ wks.
+  #library(stringi)
+  d$line_precede[d$speaker=="#INT"]<-""
+  
+  return(d)
+} # end preprocess_precede
+#check column
+#d$checkline<-d$sentence
+#apply:
+d9<-postprocess_precede(d8)
+d8$lemma_c<-""
+write.csv(d9,"20230111(19.46)_SES_database_by_tokens+PoS_check_column.csv")
+write.csv(d9,"sesDB009.csv")
+#typeof(lemmalist)
+##############################################################################
+# DB created above, read DB from .csv to make queries and concordances
 # 
-#####################################################
+##############################################################################
 # queries ######################
 #d8<-read.csv("sesDB007.csv")
 #sampleq$id[k]
@@ -488,7 +560,7 @@ m2$token
 m2
 ##### other method subscript
 }
-############################
+##############################################################################
 # now concordances for kids:
 # 
 #d8<-read.csv()
