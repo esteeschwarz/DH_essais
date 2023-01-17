@@ -147,3 +147,13 @@ m2<-grep("s",s[m])
 s[m2]
 m3<-s[grep(".*",s[m2])]
 m3
+
+a<-"[ani lo sonderzeichentest <U+05D0><U+05E0><U+05D9> <U+05DC><U+05D0>a<U+00E4>o<U+00F6>u<U+00FC><U+00C4><U+00D6><U+00DC><U+00DF>]"
+library(stringi)
+stri_unescape_unicode(a)
+library(xml2)
+url_escape(a)
+utf8ToInt(a)
+library(rlang)
+ascii <- "<U+5E78>"
+chr_unserialise_unicode(a)
