@@ -8,7 +8,7 @@ repository on digital humanities essais.
   - general R language essais [here](https://github.com/esteeschwarz/DH_essais/tree/main/R) && [here](https://github.com/esteeschwarz/essais/tree/main/docs/STAT_R)
   - [DH presentations working folder](https://github.com/esteeschwarz/DH_essais/tree/main/sections/pr)
   - conversation analysis essais: [interaktion](https://github.com/esteeschwarz/essais/tree/main/docs/INT_CA) / [N-PRG](https://github.com/esteeschwarz/DH_essais/tree/main/sections/CA)
-  - corpus linguistics essais: [SPUND LX](https://github.com/esteeschwarz/essais/tree/main/docs/corpusLX) / [HU-LX multilingual studies](https://github.com/esteeschwarz/DH_essais/tree/main/sections/HU-LX)
+  - corpus linguistics essais: [SPUND LX](https://github.com/esteeschwarz/essais/tree/main/docs/corpusLX) / [HU-LX multilingual studies (moved)](https://github.com/esteeschwarz/HU-LX)
   ----
   - [frontend output assembly](https://userpage.fu-berlin.de/stschwarz/links?title=adaskool&ref=github) of (recent relevant learnings.)
 

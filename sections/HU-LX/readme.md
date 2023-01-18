@@ -5,3 +5,5 @@ contains R script transforming loosely formatted transcripts to CHAT conventiona
 the .cha (chat) file is generated from a transcript sample with exmaralda partitur editor to demonstrate how a standard conform transcript should be constructed.
 ## stages
 - 20221023(22.47): generated .cha named output files of transformation; import to exmarald partitur editor works cvd. the transformation is successful. 
+## update:
+this repository folder has moved to seperate repository here: <https://github.com/esteeschwarz/HU-LX>
