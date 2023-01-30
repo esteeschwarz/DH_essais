@@ -1,10 +1,13 @@
-"body": [
-    {
+{
+    "content": {
+    "body": [
+    
 {
  "title": "GROUP 1: self paced essai",
  "investigators":[ {
      "primary": "ST, VE, LSH, QU"
- } {
+ },
+  {
      "other": ""
  }],
  "font-name": "courier",
@@ -21,11 +24,13 @@
  "quote-mark": "double_quote",
  "show-results-display": "true",
  "show-log-display": "true",
- "feedback-options":[ {
+ "feedback-options":[ 
+    {
      "name": "correct",
      "string": "gut",
      "text-color": "green"
- }, {
+ }, 
+ {
      "name": "incorrect",
      "string": "naja",
      "text-color": "red"
@@ -33,14 +38,17 @@
  },
  {
 
- "instruction-screens":[ {
+ "instruction-screens":[ 
+    {
      "id": "instruction1",
      "string": "press [space] to continue. [leertaste] drücken, um weiterzugehen."
  }, 
  {
      "id": "instruction2",
      "string": "Wenn das X erscheint, drücken Sie bitte jedesmal die Leertaste. Dann erscheint der nächste Text."
- }]},
+ }
+ ]
+},
  {
  "practice-stimuli": [{
      "order": "fixed",
@@ -69,11 +77,14 @@
      }
      ]
  }]
-    },{
+},
+{
  "post-practice-instruction-screens":[ {
      "id": "instruction3",
      "string": "Lesen Sie:"
- }]},{
+ }]
+ },
+ {
      "experiment-stimuli": [{   
      "order": "fixed",
      "merge": "true",
@@ -2644,10 +2655,15 @@
              }
          }
      ]
- }]},{
+ }]
+ },
+ {
  "ending-screens":[ {
      "id": "instruction4",
      "string": "ENDE des test. danke."
- }]}
+ }]
+}
     
 ]
+}
+}
