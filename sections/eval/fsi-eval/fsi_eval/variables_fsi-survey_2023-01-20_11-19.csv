@@ -1,0 +1,102 @@
+VAR;LABEL;TYPE;INPUT;QUESTION
+CASE;Interview-Nummer (fortlaufend);METRIC;SYSTEM;
+SERIAL;Seriennummer (sofern verwendet);TEXT;SYSTEM;
+REF;Referenz (sofern im Link angegeben);TEXT;SYSTEM;
+QUESTNNR;Fragebogen, der im Interview verwendet wurde;TEXT;SYSTEM;
+MODE;Interview-Modus;TEXT;SYSTEM;
+STARTED;Zeitpunkt zu dem das Interview begonnen hat (Europe/Berlin);TIME;SYSTEM;
+F101_01;erhebung: [01];TEXT;OPEN;hier angeben, was unsere umfrage erheben soll
+MT01;intro;NOMINAL;SELECTION;bitte auswählen, ob deine angaben weiterverarbeitet werden dürfen
+MT02;gender;NOMINAL;SELECTION;möchtest du, dasz die umfrage gegendert wird?
+MT03;transparency;NOMINAL;SELECTION;ob die studienergebnisse den participants zugänglich gemacht werden sollen:
+MT06;language;NOMINAL;SELECTION;in welcher sprache soll die umfrage stattfinden?
+T101_01;semester: im momentan ... . Fachsemester;TEXT;OPEN;ich studiere
+T102;fach;NOMINAL;SELECTION;ich studiere AVL im:
+T103;vorher;NOMINAL;SELECTION;Hast du vor Beginn deines AVL-Studiums schon studiert?
+T201;eins;NOMINAL;SELECTION;Wie war für dich der Start ins AVL-Studiums und das Ankommen am Institut von 1-5?
+T202_01;angebote: [01];TEXT;OPEN;Welche Angebote hätten das Ankommen für dich leichter gemacht? 
+T203;kontakt;NOMINAL;SELECTION;Würdest du dir mehr Kontakt mit deinen Mitstudierenden wünschen?
+T204;mentoring;NOMINAL;SELECTION;Nutzt du die Angebote des Mentorings für Studienanfänger*innen?
+T205;strukturen;NOMINAL;SELECTION;Sind dir die Strukturen und Mitarbeiter*innen des Instituts bekannt? 
+T206_01;alii: [01];TEXT;OPEN;Weitere Anmerkungen zum Start und Ankommen
+T302;zufriedenheit;NOMINAL;SELECTION;Meine Zufriedenheit mit dem Studium von 1-5
+T303;beteiligung;NOMINAL;SELECTION;Beteiligst du dich an Seminardiskussionen?
+T304;more participation;NOMINAL;SELECTION;Würdest du dich gerne mehr beteiligen? 
+T305;klima;NOMINAL;SELECTION;Wie empfindest du das Gesprächsklima in den Seminaren?
+T306_01;more comfortable: [01];TEXT;OPEN;Was würde das Gesprächsklima für dich angenehmer machen?
+T307;trigger;NOMINAL;SELECTION;"Findest du, dass in Lehrveranstaltungen angemessen mit sensiblen Themen umgegangen wird? 
+"
+T308;disc;NOMINAL;SELECTION;Wurdest du in Lehrveranstaltungen des Instituts schonmal diskriminiert? 
+T310_01;discexp: [01];TEXT;OPEN;Wenn du willst, beschreibe die Situation gerne hier.
+T311;disc-saw;NOMINAL;SELECTION;Hast du in Lehrveranstaltungen des Instituts schonmal Diskriminierung beobachtet?
+T312_01;disc-saw-free: [01];TEXT;OPEN;Wenn du willst, beschreibe die Situation gerne hier.
+T313;happy;NOMINAL;SELECTION;In wie vielen deiner Lernveranstaltungen fühlst du dich im Schnitt wohl?
+T314_01;class-talk-open: [01];TEXT;OPEN;Was würdest du dir vom Seminargespräch wünschen?
+T315_01;class-open: [01];TEXT;OPEN;Weiter Anmerkungen zu den Seminaren
+T402;contact-more;NOMINAL;SELECTION;Wünschst du dir mehr Kontakt zu Dozierenden/dem Institut?
+T403;informiert;NOMINAL;SELECTION;Bist du informiert über die Möglichkeit, studentische Anliegen im Institut einzubringen?
+T404;beratung;NOMINAL;SELECTION;Hast du schon mal die Studienfachberatung genutzt?
+T405;supported;NOMINAL;SELECTION;"Fühlst du dich von den Dozierenden unterstützt?
+"
+T406;support-more;NOMINAL;SELECTION;Würdest du dir weitere Unterstützung von Seiten der Dozierenden wünschen?
+T407_01;support-more-yes: [01];TEXT;OPEN;wenn ja, welche?
+T408;fsi;NOMINAL;SELECTION;Fühlst du dich von der Fachschaft repräsentiert und in deinen Anliegen wahrgenommen?
+T409_01;fsi-wish-open: [01];TEXT;OPEN;Was würdest du dir von der Fachschaft wünschen?
+T410;institut-int;NOMINAL;SELECTION;Fühlst du dich gut im Institut integriert?
+T411;fsi-social;NOMINAL;SELECTION;"Wie oft besuchst du freiwillige Veranstaltungen vom Institut oder der Fachschaft?
+"
+T412_01;institut-open: [01];TEXT;OPEN;"Weitere Anmerkungen zum Kontakt zum Institut:
+"
+T501;interests;NOMINAL;SELECTION;Fühlt ihr euch in euren Interessen in der Lehrplanung repräsentiert?
+T502_01;missing LA: [01];TEXT;OPEN;Welche Themen in den Lehrveranstaltungen fehlen euch?
+T503;missing format;NOMINAL;SELECTION;Fehlen dir gewisse Lehrformate?
+T504_01;missing format open: [01];TEXT;OPEN;wenn ja: welche?
+T505;BUA;NOMINAL;SELECTION;Hast du schon Lehrveranstaltungen anderer Institute/Universitäten besucht?
+T506;class-place;NOMINAL;SELECTION;Wie oft bekommst du einen Platz in deinen priorisierten Seminaren im Schnitt? 
+T507;class-size;NOMINAL;SELECTION;Wie empfindest du die Seminargröße?
+T508_01;LA-open: [01];TEXT;OPEN;Weitere Anmerkungen zum Thema Lehrangebot:
+T510;multiLX;NOMINAL;SELECTION;Welche Rolle sollten fremdsprachige Literaturen in der Lehre spielen? 
+T511;aeLit;NOMINAL;SELECTION;Sollte es auch Seminare zu älterer Literatur (vor 1800) geben?
+T512_01;missingLA open: [01];TEXT;OPEN;Welche Themen vermisst du in der Lehre am meisten?
+T601;regen;NOMINAL;SELECTION;ich wünsche mir mehr überdachte Aufenthalte im Freien
+T602;mensa;NOMINAL;SELECTION;ich wünsche mir, länger warmes Essen in der Mensa zu bekommen
+T604;pinnwand;NOMINAL;SELECTION;ich wünsche mir ein Forum für inhaltlichen Austausch
+T605_01;campus-open: [01];TEXT;OPEN;wenn ihr schon danach fragt...
+TIME001;Verweildauer Seite 1;METRIC;SYSTEM;
+TIME002;Verweildauer Seite 2;METRIC;SYSTEM;
+TIME003;Verweildauer Seite 3;METRIC;SYSTEM;
+TIME004;Verweildauer Seite 4;METRIC;SYSTEM;
+TIME005;Verweildauer Seite 5;METRIC;SYSTEM;
+TIME006;Verweildauer Seite 6;METRIC;SYSTEM;
+TIME007;Verweildauer Seite 7;METRIC;SYSTEM;
+TIME008;Verweildauer Seite 8;METRIC;SYSTEM;
+TIME009;Verweildauer Seite 9;METRIC;SYSTEM;
+TIME010;Verweildauer Seite 10;METRIC;SYSTEM;
+TIME011;Verweildauer Seite 11;METRIC;SYSTEM;
+TIME012;Verweildauer Seite 12;METRIC;SYSTEM;
+TIME013;Verweildauer Seite 13;METRIC;SYSTEM;
+TIME014;Verweildauer Seite 14;METRIC;SYSTEM;
+TIME015;Verweildauer Seite 15;METRIC;SYSTEM;
+TIME016;Verweildauer Seite 16;METRIC;SYSTEM;
+TIME017;Verweildauer Seite 17;METRIC;SYSTEM;
+TIME018;Verweildauer Seite 18;METRIC;SYSTEM;
+TIME019;Verweildauer Seite 19;METRIC;SYSTEM;
+TIME020;Verweildauer Seite 20;METRIC;SYSTEM;
+TIME021;Verweildauer Seite 21;METRIC;SYSTEM;
+TIME022;Verweildauer Seite 22;METRIC;SYSTEM;
+TIME023;Verweildauer Seite 23;METRIC;SYSTEM;
+TIME024;Verweildauer Seite 24;METRIC;SYSTEM;
+TIME025;Verweildauer Seite 25;METRIC;SYSTEM;
+TIME026;Verweildauer Seite 26;METRIC;SYSTEM;
+TIME027;Verweildauer Seite 27;METRIC;SYSTEM;
+TIME_SUM;Verweildauer gesamt (ohne Ausreißer);METRIC;SYSTEM;
+MAILSENT;Versandzeitpunkt der Einladungsmail (nur für nicht-anonyme Adressaten);TIME;SYSTEM;
+LASTDATA;Zeitpunkt als der Datensatz das letzte mal geändert wurde;TIME;SYSTEM;
+FINISHED;Wurde die Befragung abgeschlossen (letzte Seite erreicht)?;BOOL;SYSTEM;
+Q_VIEWER;Hat der Teilnehmer den Fragebogen nur angesehen, ohne die Pflichtfragen zu beantworten?;BOOL;SYSTEM;
+LASTPAGE;Seite, die der Teilnehmer zuletzt bearbeitet hat;METRIC;SYSTEM;
+MAXPAGE;Letzte Seite, die im Fragebogen bearbeitet wurde;METRIC;SYSTEM;
+MISSING;Anteil fehlender Antworten in Prozent;METRIC;SYSTEM;
+MISSREL;Anteil fehlender Antworten (gewichtet nach Relevanz);METRIC;SYSTEM;
+TIME_RSI;Maluspunkte für schnelles Ausfüllen;METRIC;SYSTEM;
+DEG_TIME;Maluspunkte für schnelles Ausfüllen;METRIC;SYSTEM;

@@ -1,0 +1,150 @@
+---
+title: "fsi survey evaluation"
+author: "st."
+date: "`r Sys.time()`"
+output:
+  #bookdown::pdf_document2:
+   # extra_dependencies: ["float"]
+  bookdown::html_document2:
+    global_numbering: TRUE
+    number_sections: TRUE
+   # code_download: yes
+    toc: yes
+    toc_depth: 4
+    toc_float:
+       collapsed: no
+       smooth_scroll: no
+    self_contained: FALSE #TRUE for standalone html page knit
+    css: https://school.dh-index.org/public/papers/011/style_HA.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=T}
+print(head)
+#library(rlang)
+utest<-"[ani lo sonderzeichentest אני לאaäoöuüÄÖÜß]"
+utest<-chr_unserialise_unicode(utest)
+print(utest)
+```
+
+# HEAD
+CHK: `r utest`       
+
+# FSI survey evaluation
+raw data presentation, live evaluated from dataset on server. graphics to come if theres data at all.  
+
+```{r,echo=F,warning=F,eval=TRUE}
+library(knitr)
+#library(purrr)
+library(htmlTable)
+
+#qset[[11]]
+#getwd()
+out<-12
+source("fsi-survey_src_SRV.R")
+putout<-function(out){
+df<-data.frame(qset[[out]])
+  quest<-df$question[1]
+quest<-repl_multibyte(quest)
+
+if (colnames(df[3])=="eval"&df$answer!="free")
+  barplot(df$eval~df$answer,col=2,xlab =quest)
+if (out==12){
+  plot(df$eval,col=2,xlab="participants",ylab = "semester",main="in welchem Semester studiert ihr?",xaxs="r",xaxp=c(1,length(df$eval),1))
+}
+if (df$answer=="free"&out!=12){
+  quest<-df$question[1]
+    output<-data.frame(quest=repl_multibyte(df$eval))
+    colnames(output)<-repl_multibyte(quest)
+    kable(output)
+    #output
+    #addHtmlTableStyle(align="r")
+    #output%>%addHtmlTableStyle(align = "r")%>%htmlTable()
+#htmlTable(output,addHtmlTableStyle(align = "l"))
+  }
+}
+# for (out in 11:length(qset)){
+#   putout(out)
+# }
+```
+## meta
+```{r,echo=F,warning=F,eval=TRUE}
+putout(11)
+putout(12)
+putout(13)
+putout(14)
+
+```
+
+## Themenblock: Start ins Studium und Soziales
+```{r,echo=F,warning=F,eval=TRUE}
+putout(15)
+putout(16)
+putout(17)
+putout(18)
+putout(19)
+putout(20)
+```
+
+## Themenblock: Seminare und Diskussionsklima
+```{r,echo=F,warning=F,eval=TRUE}
+putout(21)
+putout(22)
+putout(23)
+putout(24)
+putout(25)
+putout(26)
+putout(27)
+putout(28)
+putout(29)
+putout(30)
+putout(31)
+putout(32)
+putout(33)
+```
+
+## Themenblock: Kontakt zum Institut
+```{r,echo=F,warning=F,eval=TRUE}
+putout(34)
+putout(35)
+putout(36)
+putout(37)
+putout(38)
+putout(39)
+putout(40)
+putout(41)
+putout(42)
+putout(43)
+putout(44)
+```
+
+## Themenblock: Lehrangebot 
+```{r,echo=F,warning=F,eval=TRUE}
+putout(45)
+putout(46)
+putout(47)
+putout(48)
+putout(49)
+putout(50)
+putout(50)
+putout(51)
+putout(52)
+putout(53)
+putout(54)
+putout(55)
+
+```
+
+## Themenblock: Campus
+```{r,echo=F,warning=F,eval=TRUE}
+putout(56)
+putout(57)
+putout(58)
+putout(59)
+```
+
+
+

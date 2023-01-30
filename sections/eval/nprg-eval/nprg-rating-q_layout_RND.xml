@@ -1,0 +1,382 @@
+<?xml version="1.0"?>
+<questionnaire>
+
+<!-- Seite 1 -->
+<page intID="1">
+<question id="MT01" intID="2" />
+<question id="MT02" intID="3" />
+<question id="MT03" intID="121" />
+</page>
+
+
+<!-- Seite 2 -->
+<page ident="RN1" intID="122">
+<info>randomp</info>
+<php intID="123"><![CDATA[
+question('MT05');  // Zettel aus dem Zufallsgenerator ziehen
+$pages = valueList('MT05', NULL, 'label');  // Gezogene Seitenabfolge auslesen
+setPageOrder($pages, 'post');  // Seitenabfolge anwenden
+]]></php>
+</page>
+
+
+<!-- Seite 3 -->
+<page ident="indexbuch" intID="4">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-buch.png" intID="5">
+	<option id="align" value="center" />
+</image>
+<question id="QU01" intID="6" />
+</page>
+
+
+<!-- Seite 4 -->
+<page ident="indexcola" intID="7">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-cola.png" intID="8">
+	<option id="align" value="center" />
+</image>
+<question id="QU02" intID="9" />
+</page>
+
+
+<!-- Seite 5 -->
+<page ident="indexfern" intID="10">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-fernbedienung.png" intID="11">
+	<option id="align" value="center" />
+</image>
+<question id="QU03" intID="12" />
+</page>
+
+
+<!-- Seite 6 -->
+<page ident="indexkamm" intID="13">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-kamm.png" intID="14">
+	<option id="align" value="center" />
+</image>
+<question id="QU04" intID="15" />
+</page>
+
+
+<!-- Seite 7 -->
+<page ident="indexsalz" intID="16">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-salz.png" intID="17">
+	<option id="align" value="center" />
+</image>
+<question id="QU05" intID="18" />
+</page>
+
+
+<!-- Seite 8 -->
+<page ident="indexstift" intID="19">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-stift.png" intID="20">
+	<option id="align" value="center" />
+</image>
+<question id="QU06" intID="21" />
+</page>
+
+
+<!-- Seite 9 -->
+<page ident="indextasse" intID="22">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-tasse.png" intID="23">
+	<option id="align" value="center" />
+</image>
+<question id="QU07" intID="24" />
+</page>
+
+
+<!-- Seite 10 -->
+<page ident="indexzange" intID="25">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-zange.png" intID="26">
+	<option id="align" value="center" />
+</image>
+<question id="QU08" intID="27" />
+</page>
+
+
+<!-- Seite 11 -->
+<page ident="indexring" intID="28">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-ring" intID="29">
+	<option id="align" value="center" />
+</image>
+<question id="QU09" intID="30" />
+</page>
+
+
+<!-- Seite 12 -->
+<page ident="indexvogel" intID="31">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-vogel.png" intID="32">
+	<option id="align" value="center" />
+</image>
+<question id="QU10" intID="33" />
+</page>
+
+
+<!-- Seite 13 -->
+<page ident="indexmesser" intID="34">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-messer.png" intID="35">
+	<option id="align" value="center" />
+</image>
+<question id="QU11" intID="36" />
+</page>
+
+
+<!-- Seite 14 -->
+<page ident="indexhandy" intID="37">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-handy.png" intID="38">
+	<option id="align" value="center" />
+</image>
+<question id="QU12" intID="39" />
+</page>
+
+
+<!-- Seite 15 -->
+<page ident="indexpfote" intID="40">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-index-pfote.png" intID="41">
+	<option id="align" value="center" />
+</image>
+<question id="QU13" intID="42" />
+</page>
+
+
+<!-- Seite 16 -->
+<page ident="undefring" intID="43">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-ring.png" intID="44">
+	<option id="align" value="center" />
+</image>
+<question id="QU14" intID="45" />
+</page>
+
+
+<!-- Seite 17 -->
+<page ident="undefpfote" intID="46">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-pfote.png" intID="47">
+	<option id="align" value="center" />
+</image>
+<question id="QU15" intID="48" />
+</page>
+
+
+<!-- Seite 18 -->
+<page ident="undefcola" intID="49">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-cola.png" intID="50">
+	<option id="align" value="center" />
+</image>
+<question id="QU16" intID="51" />
+</page>
+
+
+<!-- Seite 19 -->
+<page ident="undeffern" intID="52">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-fernbedienung.png" intID="53">
+	<option id="align" value="center" />
+</image>
+<question id="QU17" intID="54" />
+</page>
+
+
+<!-- Seite 20 -->
+<page ident="undefkamm" intID="55">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-kamm.png" intID="56">
+	<option id="align" value="center" />
+</image>
+<question id="QU18" intID="57" />
+</page>
+
+
+<!-- Seite 21 -->
+<page ident="undefsalz" intID="58">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-salz.png" intID="59">
+	<option id="align" value="center" />
+</image>
+<question id="QU119" intID="60" />
+</page>
+
+
+<!-- Seite 22 -->
+<page ident="undefstift" intID="61">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-stift.png" intID="62">
+	<option id="align" value="center" />
+</image>
+<question id="QU20" intID="63" />
+</page>
+
+
+<!-- Seite 23 -->
+<page ident="undeftasse" intID="64">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-tasse.png" intID="65">
+	<option id="align" value="center" />
+</image>
+<question id="QU21" intID="66" />
+</page>
+
+
+<!-- Seite 24 -->
+<page ident="undefzange" intID="67">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-zange.png" intID="68">
+	<option id="align" value="center" />
+</image>
+<question id="QU22" intID="69" />
+</page>
+
+
+<!-- Seite 25 -->
+<page ident="undefbuch" intID="70">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-buch.png" intID="71">
+	<option id="align" value="center" />
+</image>
+<question id="QU23" intID="72" />
+</page>
+
+
+<!-- Seite 26 -->
+<page ident="undefvogel" intID="73">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-vogel.png" intID="74">
+	<option id="align" value="center" />
+</image>
+<question id="QU24" intID="75" />
+</page>
+
+
+<!-- Seite 27 -->
+<page ident="undefmesser" intID="76">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-messer.png" intID="77">
+	<option id="align" value="center" />
+</image>
+<question id="QU25" intID="78" />
+</page>
+
+
+<!-- Seite 28 -->
+<page ident="undefhandy" intID="79">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-undef-handy.png" intID="80">
+	<option id="align" value="center" />
+</image>
+<question id="QU26" intID="81" />
+</page>
+
+
+<!-- Seite 29 -->
+<page ident="requestpfote" intID="82">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-pfote.png" intID="83">
+	<option id="align" value="center" />
+</image>
+<question id="QU27" intID="84" />
+</page>
+
+
+<!-- Seite 30 -->
+<page ident="requestring" intID="85">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-ring.png" intID="86">
+	<option id="align" value="center" />
+</image>
+<question id="QU28" intID="87" />
+</page>
+
+
+<!-- Seite 31 -->
+<page ident="requesthandy" intID="88">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-handy.png" intID="89">
+	<option id="align" value="center" />
+</image>
+<question id="QU29" intID="90" />
+</page>
+
+
+<!-- Seite 32 -->
+<page ident="requestcola" intID="91">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-cola.png" intID="92">
+	<option id="align" value="center" />
+</image>
+<question id="QU30" intID="93" />
+</page>
+
+
+<!-- Seite 33 -->
+<page ident="requestfern" intID="94">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-fernbedienung.png" intID="95">
+	<option id="align" value="center" />
+</image>
+<question id="QU31" intID="96" />
+</page>
+
+
+<!-- Seite 34 -->
+<page ident="requestkamm" intID="97">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-kamm.png" intID="98">
+	<option id="align" value="center" />
+</image>
+<question id="QU32" intID="99" />
+</page>
+
+
+<!-- Seite 35 -->
+<page ident="requestsalz" intID="100">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-salz.png" intID="101">
+	<option id="align" value="center" />
+</image>
+<question id="QU33" intID="102" />
+</page>
+
+
+<!-- Seite 36 -->
+<page ident="requeststift" intID="103">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-stift.png" intID="104">
+	<option id="align" value="center" />
+</image>
+<question id="QU34" intID="105" />
+</page>
+
+
+<!-- Seite 37 -->
+<page ident="requesttasse" intID="106">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-tasse.png" intID="107">
+	<option id="align" value="center" />
+</image>
+<question id="QU35" intID="108" />
+</page>
+
+
+<!-- Seite 38 -->
+<page ident="requestzange" intID="109">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-zange.png" intID="110">
+	<option id="align" value="center" />
+</image>
+<question id="QU36" intID="111" />
+</page>
+
+
+<!-- Seite 39 -->
+<page ident="requestbuch" intID="112">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-buch.png" intID="113">
+	<option id="align" value="center" />
+</image>
+<question id="QU37" intID="114" />
+</page>
+
+
+<!-- Seite 40 -->
+<page ident="requestvogel" intID="115">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-vogel.png" intID="116">
+	<option id="align" value="center" />
+</image>
+<question id="QU38" intID="117" />
+</page>
+
+
+<!-- Seite 41 -->
+<page ident="requestmesser" intID="118">
+<image src="https://school.dh-index.org/public/eval/nprg-rating/rating-png/NPRG-request-messer.png" intID="119">
+	<option id="align" value="center" />
+</image>
+<question id="QU39" intID="120" />
+</page>
+
+
+<!-- Seite 42 -->
+<page ident="post" intID="124">
+<html intID="125"><![CDATA[
+<p>last page. thank you for participating.</p>
+]]></html>
+</page>
+
+
+</questionnaire>

@@ -157,3 +157,194 @@ utf8ToInt(a)
 library(rlang)
 ascii <- "<U+5E78>"
 chr_unserialise_unicode(a)
+
+x<-gl(d3$QU01,1)
+x <- gl(5, 2, 10)
+levels(x)[1] <- "low"
+levels(x)[2] <- "high"
+x
+plot(x)
+## First control, then treatment:
+gl(2, 8, labels = c("Control", "Treat"))
+## 20 alternating 1s and 2s
+gl(2, 1, 20)
+## alternating pairs of 1s and 2s
+gl(2, 2, 20)
+##################################
+attr(d$MT01)
+plot(d$QU19)
+d$QU19
+
+eval(2 ^ 2 ^ 3)
+mEx <- expression(2^2^3); mEx; 1 + eval(mEx)
+eval({ xx <- pi; xx^2});xx
+e1<-parent.frame()
+evalq(d$QU01,e1)
+s<-d$QU01
+levels(s)<-c(1,1,1,1,1)
+s
+levels(s)<-c(1,2,3,4,5)
+plot(subq$QU01)
+max(levels(s))
+max(s)
+subq<-d3[,m1]
+factor(subq)
+order(levels(subq$QU04))
+levels(subq)
+sum(subq$QU01==levels(subq$QU01)[4])
+sum(grepl(levels(subq$QU01)[2],subq$QU01))
+listeval<-data.frame(m1=pid)
+colnames(listeval)<-colnames(d3)[m1]
+#rating
+for (k in 1:length(m1)){
+listeval[k,"inconcrete"]<-sum(grepl(levels(subq$QU01)[1],subq[,k]))  
+listeval[k,"name"]<-sum(grepl(levels(subq$QU01)[2],subq[,k]))  
+listeval[k,"request"]<-sum(grepl(levels(subq$QU01)[3],subq[,k]))  
+listeval[k,"unclear"]<-sum(grepl(levels(subq$QU01)[4],subq[,k]))  
+listeval[k,"NA"]<-sum(grepl(levels(subq$QU01)[5],subq[,k]))  
+
+}
+rownames(listeval)<-listeval$m1
+listeval$m1[which.max(listeval$name)]
+t6<-head(listeval[order(listeval$name,decreasing = T)])
+t6
+df<-listeval
+### sort dataframe:
+#ordering dataframe by column 1
+df[with(df,order(df[,3],decreasing = T)), ]
+#ordering dataframe by column name 'a'
+df[with(df,order(df[,"a"])), ]
+df[order(df[[var]]),]
+df[order(df[,var]),]
+
+#remove undefsalz for messy data
+dfc<-listeval
+dfc<-subset(dfc,dfc$m1!="undefsalz")
+#dfc<-dfc[with(dfc,order(dfc[,1],decreasing = F)), ]
+#dfc<-dfc[1:38,]
+dfc.name<-dfc[with(dfc,order(dfc[,3],decreasing = T)), ]
+dfc.req<-dfc[with(dfc,order(dfc[,4],decreasing = T)), ]
+dfc.inconc<-dfc[with(dfc,order(dfc[,2],decreasing = T)), ]
+dfc.unclear<-dfc[with(dfc,order(dfc[,5],decreasing = T)), ]
+plot(dfc.name[2,2:5])
+
+library(stringi)
+library(R.utils)
+df2<-dfc
+df2$png<-stri_extract_all_regex(df2$m1,"index|undef|request",simplify = T)
+regxword<-paste0("(",paste(decapitalize(words),collapse = "|"),"|####)")
+df2$word<-stri_extract_all_regex(df2$m1,regxword,simplify = T)
+lm(df2$name~df2$request)
+lm(df2$request~df2$png)
+lm(df2$unclear~df2$png)
+u<-runif(20)
+df2$index<-df2$png=="index"
+df2$req<-df2$png=="request"
+df2$undef<-df2$png=="undef"
+df3<-df2
+df3$response<-1
+lo<-length(df2$name)
+lo1<-lo+1
+lo2<-lo*2+1
+
+df3[lo1:lo4,13]<-1
+#df3$response<-append(df3$response,39:114,length(df3$response))
+#df3$response[1:38*3]<-0
+df3$response[1:lo]<-df2$name
+df3$response[lo1:lo2]<-df2$request
+lo3<-lo*3+1
+lo4<-lo*4
+77:114
+df3$response[lo2:lo3]<-df2$undef
+df3$response[lo3:lo4]<-df2$unclear
+df3[lo1:lo4,14]<-1
+
+df3$resp_cat[1:lo]<-"name"
+df3$resp_cat[lo1:lo2]<-"request"
+df3$resp_cat[lo2:lo3]<-"undef"
+df3$resp_cat[lo3:lo4]<-"unclear"
+
+df3$resp_word[1:lo]<-df2$word
+df3$resp_word[lo1:lo2]<-df2$word
+df3$resp_word[lo2:lo3]<-df2$word
+df3$resp_word[lo3:lo4]<-df2$word
+
+df3$resp_png[1:lo]<-df2$png
+df3$resp_png[lo1:lo2]<-df2$png
+df3$resp_png[lo2:lo3]<-df2$png
+df3$resp_png[lo3:lo4]<-df2$png
+
+df3$resp_word[which.max(df3$response)]
+
+
+
+lm(response_value~word,df4)
+library(lme4)
+lm1<-lmer(response_value~word+(png|word),df4)
+summary(lm1)
+df4<-data.frame(response_value=df3$response,response_lang=df3$resp_cat,png=df3$resp_png,word=df3$resp_word)
+
+df4$index<-0
+df5<-df4
+t<-df4$response_lang=="request"
+df4$index<-df4$response_lang=="name"
+df4$request<-df4$response_lang=="request"
+df4$undef<-df4$response_lang=="un"
+df5$response_lang[t]<-"index"
+df5$true<-df5$png==df5$response_lang
+
+#truth values: how often ideal answer?
+#ideal 13x3 = 39 kombinations = 13 each
+
+#lmer
+plot(df4$response_value, pch=19)
+abline(a=10, b=2, col="grey")
+regxy = lm(y~x)
+abline(regxy)
+text(6.6, 18, expression(hat(E)(y) == hat(beta)[0] + hat(beta)[1]*x), pos=4)
+arrows(7.4, 18.8, 7.4, coef(regxy)%*%c(1,7.4), length=.15)
+segments(x, y, x, fitted(regxy), lty=3)
+
+##################
+#x = runif(30,0,10)
+#x[28] = 8.5
+#y = m + 2*x + rnorm(o)*3 #10+
+m<-39 #ideal (correct) answer / picture
+#m<-max(df4$response_value)
+o<-length(df5$response_value) # anzahl answers 
+#y<-1:m
+#m<-o
+x = runif(o,0,m) # ideal random distribution over observation
+y = df5$response_value # real distribution
+#
+# pch = 1 open circle, 2 triangle, 3 plus, 4 x, 5 diamond, 6 inverted triangle; 19 solid circle
+#
+# curve(rnorm(x))
+# plot(x, y, pch=19)
+# abline(a=m, b=2) #a=10
+# text(5.8, 18, expression(E(y) == beta[0] + beta[1]*x), pos=4)
+# arrows(6, 18.8, 5.9, 21.8, length=.15)
+# segments(x, y, x, 10+2*x, lty=3)
+# dev.off()
+#
+# Figure 1.2
+#
+#abline(regxy)
+#a<-mean(df5$response_value)
+plot(x, y, pch=18,main="chosen label vs. ideal selection",xlab="ideal-fitted",ylab="selection")
+abline(a=13, b=0,col="grey")
+regxy = lm(y~x)
+summary(lm(y~x))
+abline(regxy)
+text(25, 30, "Ideal", pos=4)
+arrows(28, 28, 28, 13, length=.15)
+text(5, 20, "Abweichung", pos=4,col=2)
+arrows(7.4, 18.8, 7.4, coef(regxy)%*%c(1,7.4), length=.15,col=2)
+segments(x, y, x, fitted(regxy), lty=3)
+dev.off()
+
+lm1<-lmer(response_value~true+(word|png),df5)
+summary(lm1)
+plot(lm1)
+plot(regxy)
+regxy$effects

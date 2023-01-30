@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="st." />
+
+
+<title>fsi survey evaluation</title>
+
+<script src="fsi-eval_SRV_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="fsi-eval_SRV_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="fsi-eval_SRV_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="fsi-eval_SRV_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="fsi-eval_SRV_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="fsi-eval_SRV_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="fsi-eval_SRV_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="fsi-eval_SRV_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="fsi-eval_SRV_files/navigation-1.1/tabsets.js"></script>
+<link href="fsi-eval_SRV_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="fsi-eval_SRV_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="https://school.dh-index.org/public/papers/011/style_HA.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">fsi survey evaluation</h1>
+<h4 class="author">st.</h4>
+<h4 class="date">2023-01-20 17:13:06</h4>
+
+</div>
+
+
+<pre class="r"><code>print(head)</code></pre>
+<pre><code>##     ref txt  arg
+## 1 empty     none</code></pre>
+<pre class="r"><code>#library(rlang)
+utest&lt;-&quot;[ani lo sonderzeichentest אני לאaäoöuüÄÖÜß]&quot;
+utest&lt;-chr_unserialise_unicode(utest)
+print(utest)</code></pre>
+<pre><code>## [1] &quot;[ani lo sonderzeichentest אני לאaäoöuüÄÖÜß]&quot;</code></pre>
+<div id="head" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> HEAD</h1>
+<p>CHK: [ani lo sonderzeichentest אני לאaäoöuüÄÖÜß]</p>
+</div>
+<div id="fsi-survey-evaluation" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> FSI survey evaluation</h1>
+<p>raw data presentation, live evaluated from dataset on server. graphics to come if theres data at all.</p>
+<div id="meta" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> meta</h2>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-3-1.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-3-2.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-3-3.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-3-4.png" width="672" /></p>
+</div>
+<div id="themenblock-start-ins-studium-und-soziales" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Themenblock: Start ins Studium und Soziales</h2>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Welche Angebote haetten das Ankommen fuer dich leichter gemacht?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">test1 angebote</td>
+</tr>
+<tr class="even">
+<td align="left">eins</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-4-2.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-4-3.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Weitere Anmerkungen zum Start und Ankommen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">test alii</td>
+</tr>
+<tr class="even">
+<td align="left">zweifrei</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="themenblock-seminare-und-diskussionsklima" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Themenblock: Seminare und Diskussionsklima</h2>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-5-1.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-5-2.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-5-3.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-5-4.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Was wuerde das Gespraechsklima fuer dich angenehmer machen?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">weniger verklemmt</td>
+</tr>
+<tr class="even">
+<td align="left">freidrei</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-5-5.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-5-6.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Wenn du willst, beschreibe die Situation gerne hier.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">blub</td>
+</tr>
+<tr class="even">
+<td align="left">vier</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-5-7.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Wenn du willst, beschreibe die Situation gerne hier.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">blub2</td>
+</tr>
+<tr class="even">
+<td align="left">fuenf</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-5-8.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Was wuerdest du dir vom Seminargespraech wuenschen?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mehr blub</td>
+</tr>
+<tr class="even">
+<td align="left">sechs</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Weiter Anmerkungen zu den Seminaren</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">no blub</td>
+</tr>
+<tr class="even">
+<td align="left">sieben</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="themenblock-kontakt-zum-institut" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Themenblock: Kontakt zum Institut</h2>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-6-2.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-6-3.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-6-4.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-6-5.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">wenn ja, welche?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">no</td>
+</tr>
+<tr class="even">
+<td align="left">acht</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-6-6.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Was wuerdest du dir von der Fachschaft wuenschen?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">autistenfalle</td>
+</tr>
+<tr class="even">
+<td align="left">neun</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-6-7.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-6-8.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Weitere Anmerkungen zum Kontakt zum Institut:X</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">blub</td>
+</tr>
+<tr class="even">
+<td align="left">zehn</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="themenblock-lehrangebot" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Themenblock: Lehrangebot</h2>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Welche Themen in den Lehrveranstaltungen fehlen euch?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">dh</td>
+</tr>
+<tr class="even">
+<td align="left">elf</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">wenn ja: welche?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">blub</td>
+</tr>
+<tr class="even">
+<td align="left">elf</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-7-3.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-7-4.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-7-5.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Weitere Anmerkungen zum Thema Lehrangebot:</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">null</td>
+</tr>
+<tr class="even">
+<td align="left">zwoelf</td>
+</tr>
+<tr class="odd">
+<td align="left">bb48</td>
+</tr>
+</tbody>
+</table>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-7-6.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-7-7.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Welche Themen vermisst du in der Lehre am meisten?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">bb47</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="themenblock-campus" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Themenblock: Campus</h2>
+<p><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-8-1.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-8-2.png" width="672" /><img src="fsi-eval_SRV_files/figure-html/unnamed-chunk-8-3.png" width="672" /></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">wenn ihr schon danach fragt…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mehr lametta</td>
+</tr>
+<tr class="even">
+<td align="left">dreizehn</td>
+</tr>
+<tr class="odd">
+<td align="left">bb</td>
+</tr>
+<tr class="even">
+<td align="left">bb52</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

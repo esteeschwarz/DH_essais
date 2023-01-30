@@ -1,0 +1,163 @@
+VAR;RESPONSE;MEANING
+MT01;1;ja, meine eingaben dürfen verarbeitet werden
+MT01;2;nein, meine eingaben dürfen nicht verarbeitet werden
+MT01;-9;nicht beantwortet
+MT02;1;was ist das für eine frage. natürlich soll die umfrage gegendert werden
+MT02;2;meinetwegen braucht die umfrage nicht gegendert zu werden
+MT02;3;bullshit, ich möchte die umfrage beenden.
+MT02;4;good question, aber ja, die umfrage soll gegendert werden.
+MT02;-9;nicht beantwortet
+MT03;1;ja, ich möchte, dasz die studienteilnehmer*innen kenntnis der umfrageergebnisse erhalten
+MT03;2;nein, ich möchte nur die auswertung unter den studierenden veröffentlichen
+MT03;3;die ergebnisse sollen nur intern ausgewertet werden
+MT03;-9;nicht beantwortet
+MT06;1;deutsch
+MT06;2;englisch
+MT06;3;russisch?
+MT06;4;deutsch + englisch
+MT06;-9;nicht beantwortet
+T102;1;Bachelorstudium Hauptfach
+T102;2;Bachelorstudium Nebenfach
+T102;3;Masterstudium
+T102;-9;nicht beantwortet
+T103;1;ja
+T103;2;nein
+T103;-9;nicht beantwortet
+T201;1;furchtbar
+T201;2;2
+T201;3;3
+T201;4;4
+T201;5;absolut fantastisch
+T201;-9;nicht beantwortet
+T203;1;ja
+T203;2;nein
+T203;-9;nicht beantwortet
+T204;1;ja
+T204;2;nein
+T204;-9;nicht beantwortet
+T205;1;ja
+T205;2;nein
+T205;-9;nicht beantwortet
+T302;1;furchtbar
+T302;2;2
+T302;3;3
+T302;4;4
+T302;5;absolut fantastisch
+T302;-9;nicht beantwortet
+T303;1;nie
+T303;2;2
+T303;3;3
+T303;4;4
+T303;5;immer
+T303;-9;nicht beantwortet
+T304;1;ja
+T304;2;nein
+T304;-9;nicht beantwortet
+T305;1;unangenehm
+T305;2;2
+T305;3;3
+T305;4;4
+T305;5;sehr angenehm
+T305;-9;nicht beantwortet
+T307;1;nie
+T307;2;2
+T307;3;3
+T307;4;4
+T307;5;immer
+T307;-9;nicht beantwortet
+T308;1;ja
+T308;2;nein
+T308;-9;nicht beantwortet
+T311;1;ja
+T311;2;nein
+T311;-9;nicht beantwortet
+T313;1;in keinen
+T313;2;2
+T313;3;3
+T313;4;4
+T313;5;in allen
+T313;-9;nicht beantwortet
+T402;1;ja
+T402;2;nein
+T402;-9;nicht beantwortet
+T403;1;ja
+T403;2;nein
+T403;-9;nicht beantwortet
+T404;1;ja
+T404;2;nein
+T404;-9;nicht beantwortet
+T405;1;kein bisschen
+T405;2;2
+T405;3;3
+T405;4;4
+T405;5;ja sehr
+T405;-9;nicht beantwortet
+T406;1;nein
+T406;2;ja
+T406;-9;nicht beantwortet
+T408;1;kein bisschen
+T408;2;2
+T408;3;3
+T408;4;4
+T408;5;absolut
+T408;-9;nicht beantwortet
+T410;1;gar nicht
+T410;2;2
+T410;3;3
+T410;4;4
+T410;5;sehr gut
+T410;-9;nicht beantwortet
+T411;1;nie
+T411;2;2
+T411;3;3
+T411;4;4
+T411;5;sehr oft
+T411;-9;nicht beantwortet
+T501;1;gar nicht
+T501;2;2
+T501;3;3
+T501;4;4
+T501;5;total
+T501;-9;nicht beantwortet
+T503;1;ja
+T503;2;nein
+T503;-9;nicht beantwortet
+T505;1;ja
+T505;2;nein
+T505;-9;nicht beantwortet
+T506;1;nie
+T506;2;2
+T506;3;3
+T506;4;4
+T506;5;immer
+T506;-9;nicht beantwortet
+T507;1;immer zu groß
+T507;2;oft zu groß
+T507;3;genau richtig
+T507;4;oft zu klein
+T507;5;immer zu klein
+T507;-9;nicht beantwortet
+T510;1;keine Rolle
+T510;2;2
+T510;3;3
+T510;4;4
+T510;5;eine sehr grosze Rolle
+T510;-9;nicht beantwortet
+T511;1;ja
+T511;2;nein
+T511;-9;nicht beantwortet
+T601;1;ja
+T601;2;nein
+T601;-9;nicht beantwortet
+T602;1;ja
+T602;2;nein
+T602;-9;nicht beantwortet
+T604;1;nein, ich nutze die gängigen messenger Dienste
+T604;2;nein, dafür reicht mir das blackboard
+T604;3;nein, ich brauche nicht mehr Austausch
+T604;4;ja
+T604;-9;nicht beantwortet
+FINISHED;0;abgebrochen
+FINISHED;1;ausgefüllt
+Q_VIEWER;0;Teilnehmer
+Q_VIEWER;1;Durchklicker
