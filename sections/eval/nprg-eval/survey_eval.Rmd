@@ -42,7 +42,7 @@ NEUROPRAGMATIK rating studie
 #source("survey_src.R")
 # scred<-read.csv("../../../local/R/cred_gener.csv")
 # src<-scred$api[scred$url=="nprg-pure"]
-cred<-read.csv("../../../../testeee/soscisrc.csv",sep=",")
+cred<-read.csv("../../../../../../testeee/soscisrc.csv",sep=",")
 src<-cred$link[1]
 #eval(parse(src, encoding="UTF-8"))
 source("import_nprg.r")

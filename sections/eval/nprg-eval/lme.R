@@ -1,9 +1,10 @@
 #d3$QU01
 #m1<-grep("QU",colnames(d3))
-deval<-data.frame(response=1:lc)
 lobs<-length(d3$QU01)
 lq<-length(m1)
-lc<-l1*length(m1)
+lc<-lobs*length(m1)
+deval<-data.frame(response=1:lc)
+
 deval$response[1:lc]<-0
 rowarray<-array()
 for (k in m1){
@@ -33,7 +34,7 @@ for (k in 1:39){
 }  
 #data1<-unlist(rowarray)
 deval$sex<-rowarray[2:length(rowarray)]
-data1[2:10]
+#data1[2:10]
 rowarray[1:10]
 
 rowarray<-array()
@@ -62,7 +63,7 @@ for (k in 1:39){
 }  
 deval$child_IA<-rowarray[2:length(rowarray)]
 
-
+################
 
 t1<-deval$response_value==1
 t2<-deval$response_value==2
@@ -180,19 +181,19 @@ deval$child_IA[t9]<-"N.A."
 deval$child_IA[t10]<-"N.A."
 
 getwd()
-write.csv(deval,"local/SPUND/db_nprg001.csv")
-write.csv(deval,"gith/DH_essais/sections/eval/nprg-eval/db_nprg001.csv")
+#write.csv(deval,"local/SPUND/db_nprg001.csv")
+#write.csv(deval,"gith/DH_essais/sections/eval/nprg-eval/db_nprg001.csv")
 
-k<-1
-attr(d3[,k],"1")
-attr(ds$MT05x01,"1") = "indexbuch"
-attr(ds$MT05x01,"1")
-
+# k<-1
+# attr(d3[,k],"1")
+# attr(ds$MT05x01,"1") = "indexbuch"
+# attr(ds$MT05x01,"1")
+# 
 attrlist<-1:39
 attrlist<-as.character(attrlist)
 d4<-d3
 
-attr(d4$QU01,attrlist[1])
+#attr(d4$QU01,attrlist[1])
 attarray<-array()
 for (k in 1:length(attrlist)){
 attarray[k]<-attr(d4$MT05x01,attrlist[k])
@@ -200,7 +201,7 @@ attarray[k]<-attr(d4$MT05x01,attrlist[k])
 
 }
 attarray
-attdf<-rep(attarray,64)
+attdf<-rep(attarray,lobs)
 attdf<-gsub("fern","####",attdf)
 deval$stimulus<-attdf
 stindex<-strsplit(attdf,"index")
@@ -250,16 +251,16 @@ deval$png[!is.na(stall$request)]<-"request"
 
 deval$true<-deval$png==deval$response_lang
 
-lm1<-lm(true~stimulus,deval)
-summary(lm1)
-lm2<-lmer(true~stimulus+(1|word)+(1|png),deval)
-sum1<-summary(lm2)
-coef1<-data.frame(sum1$coefficients)
-rownames(coef1)[1]<-"stimulusindex####"
-
-coef2<-coef1[order(coef1$t.value,decreasing = T),]
-coef1[which.min(coef1$t.value),]
-coef1[which.max(coef1$t.value),]
+# lm1<-lm(true~stimulus,deval)
+# summary(lm1)
+# lm2<-lmer(true~stimulus+(1|word)+(1|png),deval)
+# sum1<-summary(lm2)
+# coef1<-data.frame(sum1$coefficients)
+# #rownames(coef1)[1]<-"stimulusindex####"
+# 
+# coef2<-coef1[order(coef1$t.value,decreasing = T),]
+# coef1[which.min(coef1$t.value),]
+# coef1[which.max(coef1$t.value),]
 
 
 head(coef2)
@@ -267,14 +268,14 @@ tail(coef2)
 ###########
 deval$expected<-TRUE
 
-lm3<-lm(true~stimulus,deval)
-sum1<-summary(lm3)
-lm4<-lmer(true~stimulus+(expected|word)+(expected|png),deval)
-lm4<-lmer(true~stimulus+(1|png)+(1|word),deval)
-lm5<-lmer(true~response_lang+(1|png)+(1|word),deval)
-sum1<-summary(lm5)
-plot(lm4)
-plot(lm3)
+# lm3<-lm(true~stimulus,deval)
+# sum1<-summary(lm3)
+# lm4<-lmer(true~stimulus+(expected|word)+(expected|png),deval)
+# lm4<-lmer(true~stimulus+(1|png)+(1|word),deval)
+# lm5<-lmer(true~response_lang+(1|png)+(1|word),deval)
+# sum1<-summary(lm5)
+# plot(lm4)
+#plot(lm3)
 
 ## graph
 m<-deval$expected #ideal (correct) answer / picture
@@ -291,18 +292,136 @@ response<-y
 expected<-x
 #a<-mean(df5$response_value)
 #dplot<-data.frame(expected=x,response=y)
-plot.new()
-plot(x, y, pch=18,main="chosen label vs. ideal selection",xlab="ideal-fitted",ylab="selection")
-abline(a=13, b=0,col="grey")
-regxy = lm(response~expected)
-#lm2<-lm(dplot)
-#summary(lm2)
-summary(regxy)
-#summary(lm(y~x))
-abline(regxy)
-text(25, 30, "Ideal", pos=4)
-arrows(28, 28, 28, 13, length=.15)
-text(5, 20, "Abweichung", pos=4,col=2)
-arrows(7.4, 18.8, 7.4, coef(regxy)%*%c(1,7.4), length=.15,col=2)
-segments(x, y, x, fitted(regxy), lty=3)
+# plot.new()
+# plot(x, y, pch=18,main="chosen label vs. ideal selection",xlab="ideal-fitted",ylab="selection")
+# abline(a=13, b=0,col="grey")
+# regxy = lm(response~expected)
+# #abline(regxy)
+# #lm2<-lm(dplot)
+# #summary(lm2)
+# summary(regxy)
+# #summary(lm(y~x))
+# abline(regxy)
+# text(25, 30, "Ideal", pos=4)
+# arrows(28, 28, 28, 13, length=.15)
+# text(5, 20, "Abweichung", pos=4,col=2)
+# arrows(7.4, 18.8, 7.4, coef(regxy)%*%c(1,7.4), length=.15,col=2)
+# segments(x, y, x, fitted(regxy), lty=3)
 
+# d3$MT11
+# d3$MT13_01 #feedback
+# d3$MT09_01
+# d3$MT11
+# d3$MT07_01
+# d3$MT03
+# d3$MT06
+
+#########
+tnresponse<-list()
+tndf<-data.frame()
+k<-1
+# for (k in 1:lobs){
+#     
+#     q1<-d3[k,m1[1:13]]
+#     q2<-d3[k,m1[14:26]]
+#     q3<-d3[k,m1[27:39]]       
+#   tnresponse[[k]]["index"]<-q1
+#   tnresponse[[k]]["request"]<-q2
+#   tnresponse[[k]]["undef"]<-q3
+# }
+responsearray<-c("inconcrete","name","request","unclear","N.A.")
+
+#tnresponse[[7]]["request"]
+
+
+tnarray<-array()
+for (k in 1:39){
+  tnstart<-lobs*k
+  data<-1:lobs
+  tnarray<-append(tnarray,data,after = tnstart)
+}  
+#data1<-unlist(rowarray)
+deval$tn<-tnarray[2:length(tnarray)]
+qtn<-2
+qstim<-"indexring"
+qresp<-"index"
+evalcount<-function(qtn,qstim,qresp){
+#  set<-subset(deval,deval$tn==qtn&deval$qstim==stimulus&deval$response_lang==qresp)
+  set<-subset(deval,deval$tn==qtn&deval$png==qstim&deval$response_lang==qresp)
+ # set<-subset(deval,deval$tn==tnid)
+  #print(count)
+    count<-length(set$tn)
+  print(count)
+  return(count)
+}
+pngarray<-c("index","undef","request")
+responsearray
+tncount<-list()
+pngcount<-array()
+emptycol<-rep(0,lobs)
+pngcount<-data.frame(tn=1:lobs,index=emptycol,request=emptycol,undef=emptycol,checksum=emptycol)
+t<-2
+#pngcount$index<-emptycol
+26-5
+# for (c in 6:26){
+# 
+#   for (k in 1:lobs){
+#   pngcount[k,6]<-evalcount(t,"index","undef")
+#   pngcount[k,7]<-evalcount(t,"index","index")
+#   pngcount[k,8]<-evalcount(t,"index","request")
+#   pngcount[k,9]<-evalcount(t,"index","unclear")
+#   
+# }
+# }
+for (t in 1:lobs){
+# selections for INDEX stimulus, 1 out of 4
+  
+pngcount$undefindex[t]<-evalcount(t,"index","undef")
+pngcount$indexindex[t]<-evalcount(t,"index","index")
+pngcount$requestindex[t]<-evalcount(t,"index","request")
+pngcount$unclearindex[t]<-evalcount(t,"index","unclear")
+
+  
+# selections for REQUEST stimulus
+pngcount$undefrequest[t]<-evalcount(t,"request","undef")
+pngcount$indexrequest[t]<-evalcount(t,"request","index")
+pngcount$requestrequest[t]<-evalcount(t,"request","request")
+pngcount$unclearrequest[t]<-evalcount(t,"index","unclear")
+
+# selections for UNDEF stimulus
+pngcount$undefundef[t]<-evalcount(t,"undef","undef")
+pngcount$indexundef[t]<-evalcount(t,"undef","index")
+pngcount$requestundef[t]<-evalcount(t,"undef","request")
+pngcount$unclearundef[t]<-evalcount(t,"undef","unclear")
+
+# pngcount$indexrequest[t]<-evalcount(t,"request","index")
+# pngcount$undefrequest[t]<-evalcount(t,"request","undef")
+# pngcount$requestrequest[t]<-evalcount(t,"request","request")
+
+# sum of selections per stimulus
+pngcount$index[t]<-pngcount$indexindex[t]+pngcount$requestindex[t]+pngcount$undefindex[t]+pngcount$unclearindex[t]
+pngcount$request[t]<-pngcount$indexrequest[t]+pngcount$requestrequest[t]+pngcount$undefrequest[t]+pngcount$unclearrequest[t]
+pngcount$undef[t]<-pngcount$indexundef[t]+pngcount$requestundef[t]+pngcount$undefundef[t]+pngcount$unclearundef[t]
+pngcount$checksum[t]<-pngcount$index[t]+pngcount$request[t]+pngcount$undef[t]
+
+
+# p of selection per tn and stimulus
+pngcount$indexundef_p[t]<-pngcount$undefindex[t]/pngcount$index[t]*100
+pngcount$indexindex_p[t]<-pngcount$indexindex[t]/pngcount$index[t]*100
+pngcount$indexrequest_p[t]<-pngcount$requestindex[t]/pngcount$index[t]*100
+pngcount$indexunclear_p[t]<-pngcount$unclearindex[t]/pngcount$index[t]*100
+
+
+pngcount$requestindex_p[t]<-pngcount$indexrequest[t]/pngcount$request[t]*100
+pngcount$requestrequest_p[t]<-pngcount$requestrequest[t]/pngcount$request[t]*100
+pngcount$requestundef_p[t]<-pngcount$undefrequest[t]/pngcount$request[t]*100
+pngcount$requestunclear_p[t]<-pngcount$unclearrequest[t]/pngcount$request[t]*100
+
+pngcount$undefindex_p[t]<-pngcount$indexundef[t]/pngcount$undef[t]*100
+pngcount$undefrequest_p[t]<-pngcount$requestundef[t]/pngcount$undef[t]*100
+pngcount$undefundef_p[t]<-pngcount$undefundef[t]/pngcount$undef[t]*100
+pngcount$undefunclear_p[t]<-pngcount$unclearundef[t]/pngcount$undef[t]*100
+
+}
+3/9*100
+#rm(pngcount)

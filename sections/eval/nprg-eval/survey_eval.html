@@ -252,7 +252,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">NPRG survey evaluation</h1>
 <h4 class="author">st.</h4>
-<h4 class="date">2023-01-28 12:17:47</h4>
+<h4 class="date">2023-01-30 14:17:34</h4>
 
 </div>
 
@@ -337,27 +337,56 @@ Es handelt sich hier um einen pretest des stimuli sets. Es sollten auf diese Wei
 <div id="raw-data-presentation" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> raw data presentation</h2>
 <p>live evaluated from dataset on server. graphics to come if theres data at all.<br />
-dataset: 64 observations.</p>
+dataset: 65 observations.</p>
+<pre><code>## [1] 76.5</code></pre>
 <pre><code>## 
 ## Call:
-## lm(formula = y ~ x)
+## lm(formula = response ~ expected)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -13.735  -8.699  -5.591   3.754  33.192 
+## -15.542  -8.411  -3.574   7.339  33.706 
 ## 
 ## Coefficients:
 ##             Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept) 13.89190    2.13792   6.498 1.13e-09 ***
-## x           -0.09866    0.09508  -1.038    0.301    
+## (Intercept) 19.66129    1.91880  10.247  &lt; 2e-16 ***
+## expected    -0.10092    0.02176  -4.638 7.59e-06 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 12.54 on 150 degrees of freedom
-## Multiple R-squared:  0.007126,   Adjusted R-squared:  0.0005069 
-## F-statistic: 1.077 on 1 and 150 DF,  p-value: 0.3011</code></pre>
+## Residual standard error: 11.77 on 150 degrees of freedom
+## Multiple R-squared:  0.1254, Adjusted R-squared:  0.1196 
+## F-statistic: 21.52 on 1 and 150 DF,  p-value: 7.586e-06</code></pre>
 <p><img src="survey_eval_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre><code>## boundary (singular) fit: see help(&#39;isSingular&#39;)</code></pre>
+<pre><code>## [1] 11.5</code></pre>
+<pre><code>## [1] -0.25</code></pre>
+<pre><code>## [1] -0.25</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre><code>##                    Estimate Std..Error    t.value  Pr...t..
+## stimuliundef tasse    -0.25   10.20046 -0.0245087 0.9804897</code></pre>
+<pre><code>##             Estimate Std..Error  t.value  Pr...t..
+## (Intercept)     11.5   7.212813 1.594385 0.1136186</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = df5$response_p ~ df5$response_lang)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -0.32237 -0.10424 -0.02508  0.08398  0.39967 
+## 
+## Coefficients:
+##                          Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)               0.22533    0.02607   8.644 8.20e-15 ***
+## df5$response_langrequest  0.12829    0.03687   3.480 0.000659 ***
+## df5$response_langunclear -0.11431    0.03687  -3.101 0.002313 ** 
+## df5$response_langundef   -0.16900    0.03687  -4.584 9.63e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.1607 on 148 degrees of freedom
+## Multiple R-squared:  0.3411, Adjusted R-squared:  0.3278 
+## F-statistic: 25.54 on 3 and 148 DF,  p-value: 2.248e-13</code></pre>
 <p><img src="survey_eval_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-2.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-3.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-4.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-5.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-6.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-7.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-8.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-9.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-10.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-11.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-12.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-13.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-14.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-15.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-16.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-17.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-18.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-19.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-20.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-21.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-22.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-23.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-24.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-25.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-26.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-27.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-28.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-29.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-30.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-31.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-32.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-33.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-34.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-35.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-36.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-37.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-38.png" width="672" /><img src="survey_eval_files/figure-html/unnamed-chunk-6-39.png" width="672" /></p>
 </div>
 </div>
