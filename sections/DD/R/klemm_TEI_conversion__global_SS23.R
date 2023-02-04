@@ -6,6 +6,8 @@
 #ongoing process: https://github.com/esteeschwarz/DH_essais/R/klemm_TEI_conversion_wks_process.R
 #20220619(19.50)
 #aktualisiert, status working bis auf schema integration, body complete.
+#20230204(11.07)
+#documented essai for global appplication on sources
 ###########################
 #1.abstract:
 #TEI declaration of wikisource dramatext for further processing
@@ -33,7 +35,65 @@ xpathkl<-'//*[@id="mw-content-text"]/div[1]/div[2]'
 #xpath copied from browser developer tools (safari)
 html_nodes(dta1,xpath = xpathkl)
 txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
+#gets plain text
 #wks.
+#now with epub formatted text:
+src<-"https://ws-export.wmcloud.org/?format=epub&lang=de&page=Der_Besuch_(Klemm)"
+dta2<-read_html(src) #no
+# x<-GET(src) #no
+# dta2<-content(x,"text")
+getwd()
+dta2<-read_xml("local/EXC2020/DD23/data/c0_Der_Besuch__Klemm_.xhtml") #xml extracted from epub
+xpathkl<-'/html/body/section/div/'
+xml_child(xml_child(xml_child(xml_child(xml_child(dta2, 2), 1), 3), 12), 1)
+#xpath copied from browser developer tools (safari)
+html_nodes(dta2,xpath = xpathkl)
+
+data<-dta2
+?xml_name
+xml_name(data)
+xml_name(xml_parent(data)) #keine Eltern - Wurzelelement
+xml_name(xml_children(data))
+data
+# Namespace anzeigen
+xml_attr(data, "xmlns")
+
+# Namespace entfernen
+
+data %>% xml_ns()
+data%>% xml_ns_strip()
+
+# Beispiel 1: xpath-Pfade anzeigen
+# Alle xpath-Pfade anzeigen
+data %>% 
+  xml_find_all('//*') %>%
+  xml_path()
+#?xml_path
+
+# Alle xpath-Pfade zu einem head-Element anzeigen
+all_heads <- data %>% 
+  xml_find_all('//div') %>%
+  xml_path()
+all_heads
+
+all_divs <- data %>% 
+  xml_find_all('//div/div')
+xml_text(all_divs[1])
+xml_attr(all_divs[6],"style")
+
+#all speakerlist in scene 
+all_i <- data %>% 
+  xml_find_all('//div/div/i')
+xml_text(all_i[2])
+
+#all speaker declaration of scene paragraph
+all_b <- data %>% 
+  xml_find_all('//div/p/b')
+xml_text(all_b[3])
+
+
+txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
+xml_find_all(dta2,xpathkl)
 #library(stringi)
 library(clipr)
 #library(xml2)
