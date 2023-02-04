@@ -129,7 +129,7 @@ deval$age[t9]<-"N.A."
 deval$age[t10]<-"N.A."
 #deval$age[t9]<-"N.A."
 
-d3$MT08[1:10]
+#d3$MT08[1:10]
 
 t1<-deval$biL==1
 t2<-deval$biL==2
@@ -180,7 +180,7 @@ deval$child_IA[t2]<-F
 deval$child_IA[t9]<-"N.A."
 deval$child_IA[t10]<-"N.A."
 
-getwd()
+#getwd()
 #write.csv(deval,"local/SPUND/db_nprg001.csv")
 #write.csv(deval,"gith/DH_essais/sections/eval/nprg-eval/db_nprg001.csv")
 
@@ -249,7 +249,7 @@ deval$png[!is.na(stall$undef)]<-"undef"
 deval$png[!is.na(stall$request)]<-"request"
 #deval$word[!is.na(stall$vogel)]<-"vogel"
 
-deval$true<-deval$png==deval$response_lang
+#deval$true<-deval$png==deval$response_lang
 
 # lm1<-lm(true~stimulus,deval)
 # summary(lm1)
@@ -263,10 +263,10 @@ deval$true<-deval$png==deval$response_lang
 # coef1[which.max(coef1$t.value),]
 
 
-head(coef2)
-tail(coef2)
-###########
-deval$expected<-TRUE
+# head(coef2)
+# tail(coef2)
+# ###########
+# deval$expected<-TRUE
 
 # lm3<-lm(true~stimulus,deval)
 # sum1<-summary(lm3)
@@ -278,18 +278,18 @@ deval$expected<-TRUE
 #plot(lm3)
 
 ## graph
-m<-deval$expected #ideal (correct) answer / picture
+#m<-deval$expected #ideal (correct) answer / picture
 #m<-max(df4$response_value)
-o<-length(deval$response_value) # anzahl answers 
-#y<-1:m
-#m<-o
-x = runif(o,0,m) # ideal random distribution over observation
-x<-1:152
-x<-m
-y = deval$true # real distribution
-#mean(x)
-response<-y
-expected<-x
+# o<-length(deval$response_value) # anzahl answers 
+# #y<-1:m
+# #m<-o
+# x = runif(o,0,m) # ideal random distribution over observation
+# x<-1:152
+# x<-m
+# y = deval$true # real distribution
+# #mean(x)
+# response<-y
+# expected<-x
 #a<-mean(df5$response_value)
 #dplot<-data.frame(expected=x,response=y)
 # plot.new()
@@ -351,18 +351,18 @@ evalcount<-function(qtn,qstim,qresp){
  # set<-subset(deval,deval$tn==tnid)
   #print(count)
     count<-length(set$tn)
-  print(count)
+ # print(count)
   return(count)
 }
 pngarray<-c("index","undef","request")
-responsearray
+#responsearray
 tncount<-list()
 pngcount<-array()
 emptycol<-rep(0,lobs)
 pngcount<-data.frame(tn=1:lobs,index=emptycol,request=emptycol,undef=emptycol,checksum=emptycol)
 t<-2
 #pngcount$index<-emptycol
-26-5
+#26-5
 # for (c in 6:26){
 # 
 #   for (k in 1:lobs){
@@ -423,5 +423,14 @@ pngcount$undefundef_p[t]<-pngcount$undefundef[t]/pngcount$undef[t]*100
 pngcount$undefunclear_p[t]<-pngcount$unclearundef[t]/pngcount$undef[t]*100
 
 }
-3/9*100
+#3/9*100
 #rm(pngcount)
+
+#write.csv(pngcount,"db_nprg002_TN_descriptive.csv")
+
+p_array<-grep("_",colnames(pngcount))
+meandf<-lapply(pngcount[,p_array], mean,na.rm=T)
+# par(new=F)
+# barplot(unlist(meandf),main="normalized distribution",ylab="mean of selections over study")
+# par(las=3,cex.axis=0.6)
+#mean(pngcount$indexrequest_p,na.rm=T)

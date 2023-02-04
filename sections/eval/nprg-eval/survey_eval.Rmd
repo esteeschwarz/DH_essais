@@ -332,12 +332,12 @@ dplot<-data.frame(expected=x,response=y)
 plot.new()
 #plot(dplot, pch=18,main="chosen label vs. ideal selection",xlab="ideal-fitted",ylab="selection")
 
-plot(x, y, pch=18,main="chosen label vs. ideal selection",xlab="ideal-fitted",ylab="selection")
+plot(x, y, pch=18,main="chosen label vs. expected selection",xlab="fitted",ylab="selection")
 abline(a=13, b=0,col="grey")
 regxy = lm(response~expected)
 #lm2<-lm(dplot)
 #summary(lm2)
-summary(regxy)
+#summary(regxy)
 #summary(lm(y~x))
 abline(regxy)
 text(25, 30, "Ideal", pos=4)
@@ -350,25 +350,36 @@ stimuli<-paste(df5$png,df5$word)
 lm1<-lmer(response_value~response_lang+(word|png),df5)
 lm3<-lm(response_value~stimuli,df5)
 sum1<-summary(lm3)
-sum1$coefficients[1]
-sum1$coefficients[which.min(sum1$coefficients)]
-(sum1$coefficients[which.min(sum1$coefficients)])
+#sum1$coefficients[1]
+#sum1$coefficients[which.min(sum1$coefficients)]
+#(sum1$coefficients[which.min(sum1$coefficients)])
 #plot(lm1)
-which.max(sum1$coefficients)
+#which.max(sum1$coefficients)
 coef1<-data.frame(sum1$coefficients)
 coef2<-coef1[order(coef1$t.value,decreasing = T),]
-coef1[which.min(coef1$t.value),]
-coef1[which.max(coef1$t.value),]
+#coef1[which.min(coef1$t.value),]
+#coef1[which.max(coef1$t.value),]
 rownames(coef1)[1]<-"index ####"
 p1<-df5$response_value/64 #prozent richtige antworten
 df5$response_p<-p1
 df5$response_exp<-1
 summary(lm(df5$response_p~df5$response_lang))
+
+source("lme.R")
 #plot(regxy)
 #regxy$effects
 
 ```
 
+```{r descriptive,echo=F,warning=F,eval=T}
+# p_array<-grep("_",colnames(pngcount))
+# meandf<-lapply(pngcount[,p_array], mean,na.rm=T)
+#par(new=F)
+par(las=3,cex.axis=0.6)
+barplot(unlist(meandf),main="normalized distribution",ylab="mean of selections over study")
+
+
+```
 
 ```{r,echo=F,warning=F,eval=TRUE}
 
