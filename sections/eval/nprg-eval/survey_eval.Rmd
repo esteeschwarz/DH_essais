@@ -42,7 +42,7 @@ NEUROPRAGMATIK rating studie
 #source("survey_src.R")
 # scred<-read.csv("../../../local/R/cred_gener.csv")
 # src<-scred$api[scred$url=="nprg-pure"]
-cred<-read.csv("../../../../../../testeee/soscisrc.csv",sep=",")
+cred<-read.csv("../../../../testeee/soscisrc.csv",sep=",")
 src<-cred$link[1]
 #eval(parse(src, encoding="UTF-8"))
 source("import_nprg.r")
@@ -310,7 +310,7 @@ o<-length(df5$response_value) # anzahl answers
 x = runif(o,0,m) # ideal random distribution over observation
 x<-1:152
 y = df5$response_value # real distribution
-mean(x)
+#mean(x)
 response<-y
 expected<-x
 #
@@ -376,7 +376,7 @@ source("lme.R")
 # meandf<-lapply(pngcount[,p_array], mean,na.rm=T)
 #par(new=F)
 par(las=3,cex.axis=0.6)
-barplot(unlist(meandf),main="normalized distribution",ylab="mean of selections over study")
+barplot(unlist(meandf),main="normalized distribution",ylab="mean % of selections over participants")
 
 
 ```
