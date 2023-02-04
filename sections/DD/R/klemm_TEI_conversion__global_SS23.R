@@ -8,6 +8,7 @@
 #aktualisiert, status working bis auf schema integration, body complete.
 #20230204(11.07)
 #documented essai for global appplication on sources
+#from wikisource epub export of sources
 ###########################
 #1.abstract:
 #TEI declaration of wikisource dramatext for further processing
