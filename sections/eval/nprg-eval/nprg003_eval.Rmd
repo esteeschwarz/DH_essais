@@ -1,0 +1,160 @@
+---
+title: "NPRG survey evaluation"
+author: "st."
+date: "`r Sys.time()`"
+output:
+  #bookdown::pdf_document2:
+   # extra_dependencies: ["float"]
+  bookdown::html_document2:
+    global_numbering: TRUE
+    number_sections: TRUE
+   # code_download: yes
+    toc: yes
+    toc_depth: 4
+    toc_float:
+       collapsed: no
+       smooth_scroll: no
+    self_contained: FALSE #TRUE for standalone html page knit
+    css: https://school.dh-index.org/public/papers/011/style_HA.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#library(rlang)
+#library(xml2)
+#library(stringi)
+#library(lme4)
+#library(R.utils)
+library(knitr)
+```
+
+```{r echo=T,warning=FALSE}
+#print(head)
+# utest<-"[ani lo sonderzeichentest אני לאaäoöuüÄÖÜß]"
+# utest<-chr_unserialise_unicode(utest)
+# print(utest)
+```
+
+# HEAD
+NEUROPRAGMATIK audioanalysis
+
+```{r,echo=F,warning=F,eval=TRUE}
+#source("survey_src.R")
+# scred<-read.csv("../../../local/R/cred_gener.csv")
+# src<-scred$api[scred$url=="nprg-pure"]
+# cred<-read.csv("../../../../testeee/soscisrc.csv",sep=",")
+# src<-cred$link[1]
+#eval(parse(src, encoding="UTF-8"))
+src<-"nprg003.csv"
+#source("import_nprg.r")
+d<-read.csv(src)
+#d<-ds
+
+```
+
+```{r echo=F, warning=F}
+#13062.NPRG_003 audio analysis, praat
+#20230205(10.35)
+d<-read.csv("nprg003.csv",colClasses = c("character","character","character","numeric","numeric","numeric"))
+d1<-subset(d,d$tn=="f")
+d2<-subset(d,d$tn=="m")
+ds<-d
+
+#output<-"pitch"
+#d<-d1
+boxout<-function(set,sub,output){
+  d<-subset(set,set$tn==sub)
+df3<-data.frame(critic=d[,output][d$condition=="critic"],doubt=d[,output][d$condition=="doubt"],
+  name=d[,output][d$condition=="name"],request=d[,output][d$condition=="request"],offer=d[,output][d$condition=="offer"])
+}
+b1<-boxout(d,"m","pitch")
+b2<-boxout(d,"f","pitch")
+b3<-boxout(d,"m","intensity")
+b4<-boxout(d,"f","intensity")
+
+# boxplot(b1,col=2)
+# #par(new=T)
+# boxplot(b2,col=2)
+# boxplot(b3,col=3)
+# boxplot(b4,col=3)
+
+laudio<-round(mean(d$duration,na.rm=T),3)
+ld<-length(d$tn)
+```
+# the test
+## abstract
+wir haben 2x5x6 audioaufnahmen von jeweils 6 items (wörtern) in 5 conditionen (aussprachevarianten) von zwei sprechern aufgenommen (m,f). in praat wurden pitch und intensity analysiert, die durchschnittliche länge der aufnahmen betrug `r laudio` msec.
+
+## methode:
+6 wörter: `r unique(d$word)`   
+5 conditions: `r unique(d$condition)`   
+
+die wörter sollten von den participants unter vorstellung der jeweiligen situation ausgesprochen werden.
+
+# evaluation
+## raw data presentation 
+dataset: `r ld` observations.
+
+```{r kablemean,echo=F,waring=F}
+d1<-subset(d,d$tn=="m")
+s1<-mean(d1$pitch[d1$condition=="critic"],na.rm=T)
+s2<-mean(d1$pitch[d1$condition=="doubt"],na.rm=T)
+s3<-mean(d1$pitch[d1$condition=="name"],na.rm=T)
+s4<-mean(d1$pitch[d1$condition=="request"],na.rm=T)
+s5<-mean(d1$pitch[d1$condition=="offer"],na.rm=T)
+s6<-mean(d1$intensity[d1$condition=="critic"],na.rm=T)
+s7<-mean(d1$intensity[d1$condition=="doubt"],na.rm=T)
+s8<-mean(d1$intensity[d1$condition=="name"],na.rm=T)
+s9<-mean(d1$intensity[d1$condition=="request"],na.rm=T)
+s10<-mean(d1$intensity[d1$condition=="offer"],na.rm=T)
+
+# df1<-data.frame(critic_pitch=s1,intensity_pitch=s6,doubt_pitch=s2,doubt_intensity=s7,name_pitch=s3,name_intensity=s8,request_pitch=s4,request_intensity=s9,offer_pitch=s5,offer_intensity=s10)
+pitch_m<-c(s1,s2,s3,s4,s5)
+int_m<-c(s6,s7,s8,s9,s10)
+pitch_m<-round(pitch_m,2)
+int_m<-round(int_m,2)
+
+d1<-subset(d,d$tn=="f")
+s1<-mean(d1$pitch[d1$condition=="critic"],na.rm=T)
+s2<-mean(d1$pitch[d1$condition=="doubt"],na.rm=T)
+s3<-mean(d1$pitch[d1$condition=="name"],na.rm=T)
+s4<-mean(d1$pitch[d1$condition=="request"],na.rm=T)
+s5<-mean(d1$pitch[d1$condition=="offer"],na.rm=T)
+s6<-mean(d1$intensity[d1$condition=="critic"],na.rm=T)
+s7<-mean(d1$intensity[d1$condition=="doubt"],na.rm=T)
+s8<-mean(d1$intensity[d1$condition=="name"],na.rm=T)
+s9<-mean(d1$intensity[d1$condition=="request"],na.rm=T)
+s10<-mean(d1$intensity[d1$condition=="offer"],na.rm=T)
+
+df1<-data.frame(critic_pitch=s1,intensity_pitch=s6,doubt_pitch=s2,doubt_intensity=s7,name_pitch=s3,name_intensity=s8,request_pitch=s4,request_intensity=s9,offer_pitch=s5,offer_intensity=s10)
+pitch_f<-c(s1,s2,s3,s4,s5)
+pitch_f<-round(pitch_f,2)
+int_f<-c(s6,s7,s8,s9,s10)
+int_f<-round(int_f,2)
+
+pitchdf<-data.frame(pitch_m,pitch_f,int_m,int_f)
+dfns<-c("critic","doubt","name","request","offer")
+rownames(pitchdf)<-dfns
+kable(pitchdf)
+```
+
+```{r box_mpitch,echo=F,warning=F}
+boxplot(b1,col=2,xlab="pitch M")
+#par(new=T)
+```
+
+```{r box_fpitch,echo=F,warning=F}
+boxplot(b2,col=2,xlab="pitch F")
+
+```
+
+```{r box_mintens,echo=F,warning=F,eval=TRUE}
+boxplot(b3,col=3,xlab="intensity M")
+
+```
+
+```{r box_fintens,echo=F,warning=F,eval=TRUE}
+boxplot(b4,col=3,xlab="intensity F")
+
+```
+
