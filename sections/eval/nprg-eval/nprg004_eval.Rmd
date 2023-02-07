@@ -9,7 +9,7 @@ output:
     global_numbering: TRUE
     number_sections: TRUE
    # code_download: yes
-    toc: yes
+    toc: no
     toc_depth: 4
     toc_float:
        collapsed: no
@@ -45,9 +45,9 @@ NEUROPRAGMATIK audioanalysis
 # cred<-read.csv("../../../../testeee/soscisrc.csv",sep=",")
 # src<-cred$link[1]
 #eval(parse(src, encoding="UTF-8"))
-src<-"nprg003.csv"
+#src<-"nprg004.csv"
 #source("import_nprg.r")
-d<-read.csv(src)
+#d<-read.csv(src)
 #d<-ds
 
 ```
@@ -55,7 +55,7 @@ d<-read.csv(src)
 ```{r echo=F, warning=F}
 #13062.NPRG_003 audio analysis, praat
 #20230205(10.35)
-d<-read.csv("nprg003.csv",colClasses = c("character","character","character","numeric","numeric","numeric"))
+d<-read.csv("nprg004.csv",colClasses = c("character","character","character","numeric","numeric","numeric"))
 d1<-subset(d,d$tn=="f")
 d2<-subset(d,d$tn=="m")
 ds<-d
@@ -89,13 +89,13 @@ wir haben 2x5x6 audioaufnahmen von jeweils 6 items (wörtern) in 5 conditionen (
 6 wörter: `r unique(d$word)`   
 5 conditions: `r unique(d$condition)`   
 
-die wörter sollten von den participants unter vorstellung der jeweiligen situation ausgesprochen werden.
+die wörter sollten von den participants unter vorstellung der jeweiligen situation (condition) ausgesprochen werden.
 
 # evaluation
 ## raw data presentation 
 dataset: `r ld` observations.
 
-```{r kablemean,echo=F,waring=F}
+```{r kablemean,echo=F,warning=F}
 d1<-subset(d,d$tn=="m")
 s1<-mean(d1$pitch[d1$condition=="critic"],na.rm=T)
 s2<-mean(d1$pitch[d1$condition=="doubt"],na.rm=T)
@@ -135,8 +135,66 @@ int_f<-round(int_f,2)
 pitchdf<-data.frame(pitch_m,pitch_f,int_m,int_f)
 dfns<-c("critic","doubt","name","request","offer")
 rownames(pitchdf)<-dfns
-kable(pitchdf)
+#standard dev
+
+stddev<-function(set,sub,output,cond){
+ds<-subset(set,set$tn==sub&set$condition==cond)
+  sd(ds[,output],na.rm = T)  
+}
+s11<-stddev(d,"f","pitch","request")
+s12<-stddev(d,"f","pitch","offer")
+s13<-stddev(d,"f","pitch","doubt")
+s14<-stddev(d,"f","pitch","critic")
+s15<-stddev(d,"f","pitch","name")
+s16<-stddev(d,"m","pitch","offer")
+s17<-stddev(d,"m","pitch","critic")
+s18<-stddev(d,"m","pitch","name")
+s19<-stddev(d,"m","pitch","doubt")
+s20<-stddev(d,"m","pitch","request")
+pitchdf$SD_pitch_m<-c(s17,s19,s18,s20,s16)
+pitchdf$SD_pitch_m<-round(pitchdf$SD_pitch_m,2)
+pitchdf$SD_pitch_f<-c(s14,s13,s15,s11,s12)
+pitchdf$SD_pitch_f<-round(pitchdf$SD_pitch_f,2)
+
+s21<-stddev(d,"f","intensity","request")
+s22<-stddev(d,"f","intensity","offer")
+s23<-stddev(d,"f","intensity","doubt")
+s24<-stddev(d,"f","intensity","critic")
+s25<-stddev(d,"f","intensity","name")
+s26<-stddev(d,"m","intensity","offer")
+s27<-stddev(d,"m","intensity","critic")
+s28<-stddev(d,"m","intensity","name")
+s29<-stddev(d,"m","intensity","doubt")
+s30<-stddev(d,"m","intensity","request")
+pitchdf$SD_intensity_m<-c(s27,s29,s28,s30,s26)
+pitchdf$SD_intensity_m<-round(pitchdf$SD_intensity_m,2)
+
+pitchdf$SD_intensity_f<-c(s24,s23,s25,s21,s22)
+pitchdf$SD_intensity_f<-round(pitchdf$SD_intensity_f,2)
+
+sum_sd_m<-sum(pitchdf$SD_pitch_m)+sum(pitchdf$SD_intensity_m)
+sum_sd_f<-sum(pitchdf$SD_pitch_f)+sum(pitchdf$SD_intensity_f)
+difsum<-sum_sd_m-sum_sd_f
+
 ```
+
+```{r tablemean, echo=F,warning=F}
+kable(pitchdf[,1:4])
+#kable(pitchdf[,5:8])
+```
+wir sehen im durchschnitt der werte, dasz der minimum pitch bei m/f bei der condition 'doubt' zu finden ist und an dieser condition auch die maximale intensity. maximum pitch und minimum intensity unterscheiden sich inter-speaker.
+
+```{r tablesd, echo=F,warning=F}
+kable(pitchdf[,5:8])
+max_sd_p_m<-which.max(pitchdf$SD_pitch_m)
+max_sd_p_f<-which.max(pitchdf$SD_pitch_f)
+max_sd_i_m<-which.max(pitchdf$SD_intensity_m)
+max_sd_i_f<-which.max(pitchdf$SD_intensity_f)
+
+
+
+```
+die standardabweichung ist bei pitch(m) mit `r pitchdf[max_sd_p_m,"SD_pitch_m"]` am höchsten bei `r rownames(pitchdf[max_sd_p_m,])` und bei pitch(f) mit `r pitchdf[max_sd_p_f,"SD_pitch_f"]` am höchsten bei `r rownames(pitchdf[max_sd_p_f,])`; für intensity gilt `r pitchdf[max_sd_i_m,"SD_intensity_m"]` bei `r rownames(pitchdf[max_sd_i_m,])`(m) und `r pitchdf[max_sd_i_f,"SD_intensity_f"]` bei `r rownames(pitchdf[max_sd_i_f,])`(f). die summen der standardabweichung (m)/(f) sind mit `r round(difsum,3)` punkten unterschied bei ~120 punkten ungefähr gleich.
 
 ```{r box_mpitch,echo=F,warning=F}
 boxplot(b1,col=2,xlab="pitch M")
@@ -148,12 +206,12 @@ boxplot(b2,col=2,xlab="pitch F")
 
 ```
 
-```{r box_mintens,echo=F,warning=F,eval=TRUE}
+```{r box_mintens,echo=F,warning=F}
 boxplot(b3,col=3,xlab="intensity M")
 
 ```
 
-```{r box_fintens,echo=F,warning=F,eval=TRUE}
+```{r box_fintens,echo=F,warning=F}
 boxplot(b4,col=3,xlab="intensity F")
 
 ```
