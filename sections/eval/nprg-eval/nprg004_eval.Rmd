@@ -1,5 +1,5 @@
 ---
-title: "NPRG survey evaluation"
+title: "NPRG audio analysis"
 author: "st."
 date: "`r Sys.time()`"
 output:
@@ -84,6 +84,8 @@ ld<-length(d$tn)
 # the test
 ## abstract
 wir haben 2x5x6 audioaufnahmen von jeweils 6 items (wörtern) in 5 conditionen (aussprachevarianten) von zwei sprechern aufgenommen (m,f). in praat wurden pitch und intensity analysiert, die durchschnittliche länge der aufnahmen betrug `r laudio` msec.
+
+![praat analysis screenshot](nprg004_praat.jpeg)
 
 ## methode:
 6 wörter: `r unique(d$word)`   
