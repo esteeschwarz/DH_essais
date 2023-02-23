@@ -21,6 +21,7 @@ getwd()
 #library(stringi)
 library(httr)
 library(rvest)
+library(xml2)
 library(stringi)
 ###################################
 #this calls static txt from repository
@@ -50,7 +51,7 @@ xml_child(xml_child(xml_child(xml_child(xml_child(dta2, 2), 1), 3), 12), 1)
 html_nodes(dta2,xpath = xpathkl)
 
 data<-dta2
-?xml_name
+#?xml_name
 xml_name(data)
 xml_name(xml_parent(data)) #keine Eltern - Wurzelelement
 xml_name(xml_children(data))
@@ -80,19 +81,63 @@ all_divs <- data %>%
   xml_find_all('//div/div')
 xml_text(all_divs[1])
 xml_attr(all_divs[6],"style")
+xml_text(all_divs)
+#<front>
+#1:3 frontispiz, <bibl><title>../>
+#4:7 <front><div type front><head>4:5</head><head>6:7</head></div>
+#<div type "dramatis_personae">
+#<castlist>
+#8:<head>...</head>
+#9 personen: seperate <castItem><role>...</role></castItem>
+#</div></front>
+#10 <div type="scene" <head> </head>
+#11 <sp who="#fromspeaker id"><stage></><speaker>all_b</speaker><p>all_p</p></sp>
+#12 scene
+#13 speaker ...
+#28 ende
+#29 signe K.
+
 
 #all speakerlist in scene 
 all_i <- data %>% 
   xml_find_all('//div/div/i')
 xml_text(all_i[2])
+xml_text(all_i)
 
 #all speaker declaration of scene paragraph
 all_b <- data %>% 
   xml_find_all('//div/p/b')
-xml_text(all_b[3])
+txtall_b<-xml_text(all_b)
+sp1<-paste0("<speaker>",txtall_b,"</speaker>")
+sp1
+xml_text(all_b)<-sp1
 
+all_p<- data %>%
+  xml_find_all('//div/p')
+txtall_p<-xml_text(all_p)
+txtall_p[4] #includes speaker declaration, i.e. first wrap speaker, then p
+regx1<-"((?<=</speaker>)(.*))"
+repl1<-"<p>\\2</p>"
+grep(regx1,txtall_p[4],perl = T,value = T)
+x<-gsub(regx1,repl1,txtall_p[4],perl = T)
+x
+regx2<-"\n"
+x2<-gsub(regx2," ",txtall_p,perl = T)
+x2
+x<-gsub(regx1,repl1,x2,perl = T)
+x[4]
+x3<-paste0("<sp>",x,"</sp>")
+x3[4]
+#wks. now back insert into xml
+all_p_mod<-x3
+all_p2<-list(all_p_mod[1:length(all_p_mod)])
+all_p_sf<-all_p
+all_p[1:length(all_p)]<-all_p_mod
+############################################
+# 1.wrap speaker, scene, scenespeaker
+# del \n
 
-txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
+#txt<-html_nodes(dta1,xpath = xpathkl) %>%html_text()
 xml_find_all(dta2,xpathkl)
 #library(stringi)
 library(clipr)
