@@ -348,3 +348,12 @@ summary(lm1)
 plot(lm1)
 plot(regxy)
 regxy$effects
+
+#############
+codef<-function(x) stri_extract_all_regex(x,"(#[A-Z]{3})")
+#ms7<-lapply(ms6, codef)
+ms7<-lapply(sent1, codef)
+# unlist(head(ms7[ms5][]))
+#ms7<-lapply(sent1, codef)
+ms8<-unique(unlist(ms7)) #unique coded features
+ms8<-ms8[!is.na(ms8)]
