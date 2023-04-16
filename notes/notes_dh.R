@@ -357,3 +357,31 @@ ms7<-lapply(sent1, codef)
 #ms7<-lapply(sent1, codef)
 ms8<-unique(unlist(ms7)) #unique coded features
 ms8<-ms8[!is.na(ms8)]
+##############13143.
+library(koRpus)
+getwd()
+dirtext
+dirout
+cha<-list.files(dirout)
+x<-treetag(paste(dirout,cha[1],sep = "/"),treetagger = "manual",lang="de",
+           TT.options = list(path=file.path("~/pro/treetagger"),preset="de"),format = "file")
+
+xf<-tempfile(fileext = ".txt")
+treetag(paste(dirout,cha[1],sep = "/"),treetagger = "manual",lang="de",
+           TT.options = list(path=file.path("~/pro/treetagger"),preset="de"),format = "file")
+install.koRpus.lang("de")
+library(koRpus.lang.de)
+y<-taggedText(x)
+summary(x)
+plot(x)
+codesdir
+codeusedir
+tagdir<-"local/HU-LX/pepper"
+writexl::write_xlsx(y2,paste(tagdir,"xl/GCAtokens.xlsx",sep="/"))
+write_delim(y2,paste(codeusedir,"GCAtokens.tt",sep = "/"),delim = "\t",)
+y2<-y[,2:4]
+colnames(y2)<-c("tok","tag","lem")
+y2$lemma<-gsub("<unknown>","N.A.",y2$lemma)
+
+x<-c(4,5,3,7,7,6,8,7,6,5)
+
