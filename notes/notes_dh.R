@@ -385,6 +385,10 @@ y2$lemma<-gsub("<unknown>","N.A.",y2$lemma)
 
 x<-c(4,5,3,7,7,6,8,7,6,5)
 
+a<-1:10
+b<-1:13
+c<-1:15
+d<-data.frame(a,b,c,check.rows = F)
 
-
+boxplot(a,b,c)
 
