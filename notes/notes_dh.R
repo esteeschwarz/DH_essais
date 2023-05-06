@@ -391,4 +391,7 @@ c<-1:15
 d<-data.frame(a,b,c,check.rows = F)
 
 boxplot(a,b,c)
+### CUT, intervals
+aaa <- c(1,2,3,4,5,2,3,4,5,6,7)
+cut(aaa, 3)
 
