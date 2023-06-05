@@ -396,4 +396,31 @@ boxplot(a,b,c)
 ### CUT, intervals
 aaa <- c(1,2,3,4,5,2,3,4,5,6,7)
 cut(aaa, 3)
+x<-array()
+y<-array()
+z<-array()
+z1<-array()
+z2<-array()
 
+for (t in 1:100){
+for (k in 1:t){
+n <- k
+x[k]<-n/sum(1:n)*n
+y[k]<-2-x[k]
+z[k]<-x[k]*y[k]
+x1<-sum(z)
+z1<-z*x1
+}
+x
+#plot(x)
+#plot(y)
+#plot(z)
+#z
+#x1<-sum(z)
+#plot(z1)
+z2[k]<-sum(z1)
+#x2<-z2*z
+#z2[k]<-z1
+}
+plot(z2)  
+z2
