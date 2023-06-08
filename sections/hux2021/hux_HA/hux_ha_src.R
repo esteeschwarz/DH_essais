@@ -810,3 +810,34 @@ plot_desc_compare<-function(setd,gr,gro){
   bar_df$group[5:6]<-m9ns
   return(bar_df)
 }#endausgabe
+
+
+dta_rtc<-get_rtc(dta) #create rtc column in dataset
+draw.data<-function(check,setd){
+  # NEU:
+  #  tm1<--0
+  # t0<--50
+  #  t1<--0
+  #  gilt<-1
+  #  ctrl<--0
+  #  out<--0
+  out<-check
+  # setout<-now.data(setd,tm1,t0,t1,out,gilt,ctrl)
+}
+draw.setvso<-function(check){
+  out<-check
+}
+now.data<-function(setd,chose){
+  dta_rtc<-get_rtc(setd) #create rtc column in dataset
+  dta1<-dta_rtc
+  dtat<-dtatarget(dta1,chose[1],chose[2],chose[3])
+  if(chose[1]=="not"&chose[2]=="not"&chose[3]=="not"){dtat<-dta_rtc}
+  dtag<-dtat
+  ifelse(chose[5]==1,dtag<-subset(dtat,dtat$gilt==1),dtag<-dtat)
+  dta_o<-dtag
+  ifelse(chose[4]==1,dta_o<-outl.fun.rtc(dtag),dta_o<-dtag)
+  dtac<-dta_o
+  ifelse(chose[6]==1,dtac<-adcontrol(dta_o,ti0,ticontrol,ti2),dtac<-dta_o)
+  return(dtac)
+}
+

@@ -33,11 +33,11 @@ now.data<-function(setd,chose){
 # Server -----------------------------------------------------------------------
 #server <- function(input, output) {
 #selection<-c(0,0,0,0,1,0)
-mydata<-selection
+#mydata<-selection
   # mydata <- reactive({
   #   draw.data(c(input$tm1,input$t0,input$t1,input$out,input$gilt,input$ctrl),dta)
   # })
-mydata_2<-groupvsall
+#mydata_2<-groupvsall
   # mydata_2<-reactive({
   #   draw.setvso(input$groups)
   # })
@@ -46,30 +46,30 @@ mydata_2<-groupvsall
   #   br()
   #   print("datenset according to selection")
   #   y<-mydata()
-    y<-mydata
+ #   y<-mydata
     dset<-now.data(dta,y)     
     # cat("dataset:",dim(dset)[1],"observations",dim(dset)[2],"variables")
  # }) # x<-proof_desc(mydata) #nur mit glt=1 (x,1,x)
   # ####
   # output$plot<- renderPlot({
   #   y<-mydata()
-    y<-mydata
-    dset<-now.data(dta,y)     
+  #  y<-mydata
+   # dset<-now.data(dta,y)     
     bar_df<-plot_desc(dset)
   #  ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
 #  })
   # output$eval<-renderPrint({
   #   y<-mydata()
-    y<-mydata
-        dset<-now.data(dta,y)
+  #  y<-mydata
+   #     dset<-now.data(dta,y)
  #   cat("mean reading times (LZ) in ms per category\n")
    # print(bar_df<-plot_desc(dset)[,2:4])
     #x<-mydata_2()
-    x<-mydata_2
+  #  x<-mydata_2
     #print(x)
     #y<-mydata()
-    y<-mydata
-    dset<-now.data(dta,y)
+   # y<-mydata
+    #dset<-now.data(dta,y)
     #print(dim(dset))
     dsetvso<-setvsx(dset,x,"Other")
     #print(dim(dsetvso))
@@ -77,8 +77,8 @@ mydata_2<-groupvsall
   #  print(plot_desc_compare(dsetvso,x,"All")[,2:4])
     # output$daten<-renderPrint({
     #   y<-mydata()
-    y<-mydata
-      dset<-now.data(dta,y)
+    #y<-mydata
+     # dset<-now.data(dta,y)
     #  print(dset[1:10,1:30])
   #  })
   #})
@@ -111,18 +111,18 @@ mydata_2<-groupvsall
   #})
   #output$bars<-renderPlot({
     #x<-mydata_2()
-    x<-mydata_2
+  #  x<-mydata_2
     #print(x)
     other<-"Other"
-    y<-mydata
+   # y<-mydata
     #y<-mydata()
-    dset<-now.data(dta,y)
+    #dset<-now.data(dta,y)
     #print(dim(dset))
-    dsetvso<-setvsx(dset,x,other)
+    #dsetvso<-setvsx(dset,x,other)
     #print(dim(dsetvso))
     #print(unique(dsetvso$category))
     #print(plot_desc_compare(dsetvso,x,"All"))
-    bar_df<-(plot_desc_compare(dsetvso,x,"All"))
+  #  bar_df<-(plot_desc_compare(dsetvso,x,"All"))
    # ggplot(data=bar_df,mapping=aes(x=group,y=LZ,fill=RT)) + geom_col(position = "dodge")
     #p<-ggplot(df, aes(1:length(sentiment), sentiment, colour = book)) + 
       
