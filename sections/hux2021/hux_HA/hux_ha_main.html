@@ -11,11 +11,11 @@
 
 <meta name="author" content="St. Schwarz" />
 
-<meta name="date" content="2023-06-04" />
+<meta name="date" content="2023-06-08" />
 
 <title>HUX2021 / Dokumentation</title>
 
-<script src="hux_ha_main_files/header-attrs-2.22/header-attrs.js"></script>
+<script src="hux_ha_main_files/header-attrs-2.14/header-attrs.js"></script>
 <script src="hux_ha_main_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="hux_ha_main_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -31,9 +31,6 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
-<script src="hux_ha_main_files/jqueryui-1.13.2/jquery-ui.min.js"></script>
-<link href="hux_ha_main_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="hux_ha_main_files/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="hux_ha_main_files/navigation-1.1/tabsets.js"></script>
 <link href="hux_ha_main_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="hux_ha_main_files/highlightjs-9.12.0/highlight.js"></script>
@@ -132,8 +129,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -141,9 +138,16 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -173,75 +177,6 @@ pre code {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
-
-
 
 </head>
 
@@ -249,16 +184,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -271,7 +196,7 @@ div.tocify {
 <h3 class="subtitle">HA Empirische Methoden der Sprachwissenschaft /
 Meinschäfer/Schirakowski SS20 FUB</h3>
 <h4 class="author">St. Schwarz</h4>
-<h4 class="date">2023-06-04</h4>
+<h4 class="date">2023-06-08</h4>
 
 </div>
 
@@ -484,29 +409,20 @@ LC) zu stilisieren.</p>
 machen, dasz sich bei target = -1, 0, 1, Vernachlässigung ungültiger
 Fälle = 1, outliers discarded = 1 &amp; korrigierter RT (selection = -1,
 0, 1, 1, 1, 0) folgende Hierarchie der Lesezeiten ergibt:<br />
-EM &lt; SM &lt; ISM &lt; LC. Siehe dazu den Ausschnitt
-<code>TI + rtc</code> = length corrected reading time. Dabei gilt es zu
-beachten, dasz der hier gröszte Unterschied der zwischen EM und LC mit
-415.63ms zu messen ist, übersetzt unterhalb einer halben Sekunde liegt.
-(Zum Vergleich: ein ununterbrochenes Weiterklicken der lesbaren Zeilen
-mittels der space-Taste zeigt ca. 200ms Latenz.)</p>
+EM &lt; SM &lt; ISM &lt; LC. Dabei gilt es zu beachten, dasz der hier
+gröszte Unterschied der zwischen EM und LC mit 416ms zu messen ist,
+übersetzt unterhalb einer halben Sekunde liegt. (Zum Vergleich: ein
+ununterbrochenes Weiterklicken der lesbaren Zeilen mittels der
+space-Taste zeigt ca. 200ms Latenz.)<br />
+Siehe dazu den Ausschnitt <code>TI + rtc</code> = length corrected
+reading time</p>
 <table>
-<colgroup>
-<col width="4%" />
-<col width="12%" />
-<col width="12%" />
-<col width="8%" />
-<col width="15%" />
-<col width="15%" />
-<col width="15%" />
-<col width="15%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left"></th>
 <th align="left">RT</th>
-<th align="right">LZ</th>
 <th align="left">group</th>
+<th align="right">LZ</th>
 <th align="right">dif_SM</th>
 <th align="right">dif_EM</th>
 <th align="right">dif_LC</th>
@@ -517,62 +433,53 @@ mittels der space-Taste zeigt ca. 200ms Latenz.)</p>
 <tr class="odd">
 <td align="left">6</td>
 <td align="left">TI + rtc</td>
-<td align="right">1927.484</td>
 <td align="left">EM</td>
-<td align="right">-9.590598</td>
+<td align="right">1927</td>
+<td align="right">-10</td>
 <td align="right">NA</td>
-<td align="right">-415.62587</td>
-<td align="right">-388.77228</td>
+<td align="right">-416</td>
+<td align="right">-389</td>
 </tr>
 <tr class="even">
 <td align="left">5</td>
 <td align="left">TI + rtc</td>
-<td align="right">1937.075</td>
 <td align="left">SM</td>
+<td align="right">1937</td>
 <td align="right">NA</td>
-<td align="right">9.590598</td>
-<td align="right">-406.03527</td>
-<td align="right">-379.18168</td>
+<td align="right">10</td>
+<td align="right">-406</td>
+<td align="right">-379</td>
 </tr>
 <tr class="odd">
 <td align="left">8</td>
 <td align="left">TI + rtc</td>
-<td align="right">2316.257</td>
 <td align="left">ISM</td>
-<td align="right">379.181680</td>
-<td align="right">388.772278</td>
-<td align="right">-26.85359</td>
+<td align="right">2316</td>
+<td align="right">379</td>
+<td align="right">389</td>
+<td align="right">-27</td>
 <td align="right">NA</td>
 </tr>
 <tr class="even">
 <td align="left">7</td>
 <td align="left">TI + rtc</td>
-<td align="right">2343.110</td>
 <td align="left">LC</td>
-<td align="right">406.035270</td>
-<td align="right">415.625869</td>
+<td align="right">2343</td>
+<td align="right">406</td>
+<td align="right">416</td>
 <td align="right">NA</td>
-<td align="right">26.85359</td>
+<td align="right">27</td>
 </tr>
 </tbody>
 </table>
 <p>aus der folgenden Tabelle:<a href="#fn4" class="footnote-ref"
 id="fnref4"><sup>4</sup></a></p>
 <table>
-<colgroup>
-<col width="17%" />
-<col width="12%" />
-<col width="8%" />
-<col width="16%" />
-<col width="14%" />
-<col width="16%" />
-<col width="14%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">RT</th>
-<th align="right">LZ</th>
 <th align="left">group</th>
+<th align="right">LZ</th>
 <th align="right">dif_SM</th>
 <th align="right">dif_EM</th>
 <th align="right">dif_LC</th>
@@ -582,110 +489,110 @@ id="fnref4"><sup>4</sup></a></p>
 <tbody>
 <tr class="odd">
 <td align="left">TimeInterval</td>
-<td align="right">2256.365</td>
 <td align="left">SM</td>
+<td align="right">2256</td>
 <td align="right">NA</td>
-<td align="right">117.116188</td>
-<td align="right">-242.382504</td>
-<td align="right">-189.72688</td>
+<td align="right">117</td>
+<td align="right">-242</td>
+<td align="right">-190</td>
 </tr>
 <tr class="even">
 <td align="left">TimeInterval</td>
-<td align="right">2139.249</td>
 <td align="left">EM</td>
-<td align="right">-117.116188</td>
+<td align="right">2139</td>
+<td align="right">-117</td>
 <td align="right">NA</td>
-<td align="right">-359.498691</td>
-<td align="right">-306.84307</td>
+<td align="right">-359</td>
+<td align="right">-307</td>
 </tr>
 <tr class="odd">
 <td align="left">TimeInterval</td>
-<td align="right">2498.747</td>
 <td align="left">LC</td>
-<td align="right">242.382504</td>
-<td align="right">359.498691</td>
+<td align="right">2499</td>
+<td align="right">242</td>
+<td align="right">359</td>
 <td align="right">NA</td>
-<td align="right">52.65563</td>
+<td align="right">53</td>
 </tr>
 <tr class="even">
 <td align="left">TimeInterval</td>
-<td align="right">2446.092</td>
 <td align="left">ISM</td>
-<td align="right">189.726878</td>
-<td align="right">306.843066</td>
-<td align="right">-52.655625</td>
+<td align="right">2446</td>
+<td align="right">190</td>
+<td align="right">307</td>
+<td align="right">-53</td>
 <td align="right">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">TI + rtc</td>
-<td align="right">1937.075</td>
 <td align="left">SM</td>
+<td align="right">1937</td>
 <td align="right">NA</td>
-<td align="right">9.590598</td>
-<td align="right">-406.035270</td>
-<td align="right">-379.18168</td>
+<td align="right">10</td>
+<td align="right">-406</td>
+<td align="right">-379</td>
 </tr>
 <tr class="even">
 <td align="left">TI + rtc</td>
-<td align="right">1927.484</td>
 <td align="left">EM</td>
-<td align="right">-9.590598</td>
+<td align="right">1927</td>
+<td align="right">-10</td>
 <td align="right">NA</td>
-<td align="right">-415.625869</td>
-<td align="right">-388.77228</td>
+<td align="right">-416</td>
+<td align="right">-389</td>
 </tr>
 <tr class="odd">
 <td align="left">TI + rtc</td>
-<td align="right">2343.110</td>
 <td align="left">LC</td>
-<td align="right">406.035270</td>
-<td align="right">415.625869</td>
+<td align="right">2343</td>
+<td align="right">406</td>
+<td align="right">416</td>
 <td align="right">NA</td>
-<td align="right">26.85359</td>
+<td align="right">27</td>
 </tr>
 <tr class="even">
 <td align="left">TI + rtc</td>
-<td align="right">2316.257</td>
 <td align="left">ISM</td>
-<td align="right">379.181680</td>
-<td align="right">388.772278</td>
-<td align="right">-26.853590</td>
+<td align="right">2316</td>
+<td align="right">379</td>
+<td align="right">389</td>
+<td align="right">-27</td>
 <td align="right">NA</td>
 </tr>
 <tr class="odd">
 <td align="left">TI char</td>
-<td align="right">2448.995</td>
 <td align="left">SM</td>
+<td align="right">2449</td>
 <td align="right">NA</td>
-<td align="right">3.731946</td>
-<td align="right">-1.861952</td>
-<td align="right">-23.68183</td>
+<td align="right">4</td>
+<td align="right">-2</td>
+<td align="right">-24</td>
 </tr>
 <tr class="even">
 <td align="left">TI char</td>
-<td align="right">2445.263</td>
 <td align="left">EM</td>
-<td align="right">-3.731946</td>
+<td align="right">2445</td>
+<td align="right">-4</td>
 <td align="right">NA</td>
-<td align="right">-5.593897</td>
-<td align="right">-27.41378</td>
+<td align="right">-6</td>
+<td align="right">-27</td>
 </tr>
 <tr class="odd">
 <td align="left">TI char</td>
-<td align="right">2450.857</td>
 <td align="left">LC</td>
-<td align="right">1.861952</td>
-<td align="right">5.593897</td>
+<td align="right">2451</td>
+<td align="right">2</td>
+<td align="right">6</td>
 <td align="right">NA</td>
-<td align="right">-21.81988</td>
+<td align="right">-22</td>
 </tr>
 <tr class="even">
 <td align="left">TI char</td>
-<td align="right">2472.677</td>
 <td align="left">ISM</td>
-<td align="right">23.681832</td>
-<td align="right">27.413777</td>
-<td align="right">21.819880</td>
+<td align="right">2473</td>
+<td align="right">24</td>
+<td align="right">27</td>
+<td align="right">22</td>
 <td align="right">NA</td>
 </tr>
 </tbody>
@@ -779,8 +686,6 @@ class="footnote-back">↩︎</a></p></li>
 
 
 
-</div>
-</div>
 
 </div>
 
@@ -813,35 +718,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
-    $('.unlisted.unnumbered').addClass('toc-ignore')
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = false;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -1,9 +1,9 @@
 ---
 #--- official ---#
-# Hausarbeit im Seminar: Digitale Dramenanalyse, Frank Fischer, SS2022 FUB
-# im Fach: Allgemeine und Vergleichende Literaturwissenschaften
+# Hausarbeit (Dokumentation) im Seminar: Empirische Methoden der Sprachwissenschaft, SS2020 FUB
+# im Fach: Sprache und Gesellschaft
 # eingereicht von Stephan Schwarz
-# Abgabe: 2022-10-03
+# Abgabe: 
 
 title: "HUX2021 / Dokumentation"
 subtitle: "HA Empirische Methoden der Sprachwissenschaft / Meinschäfer/Schirakowski SS20 FUB"
@@ -12,7 +12,7 @@ date: "`r Sys.Date()`"
 zotero: AVL_dyn
 output: 
   html_document:
-    toc: yes
+    toc: no
     toc_float:
       collapsed: no
       smooth_scroll: no
@@ -28,6 +28,7 @@ bibliography: hux2021.bib
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+Sys.setlocale('LC_ALL', "en_US.UTF-8")
 ```
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
@@ -142,6 +143,10 @@ Zur Auswertung wurden die erhobenen durch ein php-script im flachen comma-sepera
       bar_df_1[k,difns]<-bar_df_1$LZ[k]-bar_df_1$LZ[bar_df_1$group==g&bar_df_1$RT==bar_df_1$RT[k]]
     }
     }
+    bar_df_1$LZ<-round(bar_df_1$LZ)
+    bar_df_1[,4:7]<-round(bar_df_1[4:7])
+    bararr<-c(1,3,2,4:7)
+    bar_df_1<-cbind(bar_df_1[bararr])
    # dfrank<-bar_df_1[order(bar_df_1$LZ[bar_df_1$RT=="TI + rtc"],)]
     dfrank<-subset(bar_df_1,bar_df_1$RT=="TI + rtc")
    dfrank<-dfrank[with(dfrank,order(dfrank$LZ,decreasing = F)), ]
@@ -162,7 +167,8 @@ Deskriptiv konnten am target keine signifikanten Unterschiede in der durchschnit
 
 #### 3.1.3
 Grob liesze sich durch die allein deskriptive Auswertung die Aussage machen, dasz sich bei target = `r selection[1:3]`, Vernachlässigung ungültiger Fälle = `r selection[4]`, outliers discarded = `r selection[5]` & korrigierter RT (selection = `r selection`) folgende Hierarchie der Lesezeiten ergibt:    
-`r dfrank$group[1]` < `r dfrank$group[2]` < `r dfrank$group[3]` < `r dfrank$group[4]`. Siehe dazu den Ausschnitt `TI + rtc` = length corrected reading time. Dabei gilt es zu beachten, dasz der hier gröszte Unterschied der zwischen `r dfrank$group[1]` und `r dfrank$group[4]` mit `r dfmax`ms zu messen ist, übersetzt unterhalb einer halben Sekunde liegt. (Zum Vergleich: ein ununterbrochenes Weiterklicken der lesbaren Zeilen mittels der space-Taste zeigt ca. 200ms Latenz.)
+`r dfrank$group[1]` < `r dfrank$group[2]` < `r dfrank$group[3]` < `r dfrank$group[4]`. Dabei gilt es zu beachten, dasz der hier gröszte Unterschied der zwischen `r dfrank$group[1]` und `r dfrank$group[4]` mit `r dfmax`ms zu messen ist, übersetzt unterhalb einer halben Sekunde liegt. (Zum Vergleich: ein ununterbrochenes Weiterklicken der lesbaren Zeilen mittels der space-Taste zeigt ca. 200ms Latenz.)    
+Siehe dazu den Ausschnitt `TI + rtc` = length corrected reading time
 
 ```{r fig-05, eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 kable(dfrank)
