@@ -5,7 +5,7 @@
 title: "HUX2021 / Dokumentation"
 subtitle: "HA Empirische Methoden der Sprachwissenschaft / Meinschäfer/Schirakowski SS20 FUB"
 author: "St. Schwarz"
-date: "`r Sys.Date()`"
+date: "`r Sys.time()`"
 zotero: AVL_dyn
 #always_allow_html: true
 output: 
@@ -94,9 +94,6 @@ for (k in 1:length(mitemu)){
 # print(pdf_t)
 # print(html_t)
 ```
----
-to view the pdf-Version of this document click [here](https://ada-sub.dh-index.org/school/papers/014/hux_ha_main.pdf) / to self compile the RMarkdown source to this document in RStudio cf. [@schwarz_rmarkdown_2021](https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd)  
----
 
 # draft abstract
 
