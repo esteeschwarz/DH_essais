@@ -1,15 +1,17 @@
 ---
+#--- official ---#
 # Hausarbeit (Dokumentation) im Seminar: Empirische Methoden der Sprachwissenschaft, SS2020 FUB
 # im Fach: Sprache und Gesellschaft
+# eingereicht von Stephan Schwarz
 # Abgabe: 
+
 title: "HUX2021 / Dokumentation"
 subtitle: "HA Empirische Methoden der Sprachwissenschaft / Meinschäfer/Schirakowski SS20 FUB"
 author: "St. Schwarz"
 date: "`r Sys.Date()`"
 zotero: AVL_dyn
-#always_allow_html: true
 output: 
-   bookdown::html_document2:
+ bookdown::html_document2:
     global_numbering: TRUE
     number_sections: TRUE    
     toc: no
@@ -18,27 +20,16 @@ output:
       smooth_scroll: no
     self_contained: FALSE #TRUE for standalone html page knit
     #css: ../style_HA.css
-    css: https://school.dh-index.org/public/papers/011/style_HA.css
-
-   bookdown::pdf_document2:
-    extra_dependencies: ["float"]
-    css: https://school.dh-index.org/public/papers/011/style_HA.css
-
+#swap / decomment ff .bib/.css references for self compile .Rmd to html
 #bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/klemm_HA/top/klemm.bib
+    css: https://school.dh-index.org/public/papers/011/style_HA.css
 bibliography: hux2021.bib
 ---
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(fig.pos = "H")
-#knitr::opts_knit$set("out.format"="html")
-#knitr::opts_knit$get("out.format"="html")
-
 Sys.setlocale('LC_ALL', "en_US.UTF-8")
-html_t<-knitr::is_html_output()
-pdf_t<-knitr::is_latex_output()
-
 ```
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
@@ -61,7 +52,7 @@ bibliography: "`r ybib`"
 ---
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
-source("https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux2021/hux_HA/hux_ha_src.R")
+source("hux_ha_src.R")
 
 ################
 
@@ -91,11 +82,9 @@ for (k in 1:length(mitemu)){
 # }
 #median(parray)
 #median(itarray)
-# print(pdf_t)
-# print(html_t)
 ```
 ---
-to self compile the RMarkdown source to this document in RStudio cf. [@schwarz_rmarkdown_2021](https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd)
+to self compile the RMarkdown source to this document in RStudio cf. [@schwarz_rmarkdown_2021](https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/rmd/hux_ha_main.Rmd)
 ---
 
 # draft abstract
@@ -154,13 +143,15 @@ O.a. Daten wurden in R [@rstudio_rstudio_2022] 1. deskriptiv und 2. mittels des 
 
 
 ### a. 
-Zur Auswertung wurden die erhobenen durch ein php-script im flachen comma-separated Format gespeicherten Lesezeiten in R importiert. Um zu gewährleisten, dasz Abweichungen hinsichtlich der Zeichenanzahl der zeitgemessenen Phrasen keine unerwünschten Effekte in der Berechnung der Latenzen zeitigen, wurde bei jeder weiteren Berechnung dafür ein von der Zeichenanzahl/Phrase anhängiger Koeffizient einbezogen, der in der ersten, deskriptiven Auswertung einfach aus der Zeichenanzahl, bei der zweiten kovariaten Auswertung mittels lme4 bestimmt [@fine_rapid_2013] und als Residual (hier: korrigierte Lesezeit) einbezogen wurde. R/F hatten ihre Daten mit dem R-package lme4 unter multivariaten Gesichtspunkten analysiert; so konnte auch ich (in dieser Phase ging die Experiment-Arbeitsgruppe getrennte Wege) nach Feststellung des Effekts der Phrasenlänge und Berücksichtigung desselben als korrigierte Lesezeit (hier: die abhängige Variable in der lmer Formel) einen signifikanten Effekt der Itemkategorie auf die Lesezeiten von SM und ISM (im Dataset "MM") feststellen. Bei der Multivarianzanalyse wurden hier ein *main effect* der Kategorie (LC, SM, EM, ISM = group) unter *random effects* von TN (participant) und Kategorie auf TN (group by participant) vorausgesetzt.
+Zur Auswertung wurden die erhobenen durch ein php-script im flachen comma-separated Format gespeicherten Lesezeiten in R importiert. Um zu gewährleisten, dasz Abweichungen hinsichtlich der Zeichenanzahl der zeitgemessenen Phrasen keine unerwünschten Effekte in der Berechnung der Latenzen zeitigen, wurde bei jeder weiteren Berechnung dafür ein von der Zeichenanzahl/Phrase anhängiger Koeffizient einbezogen, der in der ersten, deskriptiven Auswertung einfach aus der Zeichenanzahl, bei der zweiten kovariaten Auswertung mittels lme4 bestimmt [@fine_rapid_2013] und als Residual (hier: korrigierte Lesezeit) einbezogen wurde. R/F hatten ihre Daten mit dem R-package lme4 unter multivariaten Gesichtspunkten analysiert; so konnte auch ich (in dieser Phase ging die Experiment-Arbeitsgruppe getrennte Wege) nach Feststellung des Effekts der Phrasenlänge und Berücksichtigung desselben als korrigierte Lesezeit (hier: die abhängige Variable in der lmer Formel) signifikante Unterschiede der Lesezeiten von ISM und LC feststellen. Allerdings nur an dieser Stelle, womit einzelne Hypothesen nicht bestätigt werden konnten. Bei der Multivarianzanalyse wurden hier ein *main effect* der Kategorie (LC, SM, EM, ISM = group) unter *random effects* von TN (participant) und Kategorie auf TN (group by participant) vorausgesetzt.
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 sel1<-c(-1,0,1,1,1,0)
 gr1<-"SM"
   other<-"Other"
-getdf<-function(selection,groupvsall){
+  dset<-now.data(dta,sel1)
+  dset$speed<-round(dset$speed,4)
+  getdf<-function(selection,groupvsall){
 
 y<-selection
 x<-groupvsall
@@ -168,7 +159,6 @@ x<-groupvsall
 
 #    y<-mydata
     dset<-now.data(dta,y)     
- #   x<-mydata_2
   
 #    dsetvso<-setvsx(dset,x,other)
     bar_df_1<-plot_desc(dset)
@@ -221,37 +211,20 @@ bar_df_2<-getdf2(sel1,gr1)
     selection<-sel1
       p1<-ggplot(data=bar_df_1, aes(x=group,y=LZ,fill=RT)) + 
       geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times according to phrase length correction")
-lmeforms<-create_lmeforms(dta,"rtc")
-#y<-sel1
-sel3<-c(-1,0,1,1,1,1)
-    dset<-now.data(dta,sel1)
-sum1<-lmer(lmeforms$old[[1]],dset)
-s1<-summary(sum1)
-
-s1$coefficients<-s1$coefficients[order(s1$coefficients[,1]),]
-s1co<-data.frame(s1$coefficients)
-m<-grep("(Intercept)",rownames(s1co))                
-rownames(s1co)[m]<-"SM"
-ns<-gsub("XvsGr[0-9]","",rownames(s1co))
-m<-grep("MM",ns)
-ns[m]<-"ISM"
-#s1co<-data.frame(s1$coefficients)
-rownames(s1co)<-ns
-#s1co
 
 ```
-
-
-### b.
-Deskriptiv konnten am target keine signifikanten Unterschiede in der durchschnittlichen Lesezeit an den verschieden eingebetteten Metaphern festgestellt werden. Da mir noch wesentliche Grundlagen zur Interpretation der Ergebnisse der Multivarianzanalyse fehlen und es sich hier nur um die kurze Dokumentation des Experiments im Seminarkontext handeln soll, die endlich abgeschlossen werden soll, werde ich darauf verzichten, meine Ergebnisse der multivariaten Berechnungen zur Grundlage einer dadurch ansatzweisen Bestätigung der 2. und 3. Hypothesen (ISM > LC = EM) zu stilisieren. Sie seien hier jedoch kurz angeführt - die Hierarchie der Lesezeiten wäre dann (model estimates) wie folgt zu lesen:  `r ns[4]` > `r ns[3]` = `r ns[2]` > `r ns[1]`, in Kontrast zur Hypothese ISM = SM > EM = LC  cf. (lmer-output):  
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
-print(lmeforms$old[[1]])
-s1
+plotly_example(type="rmd")
+
 ```
+
+### b.
+Deskriptiv konnten am target keine signifikanten Unterschiede in der durchschnittlichen Lesezeit an den verschieden eingebetteten Metaphern festgestellt werden. Da mir noch wesentliche Grundlagen zur Interpretation der Ergebnisse der Multivarianzanalyse fehlen und es sich hier nur um die kurze Dokumentation des Experiments im Seminarkontext handeln soll, die endlich abgeschlossen werden soll, werde ich darauf verzichten, meine Ergebnisse der multivariaten Berechnungen zur Grundlage einer dadurch ansatzweise bestätigten 3. Hypothese (ISM > LC) zu stilisieren.     
+
 ### c.
 Grob liesze sich durch die allein deskriptive Auswertung die Aussage machen, dasz sich bei target = `r selection[1:3]`, Vernachlässigung ungültiger Fälle = `r selection[4]`, outliers discarded = `r selection[5]` & korrigierter RT (selection = `r selection`) folgende Hierarchie der Lesezeiten ergibt:    
-`r dfrank$group[4]` > `r dfrank$group[3]` > `r dfrank$group[2]` > `r dfrank$group[1]`. Dabei gilt es zu beachten, dasz der hier gröszte Unterschied der zwischen `r dfrank$group[1]` und `r dfrank$group[4]` mit `r dfmax`ms zu messen ist, übersetzt unterhalb einer halben Sekunde liegt. (Zum Vergleich: ein ununterbrochenes Weiterklicken der lesbaren Zeilen mittels der space-Taste zeigt ca. 200ms Latenz.)    
+`r dfrank$group[1]` < `r dfrank$group[2]` < `r dfrank$group[3]` < `r dfrank$group[4]`. Dabei gilt es zu beachten, dasz der hier gröszte Unterschied der zwischen `r dfrank$group[1]` und `r dfrank$group[4]` mit `r dfmax`ms zu messen ist, übersetzt unterhalb einer halben Sekunde liegt. (Zum Vergleich: ein ununterbrochenes Weiterklicken der lesbaren Zeilen mittels der space-Taste zeigt ca. 200ms Latenz.)    
 Siehe dazu den Ausschnitt `TI + rtc` = length corrected reading time
 
 ```{r fig-05, eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
@@ -275,7 +248,8 @@ selection<-sel2
 df2<-data.frame(dfrank)
 df2[,4:7]<-sqrt(df2[,4:7]^2)
 dfmax<-round(max(as.matrix(df2[,4:7]),na.rm = T),2)
- 
+  p2<-ggplot(data=bar_df_1, aes(x=group,y=LZ,fill=RT)) + 
+      geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times according to phrase length correction")
 ```
 
 Bei isoliertem target (target = `r selection[1:3]`) ergibt sich folgende Hierarchie der Lesezeiten:    
@@ -285,14 +259,13 @@ Bei isoliertem target (target = `r selection[1:3]`) ergibt sich folgende Hierarc
 kable(dfrank)
 ```
 
-### d. LEGENDE    
+***LEGENDE***    
 
-- **LZ:** berechnete Lesezeit (response time)
-- **TimeInterval:** uncorrected response time (TI)   
+- **LZ:** gemessene Lesezeit (response time)
+- **TimeInterval:** uncorrected response time   
 - **TI + RTC:** TimeInterval + lmer residuals of TI dependent on phrase length   
-- **TI char:** TimeInterval corrected by mean phrase length (TI/characters*mean(characters))   
+- **TI char:** TimeInterval corrected by mean phrase length   
 
-### p. visuals
 
 ```{r fig-01, eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE, fig.cap="evaluate target, target-preceding, target-following phrase, not length corrected"}
   #  x<-mydata_2
@@ -310,76 +283,178 @@ x<-gr1
     #print(plot_desc_compare(dsetvso,x,"All"))
     # bar_df<-cbind(dsetvso$timeinterval[group!=other],dsetvso$timeinterval[group==other])
     xlab<-paste("target:",sel1[1:3],collapse = " ")
- boxplot(dset$speed~group,outline=F, notch=T,range=0.4,main="reading speed / phrase & group",xlab=paste0("observations limited to ",xlab),ylab = "speed")
- #      p2<-ggplot(data=dset, aes(x=group,y=speed)) + add_boxplot() 
-#       # geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times over groups")
-# ggplotly(p2)
+    boxplot(dset$timeinterval~group,main="mean reading times (LZ) in ms per category",xlab = xlab)
+      ggplot(data=dset, aes(x=group,y=speed)) + geom_boxplot() 
+      # geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times according to phrase length correction")
+      p3<-plot_ly(dset, x = ~group, y = ~speed, showlegend = FALSE) %>% 
+     add_boxplot(outline=F)
+      boxplot(dset$speed~group,outline=F, notch=T,range=0.4,main="reading speed / phrase & group",xlab=paste0("observations limited to ",xlab),ylab = "speed")
+p3
 ```
 
 
-```{r fig-02, eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE,fig.cap="reading times (uncorrected = timeinterval) and with 2 different approaches of processing the phrase length"}
+
+```{r fig-02, eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE,fig.cap="after phrase length correction"}
     #     p<-ggplot(data=bar_df_1, aes(x=group,y=LZ,fill=RT)) + 
     #   geom_col(position = "dodge")
     # # p +  labs(x="groups compared", y="mean reading time", title="reading times according to phrase length correction")
- p2<-ggplot(data=bar_df_1, aes(x=group,y=LZ,fill=RT)) + 
-      geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times according to phrase length correction")
-pdf<-F
-html<-T
-#ifelse(html_t==F,pdf<-T,html<-F)
-if (pdf_t==T){
-  p2}
-# cat("html= ",html_t,"\n")
-# cat("pdf= ",pdf_t)
-if(html_t==T){ggplotly(p2)}
-#if(html_t==T){ggplotly(p2)}
-#if(html_t==F){p2}
-#html
+ggplotly(p2)
+
+
+```
+
+
+```{r}
+# library(crosstalk)
+# tx <- highlight_key(txhousing)
+# widgets <- bscols(
+#   widths = c(12, 12, 12),
+#   filter_select("city", "Cities", tx, ~city),
+#   filter_slider("sales", "Sales", tx, ~sales),
+#   filter_checkbox("year", "Years", tx, ~year, inline = TRUE)
+# )
+# bscols(
+#   widths = c(4, 8), widgets, 
+#   plot_ly(tx, x = ~date, y = ~median, showlegend = FALSE) %>% 
+#     add_lines(color = ~city, colors = "black")
+# )
+# Labelling a bar plot
+ggplot(mpg, aes(class)) +
+  geom_bar() +
+ geom_text(
+    aes(
+      label = after_stat(count),
+     # x = stage(displ, after_stat = count)
+    )
+    
+  )
+```
+
+```{r}
+# library(crosstalk)
+# #rt<-data.frame(response=c("~timeinterval","~timeinterval+rtc","~timeinterval/char*meanch"))
+# rt<-data.frame(response=c("timeinterval","rtc.2","rtmc"))
+# dset$rtc.2<-dset$timeinterval+dset$rtc
+# mean(dset$rtc.2)
+# median(dset$rtc.2)
+# meanch<-mean(dset$char)
+# dset$rtmc<-dset$timeinterval/dset$char*meanch
+# dset$rtc.3<-dset$timeinterval+dset$rtc-mean(dset$rtc)
+# rt<-data.frame(column=c("year","displ"))
+# 
+# trt<-highlight_key(rt)
+# #trt$data(withSelection = "year")
+# widgets <- bscols(
+#   widths = c(12, 12, 12),
+#  # filter_checkbox("group", "Group", tx, ~category),
+# #  filter_slider("sales", "Sales", tx, ~sales),
+#  # filter_checkbox("target", "Target", tx, ~target, inline = TRUE),
+# #  filter_select("RT", "RT", tx, ~)
+# #  filter_checkbox("RT", "RT", trt, ~response, inline = T)
+# filter_checkbox("col","column",trt,~column)
+# )
+# #tx <- highlight_key(dset,RT)
+# 
+# meanch<-mean(dset$char)
+#   #mean(dset$timeinterval/dset$char)*meanch
+# # bscols(
+# #    widths = c(4, 8), widgets, 
+# # # plot_ly(tx, x = ~group, y = ~timeinterval/char*meanch, showlegend = FALSE) %>% 
+# # #     add_boxplot(color = ~group, colors = "black"))
+# # # plot_ly(dset,x = ~group, y = ~mean, showlegend = FALSE) %>% 
+# # #      add_bars(fill = rtc.3, colors = "black")
+# # # p6<-ggplot(data=dset, aes(x=group,y=mean,fill=rtc.3)) + 
+# # #       geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times
+# # #       according to phrase length correction")
+# # #print(trt$RT)
+# # )
+# p6<-ggplot(data=dset, aes(x=group,y=timeinterval)) + 
+#       geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times
+#       according to phrase length correction")
+# p <- ggplot(dset, aes(x=char, y=rtc.3)) +
+#             geom_point(shape=1) +    # Use hollow circles
+#             geom_smooth(method=lm)   # Add linear regression line
+# #ggplotly(p6)
+# #p6
+#  # ggplot(dset, aes(timeinterval)) +
+#  #   geom_bar(aes(y = after_stat(mean)))
+# # ggplot(mpg, aes(x=manufacturer,y=year)) +
+# #   geom_boxplot(mpg,x=year,y=after_stat(count))
+# p1<-plot_ly(mpg, x = ~manufacturer, y = ~displ, showlegend = FALSE) %>% 
+#     add_boxplot()
+# bscols(
+#     widths = c(4, 8), widgets, 
+# plot_ly(mpg, x = ~manufacturer, y = ~displ
+# , showlegend = FALSE)%>%
+#      add_boxplot())
+# 
+#    # #     add_boxplot(color = ~group, colors = "black"))
+# # p5<-bscols(
+# #    widths = c(4, 8), widgets,plot_ly(tx, x = ~group, y = ~timeinterval+rtc, showlegend = FALSE) %>% 
+# #     add_boxplot(color = ~group, colors = "black"))
+# # p6<-bscols(
+# #    widths = c(4, 8), widgets,plot_ly(tx, x = ~group, y = ~timeinterval, showlegend = FALSE) %>% 
+# #     add_boxplot(color = ~group, colors = "black")
+# #)
+# #p4
+# #p5
+# #p6
+# kable(mpg)
+# 
+# # use group_by() + do() + subplot() for trellis displays 
+# d <- group_by(mpg, drv)
+# plots <- do(d, p = plot_ly(., x = ~cty, name = ~drv))
+# subplot(plots[["p"]], nrows = 3, shareX = TRUE)
+# 
+# # arrange displays by their mean
+# means <- summarise(d, mn = mean(cty, na.rm = TRUE))
+# means %>%
+#   dplyr::left_join(plots) %>%
+#   arrange(mn) %>%
+#   subplot(nrows = NROW(.), shareX = TRUE)
+# 
+# p <- mtcars %>%
+#   plot_ly(x = ~wt, y = ~mpg, name = "scatter trace") %>%
+#   add_markers()
+# p %>% slice(1) %>% plotly_data()
+# p %>% slice(1) %>% add_markers(name = "first observation")
+# p %>% filter(cyl == 4) %>% plotly_data()
+# p %>% filter(cyl == 4) %>% add_markers(name = "four cylinders")
+```
+
+```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
+# data(canada.cities, package = "maps")
+# viz <- ggplot(canada.cities, aes(long, lat)) +
+#   borders(regions = "canada") +
+#   coord_equal() +
+#   geom_point(aes(text = name, size = pop), colour = "red", alpha = 1/2)
+# ggplotly(viz, tooltip = c("text", "size"))
+# 
+#   p<-ggplot(data=bar_df_1, aes(x=group,y=LZ,fill=RT)) + 
+#       geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times according to phrase length correction")
+#   ggplotly(p2, tooltip = "y")
+#   subplot(p1,p2,nrows = 1,shareX = T)
 ```
 
 
 ```{r fig-03, eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE,fig.cap="comparing SM vs. other"}
     
 
-p3<-ggplot(data=bar_df_2, aes(x=group,y=LZ,fill=RT)) +
-  geom_col(position = "dodge") +  labs(x="group vs. All", y="mean reading time", title="compare group vs. All")
-html<-T
-pdf<-F
-# ifelse(html_t==F,pdf<-T,html<-F)
-# placeholder<-paste("placeholder for floating images in pdf output ",1:13,sep  = " ")
-if (pdf_t==T){
- # print(placeholder)
-  p3
-}
- if(html_t==T){ggplotly(p3)}
-# if(html_t==F){p3}
-
+    # p<-ggplot(data=bar_df_2, aes(x=group,y=LZ,fill=RT)) + 
+    #   geom_col(position = "dodge")
+    # p +  labs(x="group vs. All", y="Lesezeit", title="compare group vs. All")
+    # 
+    
 ```
 
-## Studienansicht des Experiments
-cf. (Figure 4)    
+[^1]:	berlin university alliance
 
-wenn Sie sich in der .pdf-Ausgabe der Arbeit befinden, können Sie
-[hier](https://ada-sub.dh-index.org/school/papers/014/ext/index.html) die Ansicht aufrufen.
+[^2]:	item hier als ein in vier ausprägungen entworfener text mit durchschnittlicher länge von `r median(itarray)` zeichen.
 
-![Figure 4: Experiment screenshot](hux2021-screen.png)
-
-sonst hier ein Auszug aus der verwendeten Version, der im .pdf nicht erscheint.
-```{=html}
-<iframe src='https://ada-sub.dh-index.org/school/papers/014/ext/index.html' height='800px' width='100%' style="border:1px solid black;"></iframe>
-```
-
-
-[^1]:	Berlin University Alliance
-
-[^2]:	*item* hier als ein in vier Ausprägungen entworfener Text mit durchschnittlicher Länge von `r median(itarray)` Zeichen.
-
-[^3]:	da diese Positionen erst :nach: Start des Tests konsequent im script festgelegt wurden, muszte bei der Auswertung einiges manuell nachgearbeitet werden, um die Daten konsistent zu halten.
+[^3]:	da diese positionen wegen nachlässigeit erst :nach: start des tests konsequent im script festgelegt wurden, muszte bei der auswertung einiges manuell nachgearbeitet werden, um die daten konsistent zu halten.
 
 [^4]: Für weitere Ansichten und Studiensample besuchen Sie bitte [o.a. interaktive Visualisierungen](https://vision2020.shinyapps.io/hux2021).
-
 
 ------------------------------------------------------------------------
 
 # B. REF:
-
-
