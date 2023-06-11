@@ -326,11 +326,12 @@ x<-gr1
 pdf<-F
 html<-T
 #ifelse(html_t==F,pdf<-T,html<-F)
-if (pdf_t==T){
-  p2}
+# if (pdf_t==T){
+#   p2}
+p2
 # cat("html= ",html_t,"\n")
 # cat("pdf= ",pdf_t)
-if(html_t==T){ggplotly(p2)}
+#if(html_t==T){ggplotly(p2)}
 #if(html_t==T){ggplotly(p2)}
 #if(html_t==F){p2}
 #html
@@ -346,11 +347,12 @@ html<-T
 pdf<-F
 # ifelse(html_t==F,pdf<-T,html<-F)
 # placeholder<-paste("placeholder for floating images in pdf output ",1:13,sep  = " ")
-if (pdf_t==T){
- # print(placeholder)
-  p3
-}
- if(html_t==T){ggplotly(p3)}
+# if (pdf_t==T){
+#  # print(placeholder)
+#   p3
+# }
+p3
+ # if(html_t==T){ggplotly(p3)}
 # if(html_t==F){p3}
 
 ```
