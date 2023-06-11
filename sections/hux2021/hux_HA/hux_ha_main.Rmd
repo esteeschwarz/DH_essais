@@ -243,7 +243,7 @@ rownames(s1co)<-ns
 
 
 ### b.
-Deskriptiv konnten am target keine signifikanten Unterschiede in der durchschnittlichen Lesezeit an den verschieden eingebetteten Metaphern festgestellt werden. Da mir noch wesentliche Grundlagen zur Interpretation der Ergebnisse der Multivarianzanalyse fehlen und es sich hier nur um die kurze Dokumentation des Experiments im Seminarkontext handeln soll, die endlich abgeschlossen werden soll, werde ich darauf verzichten, meine Ergebnisse der multivariaten Berechnungen zur Grundlage einer dadurch ansatzweisen Bestätigung der 2. und 3. Hypothesen (ISM > LC = EM) zu stilisieren. Sie seien hier jedoch kurz angeführt - die Hierarchie der Lesezeiten wäre dann (model estimates) wie folgt zu lesen:  `r ns[4]` > `r ns[3]` = `r ns[2]` > `r ns[1]`, in Kontrast zur Hypothese ISM = SM > EM = LC  cf. (lmer-output):  
+Deskriptiv konnten am target keine signifikanten Unterschiede in der durchschnittlichen Lesezeit an den verschieden eingebetteten Metaphern festgestellt werden. Da mir noch wesentliche Grundlagen zur Interpretation der Ergebnisse der Multivarianzanalyse fehlen und es sich hier nur um die kurze Dokumentation des Experiments im Seminarkontext handeln soll, die endlich abgeschlossen werden soll, werde ich darauf verzichten, meine Ergebnisse der multivariaten Berechnungen zur Grundlage einer dadurch ansatzweisen Bestätigung der 2. und 3. Hypothesen (ISM > LC = EM) zu stilisieren. Sie seien hier jedoch kurz angeführt - die Hierarchie der Lesezeiten wäre dann (model estimates) wie folgt zu lesen:  `r ns[4]` > `r ns[3]` = `r ns[2]` > `r ns[1]`, in Kontrast zur Hypothese ISM = SM > EM = LC  (cf. lmer summary):  
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 print(lmeforms$old[[1]])
