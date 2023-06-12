@@ -11,7 +11,6 @@
 
 <meta name="author" content="St. Schwarz" />
 
-<meta name="date" content="2023-06-11" />
 
 <title>HUX2021 / Dokumentation</title>
 
@@ -128,8 +127,8 @@ pre code {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -137,16 +136,9 @@ pre code {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -194,18 +186,11 @@ pre code {
 <h1 class="title toc-ignore">HUX2021 / Dokumentation</h1>
 <h3 class="subtitle">HA Empirische Methoden der Sprachwissenschaft / Meinschäfer/Schirakowski SS20 FUB</h3>
 <h4 class="author">St. Schwarz</h4>
-<h4 class="date">2023-06-11</h4>
+<h4 class="date">2023-06-12 07:18:02</h4>
 
 </div>
 
 
-<table>
-<tbody>
-<tr class="odd">
-<td>to view the pdf-Version of this document click <a href="https://ada-sub.dh-index.org/school/papers/014/hux_ha_main.pdf">here</a> / to self compile the RMarkdown source to this document in RStudio cf. <a href="https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd"><span class="citation">Schwarz (2021)</span></a></td>
-</tr>
-</tbody>
-</table>
 <div id="draft-abstract" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> draft abstract</h1>
 <p>Ich werde in dieser Arbeit den Versuch unternehmen, ein im Rahmen empirischer Studien durchgeführtes <a href="https://github.com/esteeschwarz/essais/docs/hux2021">psycholinguistisches Experiment</a> ausführlich zu dokumentieren.
@@ -278,7 +263,7 @@ Die 16 filler items traten innerhalb des sets aus also 24 items an zufälligen P
 <h3><span class="header-section-number">4.3.2</span> b.</h3>
 <p>Deskriptiv konnten am target keine signifikanten Unterschiede in der durchschnittlichen Lesezeit an den verschieden eingebetteten Metaphern festgestellt werden. Da mir noch wesentliche Grundlagen zur Interpretation der Ergebnisse der Multivarianzanalyse fehlen und es sich hier nur um die kurze Dokumentation des Experiments im Seminarkontext handeln soll, die endlich abgeschlossen werden soll, werde ich darauf verzichten, meine Ergebnisse der multivariaten Berechnungen zur Grundlage einer dadurch ansatzweisen Bestätigung der 2. und 3. Hypothesen (ISM &gt; LC = EM) zu stilisieren. Sie seien hier jedoch kurz angeführt - die Hierarchie der Lesezeiten wäre dann (model estimates) wie folgt zu lesen: ISM &gt; EM = LC &gt; SM, in Kontrast zur Hypothese ISM = SM &gt; EM = LC (cf. lmer summary):</p>
 <pre><code>## rtc ~ XvsGr + (1 | item) + (1 | participant) + (1 + XvsGr | participant)
-## &lt;environment: 0x7f9cd29392f8&gt;</code></pre>
+## &lt;environment: 0x7f8b29179eb8&gt;</code></pre>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: lmeforms$old[[1]]
@@ -630,9 +615,6 @@ RStudio, and PBC. 2022. <span>“<span>RStudio</span> <span>IDE</span>.”</span
 </div>
 <div id="ref-rubio-fernandez_are_2016" class="csl-entry">
 Rubio-Fernández, Paula, Chris Cummins, and Ye Tian. 2016. <span>“Are Single and Extended Metaphors Processed Differently? <span>A</span> Test of Two <span>Relevance</span>-<span>Theoretic</span> Accounts.”</span> <em>Journal of Pragmatics</em> 94 (March): 15–28. <a href="https://doi.org/10.1016/j.pragma.2016.01.005">https://doi.org/10.1016/j.pragma.2016.01.005</a>.
-</div>
-<div id="ref-schwarz_rmarkdown_2021" class="csl-entry">
-Schwarz, St. 2021. <span>“<span>RMarkdown</span> Source to This Document.”</span> <a href="https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd">https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd</a>.
 </div>
 </div>
 </div>
