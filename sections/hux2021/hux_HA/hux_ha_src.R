@@ -781,6 +781,68 @@ plot_desc<-function(setd){
   bar_df$group[9:12]<-m9ns
   return(bar_df)
 }#endausgabe
+#13243.plotdesc median
+
+plot_desc_md<-function(setd){
+  
+  # ausgabe<-function(setd){
+  d5<-setd
+  
+  bar_df<-data.frame(1:12)
+  attach(d5)
+  m1<-median(d5$timeinterval[group==sm],na.rm=T)
+  m2<-median(d5$timeinterval[group!=sm],na.rm=T)
+  m3<-median(d5$timeinterval[group==em],na.rm=T)
+  m4<-median(d5$timeinterval[group!=em],na.rm=T)
+  m5<-median(d5$timeinterval[group==lc],na.rm=T)
+  m6<-median(d5$timeinterval[group!=lc],na.rm=T)
+  m7<-median(d5$timeinterval[group==mm],na.rm=T)
+  m8<-median(d5$timeinterval[group!=mm],na.rm=T)
+  m9<-rbind(cbind(m1,m2),cbind(m3,m4),cbind(m5,m6),cbind(m7,m8))
+  m9
+  m9c<-rbind(m1,m3,m5,m7)
+  bar_df$RT[1:4]<-"TimeInterval"
+  bar_df$LZ[1:4]<-m9c
+  
+  m9ns<-c("sm","em","lc","mm")
+  bar_df$group[1:4]<-m9ns
+  d5$rtc.2<-d5$timeinterval+d5$rtc
+  m1e<-median(d5$rtc.2[group==sm],na.rm=T)
+  m2<-median(d5$rtc.2[group!=sm],na.rm=T)
+  m3e<-median(d5$rtc.2[group==em],na.rm=T)
+  m4<-median(d5$rtc.2[group!=em],na.rm=T)
+  m5e<-median(d5$rtc.2[group==lc],na.rm=T)
+  m6<-median(d5$rtc.2[group!=lc],na.rm=T)
+  m7e<-median(d5$rtc.2[group==mm],na.rm=T)
+  m8<-median(d5$rtc.2[group!=mm],na.rm=T)
+  m9e<-rbind(m1e,m3e,m5e,m7e)
+  bar_df$RT[5:8]<-"TI + rtc"
+  bar_df$LZ[5:8]<-m9e
+  bar_df$group[5:8]<-m9ns
+  
+  meanch<-mean(d5$char)
+  mean(d5$timeinterval/d5$char)*meanch
+  m1<-median(d5$timeinterval[group==sm]/d5$char[group==sm],na.rm=T)*meanch
+  m2<-median(d5$timeinterval[group!=sm]/d5$char[group!=sm],na.rm=T)*meanch
+  m3<-median(d5$timeinterval[group==em]/d5$char[group==em],na.rm=T)*meanch
+  m4<-median(d5$timeinterval[group!=em]/d5$char[group!=em],na.rm=T)*meanch
+  m5<-median(d5$timeinterval[group==lc]/d5$char[group==lc],na.rm=T)*meanch
+  m6<-median(d5$timeinterval[group!=lc]/d5$char[group!=lc],na.rm=T)*meanch
+  m7<-median(d5$timeinterval[group==mm]/d5$char[group==mm],na.rm=T)*meanch
+  m8<-median(d5$timeinterval[group!=mm]/d5$char[group!=mm],na.rm=T)*meanch
+  m9<-rbind(cbind(m1,m2),cbind(m3,m4),cbind(m5,m6),cbind(m7,m8))
+  #m9d<-rbind(cbind(m1,"SM"),cbind(m3,"EM"),cbind(m5,"LC"),cbind(m7,"MM"))
+  m9
+  m9f<-rbind(m1,m3,m5,m7)
+  #m9cns<-c()
+  #m9
+  bar_df$RT[9:12]<-"TI char"
+  bar_df$LZ[9:12]<-m9f
+  
+  m9ns<-c("sm","em","lc","mm")
+  bar_df$group[9:12]<-m9ns
+  return(bar_df)
+}#endausgabe
 
 plot_desc_compare<-function(setd,gr,gro){
   d5<-setd
