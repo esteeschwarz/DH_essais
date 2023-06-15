@@ -396,6 +396,8 @@ boxplot(a,b,c)
 ### CUT, intervals
 aaa <- c(1,2,3,4,5,2,3,4,5,6,7)
 cut(aaa, 3)
+
+### playground ###
 x<-array()
 y<-array()
 z<-array()
@@ -424,3 +426,20 @@ z2[k]<-sum(z1)
 }
 plot(z2)  
 z2
+###########
+getwd()
+tempsrc<-"hux_ha_main.Rmd"
+knitdir<-"pdf"
+outdir<-"hux_ha_pdf"
+outfilepdf<-"hux_ha_main.pdf"
+rmarkdown::render(tempsrc,output_dir = knitdir,output_file = outfilepdf,output_format = "bookdown::pdf_document2")
+
+sum4<-createview()
+parsethrough()
+chose<-sel1
+lmeforms<-create_lmeforms(dta,"rtc")
+sum1<-lmer(lmeforms$gr,dset)
+summary(sum1)
+sum1<-lmer(lmeforms$old[[1]],dset)
+summary(sum1)
+sum1
