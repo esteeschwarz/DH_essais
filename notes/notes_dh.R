@@ -434,6 +434,17 @@ outdir<-"hux_ha_pdf"
 outfilepdf<-"hux_ha_main.pdf"
 rmarkdown::render(tempsrc,output_dir = knitdir,output_file = outfilepdf,output_format = "bookdown::pdf_document2")
 
+#minirig pdflatex issue:
+writeLines(c(
+  '\\documentclass{article}',
+  '\\begin{document}', 'Hello world!', '\\end{document}'
+), 'test.tex')
+library(tinytex)
+tinytex::pdflatex('test.tex')
+tinytex::install_tinytex()
+
+format(Sys.time(),'Ymd(H.m)')
+format(Sys.time(), "%Y%m%d(%H.%m)")
 sum4<-createview()
 parsethrough()
 chose<-sel1
@@ -443,3 +454,11 @@ summary(sum1)
 sum1<-lmer(lmeforms$old[[1]],dset)
 summary(sum1)
 sum1
+library(utils)
+download.file('https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux2021/hux_HA/hux_ha_main.Rmd','huxdown.Rmd')
+
+
+
+
+
+
