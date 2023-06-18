@@ -5,7 +5,7 @@
 title: "HUX2021 / Dokumentation"
 subtitle: "HA Empirische Methoden der Sprachwissenschaft / Meinschäfer/Schirakowski SS20 FUB"
 author: "St. Schwarz"
-date: "`r Sys.time()`"
+date: "`r format(Sys.time(), '%Y%m%d(%H.%m)')`"
 zotero: AVL_dyn
 #always_allow_html: true
 output: 
@@ -154,7 +154,7 @@ O.a. Daten wurden in R [@rstudio_rstudio_2022] 1. deskriptiv und 2. mittels des 
 
 
 ### a. 
-Zur Auswertung wurden die erhobenen durch ein php-script im flachen comma-separated Format gespeicherten Lesezeiten in R importiert. Um zu gewährleisten, dasz Abweichungen hinsichtlich der Zeichenanzahl der zeitgemessenen Phrasen keine unerwünschten Effekte in der Berechnung der Latenzen zeitigen, wurde bei jeder weiteren Berechnung dafür ein von der Zeichenanzahl/Phrase anhängiger Koeffizient einbezogen, der in der ersten, deskriptiven Auswertung einfach aus der Zeichenanzahl, bei der zweiten kovariaten Auswertung mittels lme4 bestimmt [@fine_rapid_2013] und als Residual (hier: korrigierte Lesezeit) einbezogen wurde. R/F hatten ihre Daten mit dem R-package lme4 unter multivariaten Gesichtspunkten analysiert; so konnte auch ich (in dieser Phase ging die Experiment-Arbeitsgruppe getrennte Wege) nach Feststellung des Effekts der Phrasenlänge und Berücksichtigung desselben als korrigierte Lesezeit (hier: die abhängige Variable in der lmer Formel) einen signifikanten Effekt der Itemkategorie auf die Lesezeiten von SM und ISM (im Dataset "MM") feststellen. Bei der Multivarianzanalyse wurden hier ein *main effect* der Kategorie (LC, SM, EM, ISM = group) unter *random effects* von TN (participant) und Kategorie auf TN (group by participant) vorausgesetzt.
+Zur Auswertung wurden die erhobenen durch ein php-script im flachen comma-separated Format gespeicherten Lesezeiten in R importiert. Um zu gewährleisten, dasz Abweichungen hinsichtlich der Zeichenanzahl der zeitgemessenen Phrasen keine unerwünschten Effekte in der Berechnung der Latenzen zeitigen, wurde bei jeder weiteren Berechnung dafür ein von der Zeichenanzahl/Phrase anhängiger Koeffizient einbezogen, der in der ersten, deskriptiven Auswertung einfach aus der Zeichenanzahl, bei der zweiten kovariaten Auswertung mittels lme4 bestimmt [@fine_rapid_2013] und als Residual (hier: korrigierte Lesezeit) einbezogen wurde. R/F hatten ihre Daten mit dem R-package lme4 unter multivariaten Gesichtspunkten analysiert; so konnte auch ich (in dieser Phase ging die Experiment-Arbeitsgruppe getrennte Wege) nach Feststellung des Effekts der Phrasenlänge und Berücksichtigung desselben als korrigierte Lesezeit (hier: die abhängige Variable in der lmer Formel) einen signifikanten Effekt der Itemkategorie auf die Lesezeiten von SM und ISM (im Dataset "MM") feststellen. Bei der Multivarianzanalyse wurden hier ein *main effect* der Kategorie (LC, SM, EM, ISM = group) unter *random effects* von TN (participant) und Kategorie auf TN (group by participant) vorausgesetzt. cf. [@rubio-fernandez_are_2016 p.20]
 
 ```{r eval=TRUE, echo=FALSE, warning=FALSE,message=FALSE}
 sel1<-c(-1,0,1,1,1,0)
@@ -346,7 +346,7 @@ x<-gr1
     #print(plot_desc_compare(dsetvso,x,"All"))
     # bar_df<-cbind(dsetvso$timeinterval[group!=other],dsetvso$timeinterval[group==other])
     xlab<-paste("target:",sel1[1:3],collapse = " ")
- boxplot(dset$speed~group,outline=F, notch=T,range=0.4,main="reading speed / phrase & group",xlab=paste0("observations limited to ",xlab),ylab = "speed")
+ boxplot(dset$speed~group,outline=F, notch=T,range=0.4,main="reading speed / phrase & group",xlab=paste0("observations limited to ",xlab),ylab = "speed (char/ms)")
  #      p2<-ggplot(data=dset, aes(x=group,y=speed)) + add_boxplot() 
 #       # geom_col(position = "dodge") +  labs(x="groups compared", y="mean reading time", title="reading times over groups")
 # ggplotly(p2)

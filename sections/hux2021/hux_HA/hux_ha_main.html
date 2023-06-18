@@ -186,15 +186,21 @@ pre code {
 <h1 class="title toc-ignore">HUX2021 / Dokumentation</h1>
 <h3 class="subtitle">HA Empirische Methoden der Sprachwissenschaft / Meinschäfer/Schirakowski SS20 FUB</h3>
 <h4 class="author">St. Schwarz</h4>
-<h4 class="date">2023-06-12 07:18:02</h4>
+<h4 class="date">20230618(13.06)</h4>
 
 </div>
 
 
+<table>
+<tbody>
+<tr class="odd">
+<td>to read the RMarkdown source with all computations to this document in RStudio cf. <a href="https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd"><span class="citation">Schwarz (2021)</span></a></td>
+</tr>
+</tbody>
+</table>
 <div id="draft-abstract" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> draft abstract</h1>
-<p>Ich werde in dieser Arbeit den Versuch unternehmen, ein im Rahmen empirischer Studien durchgeführtes <a href="https://github.com/esteeschwarz/essais/docs/hux2021">psycholinguistisches Experiment</a> ausführlich zu dokumentieren.
-Die Studie wurde in einem Forschungsseminar der BUA<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> in Kooperation Studierender von FU, TU, HU unter der Aufsicht der Charite durchgeführt. Es handelt sich in diesem Teil um die partielle Replikation des von Paula Rubio-Fernandez <span class="citation">(Rubio-Fernández, Cummins, and Tian 2016)</span> unternommenen Versuchs, das Metaphernverständnis von schizophrenen Personen zu untersuchen. Dazu wurde in der Kontrollgruppe ein <em>self paced reading</em> Experiment veranstaltet und ausgewertet.</p>
+<p>Ich werde in dieser Arbeit den Versuch unternehmen, ein im Rahmen empirischer Studien durchgeführtes <a href="https://github.com/esteeschwarz/essais/docs/hux2021">psycholinguistisches Experiment</a> ausführlich zu dokumentieren. Die Studie wurde in einem Forschungsseminar der BUA<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> in Kooperation Studierender von FU, TU, HU unter der Aufsicht der Charite durchgeführt. Es handelt sich in diesem Teil um die partielle Replikation des von Paula Rubio-Fernandez <span class="citation">(Rubio-Fernández, Cummins, and Tian 2016)</span> unternommenen Versuchs, das Metaphernverständnis von schizophrenen Personen zu untersuchen. Dazu wurde in der Kontrollgruppe ein <em>self paced reading</em> Experiment veranstaltet und ausgewertet.</p>
 </div>
 <div id="zum-experiment" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Zum Experiment</h1>
@@ -248,7 +254,7 @@ Die Daten selbst enthielten Werte für:</p>
 </div>
 <div id="zum-inhalt-des-tests" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Zum Inhalt des Tests</h2>
-<p>Die items, die in Anlehnung an R/F nach obigem Muster von uns entworfen wurden, entsprachen im Aufbau dem set, das R/F in ihrem Test verwendet hatte; vier ihrer im Anhang zur Verfügung gestellten items hatten wir ins deutsche übersetzt und eines davon als item in vier Varianten, die restlichen als filler übernommen. Die Auswahl der verwendeten items wurde gemeinschaftlich nach Kriterien wie Konsistenz innerhalb der items, Stil und Kohärenz bestimmt. Ebenfalls nach den constraints von R/F gerichtete Vorgaben wie Wort- und Phrasenlänge (<code>median characters/phrase =</code> <code>44</code>), Itemlänge (<code>median characters/item =</code> <code>0</code>) und Position des targets hatten beim Entwurf eine wichtige Rolle gespielt, waren jedoch nicht immer optimal umgesetzt worden; dazu einige Bemerkungen im Auswertungsteil. Ein item sollte eine Metapher in je figurativer und literaler Bedeutung, eingebettet in einen je figurativen oder literalen Kontext, d.h. also in insgesamt vier unterschiedlichen Konfigurationen, präsentieren. Die Metapher (unser target) sollte sich im dritten Viertel des Kontextes befinden, um davor und danach auftretende Latenzen der Lesezeit auswerten zu können. Dafür wurden im script des Tests die Positionen der einzeln zu lesenden Phrasen des items mit 0 für das target und je negativen und positiven Werten für den Abstand zum target festgelegt.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a><br />
+<p>Die items, die in Anlehnung an R/F nach obigem Muster von uns entworfen wurden, entsprachen im Aufbau dem set, das R/F in ihrem Test verwendet hatte; vier ihrer im Anhang zur Verfügung gestellten items hatten wir ins deutsche übersetzt und eines davon als item in vier Varianten, die restlichen als filler übernommen. Die Auswahl der verwendeten items wurde gemeinschaftlich nach Kriterien wie Konsistenz innerhalb der items, Stil und Kohärenz bestimmt. Ebenfalls nach den constraints von R/F gerichtete Vorgaben wie Wort- und Phrasenlänge (<code>median characters/phrase =</code> <code>44</code>), Itemlänge und Position des targets hatten beim Entwurf eine wichtige Rolle gespielt, waren jedoch nicht immer optimal umgesetzt worden; dazu einige Bemerkungen im Auswertungsteil. Ein item sollte eine Metapher in je figurativer und literaler Bedeutung, eingebettet in einen je figurativen oder literalen Kontext, d.h. also in insgesamt vier unterschiedlichen Konfigurationen, präsentieren. Die Metapher (unser target) sollte sich im dritten Viertel des Kontextes befinden, um davor und danach auftretende Latenzen der Lesezeit auswerten zu können. Dafür wurden im script des Tests die Positionen der einzeln zu lesenden Phrasen des items mit 0 für das target und je negativen und positiven Werten für den Abstand zum target festgelegt.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a><br />
 Das set eines einzelnen durch Abruf des Fragebogens aufgerufenen Tests bestand für jede Studienteilnehmerin aus einer randomisierten Auswahl einer von vier mal acht Itemvarianten (aus der Menge von 8 items), womit jeweils zweifach Meszdaten der vier Varianten pro TN erhoben werden konnten, aber niemals ein TN ein item in mehreren Varianten las.
 Die 16 filler items traten innerhalb des sets aus also 24 items an zufälligen Positionen auf, wurden aber bei allen TN aus demselben pool bedient und wiesen ausgeglichene Variation hinsichtlich der figurativ-literalen Konfiguration auf.</p>
 </div>
@@ -257,13 +263,13 @@ Die 16 filler items traten innerhalb des sets aus also 24 items an zufälligen P
 <p>O.a. Daten wurden in R <span class="citation">(RStudio and PBC 2022)</span> 1. deskriptiv und 2. mittels des Paketes lme4 <span class="citation">(Bates et al. 2015)</span> zur Erhebung kovariater Abhängigkeiten (linear mixed model) analog der Vorgaben <span class="citation">(Rubio-Fernández, Cummins, and Tian 2016)</span> ausgewertet. Das script dazu kann <a href="https://github.com/esteeschwarz/essais/tree/main/docs/hux2021/evaluation">hier</a>, sowie eine visualisierte, vom user nach eigenen Parametern anzupassende deskriptive Auswertung <a href="https://vision2020.shinyapps.io/hux2021">hier</a> nachvollzogen werden. Für eine ausschnitthafte Visualisierung cf. (Figure <a href="#fig:fig-01">1</a>, <a href="#fig:fig-02">2</a>, <a href="#fig:fig-03">3</a>).</p>
 <div id="a." class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> a.</h3>
-<p>Zur Auswertung wurden die erhobenen durch ein php-script im flachen comma-separated Format gespeicherten Lesezeiten in R importiert. Um zu gewährleisten, dasz Abweichungen hinsichtlich der Zeichenanzahl der zeitgemessenen Phrasen keine unerwünschten Effekte in der Berechnung der Latenzen zeitigen, wurde bei jeder weiteren Berechnung dafür ein von der Zeichenanzahl/Phrase anhängiger Koeffizient einbezogen, der in der ersten, deskriptiven Auswertung einfach aus der Zeichenanzahl, bei der zweiten kovariaten Auswertung mittels lme4 bestimmt <span class="citation">(Fine et al. 2013)</span> und als Residual (hier: korrigierte Lesezeit) einbezogen wurde. R/F hatten ihre Daten mit dem R-package lme4 unter multivariaten Gesichtspunkten analysiert; so konnte auch ich (in dieser Phase ging die Experiment-Arbeitsgruppe getrennte Wege) nach Feststellung des Effekts der Phrasenlänge und Berücksichtigung desselben als korrigierte Lesezeit (hier: die abhängige Variable in der lmer Formel) einen signifikanten Effekt der Itemkategorie auf die Lesezeiten von SM und ISM (im Dataset “MM”) feststellen. Bei der Multivarianzanalyse wurden hier ein <em>main effect</em> der Kategorie (LC, SM, EM, ISM = group) unter <em>random effects</em> von TN (participant) und Kategorie auf TN (group by participant) vorausgesetzt.</p>
+<p>Zur Auswertung wurden die erhobenen durch ein php-script im flachen comma-separated Format gespeicherten Lesezeiten in R importiert. Um zu gewährleisten, dasz Abweichungen hinsichtlich der Zeichenanzahl der zeitgemessenen Phrasen keine unerwünschten Effekte in der Berechnung der Latenzen zeitigen, wurde bei jeder weiteren Berechnung dafür ein von der Zeichenanzahl/Phrase anhängiger Koeffizient einbezogen, der in der ersten, deskriptiven Auswertung einfach aus der Zeichenanzahl, bei der zweiten kovariaten Auswertung mittels lme4 bestimmt <span class="citation">(Fine et al. 2013)</span> und als Residual (hier: korrigierte Lesezeit) einbezogen wurde. R/F hatten ihre Daten mit dem R-package lme4 unter multivariaten Gesichtspunkten analysiert; so konnte auch ich (in dieser Phase ging die Experiment-Arbeitsgruppe getrennte Wege) nach Feststellung des Effekts der Phrasenlänge und Berücksichtigung desselben als korrigierte Lesezeit (hier: die abhängige Variable in der lmer Formel) einen signifikanten Effekt der Itemkategorie auf die Lesezeiten von SM und ISM (im Dataset “MM”) feststellen. Bei der Multivarianzanalyse wurden hier ein <em>main effect</em> der Kategorie (LC, SM, EM, ISM = group) unter <em>random effects</em> von TN (participant) und Kategorie auf TN (group by participant) vorausgesetzt. cf. <span class="citation">(Rubio-Fernández, Cummins, and Tian 2016, 20)</span></p>
 </div>
 <div id="b." class="section level3" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> b.</h3>
 <p>Deskriptiv konnten am target keine signifikanten Unterschiede in der durchschnittlichen Lesezeit an den verschieden eingebetteten Metaphern festgestellt werden. Da mir noch wesentliche Grundlagen zur Interpretation der Ergebnisse der Multivarianzanalyse fehlen und es sich hier nur um die kurze Dokumentation des Experiments im Seminarkontext handeln soll, die endlich abgeschlossen werden soll, werde ich darauf verzichten, meine Ergebnisse der multivariaten Berechnungen zur Grundlage einer dadurch ansatzweisen Bestätigung der 2. und 3. Hypothesen (ISM &gt; LC = EM) zu stilisieren. Sie seien hier jedoch kurz angeführt - die Hierarchie der Lesezeiten wäre dann (model estimates) wie folgt zu lesen: ISM &gt; EM = LC &gt; SM, in Kontrast zur Hypothese ISM = SM &gt; EM = LC (cf. lmer summary):</p>
 <pre><code>## rtc ~ XvsGr + (1 | item) + (1 | participant) + (1 + XvsGr | participant)
-## &lt;environment: 0x7f8b29179eb8&gt;</code></pre>
+## &lt;environment: 0x7ff07f58c1e8&gt;</code></pre>
 <pre><code>## Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [
 ## lmerModLmerTest]
 ## Formula: lmeforms$old[[1]]
@@ -273,25 +279,25 @@ Die 16 filler items traten innerhalb des sets aus also 24 items an zufälligen P
 ## 
 ## Scaled residuals: 
 ##     Min      1Q  Median      3Q     Max 
-## -2.6774 -0.6315 -0.1277  0.4835  3.8334 
+## -2.6774 -0.6315 -0.1279  0.4835  3.8335 
 ## 
 ## Random effects:
 ##  Groups        Name        Variance Std.Dev. Corr             
-##  participant   (Intercept) 102555   320.2                     
-##                XvsGr2EM    338946   582.2    -0.41            
-##                XvsGr3LC     90446   300.7    -0.11  0.81      
-##                XvsGr4MM     19995   141.4     0.61  0.41  0.54
-##  participant.1 (Intercept) 432559   657.7                     
-##  item          (Intercept)   8760    93.6                     
-##  Residual                  550737   742.1                     
+##  participant   (Intercept) 311326   557.97                    
+##                XvsGr2EM    338965   582.21   -0.24            
+##                XvsGr3LC     90413   300.69   -0.06  0.81      
+##                XvsGr4MM     19939   141.21    0.35  0.41  0.54
+##  participant.1 (Intercept) 223831   473.11                    
+##  item          (Intercept)   8759    93.59                    
+##  Residual                  550745   742.12                    
 ## Number of obs: 819, groups:  participant, 39; item, 8
 ## 
 ## Fixed effects:
 ##             Estimate Std. Error      df t value Pr(&gt;|t|)  
 ## (Intercept)  -317.38     131.85   38.96  -2.407   0.0209 *
-## XvsGr3LC      147.50      90.30   28.00   1.633   0.1136  
+## XvsGr3LC      147.50      90.29   27.98   1.634   0.1135  
 ## XvsGr2EM      151.68     120.56   34.53   1.258   0.2168  
-## XvsGr4MM      202.74      75.51   35.93   2.685   0.0109 *
+## XvsGr4MM      202.74      75.50   35.86   2.685   0.0109 *
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
@@ -301,7 +307,7 @@ Die 16 filler items traten innerhalb des sets aus also 24 items an zufälligen P
 ## XvsGr2EM -0.242  0.572       
 ## XvsGr4MM -0.188  0.378  0.480
 ## optimizer (nloptwrap) convergence code: 0 (OK)
-## Model failed to converge with max|grad| = 0.00234563 (tol = 0.002, component 1)</code></pre>
+## Model failed to converge with max|grad| = 0.00265125 (tol = 0.002, component 1)</code></pre>
 </div>
 <div id="c." class="section level3" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> c.</h3>
@@ -585,13 +591,12 @@ Figure 3: comparing SM vs. other
 <p>cf. (Figure 4)</p>
 <p>wenn Sie sich in der .pdf-Ausgabe der Arbeit befinden, können Sie
 <a href="https://ada-sub.dh-index.org/school/papers/014/ext/index.html">hier</a> die Ansicht aufrufen.</p>
-<div class="figure">
-<img src="hux2021-screen.png" alt="" />
-<p class="caption">Figure 4: Experiment screenshot</p>
+<div class="float">
+<img src="hux2021-screen.png" alt="Figure 4: Experiment screenshot" />
+<div class="figcaption">Figure 4: Experiment screenshot</div>
 </div>
 <p>sonst hier ein Auszug aus der verwendeten Version, der im .pdf nicht erscheint.</p>
 <iframe src='https://ada-sub.dh-index.org/school/papers/014/ext/index.html' height='800px' width='100%' style="border:1px solid black;"></iframe>
-<hr />
 <hr />
 </div>
 </div>
@@ -616,13 +621,16 @@ RStudio, and PBC. 2022. <span>“<span>RStudio</span> <span>IDE</span>.”</span
 <div id="ref-rubio-fernandez_are_2016" class="csl-entry">
 Rubio-Fernández, Paula, Chris Cummins, and Ye Tian. 2016. <span>“Are Single and Extended Metaphors Processed Differently? <span>A</span> Test of Two <span>Relevance</span>-<span>Theoretic</span> Accounts.”</span> <em>Journal of Pragmatics</em> 94 (March): 15–28. <a href="https://doi.org/10.1016/j.pragma.2016.01.005">https://doi.org/10.1016/j.pragma.2016.01.005</a>.
 </div>
+<div id="ref-schwarz_rmarkdown_2021" class="csl-entry">
+Schwarz, St. 2021. <span>“<span>RMarkdown</span> Source to This Document.”</span> <a href="https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd">https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd</a>.
+</div>
 </div>
 </div>
 <div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p>Berlin University Alliance<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p><em>item</em> hier als ein in vier Ausprägungen entworfener Text mit durchschnittlicher Länge von 0 Zeichen.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><em>item</em> hier als ein in vier Ausprägungen entworfener Text mit durchschnittlicher Länge von 400 Zeichen.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 <li id="fn3"><p>da diese Positionen erst :nach: Start des Tests konsequent im script festgelegt wurden, muszte bei der Auswertung einiges manuell nachgearbeitet werden, um die Daten konsistent zu halten.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 <li id="fn4"><p>Für weitere Ansichten und Studiensample besuchen Sie bitte <a href="https://vision2020.shinyapps.io/hux2021">o.a. interaktive Visualisierungen</a>.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
 </ol>
