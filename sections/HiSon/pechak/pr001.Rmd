@@ -1,6 +1,6 @@
 ---
 title: "digitale dramenanalyse"
-subtitle: "sample workflow to standard data set"
+subtitle: "sample workflow to a standard data set from historical sources"
 author: "Stephan Schwarz, FUB"
 output: 
   powerpoint_presentation:
@@ -17,19 +17,22 @@ knitr::opts_chunk$set(echo = FALSE)
 library(readr)
 ```
 
+## things i learned at school
+![](figure-html/hison1.jpeg)
+
 ## intro
-I will show you in a few steps an example workflow of how to prepare some base documents of historic sources that enable further analysis of a dramatic text.     
+I will show you in a few steps an example workflow of how to produce standard documents of historical sources that enable further analysis of (here) dramatic text.     
 assumed we start with a plain text file, a lot of work had been done by others yet and we can proceed to the TEI refactoring of the text.   
-if we do not have a text file yet, first will be to transcribe some source of the text, usually a .pdf or collection of .jpegs like the following...
+but with historical sources (wide sense) this will not be the case, so first will be to transcribe some source of the text, usually a .pdf or collection of .jpegs like the following...
 
 ## this:
-![bodmer excerpt](figure-html/bodmer_polytimet_1760-0007.jpg)
+![bodmer: polytimet, excerpt](figure-html/bodmer_polytimet_1760-0007.jpg)
 
 ## transcription
-for that purpose you can either transcribe the text manually, from picture to text, or you use e.g. *TRANSKRIBUS* [@read-coop_transkribus_2022], a user friendly framework for OCR (optical character recognition). with that half of the work is done by the algorithm, but you still have to check the automatic transcription for recognition failures depending on the quality and the typography of the source.
+for that purpose you can either transcribe the text manually, from picture to text, or you use e.g. *TRANSKRIBUS* [@read-coop_transkribus_2022], a user friendly framework for OCR (optical character recognition). with that half of the work is done by the engine, but you still have to check the automatic transcription for recognition failures depending on the quality and the typography of the source.
 
 ## editing
-next step if you have the transcript ready will be to upload the text page by page to *WIKISOURCE* [@wikimedia_wikisource_nodate] where it can be proofread by others. if theres two correction runs ready, you can download the proper version of the text from which we proceed to the TEI.
+next step if you have the transcript ready would be to upload the text page by page to *WIKISOURCE* [@wikimedia_wikisource_nodate] where it can be proofread by others. after that you can download the proper version of the text from which we proceed to the TEI.
 
 ## TEI:why
 - FAIR-Prinzipien für Daten: findable, accessible, interoperable, reusable
@@ -70,10 +73,35 @@ $The end
 
 
 ## finalise
-if all that is done you possess a finalized TEI text which allows further analysis of the drama again e.g. using python or R for network, semantic etc. analyses.
-![types](figure-html/typetoken.png) ![net](figure-html/network.png)
+if all that is done you possess a finalized TEI document which allows further analysis of the drama again e.g. using python or R for network, semantic etc. analyses. 1 platform hosting e.g. the drama plays in question is *dracor.org* [@fischer_programmable_2019], from where you can access 
 
-## or linguistic basics
+## TEI excerpt
+```
+<div type="act">
+        <head>Zweyter Auftritt.</head>
+        <stage>Aristodem, Polytimet.</stage>
+        <sp who="#aristodem">
+          <speaker>Aristodem.</speaker>
+          <p>Ich komme, den König Polemon bey dir zu melden; er wird gleich bey dir seyn.</p>
+        </sp>
+        <sp who="#polytimet">
+          <speaker>Polytimet.</speaker>
+          <p>Was ist das für eine Herablassung, daß er zu seinem Gefangenen kommen will? Ich halte es für Edelmuth, und daß er mir so das Unglük, ein Gefangener zu seyn, versüssen wolle. <pb no="7"/>;</p>
+        </sp>
+        <sp who="#aristodem">
+          <speaker>Aristodem.</speaker>
+          <p>Prinz, deine Dapferkeit, die bey dieser Jugend so gesezt, so bedachtsam ist, verdienet  dir die Freundschaft des Helden, wiewol das Glük dir diesmal gefehlt hat.</p>
+        </sp>
+```
+
+## output1
+![](figure-html/typetoken.png)
+
+## output2
+![@noauthor_gephi_nodate](figure-html/klemm_gephi_vis_002.png)
+
+
+## e.g. LX basics
 
 ```{r echo=F,warning=F}
 posdf<-read.csv("lessing-galotti_PoStagged.csv")
@@ -81,15 +109,26 @@ library(knitr)
 kable(head(posdf))
 ```
 
-## Slide with R Output
+## further processing
 
-```{r cars, echo = TRUE}
-summary(cars)
-```
+the standardised text opens more options  
+- building a corpus of the text/texts in question: *ANNIS* [@noauthor_annis_nodate]   
+- annotating/coding the text (corpus)   
+- textwitness comparison, *LERA* [@pockelmann_lera_2022]
 
-## Slide with Plot
+## sources comparison
+![LERA output](figure-html/klemm_lera.png)
+## 17
+todo
 
-```{r pressure}
-plot(pressure)
-```
+## 18
+todo
+
+## 19
+![](figure-html/hison2.jpeg)
+
+
+
+
+
 
