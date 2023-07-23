@@ -78,7 +78,7 @@ $The end
 
 
 ## finalise
-if all that is done you possess a finalized TEI document which allows further analysis of the drama again e.g. using python or R for network, semantic etc. analyses. 1 platform hosting e.g. the drama plays in question is *dracor.org* [@fischer_programmable_2019], from where you can access the TEI versions, network and other data.
+if all that is done you possess a finalized TEI document which allows further analysis of the drama again e.g. using python or R for network, semantic etc. analyses. 1 platform hosting e.g. the drama plays in question is *dracor.org* [@fischer_programmable_2019], from where you can access the TEI versions, network data and other data.
 
 ## TEI excerpt
 ```
