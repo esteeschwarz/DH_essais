@@ -7,6 +7,7 @@ output:
     #reference_doc: style01.pptx
    # reference_doc: pr001_style.pptx
   #  reference_doc: Design1.thmx
+   #  reference_doc: pr001_mod.pptx #not wks. have to finalise in powerpoint
 
 date: "2023-07-22"
 bibliography: klemm.bib
@@ -17,8 +18,12 @@ knitr::opts_chunk$set(echo = FALSE)
 library(readr)
 ```
 
-## things i learned at school
+## where:you:at
 ![](figure-html/hison1.jpeg)
+
+
+## things i learned at school
+![](figure-html/hison0.jpeg)
 
 ## intro
 I will show you in a few steps an example workflow of how to produce standard documents of historical sources that enable further analysis of (here) dramatic text.     
@@ -41,7 +46,7 @@ next step if you have the transcript ready would be to upload the text page by p
 theres multiple ways of how you can get to the TEI text. one is to wrap text elements which need to be marked up with *OXYGEN*, a powerful XML editor.
 
 ## TEI:refactoring
-in our drama class, we used a python script *(JUPYTER-notebook)* written by a friendly geek which allowed easily transforming the preprocessed text into the desired format. 
+in our drama class, we used a python notebook (*ezdrama*, @skorinkin_ezdrama_2023) written by a friendly geek which allowed easily transforming the preprocessed text into the desired format. 
 
 ## basic auszeichnung:
 ``` {r}
@@ -73,7 +78,7 @@ $The end
 
 
 ## finalise
-if all that is done you possess a finalized TEI document which allows further analysis of the drama again e.g. using python or R for network, semantic etc. analyses. 1 platform hosting e.g. the drama plays in question is *dracor.org* [@fischer_programmable_2019], from where you can access 
+if all that is done you possess a finalized TEI document which allows further analysis of the drama again e.g. using python or R for network, semantic etc. analyses. 1 platform hosting e.g. the drama plays in question is *dracor.org* [@fischer_programmable_2019], from where you can access the TEI versions, network data and other data.
 
 ## TEI excerpt
 ```
@@ -118,11 +123,9 @@ the standardised text opens more options
 
 ## sources comparison
 ![LERA output](figure-html/klemm_lera.png)
-## 17
-todo
 
-## 18
-todo
+## todo
+![ספר תגי](figure-html/Seferhatagin-0006.jpeg)
 
 ## 19
 ![](figure-html/hison2.jpeg)
