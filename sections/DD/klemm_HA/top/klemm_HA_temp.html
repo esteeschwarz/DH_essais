@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="esteeschwarz" />
+
+<meta name="date" content="2022-09-19" />
+
+<title>klemmHA</title>
+
+<script src="klemm_HA_temp_files/header-attrs-2.16/header-attrs.js"></script>
+<script src="klemm_HA_temp_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="klemm_HA_temp_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="klemm_HA_temp_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="klemm_HA_temp_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="klemm_HA_temp_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="klemm_HA_temp_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="klemm_HA_temp_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="klemm_HA_temp_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="klemm_HA_temp_files/navigation-1.1/tabsets.js"></script>
+<link href="klemm_HA_temp_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="klemm_HA_temp_files/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">klemmHA</h1>
+<h4 class="author">esteeschwarz</h4>
+<h4 class="date">2022-09-19</h4>
+
+</div>
+
+
+<audio controls>
+  <source src="https://potmaschin.rotefadenbuecher.de/audio/magen_musik/a-cdtrack8-d.mp3" type="audio/mpeg">
+You would hear audio but your browser does not support the audio element.
+</audio>
+<div id="einleitung" class="section level1">
+<h1>1. einleitung</h1>
+<p>precondition: Im Seminar “Digitale Dramenanalyse” des SS2022 (Frank
+Fischer, FUB) war den Teilnehmern freigestellt, sich während des
+Semester einem Stück aus der DraCor Einakterdatenbank <span
+class="citation">(Çakir and Fischer 2022)</span> &amp; <span
+class="citation">(DraCor and Klemm 2022)</span> zu widmen. Das sollte
+den Prozess umfassen der Transkription und Auszeichnung nach TEI
+Standard. Es wurden 9 Stücke selbst gewählt und, teilweise im Team,
+daran gearbeitet. Über den Zwischenstand wurden Referate zu Stück und
+Autor sowie evtl. schon während des Seminars kennengelernter Analysen
+vorgestellt. Ich habe Christian Gottlieb Klemms “Der Besuch” ausgesucht,
+bin bei der Auswahl aber nur nach Sprache <em>Deutsch</em> und einem
+allein zu bewältigenden Umfang gegangen. Ich werde in dieser Arbeit kurz
+dokumentieren, wie die Aufgaben umgesetzt wurden, welche Methoden dabei
+zum Einsatz kamen und einen Ausblick auf literaturwissenschaftliche
+Analysen geben, die mit den gelernten Verfahren möglich sind.</p>
+</div>
+<div id="klemm" class="section level1">
+<h1>2. klemm</h1>
+<div id="bio" class="section level2">
+<h2>2.1 bio</h2>
+<p>Klemm wurde 1736 in Schwarzenberg/Erzgebirge geboren und lebte bis
+1802 in Leipzig, Jena, Frankfurt, ab 1759 in Wien. Dort wurde er
+Herausgeber verschiedener Wochenblätter (Die Welt, Der österreichische
+Patriot, Beyträge zum deutschen Theater, Wiener Allerlei) in denen neben
+theaterkritischen und -theoretischen Beiträgen teilweise auch seine
+Stücke erschienen <span class="citation">(Killy 2009)</span>.</p>
+</div>
+<div id="stück" class="section level2">
+<h2>2.2 stück</h2>
+<p>“Der Besuch” ist ein Bühnenstück mit fünf Hauptpersonen (Celimene,
+Chlorinde, Cydalise, Erast, Damis) und einer Nebenfigur (Finette) sowie
+einer weiteren Randfigur (Ein Bedienter). Das Stück ist 1765 in der von
+Klemm herausgegebenen Wochenzeitschrift “Der Österreichische Patriot”
+zuerst, 1767 in den “Beyträgen zum deutschen Theater” ein weiteres Mal
+erschienen. Es ist in 9 Szenen unterteilt, zählt um 3.400 Wörter.</p>
+</div>
+<div id="verortung" class="section level2">
+<h2>2.3 verortung</h2>
+<p>Klemms Stück fällt in eine Zeit der Reformierung der Wiener
+Theaterlandschaft. Er selbst stand mit seiner Position (für die Posse,
+den Hanswurst, die Burlesque) den Bestrebungen der Schaubühnen zu
+ernsthaftem, gesitteten Theater entgegen, die von den damaligen
+Direktoren v. Wewen, v. Bender unter Generaldirektor v. Spork, auch mit
+groszer Zustimmung seitens der Schauspieler vollzogen wurden. <em>Der
+Besuch</em> läszt sich darum vielleicht als zur Entstehungszeit
+anachronistisches Stück einordnen, das nicht mehr den Nerv des Wiener
+(sic!) Publikums traf, die ernsthaften Stücke waren besser besucht. (cf.
+<span class="citation">(Müller 1772)</span> p.13(37)). Der
+meinungsführende Regimentsrat v. Sonnenfels hätte hier in (seinem)
+Wochenblatt <em>Der Mann ohne Vorurtheil</em> <span
+class="citation">(Sonnenfels 1783)</span> die moderneren Ansichten
+vertreten; ein Umstand, der möglicherweise die fehlende Aufmerksamkeit
+für (auch Klemms weitere Stücke) erklärt.</p>
+</div>
+</div>
+<div id="dokumentation-aufbereitung" class="section level1">
+<h1>3. dokumentation aufbereitung</h1>
+<div id="transkription" class="section level2">
+<h2>3.1. transkription</h2>
+<p>Als Textgrundlage des im folgenden <em>Rohtext</em> genannten
+Materials dienten die von google books öffentlich zur Verfügung
+gestellten scans der Erstausgabe von 1765 (A1765_Q) <span
+class="citation">(google and Klemm 1765)</span>, die grösztenteils auf
+den in der Österreichischen Nationalbibliothek schon vorhandenen
+Digitalisierungen <span class="citation">(ÖNB and Klemm 1765)</span>
+basieren. Diese wurden auf wikisource und hiermit auf einer Plattform
+zur kollaborativen Erstellung von u.a. Transkriptionen (vom
+Seminarleiter) weiterhin zugänglich gemacht und durchliefen nun den
+Prozess von Transkription und zweifacher unabhängiger Korrektur <span
+class="citation">(wikisource and Klemm 1765)</span>. Basis der
+Transkription war im ersten Stadium eine zu 90% verläszliche OCR
+(optical character recognition) mittels TRANSKRIBUS <span
+class="citation">(read-coop 2022)</span>. Benutzt wurde das frei
+verfügbare OCR-model “ONB_Newseye_GT_M1+”, das zufriedenstellende
+Ergebnisse lieferte - allerdings nur mit der Ausgabe von 1767 (A1767_Q),
+die ich als scan in der Digitalen Sammlung der Münchner Staatsbibliothek
+<span class="citation">(MDZ and Klemm 1767)</span> gefunden hatte. Da
+sich diese, wie ich bald feststellte, doch in einigen Punkten von der
+Erstausgabe unterschied, wurde der Rohtext auf Wikisource also :nur
+unter Zuhilfenahme: dieser OCR-Fassung erstellt, d.h. im Einzelnen:</p>
+<ol style="list-style-type: decimal">
+<li>OCR (A1767_Q)
+<ol style="list-style-type: decimal">
+<li>Korrektur desselben in TRANSKRIBUS</li>
+<li>Resultat Rohtext (A1767_R)</li>
+</ol></li>
+<li>Abgleich A1767_R mit A1765_Q in der Bearbeitungsmaske von Wikisource
+<ol style="list-style-type: decimal">
+<li>Korrektur bzw. Anpassung des auf diese Weise erstellten Rohtext der
+Erstausgabe (A1765_R)</li>
+<li>upload des Rohtextes</li>
+</ol></li>
+<li>zwei Korrekturdurchgänge
+<ol style="list-style-type: decimal">
+<li>die von weiteren Personen auf Wikisource durchgeführt wurden</li>
+<li>dabei wurde A1765_R bereits mit Szenenüberschriften und
+Sprechermarkierungen versehen</li>
+</ol></li>
+</ol>
+</div>
+<div id="tei-auszeichnung" class="section level2">
+<h2>3.2 TEI-auszeichnung</h2>
+<p>Der grosze Teil der weiteren Arbeit bestand in der ersten
+vereinfachten Auszeichnung nach TEI-Standard. Ich habe hierzu ein
+umfassendes script <span class="citation">(esteeschwarz 2022)</span> in
+der Programmiersprache R <span class="citation">(RStudio and PBC
+2022)</span> entworfen, das in A1765_R mittels der Suche mit regulären
+Ausdrücken (z.B. <span class="citation">(regexr 2022)</span>)
+Szenenwechsel, Sprecherbezeichnungen und Regieanweisungen nach einigem
+Aufwand zu finden vermochte<a href="#fn1" class="footnote-ref"
+id="fnref1"><sup>1</sup></a> um diese schlieszlich in HTML-tags zu
+:verpacken: d.h. die einzelnen verschiedenen Elemente des Textes nach
+einem Standard zu markieren, der uns vorlag und bereits als Schema zur
+Validierung im Editor verwendet werden konnte <span
+class="citation">(drama and DraCor 2022)</span>. Es handelte sich dabei
+noch nicht um die finale, schemagerechte Version. Diese wurde weiterhin
+vor der Integration des Stückes in das dracor-Korpus <span
+class="citation">(Fischer et al. 2019)</span> vom Seminarleiter auf
+Grundlage der vereinfachten Version erstellt.</p>
+<div id="beispiel-der-auszeichnung" class="section level3">
+<h3>3.2.1.beispiel der auszeichnung:</h3>
+<pre class="r"><code>library(rvest)
+library(stringi)
+src&lt;-&quot;https://de.wikisource.org/wiki/Der_Besuch_(Klemm)&quot;
+dta1&lt;-read_html(src)
+xpathkl&lt;-&#39;//*[@id=&quot;mw-content-text&quot;]/div[1]/div[2]&#39;
+#xpath copied from browser developer tools (safari)
+#html_nodes(dta1,xpath = xpathkl)
+txt&lt;-html_nodes(dta1,xpath = xpathkl) %&gt;%html_text()
+
+ # txt&lt;-ground(txt)
+  repl1&lt;-&#39;&lt;div type=&quot;scene&quot;&gt;&lt;head&gt;\\1 \\2&lt;/head&gt;&lt;stage&gt;&#39;
+  regx1&lt;-&quot;(Erster|Zweyter|Dritter|Vierter|Fünfter|Sechster|Siebenter|Achter|Neunter) (Auftritt.)&quot;
+  #stri_extract_all_regex(txtm,regx3)
+  m&lt;-gregexec(regx1,txt,perl = T)
+  #regmatches(txt,m)
+ txtm1&lt;-gsub(regx1,repl1,txt,perl = T)
+  #wks.
+ cat(stri_sub(txtm1,1,500),&quot;[...]&quot;)</code></pre>
+<pre><code>## 
+## [Ξ] Der österreichische Patriot.
+## Drey und vier und siebenzigstes Stück.
+## Freytags den 14. Junii. 1765.
+## Der
+## Besuch,
+## Ein Lustspiel
+## in einem Aufzuge.
+## 
+## Personen.
+## Celimene, Finette, Erast, Chlorinde, Cydalise, Damis.
+## 
+## &lt;div type=&quot;scene&quot;&gt;&lt;head&gt;Erster Auftritt.&lt;/head&gt;&lt;stage&gt;
+## Celimene, Finette.
+## Celimene.
+## Siehst du nun, wie behutsam man mit den Mannspersonen
+## umgehen muß? Wie lange man sie für
+## rechtschaffen, für zärtlich, für beständig halten
+## kann? und auf einmal ist der Verräther da. Alle
+## sind Verräther,  [...]</code></pre>
+</div>
+<div id="finales-tei" class="section level3">
+<h3>3.2.2 finales TEI</h3>
+<p>Ziel der Bearbeitung war, das Stück auf DraCor für weitere Analysen
+in standardisierten Formaten (TEI, RDF, JSON sowie TXT und GRAPHML/GEFX
+Netzwerkdaten) zur Verfügung stellen zu können. Hierzu war es nötig,
+zuerst die Textgrundlage und erste Auszeichnung herzustellen. Mit
+Verfügbarkeit des Dramas im schemagerechten TEI Austauschformat, das im
+Bereich der digital humanities oder der Wissenschaft seit Jahren als
+Standard etabliert ist <span class="citation">(TEI 1987)</span>, wenn es
+um die Bereitstellung/ Katalogisierung, Archivierung bzw. eben den
+Austausch von Daten oder Metadaten geht, können nun weitreichende
+Analysen, vergleichende Studien und weiteres angestellt werden. Ich
+werde im Folgenden einen kleinen Ausschnitt dessen vorstellen, was
+möglich, aber in jedem Fall erweiterbar ist.</p>
+</div>
+</div>
+</div>
+<div id="some-visualisations" class="section level1">
+<h1>4. some visualisations</h1>
+<p>basics…</p>
+<pre><code>## load TEI from: https://dracor.org/api/corpora/ger/play/klemm-der-besuch/tei</code></pre>
+<p><img src="klemm_HA_temp_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="klemm_HA_temp_files/figure-html/unnamed-chunk-4-2.png" width="672" /><img src="klemm_HA_temp_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<div id="further" class="section level3">
+<h3>4.1.1 further…</h3>
+<pre><code>## vakat</code></pre>
+</div>
+<div id="network" class="section level2">
+<h2>4.2 network</h2>
+<p><img src="klemm_HA_temp_files/figure-html/unnamed-chunk-6-1.png" width="672" /><img src="klemm_HA_temp_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+<p>Q: networks graph cf. <span class="citation">(Poggel
+2022)</span>,<span class="citation">(Franceschet 2022)</span></p>
+</div>
+<div id="sources-comparison" class="section level2">
+<h2>4.3 sources comparison</h2>
+<div id="lera" class="section level3">
+<h3>4.3.1 (LERA)</h3>
+<iframe src="https://school.dh-index.org/public/pr/2022-06-22/klemm_LERA" height="800px" width= "100%"></iframe>
+<p>Q: LERA output cf. <span class="citation">(Pöckelmann et al.
+2022)</span></p>
+</div>
+<div id="section" class="section level3">
+<h3>4.3.2</h3>
+<p>Auf dieser Grundlage bieten sich weitere Analysen an, die den Rahmen
+dieser Arbeit jedoch übersteigen. Da</p>
+</div>
+</div>
+</div>
+<div id="ref" class="section level1 unnumbered">
+<h1 class="unnumbered">5. REF:</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-cakir_dramatische_2022" class="csl-entry">
+Çakir, Dîlan Canan, and Frank Fischer. 2022. <span>“Dramatische
+<span>Metadaten</span> - <span>Die</span> <span>Datenbank</span>
+Deutschsprachiger <span>Einakter</span> 1740–1850.”</span> Potsdam. <a
+href="https://doi.org/10.5281/zenodo.6327977">https://doi.org/10.5281/zenodo.6327977</a>.
+</div>
+<div id="ref-dracor_einakter_2022" class="csl-entry">
+DraCor, and Christian Gottlob Klemm. 2022. <span>“Einakter
+<span>Datenbank</span>: <span>Klemm</span> - <span>Der</span>
+<span>Besuch</span>.”</span> <em>Einakter Datenbank</em>. <a
+href="https://einakter.dracor.org/klemm-der-besuch">https://einakter.dracor.org/klemm-der-besuch</a>.
+</div>
+<div id="ref-drama_dracor_2022" class="csl-entry">
+drama, and DraCor. 2022. <span>“<span>DraCor</span> <span>XML</span>
+Model.”</span> <a
+href="https://tei-c.org/release/xml/tei/custom/schema/relaxng/">https://tei-c.org/release/xml/tei/custom/schema/relaxng/</a>.
+</div>
+<div id="ref-esteeschwarz_klemm_2022" class="csl-entry">
+esteeschwarz. 2022. <span>“Klemm: <span>TEI</span> Preprocessing
+<span>R</span> Script.”</span> <a
+href="https://github.com/esteeschwarz/DH_essais/tree/main/sections/DD/klemm_HA/scripts">https://github.com/esteeschwarz/DH_essais/tree/main/sections/DD/klemm_HA/scripts</a>.
+</div>
+<div id="ref-fischer_programmable_2019" class="csl-entry">
+Fischer, Frank, Ingo Börner, Mathias Göbel, Angelika Hechtl, Christopher
+Kittel, Carsten Milling, and Peer Trilcke. 2019. <span>“Programmable
+<span>Corpora</span>: <span>Introducing</span> <span>DraCor</span>, an
+<span>Infrastructure</span> for the <span>Research</span> on
+<span>European</span> <span>Drama</span>.”</span> Utrecht. <a
+href="https://doi.org/10.5281/zenodo.4284002">https://doi.org/10.5281/zenodo.4284002</a>.
+</div>
+<div id="ref-franceschet_communities_2022" class="csl-entry">
+Franceschet, Massimo. 2022. <span>“Communities in Igraph.”</span> <a
+href="https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html">https://users.dimi.uniud.it/~massimo.franceschet/R/communities.html</a>.
+</div>
+<div id="ref-google_klemm_1765" class="csl-entry">
+google, and Christian Gottlob Klemm. 1765. <em>Klemm: <span>Der</span>
+Österreichische <span>Patriot</span>: Eine <span>Wochenschrift</span>.
+Google Books</em>. Gedruckt u. zu finden bey Georg Ludwig Schulz. <a
+href="https://books.google.de/books?id=P2nXk3Ib9LkC">https://books.google.de/books?id=P2nXk3Ib9LkC</a>.
+</div>
+<div id="ref-killy_literaturlexikon_2009" class="csl-entry">
+Killy, Walter. 2009. <em>Literaturlexikon. <span>Band</span> 6
+<span>Huh</span> – <span>Kräf</span></em>. Edited by Wilhelm Kühlmann.
+Vol. 6. Killy <span>Literaturlexikon</span>. <span>Autoren</span> Und
+<span>Werke</span> Des Deutschsprachigen <span>Kulturraums</span>. De
+Gruyter. <a
+href="https://doi.org/10.1515/9783110213942">https://doi.org/10.1515/9783110213942</a>.
+</div>
+<div id="ref-mdz_klemm_1767" class="csl-entry">
+MDZ, and Christian Gottlob Klemm. 1767. <span>“Klemm,
+<span>Christian</span> <span>Gottlob</span>: <span>Christian</span>
+<span>Gottlieb</span> <span>Klemm</span>’s <span>Beyträge</span> Zum
+<span>Deutschen</span> <span>Theater</span>. 1, <span>Bild</span> 122
+von 620. <span>Münchener</span> <span>Digitalisierungszentrum</span>,
+<span>Bayerische</span> <span>Staatsbibliothek</span>.”</span> <a
+href="https://www.digitale-sammlungen.de/de/view/bsb10112352?page=122,123">https://www.digitale-sammlungen.de/de/view/bsb10112352?page=122,123</a>.
+</div>
+<div id="ref-muller_historische_1772" class="csl-entry">
+Müller, Johann Heinrich Friedrich, ed. 1772. <span>“Historische
+<span>Nachricht</span> Vom <span>Anfange</span> Des Deutschen
+<span>Schauspiels</span> in <span>Wien</span> Bis Auf Gegenwärtige
+<span>Zeit</span>.”</span> In <em>Genaue <span>Nachrichten</span> von
+Beyden <span>Kaiserlich</span>-<span>Königlichen</span>
+<span>Schaubühnen</span> Und Andern Öffentlichen
+<span>Ergötzlichkeiten</span> in <span>Wien</span> : <span>Mit</span>
+<span>Kupfern</span>.</em>, 7–18. Wien: gedruckt bey Joseph Kurzböck,
+k.k. illirisch- und orient. Hofbuchdr. u. Buchhändlern. <a
+href="https://www.digitale-sammlungen.de/view/bsb10115194?page=31">https://www.digitale-sammlungen.de/view/bsb10115194?page=31</a>.
+</div>
+<div id="ref-onb_klemm_1765" class="csl-entry">
+ÖNB, and Christian Gottlob Klemm. 1765. <span>“Klemm: <span>Der</span>
+Österreichische <span>Patriot</span>: Eine <span>Wochenschrift</span>.
+Österreichische <span>Nationalbibliothek</span>.”</span> <a
+href="https://digital.onb.ac.at/OnbViewer/viewer.faces?doc=ABO_%2BZ184248300">https://digital.onb.ac.at/OnbViewer/viewer.faces?doc=ABO_%2BZ184248300</a>.
+</div>
+<div id="ref-pockelmann_lera_2022" class="csl-entry">
+Pöckelmann, Marcus, André Medek, Jörg Ritter, and Paul Molitor. 2022.
+<span>“<span>LERA</span> - <span>An</span> Interactive Platform for
+Synoptical Representations of Multiple Text Witnesses.”</span>
+<em>Digital Scholarship in the Humanities (DSH)</em>. <a
+href="https://lera.uzi.uni-halle.de/about?lang=de">https://lera.uzi.uni-halle.de/about?lang=de</a>.
+</div>
+<div id="ref-poggel_10_2022" class="csl-entry">
+Poggel, Lisa. 2022. <span>“10. <span>Sitzung</span>:
+<span>Netzwerkanalyse</span>.”</span> <a
+href="https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html">https://lipogg.github.io/r-tutorium-website/tutorium10_11072022_netzwerke.html</a>.
+</div>
+<div id="ref-read-coop_transkribus_2022" class="csl-entry">
+read-coop. 2022. <span>“Transkribus.”</span> <em>READ-COOP</em>. <a
+href="https://readcoop.eu/transkribus/">https://readcoop.eu/transkribus/</a>.
+</div>
+<div id="ref-regexr_regexr_2022" class="csl-entry">
+regexr. 2022. <span>“<span>RegExr</span>: <span>Learn</span>,
+<span>Build</span>, &amp; <span>Test</span> <span>Regular</span>
+<span>Expressions</span>.”</span> <em>RegExr</em>. <a
+href="https://regexr.com/">https://regexr.com/</a>.
+</div>
+<div id="ref-rstudio_rstudio_2022" class="csl-entry">
+RStudio, and PBC. 2022. <span>“<span>RStudio</span>
+<span>IDE</span>.”</span> <a
+href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a>.
+</div>
+<div id="ref-sonnenfels_mann_1783" class="csl-entry">
+Sonnenfels, Joseph v. 1783. <span>“Der <span>Mann</span> Ohne
+<span>Vorurtheil</span>. <span>In</span>: <span>Joseph</span> von
+<span>Sonnenfels</span> Gesammelte <span>Schriften</span>.
+<span>Band</span> 3. <span>Münchner</span>
+<span>Digitalisierungszentrum</span>.”</span> <a
+href="https://mdz-nbn-resolving.de/details:bsb10604688">https://mdz-nbn-resolving.de/details:bsb10604688</a>.
+</div>
+<div id="ref-tei_history_1987" class="csl-entry">
+TEI. 1987. <span>“History – <span>TEI</span>: <span>Text</span>
+<span>Encoding</span> <span>Initiative</span>.”</span> <a
+href="https://tei-c.org/about/history/">https://tei-c.org/about/history/</a>.
+</div>
+<div id="ref-wikisource_besuch_1765" class="csl-entry">
+wikisource, and Christian Gottlob Klemm. 1765. <span>“Der
+<span>Besuch</span> (<span>Klemm</span>) –
+<span>Wikisource</span>.”</span> <a
+href="https://de.wikisource.org/wiki/Der_Besuch_(Klemm)">https://de.wikisource.org/wiki/Der_Besuch_(Klemm)</a>.
+</div>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>dieser Aufwand wäre um einiges geringer ausgefallen,
+wenn ich mich, statt mit dem Text im Format .txt (plaintext) zu
+arbeiten, mit der bereits basis-HTML formatierten (durch
+Fett/Kursivdruck zb. unterschiedene Passagen für Sprecher,
+Regieanweisungen und Szenenwechsel) bedient hätte.<a href="#fnref1"
+class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

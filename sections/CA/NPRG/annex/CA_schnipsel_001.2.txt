@@ -1,0 +1,87 @@
+001 SP0:     [also dis ((.)) dis.]
+002 SP1:     [dis is auch.       ]
+003 SP0:     wärn ja hier sachen die dannkonkret indie richtung[gehen.]
+004 SP1:                                                       [ja.   ]
+005          deutsch als fremdsprache äh.
+006          musz ich auch definitiv belegen.
+007 SP0:     ja.
+008 STRUCT:  ((0.6))
+009 SP1:     diss auch was.
+010          was ((.)) bei mir dranhängt.
+011          und dann wäre ja sowas.
+012          ((1.1))was ((.)) was man.
+013          ((0.9))zusammen belegen könnte.
+014 SP0:     dis wär ((.)) dis wär auch für mich interessant.
+015          weil ich.
+016 SP1:     [ja.]
+017 SP0:     [((0.3))]zum beispiel mit.
+018          ((0.1))türkischen.
+019          ((1.4))türkischen.
+020          n.
+021          lern ((.)) lernern.
+022          also ((.)) äh deutsch als ((.)) zweitspra[che.]
+023 SP1:                                              [ja. ]
+024 SP0:     ((1.7))äm.
+025          ((0.6))interviews viel zu tun habe.
+026 SP1:     [mh.]
+027 SP0:     [und da]da wär für mich.
+028          interessant zu kucken.
+029          was sind die.
+030          ((1.0))dis sind interviews aus den aus den.
+031          (unclear) achtzigern an.
+032          [bis.]
+033 SP1:     [ja. ]
+034 SP0:     ((0.9))bis zweitausendzehn.
+035          ((0.9))und was sind da so heute die.
+036          was is heute der stand der.
+037          ((0.6))ähm ((.)) lerner.
+038          äh oder nicht der stand aber was sind die.
+039          ((0.6))was sind zum beispiel die methoden.
+040          die die damals[verwendet haben.]
+041 SP1:                   [mhh.            ]
+042 SP0:     und die die heute verwenden.
+043          in der.
+044          ((1.1))in der äh sprach ((.)) stands ((.)) messung zum[beispiel.]
+045 SP1:                                                           [ja.      ]
+046 SP0:     w was hat sich da verändert.
+047          also werden da immer noch dieselben methoden verwendet wie in den achtzigern.
+048          ((0.8))oder gibs da ((.)) gibs da ganz andre verfahren.
+049          wie man misst.
+050          wie weit jemand in[seiner entwicklung is.]
+051 SP1:                       [ja.                   ]
+052          ((1.2))tis auf jeden fall sehr interessant.
+053 STRUCT:  ((4.9))
+054 SP1:     jo.
+055          ((0.6))und auch ((.)) was ((.)) was halt d interessen von uns verbindet.
+056          ((2.9))so grob.
+057 STRUCT:  ((2.0))
+058 SP0:     naja also dis für mich besch((0.3))beschränkt sich dis auf die linguistik.
+059 STRUCT:  ((0.4))
+060 SP0:     [h dis war jetz kein ironischer.]
+061 SP1:     [mh hh ((.)) h.                 ]
+062 SP0:     [h dis w ((.)) is mir so rausgerutscht.]
+063 SP1:     [h.                                    ]
+064 SP0:     nee ((.)) ähm.
+065 STRUCT:  ((3.1))
+066 SP1:     abers sis zumindest ((.)) äh.
+067          ((0.5))dann en seminar ((.)) was ((.)) äh.
+068          ((0.6))für uns beide ((.)) was bringt.
+069          egal ((.)) von welchem ((.)) standpunkt aus.
+070          ((1.3))man das betrachtet.
+071 STRUCT:  ((1.5))
+072 SP0:     dieses.
+073 STRUCT:  ((0.4))
+074 SP1:     nee.
+075          ((0.7))deutsch als fremdsprache.
+076 SP0:     [dis ((.)) deutsch als fremdsprache.]
+077 SP1:     [was ((.)) was man                  ][was wir grade planen h was wir zusammen h h.]
+078 SP0:                                          [((unclear)) h.                              ]
+079 SP1:     h.
+080          belegen k.
+081 SP0:     [nein.]
+082 SP1:     [h.   ]
+083 SP0:     weil dis ja weil dis ja ((.)) n groszes.
+084          ((1.0))ich w ich w.
+085          h ((.)) kann mir dis garnich vorstelln.
+086          was denn da passiert.
+087          ob die nur.

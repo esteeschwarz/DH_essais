@@ -1,0 +1,42 @@
+---
+title: Adding a Logo to LaTeX Title
+author: Michael Harper
+date: December 7th, 2018
+output: html_document
+header-includes:
+  - \usepackage{forest}
+  - \usepackage{caption}
+---
+
+<!-- Optionally include a page break. This will force the start
+of the document to the second page -->
+
+\newpage
+
+This is your report.
+
+```{r, include=FALSE}
+# copy the R logo to the current directory
+file.copy(file.path(R.home("doc"), "html", "logo.jpg"), '.')
+```
+
+```{=latex}
+
+\begin{figure}\label{figure01} 
+\centering
+\begin{forest}
+[PP, dashed, tier=1
+	[AdvP|NP, dashed,tier=2[
+	links, dashed, tier=3]]
+	[PP, dashed, tier=2
+	[neben, dashed, tier=3]]
+	[NP, dashed,tier=2
+	[der Einfahrt, dashed, tier=3]]
+]
+%\end{figure}
+\end{forest}
+\caption{fenced forest}
+\end{figure}
+
+
+```

@@ -1,0 +1,14 @@
+## explique visuals:
+- *TimeInterval:* uncorrected response time
+- ***TI + RTC:*** **TimeInterval + lmer residuals of TI dependent on phrase length**
+- *TI char:* TimeInterval corrected by mean phrase length
+
+```{r}
+# 12304.HUX meta
+# 20220726(19.59)
+# st. schwarz
+# script source: "https://github.com/esteeschwarz/DH_essais/tree/main/sections/hux2021"
+# deployment at: "https://vision2020.shinyapps.io/hux2021"
+cat("hello world!")
+cat("this is all in progress. come back again.")
+```

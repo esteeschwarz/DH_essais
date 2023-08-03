@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_drama.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>Titel</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Informationen zur Publikation.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Informationen über die Quelle.</p>
+      </sourceDesc>
+    </fileDesc>
+  </teiHeader>
+  <text>
+    <body>
+      <p>Der Besuch.</p> 
+    <insert>
+    </insert>
+    </body>
+  </text>
+  
+</TEI>

@@ -1,0 +1,14 @@
+name: hux2021
+title: hux2021
+username:
+account: vision2020
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6689063
+bundleId: 6148484
+url: https://vision2020.shinyapps.io/hux2021/
+when: 1659187336.73847
+lastSyncTime: 1659187336.73849
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: hux_ha_shinyframe01.html|hux_ha_shinyframe01.md|hux_ha_shinyframe01.Rmd|vlg_frame.md

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="St. Schwarz" />
+
+<meta name="date" content="2023-06-10" />
+
+<title>HUX2021 / Dokumentation</title>
+
+<script src="hux_ha_main_pl_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="hux_ha_main_pl_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="hux_ha_main_pl_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="hux_ha_main_pl_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="hux_ha_main_pl_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="hux_ha_main_pl_files/navigation-1.1/tabsets.js"></script>
+<link href="hux_ha_main_pl_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="hux_ha_main_pl_files/highlightjs-9.12.0/highlight.js"></script>
+<script src="hux_ha_main_pl_files/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="hux_ha_main_pl_files/plotly-binding-4.10.2/plotly.js"></script>
+<script src="hux_ha_main_pl_files/typedarray-0.1/typedarray.min.js"></script>
+<link href="hux_ha_main_pl_files/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="hux_ha_main_pl_files/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="hux_ha_main_pl_files/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="hux_ha_main_pl_files/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<style type="text/css">
+/* for pandoc --citeproc since 2.11 */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="https://school.dh-index.org/public/papers/011/style_HA.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">HUX2021 / Dokumentation</h1>
+<h3 class="subtitle">HA Empirische Methoden der Sprachwissenschaft / Meinschäfer/Schirakowski SS20 FUB</h3>
+<h4 class="author">St. Schwarz</h4>
+<h4 class="date">2023-06-10</h4>
+
+</div>
+
+
+<table>
+<tbody>
+<tr class="odd">
+<td>to self compile the RMarkdown source to this document in RStudio cf. <a href="https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/rmd/hux_ha_main.Rmd"><span class="citation">Schwarz (2021)</span></a></td>
+</tr>
+</tbody>
+</table>
+<div id="draft-abstract" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> draft abstract</h1>
+<p>Ich werde in dieser Arbeit den Versuch unternehmen, ein im Rahmen empirischer Studien durchgeführtes <a href="https://github.com/esteeschwarz/essais/docs/hux2021">psycholinguistisches Experiment</a> ausführlich zu dokumentieren. Die Studie wurde in einem Forschungsseminar der BUA<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> in Kooperation Studierender von FU, TU, HU unter der Aufsicht der Charite durchgeführt. Es handelt sich in diesem Teil um die partielle Replikation des von Paula Rubio-Fernandez <span class="citation">(Rubio-Fernández, Cummins, and Tian 2016)</span> unternommenen Versuchs, das Metaphernverständnis von schizophrenen Personen zu untersuchen. Dazu wurde in der Kontrollgruppe ein <em>self paced reading</em> Experiment veranstaltet und ausgewertet.</p>
+</div>
+<div id="zum-experiment" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Zum Experiment</h1>
+<p>Das Experiment hat in einer Laufzeit von zwei Wochen Daten von 46 Versuchspersonen erhoben, die hauptsächlich in der Statistiksprache R ausgewertet wurden. Basis der Daten ist die Messung von Lesezeiten in einem set von 24 items<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, die in vierfacher Ausprägung literale und figurative Elemente in kurzen Zusammenhängen verbanden.</p>
+</div>
+<div id="theorierahmen" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Theorierahmen</h1>
+<p>Mit Carston <span class="citation">(Carston 2010)</span> sind wir davon ausgegangen, dasz im Experiment zu untersuchende <em>single</em> (SM = Metapher eingebettet in literalen Kontext) und <em>extended metaphors</em> (EM = erweiterte Metapher, eingebettet in weitgehend figurativen Kontext) unterschiedlich verarbeitet werden, wobei durch die notwendige Aktivierung und Reaktivierung der literalen Bedeutung (ad hoc concept) an SM ein höherer Aufwand nötig sei, der im Gegensatz zu EM in einer längeren Lesezeit resultiert. Diese Annahme führt zu folgenden Fragestellungen, die in Anlehnung an ein Experiment (Verifikation/Replikation) von Paula Rubio-Fernandez et al. <span class="citation">(Rubio-Fernández, Cummins, and Tian 2016)</span> hier aufgenommen wurden:</p>
+<ol style="list-style-type: decimal">
+<li>unterscheiden sich die Lesezeiten kurzer Texte, die nach den Annahmen folgendem Muster single und extended metaphors enthalten oder rein literal (LC) aufgebaut sind?<br />
+</li>
+<li>wie unterscheidet sich eine vierte Variante, bei der die Struktur der SM invertiert wurde (ISM = literales Element eingebettet in weitgehend figurativen Kontext), hinsichtlich ihrer Verarbeitungszeit?</li>
+</ol>
+<p>Die zu überprüfenden Hypothesen lauten wie folgt:</p>
+<ol style="list-style-type: decimal">
+<li>Lesezeit SM &gt; Lesezeit EM<br />
+</li>
+<li>Lesezeit EM = Lesezeit LC<br />
+</li>
+<li>Lesezeit ISM = SM &gt; EM = LC</li>
+</ol>
+<p>Zur Überprüfung der Hypothesen wurde ein <em>self paced reading</em> Experiment durchgeführt, das die Lesezeit in den unterschiedlichen Kategorien erfasste.</p>
+</div>
+<div id="dokumentation" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Dokumentation</h1>
+<p>Ich werde im Folgenden den Aufbau und Ablauf des Experiments erklären und im nächsten Abschnitt dessen hypothesengeleitete Auswertung erläutern.</p>
+<div id="design" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Design</h2>
+<p>Die Versuchspersonen bekamen während des Tests, der online über einen link abrufbar war, ein set aus jeweils 8 items (Kontexte) die wiederum die Varianten der Variable (Einbettung der Metapher) in Ausprägungen von</p>
+<ul>
+<li>LC (Metapher literal in literalem Kontext)<br />
+</li>
+<li>SM (Metapher figurativ in literalem Kontext)<br />
+</li>
+<li>EM (Metapher figurativ in figurativem Kontext)<br />
+</li>
+<li>ISM (Metapher literal in figurativem Kontext)</li>
+</ul>
+<p>enthielten sowie einen Bestand aus 16 filler items, die sich ebenfalls in den Kontextvarianten unterschieden. Die Probandinnen lasen einen Text, von dem jeweils nur eine Zeile nicht maskiert war, die jeweils folgende Zeile wurde durch das Drücken der Leertaste sichtbar. So konnte die Verweildauer auf einer sichtbaren Zeile gemessen werden. Als Grundlage für die Messung wurde ein von <span class="citation">(Rose 2022)</span> frei verfügbares javascript benutzt, das an unsere Bedürfnisse angepasst worden war; u.a. war ursprünglich keine dauerhafte Speicherung der Daten in einer Datei vorgesehen, diese Funktion wurde von mir <a href="https://github.com/esteeschwarz/essais/tree/main/docs/hux2021/experiment/JESPR_original%26modified">mit einigem Aufwand realisiert</a>, so dasz die Lesezeiten danach in einer Tabelle verfügbar waren.<br />
+Die Einbettung des Experiments in einen auf der Plattform <a href="https://soscisurvey.de">soscisurvey</a> als akademische Studie angemeldeten Fragebogen erforderte ebenfalls einigen Aufwand, da die Randomisierung der Itemabfrage in anderer Weise als vom script vorgesehen geschehen muszte.<br />
+Die Daten selbst enthielten Werte für:</p>
+<ul>
+<li>den Start und Endzeitpunkt des durchgeführten Tests (tnid)<br />
+</li>
+<li>die Position der einzelnen maskierten Phrasen im Satz (targetposition) (unabhängige Variable)<br />
+</li>
+<li>die Verweildauer auf den jeweiligen Positionen (elapsed time) (abhängige Variable)<br />
+</li>
+<li>Angaben über die Zuordnung der Phrasen zur jeweiligen Ausprägung (Kategorie) der unabhängigen Variablen</li>
+</ul>
+</div>
+<div id="zum-inhalt-des-tests" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Zum Inhalt des Tests</h2>
+<p>Die items, die in Anlehnung an R/F nach obigem Muster von uns entworfen wurden, entsprachen im Aufbau dem set, das R/F in ihrem Test verwendet hatte; vier ihrer im Anhang zur Verfügung gestellten items hatten wir ins deutsche übersetzt und eines davon als item in vier Varianten, die restlichen als filler übernommen. Die Auswahl der verwendeten items wurde gemeinschaftlich nach Kriterien wie Konsistenz innerhalb der items, Stil und Kohärenz bestimmt. Ebenfalls nach den constraints von R/F gerichtete Vorgaben wie Wort- und Phrasenlänge (<code>median characters/phrase =</code> <code>44</code>), Itemlänge (<code>median characters/item =</code> <code>0</code>) und Position des targets hatten beim Entwurf eine wichtige Rolle gespielt, waren jedoch nicht immer optimal umgesetzt worden; dazu einige Bemerkungen im Auswertungsteil. Ein item sollte eine Metapher in je figurativer und literaler Bedeutung, eingebettet in einen je figurativen oder literalen Kontext, d.h. also in insgesamt vier unterschiedlichen Konfigurationen, präsentieren. Die Metapher (unser target) sollte sich im dritten Viertel des Kontextes befinden, um davor und danach auftretende Latenzen der Lesezeit auswerten zu können. Dafür wurden im script des Tests die Positionen der einzeln zu lesenden Phrasen des items mit 0 für das target und je negativen und positiven Werten für den Abstand zum target festgelegt.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a><br />
+Das set eines einzelnen durch Abruf des Fragebogens aufgerufenen Tests bestand für jede Studienteilnehmerin aus einer randomisierten Auswahl einer von vier mal acht Itemvarianten (aus der Menge von 8 items), womit jeweils zweifach Meszdaten der vier Varianten pro TN erhoben werden konnten, aber niemals ein TN ein item in mehreren Varianten las.
+Die 16 filler items traten innerhalb des sets aus also 24 items an zufälligen Positionen auf, wurden aber bei allen TN aus demselben pool bedient und wiesen ausgeglichene Variation hinsichtlich der figurativ-literalen Konfiguration auf.</p>
+</div>
+<div id="auswertung" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Auswertung</h2>
+<p>O.a. Daten wurden in R <span class="citation">(RStudio and PBC 2022)</span> 1. deskriptiv und 2. mittels des Paketes lme4 <span class="citation">(Bates et al. 2015)</span> zur Erhebung kovariater Abhängigkeiten (linear mixed model) analog der Vorgaben <span class="citation">(Rubio-Fernández, Cummins, and Tian 2016)</span> ausgewertet. Das script dazu kann <a href="https://github.com/esteeschwarz/essais/tree/main/docs/hux2021/evaluation">hier</a>, sowie eine visualisierte, vom user nach eigenen Parametern anzupassende deskriptive Auswertung <a href="https://vision2020.shinyapps.io/hux2021">hier</a> nachvollzogen werden. Für eine ausschnitthafte Visualisierung cf. (Figure <a href="#fig:fig-01">1</a>, <a href="#fig:fig-02">2</a>, <a href="#fig:fig-03"><strong>??</strong></a>).</p>
+<div id="a." class="section level3" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> a.</h3>
+<p>Zur Auswertung wurden die erhobenen durch ein php-script im flachen comma-separated Format gespeicherten Lesezeiten in R importiert. Um zu gewährleisten, dasz Abweichungen hinsichtlich der Zeichenanzahl der zeitgemessenen Phrasen keine unerwünschten Effekte in der Berechnung der Latenzen zeitigen, wurde bei jeder weiteren Berechnung dafür ein von der Zeichenanzahl/Phrase anhängiger Koeffizient einbezogen, der in der ersten, deskriptiven Auswertung einfach aus der Zeichenanzahl, bei der zweiten kovariaten Auswertung mittels lme4 bestimmt <span class="citation">(Fine et al. 2013)</span> und als Residual (hier: korrigierte Lesezeit) einbezogen wurde. R/F hatten ihre Daten mit dem R-package lme4 unter multivariaten Gesichtspunkten analysiert; so konnte auch ich (in dieser Phase ging die Experiment-Arbeitsgruppe getrennte Wege) nach Feststellung des Effekts der Phrasenlänge und Berücksichtigung desselben als korrigierte Lesezeit (hier: die abhängige Variable in der lmer Formel) signifikante Unterschiede der Lesezeiten von ISM und LC feststellen. Allerdings nur an dieser Stelle, womit einzelne Hypothesen nicht bestätigt werden konnten. Bei der Multivarianzanalyse wurden hier ein <em>main effect</em> der Kategorie (LC, SM, EM, ISM = group) unter <em>random effects</em> von TN (participant) und Kategorie auf TN (group by participant) vorausgesetzt.</p>
+</div>
+<div id="b." class="section level3" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> b.</h3>
+<p>Deskriptiv konnten am target keine signifikanten Unterschiede in der durchschnittlichen Lesezeit an den verschieden eingebetteten Metaphern festgestellt werden. Da mir noch wesentliche Grundlagen zur Interpretation der Ergebnisse der Multivarianzanalyse fehlen und es sich hier nur um die kurze Dokumentation des Experiments im Seminarkontext handeln soll, die endlich abgeschlossen werden soll, werde ich darauf verzichten, meine Ergebnisse der multivariaten Berechnungen zur Grundlage einer dadurch ansatzweise bestätigten 3. Hypothese (ISM &gt; LC) zu stilisieren.</p>
+</div>
+<div id="c." class="section level3" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> c.</h3>
+<p>Grob liesze sich durch die allein deskriptive Auswertung die Aussage machen, dasz sich bei target = -1, 0, 1, Vernachlässigung ungültiger Fälle = 1, outliers discarded = 1 &amp; korrigierter RT (selection = -1, 0, 1, 1, 1, 0) folgende Hierarchie der Lesezeiten ergibt:<br />
+EM &lt; SM &lt; ISM &lt; LC. Dabei gilt es zu beachten, dasz der hier gröszte Unterschied der zwischen EM und LC mit 416ms zu messen ist, übersetzt unterhalb einer halben Sekunde liegt. (Zum Vergleich: ein ununterbrochenes Weiterklicken der lesbaren Zeilen mittels der space-Taste zeigt ca. 200ms Latenz.)<br />
+Siehe dazu den Ausschnitt <code>TI + rtc</code> = length corrected reading time</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">RT</th>
+<th align="left">group</th>
+<th align="right">LZ</th>
+<th align="right">dif_SM</th>
+<th align="right">dif_EM</th>
+<th align="right">dif_LC</th>
+<th align="right">dif_ISM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">6</td>
+<td align="left">TI + rtc</td>
+<td align="left">EM</td>
+<td align="right">1927</td>
+<td align="right">-10</td>
+<td align="right">NA</td>
+<td align="right">-416</td>
+<td align="right">-389</td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="left">TI + rtc</td>
+<td align="left">SM</td>
+<td align="right">1937</td>
+<td align="right">NA</td>
+<td align="right">10</td>
+<td align="right">-406</td>
+<td align="right">-379</td>
+</tr>
+<tr class="odd">
+<td align="left">8</td>
+<td align="left">TI + rtc</td>
+<td align="left">ISM</td>
+<td align="right">2316</td>
+<td align="right">379</td>
+<td align="right">389</td>
+<td align="right">-27</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="left">TI + rtc</td>
+<td align="left">LC</td>
+<td align="right">2343</td>
+<td align="right">406</td>
+<td align="right">416</td>
+<td align="right">NA</td>
+<td align="right">27</td>
+</tr>
+</tbody>
+</table>
+<p>aus der folgenden Tabelle:<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">RT</th>
+<th align="left">group</th>
+<th align="right">LZ</th>
+<th align="right">dif_SM</th>
+<th align="right">dif_EM</th>
+<th align="right">dif_LC</th>
+<th align="right">dif_ISM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">TimeInterval</td>
+<td align="left">SM</td>
+<td align="right">2256</td>
+<td align="right">NA</td>
+<td align="right">117</td>
+<td align="right">-242</td>
+<td align="right">-190</td>
+</tr>
+<tr class="even">
+<td align="left">TimeInterval</td>
+<td align="left">EM</td>
+<td align="right">2139</td>
+<td align="right">-117</td>
+<td align="right">NA</td>
+<td align="right">-359</td>
+<td align="right">-307</td>
+</tr>
+<tr class="odd">
+<td align="left">TimeInterval</td>
+<td align="left">LC</td>
+<td align="right">2499</td>
+<td align="right">242</td>
+<td align="right">359</td>
+<td align="right">NA</td>
+<td align="right">53</td>
+</tr>
+<tr class="even">
+<td align="left">TimeInterval</td>
+<td align="left">ISM</td>
+<td align="right">2446</td>
+<td align="right">190</td>
+<td align="right">307</td>
+<td align="right">-53</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">TI + rtc</td>
+<td align="left">SM</td>
+<td align="right">1937</td>
+<td align="right">NA</td>
+<td align="right">10</td>
+<td align="right">-406</td>
+<td align="right">-379</td>
+</tr>
+<tr class="even">
+<td align="left">TI + rtc</td>
+<td align="left">EM</td>
+<td align="right">1927</td>
+<td align="right">-10</td>
+<td align="right">NA</td>
+<td align="right">-416</td>
+<td align="right">-389</td>
+</tr>
+<tr class="odd">
+<td align="left">TI + rtc</td>
+<td align="left">LC</td>
+<td align="right">2343</td>
+<td align="right">406</td>
+<td align="right">416</td>
+<td align="right">NA</td>
+<td align="right">27</td>
+</tr>
+<tr class="even">
+<td align="left">TI + rtc</td>
+<td align="left">ISM</td>
+<td align="right">2316</td>
+<td align="right">379</td>
+<td align="right">389</td>
+<td align="right">-27</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">TI char</td>
+<td align="left">SM</td>
+<td align="right">2449</td>
+<td align="right">NA</td>
+<td align="right">4</td>
+<td align="right">-2</td>
+<td align="right">-24</td>
+</tr>
+<tr class="even">
+<td align="left">TI char</td>
+<td align="left">EM</td>
+<td align="right">2445</td>
+<td align="right">-4</td>
+<td align="right">NA</td>
+<td align="right">-6</td>
+<td align="right">-27</td>
+</tr>
+<tr class="odd">
+<td align="left">TI char</td>
+<td align="left">LC</td>
+<td align="right">2451</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">NA</td>
+<td align="right">-22</td>
+</tr>
+<tr class="even">
+<td align="left">TI char</td>
+<td align="left">ISM</td>
+<td align="right">2473</td>
+<td align="right">24</td>
+<td align="right">27</td>
+<td align="right">22</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p>Bei isoliertem target (target = 0, 0, 0) ergibt sich folgende Hierarchie der Lesezeiten:<br />
+EM &lt; SM &lt; LC &lt; ISM mit dem gröszten Unterschied zwischen EM und ISM mit 400ms.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">RT</th>
+<th align="left">group</th>
+<th align="right">LZ</th>
+<th align="right">dif_SM</th>
+<th align="right">dif_EM</th>
+<th align="right">dif_LC</th>
+<th align="right">dif_ISM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">6</td>
+<td align="left">TI + rtc</td>
+<td align="left">EM</td>
+<td align="right">1388</td>
+<td align="right">-157</td>
+<td align="right">NA</td>
+<td align="right">-364</td>
+<td align="right">-400</td>
+</tr>
+<tr class="even">
+<td align="left">5</td>
+<td align="left">TI + rtc</td>
+<td align="left">SM</td>
+<td align="right">1545</td>
+<td align="right">NA</td>
+<td align="right">157</td>
+<td align="right">-207</td>
+<td align="right">-243</td>
+</tr>
+<tr class="odd">
+<td align="left">7</td>
+<td align="left">TI + rtc</td>
+<td align="left">LC</td>
+<td align="right">1753</td>
+<td align="right">207</td>
+<td align="right">364</td>
+<td align="right">NA</td>
+<td align="right">-36</td>
+</tr>
+<tr class="even">
+<td align="left">8</td>
+<td align="left">TI + rtc</td>
+<td align="left">ISM</td>
+<td align="right">1788</td>
+<td align="right">243</td>
+<td align="right">400</td>
+<td align="right">36</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em>LEGENDE</em></strong></p>
+<ul>
+<li><strong>LZ:</strong> gemessene Lesezeit (response time)</li>
+<li><strong>TimeInterval:</strong> uncorrected response time<br />
+</li>
+<li><strong>TI + RTC:</strong> TimeInterval + lmer residuals of TI dependent on phrase length<br />
+</li>
+<li><strong>TI char:</strong> TimeInterval corrected by mean phrase length</li>
+</ul>
+<div class="figure"><span style="display:block;" id="fig:fig-01"></span>
+<img src="hux_ha_main_pl_files/figure-html/fig-01-1.png" alt="evaluate target, target-preceding, target-following phrase, not length corrected" width="672" />
+<p class="caption">
+Figure 1: evaluate target, target-preceding, target-following phrase, not length corrected
+</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:fig-02"></span>
+<div class="plotly html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-48d259c69ea2c221612e" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-48d259c69ea2c221612e">{"x":{"data":[{"orientation":"v","width":[0.3,0.3,0.3,0.3],"base":[0,0,0,0],"x":[3.7,0.7,2.7,1.7],"y":[1545,1388,1753,1788],"text":["LZ: 1545<br />RT: TI + rtc","LZ: 1388<br />RT: TI + rtc","LZ: 1753<br />RT: TI + rtc","LZ: 1788<br />RT: TI + rtc"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"TI + rtc","legendgroup":"TI + rtc","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.3,0.3,0.3,0.3],"base":[0,0,0,0],"x":[4,1,3,2],"y":[1820,1791,1851,1861],"text":["LZ: 1820<br />RT: TI char","LZ: 1791<br />RT: TI char","LZ: 1851<br />RT: TI char","LZ: 1861<br />RT: TI char"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,186,56,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"TI char","legendgroup":"TI char","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.300000000000001,0.3,0.3,0.3],"base":[0,0,0,0],"x":[4.3,1.3,3.3,2.3],"y":[1728,1616,1884,1880],"text":["LZ: 1728<br />RT: TimeInterval","LZ: 1616<br />RT: TimeInterval","LZ: 1884<br />RT: TimeInterval","LZ: 1880<br />RT: TimeInterval"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(97,156,255,1)","line":{"width":1.88976377952756,"color":"transparent"}},"name":"TimeInterval","legendgroup":"TimeInterval","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.7625570776256,"r":7.30593607305936,"b":40.1826484018265,"l":48.9497716894977},"plot_bgcolor":"rgba(235,235,235,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187},"title":{"text":"reading times according to phrase length correction","font":{"color":"rgba(0,0,0,1)","family":"","size":17.5342465753425},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.4,4.6],"tickmode":"array","ticktext":["EM","ISM","LC","SM"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["EM","ISM","LC","SM"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"y","title":{"text":"groups compared","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-94.2,1978.2],"tickmode":"array","ticktext":["0","500","1000","1500"],"tickvals":[0,500,1000,1500],"categoryorder":"array","categoryarray":["0","500","1000","1500"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.65296803652968,"tickwidth":0.66417600664176,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.689497716895},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(255,255,255,1)","gridwidth":0.66417600664176,"zeroline":false,"anchor":"x","title":{"text":"mean reading time","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.88976377952756,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.689497716895},"title":{"text":"RT","font":{"color":"rgba(0,0,0,1)","family":"","size":14.6118721461187}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"b604623766c3":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"b604623766c3","visdat":{"b604623766c3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure 2: after phrase length correction
+</p>
+</div>
+<pre class="r"><code># library(crosstalk)
+# tx &lt;- highlight_key(txhousing)
+# widgets &lt;- bscols(
+#   widths = c(12, 12, 12),
+#   filter_select(&quot;city&quot;, &quot;Cities&quot;, tx, ~city),
+#   filter_slider(&quot;sales&quot;, &quot;Sales&quot;, tx, ~sales),
+#   filter_checkbox(&quot;year&quot;, &quot;Years&quot;, tx, ~year, inline = TRUE)
+# )
+# bscols(
+#   widths = c(4, 8), widgets, 
+#   plot_ly(tx, x = ~date, y = ~median, showlegend = FALSE) %&gt;% 
+#     add_lines(color = ~city, colors = &quot;black&quot;)
+# )</code></pre>
+<pre class="r"><code># library(crosstalk)
+# #rt&lt;-data.frame(response=c(&quot;~timeinterval&quot;,&quot;~timeinterval+rtc&quot;,&quot;~timeinterval/char*meanch&quot;))
+# rt&lt;-data.frame(response=c(&quot;timeinterval&quot;,&quot;rtc.2&quot;,&quot;rtmc&quot;))
+# dset$rtc.2&lt;-dset$timeinterval+dset$rtc
+# mean(dset$rtc.2)
+# median(dset$rtc.2)
+# meanch&lt;-mean(dset$char)
+# dset$rtmc&lt;-dset$timeinterval/dset$char*meanch
+# dset$rtc.3&lt;-dset$timeinterval+dset$rtc-mean(dset$rtc)
+# rt&lt;-data.frame(column=c(&quot;year&quot;,&quot;displ&quot;))
+# 
+# trt&lt;-highlight_key(rt)
+# #trt$data(withSelection = &quot;year&quot;)
+# widgets &lt;- bscols(
+#   widths = c(12, 12, 12),
+#  # filter_checkbox(&quot;group&quot;, &quot;Group&quot;, tx, ~category),
+# #  filter_slider(&quot;sales&quot;, &quot;Sales&quot;, tx, ~sales),
+#  # filter_checkbox(&quot;target&quot;, &quot;Target&quot;, tx, ~target, inline = TRUE),
+# #  filter_select(&quot;RT&quot;, &quot;RT&quot;, tx, ~)
+# #  filter_checkbox(&quot;RT&quot;, &quot;RT&quot;, trt, ~response, inline = T)
+# filter_checkbox(&quot;col&quot;,&quot;column&quot;,trt,~column)
+# )
+# #tx &lt;- highlight_key(dset,RT)
+# 
+# meanch&lt;-mean(dset$char)
+#   #mean(dset$timeinterval/dset$char)*meanch
+# # bscols(
+# #    widths = c(4, 8), widgets, 
+# # # plot_ly(tx, x = ~group, y = ~timeinterval/char*meanch, showlegend = FALSE) %&gt;% 
+# # #     add_boxplot(color = ~group, colors = &quot;black&quot;))
+# # # plot_ly(dset,x = ~group, y = ~mean, showlegend = FALSE) %&gt;% 
+# # #      add_bars(fill = rtc.3, colors = &quot;black&quot;)
+# # # p6&lt;-ggplot(data=dset, aes(x=group,y=mean,fill=rtc.3)) + 
+# # #       geom_col(position = &quot;dodge&quot;) +  labs(x=&quot;groups compared&quot;, y=&quot;mean reading time&quot;, title=&quot;reading times
+# # #       according to phrase length correction&quot;)
+# # #print(trt$RT)
+# # )
+# p6&lt;-ggplot(data=dset, aes(x=group,y=timeinterval)) + 
+#       geom_col(position = &quot;dodge&quot;) +  labs(x=&quot;groups compared&quot;, y=&quot;mean reading time&quot;, title=&quot;reading times
+#       according to phrase length correction&quot;)
+# p &lt;- ggplot(dset, aes(x=char, y=rtc.3)) +
+#             geom_point(shape=1) +    # Use hollow circles
+#             geom_smooth(method=lm)   # Add linear regression line
+# #ggplotly(p6)
+# #p6
+#  # ggplot(dset, aes(timeinterval)) +
+#  #   geom_bar(aes(y = after_stat(mean)))
+# # ggplot(mpg, aes(x=manufacturer,y=year)) +
+# #   geom_boxplot(mpg,x=year,y=after_stat(count))
+# p1&lt;-plot_ly(mpg, x = ~manufacturer, y = ~displ, showlegend = FALSE) %&gt;% 
+#     add_boxplot()
+# bscols(
+#     widths = c(4, 8), widgets, 
+# plot_ly(mpg, x = ~manufacturer, y = ~displ
+# , showlegend = FALSE)%&gt;%
+#      add_boxplot())
+# 
+#    # #     add_boxplot(color = ~group, colors = &quot;black&quot;))
+# # p5&lt;-bscols(
+# #    widths = c(4, 8), widgets,plot_ly(tx, x = ~group, y = ~timeinterval+rtc, showlegend = FALSE) %&gt;% 
+# #     add_boxplot(color = ~group, colors = &quot;black&quot;))
+# # p6&lt;-bscols(
+# #    widths = c(4, 8), widgets,plot_ly(tx, x = ~group, y = ~timeinterval, showlegend = FALSE) %&gt;% 
+# #     add_boxplot(color = ~group, colors = &quot;black&quot;)
+# #)
+# #p4
+# #p5
+# #p6
+# kable(mpg)
+# 
+# # use group_by() + do() + subplot() for trellis displays 
+# d &lt;- group_by(mpg, drv)
+# plots &lt;- do(d, p = plot_ly(., x = ~cty, name = ~drv))
+# subplot(plots[[&quot;p&quot;]], nrows = 3, shareX = TRUE)
+# 
+# # arrange displays by their mean
+# means &lt;- summarise(d, mn = mean(cty, na.rm = TRUE))
+# means %&gt;%
+#   dplyr::left_join(plots) %&gt;%
+#   arrange(mn) %&gt;%
+#   subplot(nrows = NROW(.), shareX = TRUE)
+# 
+# p &lt;- mtcars %&gt;%
+#   plot_ly(x = ~wt, y = ~mpg, name = &quot;scatter trace&quot;) %&gt;%
+#   add_markers()
+# p %&gt;% slice(1) %&gt;% plotly_data()
+# p %&gt;% slice(1) %&gt;% add_markers(name = &quot;first observation&quot;)
+# p %&gt;% filter(cyl == 4) %&gt;% plotly_data()
+# p %&gt;% filter(cyl == 4) %&gt;% add_markers(name = &quot;four cylinders&quot;)</code></pre>
+<hr />
+</div>
+</div>
+</div>
+<div id="b.-ref" class="section level1 unnumbered">
+<h1>B. REF:</h1>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-bates_fitting_2015" class="csl-entry">
+Bates, Douglas, Martin Mächler, Ben Bolker, and Steve Walker. 2015. <span>“Fitting <span>Linear</span> <span>Mixed</span>-<span>Effects</span> <span>Models</span> <span>Using</span> Lme4.”</span> <em>Journal of Statistical Software</em> 67 (1): 1–48. <a href="https://doi.org/10.18637/jss.v067.i01">https://doi.org/10.18637/jss.v067.i01</a>.
+</div>
+<div id="ref-carston_xiii-metaphor_2010" class="csl-entry">
+Carston, Robyn. 2010. <span>“<span>XIII</span>-<span>Metaphor</span>: <span>Ad</span> <span>Hoc</span> <span>Concepts</span>, <span>Literal</span> <span>Meaning</span> and <span>Mental</span> <span>Images</span>.”</span> <em>Proceedings of the Aristotelian Society</em> 110 (3pt3): 295–321. <a href="https://doi.org/10.1111/j.1467-9264.2010.00288.x">https://doi.org/10.1111/j.1467-9264.2010.00288.x</a>.
+</div>
+<div id="ref-fine_rapid_2013" class="csl-entry">
+Fine, Alex B., T. Florian Jaeger, Thomas A. Farmer, and Ting Qian. 2013. <span>“Rapid <span>Expectation</span> <span>Adaptation</span> During <span>Syntactic</span> <span>Comprehension</span>.”</span> <em>PLOS ONE</em> 8 (10): e77661. <a href="https://doi.org/10.1371/journal.pone.0077661">https://doi.org/10.1371/journal.pone.0077661</a>.
+</div>
+<div id="ref-rose_jespr_2022" class="csl-entry">
+Rose, Ralph. 2022. <span>“<span>JESPR</span>.”</span> <a href="https://github.com/fildpauz/jespr">https://github.com/fildpauz/jespr</a>.
+</div>
+<div id="ref-rstudio_rstudio_2022" class="csl-entry">
+RStudio, and PBC. 2022. <span>“<span>RStudio</span> <span>IDE</span>.”</span> <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a>.
+</div>
+<div id="ref-rubio-fernandez_are_2016" class="csl-entry">
+Rubio-Fernández, Paula, Chris Cummins, and Ye Tian. 2016. <span>“Are Single and Extended Metaphors Processed Differently? <span>A</span> Test of Two <span>Relevance</span>-<span>Theoretic</span> Accounts.”</span> <em>Journal of Pragmatics</em> 94 (March): 15–28. <a href="https://doi.org/10.1016/j.pragma.2016.01.005">https://doi.org/10.1016/j.pragma.2016.01.005</a>.
+</div>
+<div id="ref-schwarz_rmarkdown_2021" class="csl-entry">
+Schwarz, St. 2021. <span>“<span>RMarkdown</span> Source to This Document.”</span> <a href="https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd">https://github.com/esteeschwarz/DH_essais/blob/main/sections/hux2021/hux_HA/hux_ha_main.Rmd</a>.
+</div>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>berlin university alliance<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>item hier als ein in vier ausprägungen entworfener text mit durchschnittlicher länge von 0 zeichen.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>da diese positionen wegen nachlässigeit erst :nach: start des tests konsequent im script festgelegt wurden, muszte bei der auswertung einiges manuell nachgearbeitet werden, um die daten konsistent zu halten.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Für weitere Ansichten und Studiensample besuchen Sie bitte <a href="https://vision2020.shinyapps.io/hux2021">o.a. interaktive Visualisierungen</a>.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

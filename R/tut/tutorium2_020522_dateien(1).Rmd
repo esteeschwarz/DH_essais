@@ -1,0 +1,113 @@
+---
+title: "R-Tutorium 2. Sitzung: Daten und Dateien"
+author: "Lisa Poggel"
+date: "02/05/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+R-Tutorium 
+SoSe 2022
+
+ --- 
+ Vorab: Dies ist ein R-Markdown-Dokument. Es besteht aus "natürlichem Text" (mit dem sogenannten Markdown-Format und den R-Code Blöcken. Den Code in den einzelnen Blöcken lasst ihr wie folgt laufen: Zeile(n) markieren und dann Command+ Enter drücken; ODER ihr klickt auf das kleine grüne Dreieck innerhalb des Codeblocks (rechts oben). Ihr kreiert ein html oder anderes Output-Dokument indem ihr auf "knit" klickt.
+ ---
+ 
+# Plan für heute
+
+ 1. Vorstellungsrunde: Fach, Vorerfahrung, Interessen 
+ 2. Wiederholung der Basics
+ 3. Orientierung im RStudio 
+ 4. Arbeit mit Dateien: Daten lesen und schreiben 
+ 5. Nächstes Treffen 
+
+
+# Wiederholung der Basics  
+
+Was sind nochmal... ?
+
+* Variablen
+* Datentypen 
+* Operatoren
+* Datenstrukturen
+* Funktionen
+* Pakete
+
+Nennt jeweils ein Beispiel. 
+ 
+# Orientierung im RStudio
+
+Durch Klicken auf das Icon oben links in der Menüleiste kann ein neues R Skript erstellt werden. Anders als bei den R-Markdown-Skripten, die wir vergangene Woche kennengelernt haben, werden R-Skripte
+durch Klick auf "Run" in der Werkzeugleiste oben rechts oder durch die Tastenkombination CMD+Enter (Mac) bzw. Ctrl+Enter (Windows) ausgeführt. Wichtig ist dabei zu beachten, dass immer nur die Zeile, in der sich der Cursor aktuell befindet, ausgeführt wird. Sollen mehrere Zeilen gleichzeitig ausgeführt werden, müssen alle Zeilen vorher markiert werden. Alternativ kann das gesamte Skript auch mit der Tastenkombination CMD+Shift+Enter (Mac) bzw. Ctrl+Shift+Enter (Windows) ausgeführt werden.
+
+Für jeden Befehl, der ausgeführt wird, wird der Output in der **Konsole** im Fenster unten links ausgegeben. Werden Daten eingelesen oder Objekte erstellt, so werden diese im **Environment** im Fenster oben rechts angezeigt. Unter "Data" befinden sich dann dataframes, Listen und Matrizen; unter "Values" sehen wir alle Vektoren.  
+
+Beim Ausführen des "Hilfe"-Befehls `?Funktionsname` bzw. `??Funktionsname` werden im Fenster unten rechts Informationen zur gesuchten Funktion aus den R-Dokumentationsseiten geladen. 
+
+Wichtig ist auch der Tab "Files" im Fenster unten rechts. Hier wird das aktuelle Arbeitsverzeichnis angezeigt. Das Arbeitsverzeichnis ist der Ordner auf eurem Computer, in dem beim Ausführen des Skripts beispielsweise Dateien gespeichert werden und aus dem Dateien eingelesen werden. Es macht oft Sinn, das Arbeitsverzeichnis zunächst auf den Ordner zu setzen, in dem sich das R Skript befindet. Die Dateien, mit denen gearbeitet wird, können dann in Unterordnern abgelegt werden. Beim Einlesen der Dateien muss dann der Unterordner mit angegeben werden. Aber dazu gleich mehr.  
+
+
+# Daten einlesen und schreiben
+
+## Was sind eigentlich Daten? 
+
+> Information scientist Luciano Floridi defines data at its most basic level as the absence of uniformity, whether in the real world or in some symbolic system.[4] Only once such data have some recognizable structure and are given some meaning, can they be considered information. [...] On a higher level, digital data are usually represented and processed in data structures that can be linear (for example arrays and matrices, like lists and tables in a data sheet), hierarchical (with a tree-like structure in which items have parent-child or sibling relations with each other, as in an XML file) or multi-relational (with each data item being a node in an interconnected network of nodes, as in graph-based databases).
+
+> Some practitioners of digital humanities, notably Joanna Drucker, have argued that the term “data” is actually inadequate. And indeed, the term’s etymology seems problematic in the context of the humanities: it comes from the Latin datum, which means “that which is given.” This means it carries with it the meaning of an observer-independent fact which cannot be challenged in itself. Johanna Drucker prefers to speak of “capta” instead of data, literally “that which has been captured or gathered”, underlining the idea that even the very act of capturing data in the first place is oriented by certain goals, done with specific instruments, and driven by a specific attention to a small part of what could have been captured given different goals and instruments. In other words, capturing data is not passively accepting what is given, but actively constructing what one is interested in.
+
+Christoph Schöch (2013). [Clean? Smart? Messy? Data in the Humanities, in: Journal of Digital Humanities 2, no. 3](http://journalofdigitalhumanities.org/2-3/big-smart-clean-messy-data-in-the-humanities/)
+
+## ... und Dateien? 
+
+> Eine Datei (englisch file) ist ein Bestand meist inhaltlich zusammengehöriger Daten, der auf einem Datenträger oder Speichermedium gespeichert ist und hauptsächlich anhand eines Dateinamens identifiziert wird.
+
+Definition aus der deutschsprachigen [Wikipedia](https://de.wikipedia.org/wiki/Datei)
+
+
+## Daten einlesen 
+
+Zum Einlesen verschiedener Datenformate werden in R unterschiedliche Funktionen verwendet. 
+Funktionen für gängige Dateiformate wie CSV (comma separated values) und für Textdateien 
+sind R "base" Funktionen, sie sind also mit R vorinstalliert. 
+Darüber hinaus gibt es Pakete, die zur Arbeit mit bestimmten Datenformaten optimiert sind, beispielsweise [xml2](https://cran.r-project.org/web/packages/xml2/xml2.pdf) zur Arbeit mit 
+XML-Dateien, [rjson](https://cran.r-project.org/web/packages/rjson/rjson.pdf) für JSON-Dateien, oder
+[readtext](https://cran.r-project.org/web/packages/readtext/readtext.pdf), ein Paket das speziell zum 
+Einlesen von Textdateien und ganzen Korpora entwickelt wurde. Zahlreiche Pakete sind darüber 
+hinaus für bestimmte Anwendungsfällt optimiert, beispielsweise [pdftools](https://cran.r-project.org/web/packages/pdftools/pdftools.pdf) zur Konvertierung und Extraktion von Text und Metadaten aus PDF-Dateien.
+
+&rarr; **Übung: tutorium2_02052022_uebung.R**
+
+
+## Daten schreiben 
+
+Sollen die Daten nach der Bearbeitung wieder in R geöffnet werden, empfiehlt es sich, die Daten 
+in einem R-eigenen Datenformat zu speichern; die Dateien haben dann die Endung .rds, .rda oder .RData. 
+
+Der Export in ein externes Datenformat wie beispielsweise XML, JSON, CSV oder als Textdatei ist aber ebenso möglich. 
+
+&rarr; **Übung: tutorium2_02052022_uebung.R** 
+
+
+## Daten aufbereiten und parsen 
+
+Bevor die Daten geschrieben werden sollen, sollen sie aber meist irgendwie aufbereitet werden: beispielsweise sollen Textdateien für eine spätere quantitative Textanalyse vorbereitet werden ("Preprocessing") oder es sollen Informationen extrahiert und in einem anderen Dateiformat, 
+beispielsweise als csv-Tabelle, gespeichert werden. Die Daten können anhand ihrer formellen Struktur
+untersucht bzw. "geparst" werden und mithilfe einer query-Sprache wie xquery oder regex (Reguläre Ausdrücke) nach bestimmten Mustern durchsucht werden. Beispielsweise können so aus einer XML-Datei bestimmte "tags" extrahiert werden, die eine bestimmte Information enthalten, die uns interessiert, 
+oder wir können in einer Textdatei nach allen Wortkombinationen, die den Namen einer bestimmten Figur enthalten, suchen. 
+
+&rarr; **Dazu bald mehr**. 
+
+# Nächstes Treffen 
+
+9. Mai, 14-16 Uhr hier im Raum oder online in meinem Webexraum (nach Anmeldung).
+
+Falls ihr noch nicht im Blackboardkurs angemeldet seid, schreibt euch dort bitte ein - Ankündigungen für das nächste Treffen werde ich darüber versenden. Kurs-ID: PHILGEIST_T_16340_22S. Im Laufe des Kurses werden wir zu GitHub wechseln; bis dahin ist aber das Blackboard der Hauptkommunikationskanal.
+
+Natürlich könnt ihr mir auch immer eine Mail schreiben an: l.poggel@fu-berlin.de :) 
+
+
+
+

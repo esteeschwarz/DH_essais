@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.centered {
+  position: absolute;
+  font-size: 40pt;
+  font-family: "Arial";
+  color: yellow;
+  top: 27%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.center {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.nopng {display: none;}
+

@@ -1,0 +1,214 @@
+%\usepackage[linguistics]{forest}
+
+%\usetikzlibrary
+
+%!---- aleks input
+%################### LINGUISTIK: INFO- UND ÜBUNGSBLATT ####################
+
+%%%%%%%%%% GRUNDLAGEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[usegeometry, paper=a4, parskip=half, numbers=enddot,  fontsize=11pt, toc=sectionentrywithdots]{scrartcl}
+\usepackage{pgf}
+%\usepackage{float}
+\usepackage{pict2e}
+%\usepackage{amsthm}
+\usepackage{caption}
+\usepackage{lipsum}
+
+%!Deutsches Sprachpaket
+\usepackage[ngerman]{babel}
+
+%!Deutsche Anführungszeichen
+\usepackage[german=guillemets]{csquotes}
+
+%!Zeilenabstand
+\usepackage[singlespacing]{setspace}
+
+%!Textauszeichnung (hier fürs Durchstreichen)
+\usepackage{soul}
+
+%%%%%%%%%% TEXTGESTALTUNG %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%!Große Textpassagen auskommentieren
+\usepackage{comment}
+
+%!Grafiken & Bilder
+\usepackage{graphics}
+
+%!Textfärbung
+\usepackage{xcolor}
+
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{babyblue}{rgb}{0.54, 0.81, 0.94}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{dartmouthgreen}{rgb}{0.05, 0.5, 0.06}
+
+%%%%%%%%%% TABELLEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%!Tabularx-Tabellen
+\usepackage{tabularx}
+
+%!Tabellenlinien
+\usepackage{booktabs}
+
+%!Ausrichtung des Tabellen- bzw. Figurentitels
+\usepackage[format=plain,singlelinecheck=false]{caption}
+
+%!Abstand zwischen Tabelle/Abbildung und Beschriftung
+%!Syntax: '\setlength{\belowcaptionskip}{<X>pt}'
+%!Für 'X' natürliche Zahlen.
+\setlength{\belowcaptionskip}{5pt}
+
+%!Zusätzliche Positionsoption `[H]' zum Stoppen des Gleitens
+\usepackage{float}
+
+%!Zusätzliche Formatierung für Tabellen
+\usepackage{array}
+
+%!Befehl für Änderung der Abstände zwischen Zeilen in Tabellen:
+%{\renewcommand{\arraystretch}{3.0} <table-Umgebung>}
+
+%!Befehl für Abstand zwischen Spalten in Tabellen:
+%{\setlength{\tabcolsep}{12pt} <table-Umgebung>}
+
+%%%%%%%%%% LOGIK & MATHE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---- Allgemein -----%
+
+%!Befehle und Umgebungen für Mathe: Enthät u.a. Fix von amsmath, und graphicx (zum Einfügen von Bildern und Grafiken)
+\usepackage{mathtools}
+
+%!Weitere Mathezeichen. Enthält amsfonts
+\usepackage{amssymb}
+
+%!Theoreme
+\usepackage{amsthm}
+
+%%%%%%%%%% LINGUISTIK %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%---- Allgemein ----%
+
+%!Linguistik-Grundlagen-Paket: Bequeme Nummerierung, Formatierung etc.
+%!ACHTUNG: Muss unbedingt nach Font-Paketen wie bspw. tipa gelanden werden
+\usepackage{linguex}
+
+%!Den Bindestrich zwischen Subelementen innerhalb einer linguex-Umgebung entfernen
+\renewcommand{\firstrefdash}{}
+
+%!Baumdiagramme
+\usepackage[linguistics]{forest}
+
+%!forest-Optionen in Baumdiagrammen
+%!'[,phantom]': Nebeneinanderstellen von Strukturen mittels Erstellung eines Scheinmutterknotens
+%!'[<>,for children={fit=band}]': Leerer Platz, wenn kein Element/Kind
+%!'[<>,tier=mother]': Änderung der Anordnung (vertikal) innerhalb der Struktur
+%!'[<>,name=phrase]': Benennung für das Zeichnen von Linien
+%!'\draw (<name1>) -- (<name2>);': Linienzeichnung
+%!'[{},point]: für das Abwinkeln von Ästen. Hierfür muss 'point/.style={coordinate,},' zu Beginn der forest-Umgebung stehen, noch vor der Struktur.
+
+%---- Definitionen ----%
+
+%-Theoreme-%
+
+\theoremstyle{definition}
+\newtheorem{D}{Definition}
+\newtheorem{B}{Beispiel}
+\newtheorem{Satz}{Satz}
+\newtheorem{N}{Notation}
+
+%!Theoremstil definition mit Zeilenumbruch
+\newtheoremstyle{break}
+{\topsep}%
+{\topsep}%
+{\normalfont}%
+{}%
+{\bfseries}%
+{.}%
+{\newline}
+{}%
+
+\theoremstyle{break}
+\newtheorem{R}{Regularität}
+\newtheorem{Bsp}[B]{Beispiel}
+\newtheorem{Sch}{Schema}
+
+%-Baumdiagramm-Notation-%
+
+%!forest-Baumdiagramm: Standard
+\newcommand{\lingforest}[2]{%
+	\noindent\makebox[\textwidth]{
+		\begin{forest}
+			where n children=0{tier=word}{},
+			for tree={l=#1pt}
+			#2
+	\end{forest}}
+}
+
+%!forest-Baumdiagramm: Pittner-Notation
+\newcommand{\lingforestpittner}[3]{%
+	\noindent\makebox[\textwidth]{
+		\begin{forest}
+			where n children=0{tier=word}{},
+			for tree={l=#1pt}
+			[,phantom
+			#2
+			#3
+			]
+	\end{forest}}
+}
+
+%-Klammer-Notation (Pittner)-%
+
+%!Klammern
+\newcommand{\klammer}[2]{[#1]\textsubscript{\textbf{#2}}}
+\newcommand{\Klammer}[2]{$\biggl[$#1$\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\KKlammer}[2]{$\Biggl[$#1$\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\pos}[1]{\textsubscript{\textbf{#1}}}
+
+%!Grüne Klammern
+\newcommand{\greenklammer}[2]{\textcolor{dartmouthgreen}{[}#1\textcolor{dartmouthgreen}{]}\textsubscript{\textbf{#2}}}
+\newcommand{\greenKlammer}[2]{$\color{dartmouthgreen}\biggl[$#1$\color{dartmouthgreen}\biggr]$\textsubscript{\textbf{#2}}}
+\newcommand{\greenKKlammer}[2]{$\color{dartmouthgreen}\Biggl[$#1$\color{dartmouthgreen}\Biggr]$\textsubscript{\textbf{#2}}}
+%\newcommand{\greenpos}[1]{\textsubscript{\textbf{\textcolor{dartmouthgreen}{#1}}}}
+\newcommand{\green}[1]{\textcolor{dartmouthgreen}{#1}}
+
+%!Klammern: Übungen
+\newcommand{\exklammer}[1]{[#1]\textsubscript{\subleer}}
+\newcommand{\exKlammer}[1]{$\biggl[$#1$\biggr]$\textsubscript{\subleer}}
+\newcommand{\exKKlammer}[1]{$\Biggl[$#1$\biggr]$\textsubscript{\subleer}}
+
+%!Leerstelle im Subskript
+\newcommand{\subleer}{\textsubscript{\textlarger[4]{\_}}}
+
+%-Skripte-%
+
+%!Oberskript
+\newcommand{\oberskript}[2]{[$\overset{\textbf{#2}}{\text{#1}}$]}
+
+%!Unterskript
+\newcommand{\unterskript}[2]{$\underset{\textbf{#2}}{\text{\ul{#1}}}$}
+
+%%%%%%%%%% ENDE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%!Seitenränder
+%\usepackage[top=2cm, bottom=4cm]{geometry}
+
+%!PDF-Einbindung und Formatierung. Auch zum Setzen interner Verlinkungen
+%!Zur Konfliktvermeidung zuletzt einbinden (Ausnahme: cleveref)
+\usepackage[pdfauthor={Aleksandr Schamberger}, pdftitle={Themenblatt: Phrasenschemata}]{hyperref}
+
+%!Bequemes/effizientes Referenzieren
+%!Als aller, aller letztes einbinden
+\usepackage[noabbrev, german]{cleveref}
+
+%!Linguistik-Theoreme
+\crefname{D}{Definition}{Definitionen}
+\crefname{B}{Beispiel}{Beispiele}
+\crefname{Satz}{Satz}{Sätze}
+\crefname{N}{Notation}{Notationen}
+\crefname{R}{Regularität}{Regularität}
+\crefname{Bsp}{Beispiel}{Beispiele}
+\crefname{Sch}{Schema}{Schemata}
+
+%!---- aleks header end
+

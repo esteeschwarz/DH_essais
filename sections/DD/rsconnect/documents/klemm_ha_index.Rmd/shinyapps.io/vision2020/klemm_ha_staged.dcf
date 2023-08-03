@@ -1,0 +1,13 @@
+name: klemm_ha_staged
+title:
+username:
+account: vision2020
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6719637
+bundleId: 6153047
+url: https://vision2020.shinyapps.io/klemm_ha_staged/
+when: 1659350530.16212
+lastSyncTime: 1659350530.16213
+asMultiple: FALSE
+asStatic: FALSE

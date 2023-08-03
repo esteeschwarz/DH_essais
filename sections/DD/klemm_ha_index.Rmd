@@ -1,0 +1,20 @@
+---
+title: "klemmHA"
+author: "esteeschwarz"
+date: "`r Sys.Date()`"
+zotero: AVL_dyn
+runtime: shiny
+output: 
+  html_notebook: 
+    theme: paper
+#theme: flatly
+bibliography: https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/sections/DD/references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#### this is only a starting page for you to call the final page at: <https://vision2020.shinyapps.io/klemm_dd_staged>
+
+we are horsing around alot and not every stage is working...

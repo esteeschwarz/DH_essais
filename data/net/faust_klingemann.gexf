@@ -1,0 +1,529 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gexf xmlns="http://gexf.net/1.3" version="1.3" xmlns:viz="http://gexf.net/1.3/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://gexf.net/1.3 http://gexf.net/1.3/gexf.xsd">
+  <meta lastmodifieddate="2022-05-27">
+    <creator>Gephi 0.9.3</creator>
+    <description></description>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="gender" title="Gender" type="string"/>
+      <attribute id="person-group" title="Person group" type="boolean"/>
+      <attribute id="number-of-words" title="Number of spoken words" type="integer"/>
+      <attribute id="degree" title="Degree" type="integer">
+        <default>0</default>
+      </attribute>
+      <attribute id="eccentricity" title="Eccentricity" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="closnesscentrality" title="Closeness Centrality" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="harmonicclosnesscentrality" title="Harmonic Closeness Centrality" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="betweenesscentrality" title="Betweenness Centrality" type="double">
+        <default>0.0</default>
+      </attribute>
+      <attribute id="modularity_class" title="Modularity Class" type="integer">
+        <default>0</default>
+      </attribute>
+      <attribute id="pageranks" title="PageRank" type="double">
+        <default>0.0</default>
+      </attribute>
+    </attributes>
+    <nodes>
+      <node id="diether" label="Diether">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="1079"/>
+          <attvalue for="degree" value="5"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5588235294117647"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.6228070175438597"/>
+          <attvalue for="betweenesscentrality" value="2.0"/>
+          <attvalue for="modularity_class" value="0"/>
+          <attvalue for="pageranks" value="0.05089077212337349"/>
+        </attvalues>
+        <viz:size value="13.6567545"/>
+        <viz:position x="118.749535" y="70.57839"/>
+        <viz:color r="255" g="116" b="62"/>
+      </node>
+      <node id="kaethe" label="Käthe">
+        <attvalues>
+          <attvalue for="gender" value="FEMALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="2425"/>
+          <attvalue for="degree" value="4"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5428571428571428"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.5964912280701755"/>
+          <attvalue for="betweenesscentrality" value="1.0"/>
+          <attvalue for="modularity_class" value="0"/>
+          <attvalue for="pageranks" value="0.042415319597137666"/>
+        </attvalues>
+        <viz:size value="18.231096"/>
+        <viz:position x="-12.0803795" y="134.12039"/>
+        <viz:color r="255" g="116" b="62"/>
+      </node>
+      <node id="wagner" label="Wagner">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="1656"/>
+          <attvalue for="degree" value="8"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.6333333333333333"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.7105263157894737"/>
+          <attvalue for="betweenesscentrality" value="5.583333333333333"/>
+          <attvalue for="modularity_class" value="0"/>
+          <attvalue for="pageranks" value="0.0717012196972165"/>
+        </attvalues>
+        <viz:size value="15.617672"/>
+        <viz:position x="-186.38185" y="1.971393"/>
+        <viz:color r="255" g="116" b="62"/>
+      </node>
+      <node id="faust" label="Faust">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="5888"/>
+          <attvalue for="degree" value="18"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.95"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.9736842105263158"/>
+          <attvalue for="betweenesscentrality" value="119.83333333333333"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.1727955577750177"/>
+        </attvalues>
+        <viz:size value="30.0"/>
+        <viz:position x="29.019644" y="-49.380238"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="choralartiger_gesang" label="Choralartiger Gesang">
+        <attvalues>
+          <attvalue for="gender" value="UNKNOWN"/>
+          <attvalue for="person-group" value="true"/>
+          <attvalue for="number-of-words" value="33"/>
+          <attvalue for="degree" value="1"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.5175438596491229"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.01566363000333624"/>
+        </attvalues>
+        <viz:size value="10.101954"/>
+        <viz:position x="-358.66174" y="416.72678"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="der_fremde" label="Der Fremde">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="1185"/>
+          <attvalue for="degree" value="8"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.6333333333333333"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.7105263157894737"/>
+          <attvalue for="betweenesscentrality" value="13.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.07335750179387836"/>
+        </attvalues>
+        <viz:size value="14.016993"/>
+        <viz:position x="65.38049" y="-249.77393"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="dumpfe_stimme" label="Dumpfe Stimme">
+        <attvalues>
+          <attvalue for="gender" value="UNKNOWN"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="96"/>
+          <attvalue for="degree" value="1"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.5175438596491229"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.01566363000333624"/>
+        </attvalues>
+        <viz:size value="10.316058"/>
+        <viz:position x="-491.20544" y="287.44376"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="studenten" label="Studenten">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="true"/>
+          <attvalue for="number-of-words" value="24"/>
+          <attvalue for="degree" value="6"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.59375"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.6578947368421053"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.05400394595357896"/>
+        </attvalues>
+        <viz:size value="10.071368"/>
+        <viz:position x="-230.34875" y="-283.38632"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="erster_student" label="Erster Student">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="286"/>
+          <attvalue for="degree" value="6"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.59375"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.6578947368421053"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.05400394595357896"/>
+        </attvalues>
+        <viz:size value="10.961767"/>
+        <viz:position x="-483.44943" y="-391.40604"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="zweiter_student" label="Zweiter Student">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="36"/>
+          <attvalue for="degree" value="6"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.59375"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.6578947368421053"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.05400394595357896"/>
+        </attvalues>
+        <viz:size value="10.112149"/>
+        <viz:position x="-119.874565" y="-550.1821"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="dritter_student" label="Dritter Student">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="38"/>
+          <attvalue for="degree" value="6"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.59375"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.6578947368421053"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.05400394595357896"/>
+        </attvalues>
+        <viz:size value="10.118946"/>
+        <viz:position x="-508.50012" y="-45.29442"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="helene" label="Helene">
+        <attvalues>
+          <attvalue for="gender" value="FEMALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="463"/>
+          <attvalue for="degree" value="2"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5135135135135135"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.543859649122807"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.024678821072953883"/>
+        </attvalues>
+        <viz:size value="11.563296"/>
+        <viz:position x="-181.52954" y="239.62036"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="erster_leichentraeger" label="Erster Leichenträger">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="92"/>
+          <attvalue for="degree" value="4"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.5588235294117647"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.6052631578947368"/>
+          <attvalue for="betweenesscentrality" value="1.583333333333333"/>
+          <attvalue for="modularity_class" value="2"/>
+          <attvalue for="pageranks" value="0.04291160793901445"/>
+        </attvalues>
+        <viz:size value="10.302464"/>
+        <viz:position x="483.81546" y="-95.49336"/>
+        <viz:color r="0" g="183" b="218"/>
+      </node>
+      <node id="zweiter_leichentraeger" label="Zweiter Leichenträger">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="27"/>
+          <attvalue for="degree" value="3"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5277777777777778"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.5701754385964912"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="2"/>
+          <attvalue for="pageranks" value="0.03343783772342135"/>
+        </attvalues>
+        <viz:size value="10.081563"/>
+        <viz:position x="304.54803" y="-55.182728"/>
+        <viz:color r="0" g="183" b="218"/>
+      </node>
+      <node id="anfuehrer" label="Anführer">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="81"/>
+          <attvalue for="degree" value="4"/>
+          <attvalue for="eccentricity" value="2.0"/>
+          <attvalue for="closnesscentrality" value="0.5588235294117647"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.6052631578947368"/>
+          <attvalue for="betweenesscentrality" value="7.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.042951996756406007"/>
+        </attvalues>
+        <viz:size value="10.26508"/>
+        <viz:position x="428.33087" y="-385.38107"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+      <node id="erste_maske" label="Erste Maske">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="43"/>
+          <attvalue for="degree" value="4"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5428571428571428"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.5964912280701755"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="3"/>
+          <attvalue for="pageranks" value="0.04327608468823504"/>
+        </attvalues>
+        <viz:size value="10.135939"/>
+        <viz:position x="462.92715" y="310.0061"/>
+        <viz:color r="104" g="173" b="54"/>
+      </node>
+      <node id="zweite_maske" label="Zweite Maske">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="33"/>
+          <attvalue for="degree" value="4"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5428571428571428"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.5964912280701755"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="3"/>
+          <attvalue for="pageranks" value="0.04327608468823504"/>
+        </attvalues>
+        <viz:size value="10.101954"/>
+        <viz:position x="204.53229" y="352.00043"/>
+        <viz:color r="104" g="173" b="54"/>
+      </node>
+      <node id="dritte_maske" label="Dritte Maske">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="18"/>
+          <attvalue for="degree" value="4"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5428571428571428"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.5964912280701755"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="3"/>
+          <attvalue for="pageranks" value="0.04327608468823504"/>
+        </attvalues>
+        <viz:size value="10.050977"/>
+        <viz:position x="-42.106995" y="533.38916"/>
+        <viz:color r="104" g="173" b="54"/>
+      </node>
+      <node id="stimme_heftig_von_aussen" label="Stimme (heftig von außen)">
+        <attvalues>
+          <attvalue for="gender" value="UNKNOWN"/>
+          <attvalue for="person-group" value="false"/>
+          <attvalue for="number-of-words" value="12"/>
+          <attvalue for="degree" value="4"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.5428571428571428"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.5964912280701755"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="3"/>
+          <attvalue for="pageranks" value="0.04327608468823504"/>
+        </attvalues>
+        <viz:size value="10.030586"/>
+        <viz:position x="257.77356" y="584.9391"/>
+        <viz:color r="104" g="173" b="54"/>
+      </node>
+      <node id="gerichtsdiener" label="Gerichtsdiener">
+        <attvalues>
+          <attvalue for="gender" value="MALE"/>
+          <attvalue for="person-group" value="true"/>
+          <attvalue for="number-of-words" value="3"/>
+          <attvalue for="degree" value="2"/>
+          <attvalue for="eccentricity" value="3.0"/>
+          <attvalue for="closnesscentrality" value="0.41304347826086957"/>
+          <attvalue for="harmonicclosnesscentrality" value="0.46491228070175444"/>
+          <attvalue for="betweenesscentrality" value="0.0"/>
+          <attvalue for="modularity_class" value="1"/>
+          <attvalue for="pageranks" value="0.02441198294765208"/>
+        </attvalues>
+        <viz:size value="10.0"/>
+        <viz:position x="309.1433" y="-611.2013"/>
+        <viz:color r="210" g="124" b="206"/>
+      </node>
+    </nodes>
+    <edges>
+      <edge id="diether|kaethe" source="diether" target="kaethe" weight="11.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="diether|wagner" source="diether" target="wagner" weight="5.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="diether|faust" source="diether" target="faust" weight="4.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="diether|erster_leichentraeger" source="diether" target="erster_leichentraeger">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="diether|zweiter_leichentraeger" source="diether" target="zweiter_leichentraeger">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="kaethe|wagner" source="kaethe" target="wagner" weight="7.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="kaethe|faust" source="kaethe" target="faust" weight="7.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="kaethe|helene" source="kaethe" target="helene">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="wagner|faust" source="wagner" target="faust" weight="7.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="wagner|studenten" source="wagner" target="studenten">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="wagner|der_fremde" source="wagner" target="der_fremde" weight="2.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="wagner|erster_student" source="wagner" target="erster_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="wagner|zweiter_student" source="wagner" target="zweiter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="wagner|dritter_student" source="wagner" target="dritter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|choralartiger_gesang" source="faust" target="choralartiger_gesang">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|der_fremde" source="faust" target="der_fremde" weight="8.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|dumpfe_stimme" source="faust" target="dumpfe_stimme">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|studenten" source="faust" target="studenten">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|erster_student" source="faust" target="erster_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|zweiter_student" source="faust" target="zweiter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|dritter_student" source="faust" target="dritter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|helene" source="faust" target="helene" weight="4.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|erster_leichentraeger" source="faust" target="erster_leichentraeger" weight="2.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|zweiter_leichentraeger" source="faust" target="zweiter_leichentraeger" weight="2.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|erste_maske" source="faust" target="erste_maske">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|zweite_maske" source="faust" target="zweite_maske">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|dritte_maske" source="faust" target="dritte_maske">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|stimme_heftig_von_aussen" source="faust" target="stimme_heftig_von_aussen">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="faust|anfuehrer" source="faust" target="anfuehrer">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="der_fremde|studenten" source="der_fremde" target="studenten">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="der_fremde|erster_student" source="der_fremde" target="erster_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="der_fremde|zweiter_student" source="der_fremde" target="zweiter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="der_fremde|dritter_student" source="der_fremde" target="dritter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="der_fremde|anfuehrer" source="der_fremde" target="anfuehrer">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="der_fremde|gerichtsdiener" source="der_fremde" target="gerichtsdiener">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="studenten|erster_student" source="studenten" target="erster_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="studenten|zweiter_student" source="studenten" target="zweiter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="studenten|dritter_student" source="studenten" target="dritter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="erster_student|zweiter_student" source="erster_student" target="zweiter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="erster_student|dritter_student" source="erster_student" target="dritter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="zweiter_student|dritter_student" source="zweiter_student" target="dritter_student">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="erster_leichentraeger|zweiter_leichentraeger" source="erster_leichentraeger" target="zweiter_leichentraeger" weight="2.0">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="erster_leichentraeger|anfuehrer" source="erster_leichentraeger" target="anfuehrer">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="anfuehrer|gerichtsdiener" source="anfuehrer" target="gerichtsdiener">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="erste_maske|zweite_maske" source="erste_maske" target="zweite_maske">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="erste_maske|dritte_maske" source="erste_maske" target="dritte_maske">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="erste_maske|stimme_heftig_von_aussen" source="erste_maske" target="stimme_heftig_von_aussen">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="zweite_maske|dritte_maske" source="zweite_maske" target="dritte_maske">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="zweite_maske|stimme_heftig_von_aussen" source="zweite_maske" target="stimme_heftig_von_aussen">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+      <edge id="dritte_maske|stimme_heftig_von_aussen" source="dritte_maske" target="stimme_heftig_von_aussen">
+        <viz:color r="192" g="192" b="192"/>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

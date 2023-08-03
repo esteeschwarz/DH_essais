@@ -1,0 +1,41 @@
+Source,Target,Weight,Type
+Jean_Paul - Leben des Quintus Fixlein (1796),Jean_Paul - Schulmeisterlein Wutz (1790),3,undirected
+Jean_Paul - Leben des Quintus Fixlein (1796),Jean_Paul - Siebenkäs (1796),6,undirected
+Jean_Paul - Leben des Quintus Fixlein (1796),Jean_Paul - Titan (1800),4,undirected
+Jean_Paul - Schulmeisterlein Wutz (1790),Jean_Paul - Leben des Quintus Fixlein (1796),3,undirected
+Jean_Paul - Schulmeisterlein Wutz (1790),Jean_Paul - Siebenkäs (1796),4,undirected
+Jean_Paul - Schulmeisterlein Wutz (1790),Jean_Paul - Titan (1800),2,undirected
+Jean_Paul - Schulmeisterlein Wutz (1790),Kleist - Michael Kohlhaas (1810),2,undirected
+Jean_Paul - Siebenkäs (1796),Jean_Paul - Leben des Quintus Fixlein (1796),6,undirected
+Jean_Paul - Siebenkäs (1796),Jean_Paul - Schulmeisterlein Wutz (1790),4,undirected
+Jean_Paul - Siebenkäs (1796),Jean_Paul - Titan (1800),5,undirected
+Jean_Paul - Siebenkäs (1796),Kleist - Michael Kohlhaas (1810),1,undirected
+Jean_Paul - Titan (1800),Jean_Paul - Leben des Quintus Fixlein (1796),4,undirected
+Jean_Paul - Titan (1800),Jean_Paul - Schulmeisterlein Wutz (1790),2,undirected
+Jean_Paul - Titan (1800),Jean_Paul - Siebenkäs (1796),5,undirected
+Jean_Paul - Titan (1800),Kleist - Michael Kohlhaas (1810),3,undirected
+JW_Goethe - Die Leiden des jungen Werther (1774),JW_Goethe - Wilhelm Meisters Lehrjahre (1795),4,undirected
+JW_Goethe - Die Leiden des jungen Werther (1774),JW_Goethe - Wilhelm Meisters Wanderjahre (1821),3,undirected
+JW_Goethe - Die Leiden des jungen Werther (1774),unbekannt,2,undirected
+JW_Goethe - Wilhelm Meisters Lehrjahre (1795),JW_Goethe - Die Leiden des jungen Werther (1774),4,undirected
+JW_Goethe - Wilhelm Meisters Lehrjahre (1795),JW_Goethe - Wilhelm Meisters Wanderjahre (1821),4,undirected
+JW_Goethe - Wilhelm Meisters Lehrjahre (1795),La_Roche - Geschichte des Fräuleins von Sternheim (1771),2,undirected
+JW_Goethe - Wilhelm Meisters Lehrjahre (1795),La_Roche - Rosalie und Cleberg auf dem Lande (1791),1,undirected
+JW_Goethe - Wilhelm Meisters Lehrjahre (1795),unbekannt,6,undirected
+JW_Goethe - Wilhelm Meisters Wanderjahre (1821),JW_Goethe - Die Leiden des jungen Werther (1774),3,undirected
+JW_Goethe - Wilhelm Meisters Wanderjahre (1821),JW_Goethe - Wilhelm Meisters Lehrjahre (1795),4,undirected
+JW_Goethe - Wilhelm Meisters Wanderjahre (1821),La_Roche - Geschichte des Fräuleins von Sternheim (1771),1,undirected
+JW_Goethe - Wilhelm Meisters Wanderjahre (1821),La_Roche - Rosalie und Cleberg auf dem Lande (1791),2,undirected
+JW_Goethe - Wilhelm Meisters Wanderjahre (1821),unbekannt,5,undirected
+Kleist - Michael Kohlhaas (1810),Jean_Paul - Schulmeisterlein Wutz (1790),2,undirected
+Kleist - Michael Kohlhaas (1810),Jean_Paul - Siebenkäs (1796),1,undirected
+Kleist - Michael Kohlhaas (1810),Jean_Paul - Titan (1800),3,undirected
+La_Roche - Geschichte des Fräuleins von Sternheim (1771),JW_Goethe - Wilhelm Meisters Lehrjahre (1795),2,undirected
+La_Roche - Geschichte des Fräuleins von Sternheim (1771),JW_Goethe - Wilhelm Meisters Wanderjahre (1821),1,undirected
+La_Roche - Geschichte des Fräuleins von Sternheim (1771),La_Roche - Rosalie und Cleberg auf dem Lande (1791),6,undirected
+La_Roche - Rosalie und Cleberg auf dem Lande (1791),JW_Goethe - Wilhelm Meisters Lehrjahre (1795),1,undirected
+La_Roche - Rosalie und Cleberg auf dem Lande (1791),JW_Goethe - Wilhelm Meisters Wanderjahre (1821),2,undirected
+La_Roche - Rosalie und Cleberg auf dem Lande (1791),La_Roche - Geschichte des Fräuleins von Sternheim (1771),6,undirected
+unbekannt,JW_Goethe - Die Leiden des jungen Werther (1774),2,undirected
+unbekannt,JW_Goethe - Wilhelm Meisters Lehrjahre (1795),6,undirected
+unbekannt,JW_Goethe - Wilhelm Meisters Wanderjahre (1821),5,undirected

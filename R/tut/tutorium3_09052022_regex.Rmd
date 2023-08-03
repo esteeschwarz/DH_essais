@@ -1,0 +1,241 @@
+---
+title: "R-Tutorium 3. Sitzung: Reguläre Ausdrücke"
+author: "Lisa Poggel"
+date: "09/05/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+R-Tutorium 
+WiSe 2020/21
+
+ --- 
+ Vorab: Dies ist ein R-Markdown-Dokument. Es besteht aus "natürlichem Text" (mit dem sogenannten Markdown-Format und den R-Code Blöcken. Den Code in den einzelnen Blöcken lasst ihr wie folgt laufen: Zeile(n) markieren und dann Command+ Enter drücken; ODER ihr klickt auf das kleine grüne Dreieck innerhalb des Codeblocks (rechts oben). Ihr kreiert ein html oder anderes Output-Dokument indem ihr auf "knit" klickt.
+ ---
+
+## 1. Was sind reguläre Ausdrücke?
+Reguläre Ausdrücke = Regular Expression, kurz: RegEx, RegExp <br />
+Formale Definition: Eine Beschreibungsmöglichkeit von formalen Sprachen (Programmiersprachen), bei der reguläre Ausdrücke Platzhalter für Teile dieser Sprache sind. Einfach formuliert: Reguläre Ausdrücke sind ein verallgemeinertes Suchmuster (pattern) für Zeichenketten.
+
+* Regex gibt es in fast jeder Sprache
+* Sie werden für Operationen auf Strings eingesetzt, zum suchen oder bearbeiten einer Zeichenkette
+* Sie kommen z.B. beim Preprocessing, aber auch zum Debuggen von Code oder in Webscrapern zur Anwendung.
+
+## 2. Reguläre Ausdrücke in R
+
+Als Beispieltext nutzen wir die Datei "Rapunzel_(1850).txt". <br />
+Zur Vorbereitung installieren wir die folgenden Pakete:
+
+```{r message=FALSE, results='hide'}
+install.packages(c("readtext", "stringr", "quanteda"), repos="http://cran.us.r-project.org") 
+library(readtext)
+library(stringr)
+library(quanteda)
+```
+
+### 2.1 R Base Funktionen
+
+
+  | Funktion         |  Bedeutung                             |      
+  |------------------|----------------------------------------|
+  | grep(), grepl()  |  Search for matches of a regular expression/pattern in a character vector; either return the indices into the character vector that match, the strings that happen to match, or a TRUE/FALSE vector indicating which elements match. |                   
+  |                  |                                        |
+  | regexpr(), gregexpr() |  Search a character vector for regular expression matches and return the indices of the string where the match begins and the length of the match.      |                   
+  |                  |                                        |
+  | sub(), gsub()    |  Search a character vector for regular expression matches and replace that match with another string.       |                   
+  
+  
+  Quelle: https://www.youtube.com/watch?v=q8SzNKib5-4  <br />
+  Offizielle Dokumentation: https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/grep
+
+#### Wahl der Einlesefunktion 
+
+Wie muss unser Eingabeobjekt aussehen? <br />
+Wir verwenden zunächst die readtext() Funktion zum Einlesen unseres Märchens. 
+
+```{r }
+
+rapunzel_df <- readtext("Rapunzel_(1850).txt") #df ist Standard-Abkürzung für dataframe
+str(rapunzel_df) #str() gibt einen die Struktur eines R Datenobjekts übersichtlich aus
+
+```
+
+Durch Einlesen des Märchens mithilfe der readtext() Funktion haben wir also einen Dataframe mit zwei Spalten und einer Zeile erhalten. Wir wollen nur den Märchentext nach Matches zu durchsuchen und wählen deswegen nur die Spalte "text" als Eingabe. 
+
+
+```{r}
+grep("Rapunzel", rapunzel_df$text, value=F) 
+grepl("Rapunzel", rapunzel_df$text)
+regexpr("Rapunzel", rapunzel_df$text)
+gregexpr("Rapunzel", rapunzel_df$text)
+```
+
+Verständnisfragen:
+
+* Interpretiert die Ausgabe der vier Funktionen. 
+* Wie wirkt sich die Struktur des Dataframes auf die Suchergebnisse aus? 
+
+
+<!-- Lösung: Diese Ausgabe bietet uns aber wenig Informationen, da der Dataframe nur eine Zeile hat: Es wird nur ein Index bzw. ein Boolescher Wahrheitswert für eigentlich sehr viele Fundstellen ausgegeben. -->
+
+Die Ausgabe war nicht besonders aussagekräftig. Es gibt zwei Lösungen: Wir können entweder einen anderen Befehl zum Einlesen der Daten verwenden oder wir müssen das readtext-Objekt mit quanteda in ein Korpusobjekt umwandeln (dazu mehr später). 
+
+Befehl readLines
+
+```{r }
+rapunzel <- readLines("Rapunzel_(1850).txt")
+str(rapunzel)
+```
+
+Verständnisfrage: 
+
+* Welchen Datentyp hat unser Datenobjekt "rapunzel" nach Einlesen des Märchens mithilfe der readLines Funktion? 
+
+
+```{r attr.output='style="max-height: 100px;"'}
+grep("Rapunzel", rapunzel, value=F)
+grepl("Rapunzel", rapunzel)
+regexpr("Rapunzel", rapunzel)
+gregexpr("Rapunzel", rapunzel)
+```
+
+
+Wir können auch einzelne Absätze durchsuchen oder die Gesamtanzahl der Fundstellen ausgeben lassen:  
+
+```{r attr.output='style="max-height: 100px;"'}
+length(grep("Rapunzel", rapunzel))
+rapunzel[2]
+```
+
+Verwenden wir jetzt die Funktionen ``sub()`` und ``gsub()``, um erkannte Zeichenketten zu ersetzen. Mit der bereits bekannten Funktion ``grep()`` können wir daraufhin überprüfen, ob die Zeichenketten erfolgreich ersetzt wurden. 
+
+```{r attr.output='style="max-height: 100px;"'}
+peterpan_1 <- gsub("Rapunzel", "Peter Pan", rapunzel)
+grep("Rapunzel", peterpan_1)
+
+peterpan_2 <- sub("Rapunzel", "Peter Pan", rapunzel)
+grep("Rapunzel", peterpan_2)
+
+peterpan_1[2]
+peterpan_2[2]
+```
+
+Verständnisfrage: 
+
+* Überprüfen wir die Ergebnisse, so fällt auf, dass bei Anwendung der Funktion ``sub()`` nicht alle Instanzen der Zeichenkette "Rapunzel" ersetzt wurden. Woran könnte das liegen? 
+* Vergleichen wir nun den zweiten Absatz der beiden Objekte "peterpan_1" und "peterpan_2". Welche Unterschiede stellt ihr fest? Wie unterscheidet sich folglich das Verhalten der Funktionen ``gsub()`` und ``sub()``?
+
+Durchsuchen mehrerer Dateien: 
+
+&rarr; **Übung: tutorium3_09052022_uebung.R** 
+
+
+### 2.2 Spezielle Pakete: stringr 
+
+Vergleich r base und stringr: https://stringr.tidyverse.org/articles/from-base.html <br />
+
+Verständnisfragen: 
+
+* Welche stringr Funktionen können anstelle der bereits kennengelernten R base Funktionen verwendet weredn? 
+* Googelt das Paket stringi. Was ist der Unterschied zu stringr?
+
+&rarr; **Übung: tutorium3_09052022_uebung.R** 
+
+## 3. Regex Syntax
+
+### 3.1 Basics Syntax
+
+Bisher haben wir nur nach einzelnen Worten gesucht. Oft interessieren wir
+uns aber für komplexere Ausdrücke, Zeichen, oder verschiedene Varianten desselben Worts.
+
+Reguläre Ausdrücke stehen immer in doppelten Anführungszeichen! 
+Soll innerhalb des Ausdrucks nach Anführungszeichen gesucht werden, müssen diese "escaped" werden. Dazu nutzt man den backslash. Das gilt auch für alle anderen Zeichen, die eine "Regex-interne" Bedeutung haben, wie Punkte, Bindestriche, Klammern,... Diese lernen wir im Folgenden kennen.
+
+Wichtige Zeichen: 
+
+  | Zeichen          |  Bedeutung                             |  Beispiel         |
+  |------------------|----------------------------------------|-------------------|
+  | ``\``            |  Escaped character: s.o.               |                   |
+  | ``⎮``            |  Veroderung (ohne Leerzeichen!)        |                   |
+  |                  |  Achtung: Auf Eindeutigkeit achten!    |                   |
+  |                  |  Klammern nutzen!                      |                   |
+  | ``()``           |  Gruppen: Einheiten können mit runden  | Baum(krone|stamm) |           
+  |                  |  Klammern begrenzt werden              | 199(4|5)          |
+  | ``[]``           |  Zeichenklasse                         | [a-zA-ZäöüÄÖÜß]   |
+  |                  |  - Bindestrich für Zahlen- oder        | [0-9]             |
+  |                  |    Buchstabenreihen                    |                   |
+  |                  |  - Reihenfolge innerhalb von Klassen   |                   | 
+  |                  |    nicht festgelegt                    |                   |
+  |                  |  - Sucht nach allen Kombinationen der  |                   |
+  |                  |    Zeichen, wenn kein "oder" spezifiz. |                   |
+  | ``[^]``          |  Verneinung                            | [^aeo]            |
+  | ``{}``           |  Quantifizierer                        |                   |
+  |                  |  - zwischen 1 und 4                    | [a-z]{1,4}        |
+  |                  |  - mindestens 1                        | [a-z]{1,}         |
+  |                  |  - genau 4                             | [a-z]{4}          |
+  | ``+``            |  "mindestens einmal", bis unendlich    | [1986]+           |
+  |                  |  (Frage: Was ist der Unterschied?)     | (1986)+           |
+  | ``*``            |  "beliebig oft", 0 bis unendlich       | [1986]*           |
+  |                  |                                        | (1986)*           |
+  | ``.*``           |  Wildcard: matcht Zeichen beliebig oft |                   |
+  |                  |  (Aber: außer new line characters)     |                   |
+  | ``?``            |  Mögliches, aber optionales Match      |                   |
+  | ``^``            |  Positionsmarker: ^ außerhalb einer    |                   |
+  |                  |  Zeichenklasse markiert Zeilenanfang   |                   |
+  | ``$``            |  Positionsmarker: Markiert Zeilenende  |                   |
+  
+
+Verständnisfragen: 
+
+* Wie hätte sich die Ausgabe der "Rapunzel"-Beispiele oben verändert, wenn wir statt nach "Rapunzel" nach "Rapunzeln?" gesucht hätten?
+* Wie hätten wir nach allen Varianten des Namens "Rapunzel" suchen können? 
+
+
+
+### 3.2 Zeichenklassen
+
+Nach manchen Zeichen wird so oft gesucht, dass sich bereits nützliche Abkürzungen dafür entwickelt haben. 
+
+  | Klasse           |  Bedeutung                                   |
+  |------------------|----------------------------------------------|
+  | ``\w``           | Wortzeichen = [a-zA-Z]                       |
+  | ``\W``           | kein Wortzeichen                             |
+  | ``\d``           | Zahlzeichen = [0-9]                          |
+  | ``\D``           | kein Zahlzeichen                             |              
+  | ``\s``           | Leerzeichen                                  |
+  | ``\S``           | kein Leerzeichen                             |
+  | ``\r``           | carriage return (andere Art von Leerzeichen) |
+  | ``\n``           | new line character (neue Zeile)              |
+  | ``\t``           | Tabulatorzeichen                             |
+
+
+
+### 3.3 Lookarounds
+
+Sogenannte Lookarounds kommen zur Anwendung, wenn nach einem Muster gesucht wird, das den Anfang oder das Ende von einem gesuchten String markiert, aber selbst nicht gematcht werden soll. 
+
+  | Sequenz               |  Bedeutung                                   |
+  |-----------------------|----------------------------------------------|
+  | (?=foo)	Lookahead     | Asserts that what immediately follows the current position in the string is foo   |
+  |                       |                                              |
+  | (?<=foo) Lookbehind   | Asserts that what immediately precedes the current position in the string is foo  |
+  |                       |                                              |
+  | (?!foo)	Negative Lookahead  | Asserts that what immediately follows the current position in the string is not foo   |
+  |                       |                                              |
+  | (?<!foo)	Negative Lookbehind   | Asserts that what immediately precedes the current position in the string is not foo  |         
+
+
+  Quelle: https://www.rexegg.com/regex-lookarounds.html
+  
+Achtung: viele Funktionen haben ein Argument "pcre", welches per Default auf FALSE gesetzt ist. Hier müsst ihr stets "pcre=TRUE" eingeben, wenn ihr mit Lookarounds arbeiten wollt. 
+
+## 4. Weiterführende Links
+* Regex Debugging: https://regex101.com/
+* Erläuterungen zum Regex-Syntax: https://danielfett.de/2006/03/20/regulaere-ausdruecke-tutorial/
+* Interaktives Tutorial zum Regex-Syntax: https://regexone.com/
+* Video zu den R Base-Funktionen: https://www.youtube.com/watch?v=q8SzNKib5-4
+* Lookarounds erläutert: https://www.regular-expressions.info/lookaround.html
+* PCRE Cheatsheet: https://www.debuggex.com/cheatsheet/regex/pcre

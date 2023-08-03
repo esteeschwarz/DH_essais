@@ -1,0 +1,89 @@
+\documentclass[usegeometry, paper=a4, parskip=half, numbers=enddot,  fontsize=11pt, toc=sectionentrywithdots]{scrartcl}
+
+%!Deutsches Sprachpaket
+\usepackage[ngerman]{babel}
+
+\usepackage{pgf}
+\usepackage{float}
+\usepackage{tikz}
+%\usepackage{caption} %nicht notwendig für captions
+%\usepackage{lipsum}
+\usepackage{forest}
+%!\usetikzlibrary;
+\begin{document}
+
+\begin{flushleft}
+Freie Universität Berlin\\
+Institut für Deutsche und Niederländische Philologie\\
+
+% Zeit\\
+% Raum\\
+Wintersemester 2022/23
+\end{flushleft}
+
+\vspace{0.2cm}
+
+\begin{center}
+\LARGE{Phrasenschemata}\\[10pt]
+\Large{Themenblatt}\\[10pt]
+\large{XXXX name}\\[3pt]
+\small{\pgfrdfhref{mailto:x@xtdialup.fu-berlin.de}{noadressfu-berlin.de}}\\[10pt]
+\large{\today}\\[30pt]
+\end{center}
+
+
+\section{essai}
+1st line\\[14pt]
+
+\begin{figure}[h]\label{figure1}
+\centering
+
+\begin{tikzpicture}
+\node {root} 
+child {node {left}} 
+child {node {right} 
+child {node {child}} 
+child {node {child}}};
+%!\caption{this is a figure}
+%!\label{figure1}
+  \end{tikzpicture}
+  \caption{A picture}
+  \end{figure}
+
+blub undsoweiter
+for reference see: %\cref{figure1}
+\begin{figure}
+\begin{forest}
+[NP, dashed
+	[Art|Pro, dashed]
+	[AP, dashed, double]
+	[N]
+]
+\end{forest}
+\end{figure}
+
+\begin{figure}
+\begin{forest}
+[PP, circle, draw
+	[AdvP|NP, circle, draw, dashed
+		[links, no edge, tier=3]
+	]
+	[TEXT1, circle, draw, tier=1
+		[auf, no edge, tier=2
+			[neben, no edge, tier=3,
+				[ins, no edge, tier=4]
+			]
+		]
+	]
+	[NP, circle, draw, tier=1
+		[der Einfahrt, no edge, tier=2
+			[der Einfahrt, no edge, tier=3
+				[Gebäude, no edge, tier=4]
+			]
+		]
+	]
+]
+\end{forest}
+\end{figure}
+
+\end{document}
