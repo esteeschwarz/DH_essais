@@ -1,2 +1,0 @@
-full_name,short_name,file_count,token_count,type_count,encoding,token_definition,ignore_header,ignore_items,number_replace,format,indexer_type,indexer
-my_corpus,my_corpus,1,3123,1485,utf_8_sig,[\p{L}]+,False,False,False,raw_files,word,simple_word_indexer

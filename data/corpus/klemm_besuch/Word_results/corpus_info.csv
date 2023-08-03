@@ -1,2 +1,0 @@
-full_name,short_name,language,date,mode,license,reference,summary,encoding,token_definition,token_definition_number_replace,format,indexer_type,indexer,type_count,token_count,file_count
-User defined custom corpus,custom,,,,,,,utf_8_sig,[\p{L}]+,False,raw_files,word,simple_word_indexer,925,3368,1
