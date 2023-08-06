@@ -1,14 +1,18 @@
 # 12172.
 repository on digital humanities essais.
+#### 13332.
+the section folders moved to seperate repositories:
+
 - sections:
-  - [digital drama analysis](https://github.com/esteeschwarz/DH_essais/tree/main/sections/DD)
-  - [corpus term paper](https://github.com/esteeschwarz/DH_essais/tree/main/sections/DYN)
-  - [psycholingusitic experiment evaluation](https://github.com/esteeschwarz/DH_essais/tree/main/sections/hux2021)
-  - [hebrew transcription work](https://github.com/esteeschwarz/DH_essais/tree/main/sections/IVRIT)
-  - general R language essais [here](https://github.com/esteeschwarz/DH_essais/tree/main/R) && [here](https://github.com/esteeschwarz/essais/tree/main/docs/STAT_R)
+  - [digital drama analysis](https://github.com/esteeschwarz/DD_ss22)
+  - [corpus term paper](https://github.com/esteeschwarz/DYN_ss22)
+  - [psycholingusitic experiment evaluation](https://github.com/esteeschwarz/hux2021)
+  - [hebrew transcription work](https://github.com/esteeschwarz/R-essais/IVRIT)
+  - general R and other coding essais [here](https://github.com/esteeschwarz/R-essais) && [here](https://github.com/esteeschwarz/essais/tree/main/docs/STAT_R)
   - [DH presentations working folder](https://github.com/esteeschwarz/DH_essais/tree/main/sections/pr)
-  - conversation analysis essais: [interaktion](https://github.com/esteeschwarz/essais/tree/main/docs/INT_CA) / [N-PRG](https://github.com/esteeschwarz/DH_essais/tree/main/sections/CA)
+  - conversation analysis essais: [interaktion](https://github.com/esteeschwarz/CA_ws2122/INT_CA) / [N-PRG](https://github.com/esteeschwarz/CA_ws2122)
   - corpus linguistics essais: [SPUND LX](https://github.com/esteeschwarz/essais/tree/main/docs/corpusLX) / [HU-LX multilingual studies (moved)](https://github.com/esteeschwarz/HU-LX)
+  - HiSoN (historical linguistics networks) essais: [HiSoN](https://github.com/esteeschwarz/HiSon)
   ----
   - [frontend output assembly](https://userpage.fu-berlin.de/stschwarz/links?title=adaskool&ref=github) of (recent relevant learnings.)
 
