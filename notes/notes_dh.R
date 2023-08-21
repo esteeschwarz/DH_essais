@@ -458,7 +458,9 @@ library(utils)
 download.file('https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux2021/hux_HA/hux_ha_main.Rmd','huxdown.Rmd')
 
 
-
+#STEP ARRAY (GPT)
+seq(from = 1, to = 100, by = 2)[1] 
+seq(from = 1, to = 100, by = 2)"
 
 
 
