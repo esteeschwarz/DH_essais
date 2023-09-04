@@ -460,7 +460,10 @@ download.file('https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux20
 
 #STEP ARRAY (GPT)
 seq(from = 1, to = 100, by = 2)[1] 
-seq(from = 1, to = 100, by = 2)"
+seq(from = 1, to = 100, by = 2)
 
+library(utils)
+URLencode("https://sample url",reserved = T)
+URLencode("a url with spaces and / and @")
 
 
