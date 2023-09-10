@@ -466,4 +466,9 @@ library(utils)
 URLencode("https://sample url",reserved = T)
 URLencode("a url with spaces and / and @")
 
+#lookaround
+regx19i<-"((?<=<castList>)((Personen.)(.*)){1,7}(?=</castList>))"
+repl19i<-"<head>\\3</head>\\4"
+
+
 
