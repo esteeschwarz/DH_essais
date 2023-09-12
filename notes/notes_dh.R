@@ -48,13 +48,16 @@ data%>% xml_ns_strip()
 drama.ns
 
 # Find all vs find one -----------------------------------------------------
-x <- read_xml("<body>
-  <p>Some <b>text</b>.</p>
-  <p>Some <b>other</b> <b>text</b>.</p>
+data <- read_xml("<body>
+  <p>Some <b>boldtext</b>.</p>
+<div>  <p>Some <b>text</b>.</p>
+  <p>Some <b>other</b> <b>text</b>.</p></div>
   <p>No bold here!</p>
 </body>")
-para <- xml_find_all(data, ".//p")
-para
+div <- xml_find_all(data, ".//div")#%>%xml_find_all(".//b")
+xml_text(div)
+b <- xml_find_all(div, ".//b")
+xml_text(b)
 # By default, if you apply xml_find_all to a nodeset, it finds all matches,
 # de-duplicates them, and returns as a single nodeset. This means you
 # never know how many results you'll get
