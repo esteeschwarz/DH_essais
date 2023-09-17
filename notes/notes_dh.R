@@ -473,5 +473,96 @@ URLencode("a url with spaces and / and @")
 regx19i<-"((?<=<castList>)((Personen.)(.*)){1,7}(?=</castList>))"
 repl19i<-"<head>\\3</head>\\4"
 
+### ASKGPT:
+source("~/boxHKW/21S/DH/local/R/askchatgpt.R")
+prompt<-'where and how do i configure the corpus metadata for an annis corpus. name the files to manipulate and give an example of a sample configuration'
+prompt<-'write an R code snippet example that inserts a html document of 3 nodes into a <sample> node in an xml document.'
+prompt<-'write an R code snippet using the xml2-package that replaces a complete node of an xml document with a html document of 3 nodes. do not use xmlTree(). do not use replace_node()'
+q<- paste0('{"model": "text-davinci-003", "prompt": "',prompt,'", "temperature": 0, "max_tokens": 1200}')
+askgpt(q)
 
+# Create a sample XML document
+doc <- xml_new_root("sample")
 
+# Insert a HTML document of 3 nodes into the <sample> node
+xmlInternalTreeParse(doc, "<html><body><p>This is a sample HTML document.</p><p>It has two nodes.</p><p>The end.</p></body></html>", asText = TRUE)
+top <-doc
+textNodes <- xmlSApply(top, inherits, "sample")
+sapply(xml_children(top)["sample"], xmlv)
+doc
+top
+xmlValue(xml_child(xml_child(xml_child(tei.dracor, 1), 2), 1))
+) = tei.33373.person
+xmlValue(xml_find_all(tei.dracor, "//partDesc")) = tei.33373.person
+node <- xmlNode("foo", "Some text")
+xmlValue(xml_find_all(tei.dracor,"//partDesc"))
+
+xmlValue(xmlTextNode("some more raw text"))
+node
+xmlNode(xml_find_all(tei.dracor,"//"))     
+xml_add_child(xml_child(xml_child(xml_child(tei.dracor, 1), 2), 1),.value =    list(tei.33373.person))
+  tei.dracor[[1]][[2]]
+  
+
+xml_child(xml_child(xml_child(tei.dracor, 1), 2), 1))
+xmlTree(tei.33373.person)
+
+# Create a sample XML document
+doc <- xmlTree("<root><node1>Node 1</node1><node2>Node 2</node2></root>")
+
+# Create a sample HTML document
+html_doc <- xmlTree("<html><head><title>My HTML Document</title></head><body><p>This is a sample HTML document.</p></body></html>")
+
+# Replace the node2 element with the HTML document
+doc[["node2"]] <- xmlTree(tei.33373.person)
+
+# Print the modified XML document
+print(doc)[1]
+####
+# Read in the XML document
+doc <- read_xml("my_document.xml")
+doc<-tei.dracor
+# Create a new HTML document
+html_doc <- read_html("my_html_document.html")
+html_doc<-tei.33373.person
+# Replace the node in the XML document with the HTML document
+replaceNodes(xml_child(xml_child(xml_child(tei.dracor, 1), 2), 1),tob)
+(xml_child(xml_child(xml_child(tei.dracor, 1), 2), 1),list(html_doc))
+list(html_doc)[[1]][1][1]
+
+  # removing nodes
+  
+  doc = xmlParse("<top><a/><b/><c><d/><e>bob</e></c></top>")
+top = xmlRoot(doc)
+top
+tob<-xmlParse("<sample>textsame</sample>")
+top<-tei.dracor
+replaceNodes(top[["//partDesc"]], tob)
+addChildren(tei.dracor[[1]][[2]][[1]])
+# a and c have disappeared.
+top
+####
+library(xml2)
+
+# Read in the XML document
+#doc <- read_xml("my_xml_document.xml")
+doc<-tei.dracor
+# Create a new HTML document
+#html_doc <- read_html("my_html_document.html")
+html_doc <- tei.33373.person
+# Find the node to be replaced
+node <- xml_find_all(doc, "//teiHeader/profileDesc/particDesc")
+#node <- xml_find_all(doc, "//teiHeader/*")
+node<-xml_child(xml_child(xml_child(doc, 1), 2), 1)
+# Replace the node with the HTML document
+doc2<-xml_replace(doc, node, html_doc)
+  node
+filename<-"~/Documents/GitHub/ETCRA5_dd23/R/data/sample2.xml"
+  xmlfile = xmlTreeParse(filename, useInternalNodes = TRUE)
+  xmltop = xmlRoot(xmlfile)
+  #xmltop =  xml_new_root (xmlfile)
+  newNode = newXMLNode(name = "newlyCreatedNode")
+  xml.b<-addChildren(xmltop[[1]][[3]][[1]], kids = list(newNode))
+getwd()
+  write_xml(xml.b,"~/Documents/GitHub/ETCRA5_dd23/R/data/sample2m.xml")  
+  
