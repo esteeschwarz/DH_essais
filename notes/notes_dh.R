@@ -566,3 +566,28 @@ filename<-"~/Documents/GitHub/ETCRA5_dd23/R/data/sample2.xml"
 getwd()
   write_xml(xml.b,"~/Documents/GitHub/ETCRA5_dd23/R/data/sample2m.xml")  
   
+  
+  xmlToS4()
+  txt = paste0("<doc><part><name>ABC</name><type>XYZ</type>',
+              <cost>3.54</cost><status>available</status></part></doc>")
+  doc = xmlParse(txt)
+  
+  setClass("part", representation(name = "character",
+                                  type = "character",
+                                  cost = "numeric",
+                                  status= "character"))
+x1<-  xmlToS4(xmlRoot(doc)[["part"]])
+doc<-xmlParseDoc(src.tei)
+x1<-xmlToList(doc)  
+x1<-xmlRoot(doc)
+x2<-xmlToList(x1)  
+x3<-xmlToDataFrame(x1)
+write_csv(x2,"teix2.csv")
+x3<-as.data.frame(x2)
+
+source<-"https://stackoverflow.com/questions/48120782/r-write-list-to-csv-line-by-line"
+# crush to flat matrix
+my_mat <- do.call(rbind, x2) #x2=my_list
+# add in list names as new column
+my_df <- data.frame(id = names(x2), my_mat)
+my_df$fileDesc$teiHeader$titleStmt$title$text
