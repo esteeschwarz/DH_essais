@@ -75,7 +75,7 @@ plot(c1, net, edge.arrow.size=.4,
 
 coords<-layout_3
 g<-net
-c4 = cluster_optimal(net)
+#c4 = cluster_optimal(net)
 #plot(c4, net, layout=layout_3)
 #c3 = cluster_edge_betweenness(net)
 #plot_dendrogram(c3)
@@ -97,11 +97,11 @@ d = as.dist(D)
 
 # average-linkage clustering method
 ### 13384.shiny issue
-# cc = hclust(d, method = "average")
-# #cc$labels
-# # plot dendrogram
-# plot(cc,labels = nodes$name)
-# #plot
-# # draw blue borders around clusters
-# clusters.list = rect.hclust(cc, k = 3, border="blue")
+cc = hclust(d, method = "average")
+#cc$labels
+# plot dendrogram
+plot(cc,labels = nodes$name)
+#plot
+# draw blue borders around clusters
+clusters.list = rect.hclust(cc, k = 3, border="blue")
 }
