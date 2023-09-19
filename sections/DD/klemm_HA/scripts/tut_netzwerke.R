@@ -50,7 +50,7 @@ layout_3 <- layout_with_fr(net)
 c1 = cluster_fast_greedy(net)
 #modularity(c1)
 # modularity matrix erstellen
-B = modularity_matrix(net, membership(c1))
+#B = modularity_matrix(net, membership(c1))
 #round(B[1,],2)
 # Anzahl Communities
 #length(c1)
