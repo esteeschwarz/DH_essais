@@ -96,11 +96,12 @@ D = 1-S
 d = as.dist(D)
 
 # average-linkage clustering method
-cc = hclust(d, method = "average")
-#cc$labels
-# plot dendrogram
-plot(cc,labels = nodes$name)
-#plot
-# draw blue borders around clusters
-clusters.list = rect.hclust(cc, k = 3, border="blue")
+### 13384.shiny issue
+# cc = hclust(d, method = "average")
+# #cc$labels
+# # plot dendrogram
+# plot(cc,labels = nodes$name)
+# #plot
+# # draw blue borders around clusters
+# clusters.list = rect.hclust(cc, k = 3, border="blue")
 }
