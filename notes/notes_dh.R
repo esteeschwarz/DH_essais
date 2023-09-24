@@ -591,3 +591,35 @@ my_mat <- do.call(rbind, x2) #x2=my_list
 # add in list names as new column
 my_df <- data.frame(id = names(x2), my_mat)
 my_df$fileDesc$teiHeader$titleStmt$title$text
+
+frame_src<-("https://raw.githubusercontent.com/esteeschwarz/hux2021/main/framesample.html")
+frame_src<-"~/Documents/GitHub/hux2021/framesample.html"
+frame_src<-"framesample.html"
+file.info(frame_src)
+library(readtext)
+library(xml2)
+library(httr)
+
+#frame_src<-"https://ada-sub.dh-index.org/es/callr.html"
+re<-GET(frame_src)
+t<-httr::content(re,"text")
+b<-readtext(frame_src,text_field = "t")
+b$text
+
+renderDocument(htmlTemplate(text_ = read_html(frame_src),document_ = F))
+renderDocument(htmlTemplate(filename  = frame_src,document_ = F))
+renderDocument(htmlTemplate(text_ = t,document_ = "auto"))
+renderDocument(read_html(frame_src))
+readChar(frame_src)
+
+
+zzfil <- tempfile("testchar")
+zz <- file(zzfil, "wb")
+x <- readLines(frame_src)
+nc <- stri_count_boundaries(x,"char")
+nc<-sum(nc)
+writeChar(x, zz, nc, eos = NULL)
+#writeChar(x, zz, eos = "\r\n")
+#close(zz)
+renderDocument(htmlTemplate(text_ = read_lines(filezzfil),document_ = F))
+zzfil
