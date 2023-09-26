@@ -623,3 +623,5 @@ writeChar(x, zz, nc, eos = NULL)
 #close(zz)
 renderDocument(htmlTemplate(text_ = read_lines(filezzfil),document_ = F))
 zzfil
+###
+cat(mark(c("Hello _World_!", "", "Welcome to **markdown**.")))
