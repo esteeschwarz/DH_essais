@@ -625,3 +625,7 @@ renderDocument(htmlTemplate(text_ = read_lines(filezzfil),document_ = F))
 zzfil
 ###
 cat(mark(c("Hello _World_!", "", "Welcome to **markdown**.")))
+###
+library(httr)
+x<-GET("https://dracor.org/api/corpora/ger/play/lessing-emilia-galotti/spoken-text")
+re<-content(x,"text")
