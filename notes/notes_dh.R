@@ -478,6 +478,9 @@ source("~/boxHKW/21S/DH/local/R/askchatgpt.R")
 prompt<-'where and how do i configure the corpus metadata for an annis corpus. name the files to manipulate and give an example of a sample configuration'
 prompt<-'write an R code snippet example that inserts a html document of 3 nodes into a <sample> node in an xml document.'
 prompt<-'write an R code snippet using the xml2-package that replaces a complete node of an xml document with a html document of 3 nodes. do not use xmlTree(). do not use replace_node()'
+prompt<-'what are the API endpoints for the SketchEngine TenTen corpus family to use in the corpname=xxx field?'
+prompt<-'provide a complete query for the SketchEngine endpoint </view?> that queries a corpus (bnc2) for the word <jobs>. the request should not query for the lemma of <jobs>, but for the exact token and the proposal should provide precise information on the API endpoint and not only on the CQL syntax. the query is performed via API and not in the SketchEngine GUI.'
+
 q<- paste0('{"model": "text-davinci-003", "prompt": "',prompt,'", "temperature": 0, "max_tokens": 1200}')
 askgpt(q)
 
