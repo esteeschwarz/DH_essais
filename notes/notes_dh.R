@@ -644,3 +644,7 @@ txthtml<-xml_text(srchtml)
 install.packages("bslib")
 bslib::bs_theme_preview()
 install.packages("DT")
+
+an <- c('x','y')
+names(an) <- an
+abind(lapply(an, get), along=3)
