@@ -639,3 +639,8 @@ dta_t<-plot.stats(src,"ttr",50)
 library(xml2)
 srchtml<-read_html(src)
 txthtml<-xml_text(srchtml)
+
+### shiny themes
+install.packages("bslib")
+bslib::bs_theme_preview()
+install.packages("DT")
