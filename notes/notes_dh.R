@@ -648,3 +648,23 @@ install.packages("DT")
 an <- c('x','y')
 names(an) <- an
 abind(lapply(an, get), along=3)
+
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(timetk)
+library(rlang)
+cdf.2<-c.df.n
+#cdf.2$timestamp<-(gsub("(........)..","\\1",cdf.2$timestamp))
+cdf.2$timestamp<-(gsub("(....)(..)(..)..","\\1-\\2-\\3 00:00:00",cdf.2$timestamp))
+#format(cdf.2$timestamp[2],"%Y %M %D")
+cdf.2 %>% 
+  plot_time_series(timestamp, as.double(views), 
+                   .interactive = F,
+                   .plotly_slider = TRUE)
+cdf.2$timestamp<-as_datetime(cdf.2$timestamp)
+cdf.2 %>%
+  group_by(article) %>%
+  plot_time_series(timestamp, views, 
+                   .facet_ncol = 2, .facet_scales = "free",
+                   .interactive = F)
