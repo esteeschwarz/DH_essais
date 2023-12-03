@@ -647,6 +647,7 @@ install.packages("DT")
 
 an <- c('x','y')
 names(an) <- an
+library(abind)
 abind(lapply(an, get), along=3)
 
 library(dplyr)
@@ -668,3 +669,24 @@ cdf.2 %>%
   plot_time_series(timestamp, views, 
                    .facet_ncol = 2, .facet_scales = "free",
                    .interactive = F)
+x <- matrix(runif(100), ncol = 5)
+group <- sample(1:8, 20, TRUE)
+(xsum <- rowsum(x, group))
+## Slower versions
+tapply(x, list(group[row(x)], col(x)), sum)
+t(sapply(split(as.data.frame(x), group), colSums))
+x <- matrix(runif(100), ncol = 5)
+group <- sample(1:8, 20, TRUE)
+group
+(xsum <- rowsum(x, group))
+## Slower versions
+tapply(x, list(group[row(x)], col(x)), sum)
+t(sapply(split(as.data.frame(x), group), colSums))
+aggregate(x, list(group), sum)[-1]
+
+library(lme4)
+library(lmerTest)
+library(nlme)
+fm1 <- lme(distance ~ Sex * age, Orthodont, random = ~ age, method = "ML")
+logLik(fm1)
+logLik(fm1, REML = TRUE)
