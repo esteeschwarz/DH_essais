@@ -690,3 +690,6 @@ library(nlme)
 fm1 <- lme(distance ~ Sex * age, Orthodont, random = ~ age, method = "ML")
 logLik(fm1)
 logLik(fm1, REML = TRUE)
+
+#matrix transpose:
+t()
