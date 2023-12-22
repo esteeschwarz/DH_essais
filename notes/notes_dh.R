@@ -693,3 +693,20 @@ logLik(fm1, REML = TRUE)
 
 #matrix transpose:
 t()
+
+length(ex1 <- expression(1 + 0:9)) # 1
+ex1
+eval(ex1)
+ex1<-
+t1<-1:10
+t2<-11:20
+t3<-21:30
+
+
+ex1<-expression(t1,t2,t3)
+trun<-function(ex){
+  print(data.frame(e=eval(ex[1])))
+}
+eval(ex1[1])
+trun(ex1)
+
