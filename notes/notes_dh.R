@@ -723,4 +723,12 @@ for (i in 1:max_outer) {
   cat("\n")  # Move to the next line after each iteration of the outer loop
 }
 
-
+a<-c(letters[1:10])
+b<-c(a,letters[5:15])
+b[10:13]<-"o"
+b
+unique(b)
+b[7]<-"k"
+b
+### says unique() creates unique array in order of appearance! not alphabetically. i always thought this is naturally so but
+### but experienced issues with reduced array someplace, where the order of the unique array didnt correspond the order of appearance...
