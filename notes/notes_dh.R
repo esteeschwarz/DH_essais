@@ -464,7 +464,7 @@ download.file('https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux20
 #STEP ARRAY (GPT)
 seq(from = 1, to = 100, by = 2)[1] 
 seq(from = 1, to = 100, by = 2)
-
+seq(1,27,3)
 library(utils)
 URLencode("https://sample url",reserved = T)
 URLencode("a url with spaces and / and @")
@@ -709,4 +709,18 @@ trun<-function(ex){
 }
 eval(ex1[1])
 trun(ex1)
+
+# Define the maximum value for the outer loop
+max_outer <- 10
+
+# Nested for loop
+for (i in 1:max_outer) {
+  for (j in 1:i) {
+    # Calculate the number to print
+    num_to_print <- (i - 1) * max_outer + j
+    cat(num_to_print, " ")
+  }
+  cat("\n")  # Move to the next line after each iteration of the outer loop
+}
+
 
