@@ -732,3 +732,24 @@ b[7]<-"k"
 b
 ### says unique() creates unique array in order of appearance! not alphabetically. i always thought this is naturally so but
 ### but experienced issues with reduced array someplace, where the order of the unique array didnt correspond the order of appearance...
+
+a<-sample(LETTERS[1:6],1000,replace = T)
+b<-sample(0:1,1000,replace = T)
+df<-data.frame(cat=a,hyp=b)
+df$hyp[df$cat=="A"|df$hyp=="F"]<-1
+df$hyp[df$cat=="B"|df$cat=="C"|df$hyp=="D"|df$hyp=="E"]<-0
+df$cat[1]<-"0I"
+df$hyp[1]<-0
+l1<-lm(hyp~cat,df[1:100,])
+summary(l1)
+plot(l1)
+predict(l1,newdata = df[101:1000,])
+df[101:120,]
+sum(df$cat=="E")
+sum(df$cat=="B")
+sum(df$cat=="A")
+sum(df$cat=="C")
+sum(df$cat=="E")
+sum(df$cat=="F")
+sum(df$cat=="E")*6
+1000/6
