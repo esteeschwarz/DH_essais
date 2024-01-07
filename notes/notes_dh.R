@@ -753,3 +753,11 @@ sum(df$cat=="E")
 sum(df$cat=="F")
 sum(df$cat=="E")*6
 1000/6
+
+#20240106(17.33)
+#14021.batch.rename
+###################
+f<-list.files("TRN-csv")
+fr<-gsub(".trn",".csv",f)
+file.rename(f,fr)
+
