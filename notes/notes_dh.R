@@ -761,3 +761,7 @@ f<-list.files("TRN-csv")
 fr<-gsub(".trn",".csv",f)
 file.rename(f,fr)
 
+sm.make<-sample(trndf.lm$lfd[trndf.lm$alt=="make"],5)
+sm.build<-sample(trndf.lm$lfd[trndf.lm$alt=="build"],5)
+sm<-c(sm.make,sm.build,sample(1:length(trndf.lm$scb),10))
+trndf.lm[sm,]
