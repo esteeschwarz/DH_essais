@@ -765,3 +765,15 @@ sm.make<-sample(trndf.lm$lfd[trndf.lm$alt=="make"],5)
 sm.build<-sample(trndf.lm$lfd[trndf.lm$alt=="build"],5)
 sm<-c(sm.make,sm.build,sample(1:length(trndf.lm$scb),10))
 trndf.lm[sm,]
+
+
+#14027.
+library("quanteda")
+library(quanteda.textstats)
+set.seed(20)
+dfmat1 <- dfm(tokens(c("a a b b c d", "a d d d", "a a a")))
+
+textstat_frequency(dfmat1)
+textstat_frequency(dfmat1, groups = c("one", "two", "one"), ties_method = "first")
+textstat_frequency(dfmat1, groups = c("one", "two", "one"), ties_method = "average")
+
