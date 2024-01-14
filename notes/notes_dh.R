@@ -777,3 +777,7 @@ textstat_frequency(dfmat1)
 textstat_frequency(dfmat1, groups = c("one", "two", "one"), ties_method = "first")
 textstat_frequency(dfmat1, groups = c("one", "two", "one"), ties_method = "average")
 
+con<-file(description="filesm.txt","r")
+t<-readLines(con = con)
+print(t)
+
