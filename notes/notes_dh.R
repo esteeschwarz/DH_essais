@@ -789,5 +789,10 @@ install.packages("devtools")
 #install.packages("huwiwidown")
 devtools::install_github("phister/huwiwidown")
 library(huwiwidown)
-
-
+install.packages("knit2wp")
+devtools::install_github(c("duncantl/XMLRPC", "duncantl/RWordPress"))
+library(RWordPress)
+?RWordPress
+library(knitr)
+?knit2wp
+barplot(plotlist$nouns.f.cp,main="semantic alternates w/ equivalent meaning",ylab = "% in corpus")
