@@ -781,3 +781,13 @@ con<-file(description="filesm.txt","r")
 t<-readLines(con = con)
 print(t)
 
+install.packages("tinytex")
+install.packages("remotes")
+remotes::install_github("rstudio/bookdown")
+remotes::install_github("ismayc/thesisdown")
+install.packages("devtools")
+#install.packages("huwiwidown")
+devtools::install_github("phister/huwiwidown")
+library(huwiwidown)
+
+
