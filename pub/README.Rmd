@@ -4,10 +4,10 @@ author: "esteeschwarz"
 date: "2024-01-08"
 output: 
     md_document:
-    variant: markdown_phpextra+backtick_code_blocks
+      variant: markdown_phpextra+backtick_code_blocks
     # html_document:
-    toc: true
-    number_sections: true
+      toc: true
+      number_sections: true
     keep_md: true
 bibliography: CORPUS-LX.bib
    # nocite: |
@@ -24,8 +24,9 @@ library(knitr)
 ```
 
 # term paper draft
-topic #6, polysemous verbs with light and concrete senses, replication study of [@mehl_what_2021](https://doi.org/10.1515/cllt-2017-0039), further used: [@gilquin_what_2008](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)
-- snc:01,02,3,c1,htm1
+topic #6, polysemous verbs with light and concrete senses, replication study of [@mehl_what_2021](https://doi.org/10.1515/cllt-2017-0039), further used: [@gilquin_what_2008](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)   
+
+meta:snc:01,02,3,c1,htm1,md>htm>wp
 
 ## init
 "If onomasiological frequency measurements do indeed correlate with elicitation tests, 
@@ -58,7 +59,8 @@ load(dtemp)
 
 #load("~/boxHKW/21S/DH/local/SPUND/corpuslx/stefanowitsch/HA/data/trndf.lm.cpt.RData")
 #load("data/SBC.20-sample.RData")
-kable(smdf[sample(1:20,7),])
+#kable(smdf[sample(1:20,7),])
+kable(smdf[c(4,11,7,16,5,11,9),])
 #smdf[1:10,]
 ```
 
