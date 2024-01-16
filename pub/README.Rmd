@@ -2,16 +2,19 @@
 title: "14022.spundLX.HA"
 author: "esteeschwarz"
 date: "2024-01-08"
-output:
-  md_document:
-#    variant: markdown_phpextra+backtick_code_blocks
-    variant: markdown_github
+output: 
+    md_document:
+    variant: markdown_phpextra+backtick_code_blocks
+    # html_document:
     toc: true
     number_sections: true
-  keep_md: true
+    keep_md: true
 bibliography: CORPUS-LX.bib
    # nocite: |
     #  @gilquin_what_2008,@mehl_what_2021,@ucsb_santa_2005
+  #md_document:
+#    variant: markdown_phpextra+backtick_code_blocks
+   # variant: markdown_github
 
 ---
 
@@ -22,7 +25,7 @@ library(knitr)
 
 # term paper draft
 topic #6, polysemous verbs with light and concrete senses, replication study of [@mehl_what_2021](https://doi.org/10.1515/cllt-2017-0039), further used: [@gilquin_what_2008](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)
-- snc:01,02,3,c1
+- snc:01,02,3,c1,htm1
 
 ## init
 "If onomasiological frequency measurements do indeed correlate with elicitation tests, 
