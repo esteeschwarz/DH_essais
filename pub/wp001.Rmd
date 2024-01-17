@@ -41,7 +41,7 @@ editPost(pid,content = p.html) # actualises post content
 
 yaml-header of the .Rmd rendered:
 
-```{yaml}
+```{}
 
 ---
 title: "14022"
@@ -59,6 +59,9 @@ editor_options:
 bibliography: sample.bib
 ---
 ```
+
+## persistent solution
+modified the content of the *knit2wp()* function as to use *render()* and *mark()* instead of *knit()* and *markdownToHTML()*. now works.
 
 ---
 ## B: references
