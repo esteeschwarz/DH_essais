@@ -3,7 +3,9 @@ title: "14022.spundLX.HA"
 author: "esteeschwarz"
 date: "2024-01-08"
 output: 
-  md_document: 
+  md_document:
+   variant: markdown_phpextra+backtick_code_blocks
+
    toc: true
    number_sections: true
    pandoc_args: ["--wrap=none"]

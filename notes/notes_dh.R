@@ -797,5 +797,13 @@ library(knitr)
 ?knit2wp
 barplot(plotlist$nouns.f.cp,main="semantic alternates w/ equivalent meaning",ylab = "% in corpus")
 knitr::opts_knit$set(out.format = "markdown")
-knit("README.Rmd",output = "readmek.md")
+knitr::opts_knit$set(knit_params(rmd))
+render(rmd)
+library(rmarkdown)
+rmdy<-yaml_front_matter(rmd)
+rmdy
+knit
+opts_knit$set(yam)
+opts_knit$get()
+knit("README.Rmd")
 wrap_rmd("_READMEw.Rmd",80)
