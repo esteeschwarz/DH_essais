@@ -9,8 +9,9 @@
 # 1 term paper draft {#term-paper-draft}
 
 topic \#6, polysemous verbs with light and concrete senses, replication
-study of [Mehl (2021)](https://doi.org/10.1515/cllt-2017-0039), further
-used: [Gilquin
+study of (Mehl 2021)
+
+further used [Gilquin
 (2008)](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)
 
 meta:snc:01,02,3,c1,htm1,md&gt;htm&gt;wp,dhpub
@@ -23,8 +24,8 @@ be able to examine onomasiological frequencies in spoken corpora rather
 than performing elicitation tests. That possibility would facilitate
 cognitive research into languages and varieties around the world,
 without the necessity of in situ psycholinguistic testing, and would
-also encourage the creation of more spoken corpora.” ([Mehl (2021)
-p.23](https://doi.org/10.1515/cllt-2017-0039))
+also encourage the creation of more spoken corpora.” ([Mehl
+(2021)](https://doi.org/10.1515/cllt-2017-0039)[p.23](https://doi.org/10.1515/cllt-2017-0039))
 
 ## 1.2 method {#method}
 
