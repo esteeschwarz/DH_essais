@@ -8,10 +8,6 @@ output:
    toc: true
    number_sections: true
    pandoc_args: ["--wrap=none"]
-editor_options:
-  markdown:
-    wrap: none
-  #  keep_md: true
 bibliography: comp.bib
 ---
 
