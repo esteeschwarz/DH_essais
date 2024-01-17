@@ -796,3 +796,5 @@ library(RWordPress)
 library(knitr)
 ?knit2wp
 barplot(plotlist$nouns.f.cp,main="semantic alternates w/ equivalent meaning",ylab = "% in corpus")
+
+knit("README.md",output = "readmek.md")
