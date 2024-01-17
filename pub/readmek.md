@@ -1,253 +1,95 @@
--   [1 term paper draft](#term-paper-draft)
-    -   [1.1 init](#init)
-    -   [1.2 method](#method)
-        -   [1.2.1 corpus sample](#corpus-sample)
-        -   [1.2.2 script used:](#script-used)
-        -   [1.2.3 process:](#process)
--   [2 B: references](#b-references)
+---
+title: "14022.spundLX.HA"
+author: "esteeschwarz"
+date: "2024-01-08"
+output: 
+  md_document: 
+   toc: true
+   number_sections: true
+editor_options:
+  markdown:
+    wrap: none
+  #  keep_md: true
+bibliography: CORPUS-LX.bib
+   # nocite: |
+    #  @gilquin_what_2008,@mehl_what_2021,@ucsb_santa_2005
+#    variant: markdown_github
 
-# 1 term paper draft
+---
 
-topic \#6, polysemous verbs with light and concrete senses, replication
-study of (Mehl 2021)
 
-further used [Gilquin
-(2008)](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)
 
-meta:snc:01,02,3,c1,htm1,md&gt;htm&gt;wp,dhpub
+# term paper draft
+topic #6, polysemous verbs with light and concrete senses, replication study of 
+[@mehl_what_2021](https://doi.org/10.1515/cllt-2017-0039), 
+further used [@gilquin_what_2008](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)   
 
-## 1.1 init
+meta.snc.rmd>md>wp
 
-“If onomasiological frequency measurements do indeed correlate with
-elicitation tests, potential impact would be immense. Researchers would
-be able to examine onomasiological frequencies in spoken corpora rather
-than performing elicitation tests. That possibility would facilitate
-cognitive research into languages and varieties around the world,
-without the necessity of in situ psycholinguistic testing, and would
-also encourage the creation of more spoken corpora.” ([Mehl
-(2021)](https://doi.org/10.1515/cllt-2017-0039)[p.23](https://doi.org/10.1515/cllt-2017-0039))
 
-## 1.2 method
+## init
+"If onomasiological frequency measurements do indeed correlate with elicitation tests, potential impact would be immense. Researchers would be able to examine onomasiological frequencies in spoken corpora rather than performing elicitation tests. That possibility would facilitate cognitive research into languages and varieties around the world, without the necessity of in situ psycholinguistic testing, and would also encourage the creation of more spoken corpora." 
+([@mehl_what_2021 p.23](https://doi.org/10.1515/cllt-2017-0039))
 
-following corpus was used to determine frequencies:
+## method
+following corpus was used to determine frequencies:   
 
-Q.1: Santa Barbara corpus of spoken American English, ([UCSB et al.
-(2005)](https://www.linguistics.ucsb.edu/research/santa-barbara-corpus))
+Q.1: Santa Barbara corpus of spoken American English, ([@ucsb_santa_2005](https://www.linguistics.ucsb.edu/research/santa-barbara-corpus))
 
-the corpus data was downloaded from:
-<https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip>
+the corpus data was downloaded from: [https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip](https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip)
 
-### 1.2.1 corpus sample
+### corpus sample
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 8%" />
-<col style="width: 4%" />
-<col style="width: 5%" />
-<col style="width: 62%" />
-<col style="width: 6%" />
-<col style="width: 6%" />
-<col style="width: 8%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">scb</th>
-<th style="text-align: right;">id</th>
-<th style="text-align: left;">text</th>
-<th style="text-align: right;">lfd</th>
-<th style="text-align: right;">light</th>
-<th style="text-align: left;">alt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">2974</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">242</td>
-<td style="text-align: left;">% I wanted it to be home made Q .</td>
-<td style="text-align: right;">2974</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">make</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">65343</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: right;">123</td>
-<td style="text-align: left;">… It’s gonna get messed up.</td>
-<td style="text-align: right;">65343</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">a-other</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">36022</td>
-<td style="text-align: right;">31</td>
-<td style="text-align: right;">811</td>
-<td style="text-align: left;">3is no3 t built,</td>
-<td style="text-align: right;">36022</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">build</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">22225</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">1011</td>
-<td style="text-align: left;">H … Chaos X I guess X is basically
-analysis of noise.</td>
-<td style="text-align: right;">22225</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">a-other</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">61913</td>
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">604</td>
-<td style="text-align: left;">and make the payroll,</td>
-<td style="text-align: right;">61913</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">make</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">65343.1</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: right;">123</td>
-<td style="text-align: left;">… It’s gonna get messed up.</td>
-<td style="text-align: right;">65343</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: left;">a-other</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">44860</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">580</td>
-<td style="text-align: left;">H and the new building is a new visitors
-center.</td>
-<td style="text-align: right;">44860</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">build</td>
-</tr>
-</tbody>
-</table>
+|      | scb|  id|text                                               |   lfd| light|alt     |
+|:-----|---:|---:|:--------------------------------------------------|-----:|-----:|:-------|
+|2974  |   3| 242|% I wanted it to be  home made Q  .                |  2974|     0|make    |
+|65343 |  57| 123|... It's gonna get messed up.                      | 65343|    NA|a-other |
+|9465  |   8| 567|and then I didn't and I .. kept making like,       |  9465|     1|make    |
+|67928 |  59| 714|And he's  really good at making out .. the budget. | 67928|     1|make    |
+|35078 |  30| 612|... God is continually .. building character.      | 35078|     0|build   |
+|61913 |  53| 604|and make the payroll,                              | 61913|     1|make    |
+|28500 |  24|  25|.. Yeah.                                           | 28500|    NA|a-other |
 
-### 1.2.2 script used:
+### script used: 
 
-[14015.concrete-abstract\_HA.R](https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/14015.concrete-abstract_HA.R)
+[14015.concrete-abstract_HA.R](14015.concrete-abstract_HA.R)
 
-### 1.2.3 process:
+### process:
+#### distribution analysis 
+cf. [@mehl_what_2021 pp.11-14]
 
-#### 1.2.3.1 distribution analysis
 
-cf. (Mehl 2021, 11–14)
+|         | ICE.written| ICE.spoken| SBC.spoken|
+|:--------|-----------:|----------:|----------:|
+|concrete |          68|         96|         89|
+|light    |         321|        353|        381|
 
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">ICE.written</th>
-<th style="text-align: right;">ICE.spoken</th>
-<th style="text-align: right;">SBC.spoken</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">concrete</td>
-<td style="text-align: right;">68</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: right;">89</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">light</td>
-<td style="text-align: right;">321</td>
-<td style="text-align: right;">353</td>
-<td style="text-align: right;">381</td>
-</tr>
-</tbody>
-</table>
 
-<figure>
-<img src="readmek_files/figure-markdown_strict/fig-01-dist-1.png"
-alt="distribution of lemma /make/ over corpora. ICE data from study." />
-<figcaption aria-hidden="true">distribution of lemma /make/ over
-corpora. ICE data from study.</figcaption>
-</figure>
+![distribution of lemma /make/ over corpora. ICE data from study.](figure/fig-01-dist-1.png)
 
-#### 1.2.3.2 semantic alternatives to make
+#### semantic alternatives to make
+this contrast includes made up alternatives to /make/ that Mehl defined in his study. we do not account for the context of these alternatives in the corpus texts, i.e. all occurences are counted. Mehl contrasted only these alternate occurences which "are defined as those verbs that occur in the corpus with the same concrete direct objects as make, (take, and give,) and with a roughly equivalent meaning." Mehl puts these under "onomasiological alternates". (cf. @mehl_what_2021 p.13)  
 
-this contrast includes made up alternatives to /make/ that Mehl defined
-in his study. we do not account for the context of these alternatives in
-the corpus texts, i.e. all occurences are counted. Mehl contrasted only
-these alternate occurences which “are defined as those verbs that occur
-in the corpus with the same concrete direct objects as make, (take, and
-give,) and with a roughly equivalent meaning.” Mehl puts these under
-“onomasiological alternates”. (cf. Mehl (2021) p.13)
 
-<table>
-<caption>semantic alternatives</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Var1</th>
-<th style="text-align: right;">Freq</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">build</td>
-<td style="text-align: right;">101</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">construct</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">create</td>
-<td style="text-align: right;">23</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">generate</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">make</td>
-<td style="text-align: right;">89</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">produce</td>
-<td style="text-align: right;">5</td>
-</tr>
-</tbody>
-</table>
+Table: semantic alternatives
 
-semantic alternatives
+|Var1      | Freq|
+|:---------|----:|
+|build     |  101|
+|construct |    1|
+|create    |   23|
+|generate  |    4|
+|make      |   89|
+|produce   |    5|
 
-<figure>
-<img src="readmek_files/figure-markdown_strict/fig-02-alt-1.png"
-alt="proportion of semantic alternatives to concrete /make/ in SBC" />
-<figcaption aria-hidden="true">proportion of semantic alternatives to
-concrete /make/ in SBC</figcaption>
-</figure>
+![proportion of semantic alternatives to concrete /make/ in SBC](figure/fig-02-alt-1.png)
 
-<figure>
-<img src="readmek_files/figure-markdown_strict/fig-03-alt-1.png"
-alt="proportion of semantic alternatives, only equivalent meaning of alternates" />
-<figcaption aria-hidden="true">proportion of semantic alternatives, only
-equivalent meaning of alternates</figcaption>
-</figure>
 
-------------------------------------------------------------------------
+![proportion of semantic alternatives, only equivalent meaning of alternates](figure/fig-03-alt-1.png)
 
-# 2 B: references
 
-Gilquin, Gaëtanelle. 2008. “What You Think Ain’t What You Get: Highly
-Polysemous Verbs in Mind and Language.”
-<https://dial.uclouvain.be/pr/boreal/object/boreal:75833>.
+---------
 
-Mehl, Seth. 2021. “What We Talk about When We Talk about Corpus
-Frequency: The Example of Polysemous Verbs with Light and Concrete
-Senses.” *Corpus Linguistics and Linguistic Theory* 17 (1): 223–47.
-<https://doi.org/10.1515/cllt-2017-0039>.
+# B: references
 
-UCSB, John W. DuBois, L. Chafe Wallace, Charles Meyer, Sandra A.
-Thompson, Robert Englebretson, and Nii Martey. 2005. “Santa Barbara
-Corpus of Spoken American English Department of Linguistics - UC Santa
-Barbara.” *SBC*.
-<https://www.linguistics.ucsb.edu/research/santa-barbara-corpus>.
+

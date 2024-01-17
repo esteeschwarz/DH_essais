@@ -6,6 +6,7 @@ output:
   md_document: 
    toc: true
    number_sections: true
+   pandoc_args: ["--wrap=none"]
 editor_options:
   markdown:
     wrap: none
