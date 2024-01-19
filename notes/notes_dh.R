@@ -133,12 +133,12 @@ library(httpgd)
   plot(cars)
   plot(iris,5:3)
 #  dev.off()
-  
+
   top<-10000
   a<-sample(top,top)
   c<-sqrt(length(a))
   b<-matrix(a,c,c)
-image(b)  
+image(b)
 
 # Warning: The working directory was changed to /Users/lion/boxHKW/21S/DH/local/HU-LX/SES/conc inside a notebook chunk. The working directory will be reset when the chunk is finished running. Use the knitr root.dir option in the setup chunk to change the working directory for notebook chunks.
 
@@ -200,11 +200,11 @@ listeval<-data.frame(m1=pid)
 colnames(listeval)<-colnames(d3)[m1]
 #rating
 for (k in 1:length(m1)){
-listeval[k,"inconcrete"]<-sum(grepl(levels(subq$QU01)[1],subq[,k]))  
-listeval[k,"name"]<-sum(grepl(levels(subq$QU01)[2],subq[,k]))  
-listeval[k,"request"]<-sum(grepl(levels(subq$QU01)[3],subq[,k]))  
-listeval[k,"unclear"]<-sum(grepl(levels(subq$QU01)[4],subq[,k]))  
-listeval[k,"NA"]<-sum(grepl(levels(subq$QU01)[5],subq[,k]))  
+listeval[k,"inconcrete"]<-sum(grepl(levels(subq$QU01)[1],subq[,k]))
+listeval[k,"name"]<-sum(grepl(levels(subq$QU01)[2],subq[,k]))
+listeval[k,"request"]<-sum(grepl(levels(subq$QU01)[3],subq[,k]))
+listeval[k,"unclear"]<-sum(grepl(levels(subq$QU01)[4],subq[,k]))
+listeval[k,"NA"]<-sum(grepl(levels(subq$QU01)[5],subq[,k]))
 
 }
 rownames(listeval)<-listeval$m1
@@ -314,7 +314,7 @@ segments(x, y, x, fitted(regxy), lty=3)
 #y = m + 2*x + rnorm(o)*3 #10+
 m<-39 #ideal (correct) answer / picture
 #m<-max(df4$response_value)
-o<-length(df5$response_value) # anzahl answers 
+o<-length(df5$response_value) # anzahl answers
 #y<-1:m
 #m<-o
 x = runif(o,0,m) # ideal random distribution over observation
@@ -427,7 +427,7 @@ z2[k]<-sum(z1)
 #x2<-z2*z
 #z2[k]<-z1
 }
-plot(z2)  
+plot(z2)
 z2
 ###########
 getwd()
@@ -462,7 +462,7 @@ download.file('https://github.com/esteeschwarz/DH_essais/raw/main/sections/hux20
 
 
 #STEP ARRAY (GPT)
-seq(from = 1, to = 100, by = 2)[1] 
+seq(from = 1, to = 100, by = 2)[1]
 seq(from = 1, to = 100, by = 2)
 seq(1,27,3)
 library(utils)
@@ -502,10 +502,10 @@ xmlValue(xml_find_all(tei.dracor,"//partDesc"))
 
 xmlValue(xmlTextNode("some more raw text"))
 node
-xmlNode(xml_find_all(tei.dracor,"//"))     
+xmlNode(xml_find_all(tei.dracor,"//"))
 xml_add_child(xml_child(xml_child(xml_child(tei.dracor, 1), 2), 1),.value =    list(tei.33373.person))
   tei.dracor[[1]][[2]]
-  
+
 
 xml_child(xml_child(xml_child(tei.dracor, 1), 2), 1))
 xmlTree(tei.33373.person)
@@ -534,7 +534,7 @@ replaceNodes(xml_child(xml_child(xml_child(tei.dracor, 1), 2), 1),tob)
 list(html_doc)[[1]][1][1]
 
   # removing nodes
-  
+
   doc = xmlParse("<top><a/><b/><c><d/><e>bob</e></c></top>")
 top = xmlRoot(doc)
 top
@@ -567,23 +567,23 @@ filename<-"~/Documents/GitHub/ETCRA5_dd23/R/data/sample2.xml"
   newNode = newXMLNode(name = "newlyCreatedNode")
   xml.b<-addChildren(xmltop[[1]][[3]][[1]], kids = list(newNode))
 getwd()
-  write_xml(xml.b,"~/Documents/GitHub/ETCRA5_dd23/R/data/sample2m.xml")  
-  
-  
+  write_xml(xml.b,"~/Documents/GitHub/ETCRA5_dd23/R/data/sample2m.xml")
+
+
   xmlToS4()
   txt = paste0("<doc><part><name>ABC</name><type>XYZ</type>',
               <cost>3.54</cost><status>available</status></part></doc>")
   doc = xmlParse(txt)
-  
+
   setClass("part", representation(name = "character",
                                   type = "character",
                                   cost = "numeric",
                                   status= "character"))
 x1<-  xmlToS4(xmlRoot(doc)[["part"]])
 doc<-xmlParseDoc(src.tei)
-x1<-xmlToList(doc)  
+x1<-xmlToList(doc)
 x1<-xmlRoot(doc)
-x2<-xmlToList(x1)  
+x2<-xmlToList(x1)
 x3<-xmlToDataFrame(x1)
 write_csv(x2,"teix2.csv")
 x3<-as.data.frame(x2)
@@ -659,14 +659,14 @@ cdf.2<-c.df.n
 #cdf.2$timestamp<-(gsub("(........)..","\\1",cdf.2$timestamp))
 cdf.2$timestamp<-(gsub("(....)(..)(..)..","\\1-\\2-\\3 00:00:00",cdf.2$timestamp))
 #format(cdf.2$timestamp[2],"%Y %M %D")
-cdf.2 %>% 
-  plot_time_series(timestamp, as.double(views), 
+cdf.2 %>%
+  plot_time_series(timestamp, as.double(views),
                    .interactive = F,
                    .plotly_slider = TRUE)
 cdf.2$timestamp<-as_datetime(cdf.2$timestamp)
 cdf.2 %>%
   group_by(article) %>%
-  plot_time_series(timestamp, views, 
+  plot_time_series(timestamp, views,
                    .facet_ncol = 2, .facet_scales = "free",
                    .interactive = F)
 x <- matrix(runif(100), ncol = 5)
@@ -812,5 +812,17 @@ library(curl)
 installed.packages()
 remove.packages("curl")
 install.packages("curl")
+library(devtools)
 update_packages("knitXwp")
-library(knit)
+4#library(knit)
+check(".")
+
+library(httr)
+r<-GET("https://example.com/xmlrpc.php")
+t<-content(r,"text")
+t
+a<-"https://yourwordpress.blog/xmlrpc.php"
+r<-GET(a)
+
+library(knitr)
+knit2wp
