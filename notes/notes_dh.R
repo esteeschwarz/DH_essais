@@ -826,3 +826,5 @@ r<-GET(a)
 
 library(knitr)
 knit2wp
+
+library(rmarkdown)
