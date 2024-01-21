@@ -1,0 +1,55 @@
+---
+title: "overview"
+author: "esteeschwarz"
+date: "`r Sys.Date()`"
+output:
+   md_document:
+    variant: markdown_github
+#  html_document:
+    #self_contained: false
+    toc: true
+    number_sections: true
+   # keep_md: true
+
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+rsnc:ref,
+
+```{r echo=FALSE,warning=F}
+#plot(pressure)
+mdf<-list.files("~/Documents/GitHub/HU-LX/mdbook/workflow/src")
+#mdf
+#mdtemp<-tempdir("tmd")
+k<-1
+#sort(mdf)
+m<-grepl("SUMMARY",mdf)
+mdf<-mdf[!m]
+mdf.d<-paste0("~/Documents/GitHub/HU-LX/mdbook/workflow/src/",mdf)
+for(k in 1:length(mdf)){
+  md<-readLines(mdf.d[k])
+  m<-grep("([0-9]{1,2}\\])",md)
+  rep<-paste0(k,"-\\1")
+  fig<-gsub("([0-9]{1,2}\\])",rep,md[m])
+  md[m]<-fig
+  mdns<-paste0("mod/",mdf[k])
+  writeLines(md,mdns)
+}
+mdf<-list.files("mod")
+mdf<-paste0("mod/",mdf)
+#mdf
+
+```
+
+
+```{r, child=c(mdf)}
+```
+
+```{r, echo=FALSE}
+# res <- knitr::knit_child('hu-lx/a_intro.md', quiet = TRUE)
+# cat(res, sep = '\n')
+```
+
+
