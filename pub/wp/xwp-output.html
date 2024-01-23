@@ -1,0 +1,398 @@
+<style>#knitxwp-h250b6 pre {  width: 100%;  overflow: scroll;  color:green;}</style><div id="knitxwp-h250b6"><div id="h250b6-top-1"><style>.backtop a{font-size:24px;text-decoration:none;}</style></div>
+<ul>
+<li><a href="#h250b6-term-paper-draft">1 term paper draft</a>
+<ul>
+<li><a href="#h250b6-init">1.1 init</a></li>
+<li><a href="#h250b6-method">1.2 method</a>
+<ul>
+<li><a href="#h250b6-corpus-sample">1.2.1 corpus sample</a></li>
+<li><a href="#h250b6-script-used">1.2.2 script used:</a></li>
+<li><a href="#h250b6-process">1.2.3 process:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#h250b6-b-references">2 B: references</a></li>
+</ul>
+<h1 id="h250b6-term-paper-draft">1 term paper draft</h1>
+<p>topic #6, polysemous verbs with light and concrete senses, replication study of <a href="https://doi.org/10.1515/cllt-2017-0039">Mehl (2021)</a>, further used <a href="https://dial.uclouvain.be/pr/boreal/object/boreal:75833">Gilquin (2008)</a></p>
+<p>meta.snc.rmd&gt;md&gt;wp&gt;pkg&gt;toc</p>
+<h2 id="h250b6-init">1.1 init <a class="backtop" href="#h250b6-top-1">⇪</a></h2>
+<p>“If onomasiological frequency measurements do indeed correlate with elicitation tests, potential impact would be immense. Researchers would be able to examine onomasiological frequencies in spoken corpora rather than performing elicitation tests. That possibility would facilitate cognitive research into languages and varieties around the world, without the necessity of in situ psycholinguistic testing, and would also encourage the creation of more spoken corpora.” (<a href="https://doi.org/10.1515/cllt-2017-0039">Mehl (2021) p.23</a>)</p>
+<h2 id="h250b6-method">1.2 method <a class="backtop" href="#h250b6-top-1">⇪</a></h2>
+<p>following corpus was used to determine frequencies:</p>
+<p>Q.1: Santa Barbara corpus of spoken American English, (<a href="https://www.linguistics.ucsb.edu/research/santa-barbara-corpus">UCSB et al. (2005)</a>)</p>
+<p>the corpus data was downloaded from: <a href="https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip">https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip</a></p>
+<h3 id="h250b6-corpus-sample">1.2.1 corpus sample <a class="backtop" href="#h250b6-top-1">⇪</a></h3>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="right">scb</th>
+<th align="right">id</th>
+<th align="left">text</th>
+<th align="right">lfd</th>
+<th align="right">light</th>
+<th align="left">alt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">2974</td>
+<td align="right">3</td>
+<td align="right">242</td>
+<td align="left">% I wanted it to be home made Q .</td>
+<td align="right">2974</td>
+<td align="right">0</td>
+<td align="left">make</td>
+</tr>
+<tr>
+<td align="left">65343</td>
+<td align="right">57</td>
+<td align="right">123</td>
+<td align="left">… It’s gonna get messed up.</td>
+<td align="right">65343</td>
+<td align="right">NA</td>
+<td align="left">a-other</td>
+</tr>
+<tr>
+<td align="left">9465</td>
+<td align="right">8</td>
+<td align="right">567</td>
+<td align="left">and then I didn’t and I .. kept making like,</td>
+<td align="right">9465</td>
+<td align="right">1</td>
+<td align="left">make</td>
+</tr>
+<tr>
+<td align="left">67928</td>
+<td align="right">59</td>
+<td align="right">714</td>
+<td align="left">And he’s really good at making out .. the budget.</td>
+<td align="right">67928</td>
+<td align="right">1</td>
+<td align="left">make</td>
+</tr>
+<tr>
+<td align="left">35078</td>
+<td align="right">30</td>
+<td align="right">612</td>
+<td align="left">… God is continually .. building character.</td>
+<td align="right">35078</td>
+<td align="right">0</td>
+<td align="left">build</td>
+</tr>
+<tr>
+<td align="left">61913</td>
+<td align="right">53</td>
+<td align="right">604</td>
+<td align="left">and make the payroll,</td>
+<td align="right">61913</td>
+<td align="right">1</td>
+<td align="left">make</td>
+</tr>
+<tr>
+<td align="left">28500</td>
+<td align="right">24</td>
+<td align="right">25</td>
+<td align="left">.. Yeah.</td>
+<td align="right">28500</td>
+<td align="right">NA</td>
+<td align="left">a-other</td>
+</tr>
+</tbody>
+</table>
+<h3 id="h250b6-script-used">1.2.2 script used: <a class="backtop" href="#h250b6-top-1">⇪</a></h3>
+<p><a href="https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/14015.concrete-abstract_HA.R">14015.concrete-abstract_HA.R</a></p>
+<h3 id="h250b6-process">1.2.3 process: <a class="backtop" href="#h250b6-top-1">⇪</a></h3>
+<h4 id="h250b6-distribution-analysis">1.2.3.1 distribution analysis <a class="backtop" href="#h250b6-top-1">⇪</a></h4>
+<p>cf. (Mehl 2021, 11–14)</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="right">ICE.written</th>
+<th align="right">ICE.spoken</th>
+<th align="right">SBC.spoken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">concrete</td>
+<td align="right">68</td>
+<td align="right">96</td>
+<td align="right">89</td>
+</tr>
+<tr>
+<td align="left">light</td>
+<td align="right">321</td>
+<td align="right">353</td>
+<td align="right">381</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/pub/wp/README_files/figure-markdown_phpextra/fig-01-dist-1.png" alt="distribution of lemma /make/ over corpora. ICE data from study." />
+<figcaption aria-hidden="true">distribution of lemma /make/ over corpora. ICE data from study.</figcaption>
+</figure>
+<h4 id="h250b6-semantic-alternatives-to-make">1.2.3.2 semantic alternatives to make <a class="backtop" href="#h250b6-top-1">⇪</a></h4>
+<p>this contrast includes made up alternatives to /make/ that Mehl defined in his study. we do not account for the context of these alternatives in the corpus texts, i.e. all occurences are counted. Mehl contrasted only these alternate occurences which “are defined as those verbs that occur in the corpus with the same concrete direct objects as make, (take, and give,) and with a roughly equivalent meaning.” Mehl puts these under “onomasiological alternates”. (cf. Mehl (2021) p.13)</p>
+<table>
+<thead>
+<tr>
+<th align="left">Var1</th>
+<th align="right">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">build</td>
+<td align="right">101</td>
+</tr>
+<tr>
+<td align="left">construct</td>
+<td align="right">1</td>
+</tr>
+<tr>
+<td align="left">create</td>
+<td align="right">23</td>
+</tr>
+<tr>
+<td align="left">generate</td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td align="left">make</td>
+<td align="right">89</td>
+</tr>
+<tr>
+<td align="left">produce</td>
+<td align="right">5</td>
+</tr>
+</tbody>
+</table>
+<p>semantic alternatives</p>
+<figure>
+<img src="https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/pub/wp/README_files/figure-markdown_phpextra/fig-02-alt-1.png" alt="proportion of semantic alternatives to concrete /make/ in SBC" />
+<figcaption aria-hidden="true">proportion of semantic alternatives to concrete /make/ in SBC</figcaption>
+</figure>
+<figure>
+<img src="https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/pub/wp/README_files/figure-markdown_phpextra/fig-03-alt-1.png" alt="proportion of semantic alternatives, only equivalent meaning of alternates" />
+<figcaption aria-hidden="true">proportion of semantic alternatives, only equivalent meaning of alternates</figcaption>
+</figure>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">SLOT1</th>
+<th align="left">SLOT2</th>
+<th align="right">fS1</th>
+<th align="right">fS2</th>
+<th align="right">OBS</th>
+<th align="right">EXP</th>
+<th align="left">ASSOC</th>
+<th align="right">COLL.STR.LOGL</th>
+<th align="left">SIGNIF</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">137</td>
+<td align="left">finish</td>
+<td align="left">afghan</td>
+<td align="right">13</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">28.51461</td>
+<td align="left">*****</td>
+</tr>
+<tr>
+<td align="left">654</td>
+<td align="left">Filled</td>
+<td align="left">cookie</td>
+<td align="right">1</td>
+<td align="right">6</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">15.81813</td>
+<td align="left">****</td>
+</tr>
+<tr>
+<td align="left">924</td>
+<td align="left">create</td>
+<td align="left">Adam</td>
+<td align="right">13</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">14.17394</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">928</td>
+<td align="left">create</td>
+<td align="left">rift</td>
+<td align="right">13</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">14.17394</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">930</td>
+<td align="left">record</td>
+<td align="left">Simpsons</td>
+<td align="right">13</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">14.17394</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">1337</td>
+<td align="left">shovel</td>
+<td align="left">food</td>
+<td align="right">1</td>
+<td align="right">34</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">12.20185</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">1338</td>
+<td align="left">Unsweeten</td>
+<td align="left">food</td>
+<td align="right">1</td>
+<td align="right">34</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">12.20185</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">1476</td>
+<td align="left">filling</td>
+<td align="left">stuff</td>
+<td align="right">1</td>
+<td align="right">46</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">11.58948</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">1518</td>
+<td align="left">create</td>
+<td align="left">cause</td>
+<td align="right">13</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">11.40296</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">1519</td>
+<td align="left">create</td>
+<td align="left">committee</td>
+<td align="right">13</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">11.40296</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">1520</td>
+<td align="left">create</td>
+<td align="left">condition</td>
+<td align="right">13</td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">11.40296</td>
+<td align="left">***</td>
+</tr>
+<tr>
+<td align="left">1784</td>
+<td align="left">bake</td>
+<td align="left">bread</td>
+<td align="right">5</td>
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">10.48243</td>
+<td align="left">**</td>
+</tr>
+<tr>
+<td align="left">1862</td>
+<td align="left">roll</td>
+<td align="left">tamale</td>
+<td align="right">8</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">10.19627</td>
+<td align="left">**</td>
+</tr>
+<tr>
+<td align="left">2626</td>
+<td align="left">record</td>
+<td align="left">trip</td>
+<td align="right">13</td>
+<td align="right">8</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">8.15687</td>
+<td align="left">**</td>
+</tr>
+<tr>
+<td align="left">3307</td>
+<td align="left">record</td>
+<td align="left">game</td>
+<td align="right">13</td>
+<td align="right">16</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="left">attr</td>
+<td align="right">6.71671</td>
+<td align="left">**</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="https://raw.githubusercontent.com/esteeschwarz/DH_essais/main/pub/wp/README_files/figure-markdown_phpextra/fig-04-sema-1.png" alt="semasiological log.like of near synonymes to make" />
+<figcaption aria-hidden="true">semasiological log.like of near synonymes to make</figcaption>
+</figure>
+<hr />
+<h1 id="h250b6-b-references">2 B: references <a class="backtop" href="#h250b6-top-1">⇪</a></h1>
+<div id="refs" class="references csl-bib-body hanging-indent" markdown="1">
+<div id="ref-gilquin_what_2008" class="csl-entry" markdown="1">
+<p>Gilquin, Gaëtanelle. 2008. “What You Think Ain’t What You Get: Highly Polysemous Verbs in Mind and Language.” <a href="https://dial.uclouvain.be/pr/boreal/object/boreal:75833">https://dial.uclouvain.be/pr/boreal/object/boreal:75833</a>.</p>
+</div>
+<div id="ref-mehl_what_2021" class="csl-entry" markdown="1">
+<p>Mehl, Seth. 2021. “What We Talk about When We Talk about Corpus Frequency: The Example of Polysemous Verbs with Light and Concrete Senses.” <em>Corpus Linguistics and Linguistic Theory</em> 17 (1): 223–47. <a href="https://doi.org/10.1515/cllt-2017-0039">https://doi.org/10.1515/cllt-2017-0039</a>.</p>
+</div>
+<div id="ref-ucsb_santa_2005" class="csl-entry" markdown="1">
+<p>UCSB, John W. DuBois, L. Chafe Wallace, Charles Meyer, Sandra A. Thompson, Robert Englebretson, and Nii Martey. 2005. “Santa Barbara Corpus of Spoken American English Department of Linguistics - UC Santa Barbara.” <em>SBC</em>. <a href="https://www.linguistics.ucsb.edu/research/santa-barbara-corpus">https://www.linguistics.ucsb.edu/research/santa-barbara-corpus</a>.</p>
+</div>
+</div>
+</div>

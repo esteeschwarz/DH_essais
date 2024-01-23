@@ -3,15 +3,11 @@ title: "14022.spundLX.HA"
 author: "esteeschwarz"
 date: "2024-01-08"
 output: 
-  md_document:
+  md_document: 
    variant: markdown_phpextra+backtick_code_blocks
-
    toc: true
    number_sections: true
    pandoc_args: ["--wrap=none"]
-editor_options:
-  markdown:
-    wrap: none
   #  keep_md: true
 bibliography: CORPUS-LX.bib
    # nocite: |
@@ -30,12 +26,12 @@ topic #6, polysemous verbs with light and concrete senses, replication study of
 [@mehl_what_2021](https://doi.org/10.1515/cllt-2017-0039), 
 further used [@gilquin_what_2008](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)   
 
-meta.snc.rmd>md>wp
+meta.snc.rmd>md>wp>pkg>toc
 
 
 ## init
-"If onomasiological frequency measurements do indeed correlate with elicitation tests, potential impact would be immense. Researchers would be able to examine onomasiological frequencies in spoken corpora rather than performing elicitation tests. That possibility would facilitate cognitive research into languages and varieties around the world, without the necessity of in situ psycholinguistic testing, and would also encourage the creation of more spoken corpora." 
-([@mehl_what_2021 p.23](https://doi.org/10.1515/cllt-2017-0039))
+"If onomasiological frequency measurements do indeed correlate with elicitation tests, 
+potential impact would be immense. Researchers would be able to examine onomasiological frequencies in spoken corpora rather than performing elicitation tests. That possibility would facilitate cognitive research into languages and varieties around the world, without the necessity of in situ psycholinguistic testing, and would also encourage the creation of more spoken corpora." ([@mehl_what_2021 p.23](https://doi.org/10.1515/cllt-2017-0039))
 
 ## method
 following corpus was used to determine frequencies:   
@@ -69,7 +65,7 @@ kable(smdf[c(4,11,1,2,6,5,19),])
 
 ### script used: 
 
-[14015.concrete-abstract_HA.R](14015.concrete-abstract_HA.R)
+[14015.concrete-abstract_HA.R](https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/14015.concrete-abstract_HA.R)
 
 ### process:
 #### distribution analysis 
@@ -135,6 +131,15 @@ barplot(plotlist$trntable[c(1,2,3,4,5,6,7)]/sum(table(scb.ann.df$alt)),main = "S
 barplot(plotlist$nouns.f.cp,main="semantic alternates w/ equivalent meaning",ylab = "% in corpus")
 #plot.plots("alt.2")
 ```
+
+
+
+```{r fig-04-sema,echo=F, fig.cap="semasiological log.like of near synonymes to make"}
+kable(plotlist$eval.semas[,1:9])
+    barplot(plotlist$eval.semas$COLL.STR.LOGL~plotlist$eval.semas$ns,xlab = "",ylab = "collex.log.like")
+#plot.plots("alt.2")
+```
+
 
 
 ---------

@@ -1,0 +1,6 @@
+---
+output:
+  markdown::html_format:
+    options:
+      embed_resources: FALSE
+---
