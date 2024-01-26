@@ -61,5 +61,13 @@ modified the content of the *knit2wp()* function as to use *render()* and *mark(
 ## R package
 wrote small R package that does the same: <https://github.com/esteeschwarz/knitXwp>
 
+## test image upload
+
+```{r echo=F}
+plot(cars)
+
+```
+
+
 ---
 ## B: references

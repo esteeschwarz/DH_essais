@@ -1,25 +1,25 @@
-<div id="h250b6-top-1"><style>.backtop a{font-size:24px;text-decoration:none;}</style></div>
+<div id="2085-top-1"><style>.backtop a{font-size:24px;text-decoration:none;}</style></div>
 
 
--   [1 term paper draft](#h250b6-term-paper-draft)
-    -   [1.1 init](#h250b6-init)
-    -   [1.2 method](#h250b6-method)
-        -   [1.2.1 corpus sample](#h250b6-corpus-sample)
-        -   [1.2.2 script used:](#h250b6-script-used)
-        -   [1.2.3 process:](#h250b6-process)
--   [2 B: references](#h250b6-b-references)
+-   [1 term paper draft](#2085-term-paper-draft)
+    -   [1.1 init](#2085-init)
+    -   [1.2 method](#2085-method)
+        -   [1.2.1 corpus sample](#2085-corpus-sample)
+        -   [1.2.2 script used:](#2085-script-used)
+        -   [1.2.3 process:](#2085-process)
+-   [2 B: references](#2085-b-references)
 
-# 1 term paper draft {id="h250b6-term-paper-draft"}
+# 1 term paper draft {id="2085-term-paper-draft"}
 
 topic \#6, polysemous verbs with light and concrete senses, replication study of [Mehl (2021)](https://doi.org/10.1515/cllt-2017-0039), further used [Gilquin (2008)](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)
 
 meta.snc.rmd&gt;md&gt;wp&gt;pkg&gt;toc
 
-## 1.1 init <a class="backtop" href="#h250b6-top-1">&#8682;</a> {id="h250b6-init"}
+## 1.1 init <a class="backtop" href="#2085-top-1">&#8682;</a> {id="2085-init"}
 
 “If onomasiological frequency measurements do indeed correlate with elicitation tests, potential impact would be immense. Researchers would be able to examine onomasiological frequencies in spoken corpora rather than performing elicitation tests. That possibility would facilitate cognitive research into languages and varieties around the world, without the necessity of in situ psycholinguistic testing, and would also encourage the creation of more spoken corpora.” ([Mehl (2021) p.23](https://doi.org/10.1515/cllt-2017-0039))
 
-## 1.2 method <a class="backtop" href="#h250b6-top-1">&#8682;</a> {id="h250b6-method"}
+## 1.2 method <a class="backtop" href="#2085-top-1">&#8682;</a> {id="2085-method"}
 
 following corpus was used to determine frequencies:
 
@@ -27,7 +27,7 @@ Q.1: Santa Barbara corpus of spoken American English, ([UCSB et al. (2005)](http
 
 the corpus data was downloaded from: <https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip>
 
-### 1.2.1 corpus sample <a class="backtop" href="#h250b6-top-1">&#8682;</a> {id="h250b6-corpus-sample"}
+### 1.2.1 corpus sample <a class="backtop" href="#2085-top-1">&#8682;</a> {id="2085-corpus-sample"}
 
 |       | scb |  id | text                                              |   lfd | light | alt     |
 |:-----|----:|----:|:---------------------------------------|-----:|-----:|:-------|
@@ -39,13 +39,13 @@ the corpus data was downloaded from: <https://www.linguistics.ucsb.edu/sites/sec
 | 61913 |  53 | 604 | and make the payroll,                             | 61913 |     1 | make    |
 | 28500 |  24 |  25 | .. Yeah.                                          | 28500 |    NA | a-other |
 
-### 1.2.2 script used: <a class="backtop" href="#h250b6-top-1">&#8682;</a> {id="h250b6-script-used"}
+### 1.2.2 script used: <a class="backtop" href="#2085-top-1">&#8682;</a> {id="2085-script-used"}
 
 [14015.concrete-abstract_HA.R](https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/14015.concrete-abstract_HA.R)
 
-### 1.2.3 process: <a class="backtop" href="#h250b6-top-1">&#8682;</a> {id="h250b6-process"}
+### 1.2.3 process: <a class="backtop" href="#2085-top-1">&#8682;</a> {id="2085-process"}
 
-#### 1.2.3.1 distribution analysis <a class="backtop" href="#h250b6-top-1">&#8682;</a> {id="h250b6-distribution-analysis"}
+#### 1.2.3.1 distribution analysis <a class="backtop" href="#2085-top-1">&#8682;</a> {id="2085-distribution-analysis"}
 
 cf. (Mehl 2021, 11–14)
 
@@ -59,7 +59,7 @@ cf. (Mehl 2021, 11–14)
 <figcaption aria-hidden="true">distribution of lemma /make/ over corpora. ICE data from study.</figcaption>
 </figure>
 
-#### 1.2.3.2 semantic alternatives to make <a class="backtop" href="#h250b6-top-1">&#8682;</a> {id="h250b6-semantic-alternatives-to-make"}
+#### 1.2.3.2 semantic alternatives to make <a class="backtop" href="#2085-top-1">&#8682;</a> {id="2085-semantic-alternatives-to-make"}
 
 this contrast includes made up alternatives to /make/ that Mehl defined in his study. we do not account for the context of these alternatives in the corpus texts, i.e. all occurences are counted. Mehl contrasted only these alternate occurences which “are defined as those verbs that occur in the corpus with the same concrete direct objects as make, (take, and give,) and with a roughly equivalent meaning.” Mehl puts these under “onomasiological alternates”. (cf. Mehl (2021) p.13)
 
@@ -109,7 +109,7 @@ semantic alternatives
 
 ------------------------------------------------------------------------
 
-# 2 B: references <a class="backtop" href="#h250b6-top-1">&#8682;</a> {id="h250b6-b-references"}
+# 2 B: references <a class="backtop" href="#2085-top-1">&#8682;</a> {id="2085-b-references"}
 
 <div id="refs" class="references csl-bib-body hanging-indent" markdown="1">
 

@@ -1,0 +1,2 @@
+this is just a test upload file from knitXwp
+2nd version after edited functions.php

@@ -127,7 +127,7 @@ t6
 
 #### plot to browser
 library(httpgd)
-
+library(graphics)
   hgd()
   hgd_browse() # open browser
   plot(cars)
@@ -828,3 +828,34 @@ library(knitr)
 knit2wp
 
 library(rmarkdown)
+
+library(graphics)
+
+
+top<-10000
+a<-sample(top,top)
+c<-sqrt(length(a))
+b<-matrix(a,c,c)
+image(b)
+
+mdx<-readLines("wp001.md")
+library(quanteda.textplots)
+library(quanteda.textstats)
+library(quanteda)
+mdfm<-dfm(tokens(mdx))
+mdkey<-textstat_keyness(mdfm)
+md.p<-textstat_lexdiv(mdfm)
+md.p<-textstat_entropy(mdfm)
+md.p$p<-1
+mdp.df<-cbind(entropy=md.p$entropy,p=md.p$p/md.p$entropy)
+plot(md.p$entropy,type = "l")
+textplot_keyness(mdkey)
+textplot_wordcloud(mdfm)
+
+plot(1:10, 1:10, main = "text(...) examples\n~~~~~~~~~~~~~~",
+     sub = "R is GNU ©, but not ® ...")
+text(6, 10, "the text is CENTERED around (x,y) = (6,2) by default",
+     cex = .8)
+clipX()
+testclipx<-c("clipX","is","a","function","to","process","clipboard","content.","it","depends","on","the","clipr","library.")
+c("thing","thing1","bag","lot","chairs","mother","service","period","a-other","sum.obs","dif","sum")
