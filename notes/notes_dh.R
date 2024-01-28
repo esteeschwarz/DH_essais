@@ -859,3 +859,12 @@ text(6, 10, "the text is CENTERED around (x,y) = (6,2) by default",
 clipX()
 testclipx<-c("clipX","is","a","function","to","process","clipboard","content.","it","depends","on","the","clipr","library.")
 c("thing","thing1","bag","lot","chairs","mother","service","period","a-other","sum.obs","dif","sum")
+
+
+
+install.packages("markdown",repos = "https://cloud.r-project.org")
+library()
+pkg<-installed.packages()
+write.csv(pkg,"pkg.csv")
+c<-read.csv("rdependencies.csv")
+Sys.getenv("R_LIBS_USER")
