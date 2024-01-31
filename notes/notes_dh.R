@@ -179,9 +179,13 @@ plot(d$QU19)
 d$QU19
 
 eval(2 ^ 2 ^ 3)
+p<-"snc,r"
 mEx <- expression(2^2^3); mEx; 1 + eval(mEx)
 eval({ xx <- pi; xx^2});xx
+m <- expression(x<-gsub(",",'",',p))
+eval(m)
 e1<-parent.frame()
+
 evalq(d$QU01,e1)
 s<-d$QU01
 levels(s)<-c(1,1,1,1,1)
