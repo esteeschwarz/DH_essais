@@ -8,6 +8,6 @@
 .DS_Store
 .vscode
 ~$.*
-.docx
+*/.docx
 hu-lx
 /*.html
