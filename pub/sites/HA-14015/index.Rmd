@@ -1,0 +1,10 @@
+---
+title: "corpusLX HA"
+# output: bookdown::gitbook
+# site: bookdown::bookdown_site
+
+bibliography: CORPUS-LX.bib
+
+---
+# index
+no content

@@ -1,0 +1,29 @@
+name: "topic 6"
+navbar:
+  title: "corpus LX"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "slides"
+      href: stef_corpuslx6.html
+    - text: "paper"
+      href: README.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+# name: "my-website"
+# navbar:
+#   title: "My Website"
+#   left:
+#     - text: "Home"
+#       href: index.html
+#     - text: "slide"
+#       href: stef_corpuslx6.html
+# output:
+#   html_document:
+#     theme: cosmo
+#     highlight: textmate
+#     # include:
+#     #   after_body: footer.html
+#     # css: styles.css

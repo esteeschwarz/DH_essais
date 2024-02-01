@@ -1,0 +1,148 @@
+---
+title: "14022.spundLX.HA"
+author: "esteeschwarz"
+date: "2024-01-08"
+output: 
+  html_document: 
+   toc: true
+   number_sections: true
+   pandoc_args: ["--wrap=none"]
+  #  keep_md: true
+bibliography: CORPUS-LX.bib
+biblio-style: apalike
+link-citations: yes
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+```
+
+# term paper draft
+topic #6, polysemous verbs with light and concrete senses, replication study of 
+[@mehl_what_2021](https://doi.org/10.1515/cllt-2017-0039), 
+further used [@gilquin_what_2008](https://dial.uclouvain.be/pr/boreal/object/boreal:75833)   
+
+meta.snc.rmd>md>wp>pkg>toc
+
+
+## init
+"If onomasiological frequency measurements do indeed correlate with elicitation tests, 
+potential impact would be immense. Researchers would be able to examine onomasiological frequencies in spoken corpora rather than performing elicitation tests. That possibility would facilitate cognitive research into languages and varieties around the world, without the necessity of in situ psycholinguistic testing, and would also encourage the creation of more spoken corpora." ([@mehl_what_2021 p.23](https://doi.org/10.1515/cllt-2017-0039))
+
+## method
+following corpus was used to determine frequencies:   
+
+Q.1: Santa Barbara corpus of spoken American English, ([@ucsb_santa_2005](https://www.linguistics.ucsb.edu/research/santa-barbara-corpus))
+
+the corpus data was downloaded from: [https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip](https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip)
+
+### corpus sample
+```{r,echo=FALSE}
+#load("data/trn.make.cpt.RData")
+#load("data/light.ann.make.RData")
+dtemp<-tempfile()
+### B
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/SBC.ann.df.RData",dtemp)
+load(dtemp)
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/SBC.20-sample.RData",dtemp)
+load(dtemp)
+# ifelse(exists("trndf.lm",-1),fetch<-"given",fetch<-"rerun")
+# if(fetch=="rerun")
+#    source("14015.concrete-abstract_HA.R")
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/plotlist.RData",dtemp)
+load(dtemp)
+# load("data/plotlist.RData")
+   
+
+#load("~/boxHKW/21S/DH/local/SPUND/corpuslx/stefanowitsch/HA/data/trndf.lm.cpt.RData")
+#load("data/SBC.20-sample.RData")
+kable(smdf[c(4,11,1,2,6,5,19),])
+```
+
+### script used: 
+
+[14015.concrete-abstract_HA.R](https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/14015.concrete-abstract_HA.R)
+
+### process:
+#### distribution analysis 
+cf. [@mehl_what_2021 pp.11-14]
+
+```{r,kable-01-dist-make,echo=FALSE,warning=F,}
+######################################
+### count instances concrete vs. light
+### Q.1: 
+# i.make.w<-c(concrete=68,light=321) #17% vs. 83% written ICE 
+# i.make.s<-c(concrete=96,light=353) #spoken ICE
+# i.take<-c(con=62,light=85) 
+# i.give<-c(con=52,light=167) 
+# ###########################
+# #m3<-trn.make.cpt$concrete==1
+# #l.conc<-sum(m3,na.rm = T)
+# #trn.make.cpt$light[m3]<-0
+# #l.conc<-sum(trn.make.cpt$light==0,na.rm = T)
+# 
+# m4<-scb.ann.df$light==1&scb.ann.df$alt=="make"
+# #sum(m4,na.rm = T)
+# l.light<-sum(m4,na.rm = T)#sum(mna)
+# #m5<-trndf.lm$light==0
+# m6<-scb.ann.df$alt=="make"&scb.ann.df$light==0
+# #trndf.lm[m6,]
+# l.conc<-sum(m6,na.rm = T)
+# #m.c<-trndf.lm$light==0
+# 
+# i.make.m<-c(concrete=l.conc,light=l.light)
+# kdf<-data.frame(ICE.written=i.make.w,ICE.spoken=i.make.s,SBC.spoken=i.make.m)
+#kdf
+kable(plotlist$dist)
+#kable(kdf,caption = "distribution of lemma /make/ over corpora")
+```
+
+
+```{r fig-01-dist,echo=F,fig.cap="distribution of lemma /make/ over corpora. ICE data from study."}
+# barplot(cbind(ICE.w=i.make.w,ICE.sp=i.make.s,SBC.sp=i.make.m),main="distribution: lemma /make/",legend.text = c("concrete use","light use"))
+#plot.plots("dist")
+#barplot(kdf,main="distribution: lemma /make/",legend.text = c("concrete use","light use"))
+barplot(plotlist$dist,main="distribution: lemma /make/",legend.text = c("concrete use","light use"))
+###
+```
+
+#### semantic alternatives to make
+this contrast includes made up alternatives to /make/ that Mehl defined in his study. we do not account for the context of these alternatives in the corpus texts, i.e. all occurences are counted. Mehl contrasted only these alternate occurences which "are defined as those verbs that occur in the corpus with the same concrete direct objects as make, (take, and give,) and with a roughly equivalent meaning." Mehl puts these under "onomasiological alternates". (cf. @mehl_what_2021 p.13)  
+
+```{r fig-02-alt,echo=F, fig.cap="proportion of semantic alternatives to concrete /make/ in SBC"}
+trntable<-table(scb.ann.df$alt[scb.ann.df$light==0])
+#par(las=3,cex=0.5,pin=c("1.5","1.5"))
+#kable(trntable,caption = "semantic alternatives")
+kable(plotlist$trntable,caption = "semantic alternatives")
+#barplot(trntable[c(1,2,3,4,5,6,7)]/sum(table(scb.ann.df$alt)),main = "SBC concrete /make/ vs. alternate",ylab = "% in corpus")
+barplot(plotlist$trntable[c(1,2,3,4,5,6,7)]/sum(table(scb.ann.df$alt)),main = "SBC concrete /make/ vs. alternate",ylab = "% in corpus")
+```
+
+
+```{r fig-03-alt,echo=F, fig.cap="proportion of semantic alternatives, only equivalent meaning of alternates"}
+#trntable<-table(scb.ann.df$alt[scb.ann.df$light==0])
+#par(las=3,cex=0.5,pin=c("1.5","1.5"))
+#kable(trntable,caption = "semantic alternatives")
+#barplot(trntable[c(1,2,3,4,5,6,7)]/sum(table(scb.ann.df$alt)),main = "SBC concrete /make/ vs. alternate",ylab = "% in corpus")
+barplot(plotlist$nouns.f.cp,main="semantic alternates w/ equivalent meaning",ylab = "% in corpus")
+#plot.plots("alt.2")
+```
+
+
+
+```{r fig-04-sema,echo=F, fig.cap="semasiological log.like of near synonymes to make"}
+kable(plotlist$eval.semas[,1:9])
+par(las=3)
+    barplot(plotlist$eval.semas$COLL.STR.LOGL~plotlist$eval.semas$ns,xlab = "",ylab = "collex.log.like")
+#plot.plots("alt.2")
+```
+
+
+
+---------
+
+# B: references
+
+
