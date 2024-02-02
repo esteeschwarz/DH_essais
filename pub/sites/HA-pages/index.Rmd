@@ -1,0 +1,17 @@
+---
+title: "corpusLX HA"
+# output: bookdown::gitbook
+# site: bookdown::bookdown_site
+
+bibliography: CORPUS-LX.bib
+
+---
+# index
+no content
+
+```{r}
+rmd_stub = "doku.Rmd-e"
+#render("_doku.Rmd",output_file = "doku.nb.html")
+render(input = "nb/doku.Rmd")
+
+```

@@ -1,0 +1,15 @@
+name: "corpusLX HA"
+navbar:
+  title: "topic 6"
+  left:
+    - text: "index"
+      href: index.html
+    - text: "paper"
+      href: paper.html
+    - text: "slide"
+      href: HA-slides.html
+      id: "slides"
+    - text: "overview"
+      href: hulx.html
+    - text: "doku"
+      href: doku.nb.html

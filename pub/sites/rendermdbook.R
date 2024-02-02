@@ -20,8 +20,16 @@ for(k in 1:length(mdf)){
   writeLines(md,mdns)
 }
 render("index.Rmd")
-bookdown::bookdown_site("index.Rmd")
+render_site()
 library(blogdown)
 hulxfiles<-list.files("~/Documents/GitHub/DH_essais/pub/hu-lx/site2/src")
 hulxrmds<-paste0("~/Documents/GitHub/DH_essais/pub/hu-lx/site2/src",hulxfiles)
+
+
+####
+rmd_stub = "doku.Rmd"
+cat(readLines(rmd_stub), sep = "\n")
+output_file = rmarkdown::render(
+  rmd_stub
+)
 

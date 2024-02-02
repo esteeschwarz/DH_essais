@@ -1,0 +1,10 @@
+.reveal section p {
+  text-align: left;
+}
+.reveal section p.caption{
+  text-align: center;
+}
+
+.reveal section .csl-entry {
+  text-align: left;
+}

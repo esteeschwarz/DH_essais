@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="stschwarz" />
+  <title>topic #6, polysemous verbs with light and concrete senses.</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="reveal.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">topic #6, polysemous verbs with light and concrete
+senses.</h1>
+    <h2 class="author">stschwarz</h2>
+    <h3 class="date">2024-02-02 09:48:21</h3>
+</section>
+
+<section class="slide level2">
+
+<!--<style>
+.gdbar img {
+  width: 300px !important;
+  height: 150px !important;
+  margin: 8px 8px;
+ // color: fff;
+  }-->
+<!-- <style> -->
+<!-- /*aside.gdbar { -->
+<!--   background: white; -->
+<!-- }*/ -->
+<!-- </style> -->
+</section>
+<section>
+<section id="term-paper-draft" class="title-slide slide level1">
+<h1>term paper draft</h1>
+<blockquote>
+<p>“If onomasiological frequency measurements do indeed correlate with
+elicitation tests, potential impact would be immense. Researchers would
+be able to examine onomasiological frequencies in spoken corpora rather
+than performing elicitation tests. That possibility would facilitate
+cognitive research into languages and varieties around the world,
+without the necessity of in situ psycholinguistic testing, and would
+also encourage the creation of more spoken corpora.” (<a
+href="https://doi.org/10.1515/cllt-2017-0039"><span class="citation"
+data-cites="mehl_what_2021">Mehl (2021)</span> p.23</a>)</p>
+</blockquote>
+</section>
+<section id="method" class="slide level2">
+<h2>method</h2>
+<h3 id="following-corpus-was-used-to-determine-frequencies">following
+corpus was used to determine frequencies:</h3>
+<p>Q.1: Santa Barbara corpus of spoken American English, (<a
+href="https://www.linguistics.ucsb.edu/research/santa-barbara-corpus"><span
+class="citation" data-cites="ucsb_santa_2005">UCSB et al.
+(2005)</span></a>)</p>
+<p>the corpus data was downloaded from: <a
+href="https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip">https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip</a></p>
+<h3 id="exploring-scripts">exploring scripts:</h3>
+<ul>
+<li><a
+href="https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/14015.concrete-abstract_HA.R">14015.concrete-abstract_HA.R</a>:
+creates corpus of downloaded .zip</li>
+<li><a
+href="https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/sbc-postag.R">sbc-postag.R</a>:
+postags the corpus</li>
+<li><a
+href="https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/get-freq-df.R">get-freq-df.R</a>:
+first evaluation</li>
+<li><a
+href="https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/collexemes-01.R">collexemes-01.R</a>:
+2nd evaluation script</li>
+</ul>
+</section>
+<section id="corpus-sample" class="slide level2">
+<h2>corpus sample</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 4%" />
+<col style="width: 4%" />
+<col style="width: 60%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">scb</th>
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">text</th>
+<th style="text-align: right;">lfd</th>
+<th style="text-align: right;">light</th>
+<th style="text-align: left;">alt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2974</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">242</td>
+<td style="text-align: left;">% I wanted it to be home made Q .</td>
+<td style="text-align: right;">2974</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">make</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">65343</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: left;">… It’s gonna get messed up.</td>
+<td style="text-align: right;">65343</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">a-other</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9465</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">567</td>
+<td style="text-align: left;">and then I didn’t and I .. kept making
+like,</td>
+<td style="text-align: right;">9465</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">make</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">67928</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">714</td>
+<td style="text-align: left;">And he’s really good at making out .. the
+budget.</td>
+<td style="text-align: right;">67928</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">make</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">35078</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">612</td>
+<td style="text-align: left;">… God is continually .. building
+character.</td>
+<td style="text-align: right;">35078</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">build</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">61913</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">604</td>
+<td style="text-align: left;">and make the payroll,</td>
+<td style="text-align: right;">61913</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">make</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">28500</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">.. Yeah.</td>
+<td style="text-align: right;">28500</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">a-other</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="distribution-analysis" class="slide level2">
+<h2>distribution analysis</h2>
+<p>cf. <span class="citation" data-cites="mehl_what_2021">(Mehl 2021,
+11–14)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">ICE.written</th>
+<th style="text-align: right;">ICE.spoken</th>
+<th style="text-align: right;">SBC.spoken</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">concrete</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">89</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">light</td>
+<td style="text-align: right;">321</td>
+<td style="text-align: right;">353</td>
+<td style="text-align: right;">381</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<div class="figure">
+<img src="HA-slides_files/figure-revealjs/fig-01-dist-1.png" alt="distribution of lemma /make/ over corpora. ICE data from study." width="768" />
+<p class="caption">
+distribution of lemma /make/ over corpora. ICE data from study.
+</p>
+</div>
+</section>
+<section id="semantic-alternatives-to-make" class="slide level2">
+<h2>semantic alternatives to make</h2>
+<ul>
+<li>includes alternatives to /make/ that Mehl defined in his study</li>
+<li>all occurences are counted
+<ul>
+<li>Mehl contrasted only these alternate occurences which:</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>“are defined as those verbs that occur in the corpus with the same
+concrete direct objects as make, (take, and give,) and with a roughly
+equivalent meaning.” (cf. <span class="citation"
+data-cites="mehl_what_2021">Mehl (2021)</span> p.13)</p>
+</blockquote>
+</section>
+<section class="slide level2">
+
+<table>
+<caption>semantic alternatives</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Var1</th>
+<th style="text-align: right;">Freq</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">build</td>
+<td style="text-align: right;">101</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">construct</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">create</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">generate</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">make</td>
+<td style="text-align: right;">89</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">produce</td>
+<td style="text-align: right;">5</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<div class="figure">
+<img src="HA-slides_files/figure-revealjs/fig-02-alt-1.png" alt="proportion of semantic alternatives to concrete /make/ in SBC" width="768" />
+<p class="caption">
+proportion of semantic alternatives to concrete /make/ in SBC
+</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="figure">
+<img src="HA-slides_files/figure-revealjs/fig-03-alt-1.png" alt="proportion of semantic alternatives, only equivalent meaning of alternates" width="768" />
+<p class="caption">
+proportion of semantic alternatives, only equivalent meaning of
+alternates
+</p>
+</div>
+</section>
+<section class="slide level2">
+
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 8%" />
+<col style="width: 20%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">SLOT1</th>
+<th style="text-align: left;">SLOT2</th>
+<th style="text-align: right;">fS1</th>
+<th style="text-align: right;">fS2</th>
+<th style="text-align: right;">OBS</th>
+<th style="text-align: right;">EXP</th>
+<th style="text-align: left;">ASSOC</th>
+<th style="text-align: right;">COLL.STR.LOGL</th>
+<th style="text-align: left;">SIGNIF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">137</td>
+<td style="text-align: left;">finish</td>
+<td style="text-align: left;">afghan</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">28.51461</td>
+<td style="text-align: left;">*****</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">654</td>
+<td style="text-align: left;">Filled</td>
+<td style="text-align: left;">cookie</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">15.81813</td>
+<td style="text-align: left;">****</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">924</td>
+<td style="text-align: left;">create</td>
+<td style="text-align: left;">Adam</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">14.17394</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">928</td>
+<td style="text-align: left;">create</td>
+<td style="text-align: left;">rift</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">14.17394</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">930</td>
+<td style="text-align: left;">record</td>
+<td style="text-align: left;">Simpsons</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">14.17394</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1337</td>
+<td style="text-align: left;">shovel</td>
+<td style="text-align: left;">food</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">12.20185</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1338</td>
+<td style="text-align: left;">Unsweeten</td>
+<td style="text-align: left;">food</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">12.20185</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1476</td>
+<td style="text-align: left;">filling</td>
+<td style="text-align: left;">stuff</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">11.58948</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1518</td>
+<td style="text-align: left;">create</td>
+<td style="text-align: left;">cause</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">11.40296</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1519</td>
+<td style="text-align: left;">create</td>
+<td style="text-align: left;">committee</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">11.40296</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1520</td>
+<td style="text-align: left;">create</td>
+<td style="text-align: left;">condition</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">11.40296</td>
+<td style="text-align: left;">***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1784</td>
+<td style="text-align: left;">bake</td>
+<td style="text-align: left;">bread</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">10.48243</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1862</td>
+<td style="text-align: left;">roll</td>
+<td style="text-align: left;">tamale</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">10.19627</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2626</td>
+<td style="text-align: left;">record</td>
+<td style="text-align: left;">trip</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">8.15687</td>
+<td style="text-align: left;">**</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3307</td>
+<td style="text-align: left;">record</td>
+<td style="text-align: left;">game</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">attr</td>
+<td style="text-align: right;">6.71671</td>
+<td style="text-align: left;">**</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<div class="figure">
+<img src="HA-slides_files/figure-revealjs/fig-04-sema-1.png" alt="semasiological log.like of near synonymes to make" width="768" />
+<p class="caption">
+semasiological log.like of near synonymes to make
+</p>
+</div>
+</section>
+<section id="nd-approach-collexeme-evaluation" class="slide level2">
+<h2>2nd approach collexeme evaluation</h2>
+</section>
+<section class="slide level2">
+
+<div class="figure">
+<img src="HA-slides_files/figure-revealjs/fig-05-sema-T-make-1.png" alt="semasiological: sum T-score of near synonymes to make" width="768" />
+<p class="caption">
+semasiological: sum T-score of near synonymes to make
+</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="figure">
+<img src="HA-slides_files/figure-revealjs/fig-06-sema-T-take-1.png" alt="semasiological: sum T-score of near synonymes to take" width="768" />
+<p class="caption">
+semasiological: sum T-score of near synonymes to take
+</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="figure">
+<img src="HA-slides_files/figure-revealjs/fig-07-sema-p-make-1.png" alt="semasiological: p of near synonymes to make" width="768" />
+<p class="caption">
+semasiological: p of near synonymes to make
+</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="figure">
+<img src="HA-slides_files/figure-revealjs/fig-08-sema-p-take-1.png" alt="semasiological: p of near synonymes to take" width="768" />
+<p class="caption">
+semasiological: p of near synonymes to take
+</p>
+</div>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section id="b-references" class="title-slide slide level1 unnumbered">
+<h1 class="unnumbered">B: references</h1>
+<div id="refs" class="references csl-bib-body hanging-indent"
+role="list">
+<div id="ref-mehl_what_2021" class="csl-entry" role="listitem">
+Mehl, Seth. 2021. <span>“What We Talk about When We Talk about Corpus
+Frequency: <span>The</span> Example of Polysemous Verbs with Light and
+Concrete Senses.”</span> <em>Corpus Linguistics and Linguistic
+Theory</em> 17 (1): 223–47. <a
+href="https://doi.org/10.1515/cllt-2017-0039">https://doi.org/10.1515/cllt-2017-0039</a>.
+</div>
+<div id="ref-ucsb_santa_2005" class="csl-entry" role="listitem">
+UCSB, John W. DuBois, L. Chafe Wallace, Charles Meyer, Sandra A.
+Thompson, Robert Englebretson, and Nii Martey. 2005. <span>“Santa
+<span>Barbara</span> <span>Corpus</span> of <span>Spoken</span>
+<span>American</span> <span>English</span> <span></span>
+<span>Department</span> of <span>Linguistics</span> - <span>UC</span>
+<span>Santa</span> <span>Barbara</span>.”</span> <em>SBC</em>. <a
+href="https://www.linguistics.ucsb.edu/research/santa-barbara-corpus">https://www.linguistics.ucsb.edu/research/santa-barbara-corpus</a>.
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

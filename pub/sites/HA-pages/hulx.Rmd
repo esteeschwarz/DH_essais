@@ -1,0 +1,22 @@
+---
+title: "corpus class overview"
+output: tufte::tufte_html
+#self_contained: false
+   
+---
+```{r}
+hulxfiles<-list.files("./")
+#hulxrmds<-paste0("~/Documents/GitHub/DH_essais/pub/hu-lx/site2/src/",hulxfiles)
+```
+
+# index
+no content
+
+## head 2
+neither content
+```{r, }
+summary(cars)
+```
+
+# seite 2
+arbitrary content page 2
