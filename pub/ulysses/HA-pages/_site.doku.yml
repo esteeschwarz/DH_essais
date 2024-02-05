@@ -1,0 +1,23 @@
+title: "TOPIC #6"
+#output_dir: _site
+#title: "R Notebook"
+output:
+  html_notebook:
+    df_print: paged
+    toc: true
+    number_sections: true
+navbar:
+  title: "topic 6"
+  left:
+    - text: "index"
+      href: index.html
+    - text: "paper"
+      href: paper.html
+    - text: "slide"
+      href: HA-slides.html
+      id: "slides"
+    - text: "doku"
+      href: _doku.nb.html
+bibliography: CORPUS-LX.bib
+biblio-style: apalike
+link-citations: yes

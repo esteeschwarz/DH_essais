@@ -1,0 +1,11 @@
+title: 14022.spundLX.HA
+author: esteeschwarz
+date: '2024-01-08'
+output:
+  html_document:
+    toc: yes
+    number_sections: yes
+    pandoc_args: --wrap=none
+bibliography: CORPUS-LX.bib
+biblio-style: apalike
+link-citations: yes

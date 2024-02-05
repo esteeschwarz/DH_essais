@@ -1,0 +1,217 @@
+---
+title: "topic #6 folien. polysemous verbs with light and concrete senses."
+author: "stschwarz"
+date: "`r Sys.time()`"
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    css: reveal.css
+    reveal_options:
+      slideNumber: true
+      previewLinks: true
+    transition: none
+bibliography: CORPUS-LX.bib
+---
+
+# term paper draft
+essai of a replication study of @mehl_what_2021: "What we talk about when we talk about corpus frequency: The example of polysemous verbs with light and concrete senses".
+
+# init
+> "If onomasiological frequency measurements do indeed correlate with elicitation tests, 
+potential impact would be immense. Researchers would be able to examine onomasiological frequencies in spoken corpora rather than performing elicitation tests. That possibility would facilitate cognitive research into languages and varieties around the world, without the necessity of in situ psycholinguistic testing, and would also encourage the creation of more spoken corpora." 
+([@mehl_what_2021 p.23](https://doi.org/10.1515/cllt-2017-0039))
+
+## method
+### following corpus was used to determine frequencies:   
+
+Q.1: Santa Barbara corpus of spoken American English, ([@ucsb_santa_2005](https://www.linguistics.ucsb.edu/research/santa-barbara-corpus))
+
+the corpus data was downloaded from: [https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip](https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip)
+
+## exploring scripts:
+- [14015.concrete-abstract_HA.R](https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/14015.concrete-abstract_HA.R): creates corpus of downloaded .zip 
+- [sbc-postag.R](https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/sbc-postag.R): postags the corpus
+- [get-freq-df.R](https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/get-freq-df.R): first evaluation
+- [collexemes-01.R](https://github.com/esteeschwarz/SPUND-LX/blob/main/corpusLX/14015-HA/collexemes-01.R): 2nd evaluation script
+
+[see documentation](_doku.nb.html)
+
+```{r,echo=FALSE}
+#load("data/trn.make.cpt.RData")
+#load("data/light.ann.make.RData")
+dtemp<-tempfile()
+### B
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/SBC.ann.df.RData",dtemp)
+load(dtemp)
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/SBC.20-sample.RData",dtemp)
+load(dtemp)
+# ifelse(exists("trndf.lm",-1),fetch<-"given",fetch<-"rerun")
+# if(fetch=="rerun")
+#    source("14015.concrete-abstract_HA.R")
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/plotlist.RData",dtemp)
+load(dtemp)
+# load("data/plotlist.RData")
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/collex.eval.RData",dtemp)
+load(dtemp)
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/plotdf.ann.RData",dtemp)
+load(dtemp)
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/coll6.2.light.RData",dtemp)
+load(dtemp)
+download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/coll6.2.obj.RData",dtemp)
+load(dtemp)
+# download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/coll6.2.obj.RData",dtemp)
+# load(dtemp)
+
+   
+
+#load("~/boxHKW/21S/DH/local/SPUND/corpuslx/stefanowitsch/HA/data/trndf.lm.cpt.RData")
+#load("data/SBC.20-sample.RData")
+```
+
+## corpus sample
+
+```{r kable-sample,echo=FALSE}
+#knitr::kable(smdf[c(4,11,1,2,6,5,19),])
+print(smdf[c(4,11,1,2,6,5,19),])
+
+```
+
+## distribution analysis 
+cf. [@mehl_what_2021 pp.11-14]
+
+```{r,kable-01-dist-make,echo=FALSE,warning=F}
+######################################
+#knitr::kable(plotdf.ann$plot.dist,caption = "distribution of lemmas over corpora")
+print(plotdf.ann$plot.dist)
+#kable(kdf,caption = "distribution of lemma /make/ over corpora")
+```
+
+---
+
+```{r fig-01-dist,echo=F,fig.cap="absolute distribution of lemmas over corpora. ICE data from study."}
+# barplot(cbind(ICE.w=i.make.w,ICE.sp=i.make.s,SBC.sp=i.make.m),main="distribution: lemma /make/",legend.text = c("concrete use","light use"))
+#plot.plots("dist")
+#barplot(kdf,main="distribution: lemma /make/",legend.text = c("concrete use","light use"))
+#barplot(plotlist$dist,main="distribution: lemma /make/",legend.text = c("concrete use","light use"))
+par(las=2)
+barplot(plotdf.ann$plot.dist, main=plotdf.ann$ann$main,
+        ylab = "absolute occurences",legend.text = plotdf.ann$ann$legend.text)
+
+```
+
+---
+
+```{r fig-02-dist-rel,echo=F,fig.cap="relative distribution of lemmas over corpora."}
+m<-grep("sbc",colnames(plotdf.ann$plot.dist))
+par(las=2)
+barplot(plotdf.ann$plot.dist[,m]/plotdf.ann$lsbc, main=plotdf.ann$ann$main,
+        ylab = "% in corpus",legend.text = plotdf.ann$ann$legend.text)
+
+```
+
+## semantic alternatives to make
+- includes alternatives to /make/ that Mehl defined in his study 
+- all occurences are counted 
+  - Mehl contrasted only these alternate occurences which:
+
+>"are defined as those verbs that occur in the corpus with the same concrete direct objects as make, (take, and give) and with a roughly equivalent meaning." (cf. @mehl_what_2021 p.13)  
+
+---
+
+```{r obj-eval-df,echo=FALSE}
+
+obj.eval<-plotdf.ann$obj
+obj.eval
+```
+
+---
+
+```{r obj.eval-plot,echo=FALSE}
+par(las=3)
+barplot(obj.eval,main = "concrete vs. light use over corpus",
+        ylab = "absolute occurences",legend.text = c("light","concrete"))
+
+```
+
+---
+
+```{r fig-02-alt,echo=F, eval=F,fig.cap="proportion of semantic alternatives to concrete /make/ in SBC"}
+#trntable<-table(scb.ann.df$alt[scb.ann.df$light==0])
+#par(las=3,cex=0.5,pin=c("1.5","1.5"))
+#kable(trntable,caption = "semantic alternatives")
+#barplot(trntable[c(1,2,3,4,5,6,7)]/sum(table(scb.ann.df$alt)),main = "SBC concrete /make/ vs. alternate",ylab = "% in corpus")
+barplot(plotlist$trntable[c(1,2,3,4,5,6,7)]/sum(table(scb.ann.df$alt)),main = "SBC concrete /make/ vs. alternate",ylab = "% in corpus")
+```
+
+---
+
+```{r fig-03-alt,echo=F, eval=F,fig.cap="proportion of semantic alternatives, only equivalent meaning of alternates"}
+#trntable<-table(scb.ann.df$alt[scb.ann.df$light==0])
+#par(las=3,cex=0.5,pin=c("1.5","1.5"))
+#kable(trntable,caption = "semantic alternatives")
+#barplot(trntable[c(1,2,3,4,5,6,7)]/sum(table(scb.ann.df$alt)),main = "SBC concrete /make/ vs. alternate",ylab = "% in corpus")
+barplot(plotlist$nouns.f.cp,main="semantic alternates w/ equivalent meaning",ylab = "% in corpus")
+#plot.plots("alt.2")
+```
+
+---
+
+```{r,echo=FALSE}
+#knitr::kable(plotlist$eval.semas[,1:9])
+print(plotlist$eval.semas[,1:9])
+
+```
+
+---
+
+```{r fig-04-sema,echo=F, eval=F,fig.cap="semasiological log.like of near synonymes to make"}
+barplot(plotlist$eval.semas$COLL.STR.LOGL~plotlist$eval.semas$ns,xlab = "",ylab = "collex.log.like")
+#plot.plots("alt.2")
+```
+
+## 2nd approach collexeme evaluation
+```{r echo=F}
+coll6.2<-coll6.2.light
+coll6.2<-coll6.2.obj
+make.array<-c("make","generate","produce","create","build","take","give","carry","bring")
+eval1<-coll6.2[coll6.2[,1]%in%make.array,]
+eval1
+#eval1<-coll6.2[coll6.2$head_lemma%in%make.array&coll6.2$light==0,]
+make<-sum(eval1$T[eval1$head_lemma=="make"])
+build<-sum(eval1$T[eval1$head_lemma=="build"])
+create<-sum(eval1$T[eval1$head_lemma=="create"])
+produce<-sum(eval1$T[eval1$head_lemma=="produce"])
+generate<-sum(eval1$T[eval1$head_lemma=="generate"])
+```
+
+---
+
+```{r fig-05-sema-T-make,echo=F,fig.cap="semasiological: T-score of near synonymes to make"}
+eval1<-plotdf.ann$eval.sem$make
+boxplot(eval1$COLL.STR.LOGL~eval1$SLOT1,varwidth=T,outline=F,xlab = "",ylab="LOG.LIKE of collexeme association strength",main="binding of lemma /make/ vs. alternates")
+```
+
+---
+
+```{r fig-06-sema-T-take,echo=F,fig.cap="semasiological: T-score of near synonymes to take"}
+eval2<-plotdf.ann$eval.sem$take
+boxplot(eval2$COLL.STR.LOGL~eval2$SLOT1,varwidth=T,outline=F,xlab = "",ylab="LOG.LIKE of collexeme association strength",main="binding of lemma /take/ vs. alternates")
+```
+
+---
+
+```{r fig-07-sema-p-make,echo=F, eval=T,fig.cap="semasiological: p of near synonymes to make"}
+boxplot(eval1$p~eval1$SLOT1,varwidth=T,outline=F,xlab = "",ylab="occurence probability index of concrete collexemes",main="preference of lemma /make/ vs. alternates")
+```
+
+---
+
+```{r fig-08-sema-p-take,echo=F, eval=T,fig.cap="semasiological: p of near synonymes to take"}
+boxplot(eval2$p~eval2$SLOT1,varwidth=T,outline=F,xlab = "",ylab="occurence probability index of concrete collexemes",main="preference of lemma /take/ vs. alternates")
+```
+
+------
+
+# B: references
+
+

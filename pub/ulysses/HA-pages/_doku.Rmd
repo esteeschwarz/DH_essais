@@ -1,0 +1,345 @@
+---
+title: "17373.topic_6.doku"
+output:
+  html_document:
+    df_print: paged
+    toc: true
+    number_sections: true
+  html_notebook:
+    df_print: paged
+    toc: true
+    number_sections: true
+navbar:
+  title: topic 6
+  left:
+  - text: index
+    href: index.html
+  - text: paper
+    href: paper.html
+  - text: slide
+    href: "HA-slides.html"
+    id: slides
+  - text: doku
+    href: _doku.nb.html
+bibliography: ['packages.bib','CORPUS-LX.bib']
+nocite: |
+ @R-udpipe,@R-quanteda,@R-quanteda.textstats,@R-readr,@R-stringi,@R-stats,@R-utils,@R-writexl
+biblio-style: apalike
+link-citations: yes
+---
+# PRE
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
+
+replacemask snc: #replacemask# 14061.5
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+```{r,eval=FALSE}
+plot(cars)
+```
+
+## cats
+Add a new katze hund dreimal schwarz by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+# process
+
+## preliminary
+load libraries and set SBC ressources adress   
+<!-- libs: @udpipe,@quanteda,@readr,@stringi,@stats,@utils,@schmid_estimation_2008 -->
+```{r pre-14015,eval=T,echo=T,warning=FALSE}
+#20240103(07.42)
+###############################################################
+### this script runs without local files, all data fetched from online sources.
+###############################################################################
+R.1<-"https://www.linguistics.ucsb.edu/research/santa-barbara-corpus"
+Q.2<-"https://www.linguistics.ucsb.edu/sites/secure.lsit.ucsb.edu.ling.d7/files/sitefiles/research/SBC/SBCorpus.zip"
+library(utils)
+library(stringi)
+library(readr)
+library(quanteda.textstats) 
+library(quanteda)
+library(udpipe) # for pos tagging
+library(writexl)
+
+#knitr::write_bib(c(.packages()), "packages.bib")
+```
+
+
+### load pos-tag model and corpus .zip
+```{r script-14015,eval=T,echo=T,warning=FALSE}
+local<-"~/boxHKW/21S/DH/local/SPUND/corpuslx"
+udpipepath<-sprintf("%s/english-ewt-ud-2.5-191206.udpipe",local)
+### if not yet, the model must be downloaded, comment in above line 
+
+get.udp<-function(){
+udpipe_download_model("english",model_dir = tempdir("md"))
+mdf<-list.files(tempdir())
+mdw<-grep(".udpipe",mdf)
+mdfile<-paste0(tempdir(),"/",mdf[mdw])
+md<-udpipe_load_model(mdfile)
+}
+
+### if the model is not on disk, it is downloaded
+ifelse(exists("udpipepath"),md<-udpipe_load_model(udpipepath),md<-get.udp())
+getwd()
+
+### tempfile to store zip
+sbctemp<-tempfile("SBCtemp.zip")
+sbctempdir<-tempdir()
+download.file(Q.2,sbctemp)
+unzip(sbctemp,exdir = sbctempdir)
+
+sbctrn<-paste0(sbctempdir,"/TRN/")
+filestrn<-list.files(sbctrn)
+trndf<-data.frame(scb=NA,id=NA,text=NA)
+#k<-1
+```
+
+
+### read in files
+```{r, echo=TRUE,eval=FALSE}
+for(k in 1:length(filestrn)){
+  #cat(k,"\n")
+trntemp<-read_delim(paste0(sbctrn,filestrn[k]), 
+                         delim = "\t", escape_double = FALSE, 
+                         trim_ws = TRUE,col_names = c("id","spk","text"))
+
+l1<-length(trntemp)
+trntext<-trntemp[,l1]
+colnames(trntext)<-"text"
+trntemp.2<-data.frame(scb=k,id=1:length(trntext$text),text=trntext)
+  
+trndf<-rbind(trndf,trntemp.2)
+
+}
+```
+
+
+#### which look like this
+```{r show-trn-rawdata,eval=TRUE,echo=TRUE}
+trn.doc.1<-readLines(paste0(sbctrn,filestrn[1]))
+print(trn.doc.1[1:15])
+```
+
+
+### subsets
+create subsets for /make/ /take/ /give/
+```{r,eval=FALSE,warning=F,echo=T}
+trndf.2<-trndf[2:length(trndf$scb),]
+trndf.2$lfd<-1:length(trndf.2$scb)
+rownames(trndf.2)<-trndf.2$lfd
+#trndf$lfd<-1:length(trndf$scb)
+trndf<-trndf.2
+# m1<-grep("take|took|taken|taking",trndf$text) #take:415,tak:478 obs.
+# trn.take<-cbind(trndf[m1,],"concrete"=0,"light"=1)
+# m2<-grep("made|make|making",trndf$text) #take:415,tak:478 obs. #mak
+# trn.make.2<-cbind(trndf[m2,],"concrete"=0,"light"=1) #430
+# m3<-grep("give|gave|giving",trndf$text) #take:415,tak:478 obs.
+# trn.give<-cbind(trndf[m3,],"concrete"=0,"light"=1) #235
+# ### wks., wonderful. now annotate for concrete/light use
+```
+
+
+## annotate for /make/
+the annotation of concrete/light use of lemma /make/ was done in a subset table of the corpus, assigning either 0 for concrete and 1 for light use of the verb in context. concrete use would include forms with objects of the lemma that (for /make/) that (in the sense of the alternate constructions) can be also `produced, built, generated, created`. these are obvious semantic alternatives of /make/ defined in [@mehl_what_2021].
+```{r,echo=T,warning=F,eval=T}
+######################################
+### instances concrete vs. light
+### Q.1: (Mehl 2021)
+i.make.w<-c(concrete=68,light=321) #17% vs. 83% written ICE 
+i.make.s<-c(concrete=96,light=353) #spoken ICE
+i.take<-c(con=62,light=85) 
+i.give<-c(con=52,light=167) 
+###########################
+#trndf_sf<-trndf # saved created, load only annotations dataframe
+# dtemp<-tempfile()
+# download.file("https://github.com/esteeschwarz/SPUND-LX/raw/main/corpusLX/14015-HA/data/SBC.ann.df.RData",dtemp)
+# load(dtemp)
+# get.ann.x<-function(scb,ann.df){
+#   trndf.lm<-cbind(scb,ann.df)
+# }
+# trndf.lm<-get.ann.x(trndf.2,scb.ann.df)
+# m4<-trndf.lm$light==1&trndf.lm$alt=="make"
+# ### sum light annotated
+# l.light<-sum(m4,na.rm = T)
+# ### concrete annotated
+# l.conc<-sum(trndf.lm$light==0&trndf.lm$alt=="make",na.rm = T)
+# i.make.m<-c(concrete=l.conc,light=l.light)
+# ### percentage
+# i.make.w[2]/(i.make.w[1]+i.make.w[2])
+# i.make.s[2]/(i.make.s[1]+i.make.s[2])
+# i.make.m[2]/(i.make.m[1]+i.make.m[2]) # 29 vs 71%
+# ### wks.
+# ### semantic alternates of concrete /make/ (p.14)
+# ###
+# ### B >
+# trndf<-trndf.lm
+# ### search for semantic alternates
+# get.alt<-function(altregex,alt){
+# m1<-grep(altregex,trndf$text)
+# trn.temp<-cbind(trndf[m1,],alt=alt,light=0)
+# trn.alt<-rbind(trn.alt,trn.temp)
+# }
+# m1<-c("(generat(e|ing|ed))[^generator]","generate")
+# m2<-c("(construct(ing|ed))[^constructor]","construct")
+# m3<-c("(produc(e|ing|ed))[^producer]","produce")
+# m4<-c("(creat(e|ing|ed))[^creator]","create")
+# m5<-c("(buil(d|ding|t))[^builder]","build")
+# m1.m<-grep(m1[1],trndf$text)
+# trn.temp<-cbind(trndf[m1.m,],alt=m1[2],light=0)
+# trn.alt<-trn.temp
+# trn.alt<-get.alt(m2[1],m2[2])
+# trn.alt<-get.alt(m3[1],m3[2])
+# trn.alt<-get.alt(m4[1],m4[2])
+# trn.alt<-get.alt(m5[1],m5[2])
+# 
+# trndf.all<-trndf
+# #table(trn.alt$alt)
+# ### B <
+# ### B >
+# par(las=3)
+# alt.c.table<-table(trndf.all$alt[trndf.all$light==0])
+# #alt.c.table
+# ### B <
+# chk<-trndf.lm$alt=="make"
+# trntable<-table(trndf.lm$alt[trndf.lm$light==0])
+# table(trndf.lm$alt)
+```
+
+
+## PoS tagging
+tokenize and lemmatize/pos-tag df
+```{r tokenize,eval=F,echo=T,warning=FALSE}
+################
+### new with preloaded/built df
+#load("~/boxHKW/21S/DH/local/SPUND/corpuslx/stefanowitsch/HA/data/trndf.lm.cpt.RData")
+scb.unique<-unique(trndf$scb)
+k<-1
+#scb.unique<-unique(trndf$scb)
+scb<-1
+# scb.ann.list<-list()
+
+write.ann.df<-function(df){
+scb.ann.list<-list()
+trndf.lm<-df  
+for(scb in 1:length(scb.unique)){
+  cat(scb,"\n")
+###14043.
+  sbc<-trndf.lm
+  scb.id<-scb.unique[scb]
+  scb.sub<-subset(sbc,sbc$scb==scb.id)
+  colnames(scb.sub)[1]<-"doc_id"
+  scb.sub$text<-gsub("[+%?~,-.0-9()=<>@]|\\]|\\[","",scb.sub$text)
+  scb.sub$text<-gsub("(^ )","",scb.sub$text)
+  colnames(scb.sub)[3]<-"text_field"
+  sbc.sub.c<-corpus(scb.sub,docid_field = 'doc_id',text_field = 'text_field',unique_docnames = F)
+  an4<-udpipe_annotate(md,x=sbc.sub.c,tokenizer="tokenizer",tagger = "default",trace = 2)
+  ###wks.
+  an7<-data.frame(an4)
+  an7$doc_id<-gsub("doc","",an7$doc_id)
+  colnames(an7)[1]<-"line"
+  an8<-an7[,c(1,4,5,6,7,8,9,10,11,12)]
+  an8$sbc.id<-scb.id
+  an8<-an8[,c(11,1,2,3,4,5,6,7,8,9,10)]
+  an8$alt<-"a-other"
+  an8$light<-NA
+  line.u<-unique(an8$line)
+#  l<-1
+#   for (l in line.u){
+#   cat(l,"\n")
+#       m1<-trndf.lm$scb==scb&trndf.lm$id==l
+#     sum(m1)
+#     light<-trndf.lm$light[m1]
+#     alt<-trndf.lm$alt[m1]
+#     m2<-an8$line==l
+#     an8$alt[m2]<-alt
+#     an8$light[m2]<-light
+#     }
+# ### prepare excel tables for each SBC id (interview) to create ANNIS corpus via pepper
+# xldir<-"~/boxHKW/21S/DH/local/SPUND/corpuslx/stefanowitsch/HA/data/posxl2"
+# dir.create(xldir)
+# ns.df<-paste0(xldir,"/SCB-pos_",scb.id,".xlsx")
+# write_xlsx(an8,ns.df)
+ns.list<-paste0("sbc",scb.id)
+scb.ann.list[[ns.list]]<-an8
+}
+return(scb.ann.list)
+}
+### call above function which tokenizes, lemmatizes and postags the corpus & writes xlsx-tables per interview / returns dataframe (list type) of annotated corpus
+
+#trndf.lm.sf<-trndf.lm
+
+ann.x<-write.ann.df(trndf.lm)
+scb.pos.df.list<-ann.x
+#save(scb.pos.df.list,file = "~/boxHKW/21S/DH/local/SPUND/corpuslx/stefanowitsch/HA/data/scb.ann.list.pos-all-dfs.RData")
+#wks.
+#save(scb.ann.list,file="~/boxHKW/21S/DH/local/SPUND/corpuslx/stefanowitsch/HA/data/scb.ann.list.RData")
+t<-grep("token",colnames(scb.ann.list$doc1))
+t<-colnames(scb.ann.list$doc1)=="token"
+t<-which(t)
+scbns<-colnames(scb.ann.list$doc1)
+### this is necessary for pepper to recognize the token column in the df
+scbns[t]<-"tok"
+x<-scb.ann.list
+k<-1
+### same as above writing xlsx, here from annotated list
+# for(k in 1:length(scb.ann.list)){
+#   colnames(scb.ann.list[[k]])<-scbns
+#   xldir<-"~/boxHKW/21S/DH/local/SPUND/corpuslx/annis/xls"
+#   ns.df<-paste0(xldir,"/SCB-pos_",k,".xlsx")
+#   write_xlsx(scb.ann.list[[k]],ns.df)
+#   
+#   }
+rename.tok<-function(x)x<-scbns
+rename.list<-function(x)colnames(x)<-scbns
+scb.ann.list.t<-lapply(scb.ann.list, rename.tok)
+scb.ann.list.ns<-lapply(scb.ann.list, name.tok)
+scb.ann.list.nr<-lapply(scb.ann.list, rename.list)
+```
+
+
+## create ANNIS corpus
+the evaluation statistics can be done already with the df, but for different purposes e.g. the better visualisation of the corpus and extensive queries an ANNIS (@druskat_corpus-toolsorg_2016) has been created.   
+
+call to external scripts which run pepper on the provided xlsx and create an ANNIS graph file for import to the ANNIS installation.
+```{r,eval=F}
+pepper.call("~/boxHKW/21S/DH/local/SPUND/corpuslx/annis/r-conxl5.pepper","SBC_v1.0.1","SBC_v1.0.1")
+pepper.call("~/boxHKW/21S/DH/local/SPUND/corpuslx/annis/r-conxl6.pepper","SBC_v1.0.1","SBC_v1.0.1")
+zipannis("SBC_annis","SBC_annis.zip")
+```
+
+
+### xlsx to treetagger format
+configuration xml: r-conxl5.pepper
+```{}
+<?xml version='1.0' encoding='UTF-8'?>
+<pepper-job id="tt001" version="1.0">
+<importer name="SpreadsheetImporter" path="./xls"/>	
+<exporter name="TreetaggerExporter" path="./SBC_v1.0.1/"/>
+</pepper-job>
+```
+
+
+### treetagger to ANNIS graph
+configuration xml: r-conxl6.pepper
+```{}
+<?xml version='1.0' encoding='UTF-8'?>
+<pepper-job id="tt001" version="1.0">
+<importer name="TreetaggerImporter" path="./SBC_v1.0.1/">
+</importer>
+<exporter name="ANNISExporter" path="./SBC_annis/">
+</exporter>
+</pepper-job>
+```
+
+```{r cite-pkg,eval=T,echo=FALSE}
+ #knitr::write_bib(c(.packages()), "packages.bib")
+
+```
+
+------
+# B references

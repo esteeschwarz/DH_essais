@@ -1,0 +1,29 @@
+---
+title: "TOPIC #6"
+#output_dir: _site
+output:
+  html_document:
+    df_print: paged
+    toc: true
+    number_sections: true
+    pandoc_args: ["--wrap=none"]
+  #  keep_md: true
+  ##html_notebook:
+    ##df_print: paged
+navbar:
+  title: "topic 6"
+  left:
+    - text: "eider"
+      href: index.html
+    - text: "paper"
+      href: paper.html
+    - text: "slide"
+      href: HA-slides.html
+      id: "slides"
+    - text: "doku"
+      href: _doku.nb.html
+bibliography: CORPUS-LX.bib
+biblio-style: apalike
+link-citations: yes
+include: ['_doku.Rmd']
+---

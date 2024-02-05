@@ -1,0 +1,42 @@
+---
+title: "17373.topic_6.index"
+name: "TOPIC_6.index"
+#output_dir: _site
+output:
+  html_document:
+    df_print: paged
+navbar:
+  title: "topic 6"
+  left:
+    - text: "index"
+      href: index.html
+    - text: "paper"
+      href: paper.html
+    - text: "slide"
+      href: HA-slides.html
+      id: "slides"
+    - text: "doku"
+      href: doku.nb.html
+include: ['_doku.Rmd','_doku.html','_doku.nb.html']
+
+bibliography: CORPUS-LX.bib
+
+---
+```{r setup}
+#knitr::opts_knit$set(root.dir = normalizePath("/home/runner/work/SPUND-LX/SPUND-LX/corpusLX/14015-HA/HA-pages"))
+#knitr::opts_knit$set(root.dir = normalizePath("/users/guhl/documents/github/SPUND-LX/SPUND-LX/corpusLX/14015-HA/HA-pages"))
+#library(knitr)
+
+```
+
+# index
+top frame
+
+```{r}
+rmd_stub = "doku.Rmd-e"
+#render("_doku.Rmd",output_file = "doku.nb.html")
+#render(input = "./corpusLX/14015-HA/HA-pages/HA-notebook/doku.Rmd")
+#local:
+# render_site(input = "HA-notebook")
+
+```

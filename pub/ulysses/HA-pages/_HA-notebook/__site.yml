@@ -1,0 +1,20 @@
+name: "TOPIC #6"
+#output_dir: _site
+#title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+  html_notebook:
+    df_print: paged
+navbar:
+  title: "topic 6"
+  left:
+    - text: "index"
+      href: index.html
+    - text: "paper"
+      href: paper.html
+    - text: "slide"
+      href: HA-slides.html
+      id: "slides"
+    - text: "doku"
+      href: doku.nb.html
