@@ -872,3 +872,29 @@ pkg<-installed.packages()
 write.csv(pkg,"pkg.csv")
 c<-read.csv("rdependencies.csv")
 Sys.getenv("R_LIBS_USER")
+file extension
+library(tools)
+file_ext(f)
+
+####> DUMP object:
+
+xt6$statistic
+dump("xt6",file=dtemp)
+readLines(dtemp)%>%write_clip()
+write_clip(writeLines(xt6))
+
+##>wks
+##>wks
+##>wks
+##>
+##>
+##>
+##>
+
+
+plot(-1:1, -1:1, type = "n", xlab = "Re", ylab = "Im")
+K <- 16; text(exp(1i * 2 * pi * (1:K) / K), col = 2)
+K
+k<-text(1,0.5, 
+     "Le français, c'est façile: Règles, Liberté, Egalité, Fraternité...")
+k
