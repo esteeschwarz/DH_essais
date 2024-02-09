@@ -898,3 +898,35 @@ K
 k<-text(1,0.5, 
      "Le français, c'est façile: Règles, Liberté, Egalité, Fraternité...")
 k
+
+
+# Load necessary libraries
+library(reshape2)
+dat<-expression(sample(1:20,10))
+test1<-data.frame(value=eval(dat),Label=letters[1:5])
+test2<-data.frame(value=eval(dat),Label=letters[6:10])
+df<-rbind(test1,test2)
+df
+# Read your data (replace 'TestData.csv' with your actual file)
+#df <- read.csv("TestData.csv", header = TRUE)
+
+# Melt the data by "Label"
+df.m <- melt(df, id.var = "Label")
+df.m
+df.m2 <- melt(df, id.var = "Label")
+df.m2
+# Create a blank plot
+boxplot(df.m$value ~ df.m$variable, col = "white", names = c("F1", "F2", "F3","F4","F5"))
+boxplot(df.m$value ~ df.m$variable, col = "transparent",plot=T)
+par(new=F)
+# Add the two traces (Good and Bad) with different colors
+boxplot(df.m2$value[df.m2$Label%in%c("a")] ~ df.m2$Label[df.m2$Label%in%c("a")],add = T, col = "blue",at=1)
+boxplot(df.m2$value[df.m2$Label%in%c("c")] ~ df.m2$Label[df.m2$Label%in%c("c")],add = T, col = "green",at=1)
+boxplot(cbind(test1$value,test2$value) , add = F)
+
+# Customize the plot (add labels, title, etc.)
+axis(1, at = c(1, 2), labels = c("Good", "Bad"))
+title(main = "Boxplots for Good vs. Bad")
+
+# Show the plot
+
