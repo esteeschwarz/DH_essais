@@ -930,3 +930,16 @@ title(main = "Boxplots for Good vs. Bad")
 
 # Show the plot
 
+###############
+# connect to remote mariadb:
+# shell tunnel: ssh -L 8888:127.0.0.1:3306 user@host
+# sleep 20 option
+library(DBI)
+library(RMySQL)
+db <- dbConnect(MySQL(), host = "127.0.0.1", user = "", 
+                password = "", dbname = "", port = 8888)
+
+sql_query <- "SELECT * FROM table"
+results <- dbGetQuery(db, sql_query)
+results
+###############
