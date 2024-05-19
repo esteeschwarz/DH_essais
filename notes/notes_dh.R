@@ -938,7 +938,7 @@ library(DBI)
 library(RMySQL)
 db <- dbConnect(MySQL(), host = "127.0.0.1", user = "", 
                 password = "", dbname = "", port = 8888)
-
+# 36 if broken pipe!
 sql_query <- "SELECT * FROM table"
 results <- dbGetQuery(db, sql_query)
 results
