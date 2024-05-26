@@ -943,3 +943,31 @@ sql_query <- "SELECT * FROM table"
 results <- dbGetQuery(db, sql_query)
 results
 ###############
+
+#distance
+
+# Create a matrix
+tokens_matrix <- matrix(c(1,2,3,4,5,6,7,8,9), nrow=3, ncol=3)
+
+# Compute the absolute distance
+dist_matrix <- dist(tokens_matrix)
+
+# Print the distance matrix
+print(dist_matrix)
+
+t1<-c(1:10)
+dist()
+t1<-c(letters[1:10],"d","e","a")
+#dist(t1["a"],t1["d"])
+m<-grep("a",t1)[1]
+m2<-grep("d",t1)
+d1<-m2-m
+d1
+m<-grep("b",t1)[1]
+m2<-grep("d",t1)
+d1<-m2-m
+d1
+load()
+get.tok.dist<-function(toklist){
+  for (k in )
+}
