@@ -100,7 +100,7 @@ to read the RMarkdown source with all computations to this document in RStudio c
 
 # draft abstract
 
-Ich werde in dieser Arbeit den Versuch unternehmen, ein im Rahmen empirischer Studien durchgeführtes [psycholinguistisches Experiment](https://github.com/esteeschwarz/essais/docs/hux2021) ausführlich zu dokumentieren.    Die Studie wurde in einem Forschungsseminar der BUA[^1] in Kooperation Studierender von FU, TU, HU unter der Aufsicht der Charite durchgeführt. Es handelt sich in diesem Teil um die partielle Replikation des von Paula Rubio-Fernandez [@rubio-fernandez_are_2016] unternommenen Versuchs, das Metaphernverständnis von schizophrenen Personen zu untersuchen. Dazu wurde in der Kontrollgruppe ein *self paced reading* Experiment veranstaltet und ausgewertet. 
+Ich werde in dieser Arbeit den Versuch unternehmen, ein im Rahmen empirischer Studien durchgeführtes [psycholinguistisches Experiment](https://github.com/esteeschwarz/tree/main/essais/docs/hux2021) ausführlich zu dokumentieren.    Die Studie wurde in einem Forschungsseminar der BUA[^1] in Kooperation Studierender von FU, TU, HU unter der Aufsicht der Charite durchgeführt. Es handelt sich in diesem Teil um die partielle Replikation des von Paula Rubio-Fernandez [@rubio-fernandez_are_2016] unternommenen Versuchs, das Metaphernverständnis von schizophrenen Personen zu untersuchen. Dazu wurde in der Kontrollgruppe ein *self paced reading* Experiment veranstaltet und ausgewertet. 
 
 # Zum Experiment 
 Das Experiment hat in einer Laufzeit von zwei Wochen Daten von 46 Versuchspersonen erhoben, die hauptsächlich in der Statistiksprache R ausgewertet wurden. Basis der Daten ist die Messung von Lesezeiten in einem set von 24 items[^2], die in vierfacher Ausprägung literale und figurative Elemente in kurzen Zusammenhängen verbanden. 
@@ -150,7 +150,7 @@ Die 16 filler items traten innerhalb des sets aus also 24 items an zufälligen P
 
 ## Auswertung
 
-O.a. Daten wurden in R [@rstudio_rstudio_2022] 1. deskriptiv und 2. mittels des Paketes lme4 [@bates_fitting_2015] zur Erhebung kovariater Abhängigkeiten (linear mixed model) analog der Vorgaben [@rubio-fernandez_are_2016] ausgewertet. Das script dazu kann [hier](https://github.com/esteeschwarz/essais/tree/main/docs/hux2021/evaluation), sowie eine visualisierte, vom user nach eigenen Parametern anzupassende deskriptive Auswertung [hier](https://vision2020.shinyapps.io/hux2021) nachvollzogen werden. Für eine ausschnitthafte Visualisierung cf. (Figure \@ref(fig:fig-01), \@ref(fig:fig-02), \@ref(fig:fig-03)).
+O.a. Daten wurden in R [@rstudio_rstudio_2022] 1. deskriptiv und 2. mittels des Paketes lme4 [@bates_fitting_2015] zur Erhebung kovariater Abhängigkeiten (linear mixed model) analog der Vorgaben [@rubio-fernandez_are_2016] ausgewertet. Das script dazu kann [hier](https://github.com/esteeschwarz/essais/tree/main/docs/hux2021/evaluation), sowie eine visualisierte, vom user nach eigenen Parametern anzupassende deskriptive Auswertung <a href="https://ada-sub.dh-index.org/shiny/work/hux2021-app/" target="blank">hier</a> nachvollzogen werden. Für eine ausschnitthafte Visualisierung cf. (Figure \@ref(fig:fig-01), \@ref(fig:fig-02), \@ref(fig:fig-03)).
 
 
 ### a. 
@@ -414,7 +414,7 @@ sonst hier ein Auszug aus der verwendeten Version, der im .pdf nicht erscheint.
 
 [^3]:	da diese Positionen erst :nach: Start des Tests konsequent im script festgelegt wurden, muszte bei der Auswertung einiges manuell nachgearbeitet werden, um die Daten konsistent zu halten.
 
-[^4]: Für weitere Ansichten und Studiensample besuchen Sie bitte [o.a. interaktive Visualisierungen](https://vision2020.shinyapps.io/hux2021).
+[^4]: Für weitere Ansichten und Studiensample besuchen Sie bitte <a href="https://ada-sub.dh-index.org/shiny/work/hux2021-app/" target="blank">o.a. interaktive Visualisierungen</a>.
 
 
 ------------------------------------------------------------------------
