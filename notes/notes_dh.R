@@ -971,3 +971,12 @@ load()
 get.tok.dist<-function(toklist){
   for (k in )
 }
+
+####
+library(httr)
+library(xml2)
+x<-GET("https://pad.riseup.net/p/ig-metaphern")
+htm<-read_html(content(x,"text"))
+body<-xml_find_all(htm,'body')
+#not get.
+
