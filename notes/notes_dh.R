@@ -980,3 +980,9 @@ htm<-read_html(content(x,"text"))
 body<-xml_find_all(htm,'body')
 #not get.
 
+
+#strip diacritics, hebrew
+sample1 <- "הֻסְמַק"
+result <- gsub("\\p{M}", "", sample1, perl = TRUE)
+print(result)
+
