@@ -987,3 +987,6 @@ result <- gsub("\\p{M}", "", sample1, perl = TRUE)
 print(result)
 
 echo 'export PATH=/usr/local/bin/xmlformat.pl:$PATH' >> ~/.profile
+
+
+
