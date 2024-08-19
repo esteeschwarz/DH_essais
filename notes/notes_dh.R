@@ -988,5 +988,8 @@ print(result)
 
 echo 'export PATH=/usr/local/bin/xmlformat.pl:$PATH' >> ~/.profile
 
+noquote(strsplit("A text I want to display with spaces", NULL)[[1]])
 
+unlist(strsplit("abc def ghi", ""))
+unlist(strsplit("a.b.c", "."))
 
