@@ -1033,8 +1033,17 @@ render_latex(t)
          output_dir= ".",intermediates_dir = ".",output_file = "./output.pdf")
 ### no.
 
-
-
+### in yaml header:
+---
+output:
+  pdf_document:
+    keep_tex: true
+    pandoc_args: [
+    "--variable", "colorlinks=true",
+    "--variable", "fontsize=12pt"
+  ]
+---
+#wks.
 
 
 
