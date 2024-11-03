@@ -993,3 +993,57 @@ noquote(strsplit("A text I want to display with spaces", NULL)[[1]])
 unlist(strsplit("abc def ghi", ""))
 unlist(strsplit("a.b.c", "."))
 
+### to latex:
+library(rmarkdown)
+#library(knitr)
+?render_latex
+library(rmarkdown)
+#for (k in f4){
+t<-readLines(k)
+render_latex(t)
+  render(t,latex_document())
+#}
+
+
+  markdown_strings <- c(
+    "# Title",
+    "This is the first paragraph.",
+    "This is the second paragraph.",
+    "## Subtitle",
+    "This is another paragraph under a subtitle."
+  )
+  
+  # Combine the markdown strings into a single string
+  markdown_content <- paste(markdown_strings, collapse = "   \n\n")
+  markdown_strings<-readLines(k)
+  markdown_content.b <- paste(markdown_strings, collapse = "   \n\n")
+  markdown_content.cv <- paste(markdown_cv, collapse = "   \n\n")
+  markdown_content<-paste(markdown_content.b,markdown_content.cv)
+  # Write the markdown content to a temporary file
+  temp_md_file <- tempfile(fileext = ".Rmd")
+  writeLines(markdown_content, temp_md_file)
+  writeLines(markdown_content, "temp.md")
+  #writeLines(markdown_strings, temp_md_file)
+  
+  # Render the markdown file to LaTeX
+  out.o<-list()
+  out.o$output<-list(pdf_document=list("highlight-style"="zenburn",keep_tex="true"))
+  render(temp_md_file,output_format = pdf_document(
+    highlight = "tango", linkcolor="blue",keep_tex = TRUE),
+         output_dir= ".",intermediates_dir = ".",output_file = "./output.pdf")
+### no.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
