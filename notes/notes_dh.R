@@ -1045,7 +1045,12 @@ output:
 ---
 #wks.
 
+### lapply iteration count:
 
+      # Use lapply() with an anonymous function to pass both the element and its index
+      result <- lapply(seq_along(my_list), function(i) {
+        my_function(my_list[[i]], i)
+      })
 
 
 
