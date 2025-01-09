@@ -1052,7 +1052,9 @@ output:
         my_function(my_list[[i]], i)
       })
 
-
+### wait, sleep, pause
+    Sys.sleep(10)
+    
 
 
 
