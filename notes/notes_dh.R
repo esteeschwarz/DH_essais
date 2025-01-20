@@ -15,7 +15,22 @@ dta <- gutenberg_download(6698)
 stylotext <- select(dta, text)
 write.table(stylotext, file = "data/hegel.txt", sep="", row.names = FALSE)
 
-enc2native(dta[,2])
+enc2native(dta[,2])l.df<-length(com.df$url)
+chunks<-ceiling(l.df/1000)
+# Create the vector
+vector <- 1:l.df
+
+# Define the chunk size
+chunk_size <- 500  # Example chunk size
+
+# Function to split the vector into chunks of equal length
+split_into_chunks <- function(vec, chunk_size) {
+  split(vec, ceiling(seq_along(vec) / chunk_size))
+}
+
+# Split the vector into chunks
+chunks <- split_into_chunks(vector, chunk_size)
+
 
 dta<-scan(src,"character",what="character", encoding = "UTF-8", sep="\n")
 library(clipr)
@@ -1057,9 +1072,29 @@ output:
     
 #15031.snc
 
+# chunks, cluster
+    
+    l.df<-length(com.df$url)
+    chunks<-ceiling(l.df/1000)
+    # Create the vector
+    vector <- 1:l.df
+    
+    # Define the chunk size
+    chunk_size <- 500  # Example chunk size
+    
+    # Function to split the vector into chunks of equal length
+    split_into_chunks <- function(vec, chunk_size) {
+      split(vec, ceiling(seq_along(vec) / chunk_size))
+    }
+    
+    # Split the vector into chunks
+    chunks <- split_into_chunks(vector, chunk_size)
+    
 
 
 
 
 
 
+
+    
