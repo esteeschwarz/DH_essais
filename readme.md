@@ -15,6 +15,7 @@ the section folders moved to seperate repositories:
   - corpus et alii linguistics essais, discourse analysis: [SPUND LX](https://github.com/esteeschwarz/SPUND-LX) / [HU-LX multilingual studies (moved)](https://github.com/esteeschwarz/HU-LX)
   - HiSoN (historical linguistics networks) essais: [HiSoN](https://github.com/esteeschwarz/HiSon)   
   - [EXC 2020](https://github.com/esteeschwarz/ETCRA5_dd23) - essais in the context of the Cluster Temporal Communities 
+  - [archive Helmut Bröker](https://de.wikipedia.org/wiki/Helmut_Br%C3%B6ker?wprov=sfti1#)
   ----
   - [frontend output assembly](https://userpage.fu-berlin.de/stschwarz/links?title=adaskool&ref=github) of (recent relevant learnings.)
 
