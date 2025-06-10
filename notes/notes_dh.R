@@ -1117,3 +1117,10 @@ output:
     bind_rows(list(a = df1, b = df2), .id = "id")
     
     
+    ## example of using 'incomparables'
+    x <- data.frame(k1 = c(NA,NA,3,4,5), k2 = c(1,NA,NA,4,5), data = 1:5)
+    y <- data.frame(k1 = c(NA,2,NA,4,5), k2 = c(NA,2,3,NA,NA), data = 1:5)
+    merge(x, y, by = c("k1","k2")) # NA's match
+    merge(x, y, by = "k1") # NA's match, so 6 rows
+    merge(x, y, by = "data",incomparables = NA) # 2 rows
+merge(x,y,by="data")    
