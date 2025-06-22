@@ -1124,3 +1124,9 @@ output:
     merge(x, y, by = "k1") # NA's match, so 6 rows
     merge(x, y, by = "data",incomparables = NA) # 2 rows
 merge(x,y,by="data")    
+
+#error
+e<-simpleError("testerror")
+com_button_load<-tryCatch(remdr$findElement(using = "link text", LINK_TEXT_1),error=function(e)cat("no epub, moving forth\n"),finally = print("checked epub load"))
+
+
