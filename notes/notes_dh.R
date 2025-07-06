@@ -1129,4 +1129,35 @@ merge(x,y,by="data")
 e<-simpleError("testerror")
 com_button_load<-tryCatch(remdr$findElement(using = "link text", LINK_TEXT_1),error=function(e)cat("no epub, moving forth\n"),finally = print("checked epub load"))
 
+#grouped barplot
+# Reshape data for grouped barplot
+library(reshape2)
+df1_wide <- dcast(df1, q ~ corp, value.var = "dist")
+
+# Ensure the order of conditions a-f
+df1_wide$q <- factor(df1_wide$q, levels = c("a", "b", "c", "d", "e", "f"))
+df1_wide <- df1_wide[order(df1_wide$q), ]
+
+# Create the matrix for barplot
+bar_matrix <- t(as.matrix(df1_wide[, c("obs", "ref")]))
+
+# Plot grouped barplot
+barplot(
+  bar_matrix,
+  beside = TRUE,
+  names.arg = levels(df1_wide$q),
+  col = c("black", "red"),
+  las = 1,
+  cex.names = 0.7,
+  main = "Distances distribution of corpus/reference corpus over conditions",
+  ylab = "token distance"
+)
+legend("topright", legend = c("obs", "ref"), fill = c("black", "red"))
+
+word <- function(C, k) paste(rep.int(C, k), collapse = "")
+## names from the first, too:
+utils::str(L <- mapply(word, LETTERS[1:6], 6:1, SIMPLIFY = FALSE))
+
+mapply(word, "A", integer()) # gave Error, now list()
+
 
