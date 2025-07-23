@@ -1160,4 +1160,22 @@ utils::str(L <- mapply(word, LETTERS[1:6], 6:1, SIMPLIFY = FALSE))
 
 mapply(word, "A", integer()) # gave Error, now list()
 
+#####################################################
 
+fruit <- c("apple", "banana", "pear", "pineapple")
+str_detect(fruit, "a")
+str_detect(fruit, "^a")
+str_detect(fruit, "a$")
+str_detect(fruit, "b")
+str_detect(fruit, "[aeiouf]")
+
+# Also vectorised over pattern
+m<-str_detect("aecfg", letters)
+letters[m]
+# Returns TRUE if the pattern do NOT match
+str_detect(fruit, "^p", negate = TRUE)
+l1<-"@Zilla.(indem sie bey Abel niedersinkt.) O du Richter der Welt! .. Abel!.. — "
+str_match(l1,"^@([^.]+?)\\.(.*)")
+?str_match
+line.true<-"speaker"
+!line.true%in%c("stage","speaker","test")
