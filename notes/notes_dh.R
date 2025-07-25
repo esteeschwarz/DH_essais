@@ -1179,3 +1179,4 @@ str_match(l1,"^@([^.]+?)\\.(.*)")
 ?str_match
 line.true<-"speaker"
 !line.true%in%c("stage","speaker","test")
+??open
