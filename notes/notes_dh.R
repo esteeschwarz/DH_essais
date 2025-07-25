@@ -1180,3 +1180,14 @@ str_match(l1,"^@([^.]+?)\\.(.*)")
 line.true<-"speaker"
 !line.true%in%c("stage","speaker","test")
 ??open
+
+writeLines("testdebug---","debug.txt",append=T)
+write("testdebug---","debug.txt",append=T)
+
+x<-utf8ToInt("^")
+t<-"dreimal^schwarzekatze"
+x
+gsub("\U005e","x",t,perl = T)
+as.character(as.hexmode(94))  # "5e"
+gsub("\\^","x",t,perl = T)
+
