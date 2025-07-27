@@ -1191,3 +1191,13 @@ gsub("\U005e","x",t,perl = T)
 as.character(as.hexmode(94))  # "5e"
 gsub("\\^","x",t,perl = T)
 
+### filter
+# one in stats::, one simple in dyplr!
+??filter
+x <- 1:5
+head(cars)
+dplyr::filter(cars,speed>5&dist<10)
+filter(x,c(3,1))
+filter(x, rep(1, 3), sides = 1)
+filter(x, rep(1, 3), sides = 1, circular = TRUE)
+
