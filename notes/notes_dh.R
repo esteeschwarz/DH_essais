@@ -202,6 +202,12 @@ eval(m)
 e1<-parent.frame()
 
 evalq(d$QU01,e1)
+text.c<-expression(3+4)
+eval(expression("3+4"))
+expr_string <- "mean(c(1,2,3,4,5))"
+result <- eval(parse(text = expr_string))
+?expression
+eval(text.c)
 s<-d$QU01
 levels(s)<-c(1,1,1,1,1)
 s
@@ -1201,3 +1207,8 @@ filter(x,c(3,1))
 filter(x, rep(1, 3), sides = 1)
 filter(x, rep(1, 3), sides = 1, circular = TRUE)
 
+########
+# get
+## test mget
+e1 <- new.env()
+getAnywhere("read.csv")
