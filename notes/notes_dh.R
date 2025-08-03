@@ -1212,3 +1212,16 @@ filter(x, rep(1, 3), sides = 1, circular = TRUE)
 ## test mget
 e1 <- new.env()
 getAnywhere("read.csv")
+
+# get from-to sequence array
+l<-array[length(array.in.question)] # last value
+get.seq.row<-function(mx,l){
+  mx1<-mx-1
+  mx2<-mx1[2:length(mx1)]
+  mx2<-c(mx2,l)
+  return(list(start=mx,end=mx2))
+}
+mx<-get.row(c(1,9,13,16),20)
+mx
+
+
