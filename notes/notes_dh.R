@@ -1081,12 +1081,14 @@ output:
 # chunks, cluster
     
     l.df<-length(com.df$url)
-    chunks<-ceiling(l.df/1000)
+    l.df<-1000
+#    chunks<-ceiling(l.df/1000)
     # Create the vector
     vector <- 1:l.df
+    vec <- 1:l.df
     
     # Define the chunk size
-    chunk_size <- 500  # Example chunk size
+    chunk_size <- 5  # Example chunk size
     
     # Function to split the vector into chunks of equal length
     split_into_chunks <- function(vec, chunk_size) {
