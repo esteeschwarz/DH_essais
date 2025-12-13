@@ -30,7 +30,18 @@ split_into_chunks <- function(vec, chunk_size) {
 
 # Split the vector into chunks
 chunks <- split_into_chunks(vector, chunk_size)
+#######################
+# Define the chunk size
+vector <- 1:length(dfcl.pos$doc_id)
+chunk_size <- 10  # Example chunk size
 
+# Function to split the vector into chunks of equal length
+split_into_chunks <- function(vec, chunk_size) {
+  split(vec, ceiling(seq_along(vec) / chunk_size))
+}
+
+# Split the vector into chunks
+chunks <- split_into_chunks(vector, chunk_size)
 
 dta<-scan(src,"character",what="character", encoding = "UTF-8", sep="\n")
 library(clipr)
