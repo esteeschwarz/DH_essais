@@ -17,6 +17,13 @@ the section folders moved to seperate repositories:
   - HiSoN (historical linguistics networks) essais: [HiSoN](https://github.com/esteeschwarz/HiSon)   
   - [EXC 2020](https://github.com/esteeschwarz/ETCRA5_dd23) - essais in the context of the Cluster Temporal Communities 
   - [archive Helmut Bröker](https://de.wikipedia.org/wiki/Helmut_Br%C3%B6ker?wprov=sfti1#) / <https://github.com/esteeschwarz/hb-2025>
-  ----
-  - [frontend output assembly](https://userpage.fu-berlin.de/stschwarz/links?title=adaskool&ref=github) of (recent relevant learnings.)
+
+----
+#### readable output assembly
+> of (recent relevant learnings)
+
+- [older...](https://userpage.fu-berlin.de/stschwarz/links?title=adaskool&ref=github)
+- [aktuell](https://userpage.fu-berlin.de/stschwarz/links?title=dclx&ref=github)
+
+a "really beautiful" portfolio ist noch in progress.
 
