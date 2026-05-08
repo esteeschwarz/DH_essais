@@ -25,5 +25,5 @@ the section folders moved to seperate repositories:
 - [older...](https://userpage.fu-berlin.de/stschwarz/links?title=adaskool&ref=github)
 - [aktuell](https://userpage.fu-berlin.de/stschwarz/links?title=dclx&ref=github)
 
-a "really beautiful" portfolio ist noch in progress.
+a "really beautiful" portfolio ist noch [in progress](https://esteeschwarz.github.io/portfolio).
 
